@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e1f523a698448c2ac0b4ae4d21cac3c, type: 3}
+  m_Name: LogoConfig
+  m_EditorClassIdentifier: Hamdoku::Hamdoku.LogoConfigSO
+  playIntro: 1
+  oncePerSession: 0
+  startDelay: 0.05
+  baseLogo: {fileID: 21300000, guid: c4b96dfb9d534b308dab6d6b3da8b777, type: 3}
+  canvasSize: {x: 1080, y: 1080}
+  hamsterMask: {fileID: 21300000, guid: 4412fc4fb4fb42aaa27783a4b51932ff, type: 3}
+  hamsterMaskSize: {x: 648, y: 459}
+  hamsterMaskCenter: {x: -1, y: 162.5}
+  hamsterBody: {fileID: 21300000, guid: c3c9e4686e674de4aca5be951e93bf5c, type: 3}
+  hamsterBodySize: {x: 588, y: 407}
+  hamsterBodyCenter: {x: -1, y: 108.5}
+  eyesOpen: {fileID: 21300000, guid: 830c038793ac4734aba563577665d23a, type: 3}
+  eyesOpenSize: {x: 249, y: 36}
+  eyesOpenCenter: {x: 0.5, y: 70}
+  eyesBlink: {fileID: 21300000, guid: e388bff63ba243419cbaa0507cd780df, type: 3}
+  eyesBlinkSize: {x: 236, y: 57}
+  eyesBlinkCenter: {x: 0, y: 77.5}
+  boardBack: {fileID: 21300000, guid: 2c4e3ae3209b410baab8e94291062b8e, type: 3}
+  boardBackSize: {x: 867, y: 273}
+  boardBackCenter: {x: 0.5, y: -174.5}
+  bellyOverlay: {fileID: 21300000, guid: 2ab761f942294b1bb4a062ad3e8e7653, type: 3}
+  bellyOverlaySize: {x: 641, y: 162}
+  bellyOverlayCenter: {x: -0.5, y: -119}
+  boardFront: {fileID: 21300000, guid: b3c63e6c107a4a9c871feb80790b6686, type: 3}
+  boardFrontSize: {x: 729, y: 177}
+  boardFrontCenter: {x: 0.5, y: -170.5}
+  xMark: {fileID: 21300000, guid: de0e5b3e2b6746839de2733d96cee87d, type: 3}
+  xMarkSize: {x: 52, y: 52.6}
+  xMarkCenter: {x: 147, y: -182}
+  hideOffset: 376
+  earPeek: 60
+  earPeekHoldSeconds: 0.1
+  earDip: 14
+  earDipSeconds: 0.09
+  overshoot: 34
+  riseStretch: 0.1
+  boardPopSeconds: 0.15
+  boardPopFrom: 0.95
+  boardPopTo: 1.03
+  earPeekSeconds: 0.15
+  riseSeconds: 0.28
+  landSeconds: 0.15
+  impactSeconds: 0.08
+  landSquash: 0.06
+  squashStretchRatio: 0.9
+  bellyFadeSeconds: 0
+  bounceSeconds: 0.6
+  bounceAmplitude: 1
+  bouncePeriod: 0.26
+  hamsterWobble: 0.1
+  hamsterWobbleLag: 0.06
+  hamsterWobbleSeconds: 0.75
+  hamsterWobblePeriod: 0.3
+  xPunchAtImpact: 0
+  xStampDelay: 0.06
+  xPunchDelayAfterLand: 0.45
+  xPunchSeconds: 0.28
+  xPunchScale: 1.8
+  xLandSquash: 0.14
+  xLandBounceSeconds: 0.17
+  xSfxLeadSeconds: 0
+  xSfxDelaySeconds: 0
+  useBlink: 0
+  blinkSeconds: 0.45
+  settleSeconds: 0.15
+  sfxRise: 1
+  sfxRiseVolume: 0.55
+  riseSfxLeadSeconds: 0.007
+  riseSfxDelaySeconds: 0.13
+  sfxLand: 0
+  sfxXPunch: 1
+  sfxXPunchVolume: 0.6
+  minShowSeconds: 2.5
+  breatheAmount: 0.015
+  breatheSpeed: 1.7
+  bobHeight: 2.5
+  bobSpeed: 1.2
+  logoPopFrom: 0.72
+  logoPopSeconds: 0.42
+  logoPopDelaySeconds: 0.1
+  riseClip: {fileID: 8300000, guid: 0782753805094d87874d4f5400e020bc, type: 3}
+  landClip: {fileID: 8300000, guid: 134e72e1d2994b1ab8e09cc51d5ac9fa, type: 3}
+  xPunchClip: {fileID: 8300000, guid: 134e72e1d2994b1ab8e09cc51d5ac9fa, type: 3}
+  landVolume: 0.6
