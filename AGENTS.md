@@ -140,3 +140,5 @@
 	- B7 [玩法分析](Docs/UILibrary/玩法分析.html)：离线查看核心规则、操作、失败补救、模式成长及原作证据边界。
 
 	- B8 [小狗面包房换皮风格](Docs/UILibrary/themes/PuppyBakery/STYLE.md)：记录已确认头像的绘本造型、配色、尺寸与后续素材一致性要求。
+
+	- B9 [Prefab 与原作层级资料](Docs/UILibrary/PrefabCollection/index.html)：集中查看当前工程 Prefab 快照、原作序列化对象层级、配置及动态 UI 代码证据；完整来源与哈希见同目录 manifest.json。

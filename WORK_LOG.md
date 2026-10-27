@@ -267,3 +267,146 @@
 
 - 按用户要求将现有改动分为三批本地提交：玩法／连胜／排行榜及正式 UI 资源、UI 参考库与 Sudoku Pup 主题素材、项目规范与工作记录。相关脚本、Prefab、SO、本地化、字体、Addressables 与图片重命名一并保存。
 - 验证：核对 Git 暂存范围、提交结果及最终工作区状态。本次没有修改业务实现或正式资源，没有重新执行 Unity 编译、Play Mode、内容打包、应用构建、安装或真机验证；既有验证结果与限制见对应历史记录。未推送远程。
+
+## 2026-10-27 首页向日葵动画接入
+
+- 只读核对原项目 `level1`／导出 `Main.unity` 的 `StreakCard/Icon` 层级（位置 -115,0、尺寸 105×142），以及 `LobbyLayoutConfig__resources.assets__1481.json`、`LobbyLayout.Apply`、`UiSway`、`UiSparkles` 和 `UiFactory.SparkleSprite` 的 ARM64。原作通过代码添加摆动与 3 枚闪光，不是序列帧；保留当前正式 Prefab 的向日葵图片、位置与层级，仅增加对应闪光子节点。
+- `Panel_Home` 增加花茎支点补偿、随机初相、主波与轻微谐波摆动，并通过实时协程完成环形区域随机位置／尺寸／角度的闪光淡入、停留、淡出与间歇。首次／重复打开重置动画，关闭清理协程；装饰图片关闭 Raycast Target，不改变连胜卡片入口。由现有 Panel Controller 传入 HomeConfig，没有增加运行管理或业务状态体系。
+- 原配置摆动幅度 3°、支点高度比例 0.04，包含 5.3 秒字段；原 `LobbyLayout.Apply` 未将该周期字段赋给 UiSway，故采用组件构造默认 5.5 秒。谐波幅度 0.22、频率倍数 2.17、相位 1.3；闪光数量 3、尺寸范围 34–60、白色 alpha 0.95，其他范围取自原组件默认值／原代码。以上为静态资料与反汇编还原，不等同原 APK 运行对照验收。
+- 主要文件：`Assets/Src_Runtime/UI/Panel/Home/Panel_Home.cs`、`Controllers/Panel/Home/Panel_Home_Controller.cs`、`Module/Assets/TM/HomeConfigSO.cs`、`Assets/Res_Runtime/Config/HomeConfig.asset`、`Assets/Res_Runtime/UI/Home/Panel_Home.prefab`、新增 `Img_Home_SunflowerSparkle.png` 及 meta、`Assets/Src_Editor/EM/HomeSetupEM.cs`。按原 UiFactory 的 128×128 程序化星芒算法离线实化 PNG，配置全部存入正式 SO；Prefab 已绑定，正常运行无需先执行制作菜单。沿用原 Addressables default 管理。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，隔离工程 `D:/UnityProject/HamdokuGameplayMigrationValidation-20261027`。当前正式文件覆盖副本后，Unity 编译、正式 Scene_Main 启动、教程返回首页、摆动与花茎固定、闪光 alpha、timeScale=0 时播放、重复初始化 5 次、关闭重开与旧实例释放通过，最终运行错误 0。人工查看中英文、1080×1920 与 1080×2400 后台相机截图；另生成 1080×1620 截图。Windows Addressables 内容打包通过；未进行 Android APK 构建、安装或真机验证，后台相机渲染及事件检查不替代手机触摸验收。
+- 首次验证脚本误把新存档自动进入教程后的状态当作首页异常，第二次等待首页导致超时；修正为通过现有 GameController.ReturnHome 后最终通过，未因此修改正式业务流程。Unity Search 索引越界另记为编辑器异常。日志、源参数、验证脚本、截图、打包结果与一致性核对位于 `Logs/HomeSunflower/`；`sync-audit.json` 核对正式脚本、Prefab、图片及 meta、场景、Addressables 注册与验证快照一致，HomeConfig 仅验证存档文件名不同。未回写验证存档、Library 或验证专用配置，未修改原始取证资料。
+
+
+## 2026-10-27 Sudoku 标题中心爪印独立切图
+
+- 用户要求标题图片里的狗爪印可以单独运动。按原 Logo 盖章语义处理 Sudoku 字母 o 内的奶油色爪印，替换此前侧边蓝色装饰爪印的选取。
+- 更新 `Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo/Img_Logo_Cross.png`，保持正式文件88×89像素；从确认稿提取四个趾垫和一个掌垫，工作母图为 `previews/Logo_Slicing/center_paw_master.png`。更新 `Img_Logo_BoardFront.png` 为完整深棕字母 o 底层，移动爪印时不再露出透明爪形缺口。旧版保存在 `before_center_paw_split/`。
+- 同步切图脚本、页面素材 manifest、布局参考、素材总览及分层拼合预览；STYLE.md 记录中心爪印槽位。新增 `center_paw_stamp_preview.gif` 演示出现、放大盖章与轻微回弹，`center_paw_rest_preview.png` 为静止帧。
+- 验证：Pillow／SciPy 检查爪印包含5个独立形状，原透明镂空被补全；13张原有素材仍通过同名、同尺寸、RGBA和透明区检查。人工查看爪印透明图及标题静止拼合帧。GIF为离线动画演示，未修改Unity正式资源、运行脚本、Scene或SO，未执行Unity编译、Play Mode、构建或真机验证。
+
+
+## 2026-10-27 Logo 正式图片替换与 old/new 归档
+
+- 按用户要求在 `Assets/Res_Runtime/UI/Logo/` 下创建 `old/` 与 `new/`；13张原图按原文件名归档到 old，13张已切好新版按同名安装到 new。
+- new 继承原始 .meta 字节，保持原GUID、Sprite导入设置和多子图ID；old 使用独立新GUID并保留原图片字节和导入结构。原有Scene、SO及其他页面对原GUID的引用现指向new，不需批量改写序列化引用。目录.meta已创建。
+- 修改 `Assets/Src_Editor/EM/LogoSetupEM.cs`、`HomeSetupEM.cs` 的明确图片加载路径至new，LogoSetupEM批量导入扫描范围限制为new，避免影响old。维护离线切图脚本的原始尺寸来源为old，同步主题manifest和STYLE.md。
+- 验证：本机Python/Pillow核对13张old图片SHA-256与替换前一致，13张new与已确认切图来源逐字节一致、尺寸一致、活动.meta逐字节保留；扫描Assets下.meta确认本次迁移的活动与归档GUID唯一。检查运行/编辑器C#中的Logo路径均已指向new，未发现这批原GUID出现在Addressables独立条目中。明细见 `Logs/LogoSkinReplacement/replacement.json`。
+- 边界：本次仅完成图片安装、旧图归档与必要的编辑器路径修复，没有修改Scene、Prefab、LogoConfig布局、运行时动画或本地化文案。编辑器当前已打开，本次未主动关闭、重启或覆盖其内存场景。尚未验证Unity重导入、编译、Play Mode、Addressables内容打包、应用构建、安装或真机；两行招牌部件位置、眼睛及爪印动画对齐、顶部背景裁切和静态Logo切换仍待运行接入。
+
+## 运行时脚本重载导致交互失效与教程反馈修复（2026-10-27）
+
+- 用户反馈 Unity Game 运行窗口已显示棋盘，但点击没有反应。排查正式场景、EventSystem、Input System 动作、棋盘射线及教程门控；读取正式存档仅用于定位，未删除、重置或写入测试进度。
+- 在隔离工程实际触发 `EditorUtility.RequestScriptReload()` 复现：原 ClientMain 仅在 Awake 装配 Context，脚本重载后 Context 为 null，已有 UI 仍留在场景，Update 进入 LoadingSystem 时产生空引用。失败结果保存在 `Logs/GameUIRefinement/Reload-before.txt`。
+- 修改 `Assets/Src_Runtime/ClientMain.cs`：依赖创建仍集中在 ClientMain 的 CreateContext；保留正常 Awake／Start 启动时序，OnDisable 保存并按既有 System／Controller 生命周期释放，OnEnable 在重载后重新装配和初始化。未增加单例、静态业务状态或平行启动体系，也未通过空引用检查静默跳过更新。实际重载后的 Context、教程进度、面板唯一性和 Input System 点击全部通过，结果见 `Reload-after.txt`。
+- 修正教程误点静默返回：GameController 对不符合当前步骤的操作显示本步骤提示；Panel_Game_Controller 从 GameConfigSO 读取目标并格式化行列坐标。调整 Game_Place／Game_Tap 两份本地化 SO，使用已有 TutorialFocus 图片显示醒目橙色边框；GameOriginalUIEM 同步该设置，未补建基础 UI 层级。同步离线烘焙的中英文字体，检查当前全部本地化文案所需字符均无缺失。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，专用隔离工程 `D:/UnityProject/HamdokuInputValidation-20261027`。通过 InputSystem.QueueStateEvent 驱动模拟 Mouse／Touchscreen 设备，再由正式 InputSystemUIInputModule 处理，验证鼠标单击／双击／拖动、触摸单击／双击、商店和返回按钮、错误教程格反馈及正确目标推进。此次设备动作验证不等同实际鼠标手工验收或手机触摸验收。初版后台驱动受 GameView 焦点路由影响，修正验证副本的测试焦点设置后通过，未修改正式项目的输入／焦点配置。
+- Unity 编译及 Play Mode 回归通过：正式 Scene_Main 启动、全部 146 份地图合法性、教程、前五关、道具、失败恢复／重开、返回／实际场景重载恢复、重复通关防护及释放；最终项目错误 0。查看教程、中英文及长屏安全区后台渲染。Windows Addressables 内容打包通过（32.23 秒）；未构建、安装 Android 应用或进行真机验证。Unity Search 索引异常与项目运行错误分开记录。
+- 同步核对：本次 9 份脚本／Prefab／文案／字体与已验证副本字节一致，正式存档文件名保留，Scene_Main 哈希未变化。未同步验证存档、HomeConfig、Library 或测试编辑器脚本。当前旧 Play 会话可能遗留修复前实例，已提示用户停止一次 Play 后重新运行正式场景。验证脚本、历次日志、同步核对及最终结果保存在 `Logs/GameUIRefinement/`，本次最终结果集中于 `InputValidation/`。
+
+## 2026-10-27 个人资料页迁移
+
+- 查找原 APK 导出的 Main／Game／Boot 场景和 Cell Prefab，未找到个人资料页序列化层级；结合 ProfileGridView／UiFactory 的动态创建调用、ProfileConfig、GameConfig 和用户截图，在用户明确确认补建范围后制作正式 `Assets/Res_Runtime/UI/Profile/Panel_Profile.prefab`。只读复制 71 张原始 Sprite，沿用原头像／边框 ID、色板与切片边界；29 个头像槽位中按原 IsAvatarHidden 隐藏 ID 6，实际列表 28 项；21 个边框槽位保留空 ID 8／9，显示 19 项。包括六件服装预览和不穿戴项。
+- 新增 ProfileConfigSO、ProfileSaveModel、ProfileState／System、ProfileController、Panel_Profile_Controller、Panel_Profile、Widget_ProfileItem 及对应枚举；复用 ClientMain 装配、PanelFactory／Repository、Addressables default 和 Open／Close 生命周期。页面接通首页头像入口、返回、资料说明、六项统计、UID 复制、昵称编辑／取消、80 条原作座右铭、三个可滚动标签、选择勾选及锁定提示。首页头像和边框随存档选择刷新；提示按 SO 配置三秒消退，模态编辑错误保留至处理。
+- 存档升级到版本 5，兼容版本 1–4，保留主线、教程、棋盘、连胜和排行榜队列。新安装记录开始日期；旧存档不补造日期和历史统计，以未知或带 + 的累计值标识。连续登录、连续通关、满生命的三颗种子通关、首次尝试通关按本工程的实际登录／通关／失败／确认重开记录，教程不计入，重复结算不重复累计；这是当前工程落实的统计口径，未宣称已与原 APK 运行行为逐项对照。迁移已完成棋盘时不把下一关误记为重试。
+- 新增 117 份中英文 L10NSO；统一经 L10NModule 注册、取文案和切换字体，离线补烘焙现有两份字体，使用同一字体资产的多图集，不添加字体 fallback。昵称最长 12 字，只接受两种语言现有字体均可显示的文字／字母、数字和空格；当前英文字体不覆盖汉字，因此汉字昵称尚不能保存，不以缺字方框代替。昵称、座右铭和 UID 仅为本地资料，未接入云端账号或昵称审核服务。
+- 会员头像、会员边框、未取得的赛季／活动服装保持锁定，会员按钮明确提示服务未接入；在线第 1 名次数显示未知。不模拟会员开通、在线排名、奖励领取或服装所有权。普通头像／边框解锁读取从原静态 GameConfig 导入的 SO 数值，未假定线上配置已验证。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，隔离工程 `D:/UnityProject/HamdokuProfileValidation-20261027`。Unity 编译、正式 Scene_Main 启动和 Play Mode 验证通过，项目运行错误及缺字警告均为 0；覆盖按钮回调、保存往返、无效昵称／损坏存档拒绝、重复打开／初始化、关闭销毁、返回首页头像同步、版本 1–4 升级、已完成棋盘升级、实际教程／主线通关、重开和失败统计。后台相机渲染检查中文、英文、头像／边框／服装、说明／座右铭及 1080×1920、1080×2400、1080×1620、安全区域和横屏容错；这些是编辑器回调与后台渲染验证，不代替人工鼠标或手机触摸验收。
+- Windows Addressables 内容打包通过，最终日志为 `Logs/ProfileMigration/Content-final.log`。Unity Search 启动时的索引越界异常与项目运行错误分开保留；未构建 APK、安装应用或执行真机验收。
+- 同步：150 份正式资源同步回当前工程，296 项脚本／资源／配置核对记录于 `Logs/ProfileMigration/sync-audit.json`；HomeConfig 仅将 saveVersion 从 4 改为 5，正式存档文件名保持不变。核对 Scene_Main、Addressables DefaultObject／EditorBuildSettings 注册、程序集、包版本及依赖，未同步验证存档、Library 或验证专用编辑器脚本。原始资料和用户已有修改保留；源参数、生成／验证脚本、截图和历次日志留在 `Logs/ProfileMigration/`。
+
+
+## 2026-10-27 Sudoku Pup Logo 动画错位与结束跳变修复
+
+- 用户报告动画异常并授权自行检查调整。通过Computer Use尝试读取当前Unity窗口，两次捕获超时；未把失败窗口读取当作实际观察。建立 `D:/UnityProject/HamdokuLogoPupValidation-20261027` 隔离副本，直接渲染正式Scene_Main和现有Widget_LogoIntro的Init/Tick序列，修复前帧确认头部被旧遮罩截断、标题与前爪比例错位、动画结束切换完整图片导致尺寸跳变。
+- 修改 `Assets/Res_Runtime/Config/LogoConfig.asset` 与 `Scene_Main.unity`：根据新素材实际透明边距和确认页面位置校准角色、睁闭眼、招牌、前爪、中心爪印与静态Logo大小／中心；设置矩形揭示遮罩，调小入场超调与挤压回弹。调整既有引言、署名与加载行位置避免与更高招牌重叠，背景改为顶部对齐以保留遮阳篷。未改动现有文案内容。
+- 修改 `Widget_LogoIntro.cs`：入场结束后保留已经落定的图层，继续整体呼吸浮动，不再切到几何结构不同的完整图片；静态分支仍保留。`LogoConfigSO.cs` 增加静态完整Logo显示尺寸／中心字段，`LogoSetupEM.cs` 使用这些字段并将前爪层放到招牌前景。沿用现有Widget和SO，无新增启动或UI架构。
+- 修正 `new/Img_Logo_HamsterMask.png` 为白色矩形技术遮罩，修正 `new/Img_Logo_BoardFront.png` 中爪印隐藏时的浅色爪形残影；同步主题源图、切图脚本、manifest和风格记录。保持原PNG尺寸及活动GUID，old目录不变。
+- 验证环境：Unity6000.5.2f1、同包配置的隔离副本。先后生成修复前、修复后与最终31帧1080×1920实际Unity渲染序列；运行视觉Play Mode测试，验证完成回调仅一次、结束保持分层、重复Init／TearDown和关闭入场分支，并渲染1080×2400长屏及1080×1620短屏。该测试关闭ClientMain以隔离存档与其他服务，不表示完整客户端启动／导航流程复测。测试脚本仅在隔离副本，未加入正式工程。
+- 同步检查：复制前核对当前目标文件仍与任务开始备份一致，未覆盖并发修改；同步后核对场景、SO、3份C#及2张PNG与通过验证的副本字节一致，13张运行PNG与主题源图一致、原活动GUID保留。场景未序列化测试相机或禁用ClientMain。完整记录 `Logs/LogoAnimationFix/verification.json`，原始文件备份 `OriginalFiles/`。
+- 查看效果：`Logs/LogoAnimationFix/logo_animation_fixed.gif` 来自最终Unity渲染帧；`before_after.png` 为相同时刻修复前后对照。独立Play Mode结果在 `PlayMode/play-result.txt`。Unity初始授权握手错误随后恢复，另出现UnityEditor.Search.SearchDatabase索引启动的ArgumentOutOfRangeException，单独记为编辑器异常；未发现本次项目C#编译错误或Logo验证断言失败。
+- 本次未执行Addressables内容打包、应用构建、安装或真机验证；未宣称当前已打开的主工程窗口完成UI点击验收，也未将隔离视觉Play Mode等同于完整启动服务验收。
+
+
+## 2026-10-27 Logo 右侧蓝色爪印补点
+
+- 按用户截图蓝框，补齐招牌右侧蓝色装饰爪印缺少的一枚趾点。原图为两枚小趾点加一枚掌垫，现为三枚小趾点加一枚掌垫，与左侧简化爪印的结构对应；中心字母 o 内可动爪印不变。
+- 使用内置image_gen对局部爪印补点，提取新增趾点并匹配现有雾灰蓝颜色后做局部合成。同步 `Assets/Res_Runtime/UI/Logo/new/Img_Logo_BoardFront.png`、`Img_Common_Logo.png` 及主题源图、front_master、logo_extracted_master、切图脚本与manifest。保留既有像素尺寸、GUID、透明留白及动画布局，仅新增小范围像素。
+- 验证：Pillow／SciPy核对局部独立形状由3变4，掌垫和原有趾点保留；两张运行图片与主题源图逐字节一致，变化像素均限定在新增趾点区域，详见 `Logs/LogoPawDotFix/verification.json`；已查看局部放大预览 `right_paw_after_preview.png`。本次为局部静态贴图修正，未重复Unity编译／Play Mode、打包或真机验证，未改动动画代码、Scene和SO。
+
+## 2026-10-27 全部 Prefab 与原作序列化层级集中整理
+
+- 按用户要求建立 `Docs/UILibrary/PrefabCollection/`，离线可搜索入口为 `index.html`，来源、分类及SHA-256保存在 `manifest.json`；采集与核验脚本位于 `Logs/PrefabCollection/`。AGENTS.md与UI参考库README已补入口。
+- 原拆解资料目录递归检索未发现独立 `.prefab` 或 `.unity` 文件。按原asset_map读取全部86个GameObject及86个Transform/RectTransform，输出86份含子树的层级JSON，覆盖10个根对象，保留原对象ID、名称、父子顺序、布局与组件引用；集中373份组件/对象序列化或原始字节、191份配置、118类相关代码结构及可用ARM64/ISIL证据，并保留完整原资源索引用于依赖查询。JSON不是可直接导入Unity的Prefab，未补造原作层级。
+- 当前工程Assets下全部10个正式Prefab及对应.meta逐字节复制到 `CurrentProjectPrefabs/`，保留原路径和哈希。副本放在Docs下避免重复GUID导入，依赖仍在当前工程，不是可独立移植的资源包；正式Prefab及其引用未移动或修改。
+- 设置弹窗：原静态GameObject未发现SettingsPopup，已集中SettingsPopupLayout配置及SettingsPopup的Build、BuildGroup、BuildLangList等方法结构、反汇编和ISIL资料。动态构建属于静态证据推断；空方法体不是恢复源码，未执行原APK运行核实，也未实现设置弹窗。
+- 验证环境：Windows、Python；采集脚本完成，核对全部复制文件与原文件SHA-256一致，全部原GameObject有Transform映射，层级遍历无缺失子节点或循环；全部离线入口链接存在，根层级合计覆盖86个对象，结果见 `Logs/PrefabCollection/verification.json`。资料整理未改运行脚本、场景、SO和存档；未执行Unity编译、Play Mode、Addressables打包、应用构建、安装或真机验证。
+
+
+## 2026-10-27 标题中心爪印持续呼吸动画
+
+- 按用户要求使标题字母 o 内的中心爪印在盖章结束后持续轻微放大缩小。修改 `Widget_LogoIntro.cs` 的完成后显示分支，独立设置xMark.localScale，保持局部位置不变；沿用整体Logo原有轻微呼吸与浮动。
+- `LogoConfigSO.cs` 新增xIdlePulseAmount／xIdlePulseSpeed表现参数，`LogoConfig.asset` 设置0.08和2.8，对应约0.92–1.08缩放与2.24秒周期；更新既有STYLE.md。无新增素材、节点或架构。
+- 验证：Unity6000.5.2f1隔离副本编译并运行视觉Play Mode，断言两相位局部比例不同且位于配置范围、锚定位置不变、完成事件不重复；重复初始化／释放、静态分支及三种竖屏渲染通过。主工程3份修改文件与副本逐字节一致。结果 `Logs/LogoPawBreathing/Final/play-result.txt`。
+- 首次测试采样的两个时刻恰好接近正弦波相同比例，差值断言失败；调整为约半周期分隔后通过，未因此更改实际动画实现。保留首次结果，区分测试取样问题和项目实现问题。
+- 验证禁用ClientMain以隔离存档／服务，不替代完整启动流程和真机验收；本次未执行内容打包、应用构建或真机验证。
+
+
+## 2026-10-27 Logo 页面素材目录补充整体样式图
+
+- 按用户要求将已确认的1080×1920整体方案复制到 `Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo/Panel_Logo_Style_1080x1920.png`，便于与该页分层素材一起查看。
+- 在 `STYLE.md` 的风格基准中补充文件链接和图片预览，明确整体样式参考与正式运行贴图、后续局部修正截图的区别。
+- 验证：图片尺寸1080×1920，与确认稿SHA-256一致，文档相对链接目标存在。未修改Unity运行素材或代码，无需重复编译、Play Mode或打包验证。
+
+## 2026-10-27 教程流程与棋盘点击继续对齐原作
+
+- 对照原作 `handoku.mp4` 约 11–27 秒、TutorialController／CellView 的 native 与 ISIL、原 Tutorial_4x4 配置、原中英文文案及 `ui_hand_tap` 成品资源。原目录保持只读，继续使用已经迁移的 level2 UI 层级、正式 Panel／Widget Prefab 和现有资源加载／面板生命周期。
+- 教程改为第一行第三格双击、颜色规则确认、同行同列六格逐格排除、第四行第二格双击、相邻紫格滑动排除、第二行第一格双击、自由解题与提示预览、独立完成卡及开始第一关。加入阶段输入门控、原手指资产、聚焦遮罩、上下卡片和教程独立配色；隐藏教程中的主线分数、导航和道具栏。最后核对提示入口使用原灯泡素材。配色与当前线性色彩空间下遮罩透明度属于依据录像校准的实现选择，不作为原始静态配置值。
+- 棋盘单击在按下时上报，第二次按下识别双击；双击按输入设备匹配，兼容连续两次触摸具有不同 touchId。滑动激活阈值采用原 CellView 的 0.45 格宽比例，按实际屏幕路径采样，支持画叉与从叉号起笔连续擦除；补入按压缩放、失焦／停用取消及关闭释放委托。
+- `PuzzleSaveModel.tutorialFlowVersion` 区分新旧教程。旧版尚在 Playing 的简化教程从新第一步重走，不清主线进度；新流程保存阶段与棋盘，已完成教程仍保留完成状态。教程放置不累计主线分数或关卡进度。
+- 主要文件：GameController.cs、Panel_Game_Controller.cs、Panel_Game.cs、Widget_Board.cs、Widget_BoardCell.cs、PuzzleModule.cs、PuzzleSaveModel.cs、GameState.cs、GameConfigSO.cs／GameConfig.asset、UINameType.cs、两份游戏 Prefab、新教程文案 SO 和手指 PNG。GameOriginalUIEM／GameSetupEM 将原动态教程结构实化并烘焙字体；运行程序集补入已经安装的 InputSystem 引用。没有新增启动、资源或 UI 管理体系。
+- 验证环境：Windows，Unity 6000.5.2f1、Addressables 2.10.3，独立工程 `D:/UnityProject/HamdokuTutorialValidation-20261027`；验证存档独立于用户存档。Unity 编译、实际 Play Mode、逐帧 InputSystem 鼠标完整教程、不同触点 ID 的触摸双击、按下时响应、滑动插值与擦除、提示无消耗预览、完成进入第一关、保存恢复、磁盘存档往返、失败重开、旧教程迁移及重复 Open 通过，项目运行错误 0。人工查看中英文、1080×1920 与 1080×2400 注入安全区的后台相机截图；它们不等同编辑器人工点击或手机触摸验收。
+- Windows Addressables 内容打包通过，最后图标修正后再次内容打包通过。核对 13 份实现／配置与验证副本内容一致，两份 Prefab、两份字体及其 meta 一致；7 份新教程文案仅登记一次，默认加载标签有效，提示灯泡绑定正确。未同步验证存档、HomeConfig 的验证文件名或 Library；正式场景无需先执行制作菜单。
+- 初次检查发现旧验证脚本步骤、同帧重新创建 UI 后立即射线的测试条件和共享隔离目录变化，修订测试并改用独立副本。UnityEditor.Search 的启动索引异常单列保留，未计为项目运行异常。原始失败、最终输入结果、画面、内容打包结果及同步哈希在 `Logs/TutorialMatch/`，更新 GameplayMigrationTODO.md。
+- 仍待对齐：逐笔划叉、仓鼠放置／庆祝、光圈形态和完整动画时序，提示解释与延时自动强调。未进行应用构建、APK、安装、真机触摸或实际扬声器试听；未声称完整原作复刻。
+
+## 2026-10-27 设置页绘本风格切图
+
+- 用户确认设置页样图后要求开始切图；查看UI参考库原设置截图、SettingsPopupLayout配置、动态SettingsPopup代码结构及现有主题素材。原作未发现独立SettingsPopup层级的既有取证结论保持不变，没有据空方法体宣称恢复页面。
+- 使用内置image_gen制作无字结构底稿及图标底稿，再以Python／Pillow／NumPy／SciPy分割、清理透明边缘和保存独立PNG。生成描述以确认图为参考：保留奶油白、雾灰蓝、暖棕描边与克制绘本笔触，分别输出无字面板／标题牌／按钮／开关轨道和独立图标，不将可本地化文案烘焙进素材。新底稿属于重建素材，不是确认图无损裁切。
+- 28张素材位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Settings/，包含27张RGBA透明组件与1张1080×1920不透明背景；另存确认整页样式图、manifest、源底稿、切图脚本、九宫格建议及布局数据。背景沿用Logo页干净底图，滑块与分隔线从确认图提取。同步主题manifest和STYLE.md入口。
+- 离线验证：28张图片均非空，RGBA、实际尺寸、哈希与透明边界已记录；27张组件四边均保持透明。人工查看清理后的素材总览及1080×1920分层拼合图，修正初次分隔线底色残留和开关九宫格缩放变形。首次拼合脚本因选择底图边距超过目标高度失败，调整后完成，未涉及Unity项目错误。
+- 本次交付为待接入主题素材，未修改正式运行图片、场景、Prefab、SO、运行脚本或用户进度；设置页尚未实现。未执行Unity编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。检查结果在previews/Settings_Slicing/verification.json；离线拼合文本使用Windows字体作位置演示，不代表运行字体效果。
+
+## 2026-10-27 商店页面迁移（服务端逻辑预留）
+
+- 只读核对原包 ShopService.Bootstrap、ShopPopup.Awake／Build 及各商品卡片构建的 native／ISIL、ShopPopupLayout、ShopCatalog 和原始 Sprite；完整导出场景只有 Main／Game／Boot 与 Cell Prefab，商店完整层级由运行时代码创建。依据原作动态结构、布局参数和用户截图制作正式 `Assets/Res_Runtime/UI/Shop/Panel_Shop.prefab`，没有增加场景常驻商店、Canvas、EventSystem 或平行资源管理体系。
+- 接入新手礼包、特别优惠、去广告三档、放大镜三档、提示三档，共 11 个商品；包括滚动、商品说明、AUTO 规则本地演示、关闭及恢复购买入口。使用 20 张原作 PNG、正式 ShopConfigSO、31 份中英 L10NSO 和现有每语言单份 TMP 字体；日历／无限符号使用原作图标，补烘焙日元符号，不添加字体 fallback。商品说明数量由 SO 格式化，不另外维护一份礼包数量。
+- 截图优先的展示覆盖：新手礼包 5／5、JP¥1,100，特别优惠 40／40、JP¥2,280，去广告 JP¥210／650／1,580；拆解目录原始礼包 10／10、30／30 未被改写。下半部分商品数量和 USD 参考价来自原 ShopCatalog；这些均为静态参考展示，不是平台报价。特别优惠显示“时间待同步”，不伪造服务端期限或把截图的 07:41:05 当成实际倒计时。原始值、覆盖值和素材元数据保存在 `Logs/ShopMigration/source.json`。
+- 新增 ShopState／ShopSystem／ShopController／ShopModule、具体请求与商品模型、必要枚举、Panel_Shop／Widget_ShopProduct 和对应 Panel Controller；ClientMain 统一注入并组织生命周期，AssetModule 登记正式 SO／Prefab。沿用 IPanelAsset 与 Action 回调，没有新增 C# interface、abstract class 或单例。ShopModule 的 FetchCatalog／Purchase／Restore 预留调用入口，当前明确返回 ServiceUnavailable；购买、恢复购买不提交订单、不扣款、不发奖、不写入购买权益，重复请求及关闭后的回调按请求编号隔离。
+- 首页和主线游戏页的现有商店按钮均接通。首页进入后关闭返回首页；游戏页进入前通过 GameController.PauseForShop 保存棋盘并关闭游戏 Panel，暂停计时，关闭商店后通过现有 GameSystem.Open／存档恢复原关卡。商店期间购买服务未接入，不改变道具、生命或棋盘；应用退出释放商店时不重新打开其他页面。
+- 主要文件：`Assets/Src_Runtime/Controllers/ShopController.cs`、`Controllers/Panel/Shop/Panel_Shop_Controller.cs`、`System/Shop/`、`Module/Shop/ShopModule.cs`、`Module/Assets/TM/ShopConfigSO.cs`、`Entities_Sub/Shop/`、`UI/Panel/Shop/Panel_Shop.cs`、`UI/Widget/Widget_ShopProduct.cs`、相关 Shop 枚举；以及 ClientMain.cs、GameContext.cs、HomeController.cs、GameController.cs、AssetModule.cs、UINameType.cs、UIPanelType.cs、`Assets/Src_Editor/EM/ShopSetupEM.cs`、正式 Prefab／SO／图片／文案／字体及 Addressables 登记。制作菜单仅用于生成资产，正式场景运行不依赖先执行菜单。
+- Unity 6000.5.2f1／Addressables 2.10.3，在独立 `D:/UnityProject/HamdokuShopValidation-20261027` 验证。Unity 编译通过，Play Mode 最终 46 项自动检查通过：正式场景启动与首页入口、11 个商品请求、恢复购买、存档内存／磁盘不被服务占位修改、说明与 AUTO 演示、重复打开／初始化、关闭销毁、返回首页、游戏页入口、商店期间停止计时、英文状态返回原棋盘且生命／道具／计时不变。项目运行错误和缺字警告为 0；新存档启动与已完成教程的隔离存档分别验证，不复制测试进度回正式环境。
+- 人工检查后台相机渲染的中英文、上下滚动、说明／恢复／AUTO 弹窗、1080×1920、1080×2400、1080×1600、注入安全区和 1920×1080 容错画面。检查基于绑定按钮回调和后台渲染，不等同编辑器人工鼠标／手机触摸验收；横向窗口仅作布局容错。最终 Windows Addressables 内容打包通过，不代表 APK／应用构建、安装或真机验证通过。
+- 初次制作发现字体无无限符号，改用原图；英文重开首帧文案顺序与窗口变化时滚动位置已修复。初次隔离副本因同步到的教程脚本／Prefab 处于更新中而缺少 tutorialRoot，保留失败日志；同步当前工程最新教程资源后，新存档启动复验通过。同步核查修复了注册合并位置和两个图标的旧 GUID 引用；正式 Prefab 引用均能在当前 Assets／uGUI 包解析，11 个商品、12 个演示叉号和 23 处静态文本绑定完整，33 项商店登记均具有 default 标签，原有登记与字体字符得到保留。EditorBuildSettings、DefaultObject GUID、正式场景和包配置与验证环境一致；不从 Library 复制正式配置。
+- 运行结果、各轮失败与修复、后台截图、最终内容打包日志、GUID 修复及同步／正式工程核查分别保存在 `Logs/ShopMigration/` 的 result.txt、Play-*.log、Content-integrated.log、guid-repairs.json、sync-audit.json 和 formal-audit.json。UnityEditor.Search 启动索引异常单独保存在 editor-diagnostics.txt，不计为项目运行错误。未接入支付 SDK、服务端商品／订单／验单／权益／恢复逻辑；未进行应用构建、APK、安装、真机触摸或实际扬声器试听。
+
+
+- 最终同步保护检测到同期设置页更新后，保留全部设置实现，重新复制当前工程 Assets 到隔离环境，并通过 `Play-integrated.log` 的 46 项商店自动检查及 `Content-integrated.log` 的 Windows Addressables 内容打包。保留 Settings 引入的存档版本 6 和全部偏好字段；正式 default 组共 180 项，其中商店 33 项，未覆盖其他页面登记。最终源码、场景／配置、资源依赖及登记再次核对，未同步测试存档或测试文件名。
+
+## 2026-10-27 设置页迁移
+
+- 在用户确认迁移及补建范围后实施。再次只读解析原 APK 的 data.unity3d：10 个序列化资源文件、86 个 GameObject 中仅有 Main／Game 两个 SettingsButton，没有 SettingsPopup 的序列化层级或 Prefab；原生代码 Awake 调用 ResolveCfg／Build／Hide，Build 通过 UiFactory.NewRect 创建子节点。依照原构建职责、SettingsPopupLayout、Sprite 和用户截图制作正式 `Assets/Res_Runtime/UI/Settings/Panel_Settings.prefab`，不是从空方法体推断运行结果。原资料保持只读。
+- 新增 SettingsController、SettingsSystem／State、Panel_Settings_Controller、Panel_Settings、SettingsSaveModel、SettingsConfigSO、VibrationModule 和设置相关枚举。复用现有 ClientMain 注入、PanelFactory／Repository、Addressables default、Open／Close、Ctor／Init／TearDown。本次设置面板 ID 为 50，避开同期接入的商店 ID 40；未新增单例、interface、独立资源加载器或 UI 管理体系。主要变更还包括 GameContext、HomeController、GameController、Panel_Game_Controller、Widget_Board／BoardCell、AudioModule、SaveModule、PlayerSaveModel、Panel_Logo_Controller、AssetModule，以及编辑器 SettingsSetupEM。
+- 正式接通首页和游戏设置入口、五项开关、四种连击语音选项、简中／英文选择、保存进度说明、教程回放、客服／隐私／条款入口和当前应用版本。音效关闭会停止音效与语音；音乐独立循环，语音独立通道；区域边框、图案即时更新已有棋盘，设置覆盖层暂停计时并阻断棋盘输入。教程复用现有可交互流程，回放期间不保存教程棋盘、不改变正式教学完成标记，完成或退出后恢复原入口、原棋盘和设置弹窗。关闭、重复打开和重载遵循现有释放约定。
+- 复制 19 张原始 Sprite 与 31 段原始音频，导入原始切片边界。三套同名连击音频按原 ResourceManager 的 cute／female／male 路径与 pathID 分别绑定；默认音效／音乐／震动开启，边框／图案关闭，语音 Cute，依据原 GameSettings 及 ComboVoice 的静态资料。背景音乐音量 0.3 来自原 AudioManager 常量；边框宽度／颜色、语音音量和线性色彩空间下的遮罩校准为本工程实现选择，详见 `Logs/SettingsMigration/source.json`。手机震动使用 Unity 移动平台接口，Windows 编译排除此调用；未宣称还原原作的精细震动波形。
+- 存档升级为 v6，兼容 v1–v5；新设置独立保存于玩家数据，不修改共享 SO。新增 26 份中英文 L10NSO，沿用统一 L10NModule 和每语言单份 TMP 字体；保留同期新增字符后补烘焙，未添加字体 fallback。语言选中态使用原配置高亮色，避免现有字体不支持的勾号。修正英文存档启动时 Logo 的刷新顺序：先设置对应语言文字，再执行会强制布局的安全区刷新；同时在 Logo 播音前应用已保存的音效偏好。
+- “保存进度”明确当前仅本机保存；账号登录、云同步／跨设备恢复未接入。客服与本应用隐私政策／服务条款的正式 HTTPS 地址尚未配置，点击给出明确说明；没有套用原应用政策或模拟成功。版本读取 Application.version，不照抄截图 v1.2.2。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，隔离工程 `D:/UnityProject/HamdokuSettingsValidation-20261027`，专用存档 settings-validation-20261027.json。最终 `Play-integrated-2.log` 和 `result.txt` 通过：正式 Scene_Main 启动、按钮委托、所有偏好切换及序列化、关闭重开／重复初始化、实例和音乐源唯一性、设置计时暂停和棋盘输入阻断、边框／图案实际显示、教程回放完成／退出及原棋盘恢复、正常教程和真实主线通关、实际场景重启恢复、v1–v5 逐版升级、无效设置 ID 拒绝写入；最终项目运行错误与缺字警告均为 0。检查中英文、语言选择和服务说明，以及 1080×1920、1080×2400、1080×1620、安全区、1920×1080 容错的后台相机渲染。按钮回调和后台截图不替代人工鼠标或手机触摸验收，音频播放调用不等同听感验收。
+- Windows Addressables 内容打包最终通过，`Content-integrated-2.log` 记录耗时 23.373 秒。前期隔离副本的教程脚本／Prefab／程序集依赖不同步、设置和新商店面板 ID 冲突、字体勾号缺字、英文启动文本刷新次序及 Windows player 编译下 Handheld 不可用均已修正并保留历次失败日志；Unity Search 索引越界作为编辑器自身异常另存 editor-diagnostics.txt。未构建 Android APK、安装应用或进行真机声音／震动／触摸验证。
+- 同步 222 份设置相关正式文件，232 项脚本／资源／配置核对见 `Logs/SettingsMigration/sync-audit.json`，随后再次检查所有已核对文件与通过验证副本一致，Assets GUID 无重复。合并同期商店和输入更新，保留正式场景、当前游戏 Prefab 图片引用、程序集、包依赖、Addressables DefaultObject／EditorBuildSettings 注册和已有条目；HomeConfig 仅 saveVersion 5→6，正式存档文件名不变。未同步验证存档、Library 或验证专用编辑器脚本，正式场景不需要先执行制作菜单。预览见 `settings-chinese.png`、`settings-english.png` 和 `contact-sheet.png`。
+
+## 2026-10-27 再次批量提交
+
+- 按用户要求分批保存当前改动：个人资料／商店／设置接入与教程、Logo 修复及正式资源；Prefab 快照与原作层级证据；Sudoku Pup Logo／设置页主题素材；项目规范、玩法 TODO 与工作记录。
+- 本次仅执行 Git 归档与记录更新，核对提交范围、提交结果及最终工作区状态。没有重新执行 Unity 编译、Play Mode、Addressables 内容打包、应用构建、安装或真机验证；各功能既有验证结果及限制保留在对应历史记录中。未推送远程。
