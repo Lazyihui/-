@@ -90,6 +90,12 @@
 
 	- B11 Player Settings 默认方向为 Portrait，默认桌面与 Android 窗口尺寸为 1080 × 1920，Web 默认预览尺寸为 540 × 960。编辑器 Game 视图验收优先使用 1080 × 1920 或 9:16，再检查其他竖屏比例；Player Settings 默认窗口尺寸不代替 Game 视图的独立预览设置。
 
+	- B12 迁移 UI 前，必须先到原项目中查找对应 Prefab 及其依赖；页面保存在场景中时，提取原场景的 UI 层级作为迁移基础。不得跳过查找，自行搭建基础结构。
+
+	- B13 找到原始 UI 后，保留其层级、布局和资源关系，再适配当前项目的命名、目录、脚本职责、生命周期、本地化和资源管理。
+
+	- B14 确实找不到原始 Prefab／场景层级，或需要自行补建结构时，先说明查找结果、缺失部分和补建范围，经用户确认后实施。
+
 - A7 配置、存档与本地化
 	- B1 规则、关卡、解锁条件、时长和表现参数等生产配置统一使用 ScriptableObject。原作 JSON／CSV 可作为导入来源，导入后使用 SO 维护，避免两套生产配置并存。
 
@@ -126,3 +132,11 @@
 	- B3 记录反映实际结果，不把方案、事件预留、空接口或准备提示写成目标功能已完成。本文件维护稳定规范，进度和历史留在工作记录中，避免重复维护。
 
 	- B4 [Hamdoku2 UI 参考库](Docs/UILibrary/README.md)：离线入口为 [UI Library.html](<Docs/UILibrary/UI Library.html>)；[资料缺口](Docs/UILibrary/Missing.md) 与 [验证记录](Docs/UILibrary/Verification.md) 分别维护来源不足和实际验证结果。
+
+	- B5 [UI 资料 TODO](Docs/UILibrary/TODO.md)：追踪用户确定留待后续补充的游戏画面与状态，区分已收到资料与已完成实现。
+
+	- B6 [玩法迁移 TODO](Docs/GameplayMigrationTODO.md)：追踪首批教程、主线棋盘、结算、失败重开与进度恢复的实施及验证。
+
+	- B7 [玩法分析](Docs/UILibrary/玩法分析.html)：离线查看核心规则、操作、失败补救、模式成长及原作证据边界。
+
+	- B8 [小狗面包房换皮风格](Docs/UILibrary/themes/PuppyBakery/STYLE.md)：记录已确认头像的绘本造型、配色、尺寸与后续素材一致性要求。
