@@ -11,6 +11,9 @@ namespace Hamdoku {
         readonly List<L10NFontSO> fonts = new List<L10NFontSO>();
         AsyncOperationHandle<IList<UnityEngine.Object>> defaultHandle;
         HomeConfigSO homeConfig;
+        GameConfigSO gameConfig;
+        RankingConfigSO rankingConfig;
+        StreakConfigSO streakConfig;
         bool registered;
 
         public void BeginLoadAll() {
@@ -18,6 +21,13 @@ namespace Hamdoku {
                 throw new InvalidOperationException("Default assets are already loading.");
             }
             defaultHandle = Addressables.LoadAssetsAsync<UnityEngine.Object>(AAConst.LABEL_DEFAULT, null);
+        }
+
+        public float GetLoadProgress() {
+            if (!defaultHandle.IsValid()) {
+                throw new InvalidOperationException("Default asset loading has not started.");
+            }
+            return defaultHandle.PercentComplete;
         }
 
         public bool IsLoadDone() {
@@ -42,6 +52,21 @@ namespace Hamdoku {
                         throw new InvalidOperationException("More than one HomeConfigSO has the default label.");
                     }
                     homeConfig = config;
+                } else if (asset is GameConfigSO game) {
+                    if (gameConfig != null) {
+                        throw new InvalidOperationException("Duplicate GameConfigSO.");
+                    }
+                    gameConfig = game;
+                } else if (asset is StreakConfigSO streak) {
+                    if (streakConfig != null) {
+                        throw new InvalidOperationException("Duplicate StreakConfigSO.");
+                    }
+                    streakConfig = streak;
+                } else if (asset is RankingConfigSO ranking) {
+                    if (rankingConfig != null) {
+                        throw new InvalidOperationException("Duplicate RankingConfigSO.");
+                    }
+                    rankingConfig = ranking;
                 } else if (asset is L10NSO text) {
                     texts.Add(text);
                 } else if (asset is L10NFontSO font) {
@@ -62,6 +87,27 @@ namespace Hamdoku {
             return homeConfig;
         }
 
+        public GameConfigSO GetGameConfig() {
+            if (gameConfig == null) {
+                throw new InvalidOperationException("GameConfigSO is missing from default assets.");
+            }
+            return gameConfig;
+        }
+
+        public StreakConfigSO GetStreakConfig() {
+            if (streakConfig == null) {
+                throw new InvalidOperationException("StreakConfigSO is missing from default assets.");
+            }
+            return streakConfig;
+        }
+
+        public RankingConfigSO GetRankingConfig() {
+            if (rankingConfig == null) {
+                throw new InvalidOperationException("RankingConfigSO is missing from default assets.");
+            }
+            return rankingConfig;
+        }
+
         public IReadOnlyList<L10NSO> L10N_GetAll() {
             return texts;
         }
@@ -75,6 +121,9 @@ namespace Hamdoku {
             texts.Clear();
             fonts.Clear();
             homeConfig = null;
+            gameConfig = null;
+            rankingConfig = null;
+            streakConfig = null;
             registered = false;
             if (defaultHandle.IsValid()) {
                 Addressables.Release(defaultHandle);

@@ -3,6 +3,15 @@ using UnityEngine;
 namespace Hamdoku {
     [CreateAssetMenu(fileName = "LogoConfig", menuName = "Hamdoku/Logo Config")]
     public sealed class LogoConfigSO : ScriptableObject {
+        [Header("Loading screen")]
+        public HomeConfigSO startupHomeConfig;
+        public L10NSO[] startupTexts;
+        public L10NFontSO[] startupFonts;
+        public int seedCount;
+        public float seedPopScale;
+        public float seedPopSeconds;
+        public float seedIdlePulse;
+        public float finishHoldSeconds;
         [Header("Playback")]
         public bool playIntro;
         public bool oncePerSession;

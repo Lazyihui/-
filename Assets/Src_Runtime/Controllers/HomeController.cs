@@ -19,9 +19,22 @@ namespace Hamdoku.Controllers {
             save.tutorialCompleted = loaded != null && loaded.tutorialCompleted;
             save.language = loaded == null ? config.defaultLanguage : loaded.language;
             save.dailyStreak = loaded == null ? 0 : loaded.dailyStreak;
-            localization.AddAll(assets.L10N_GetAll(), assets.L10NFont_GetAll());
+            save.activePuzzle = loaded == null ? null : loaded.activePuzzle;
+            save.previousPuzzleId = loaded == null ? 0 : loaded.previousPuzzleId;
+            save.ranking = loaded == null || loaded.version < 4 ? null : loaded.ranking;
+            RankingController.InitializeSave(ctx);
+            StreakController.ValidateConfig(assets.GetStreakConfig());
+            StreakController.Initialize(ctx, loaded);
+            var puzzles = ctx.puzzleModule;
+            var gameConfig = assets.GetGameConfig();
+            puzzles.Initialize(gameConfig);
+            if (save.activePuzzle != null) {
+                puzzles.ValidateSave(save.activePuzzle, gameConfig, save.campaignClears, save.tutorialCompleted);
+            }
+            localization.ReplaceAll(assets.L10N_GetAll(), assets.L10NFont_GetAll());
             localization.Language_Set(save.language);
-            if (loaded == null) {
+            Panel_Logo_Controller.RefreshText(ctx);
+            if (loaded == null || loaded.version != config.saveVersion || loaded.ranking == null) {
                 SaveProgress(ctx);
             }
             state.saveInitialized = true;
@@ -46,6 +59,11 @@ namespace Hamdoku.Controllers {
             localization.Language_Set(language);
             save.language = language;
             SaveProgress(ctx);
+            Panel_Streak_Controller.Refresh(ctx);
+            Panel_Game_Controller.Refresh(ctx);
+            Panel_GameDialog_Controller.Refresh(ctx);
+            Panel_Ranking_Controller.Refresh(ctx);
+            Panel_RankingDialog_Controller.Refresh(ctx);
             Refresh(ctx);
         }
 
@@ -68,8 +86,13 @@ namespace Hamdoku.Controllers {
             Panel_Home_Controller.Open(ctx);
             state.isOpen = true;
             var save = ctx.playerSave;
-            if (!save.tutorialCompleted) {
+            if (!save.tutorialCompleted && !state.tutorialRequested) {
+                state.tutorialRequested = true;
                 Request(ctx, HomeRequestType.Tutorial, false);
+            }
+            var streakState = ctx.state_Streak;
+            if (streakState.pagePending && save.tutorialCompleted) {
+                StreakController.Open(ctx);
             }
         }
 
@@ -78,6 +101,7 @@ namespace Hamdoku.Controllers {
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
             var config = assets.GetHomeConfig();
+            StreakController.RefreshDay(ctx, DateTime.Today);
             state.dailyUnlocked = save.campaignClears >= config.dailyUnlockClears;
             state.rankingUnlocked = save.campaignClears >= config.rankingUnlockClears;
             state.endlessUnlocked = save.campaignClears >= config.endlessUnlockClears;
@@ -92,7 +116,8 @@ namespace Hamdoku.Controllers {
 
         public static void Request(GameContext ctx, HomeRequestType type, bool playSound = true) {
             var state = ctx.state_Home;
-            if (!state.isOpen || state.disposed) {
+            var streakState = ctx.state_Streak;
+            if (!state.isOpen || state.disposed || streakState.isOpen) {
                 return;
             }
             var assets = ctx.assetModule;
@@ -119,7 +144,9 @@ namespace Hamdoku.Controllers {
                 return;
             }
             state.pendingRequest = type;
-            ShowNotice(ctx, UINameType.Home_Preparing, 0);
+            if (type != HomeRequestType.Tutorial && type != HomeRequestType.Campaign && type != HomeRequestType.Streak && type != HomeRequestType.Ranking) {
+                ShowNotice(ctx, UINameType.Home_Preparing, 0);
+            }
             events.requestHandle?.Invoke(type);
         }
 

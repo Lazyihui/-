@@ -5,6 +5,8 @@ namespace Hamdoku {
     public sealed class LoadingState {
         public LoadingStatus status;
         public float elapsedSeconds;
+        public float progress;
+        public float finishHoldElapsed;
         public bool logoCompleted;
         public bool readyNotified;
         public bool assetsLoaded;

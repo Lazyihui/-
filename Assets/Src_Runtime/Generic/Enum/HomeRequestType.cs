@@ -6,6 +6,9 @@ namespace Hamdoku {
         Daily = 3,
         Endless = 4,
         Ranking = 5,
-        Settings = 6
+        Settings = 6,
+        Shop = 7,
+        Profile = 8,
+        Streak = 9
     }
 }

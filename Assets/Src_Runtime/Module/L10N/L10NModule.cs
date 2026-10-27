@@ -19,6 +19,12 @@ namespace Hamdoku {
             }
         }
 
+        public void ReplaceAll(IReadOnlyList<L10NSO> entries, IReadOnlyList<L10NFontSO> fontEntries) {
+            texts.Clear();
+            fonts.Clear();
+            AddAll(entries, fontEntries);
+        }
+
         public void Language_Set(SystemLanguage value) {
             if (value != SystemLanguage.ChineseSimplified && value != SystemLanguage.English) {
                 throw new NotSupportedException("Unsupported home language: " + value);

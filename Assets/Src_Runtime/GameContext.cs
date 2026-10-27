@@ -1,5 +1,7 @@
 namespace Hamdoku {
     public sealed class GameContext {
+        public RankingState state_Ranking;
+        public RankingModule rankingModule;
         public LoadingState state_Loading;
         public LoadingSystemEvents events_Loading;
         public CanvasRepository canvasRepository;
@@ -11,6 +13,9 @@ namespace Hamdoku {
         public L10NModule l10NModule;
         public PanelRepository panelRepository;
         public PlayerSaveModel playerSave;
+        public GameState state_Game;
+        public StreakState state_Streak;
+        public PuzzleModule puzzleModule;
         public HomeState state_Home;
         public HomeSystemEvents events_Home;
     }

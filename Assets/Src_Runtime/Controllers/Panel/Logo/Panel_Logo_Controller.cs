@@ -5,7 +5,13 @@ namespace Hamdoku.Controllers {
         public static void Open(GameContext ctx) {
             var panel = ctx.panel_Logo;
             var config = ctx.logoConfig;
-            panel.Ctor();
+            var localization = ctx.l10NModule;
+            var saves = ctx.saveModule;
+            var startupConfig = config.startupHomeConfig;
+            var loaded = saves.Load(startupConfig, Application.persistentDataPath);
+            localization.AddAll(config.startupTexts, config.startupFonts);
+            localization.Language_Set(loaded == null ? startupConfig.defaultLanguage : loaded.language);
+            panel.Ctor(localization);
             panel.completedHandle = () => {
                 LoadingController.CompleteLogo(ctx);
             };
@@ -16,6 +22,18 @@ namespace Hamdoku.Controllers {
             panel.gameObject.SetActive(true);
             RefreshSafeArea(ctx);
             panel.Init(config);
+            RefreshText(ctx);
+        }
+
+        public static void RefreshText(GameContext ctx) {
+            var panel = ctx.panel_Logo;
+            var localization = ctx.l10NModule;
+            if (!localization.TryGet(UINameType.Loading_Quote, out string quote) ||
+                !localization.TryGet(UINameType.Loading_Author, out string author) ||
+                !localization.TryGet(UINameType.Loading_Copyright, out string copyright)) {
+                throw new System.InvalidOperationException("Missing loading screen localization.");
+            }
+            panel.SetText(quote, author, copyright);
         }
 
         public static void Tick(GameContext ctx, float deltaTime) {

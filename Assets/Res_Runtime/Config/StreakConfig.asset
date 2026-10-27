@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 092f398a40b340ec90c9cbba9f612909, type: 3}
+  m_Name: StreakConfig
+  m_EditorClassIdentifier: Hamdoku::Hamdoku.StreakConfigSO
+  cycleDays: 7
+  rewardHints: 00000000000000000100000000000000000000000000000001000000
+  rewardGuides: 00000000000000000000000000000000010000000000000001000000
+  recoveryEnabled: 1
+  recoveryMaxGapDays: 1
+  recoveryMinStreak: 2
+  companionDays: 0a0000000e000000150000001e0000002d0000003c0000005a000000
+  plants:
+  - {fileID: 21300000, guid: 6ae8bcca81efd3a47b1b32f1b2531e0b, type: 3}
+  - {fileID: 21300000, guid: 526adadf9fe27974fb35d6b55eecf3c0, type: 3}
+  - {fileID: 21300000, guid: ce6327795c8fd8d4fb75418be752d6fe, type: 3}
+  - {fileID: 21300000, guid: a58b2a3614c73be45ab3902d05e58428, type: 3}
+  - {fileID: 21300000, guid: 3f7832c2b1703d244a652d9347bc9e90, type: 3}
+  - {fileID: 21300000, guid: d59c9e95fca3f624f92f28ba731ab80b, type: 3}
+  smallGift: {fileID: 21300000, guid: 1ed1a6ee94323d643a3d4ba41fce1712, type: 3}
+  bigGift: {fileID: 21300000, guid: 57a2a578b3cdc784991fa785604a1cbb, type: 3}
+  check: {fileID: 21300000, guid: 54d7937f1c635f741b57cd1d096a6fa0, type: 3}
+  aura: {fileID: 21300000, guid: 6551ff4fd2fb02443a5dd190c3e0fe3d, type: 3}
+  petal: {fileID: 21300000, guid: bb57b43b727de8d419734a0663c78239, type: 3}
+  flowerHead: {fileID: 21300000, guid: ab798723a85c78f49ad5732dfbba95af, type: 3}
+  butterflies:
+  - {fileID: 21300000, guid: 46046a68110030048a13dbe56a25c083, type: 3}
+  - {fileID: 21300000, guid: b64667bbfcded5c4782c70638d998f6e, type: 3}
+  - {fileID: 21300000, guid: e778bf3d7ef807148805be697bac3d01, type: 3}
+  - {fileID: 21300000, guid: f6c0d01fe2f4bdb49a8b5589c6d7b321, type: 3}
+  completedColor: {r: 0.9433962, g: 0.550576, b: 0.1824493, a: 1}
+  emptyColor: {r: 0.89, g: 0.84, b: 0.7, a: 1}
+  todayColor: {r: 1, g: 0.55, b: 0.03, a: 1}
+  weekdayColor: {r: 0.69, g: 0.57, b: 0.39, a: 1}
+  auraColor: {r: 0.1214, g: 0.8302, b: 0.823, a: 0.3}
+  plantSize: 600
+  plantReferencePixels: 540
+  plantPosition: {x: 0, y: 430}
+  swayDegrees: 2.4
+  swaySeconds: 3.2
+  auraBreath: 0.4
+  introSeconds: 0.45
+  butterflySeconds: 22
+  butterflyFlapSeconds: 0.18
+  stampSeconds: 0.45
+  petalCount: 12
+  petalInterval: 0.055
+  petalLength: 123
+  petalOutset: 0.55
+  flowerHeadPosition: {x: 0, y: 298}
+  flowerHeadSize: 148
+  butterflyRange: {x: 204, y: 60}
+  butterflyHeight: 150

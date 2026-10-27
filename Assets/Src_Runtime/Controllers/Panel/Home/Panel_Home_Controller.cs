@@ -9,6 +9,15 @@ namespace Hamdoku.Controllers {
             if (openType == UIOpenType.FirstOpen) {
                 var localization = ctx.l10NModule;
                 panel.Ctor(localization);
+                panel.shopHandle = () => {
+                    HomeController.Request(ctx, HomeRequestType.Shop);
+                };
+                panel.profileHandle = () => {
+                    HomeController.Request(ctx, HomeRequestType.Profile);
+                };
+                panel.streakHandle = () => {
+                    HomeController.Request(ctx, HomeRequestType.Streak);
+                };
                 panel.campaignHandle = () => {
                     HomeController.RequestCampaign(ctx);
                 };
@@ -26,6 +35,8 @@ namespace Hamdoku.Controllers {
                 };
             }
             panel.Init();
+            var assets = ctx.assetModule;
+            panel.InitSunflower(assets.GetHomeConfig());
             Refresh(ctx);
             RefreshSafeArea(ctx, true);
         }
@@ -99,7 +110,8 @@ namespace Hamdoku.Controllers {
             var assets = ctx.assetModule;
             var config = assets.GetHomeConfig();
             if (panels.TryGet(PanelType.Home, out Panel_Home panel)) {
-                panel.Tick(deltaTime, config.idleBreatheAmount, config.idleBreatheSpeed);
+                panel.Tick(deltaTime, config.idleBreatheAmount, config.idleBreatheSpeed,
+                    config.idleBobHeight, config.idleBobSpeed);
             }
             RefreshSafeArea(ctx, false);
         }

@@ -5,6 +5,7 @@ namespace Hamdoku {
         public bool isOpen;
         public bool disposed;
         public bool saveInitialized;
+        public bool tutorialRequested;
         public bool dailyUnlocked;
         public bool rankingUnlocked;
         public bool endlessUnlocked;

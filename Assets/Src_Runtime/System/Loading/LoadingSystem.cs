@@ -24,7 +24,8 @@ namespace Hamdoku {
                         LoadingController.LoadAssets(ctx);
                     }
                     var config = ctx.logoConfig;
-                    if (state.assetsLoaded && state.logoCompleted && state.elapsedSeconds >= config.minShowSeconds) {
+                    if (state.assetsLoaded && state.logoCompleted && state.elapsedSeconds >= config.minShowSeconds &&
+                        state.finishHoldElapsed >= config.finishHoldSeconds) {
                         LoadingController.SetReady(ctx);
                     }
                 }

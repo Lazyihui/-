@@ -13,6 +13,8 @@ namespace Hamdoku.Controllers {
             }
             state.status = LoadingStatus.Loading;
             state.elapsedSeconds = 0;
+            state.progress = 0;
+            state.finishHoldElapsed = 0;
             state.logoCompleted = false;
             state.readyNotified = false;
             state.error = null;
@@ -29,6 +31,19 @@ namespace Hamdoku.Controllers {
         public static void Advance(GameContext ctx, float deltaTime) {
             var state = ctx.state_Loading;
             state.elapsedSeconds += deltaTime;
+            var config = ctx.logoConfig;
+            var assets = ctx.assetModule;
+            float presentation = Mathf.Clamp01(state.elapsedSeconds / config.minShowSeconds);
+            float readiness = state.assetsLoaded ? 1 : assets.GetLoadProgress();
+            if (!state.logoCompleted) {
+                readiness = Mathf.Min(readiness, 1f - 1f / config.seedCount);
+            }
+            state.progress = Mathf.Max(state.progress, Mathf.Min(presentation, readiness));
+            if (state.progress >= 1) {
+                state.finishHoldElapsed += deltaTime;
+            }
+            var panel = ctx.panel_Logo;
+            panel.SetProgress(state.progress);
         }
 
         public static void LoadAssets(GameContext ctx) {
