@@ -1,0 +1,389 @@
+{
+  "gameName": "Sudoku Pup",
+  "date": "2026-10-27",
+  "status": "sliced-artwork-not-unity-validated",
+  "approvedPage": "../../../previews/Panel_Logo_overall_v01_1080x1920.png",
+  "sourceDirectory": "Assets/Res_Runtime/UI/Logo",
+  "outputDirectory": "Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo",
+  "note": "Names and pixel sizes match current runtime directory. Do not copy meta files. Existing layout does not match taller approved plaque; animation display sizes/centers need integration before runtime equivalence can be claimed. Chinese quote and credits stay TMP/localization text, not baked into background.",
+  "assets": [
+    {
+      "file": "Img_Common_Logo.png",
+      "width": 871,
+      "height": 627,
+      "mode": "RGBA",
+      "description": "Approved page logo extracted without regenerating its face or lettering.",
+      "sourceRect1080x1920": [
+        60,
+        420,
+        1020,
+        1250
+      ],
+      "normalization": {
+        "trim": [
+          1,
+          6,
+          959,
+          828
+        ],
+        "fitScale": 0.7603406326034063,
+        "padding": [
+          71,
+          1
+        ],
+        "contentSize": [
+          728,
+          625
+        ]
+      },
+      "sha256": "19a68dcb07c82e1c0ec4cff3c879310c257db522796cb0bc38c589307b5c0697"
+    },
+    {
+      "file": "bg_Common_Menu.png",
+      "width": 945,
+      "height": 2048,
+      "mode": "RGBA",
+      "description": "Generated clean background; no logo, text or loading icons.",
+      "sourceRect1080x1920": null,
+      "normalization": {},
+      "sha256": "3d8356138a4c109f3d92ca049da798188da33b23b5cda053887e5949e6241fc8"
+    },
+    {
+      "file": "Img_Logo_BoardBack.png",
+      "width": 867,
+      "height": 273,
+      "mode": "RGBA",
+      "description": "Reconstructed blank cream sign with blue inner trim; no letters.",
+      "sourceRect1080x1920": null,
+      "normalization": {
+        "trim": [
+          0,
+          0,
+          1811,
+          856
+        ],
+        "fitScale": 0.316588785046729,
+        "padding": [
+          147,
+          1
+        ],
+        "contentSize": [
+          573,
+          271
+        ]
+      },
+      "sha256": "0f65dea64bf887741bc91a86225f898e87a42b68b4bb78058e89bdc7a18ae868"
+    },
+    {
+      "file": "Img_Logo_BoardFront.png",
+      "width": 729,
+      "height": 177,
+      "mode": "RGBA",
+      "description": "Transparent Sudoku Pup lettering, sudoku grid and blue ornaments extracted from approved page.",
+      "sourceRect1080x1920": [
+        100,
+        850,
+        980,
+        1210
+      ],
+      "normalization": {
+        "trim": [
+          33,
+          5,
+          841,
+          343
+        ],
+        "fitScale": 0.5177514792899408,
+        "padding": [
+          155,
+          1
+        ],
+        "contentSize": [
+          418,
+          175
+        ]
+      },
+      "sha256": "cd26bfe91013da122cf6f00e158d25f0a8fca70b265e54655f797a7f14d128ef"
+    },
+    {
+      "file": "Img_Logo_HamsterBody.png",
+      "width": 588,
+      "height": 407,
+      "mode": "RGBA",
+      "description": "Puppy base extracted from approved page, with eyes removed for overlay animation.",
+      "sourceRect1080x1920": [
+        160,
+        425,
+        920,
+        825
+      ],
+      "normalization": {
+        "trim": [
+          8,
+          1,
+          748,
+          385
+        ],
+        "fitScale": 0.7918918918918919,
+        "padding": [
+          1,
+          51
+        ],
+        "contentSize": [
+          586,
+          304
+        ]
+      },
+      "sha256": "6e2228fa70d09ae316124315c3d1afe1fea880d16c7d15332d3e743cabf56057"
+    },
+    {
+      "file": "Img_Logo_HamsterMask.png",
+      "width": 648,
+      "height": 459,
+      "mode": "RGBA",
+      "description": "White technical clipping mask derived from the puppy base silhouette.",
+      "sourceRect1080x1920": [
+        160,
+        425,
+        920,
+        825
+      ],
+      "normalization": {
+        "trim": [
+          8,
+          1,
+          748,
+          385
+        ],
+        "fitScale": 0.8729729729729729,
+        "padding": [
+          1,
+          62
+        ],
+        "contentSize": [
+          646,
+          335
+        ]
+      },
+      "sha256": "c2ade232539f898b33e52905bc4fc2f3ec03f500800556ff6a282972d2e7c52b"
+    },
+    {
+      "file": "Img_Logo_Eyes_Open.png",
+      "width": 249,
+      "height": 36,
+      "mode": "RGBA",
+      "description": "Two eyes extracted from approved puppy.",
+      "sourceRect1080x1920": [
+        412,
+        643,
+        667,
+        706
+      ],
+      "normalization": {
+        "trim": [
+          6,
+          4,
+          248,
+          57
+        ],
+        "fitScale": 0.6415094339622641,
+        "padding": [
+          47,
+          1
+        ],
+        "contentSize": [
+          155,
+          34
+        ]
+      },
+      "sha256": "ac6753588d07b637d87e815bd4723f20b8644a720e2fa42a749360edc4557722"
+    },
+    {
+      "file": "Img_Logo_Eyes_Blink.png",
+      "width": 236,
+      "height": 57,
+      "mode": "RGBA",
+      "description": "Generated two closed-eye arcs; transparent overlay.",
+      "sourceRect1080x1920": null,
+      "normalization": {
+        "trim": [
+          284,
+          340,
+          1626,
+          482
+        ],
+        "fitScale": 0.17436661698956782,
+        "padding": [
+          1,
+          16
+        ],
+        "contentSize": [
+          234,
+          25
+        ]
+      },
+      "sha256": "7fa9b2297ec8d21276c8faf98ac1dd546a91850df7478245537be7448a0d01c5"
+    },
+    {
+      "file": "Img_Logo_BellyOverlay.png",
+      "width": 641,
+      "height": 162,
+      "mode": "RGBA",
+      "description": "Two foreground puppy paws, replacing original belly seam cover.",
+      "sourceRect1080x1920": [
+        300,
+        758,
+        780,
+        860
+      ],
+      "normalization": {
+        "trim": [
+          9,
+          8,
+          467,
+          95
+        ],
+        "fitScale": 1.3951965065502183,
+        "padding": [
+          1,
+          20
+        ],
+        "contentSize": [
+          639,
+          121
+        ]
+      },
+      "sha256": "8462a9c714711bb9b87461fd9ea67ba4b876a862f2e11e2a3757975acf611705"
+    },
+    {
+      "file": "Img_Logo_LoadingSeed.png",
+      "width": 95,
+      "height": 128,
+      "mode": "RGBA",
+      "description": "Filled paw biscuit extracted from approved loading row.",
+      "sourceRect1080x1920": [
+        297,
+        1505,
+        386,
+        1596
+      ],
+      "normalization": {
+        "trim": [
+          2,
+          4,
+          87,
+          87
+        ],
+        "fitScale": 1.0941176470588236,
+        "padding": [
+          1,
+          18
+        ],
+        "contentSize": [
+          93,
+          91
+        ]
+      },
+      "sha256": "c6af2755e348f987039471cf5b7e46cb9ed154f914a366d016a9a62e03921a9e"
+    },
+    {
+      "file": "Img_Logo_LoadingSeed_Empty.png",
+      "width": 108,
+      "height": 128,
+      "mode": "RGBA",
+      "description": "Hollow paw-shaped empty loading indicator extracted from approved page.",
+      "sourceRect1080x1920": [
+        497,
+        1505,
+        585,
+        1596
+      ],
+      "normalization": {
+        "trim": [
+          4,
+          5,
+          86,
+          85
+        ],
+        "fitScale": 1.2926829268292683,
+        "padding": [
+          1,
+          12
+        ],
+        "contentSize": [
+          106,
+          103
+        ]
+      },
+      "sha256": "2427e91399ae517ff4eb34723f9bd32850871b89f98e066fd2e02334575631fc"
+    },
+    {
+      "file": "Img_Logo_Cross.png",
+      "width": 88,
+      "height": 89,
+      "mode": "RGBA",
+      "description": "Blue paw stamp replaces original X mark.",
+      "sourceRect1080x1920": [
+        137,
+        1015,
+        198,
+        1082
+      ],
+      "normalization": {
+        "trim": [
+          0,
+          6,
+          58,
+          67
+        ],
+        "fitScale": 1.4262295081967213,
+        "padding": [
+          2,
+          1
+        ],
+        "contentSize": [
+          83,
+          87
+        ]
+      },
+      "sha256": "e5a26d1ca31b4d0b0e2ec1e760108e3fbdb920b0084b56a731ec5faf7ae3ae66"
+    },
+    {
+      "file": "Img_Logo_LoadingSeed_Pop.png",
+      "width": 128,
+      "height": 76,
+      "mode": "RGBA",
+      "description": "Three paw pop pieces preserving existing Unity sprite rects and indices.",
+      "unitySpriteRects": [
+        {
+          "name": "seed_pop_0",
+          "rect": [
+            0,
+            1,
+            45,
+            51
+          ]
+        },
+        {
+          "name": "seed_pop_1",
+          "rect": [
+            43,
+            14,
+            41,
+            61
+          ]
+        },
+        {
+          "name": "seed_pop_2",
+          "rect": [
+            83,
+            1,
+            45,
+            51
+          ]
+        }
+      ],
+      "sha256": "46dad50b41200e98f8d787d49633cb9fa871a6abfc0b8d2ca64e589bb5a1778f"
+    }
+  ]
+}

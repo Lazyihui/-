@@ -135,13 +135,13 @@ function showAsset(asset) {
   $('#asset-title').textContent = asset.name; $('#asset-preview').replaceChildren();
   if (asset.type === 'Sprite') { const img = document.createElement('img'); img.src = asset.file; img.alt = asset.name; $('#asset-preview').append(img); }
   else { const link = document.createElement('a'); link.href = asset.file; link.textContent = '查看原始字体文件 ↗'; $('#asset-preview').append(link); }
-  $('#asset-detail').textContent = JSON.stringify(asset, null, 2) + '\n\nalphaBounds：裁切后 PNG 的透明像素边界；不是 Unity Sprite rect。spriteBorder=null：未核对切片，不代表无切片。';
+  $('#asset-detail').textContent = JSON.stringify(asset, null, 2) + '\n\nalphaBounds：导出 PNG 的透明边界。spriteRect / spriteBorder / pixelsPerUnit 为原作 Sprite 元数据；exportBorderLTRB 为考虑 textureRectOffset 的导出 PNG 切片。零切片资源不启用九宫格。';
   $('#asset-dialog').showModal();
 }
 function updateAssets(reset = false) {
   if (reset) { page = 0; }
   const query = $('#asset-search').value.trim().toLowerCase(); const type = $('#asset-type').value;
-  const matches = catalog.assets.filter(asset => (type === 'all' || asset.type === type) && (asset.name + ' ' + asset.key + ' ' + asset.source).toLowerCase().includes(query));
+  const matches = catalog.assets.filter(asset => (type === 'all' || asset.type === type) && (!window.assetPurposeMatches || window.assetPurposeMatches(asset)) && (asset.name + ' ' + asset.key + ' ' + asset.source).toLowerCase().includes(query));
   const pages = Math.max(1, Math.ceil(matches.length / pageSize)); page = Math.min(page, pages - 1);
   $('#asset-visible').textContent = matches.length + ' 项'; $('#asset-grid').replaceChildren();
   for (const asset of matches.slice(page * pageSize, (page + 1) * pageSize)) {

@@ -40,3 +40,354 @@ window.UI_LIBRARY_CONFIG = {
     sound: 'Sprite:resources.assets:1378', vibration: 'Sprite:resources.assets:972'
   }
 };
+
+/* 第二版组件参数；商品价格为用户截图中的展示值，不是实时商店报价。 */
+window.UI_LIBRARY_CONFIG.components = {
+  "buttons": {
+    "orange": {
+      "asset": "Sprite:resources.assets:1177",
+      "faceBounds": [
+        1,
+        1,
+        1023,
+        275
+      ],
+      "faceMethod": "对原 PNG 的高不透明亮色面做像素阈值测量，排除深色投影；需截图光学校准",
+      "borderWidth": 14,
+      "textColor": "#694735"
+    },
+    "blue": {
+      "asset": "Sprite:resources.assets:1108",
+      "faceBounds": [
+        5,
+        5,
+        503,
+        155
+      ],
+      "faceMethod": "对原 PNG 的高不透明亮色面做像素阈值测量，排除深色投影；需截图光学校准",
+      "borderWidth": 14,
+      "textColor": "#694735"
+    },
+    "yellow": {
+      "asset": "Sprite:resources.assets:823",
+      "faceBounds": [
+        4,
+        5,
+        502,
+        148
+      ],
+      "faceMethod": "对原 PNG 的高不透明亮色面做像素阈值测量，排除深色投影；需截图光学校准",
+      "borderWidth": 14,
+      "textColor": "#694735"
+    },
+    "pink": {
+      "asset": "Sprite:resources.assets:1122",
+      "faceBounds": [
+        6,
+        6,
+        475,
+        156
+      ],
+      "faceMethod": "对原 PNG 的高不透明亮色面做像素阈值测量，排除深色投影；需截图光学校准",
+      "borderWidth": 14,
+      "textColor": "#694735"
+    },
+    "cream": {
+      "asset": "Sprite:resources.assets:1200",
+      "faceBounds": [
+        1,
+        2,
+        1022,
+        232
+      ],
+      "faceMethod": "对原 PNG 的高不透明亮色面做像素阈值测量，排除深色投影；需截图光学校准",
+      "borderWidth": 14,
+      "textColor": "#694735"
+    }
+  },
+  "buttonSizes": {
+    "standard": {
+      "paddingX": 24,
+      "paddingY": 12,
+      "fontSize": 19,
+      "height": 54
+    },
+    "compact": {
+      "paddingX": 16,
+      "paddingY": 8,
+      "fontSize": 15,
+      "height": 44
+    }
+  },
+  "spacing": {
+    "initial": 12,
+    "min": 4,
+    "max": 32
+  },
+  "layout": {
+    "screenWidth": 390,
+    "sidebarBreakpoint": 700,
+    "gridBreakpoint": 1100
+  },
+  "settings": [
+    {
+      "key": "sfx",
+      "label": "音效",
+      "icon": "icon_sfx",
+      "type": "switch",
+      "value": true
+    },
+    {
+      "key": "music",
+      "label": "音乐",
+      "icon": "icon_music",
+      "type": "switch",
+      "value": true
+    },
+    {
+      "key": "voice",
+      "label": "连击语音",
+      "icon": "icon_combo_voice",
+      "type": "choice",
+      "value": "男声"
+    },
+    {
+      "key": "vibration",
+      "label": "震动",
+      "icon": "icon_vibration",
+      "type": "switch",
+      "value": true
+    },
+    {
+      "key": "borders",
+      "label": "区域边框",
+      "icon": "icon_border",
+      "type": "switch",
+      "value": false
+    },
+    {
+      "key": "patterns",
+      "label": "图案",
+      "icon": "icon_pattern",
+      "type": "switch",
+      "value": true
+    },
+    {
+      "key": "language",
+      "label": "语言",
+      "icon": "icon_language",
+      "type": "link",
+      "value": "简体中文"
+    }
+  ],
+  "observedBoard": [
+    [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      2
+    ],
+    [
+      3,
+      7,
+      7,
+      3,
+      3,
+      3,
+      2,
+      3,
+      2
+    ],
+    [
+      7,
+      7,
+      3,
+      3,
+      2,
+      2,
+      2,
+      3,
+      2
+    ],
+    [
+      7,
+      7,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      2
+    ],
+    [
+      7,
+      7,
+      7,
+      7,
+      1,
+      2,
+      6,
+      6,
+      6
+    ],
+    [
+      8,
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2,
+      5
+    ],
+    [
+      8,
+      8,
+      8,
+      8,
+      1,
+      1,
+      5,
+      5,
+      5
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1,
+      5,
+      5,
+      5,
+      9
+    ],
+    [
+      0,
+      0,
+      1,
+      1,
+      1,
+      1,
+      5,
+      9,
+      9
+    ]
+  ],
+  "patternColors": {
+    "3": 3,
+    "7": 7,
+    "2": 2,
+    "1": 1,
+    "6": 6,
+    "8": 8,
+    "5": 5,
+    "9": 9,
+    "0": 0
+  },
+  "products": [
+    {
+      "id": 1,
+      "title": "完美新手礼包",
+      "image": "offer_art_starter_pack",
+      "price": "US$6.49",
+      "quantity": "放大镜 5 · 提示 5 · 永久移除广告",
+      "featured": true
+    },
+    {
+      "id": 2,
+      "title": "移除广告 · 1天",
+      "image": "shop_remove_ads",
+      "price": "US$1.19",
+      "quantity": "1天"
+    },
+    {
+      "id": 3,
+      "title": "移除广告 · 1周",
+      "image": "shop_remove_ads",
+      "price": "US$3.69",
+      "quantity": "1周"
+    },
+    {
+      "id": 4,
+      "title": "移除广告 · 永久",
+      "image": "shop_remove_ads",
+      "price": "US$8.99",
+      "quantity": "永久"
+    },
+    {
+      "id": 5,
+      "title": "放大镜 · 5个",
+      "image": "shop_magnifier",
+      "price": "US$1.19",
+      "quantity": "×5"
+    },
+    {
+      "id": 6,
+      "title": "放大镜 · 20个",
+      "image": "shop_magnifier",
+      "price": "US$3.69",
+      "quantity": "×20"
+    },
+    {
+      "id": 7,
+      "title": "放大镜 · 50个",
+      "image": "shop_magnifier",
+      "price": "US$8.99",
+      "quantity": "×50"
+    }
+  ],
+  "sampleRanks": [
+    {
+      "name": "示例玩家 A",
+      "score": 1280
+    },
+    {
+      "name": "示例玩家 B",
+      "score": 960
+    },
+    {
+      "name": "我（示例）",
+      "score": 576
+    }
+  ],
+  "typeScale": [
+    {
+      "name": "页面标题",
+      "size": 28,
+      "weight": 700,
+      "line": 1.3
+    },
+    {
+      "name": "区块标题",
+      "size": 22,
+      "weight": 700,
+      "line": 1.4
+    },
+    {
+      "name": "正文 / 按钮",
+      "size": 18,
+      "weight": 500,
+      "line": 1.5
+    },
+    {
+      "name": "辅助信息",
+      "size": 14,
+      "weight": 400,
+      "line": 1.5
+    },
+    {
+      "name": "数值",
+      "size": 32,
+      "weight": 700,
+      "line": 1.2
+    }
+  ]
+};

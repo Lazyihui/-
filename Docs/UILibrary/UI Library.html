@@ -1,8 +1,9 @@
 <!doctype html>
 <html lang="zh-CN">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hamdoku · UI Library</title><link rel="stylesheet" href="UI Library.css"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Hamdoku · UI Library</title><link rel="stylesheet" href="UI Library.css"><link rel="stylesheet" href="UI Library.components.css"></head>
 <body>
 <aside class="sidebar"><a class="wordmark" href="#overview">Hamdoku<span>UI LIBRARY / 01</span></a><nav aria-label="组件目录">
+<a href="玩法分析.html">玩法分析 ↗</a>
 <a href="#foundations">01　色彩与文字</a><a href="#geometry">02　布局与间距</a><a href="#controls">03　控件与状态</a><a href="#home">04　首页组件</a><a href="#board">05　棋盘与 HUD</a><a href="#feedback">06　弹层与反馈</a><a href="#motion">07　动效</a><a href="#assets">08　资源检索</a><a href="#implementation">09　Unity 对照</a><a href="#evidence">10　证据与缺口</a></nav><p>原作素材 · 离线预览<br>2026.10.27</p><a href="README.md">使用说明 ↗</a></aside>
 <main>
 <header id="overview"><div class="eyebrow">HAMDOKU2 / COMPONENT REFERENCE</div><h1>柔软的色彩，<br>清楚的每一次操作。</h1><p class="intro">从原作素材出发，为 Hamdoku2 建立可查看、可操作、可追溯的 UI 参考。</p><div class="stats"><span><b id="asset-count">—</b> 原始资源</span><span><b>12</b> 棋盘区域色</span><span><b>04</b> 当前工程截图</span></div><div class="notice">第一版 · 保留原作风格。页面中的业务状态为演示；首页参考当前实现，其余布局待原应用截图核对。</div><div class="links"><a href="Missing.md">缺少资料清单 ↗</a><a href="Verification.md">实际验证记录 ↗</a><button id="show-config" class="text-button">查看统一参数</button></div><pre id="config-view" hidden></pre></header>
@@ -22,5 +23,5 @@
 <dialog id="reward-dialog" class="game-dialog game-font"><button class="icon-button dialog-close" data-image="close" data-close aria-label="关闭通关反馈"></button><img class="reward-hamster" data-image="hamster" alt="开心的仓鼠"><h2>完成啦！</h2><p>通关反馈示例 · 不发放实际奖励</p><button class="game-button" data-close data-toast="继续按钮反馈：未进入下一关">继续</button></dialog>
 <dialog id="error-dialog" class="game-dialog game-font"><button class="icon-button dialog-close" data-image="close" data-close aria-label="关闭网络提示"></button><h2>需要网络连接</h2><p id="retry-message" aria-live="polite">网络失败状态示例</p><button class="game-button" id="retry-button">重试</button></dialog>
 <dialog id="asset-dialog" class="asset-dialog"><button class="dialog-close" data-close aria-label="关闭资源详情">关闭</button><h2 id="asset-title"></h2><div id="asset-preview"></div><pre id="asset-detail"></pre></dialog>
-<div id="toast" role="status" aria-live="polite" hidden></div><script src="catalog.js"></script><script src="UI Library.config.js"></script><script src="UI Library.js"></script>
+<div id="toast" role="status" aria-live="polite" hidden></div><script src="catalog.js"></script><script src="UI Library.config.js"></script><script src="UI Library.js"></script><script src="UI Library.components.js"></script>
 </body></html>

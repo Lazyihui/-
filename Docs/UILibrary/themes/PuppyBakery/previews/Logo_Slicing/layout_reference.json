@@ -1,0 +1,113 @@
+{
+  "status": "offline-artwork-layout-reference-not-applied",
+  "pageSize": [
+    1080,
+    1920
+  ],
+  "placements": [
+    {
+      "file": "Img_Common_Logo.png",
+      "pageCenterTopLeftOrigin": [
+        540.657967032967,
+        837.2293956043957
+      ],
+      "pageDisplaySize": [
+        1146.1785714285713,
+        825.0906593406594
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_HamsterBody.png",
+      "pageCenterTopLeftOrigin": [
+        538.0,
+        618.5767918088737
+      ],
+      "pageDisplaySize": [
+        742.5255972696245,
+        513.9590443686006
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_Eyes_Open.png",
+      "pageCenterTopLeftOrigin": [
+        539.0,
+        673.541935483871
+      ],
+      "pageDisplaySize": [
+        388.76129032258063,
+        56.20645161290322
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_BoardFront.png",
+      "pageCenterTopLeftOrigin": [
+        537.9665071770336,
+        1024.138755980861
+      ],
+      "pageDisplaySize": [
+        1409.1674641148327,
+        342.14354066985646
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_BellyOverlay.png",
+      "pageCenterTopLeftOrigin": [
+        538.0,
+        809.7214397496087
+      ],
+      "pageDisplaySize": [
+        459.433489827856,
+        116.11267605633803
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_LoadingSeed.png",
+      "pageCenterTopLeftOrigin": [
+        341.5,
+        1551.0430107526881
+      ],
+      "pageDisplaySize": [
+        86.82795698924731,
+        116.98924731182795
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_LoadingSeed_Empty.png",
+      "pageCenterTopLeftOrigin": [
+        542.0,
+        1550.2264150943397
+      ],
+      "pageDisplaySize": [
+        83.54716981132076,
+        99.01886792452831
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    }
+  ],
+  "blankBoardPageRect": [
+    60,
+    790,
+    960,
+    460
+  ],
+  "background": "Background has awning: runtime EnvelopeParent cropping may hide it; integrate background top alignment or separate awning after reviewing in Unity.",
+  "text": {
+    "quoteZh": "烤一份香甜，解一道数独。",
+    "authorZh": "— 小汪的烘焙日记 —",
+    "footer": "Sudoku Pup",
+    "runtime": "Use existing L10NSO and TMP, do not bake functional captions into background."
+  },
+  "integrationRequired": [
+    "LogoConfig part display sizes and centers must be updated for the approved taller two-line sign; old geometry is not equivalent.",
+    "Paws now use BellyOverlay slot; must appear over the sign edge.",
+    "Cross stamp is a blue paw, not a letter o insert; its display location needs integration.",
+    "Preserve destination meta files, GUIDs and sprite-pop subrect names/IDs.",
+    "Check the animated-to-static switch, clipping mask, blink alignment and actual portrait viewport in Unity."
+  ]
+}
