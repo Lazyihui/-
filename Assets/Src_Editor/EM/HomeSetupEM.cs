@@ -170,7 +170,7 @@ namespace Hamdoku.Editor {
             fitter.aspectRatio = background.sprite.rect.width / background.sprite.rect.height;
             panel.safeRoot = Rect("SafeRoot", root, Vector2.zero, Vector2.zero);
             Stretch(panel.safeRoot);
-            var content = Rect("Content", panel.safeRoot, new Vector2(1080, 1920), Vector2.zero);
+            var content = Rect("Content", panel.safeRoot, new Vector2(UIResolutionConst.WIDTH, UIResolutionConst.HEIGHT), Vector2.zero);
             panel.contentRoot = content;
 
             // Original cards group: bottom anchor 0.62, 460x495 daily card and two right cards.
@@ -289,6 +289,12 @@ namespace Hamdoku.Editor {
         }
 
         static void ConfigureAddressables(string prefabPath) {
+            var defaultObject = AssetDatabase.LoadAssetAtPath<AddressableAssetSettingsDefaultObject>(
+                "Assets/AddressableAssetsData/DefaultObject.asset");
+            if (defaultObject != null) {
+                EditorBuildSettings.AddConfigObject(AddressableAssetSettingsDefaultObject.kDefaultConfigObjectName,
+                    defaultObject, true);
+            }
             var settings = AddressableAssetSettingsDefaultObject.GetSettings(true);
             var group = settings.FindGroup("Home");
             if (group == null) {

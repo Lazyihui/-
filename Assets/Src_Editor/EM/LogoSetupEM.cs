@@ -34,9 +34,9 @@ namespace Hamdoku.Editor {
             canvas.renderMode = RenderMode.ScreenSpaceOverlay;
             var scaler = canvasRect.gameObject.AddComponent<UnityEngine.UI.CanvasScaler>();
             scaler.uiScaleMode = UnityEngine.UI.CanvasScaler.ScaleMode.ScaleWithScreenSize;
-            scaler.referenceResolution = new Vector2(1080, 1920);
+            scaler.referenceResolution = new Vector2(UIResolutionConst.WIDTH, UIResolutionConst.HEIGHT);
             scaler.screenMatchMode = UnityEngine.UI.CanvasScaler.ScreenMatchMode.MatchWidthOrHeight;
-            scaler.matchWidthOrHeight = 0.5f;
+            scaler.matchWidthOrHeight = UIResolutionConst.MATCH_WIDTH_OR_HEIGHT;
             canvasRect.gameObject.AddComponent<UnityEngine.UI.GraphicRaycaster>();
             var entity = canvasRect.gameObject.AddComponent<CanvasEntity>();
             entity.type = CanvasType.ScreenSpace;
