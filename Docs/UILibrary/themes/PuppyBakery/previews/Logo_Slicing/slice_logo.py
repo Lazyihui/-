@@ -8,7 +8,7 @@ ROOT=Path(r'D:/UnityProject/Hamdoku2')
 THEME=ROOT/'Docs/UILibrary/themes/PuppyBakery'
 WORK=THEME/'previews/Logo_Slicing'
 OUT=THEME/'assets/UI/Logo'
-ORIG=ROOT/'Assets/Res_Runtime/UI/Logo'
+ORIG=ROOT/'Assets/Res_Runtime/UI/Logo/old'
 SOURCE=Image.open(THEME/'previews/Panel_Logo_overall_v01_1080x1920.png').convert('RGBA')
 records=[]
 
@@ -90,7 +90,43 @@ for label in range(1,n+1):
   keep[labels==label]=True
 keep=ndi.binary_dilation(keep,iterations=1)&inside
 front=mask_image(front,keep)
-save('Img_Logo_BoardFront.png',front,'Transparent Sudoku Pup lettering, sudoku grid and blue ornaments extracted from approved page.',list(front_box))
+# Split the ivory paw inside letter 'o' from the lettering for independent stamping.
+fa=np.array(front)
+labels,count=ndi.label(fa[:,:,3]<128)
+holes=np.zeros(fa.shape[:2],bool)
+for idx,sl in enumerate(ndi.find_objects(labels),1):
+ if sl is None:continue
+ ys,xs=sl
+ if 480<xs.start<570 and 65<ys.start<145 and xs.stop<580 and ys.stop<155:
+  holes |= labels==idx
+if ndi.label(holes)[1]!=5:raise ValueError('Expected four toes and one center pad')
+expanded=ndi.binary_dilation(holes,iterations=2)
+original=np.array(SOURCE.crop(front_box))
+# Recover the pale colored pixels from the approved opaque page, not from the alpha holes.
+alpha=np.clip((original[:,:,0].astype(float)-150)/75,0,1)
+alpha*=expanded
+paw=np.array(original);paw[:,:,3]=np.round(alpha*255).astype('uint8')
+center_paw=clean(Image.fromarray(paw))
+center_paw_bounds=center_paw.getchannel('A').getbbox()
+center_paw=center_paw.crop(center_paw_bounds)
+center_paw.save(WORK/'center_paw_master.png')
+center_paw_page_box=[front_box[0]+center_paw_bounds[0],front_box[1]+center_paw_bounds[1],front_box[0]+center_paw_bounds[2],front_box[1]+center_paw_bounds[3]]
+# Fill its previous cutouts using adjacent actual dark letter texture.
+valid=(fa[:,:,3]>200)&(fa[:,:,0]<155)&(fa[:,:,1]<120)&(fa[:,:,2]<120)
+_,nearest=ndi.distance_transform_edt(~valid,return_indices=True)
+fa[expanded,:3]=fa[nearest[0][expanded],nearest[1][expanded],:3]
+fa[expanded,3]=255
+# Remove pale antialias remnants so the hidden paw leaves no ghost in letter o.
+inkmask=ndi.binary_dilation(holes,iterations=7)
+iy,ix=np.where(inkmask)
+inkbox=(int(ix.min()),int(iy.min()),int(ix.max()+1),int(iy.max()+1))
+inkbase=Image.fromarray(fa)
+donor=inkbase.crop((514,148,551,160)).resize((inkbox[2]-inkbox[0],inkbox[3]-inkbox[1]),Image.Resampling.BICUBIC)
+patch=inkbase.copy();patch.paste(donor,(inkbox[0],inkbox[1]))
+weight=np.array(Image.fromarray(inkmask.astype('uint8')*255).filter(ImageFilter.GaussianBlur(1))).astype(float)[:,:,None]/255
+fa[:,:,:3]=np.round(fa[:,:,:3]*(1-weight)+np.array(patch)[:,:,:3]*weight).astype('uint8')
+front=clean(Image.fromarray(fa))
+save('Img_Logo_BoardFront.png',front,'Sudoku Pup lettering with solid letter o; center ivory paw is a separate Cross animation layer.',list(front_box))
 front.save(WORK/'front_master.png')
 
 # Use original puppy pixels for visible anatomy; generated clean fur supplies eye-hole patches only.
@@ -117,8 +153,8 @@ head=clean(head)
 head.save(WORK/'head_master.png')
 save('Img_Logo_HamsterBody.png',head,'Puppy base extracted from approved page, with eyes removed for overlay animation.',list(head_box))
 # Mask is technical alpha, not visible colored artwork.
-mask=Image.new('RGBA',head.size,(255,255,255,0));mask.putalpha(head.getchannel('A'))
-save('Img_Logo_HamsterMask.png',mask,'White technical clipping mask derived from the puppy base silhouette.',list(head_box))
+mask=Image.new('RGBA',(648,459),(255,255,255,255))
+save('Img_Logo_HamsterMask.png',mask,'Opaque rectangular reveal aperture; final reveal size is authored in LogoConfig.',opaque=True)
 
 # Extract two open eyes with original separation.
 eye_box=(412,643,667,706)
@@ -175,7 +211,7 @@ stamp_box=(137,1015,198,1082)
 stamp=SOURCE.crop(stamp_box);a=np.array(stamp)
 blue=(a[:,:,2]>a[:,:,0]+8)&(a[:,:,1]>a[:,:,0]+4)&(a[:,:,0]<205)
 stamp=mask_image(stamp,ndi.binary_dilation(blue,iterations=1))
-save('Img_Logo_Cross.png',stamp,'Blue paw stamp replaces original X mark.',list(stamp_box))
+save('Img_Logo_Cross.png',center_paw,'Ivory paw from the center of the Sudoku letter o; independently animated stamping overlay.',center_paw_page_box)
 
 # Existing multiple-sprite contract uses three fixed rectangles; fill them from one extracted paw.
 pop=Image.new('RGBA',(128,76))
@@ -188,7 +224,7 @@ for i,(x,y,w,h) in enumerate(rects):
 pop=clean(pop);pop.save(OUT/'Img_Logo_LoadingSeed_Pop.png')
 records.append({'file':'Img_Logo_LoadingSeed_Pop.png','width':128,'height':76,'mode':'RGBA','description':'Three paw pop pieces preserving existing Unity sprite rects and indices.','unitySpriteRects':[{'name':'seed_pop_0','rect':[0,1,45,51]},{'name':'seed_pop_1','rect':[43,14,41,61]},{'name':'seed_pop_2','rect':[83,1,45,51]}],'sha256':hashlib.sha256((OUT/'Img_Logo_LoadingSeed_Pop.png').read_bytes()).hexdigest()})
 
-manifest={'gameName':'Sudoku Pup','date':'2026-10-27','status':'sliced-artwork-not-unity-validated','approvedPage':'../../../previews/Panel_Logo_overall_v01_1080x1920.png','sourceDirectory':'Assets/Res_Runtime/UI/Logo','outputDirectory':'Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo','note':'Names and pixel sizes match current runtime directory. Do not copy meta files. Existing layout does not match taller approved plaque; animation display sizes/centers need integration before runtime equivalence can be claimed. Chinese quote and credits stay TMP/localization text, not baked into background.','assets':records}
+manifest={'gameName':'Sudoku Pup','date':'2026-10-27','status':'sliced-artwork-not-unity-validated','approvedPage':'../../../previews/Panel_Logo_overall_v01_1080x1920.png','sourceDirectory':'Assets/Res_Runtime/UI/Logo/old','activeRuntimeDirectory':'Assets/Res_Runtime/UI/Logo/new','outputDirectory':'Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo','note':'Names and pixel sizes match current runtime directory. Do not copy meta files. Existing layout does not match taller approved plaque; animation display sizes/centers need integration before runtime equivalence can be claimed. Chinese quote and credits stay TMP/localization text, not baked into background.','assets':records}
 (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 # Contact sheet on a checkerboard, all outputs at readable scale.
 W,H=1200,5*230
@@ -204,6 +240,23 @@ for i,rec in enumerate(records):
  d.text((x+8,y+2),rec['file'],fill='#292929',font=font)
  d.text((x+8,y+19),f"{rec['width']} x {rec['height']}",fill='#555555',font=font)
 sheet.save(WORK/'contact_sheet_v01.png')
+# Local art correction: keep the established sprite transform while adding the missing blue toe.
+toe_path=WORK/'right_paw_added_toe.png'
+if toe_path.exists():
+ toe=Image.open(toe_path).convert('RGBA')
+ for name,point,master_name in [('Img_Logo_BoardFront.png',(835,226),'front_master.png'),('Img_Common_Logo.png',(875,656),'logo_extracted_master.png')]:
+  rec=next(r for r in records if r['file']==name)
+  meta=rec['normalization'];trim=meta['trim'];pad=meta['padding'];wh=meta['contentSize']
+  sx=wh[0]/(trim[2]-trim[0]);sy=wh[1]/(trim[3]-trim[1])
+  size=(max(1,round(toe.width*sx)),max(1,round(toe.height*sy)))
+  pos=(round(pad[0]+(point[0]-trim[0])*sx),round(pad[1]+(point[1]-trim[1])*sy))
+  asset=Image.open(OUT/name).convert('RGBA');asset.alpha_composite(toe.resize(size,Image.Resampling.LANCZOS),pos);asset.save(OUT/name)
+  source=Image.open(WORK/master_name).convert('RGBA');source.alpha_composite(toe,point);source.save(WORK/master_name)
+  rec['sha256']=hashlib.sha256((OUT/name).read_bytes()).hexdigest()
+  rec['postNormalizationPatch']={'file':'../../../previews/Logo_Slicing/right_paw_added_toe.png','positionInSprite':list(pos),'sizeInSprite':list(size)}
+ # Write the final hashes after applying the localized corrections.
+ (OUT/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
 # Mandatory file/size/alpha contract validation.
 report=[]
 for p in sorted(ORIG.glob('*.png')):
@@ -213,7 +266,7 @@ for p in sorted(ORIG.glob('*.png')):
  assert a.size==b.size,(p.name,a.size,b.size)
  assert b.mode=='RGBA'
  alpha=b.getchannel('A');lo,hi=alpha.getextrema()
- if p.name!='bg_Common_Menu.png':assert lo==0 and hi==255,p.name
+ if p.name not in ['bg_Common_Menu.png','Img_Logo_HamsterMask.png']:assert lo==0 and hi==255,p.name
  report.append({'file':p.name,'expectedSize':list(a.size),'actualSize':list(b.size),'alphaRange':[lo,hi],'pass':True})
 (WORK/'validation.json').write_text(json.dumps({'checks':report,'unityPlayMode':'not-run','runtimeReplacement':'not-performed'},indent=2)+'\n',encoding='utf-8')
 print('Created and size/alpha checked',len(records),'PNGs.')

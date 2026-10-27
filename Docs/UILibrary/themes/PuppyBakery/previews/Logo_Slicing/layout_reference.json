@@ -1,5 +1,5 @@
 {
-  "status": "offline-artwork-layout-reference-not-applied",
+  "status": "integrated-see-runtime-LogoConfig-for-current-geometry",
   "pageSize": [
     1080,
     1920
@@ -50,6 +50,18 @@
       "pageDisplaySize": [
         1409.1674641148327,
         342.14354066985646
+      ],
+      "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
+    },
+    {
+      "file": "Img_Logo_Cross.png",
+      "pageCenterTopLeftOrigin": [
+        631.5,
+        961.6802325581396
+      ],
+      "pageDisplaySize": [
+        74.69767441860465,
+        75.54651162790697
       ],
       "note": "Offline reconstruction placement only; integrate with LogoConfig and parent transforms separately."
     },
@@ -106,8 +118,10 @@
   "integrationRequired": [
     "LogoConfig part display sizes and centers must be updated for the approved taller two-line sign; old geometry is not equivalent.",
     "Paws now use BellyOverlay slot; must appear over the sign edge.",
-    "Cross stamp is a blue paw, not a letter o insert; its display location needs integration.",
+    "Cross stamp is the ivory paw inside letter o. Use its source-aware display center and size; the underlying letter o is now solid.",
     "Preserve destination meta files, GUIDs and sprite-pop subrect names/IDs.",
     "Check the animated-to-static switch, clipping mask, blink alignment and actual portrait viewport in Unity."
-  ]
+  ],
+  "runtimeConfig": "Assets/Res_Runtime/Config/LogoConfig.asset",
+  "verification": "Logs/LogoAnimationFix/verification.json"
 }

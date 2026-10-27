@@ -3,7 +3,7 @@
   "displayName": "小狗面包房 · 奶油白与雾灰蓝绘本风格",
   "status": "partial",
   "createdDate": "2026-10-27",
-  "note": "仅归档用户确认的首张素材；尚未接入 UI 参考库主题切换或 Unity 运行资源。沿用原文件名仅用于对应原素材。",
+  "note": "Panel_Logo图片与动画布局已接入当前工程，隔离副本通过视觉Play Mode检查；完整启动流程、内容打包和真机未在本次验证。",
   "assets": [
     {
       "original": "assets/Sprite/hamster_idle_04__sharedassets2.assets__6.png",
@@ -21,9 +21,18 @@
     {
       "page": "Panel_Logo",
       "manifest": "assets/UI/Logo/manifest.json",
-      "status": "sliced-artwork-not-unity-validated",
+      "status": "installed-animation-aligned-isolated-playmode-validated",
       "count": 13,
-      "review": "previews/Logo_Slicing/contact_sheet_v01.png"
+      "review": "previews/Logo_Slicing/contact_sheet_v01.png",
+      "runtimeDirectory": "Assets/Res_Runtime/UI/Logo/new"
+    },
+    {
+      "page": "Panel_Settings",
+      "manifest": "assets/UI/Settings/manifest.json",
+      "status": "sliced-offline-not-integrated",
+      "count": 28,
+      "review": "previews/Settings_Slicing/contact_sheet_v01.png",
+      "reassembled": "previews/Settings_Slicing/page_layers_reassembled_1080x1920.png"
     }
   ]
 }

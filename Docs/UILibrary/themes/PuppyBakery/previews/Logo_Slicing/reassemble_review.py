@@ -35,7 +35,7 @@ blank=Image.open(W/'plaque_blank_generated.png').convert('RGBA')
 a=np.array(blank);a[:,:,3]=np.where(a[:,:,3]>200,255,0).astype('uint8');blank=Image.fromarray(a)
 blank=blank.crop(blank.getchannel('A').getbbox()).resize((960,460),Image.Resampling.LANCZOS)
 layered.alpha_composite(blank,(60,790))
-for name in ['Img_Logo_BoardFront.png','Img_Logo_BellyOverlay.png']:
+for name in ['Img_Logo_BoardFront.png','Img_Logo_Cross.png','Img_Logo_BellyOverlay.png']:
  im,rect=restore(name);layered.alpha_composite(im,(rect[0],rect[1]))
 # Caption raster shown only in review to compare against approved page. Runtime remains TMP.
 for box in [(220,1285,865,1430),(450,1820,650,1875)]:
@@ -49,7 +49,7 @@ for name,centers in [('Img_Logo_LoadingSeed.png',[342,441]),('Img_Logo_LoadingSe
   static.alpha_composite(im,(round(center-im.width/2),rect[1]));layered.alpha_composite(im,(round(center-im.width/2),rect[1]))
 static.save(W/'page_static_reassembled_1080x1920.png')
 layered.save(W/'page_layers_reassembled_1080x1920.png')
-layout_data={'status':'offline-artwork-layout-reference-not-applied','pageSize':[1080,1920],'placements':layout,'blankBoardPageRect':[60,790,960,460],'background':'Background has awning: runtime EnvelopeParent cropping may hide it; integrate background top alignment or separate awning after reviewing in Unity.','text':{'quoteZh':'烤一份香甜，解一道数独。','authorZh':'— 小汪的烘焙日记 —','footer':'Sudoku Pup','runtime':'Use existing L10NSO and TMP, do not bake functional captions into background.'},'integrationRequired':['LogoConfig part display sizes and centers must be updated for the approved taller two-line sign; old geometry is not equivalent.','Paws now use BellyOverlay slot; must appear over the sign edge.','Cross stamp is a blue paw, not a letter o insert; its display location needs integration.','Preserve destination meta files, GUIDs and sprite-pop subrect names/IDs.','Check the animated-to-static switch, clipping mask, blink alignment and actual portrait viewport in Unity.']}
+layout_data={'status':'offline-artwork-layout-reference-not-applied','pageSize':[1080,1920],'placements':layout,'blankBoardPageRect':[60,790,960,460],'background':'Background has awning: runtime EnvelopeParent cropping may hide it; integrate background top alignment or separate awning after reviewing in Unity.','text':{'quoteZh':'烤一份香甜，解一道数独。','authorZh':'— 小汪的烘焙日记 —','footer':'Sudoku Pup','runtime':'Use existing L10NSO and TMP, do not bake functional captions into background.'},'integrationRequired':['LogoConfig part display sizes and centers must be updated for the approved taller two-line sign; old geometry is not equivalent.','Paws now use BellyOverlay slot; must appear over the sign edge.','Cross stamp is the ivory paw inside letter o. Use its source-aware display center and size; the underlying letter o is now solid.','Preserve destination meta files, GUIDs and sprite-pop subrect names/IDs.','Check the animated-to-static switch, clipping mask, blink alignment and actual portrait viewport in Unity.']}
 (W/'layout_reference.json').write_text(json.dumps(layout_data,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 # Keep root mapping comprehensive but don't imply implementation was performed.
 root_manifest=json.loads((T/'manifest.json').read_text(encoding='utf-8'))

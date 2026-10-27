@@ -1,0 +1,628 @@
+{
+  "page": "Panel_Settings",
+  "date": "2026-10-27",
+  "status": "sliced-offline-not-integrated",
+  "designSize": [
+    1080,
+    1920
+  ],
+  "generationTool": "built-in image_gen",
+  "approvedPage": "Panel_Settings_Style_1080x1920.png",
+  "sourceEvidence": [
+    "../../../../../PrefabCollection/OriginalConfigs/SettingsPopupLayout__resources.assets__1491.json",
+    "../../../../../references/original/settings.png"
+  ],
+  "note": "No settings prefab/runtime installed. Generated clean plates are reconstructed, not lossless crops. Text stays TMP/L10N, tracks and knob separate. borderLTRB is proposed Unity slicing in source pixels, requires import and runtime verification. Original config sizes are evidence, new visual sizes are implementation proposals. Background reuses Logo source. Preview text is offline only.",
+  "assets": [
+    {
+      "file": "Img_Settings_Panel.png",
+      "size": [
+        347,
+        462
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        45,
+        65,
+        417,
+        555
+      ],
+      "borderLTRB": [
+        65,
+        65,
+        65,
+        65
+      ],
+      "sha256": "3734dc88299279c43eb412ea8bbe101915a3286c2ff61b7245f65ac3c464b0e9"
+    },
+    {
+      "file": "Img_Settings_Title.png",
+      "size": [
+        374,
+        258
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        425,
+        175,
+        823,
+        460
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f5d77eca127d5c2f075adb1688fe01447c401f4a8299aa07a079af84236cb152"
+    },
+    {
+      "file": "Img_Settings_ButtonRestart.png",
+      "size": [
+        383,
+        131
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        830,
+        250,
+        1235,
+        410
+      ],
+      "borderLTRB": [
+        95,
+        40,
+        95,
+        40
+      ],
+      "sha256": "dfcabe97a70012bd7300c32a54eb56415763f28fb2de514ccea6f5e89b16ce45"
+    },
+    {
+      "file": "Img_Settings_ButtonTutorial.png",
+      "size": [
+        408,
+        140
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        15,
+        675,
+        445,
+        845
+      ],
+      "borderLTRB": [
+        95,
+        40,
+        95,
+        40
+      ],
+      "sha256": "bdad40c7bf685aca06da63be0377f37e37bb7134cfaa489241bb1b2165edac32"
+    },
+    {
+      "file": "Img_Settings_TrackOn.png",
+      "size": [
+        224,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        455,
+        680,
+        798,
+        840
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b1da77311d82495648cde329bde224ec8b77c8d9f0c96fce0e57785068d60e3d"
+    },
+    {
+      "file": "Img_Settings_TrackOff.png",
+      "size": [
+        224,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        860,
+        680,
+        1235,
+        840
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "6aa6c7596c6da04dc7b6a24328c2c81726516bcb49dde923a24e1275c042b97e"
+    },
+    {
+      "file": "Img_Settings_Knob.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "sourceRect": [
+        770,
+        344,
+        830,
+        404
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "8fe3c829658cadffc786813f34ef25753c63df4789f4fdc999255fe7b99fca38"
+    },
+    {
+      "file": "Img_Settings_Selector.png",
+      "size": [
+        387,
+        149
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        425,
+        965,
+        835,
+        1145
+      ],
+      "borderLTRB": [
+        75,
+        30,
+        75,
+        30
+      ],
+      "sha256": "0ab16788822b61e9c6629eb6aea6dc134ec37c7bcf6ab09e0062303af88c7541"
+    },
+    {
+      "file": "Img_Settings_Close.png",
+      "size": [
+        116,
+        116
+      ],
+      "mode": "RGBA",
+      "source": "structure_master.png",
+      "sourceRect": [
+        910,
+        925,
+        1155,
+        1175
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "32ac1745de57f34cfb5fdde9196af594013df0e9f53b5f3c42bb831cf7f46c59"
+    },
+    {
+      "file": "Img_Settings_Sound.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        70,
+        90,
+        340,
+        355
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f6586cadf0936c8ada39fdb312c12a44f2c149ebefa5cdaa39ca9b3298935e4a"
+    },
+    {
+      "file": "Img_Settings_Music.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        365,
+        90,
+        635,
+        355
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "b2931feae95ac995e92f8d9e4953c108383bdfc56dd2b8b14d1dd84e5c97da6a"
+    },
+    {
+      "file": "Img_Settings_Voice.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        660,
+        90,
+        930,
+        355
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "dbdd45ff44c6ba2ed253d4c1789661977e00ed90a13d591c379e684f1156ffbd"
+    },
+    {
+      "file": "Img_Settings_Vibration.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        950,
+        90,
+        1225,
+        355
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "195448fd5df6e90fa61d16d05734a0e56659527f523a01e03ced12b2a3fb5607"
+    },
+    {
+      "file": "Img_Settings_RegionBorder.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        70,
+        395,
+        340,
+        655
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "be88c1ca31d5f64d365d57b0b109f7b2afe3dcfbc0ef797a51be16179f5c3297"
+    },
+    {
+      "file": "Img_Settings_Pattern.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        365,
+        395,
+        635,
+        655
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "04017a3f6d7a5fdef4fc34e604b34c8c04576c6c5b3dc86a586d06f4d363179c"
+    },
+    {
+      "file": "Img_Settings_Language.png",
+      "size": [
+        100,
+        100
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        660,
+        395,
+        930,
+        655
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "98ac1394dd0763bbdffb6165506c70fee8bdf6d154ef13b3e7a2bddcc3f1c30a"
+    },
+    {
+      "file": "Img_Settings_ArrowLeft.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        1020,
+        450,
+        1155,
+        620
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "62af88ed0e03a4dca2632c18725a160f4b864d77d8d78b6cec504254ba1f3d3b"
+    },
+    {
+      "file": "Img_Settings_ArrowRight.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        130,
+        745,
+        250,
+        920
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "cd9c0c3d879b91a282a2a4611a86730d932ac5d5178446ab6948c3a46a8c8de2"
+    },
+    {
+      "file": "Img_Settings_Support.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        390,
+        735,
+        610,
+        930
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "34f1fcb6e7a2ade89290d2398b3006b129f8399a2a4690d88277d0305c2196fb"
+    },
+    {
+      "file": "Img_Settings_Privacy.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        685,
+        715,
+        900,
+        945
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "f69907bfc507f32cf906b07386b7e387325f0aae79c9cda6b78b5382e72ef652"
+    },
+    {
+      "file": "Img_Settings_Terms.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        1005,
+        715,
+        1190,
+        945
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "89d53de2bdffaeebfd00679f1d9b166e1ba0dee0fc6d7a279ea1d129688a5402"
+    },
+    {
+      "file": "Img_Settings_Restart.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        80,
+        990,
+        285,
+        1195
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "4cd647e856a267b8d2bff3591bde99b9e09611dc8190792b28eef5abaaa80061"
+    },
+    {
+      "file": "Img_Settings_Tutorial.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        365,
+        995,
+        625,
+        1195
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "112583a20c20ca3581d04367b00ab8be5252b88daf18a3b2771e7d705a06e7a4"
+    },
+    {
+      "file": "Img_Settings_PawPeach.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        695,
+        1000,
+        895,
+        1190
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "e0c1760441532fb724773ec3eb97246518627bb2d02c15215e63af447261d933"
+    },
+    {
+      "file": "Img_Settings_PawBlue.png",
+      "size": [
+        76,
+        76
+      ],
+      "mode": "RGBA",
+      "source": "icons_master.png",
+      "sourceRect": [
+        1005,
+        1000,
+        1210,
+        1190
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "edb4092ca9634565d99a373e35ec783c59e556a2764d08ffb5af17cd35bada10"
+    },
+    {
+      "file": "Img_Settings_Separator.png",
+      "size": [
+        745,
+        11
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "sourceRect": [
+        100,
+        429,
+        841,
+        436
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "d56dcb9a7c5c991a172e67bfa7bb3e0658d50634b1a4ca2fd14f3786a33cee5b"
+    },
+    {
+      "file": "Img_Settings_DividerPaw.png",
+      "size": [
+        780,
+        41
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "sourceRect": [
+        82,
+        1132,
+        858,
+        1169
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "46deb2093f171f02e6e04adbff6c850ae0353b91cf0cc4deb29c1fb161729613"
+    },
+    {
+      "file": "Bg_Settings.png",
+      "size": [
+        1080,
+        1920
+      ],
+      "mode": "RGBA",
+      "source": "../Logo/bg_Common_Menu.png",
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "sha256": "a0df97f6f2eda9851b66a1c7a8d4734287fcd4f926fa664e190154769f9532fa"
+    }
+  ]
+}

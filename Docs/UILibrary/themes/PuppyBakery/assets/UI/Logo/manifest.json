@@ -1,9 +1,9 @@
 {
   "gameName": "Sudoku Pup",
   "date": "2026-10-27",
-  "status": "sliced-artwork-not-unity-validated",
+  "status": "installed-animation-aligned-isolated-playmode-validated",
   "approvedPage": "../../../previews/Panel_Logo_overall_v01_1080x1920.png",
-  "sourceDirectory": "Assets/Res_Runtime/UI/Logo",
+  "sourceDirectory": "Assets/Res_Runtime/UI/Logo/old",
   "outputDirectory": "Docs/UILibrary/themes/PuppyBakery/assets/UI/Logo",
   "note": "Names and pixel sizes match current runtime directory. Do not copy meta files. Existing layout does not match taller approved plaque; animation display sizes/centers need integration before runtime equivalence can be claimed. Chinese quote and credits stay TMP/localization text, not baked into background.",
   "assets": [
@@ -36,7 +36,28 @@
           625
         ]
       },
-      "sha256": "19a68dcb07c82e1c0ec4cff3c879310c257db522796cb0bc38c589307b5c0697"
+      "sha256": "9a7a8d332916d92f2bd6c554cc5235925e04c8abd78bc8b1f00a0fca2dd98d1b",
+      "localCorrections": [
+        {
+          "type": "missing-right-blue-toe",
+          "pagePosition": [
+            935,
+            1076
+          ],
+          "note": "Added one matching oval toe to the right decoration; preserved existing sprite dimensions and display transform."
+        }
+      ],
+      "postNormalizationPatch": {
+        "file": "../../../previews/Logo_Slicing/right_paw_added_toe.png",
+        "positionInSprite": [
+          735,
+          495
+        ],
+        "sizeInSprite": [
+          14,
+          17
+        ]
+      }
     },
     {
       "file": "bg_Common_Menu.png",
@@ -79,7 +100,7 @@
       "width": 729,
       "height": 177,
       "mode": "RGBA",
-      "description": "Transparent Sudoku Pup lettering, sudoku grid and blue ornaments extracted from approved page.",
+      "description": "Sudoku Pup lettering with solid letter o; center ivory paw is a separate Cross animation layer.",
       "sourceRect1080x1920": [
         100,
         850,
@@ -103,7 +124,28 @@
           175
         ]
       },
-      "sha256": "cd26bfe91013da122cf6f00e158d25f0a8fca70b265e54655f797a7f14d128ef"
+      "sha256": "c121d8ea06c28cd8b840f36ec336341561c586bc20d0b101bf0d3052a676e5c8",
+      "localCorrections": [
+        {
+          "type": "missing-right-blue-toe",
+          "pagePosition": [
+            935,
+            1076
+          ],
+          "note": "Added one matching oval toe to the right decoration; preserved existing sprite dimensions and display transform."
+        }
+      ],
+      "postNormalizationPatch": {
+        "file": "../../../previews/Logo_Slicing/right_paw_added_toe.png",
+        "positionInSprite": [
+          570,
+          115
+        ],
+        "sizeInSprite": [
+          10,
+          11
+        ]
+      }
     },
     {
       "file": "Img_Logo_HamsterBody.png",
@@ -141,31 +183,10 @@
       "width": 648,
       "height": 459,
       "mode": "RGBA",
-      "description": "White technical clipping mask derived from the puppy base silhouette.",
-      "sourceRect1080x1920": [
-        160,
-        425,
-        920,
-        825
-      ],
-      "normalization": {
-        "trim": [
-          8,
-          1,
-          748,
-          385
-        ],
-        "fitScale": 0.8729729729729729,
-        "padding": [
-          1,
-          62
-        ],
-        "contentSize": [
-          646,
-          335
-        ]
-      },
-      "sha256": "c2ade232539f898b33e52905bc4fc2f3ec03f500800556ff6a282972d2e7c52b"
+      "description": "Opaque white rectangular reveal mask, with size/center authored in LogoConfig.",
+      "sourceRect1080x1920": null,
+      "normalization": {},
+      "sha256": "82c6d755a7555c0a50a9b4e30d1bfe14912ef15abe8d228a300820b15a0e95b9"
     },
     {
       "file": "Img_Logo_Eyes_Open.png",
@@ -322,31 +343,31 @@
       "width": 88,
       "height": 89,
       "mode": "RGBA",
-      "description": "Blue paw stamp replaces original X mark.",
+      "description": "Ivory paw from the center of the Sudoku letter o; independently animated stamping overlay.",
       "sourceRect1080x1920": [
-        137,
-        1015,
-        198,
-        1082
+        595,
+        929,
+        668,
+        994
       ],
       "normalization": {
         "trim": [
           0,
-          6,
-          58,
-          67
+          0,
+          73,
+          65
         ],
-        "fitScale": 1.4262295081967213,
+        "fitScale": 1.178082191780822,
         "padding": [
-          2,
-          1
+          1,
+          6
         ],
         "contentSize": [
-          83,
-          87
+          86,
+          77
         ]
       },
-      "sha256": "e5a26d1ca31b4d0b0e2ec1e760108e3fbdb920b0084b56a731ec5faf7ae3ae66"
+      "sha256": "3db5c793455f4d9774e17425bc01cc787e7c36609ec0188e9200f8ecdee7929c"
     },
     {
       "file": "Img_Logo_LoadingSeed_Pop.png",
@@ -385,5 +406,6 @@
       ],
       "sha256": "46dad50b41200e98f8d787d49633cb9fa871a6abfc0b8d2ca64e589bb5a1778f"
     }
-  ]
+  ],
+  "activeRuntimeDirectory": "Assets/Res_Runtime/UI/Logo/new"
 }

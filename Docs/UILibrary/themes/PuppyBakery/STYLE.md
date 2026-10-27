@@ -5,6 +5,11 @@
 
 	- B3 已确认的是这一张正面头像的造型、配色与画法。完整身体、侧背面、服装、其他表情、背景和 UI 尚无已确认成品，不把这些扩展写成已定稿设计。
 
+
+	- B4 Logo 页整体样式图：[Panel_Logo_Style_1080x1920.png](assets/UI/Logo/Panel_Logo_Style_1080x1920.png)，尺寸1080×1920，放在对应页面的素材目录内，供制作时直接查看。此图是用户确认的整体视觉参考，不作为单张运行贴图替换，也不代表后续动画和局部修正的最新运行截图。
+
+		![Sudoku Pup Logo页整体样式图](assets/UI/Logo/Panel_Logo_Style_1080x1920.png)
+
 - A2 小狗造型
 	- B1 采用正面、居中的单个小狗头像。头部饱满，脸型为柔和的圆角方形，下巴圆润；脸颊两侧保留少量简化毛簇，避免细碎毛发。
 
@@ -71,4 +76,38 @@
 
 	- B4 文件名、像素尺寸、RGBA 和透明区域已做离线检查，另有 [素材总览](previews/Logo_Slicing/contact_sheet_v01.png) 和 [分层拼合预览](previews/Logo_Slicing/page_layers_reassembled_1080x1920.png)。这两类检查不能替代 Unity 运行验证。
 
-	- B5 旧动画按单行招牌设计，不能只换图片就视为整体效果一致。两行招牌的显示尺寸与中心、眼睛对齐、前景爪子遮挡、爪印盖章位置、背景顶部裁切，以及动画切换完整 Logo 的衔接，均需在接入阶段核对。离线位置参考保存在 previews/Logo_Slicing/layout_reference.json；当前没有修改正式场景、配置或运行素材。
+	- B5 旧动画按单行招牌设计，不能只换图片就视为整体效果一致。两行招牌的显示尺寸与中心、眼睛对齐、前景爪子遮挡、字母 o 内奶油色爪印的盖章位置、背景顶部裁切，以及动画切换完整 Logo 的衔接，均需在接入阶段核对。离线位置参考保存在 previews/Logo_Slicing/layout_reference.json；当前图片已安装到正式目录 new，旧图归档到 old；正式场景布局和配置尚未调整。
+
+- A9 标题中心爪印动画图层
+	- B1 按用户要求，将 Sudoku 中字母 o 内的奶油色爪印独立为 assets/UI/Logo/Img_Logo_Cross.png，保持正式文件的 88×89 像素。它取代此前误选的侧边蓝色装饰爪印；四个趾垫和一个掌垫来自确认稿。
+
+	- B2 Img_Logo_BoardFront.png 中字母 o 的底层已补成完整深棕色字面，爪印隐藏、缩放和位移时不会露出原来的透明镂空；完整静态 Logo 保留最终爪印外观。
+
+	- B3 [爪印盖章动画预览](previews/Logo_Slicing/center_paw_stamp_preview.gif) 为离线缩放与轻微回弹演示，不是 Unity 运行截图。对应位置已写入 layout_reference.json，可继续复用现有 Cross 图层动画槽位；正式场景和 SO 尚未调整。
+
+- A10 正式图片替换与归档
+	- B1 2026-10-27 按用户要求将13张新素材安装至 Assets/Res_Runtime/UI/Logo/new/，旧图片归档至同级 old/。new 中图片继承原有 .meta 与 GUID，old 中图片使用独立 GUID，原有场景、SO 和其他页面的序列化引用继续指向新版。
+
+	- B2 LogoSetupEM、HomeSetupEM 中明确的图片加载路径已更新为 new，LogoSetupEM 的素材扫描范围也限定为 new，避免把 old 中归档图片再次批量导入或修改。替换未改动正式场景、动画逻辑或 SO 布局。
+
+	- B3 图片、尺寸、GUID 和引用关系已做文件层检查；新招牌布局、实际导入结果与动画衔接尚未完成 Unity Play Mode 验证，不能将图片安装视为完整页面验收。
+
+- A11 Logo 动画接入与修复
+	- B1 按新图层实际透明边距校准角色、眼睛、招牌、前爪和字母 o 内爪印的显示尺寸及位置；校准数据保存在正式 LogoConfig.asset 和 Scene_Main.unity。原始 PNG 像素尺寸与 GUID 保持不变。
+
+	- B2 HamsterMask 是不显示的白色矩形揭示遮罩，不能再换成小狗轮廓形状，否则运动中的脸和耳朵会被固定外形截断。BoardFront 中字母 o 在爪印出现前必须为无爪形残影的完整深棕字面。
+
+	- B3 入场结束保留已经拼合的图层，直接进入整体呼吸与轻微浮动，避免切换完整 Logo 引起比例和位置跳变。关闭入场时仍使用完整 Logo 静态分支，完整图的显示尺寸与中心由 SO 保存。
+
+	- B4 Unity 6000.5.2f1 隔离副本完成视觉 Play Mode 检查、重复初始化和释放、静态分支以及1080×1920、1080×2400、1080×1620渲染。验证中禁用ClientMain以隔离存档和其他服务，没有以此替代完整启动流程或真机验收。修复结果已同步到当前工程，依据见 Logs/LogoAnimationFix/verification.json。
+
+	- B5 字母 o 内的中心爪印在盖章完成后持续独立呼吸缩放，局部比例范围为0.92–1.08，周期约2.24秒；位置不随该局部动画变化。参数使用LogoConfigSO的xIdlePulseAmount和xIdlePulseSpeed，原盖章入场仍保留。
+
+- A12 设置页首批拆分素材
+	- B1 用户于2026-10-27确认设置页整体视觉方向并要求切图。[整体样式图](assets/UI/Settings/Panel_Settings_Style_1080x1920.png)保存于页面素材目录，以1080×1920设计坐标归一化；不是运行截图，也不是整页运行贴图。
+
+	- B2 [28张素材清单](assets/UI/Settings/manifest.json)包含背景、无字面板与小狗标题牌、两种按钮底图、开关轨道与独立滑块、选择底图、关闭入口、七类设置图标、底部入口图标、箭头及分隔装饰。背景复用Logo页绘本底图；原设置截图与SettingsPopupLayout配置用于核对功能和组件。无字底图与图标通过内置image_gen重建后分割，不能视为从确认稿无损裁切。
+
+	- B3 中文、版本号、ON／OFF与设置值不烘焙进运行素材，后续使用TMP及既有本地化。纹理、尺寸、透明边界与建议九宫格边距见清单；开关轨道使用普通图片，面板与按钮可使用建议九宫格，仍需Unity实际导入验证。
+
+	- B4 [素材总览](previews/Settings_Slicing/contact_sheet_v01.png)、[分层拼合预览](previews/Settings_Slicing/page_layers_reassembled_1080x1920.png)、[布局参考](previews/Settings_Slicing/layout_reference.json)及[离线检查结果](previews/Settings_Slicing/verification.json)用于接入前查看。原始生成底稿及切图脚本保存在同目录；本批仅保存主题素材，尚未创建或接入设置页Prefab、运行逻辑、SO与Addressables，未进行Unity或真机验收。
