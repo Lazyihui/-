@@ -111,3 +111,7 @@
 	- B3 中文、版本号、ON／OFF与设置值不烘焙进运行素材，后续使用TMP及既有本地化。纹理、尺寸、透明边界与建议九宫格边距见清单；开关轨道使用普通图片，面板与按钮可使用建议九宫格，仍需Unity实际导入验证。
 
 	- B4 [素材总览](previews/Settings_Slicing/contact_sheet_v01.png)、[分层拼合预览](previews/Settings_Slicing/page_layers_reassembled_1080x1920.png)、[布局参考](previews/Settings_Slicing/layout_reference.json)及[离线检查结果](previews/Settings_Slicing/verification.json)用于接入前查看。原始生成底稿及切图脚本保存在同目录；本批仅保存主题素材，尚未创建或接入设置页Prefab、运行逻辑、SO与Addressables，未进行Unity或真机验收。
+
+	- B5 用户随后要求以正式Settings目录的现有资源为切图契约，第一版28张保留为历史方案；当前待确认版为[v02的19张对应素材](assets/UI/Settings/v02/manifest.json)，沿用正式文件名与画布尺寸，记录原九宫格、PPU和GUID。两种白色Fill保持原文件，图标与底块不拆开，外层与内部面板分别制作，不新增标题牌、状态贴图或背景。面板保留原透明蒙版与28像素九宫格边距，其他造型等比放入原透明内容范围，边界差异记录在清单中。
+
+	- B6 [v02切图总览](previews/Settings_Slicing_v02/contact_sheet_v02.png)与[原图／候选图对照](previews/Settings_Slicing_v02/original_vs_candidate_v02.png)用于用户审图；[检查结果](previews/Settings_Slicing_v02/verification.json)确认19张文件名及尺寸对应、Fill字节一致、正式目录所有文件哈希未变。用户明确要求先确认切图再替换，本轮未写入正式PNG、meta、Prefab或运行配置；此前B4的页面未实现说明仅描述第一版制作时状态，不用于判断当前工程实现进度。

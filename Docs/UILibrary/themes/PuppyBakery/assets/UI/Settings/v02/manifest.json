@@ -1,0 +1,748 @@
+{
+  "page": "Panel_Settings",
+  "date": "2026-10-27",
+  "status": "candidate-awaiting-user-image-approval",
+  "runtimeReplacementAuthorized": false,
+  "runtimeDirectoryReadOnly": "D:\\UnityProject\\Hamdoku2\\Assets\\Res_Runtime\\UI\\Settings",
+  "count": 19,
+  "notes": [
+    "Exact existing file list and pixel canvases. Sprite borders recorded, no runtime or meta writes.",
+    "Shared RoundedFill/CircleFill byte-identical neutral masks. No ON/OFF textures, background, title plaque or localized text added.",
+    "Art scaled proportionally into original alpha bounds. Silhouette can differ; inspect recorded candidate bounds.",
+    "Seven settings icons include their rounded tile in one PNG. icon_save retains floppy-disk meaning.",
+    "New panels/save plate generated with built-in image_gen, other art reuses earlier generated high-resolution masters. No new generation of the approved mascot."
+  ],
+  "assets": [
+    {
+      "file": "CircleFill.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        2,
+        254,
+        254
+      ],
+      "candidateAlphaBounds": [
+        2,
+        2,
+        254,
+        254
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "4fa844f84ba01cc4eaea766d1973303c",
+      "source": "unchanged neutral white mask",
+      "sourceCrop": null,
+      "runtimeSHA256": "c4f347e4472c6ebbed029e9ec712f03f43ba2dba9a63aedffd5ff0c89cd2155d",
+      "candidateSHA256": "c4f347e4472c6ebbed029e9ec712f03f43ba2dba9a63aedffd5ff0c89cd2155d",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_border.png",
+      "size": [
+        256,
+        252
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        1,
+        256,
+        249
+      ],
+      "candidateAlphaBounds": [
+        1,
+        1,
+        255,
+        249
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "81e3d284312b5004fb1d3d77afdd02af",
+      "source": "icons",
+      "sourceCrop": [
+        70,
+        395,
+        340,
+        655
+      ],
+      "runtimeSHA256": "7de9c30495b6bbb20b6036f1e6d17f67f484e549a721517a3ab5ec485b5578fa",
+      "candidateSHA256": "93dea2810834644cbec17b6bf881617c1cf07e144858cc9e8af4353478c3a27d",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_chevron.png",
+      "size": [
+        45,
+        64
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        0,
+        43,
+        64
+      ],
+      "candidateAlphaBounds": [
+        2,
+        0,
+        42,
+        64
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "63827bb7b80ebe9498b0b0da110ccbce",
+      "source": "icons",
+      "sourceCrop": [
+        130,
+        745,
+        250,
+        920
+      ],
+      "runtimeSHA256": "8174efd1bdf2c78390eeba5d6b29f7cc865ea1bc1b8f9125d651d055379f5b85",
+      "candidateSHA256": "c3673dd10d819b06f030a5d90536ac04c41020a49198b9280f6c511c00404e8d",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_close.png",
+      "size": [
+        252,
+        256
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        0,
+        250,
+        256
+      ],
+      "candidateAlphaBounds": [
+        2,
+        4,
+        250,
+        252
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "bcb23054ef6181442960ac66f3abd77f",
+      "source": "structure",
+      "sourceCrop": [
+        910,
+        925,
+        1155,
+        1175
+      ],
+      "runtimeSHA256": "e34b69642b2efb8b21a77cc46112af945b6458b36ec117431099a0e17f9c88f1",
+      "candidateSHA256": "59cc9ad235b44ff20ce2d7cdc5272478c9360bc1f7b694ff2d2279cc400de860",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_combo_voice.png",
+      "size": [
+        242,
+        255
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        2,
+        242,
+        255
+      ],
+      "candidateAlphaBounds": [
+        0,
+        8,
+        242,
+        248
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "da15ed910c03e854b898972e294318d3",
+      "source": "icons",
+      "sourceCrop": [
+        660,
+        90,
+        930,
+        355
+      ],
+      "runtimeSHA256": "0f080ae926a568ec830b28826cabb7fa5552d81635a2279ceb02b502bb7753b7",
+      "candidateSHA256": "f84a3278dd6733e44a9fcae386c10ba6ba74df3064a8a4216c0c0637a5f762e4",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_language.png",
+      "size": [
+        242,
+        255
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        1,
+        242,
+        255
+      ],
+      "candidateAlphaBounds": [
+        0,
+        9,
+        242,
+        247
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "e3bf5e55ffc2c404989503bca4a178e8",
+      "source": "icons",
+      "sourceCrop": [
+        660,
+        395,
+        930,
+        655
+      ],
+      "runtimeSHA256": "434afb3b93b6f25516e947c79afc60fed731b86b86af20cc313b4d12279cc9e8",
+      "candidateSHA256": "fa282dd8e2fe9e5d38624303b28990dd91af5fe9c1a69d163ca31612fc9b2570",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_music.png",
+      "size": [
+        245,
+        255
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        1,
+        245,
+        255
+      ],
+      "candidateAlphaBounds": [
+        0,
+        5,
+        245,
+        250
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "e17ee2ec91497c94d9bbe7503ded754c",
+      "source": "icons",
+      "sourceCrop": [
+        365,
+        90,
+        635,
+        355
+      ],
+      "runtimeSHA256": "199420310cfc786616b56384ff5a7f6b70dd074aaf5bc46e9788682b202cf947",
+      "candidateSHA256": "8cb51af42e58e64d2b20ab1fe1ed4811fdf8cb55767e5eed53d3f9fcb1c00fd6",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_pattern.png",
+      "size": [
+        254,
+        256
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        0,
+        254,
+        256
+      ],
+      "candidateAlphaBounds": [
+        0,
+        3,
+        254,
+        252
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "80644e56ff1c5494580cd2cedc0771f9",
+      "source": "icons",
+      "sourceCrop": [
+        365,
+        395,
+        635,
+        655
+      ],
+      "runtimeSHA256": "95f546774e90fd64040f7b32ea3f0748b3de4eb8750f612e498f8e2136a08c0e",
+      "candidateSHA256": "69fa51d6c9812b22ce46032c8c9d0b0ac37d44ea75c2fcd9d71163f9de7b0fe2",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_privacy.png",
+      "size": [
+        111,
+        123
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        2,
+        109,
+        121
+      ],
+      "candidateAlphaBounds": [
+        3,
+        2,
+        107,
+        121
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "77084063ab5c30746945de1b542773c1",
+      "source": "icons",
+      "sourceCrop": [
+        685,
+        715,
+        900,
+        945
+      ],
+      "runtimeSHA256": "d5f96632f686db7529aca2b9984fa32f6efb00d2243148d9a4d496af4b311a10",
+      "candidateSHA256": "a9d93936de4a13a896889b84b6d11d4e7e6341717d7a8ede4596f6ab85eaebf3",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_save.png",
+      "size": [
+        256,
+        252
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        1,
+        256,
+        249
+      ],
+      "candidateAlphaBounds": [
+        0,
+        1,
+        255,
+        249
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "0e207d2cbc295404d934efca747c54f5",
+      "source": "new",
+      "sourceCrop": [
+        1490,
+        270,
+        1870,
+        640
+      ],
+      "runtimeSHA256": "036b53d954fe87b8f73bf7189147f6dd0d5139ba40f54a22e6815d9a3a6dfaf1",
+      "candidateSHA256": "034cfce9a1e6617d42bdc8c1ccc133e83569ab855ee74b47e7b18f6868944799",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_sfx.png",
+      "size": [
+        244,
+        255
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        2,
+        244,
+        255
+      ],
+      "candidateAlphaBounds": [
+        0,
+        7,
+        244,
+        249
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "7ff4d4d9ab9a6d240b6fbc604eaf7c19",
+      "source": "icons",
+      "sourceCrop": [
+        70,
+        90,
+        340,
+        355
+      ],
+      "runtimeSHA256": "179a828f607e70fb2107432fc73e1385583a502598ff0a9796603f9ef7822f3d",
+      "candidateSHA256": "36bb0ea1ebbc4c1b48ccf452645634c9ba776fb801b1c9643a2461ff2f087703",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_support.png",
+      "size": [
+        126,
+        116
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        2,
+        124,
+        114
+      ],
+      "candidateAlphaBounds": [
+        2,
+        5,
+        124,
+        110
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "8648934de2dea9842ae2e3833aa8c4e5",
+      "source": "icons",
+      "sourceCrop": [
+        390,
+        735,
+        610,
+        930
+      ],
+      "runtimeSHA256": "fde542b4e79f39c234949b979c7cb27d58727310ba20cb2758a28833fd9c4588",
+      "candidateSHA256": "00633275e452912889aeff277fd58bd3ef552ea2db98f41e0553087e08106d8c",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_terms.png",
+      "size": [
+        102,
+        122
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        2,
+        2,
+        100,
+        120
+      ],
+      "candidateAlphaBounds": [
+        4,
+        2,
+        98,
+        120
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "8b0bb4dc27776cc489c0f7dec6c5452e",
+      "source": "icons",
+      "sourceCrop": [
+        1005,
+        715,
+        1190,
+        945
+      ],
+      "runtimeSHA256": "a5c36a8712d4475d62ab4e4a3703d264cececcc70975cb902a679a4a517df553",
+      "candidateSHA256": "cab350cf416debe22c084a81371840327e197f451e98f6cab65ef4e46e93c544",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_tutorial.png",
+      "size": [
+        255,
+        192
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        4,
+        252,
+        192
+      ],
+      "candidateAlphaBounds": [
+        0,
+        14,
+        252,
+        182
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "af18adfe1d8e8b845910ed5b593263e2",
+      "source": "icons",
+      "sourceCrop": [
+        365,
+        995,
+        625,
+        1195
+      ],
+      "runtimeSHA256": "274312b437c51df799a215345ac47f9e05aa0346bb1139b14040d2e4b8a6d162",
+      "candidateSHA256": "8d9be8988d7cbb0bb435dbb1a1c00479d3f642b56fcdd70c50a0e121ef3ccd73",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "icon_vibration.png",
+      "size": [
+        242,
+        255
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        3,
+        0,
+        242,
+        255
+      ],
+      "candidateAlphaBounds": [
+        3,
+        9,
+        242,
+        246
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "5bc16d016744f284189848c10b35368d",
+      "source": "icons",
+      "sourceCrop": [
+        950,
+        90,
+        1225,
+        355
+      ],
+      "runtimeSHA256": "dd989c5e953b57ca4cb4096624478bed1c716f068575a6311ddd0c5cd34e6a2c",
+      "candidateSHA256": "1e551f55a44b7ef939b0dd944872f27339ca03f25dacdb4709b4984bb1257ddc",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "popup_btn_close.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "candidateAlphaBounds": [
+        0,
+        0,
+        256,
+        256
+      ],
+      "borderUnityXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "f16222be290a2bf4d8ac7651cf42a334",
+      "source": "structure",
+      "sourceCrop": [
+        910,
+        925,
+        1155,
+        1175
+      ],
+      "runtimeSHA256": "370ea953513407eff8cf53b5a1a493563a0111d955d6167256c3a5b847730e70",
+      "candidateSHA256": "5881bc0c6e688433be19fdf39e9994236c39f74c2ebca0c3aa09f8743cc235ba",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "PopupPanel.png",
+      "size": [
+        351,
+        512
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        0,
+        351,
+        512
+      ],
+      "candidateAlphaBounds": [
+        0,
+        0,
+        351,
+        512
+      ],
+      "borderUnityXYZW": [
+        28.0,
+        28.0,
+        28.0,
+        28.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "f8238021f6a5cb147b122b10d5c8f30f",
+      "source": "new",
+      "sourceCrop": [
+        55,
+        45,
+        575,
+        785
+      ],
+      "runtimeSHA256": "61287e1fcf143b115072df20bad418850440f2e4aa87daf838775ebbb4013946",
+      "candidateSHA256": "dbd8369f558bf80c8e4c2a0187b3fc5e5b828f11cde3217ab4992d6943c5250a",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "PopupPanelInner.png",
+      "size": [
+        512,
+        428
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        0,
+        512,
+        428
+      ],
+      "candidateAlphaBounds": [
+        0,
+        0,
+        512,
+        428
+      ],
+      "borderUnityXYZW": [
+        28.0,
+        28.0,
+        28.0,
+        28.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "6870b94528853034f85c01acf6c5c617",
+      "source": "new",
+      "sourceCrop": [
+        665,
+        155,
+        1370,
+        700
+      ],
+      "runtimeSHA256": "64833d131b9cda4d8fa827ea42459d912afa5444c17bdf0421725a47f7edf64e",
+      "candidateSHA256": "fa99614a13c41597a8b34b35faa2ad0cb1e90f82bfd3ff15dadc0b2054f1a0c5",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    },
+    {
+      "file": "RoundedFill.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "originalAlphaBounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "candidateAlphaBounds": [
+        0,
+        0,
+        64,
+        64
+      ],
+      "borderUnityXYZW": [
+        22.0,
+        22.0,
+        22.0,
+        22.0
+      ],
+      "pixelsPerUnit": 100.0,
+      "runtimeGuidReadOnly": "c2557b79e6bb18949951ad50a478077b",
+      "source": "unchanged neutral white mask",
+      "sourceCrop": null,
+      "runtimeSHA256": "d8317e544cb96e5cbff88813f5619b281d7a0a56a7329fe40020b109675d3d1a",
+      "candidateSHA256": "d8317e544cb96e5cbff88813f5619b281d7a0a56a7329fe40020b109675d3d1a",
+      "metaWritten": false,
+      "status": "candidate-awaiting-user-image-approval"
+    }
+  ]
+}

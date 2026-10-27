@@ -410,3 +410,11 @@
 
 - 按用户要求分批保存当前改动：个人资料／商店／设置接入与教程、Logo 修复及正式资源；Prefab 快照与原作层级证据；Sudoku Pup Logo／设置页主题素材；项目规范、玩法 TODO 与工作记录。
 - 本次仅执行 Git 归档与记录更新，核对提交范围、提交结果及最终工作区状态。没有重新执行 Unity 编译、Play Mode、Addressables 内容打包、应用构建、安装或真机验证；各功能既有验证结果及限制保留在对应历史记录中。未推送远程。
+
+## 2026-10-27 设置切图改为现有19张资源一一对应，待审图
+
+- 用户明确要求只切图，确认切图后才开始替换。读取Assets/Res_Runtime/UI/Settings现有19张PNG、meta和Panel_Settings.prefab引用，以该目录为契约；未沿用第一版自行拆出的28张结构。当前目录已有正式Prefab，上一批记录中的页面未实现描述仅对应当时状态。
+- 待确认资源另存Docs/UILibrary/themes/PuppyBakery/assets/UI/Settings/v02/，19张文件名、像素尺寸与原资源一致；清单记录原GUID、PPU、九宫格边距和前后透明边界。外层PopupPanel与PopupPanelInner分开，保留原透明蒙版及28像素九宫格边距；RoundedFill、CircleFill逐字节保留白色可着色遮罩。设置项图标包含底块，icon_save保留软盘含义；不加入独立ON/OFF贴图、标题牌、文字或整页背景。第一版素材保留。
+- 使用内置image_gen补充空面板与保存图标底稿，其他图标从前批高分辨率底稿切取，清理透明边缘后等比归一化；面板只调整可拉伸中部与边缘以保持角区。生成提示词、脚本、底稿、19张总览、原图与候选图对照及检查结果在previews/Settings_Slicing_v02/。
+- 按用户要求使用skill-creator更新C:/Users/Administrator/.codex/skills/.system/imagegen/SKILL.md的Existing Unity UI reskin slicing规则：先查实际资源及消费者，保持文件／尺寸／留白／边距和资源职责，通用Fill保持可着色，候选版本先审后替换；切图任务不包含脚本、Prefab层级或功能修改。Python UTF-8模式下quick_validate通过。
+- 离线验证：19张名称集合、尺寸、RGBA均匹配；两种Fill哈希与原图一致；正式Settings目录所有文件在前后SHA-256校验中完全一致，未复制或修改meta。人工查看总览和原图／候选图对照，未替换运行图片、Prefab、SO或代码。未执行Unity导入／编译、Play Mode、内容打包、应用构建或真机验收。下一步为用户审图；没有将本轮制作授权视为正式资源替换授权。
