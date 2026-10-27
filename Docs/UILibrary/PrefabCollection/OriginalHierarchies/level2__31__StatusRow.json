@@ -1,0 +1,898 @@
+{
+  "name": "StatusRow",
+  "source": "level2",
+  "pathID": 31,
+  "gameObject": {
+    "m_Component": [
+      {
+        "component": {
+          "m_FileID": 0,
+          "m_PathID": 110
+        }
+      }
+    ],
+    "m_Layer": 0,
+    "m_Name": "StatusRow",
+    "m_Tag": 0,
+    "m_IsActive": true
+  },
+  "transform": {
+    "m_GameObject": {
+      "m_FileID": 0,
+      "m_PathID": 31
+    },
+    "m_LocalRotation": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+    },
+    "m_LocalPosition": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0
+    },
+    "m_LocalScale": {
+      "x": 1.0,
+      "y": 1.0,
+      "z": 1.0
+    },
+    "m_Children": [
+      {
+        "m_FileID": 0,
+        "m_PathID": 96
+      },
+      {
+        "m_FileID": 0,
+        "m_PathID": 102
+      }
+    ],
+    "m_Father": {
+      "m_FileID": 0,
+      "m_PathID": 85
+    },
+    "m_AnchorMin": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "m_AnchorMax": {
+      "x": 1.0,
+      "y": 0.44999998807907104
+    },
+    "m_AnchoredPosition": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "m_SizeDelta": {
+      "x": 0.0,
+      "y": 0.0
+    },
+    "m_Pivot": {
+      "x": 0.5,
+      "y": 0.5
+    }
+  },
+  "components": [
+    {
+      "type": "RectTransform",
+      "pathID": 110,
+      "snapshots": [
+        "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__110.json"
+      ],
+      "treePending": null,
+      "scriptPathID": null
+    }
+  ],
+  "children": [
+    {
+      "name": "HamsterCounter",
+      "source": "level2",
+      "pathID": 17,
+      "gameObject": {
+        "m_Component": [
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 96
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 58
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 157
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 158
+            }
+          }
+        ],
+        "m_Layer": 0,
+        "m_Name": "HamsterCounter",
+        "m_Tag": 0,
+        "m_IsActive": true
+      },
+      "transform": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 17
+        },
+        "m_LocalRotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.2000000476837158,
+          "y": 1.2000000476837158,
+          "z": 1.0
+        },
+        "m_Children": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 105
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 100
+          }
+        ],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 110
+        },
+        "m_AnchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchoredPosition": {
+          "x": -160.0,
+          "y": 0.0
+        },
+        "m_SizeDelta": {
+          "x": 256.0,
+          "y": 85.0
+        },
+        "m_Pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "components": [
+        {
+          "type": "RectTransform",
+          "pathID": 96,
+          "snapshots": [
+            "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__96.json"
+          ],
+          "treePending": null,
+          "scriptPathID": null
+        },
+        {
+          "type": "CanvasRenderer",
+          "pathID": 58,
+          "snapshots": [
+            "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__58.json"
+          ],
+          "treePending": null,
+          "scriptPathID": null
+        },
+        {
+          "type": "MonoBehaviour",
+          "pathID": 157,
+          "snapshots": [
+            "OriginalObjects/MonoBehaviour_raw/level2__157.bin"
+          ],
+          "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+          "scriptPathID": 2617
+        },
+        {
+          "type": "MonoBehaviour",
+          "pathID": 158,
+          "snapshots": [
+            "OriginalObjects/MonoBehaviour_raw/level2__158.bin"
+          ],
+          "treePending": "Expected to read 76 bytes, but only read 32 bytes",
+          "scriptPathID": 1818
+        }
+      ],
+      "children": [
+        {
+          "name": "Icon",
+          "source": "level2",
+          "pathID": 26,
+          "gameObject": {
+            "m_Component": [
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 105
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 65
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 169
+                }
+              }
+            ],
+            "m_Layer": 0,
+            "m_Name": "Icon",
+            "m_Tag": 0,
+            "m_IsActive": true
+          },
+          "transform": {
+            "m_GameObject": {
+              "m_FileID": 0,
+              "m_PathID": 26
+            },
+            "m_LocalRotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "m_LocalPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "m_LocalScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "m_Children": [],
+            "m_Father": {
+              "m_FileID": 0,
+              "m_PathID": 96
+            },
+            "m_AnchorMin": {
+              "x": 0.0,
+              "y": 0.5
+            },
+            "m_AnchorMax": {
+              "x": 0.0,
+              "y": 0.5
+            },
+            "m_AnchoredPosition": {
+              "x": 65.0,
+              "y": 0.0
+            },
+            "m_SizeDelta": {
+              "x": 73.0,
+              "y": 73.0
+            },
+            "m_Pivot": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "components": [
+            {
+              "type": "RectTransform",
+              "pathID": 105,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__105.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "CanvasRenderer",
+              "pathID": 65,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__65.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "MonoBehaviour",
+              "pathID": 169,
+              "snapshots": [
+                "OriginalObjects/MonoBehaviour_raw/level2__169.bin"
+              ],
+              "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+              "scriptPathID": 2617
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "Count",
+          "source": "level2",
+          "pathID": 21,
+          "gameObject": {
+            "m_Component": [
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 100
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 62
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 128
+                }
+              }
+            ],
+            "m_Layer": 0,
+            "m_Name": "Count",
+            "m_Tag": 0,
+            "m_IsActive": true
+          },
+          "transform": {
+            "m_GameObject": {
+              "m_FileID": 0,
+              "m_PathID": 21
+            },
+            "m_LocalRotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "m_LocalPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "m_LocalScale": {
+              "x": 1.0,
+              "y": 1.0,
+              "z": 1.0
+            },
+            "m_Children": [],
+            "m_Father": {
+              "m_FileID": 0,
+              "m_PathID": 96
+            },
+            "m_AnchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchoredPosition": {
+              "x": 36.0,
+              "y": -5.0
+            },
+            "m_SizeDelta": {
+              "x": 145.0,
+              "y": 64.0
+            },
+            "m_Pivot": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "components": [
+            {
+              "type": "RectTransform",
+              "pathID": 100,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__100.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "CanvasRenderer",
+              "pathID": 62,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__62.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "MonoBehaviour",
+              "pathID": 128,
+              "snapshots": [
+                "OriginalObjects/MonoBehaviour_raw/level2__128.bin"
+              ],
+              "treePending": "Expected to read 520 bytes, but only read 32 bytes",
+              "scriptPathID": 2520
+            }
+          ],
+          "children": []
+        }
+      ]
+    },
+    {
+      "name": "LifeCounter",
+      "source": "level2",
+      "pathID": 23,
+      "gameObject": {
+        "m_Component": [
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 102
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 63
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 165
+            }
+          },
+          {
+            "component": {
+              "m_FileID": 0,
+              "m_PathID": 166
+            }
+          }
+        ],
+        "m_Layer": 0,
+        "m_Name": "LifeCounter",
+        "m_Tag": 0,
+        "m_IsActive": true
+      },
+      "transform": {
+        "m_GameObject": {
+          "m_FileID": 0,
+          "m_PathID": 23
+        },
+        "m_LocalRotation": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "w": 1.0
+        },
+        "m_LocalPosition": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "m_LocalScale": {
+          "x": 1.2000000476837158,
+          "y": 1.2000000476837158,
+          "z": 1.0
+        },
+        "m_Children": [
+          {
+            "m_FileID": 0,
+            "m_PathID": 122
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 94
+          },
+          {
+            "m_FileID": 0,
+            "m_PathID": 112
+          }
+        ],
+        "m_Father": {
+          "m_FileID": 0,
+          "m_PathID": 110
+        },
+        "m_AnchorMin": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchorMax": {
+          "x": 0.5,
+          "y": 0.5
+        },
+        "m_AnchoredPosition": {
+          "x": 160.0,
+          "y": 0.0
+        },
+        "m_SizeDelta": {
+          "x": 256.0,
+          "y": 85.0
+        },
+        "m_Pivot": {
+          "x": 0.5,
+          "y": 0.5
+        }
+      },
+      "components": [
+        {
+          "type": "RectTransform",
+          "pathID": 102,
+          "snapshots": [
+            "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__102.json"
+          ],
+          "treePending": null,
+          "scriptPathID": null
+        },
+        {
+          "type": "CanvasRenderer",
+          "pathID": 63,
+          "snapshots": [
+            "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__63.json"
+          ],
+          "treePending": null,
+          "scriptPathID": null
+        },
+        {
+          "type": "MonoBehaviour",
+          "pathID": 165,
+          "snapshots": [
+            "OriginalObjects/MonoBehaviour_raw/level2__165.bin"
+          ],
+          "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+          "scriptPathID": 2617
+        },
+        {
+          "type": "MonoBehaviour",
+          "pathID": 166,
+          "snapshots": [
+            "OriginalObjects/MonoBehaviour_raw/level2__166.bin"
+          ],
+          "treePending": "Expected to read 76 bytes, but only read 32 bytes",
+          "scriptPathID": 1818
+        }
+      ],
+      "children": [
+        {
+          "name": "Life0",
+          "source": "level2",
+          "pathID": 43,
+          "gameObject": {
+            "m_Component": [
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 122
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 79
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 183
+                }
+              }
+            ],
+            "m_Layer": 0,
+            "m_Name": "Life0",
+            "m_Tag": 0,
+            "m_IsActive": true
+          },
+          "transform": {
+            "m_GameObject": {
+              "m_FileID": 0,
+              "m_PathID": 43
+            },
+            "m_LocalRotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "m_LocalPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "m_LocalScale": {
+              "x": 0.949999988079071,
+              "y": 0.949999988079071,
+              "z": 1.0
+            },
+            "m_Children": [],
+            "m_Father": {
+              "m_FileID": 0,
+              "m_PathID": 102
+            },
+            "m_AnchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchoredPosition": {
+              "x": -68.0,
+              "y": 0.0
+            },
+            "m_SizeDelta": {
+              "x": 64.0,
+              "y": 64.0
+            },
+            "m_Pivot": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "components": [
+            {
+              "type": "RectTransform",
+              "pathID": 122,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__122.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "CanvasRenderer",
+              "pathID": 79,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__79.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "MonoBehaviour",
+              "pathID": 183,
+              "snapshots": [
+                "OriginalObjects/MonoBehaviour_raw/level2__183.bin"
+              ],
+              "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+              "scriptPathID": 2617
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "Life1",
+          "source": "level2",
+          "pathID": 15,
+          "gameObject": {
+            "m_Component": [
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 94
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 56
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 154
+                }
+              }
+            ],
+            "m_Layer": 0,
+            "m_Name": "Life1",
+            "m_Tag": 0,
+            "m_IsActive": true
+          },
+          "transform": {
+            "m_GameObject": {
+              "m_FileID": 0,
+              "m_PathID": 15
+            },
+            "m_LocalRotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "m_LocalPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "m_LocalScale": {
+              "x": 0.949999988079071,
+              "y": 0.949999988079071,
+              "z": 1.0
+            },
+            "m_Children": [],
+            "m_Father": {
+              "m_FileID": 0,
+              "m_PathID": 102
+            },
+            "m_AnchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchoredPosition": {
+              "x": 0.0,
+              "y": 0.0
+            },
+            "m_SizeDelta": {
+              "x": 64.0,
+              "y": 64.0
+            },
+            "m_Pivot": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "components": [
+            {
+              "type": "RectTransform",
+              "pathID": 94,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__94.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "CanvasRenderer",
+              "pathID": 56,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__56.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "MonoBehaviour",
+              "pathID": 154,
+              "snapshots": [
+                "OriginalObjects/MonoBehaviour_raw/level2__154.bin"
+              ],
+              "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+              "scriptPathID": 2617
+            }
+          ],
+          "children": []
+        },
+        {
+          "name": "Life2",
+          "source": "level2",
+          "pathID": 33,
+          "gameObject": {
+            "m_Component": [
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 112
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 71
+                }
+              },
+              {
+                "component": {
+                  "m_FileID": 0,
+                  "m_PathID": 174
+                }
+              }
+            ],
+            "m_Layer": 0,
+            "m_Name": "Life2",
+            "m_Tag": 0,
+            "m_IsActive": true
+          },
+          "transform": {
+            "m_GameObject": {
+              "m_FileID": 0,
+              "m_PathID": 33
+            },
+            "m_LocalRotation": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0,
+              "w": 1.0
+            },
+            "m_LocalPosition": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "m_LocalScale": {
+              "x": 0.949999988079071,
+              "y": 0.949999988079071,
+              "z": 1.0
+            },
+            "m_Children": [],
+            "m_Father": {
+              "m_FileID": 0,
+              "m_PathID": 102
+            },
+            "m_AnchorMin": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchorMax": {
+              "x": 0.5,
+              "y": 0.5
+            },
+            "m_AnchoredPosition": {
+              "x": 68.0,
+              "y": 0.0
+            },
+            "m_SizeDelta": {
+              "x": 64.0,
+              "y": 64.0
+            },
+            "m_Pivot": {
+              "x": 0.5,
+              "y": 0.5
+            }
+          },
+          "components": [
+            {
+              "type": "RectTransform",
+              "pathID": 112,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/RectTransform/unnamed__level2__112.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "CanvasRenderer",
+              "pathID": 71,
+              "snapshots": [
+                "OriginalObjects/UnityObject_tree/CanvasRenderer/unnamed__level2__71.json"
+              ],
+              "treePending": null,
+              "scriptPathID": null
+            },
+            {
+              "type": "MonoBehaviour",
+              "pathID": 174,
+              "snapshots": [
+                "OriginalObjects/MonoBehaviour_raw/level2__174.bin"
+              ],
+              "treePending": "Expected to read 136 bytes, but only read 32 bytes",
+              "scriptPathID": 2617
+            }
+          ],
+          "children": []
+        }
+      ]
+    }
+  ]
+}

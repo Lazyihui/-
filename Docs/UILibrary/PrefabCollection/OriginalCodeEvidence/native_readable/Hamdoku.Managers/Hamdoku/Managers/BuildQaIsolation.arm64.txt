@@ -1,0 +1,34 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; private static BuildQaIsolation() { }
+; token=0x6000210 file_offset=0x32125F0 tool_rva=0x32125F0 length=0x48
+00000000032165f0: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032165f4: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032165f8: 33ac0090 adrp     x19, #0x479a000
+00000000032165fc: 149500b0 adrp     x20, #0x44b7000
+0000000003216600: 682a6b39 ldrb     w8, [x19, #0xaca]
+0000000003216604: 94a247f9 ldr      x20, [x20, #0xf40]
+0000000003216608: c8000037 tbnz     w8, #0, #0x3216620
+000000000321660c: 009500b0 adrp     x0, #0x44b7000
+0000000003216610: 00a047f9 ldr      x0, [x0, #0xf40]
+0000000003216614: 1385ad97 bl       #0x1d77a60
+0000000003216618: 28008052 mov      w8, #1
+000000000321661c: 682a2b39 strb     w8, [x19, #0xaca]
+0000000003216620: 880240f9 ldr      x8, [x20]
+0000000003216624: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003216628: 085140f9 ldr      x8, [x8, #0xa0]
+000000000321662c: 1f010079 strh     wzr, [x8]
+0000000003216630: fe0742f8 ldr      x30, [sp], #0x20
+0000000003216634: c0035fd6 ret      
+
+; private static bool ComputeActive() { }
+; token=0x600020F file_offset=0x32125E8 tool_rva=0x32125E8 length=0x8
+00000000032165e8: e0031f2a mov      w0, wzr
+00000000032165ec: c0035fd6 ret      
+
+; private static bool ComputeQaRunner() { }
+; token=0x600020E file_offset=0x32125E0 tool_rva=0x32125E0 length=0x8
+00000000032165e0: e0031f2a mov      w0, wzr
+00000000032165e4: c0035fd6 ret      

@@ -1,0 +1,245 @@
+Type: Hamdoku.Data.LevelPack
+
+Method: System.Int32 get_Count()
+
+Disassembly:
+	0x031ED8A0 STP X30, X21, [X31 - 0x20]!
+	0x031ED8A4 STP X20, X19, [X31 + 0x10]
+	0x031ED8A8 ADRP X21, 0x15AD000
+	0x031ED8AC ADRP X20, 0x12BB000
+	0x031ED8B0 MOV X19, X0
+	0x031ED8B4 LDRB W8, [X21 + 0x8FE]
+	0x031ED8B8 LDR X20, [X20 + 0xAC0]
+	0x031ED8BC TBNZ W8, 0x0, 0x31ED8D4
+	0x031ED8C0 ADRP X0, 0x12BB000
+	0x031ED8C4 LDR X0, [X0 + 0xAC0]
+	0x031ED8C8 BL 0x1D77A60
+	0x031ED8CC MOV W8, 0x1
+	0x031ED8D0 STRB W8, [X21 + 0x8FE]
+	0x031ED8D4 LDR X0, [X20]
+	0x031ED8D8 LDR X20, [X19 + 0x28]
+	0x031ED8DC LDR W8, [X0 + 0xE4]
+	0x031ED8E0 CBNZ W8, 0x31ED8E8
+	0x031ED8E4 BL 0x1D77B94
+	0x031ED8E8 MOV X0, X20
+	0x031ED8EC MOV X1, X31
+	0x031ED8F0 MOV X2, X31
+	0x031ED8F4 BL 0x3F6211C
+	0x031ED8F8 TBZ W0, 0x0, 0x31ED914
+	0x031ED8FC LDR X8, [X19 + 0x28]
+	0x031ED900 CBZ X8, 0x31ED92C
+	0x031ED904 LDR X8, [X8 + 0x18]
+	0x031ED908 CBNZ X8, 0x31ED91C
+	0x031ED90C MOV W0, W31
+	0x031ED910 B 0x31ED920
+	0x031ED914 LDR X8, [X19 + 0x20]
+	0x031ED918 CBZ X8, 0x31ED90C
+	0x031ED91C LDR W0, [X8 + 0x18]
+	0x031ED920 LDP X20, X19, [X31 + 0x10]
+	0x031ED924 LDP X30, X21, [X31], #0x20
+	0x031ED928 RET
+	0x031ED92C BL 0x1D77A54
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Jump @b15
+	14 Nop
+	15 Move v18 @ X0_v13, [44A8AC0]
+	16 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v14, v18 @ X0_v13, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	17 Move v37 @ X8_v11, 1
+	18 Move [479A8FE], v37 @ X8_v11
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Jump @b6
+	25 Call "il2cpp_codegen_runtime_class_init", v43 @ X0_v11, v38 @ X0_v2, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Call Object.op_Inequality, v48 @ X0_v5 (System.Boolean), this.database (Hamdoku.Data.CampaignDatabase), 0
+	30 Nop
+	31 CheckEqual v50 @ TEMP_v7 (System.Boolean), v48 @ X0_v5 (System.Boolean), 0
+	32 ConditionalJump @b11, v50 @ TEMP_v7 (System.Boolean)
+	33 Move v51 @ X8_v8 (Hamdoku.Data.CampaignDatabase), this.database (Hamdoku.Data.CampaignDatabase)
+	34 CheckEqual v52 @ TEMP_v12 (System.Boolean), this.database (Hamdoku.Data.CampaignDatabase), 0
+	35 ConditionalJump @b13, v52 @ TEMP_v12 (System.Boolean)
+	36 Move v60 @ X8_v5 (Hamdoku.Data.LevelData[]), v51.entries (Entry[])
+	37 CheckEqual v56 @ TEMP_v13 (System.Boolean), v51.entries (Entry[]), 0
+	38 Not v57 @ TEMP_v14, v56 @ TEMP_v13 (System.Boolean)
+	39 ConditionalJump @b12, v57 @ TEMP_v14
+	40 Nop
+	41 Jump @b16
+	42 Move v60 @ X8_v5 (Hamdoku.Data.LevelData[]), this.levels (Hamdoku.Data.LevelData[])
+	43 CheckEqual v54 @ TEMP_v10 (System.Boolean), this.levels (Hamdoku.Data.LevelData[]), 0
+	44 ConditionalJump @b10, v54 @ TEMP_v10 (System.Boolean)
+	45 Move returnVal2 @ X0_v6 (System.Int32), v60.Length
+	46 Nop
+	47 Nop
+	48 Nop
+	49 Nop
+	50 Nop
+	51 Return returnVal2 @ X0_v6 (System.Int32)
+	52 Newobj returnVal1 @ X0_v9 (System.NullReferenceException), typeof(System.NullReferenceException)
+	53 Return returnVal1 @ X0_v9 (System.NullReferenceException)
+
+Method: Hamdoku.Data.LevelData Get(System.Int32 index)
+
+Disassembly:
+	0x031ED930 STR X30, [X31 - 0x30]!
+	0x031ED934 STP X22, X21, [X31 + 0x10]
+	0x031ED938 STP X20, X19, [X31 + 0x20]
+	0x031ED93C ADRP X22, 0x15AD000
+	0x031ED940 ADRP X21, 0x12BB000
+	0x031ED944 MOV W19, W1
+	0x031ED948 LDRB W8, [X22 + 0x8FF]
+	0x031ED94C LDR X21, [X21 + 0xAC0]
+	0x031ED950 MOV X20, X0
+	0x031ED954 TBNZ W8, 0x0, 0x31ED96C
+	0x031ED958 ADRP X0, 0x12BB000
+	0x031ED95C LDR X0, [X0 + 0xAC0]
+	0x031ED960 BL 0x1D77A60
+	0x031ED964 MOV W8, 0x1
+	0x031ED968 STRB W8, [X22 + 0x8FF]
+	0x031ED96C LDR X0, [X21]
+	0x031ED970 LDR X21, [X20 + 0x28]
+	0x031ED974 LDR W8, [X0 + 0xE4]
+	0x031ED978 CBNZ W8, 0x31ED980
+	0x031ED97C BL 0x1D77B94
+	0x031ED980 MOV X0, X21
+	0x031ED984 MOV X1, X31
+	0x031ED988 MOV X2, X31
+	0x031ED98C BL 0x3F6211C
+	0x031ED990 TBZ W0, 0x0, 0x31ED9B0
+	0x031ED994 LDR X0, [X20 + 0x28]
+	0x031ED998 CBZ X0, 0x31ED9EC
+	0x031ED99C MOV W1, W19
+	0x031ED9A0 LDP X20, X19, [X31 + 0x20]
+	0x031ED9A4 LDP X22, X21, [X31 + 0x10]
+	0x031ED9A8 LDR X30, [X31], #0x30
+	0x031ED9AC B 0x31E61C4
+	0x031ED9B0 MOV X0, X31
+	0x031ED9B4 TBNZ W19, 0x1F, 0x31ED9DC
+	0x031ED9B8 LDR X8, [X20 + 0x20]
+	0x031ED9BC CBZ X8, 0x31ED9DC
+	0x031ED9C0 LDR W9, [X8 + 0x18]
+	0x031ED9C4 CMP W9, W19
+	0x031ED9C8 B.LE 0x31ED9D8
+	0x031ED9CC ADD X8, X8, W19, 0x3, UXTW
+	0x031ED9D0 LDR X0, [X8 + 0x20]
+	0x031ED9D4 B 0x31ED9DC
+	0x031ED9D8 MOV X0, X31
+	0x031ED9DC LDP X20, X19, [X31 + 0x20]
+	0x031ED9E0 LDP X22, X21, [X31 + 0x10]
+	0x031ED9E4 LDR X30, [X31], #0x30
+	0x031ED9E8 RET
+	0x031ED9EC BL 0x1D77A54
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Jump @b18
+	16 Nop
+	17 Move v22 @ X0_v16, [44A8AC0]
+	18 Call "il2cpp_codegen_initialize_runtime_metadata", v23 @ X0_v17, v22 @ X0_v16, index @ X1 (System.Int32), methodInfo @ X2 (Il2CppMethodInfo), v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, v30 @ V0, v31 @ V1, v32 @ V2, v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	19 Move v40 @ X8_v8, 1
+	20 Move [479A8FF], v40 @ X8_v8
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Jump @b6
+	27 Call "il2cpp_codegen_runtime_class_init", v46 @ X0_v14, v41 @ X0_v2, index @ X1 (System.Int32), methodInfo @ X2 (Il2CppMethodInfo), v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, v30 @ V0, v31 @ V1, v32 @ V2, v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Call Object.op_Inequality, v51 @ X0_v5 (System.Boolean), this.database (Hamdoku.Data.CampaignDatabase), 0
+	32 Nop
+	33 CheckEqual v53 @ TEMP_v7 (System.Boolean), v51 @ X0_v5 (System.Boolean), 0
+	34 ConditionalJump @b11, v53 @ TEMP_v7 (System.Boolean)
+	35 Nop
+	36 CheckEqual v55 @ TEMP_v13 (System.Boolean), this.database (Hamdoku.Data.CampaignDatabase), 0
+	37 ConditionalJump @b16, v55 @ TEMP_v13 (System.Boolean)
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Nop
+	43 Nop
+	44 Nop
+	45 Call CampaignDatabase.GetLevel, returnVal2 @ X0_v12 (Hamdoku.Data.LevelData), this.database (Hamdoku.Data.CampaignDatabase), index @ X1 (System.Int32)
+	46 Return returnVal2 @ X0_v12 (Hamdoku.Data.LevelData)
+	47 Nop
+	48 And v57 @ TEMP_v8 (System.Int32), index @ X1 (System.Int32), 2147483648
+	49 CheckEqual v58 @ TEMP_v9 (System.Boolean), v57 @ TEMP_v8 (System.Int32), 0
+	50 Not v59 @ TEMP_v10, v58 @ TEMP_v9 (System.Boolean)
+	51 ConditionalJump @b19, v59 @ TEMP_v10
+	52 Move v68 @ X8_v5 (Hamdoku.Data.LevelData[]), this.levels (Hamdoku.Data.LevelData[])
+	53 CheckEqual v69 @ TEMP_v12 (System.Boolean), this.levels (Hamdoku.Data.LevelData[]), 0
+	54 ConditionalJump @b19, v69 @ TEMP_v12 (System.Boolean)
+	55 Nop
+	56 Nop
+	57 Nop
+	58 Nop
+	59 Nop
+	60 Nop
+	61 Nop
+	62 Nop
+	63 Nop
+	64 Nop
+	65 Nop
+	66 Nop
+	67 CheckLessOrEqual v71 @ TEMPCOND_v4 (System.Boolean), v68.Length, index @ X1 (System.Int32)
+	68 ConditionalJump @b15, v71 @ TEMPCOND_v4 (System.Boolean)
+	69 Add v105 @ X8_v6, this.levels (Hamdoku.Data.LevelData[]), index @ X1 (System.Int32)
+	70 Move returnVal1 @ X0_v7 (Hamdoku.Data.LevelData), [v105 @ X8_v6+20]
+	71 Jump @b19
+	72 Nop
+	73 Nop
+	74 Nop
+	75 Nop
+	76 Nop
+	77 Nop
+	78 Nop
+	79 Return returnVal1 @ X0_v7 (Hamdoku.Data.LevelData)
+	80 Newobj returnVal3 @ X0_v11 (System.NullReferenceException), typeof(System.NullReferenceException)
+	81 Return returnVal3 @ X0_v11 (System.NullReferenceException)
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x031ED9F0 MOV X1, X31
+	0x031ED9F4 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.Data.LevelPack)
+	2 Return
+

@@ -1,0 +1,3144 @@
+Type: Hamdoku.UI.StreakPageConfig
+
+Method: Hamdoku.UI.StreakPageConfig get_Instance()
+
+Disassembly:
+	0x034391E8 STP X30, X21, [X31 - 0x20]!
+	0x034391EC STP X20, X19, [X31 + 0x10]
+	0x034391F0 ADRP X21, 0x1362000
+	0x034391F4 ADRP X20, 0x108B000
+	0x034391F8 ADRP X19, 0x106F000
+	0x034391FC LDRB W8, [X21 + 0xA29]
+	0x03439200 LDR X20, [X20 + 0xCC8]
+	0x03439204 LDR X19, [X19 + 0xAC0]
+	0x03439208 TBNZ W8, 0x0, 0x3439244
+	0x0343920C ADRP X0, 0x106F000
+	0x03439210 LDR X0, [X0 + 0xAC0]
+	0x03439214 BL 0x1D77A60
+	0x03439218 ADRP X0, 0x108B000
+	0x0343921C LDR X0, [X0 + 0xCD0]
+	0x03439220 BL 0x1D77A60
+	0x03439224 ADRP X0, 0x108B000
+	0x03439228 LDR X0, [X0 + 0xCC8]
+	0x0343922C BL 0x1D77A60
+	0x03439230 ADRP X0, 0x108B000
+	0x03439234 LDR X0, [X0 + 0xCD8]
+	0x03439238 BL 0x1D77A60
+	0x0343923C MOV W8, 0x1
+	0x03439240 STRB W8, [X21 + 0xA29]
+	0x03439244 LDR X8, [X20]
+	0x03439248 LDR X0, [X19]
+	0x0343924C LDR X8, [X8 + 0xA0]
+	0x03439250 LDR W9, [X0 + 0xE4]
+	0x03439254 LDR X19, [X8]
+	0x03439258 CBNZ W9, 0x3439260
+	0x0343925C BL 0x1D77B94
+	0x03439260 MOV X0, X19
+	0x03439264 MOV X1, X31
+	0x03439268 MOV X2, X31
+	0x0343926C BL 0x3F634BC
+	0x03439270 TBZ W0, 0x0, 0x34392AC
+	0x03439274 ADRP X8, 0x108B000
+	0x03439278 ADRP X9, 0x108B000
+	0x0343927C LDR X8, [X8 + 0xCD8]
+	0x03439280 LDR X9, [X9 + 0xCD0]
+	0x03439284 LDR X0, [X8]
+	0x03439288 LDR X1, [X9]
+	0x0343928C BL 0x2348760
+	0x03439290 LDR X8, [X20]
+	0x03439294 MOV X1, X0
+	0x03439298 LDR X8, [X8 + 0xA0]
+	0x0343929C STR X0, [X8]
+	0x034392A0 LDR X8, [X20]
+	0x034392A4 LDR X0, [X8 + 0xA0]
+	0x034392A8 BL 0x1D77A14
+	0x034392AC LDR X8, [X20]
+	0x034392B0 LDP X20, X19, [X31 + 0x10]
+	0x034392B4 LDR X8, [X8 + 0xA0]
+	0x034392B8 LDR X0, [X8]
+	0x034392BC LDP X30, X21, [X31], #0x20
+	0x034392C0 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Move v12 @ X20_v2, [44C4CC8]
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Jump @b14
+	15 Nop
+	16 Move v18 @ X0_v14, [44A8AC0]
+	17 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v15, v18 @ X0_v14, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	18 Nop
+	19 Move v48 @ X0_v17, [44C4CD0]
+	20 Call "il2cpp_codegen_initialize_runtime_metadata", v49 @ X0_v18, v48 @ X0_v17, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	21 Nop
+	22 Move v57 @ X0_v20, [44C4CC8]
+	23 Call "il2cpp_codegen_initialize_runtime_metadata", v58 @ X0_v21, v57 @ X0_v20, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	24 Nop
+	25 Move v62 @ X0_v23, [44C4CD8]
+	26 Call "il2cpp_codegen_initialize_runtime_metadata", v36 @ X0_v24, v62 @ X0_v23, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	27 Move v39 @ X8_v13, 1
+	28 Move [479BA29], v39 @ X8_v13
+	29 Move v40 @ X8_v3, [v12 @ X20_v2]
+	30 Nop
+	31 Move v42 @ X8_v4, [v40 @ X8_v3+A0]
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Jump @b9
+	37 Call "il2cpp_codegen_runtime_class_init", v50 @ X0_v12, v41 @ X0_v2, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Call Object.op_Equality, v55 @ X0_v5 (System.Boolean), [v42 @ X8_v4], 0
+	42 Nop
+	43 CheckEqual v60 @ TEMP_v7 (System.Boolean), v55 @ X0_v5 (System.Boolean), 0
+	44 ConditionalJump @b13, v60 @ TEMP_v7 (System.Boolean)
+	45 Nop
+	46 Nop
+	47 Move v65 @ X8_v9, [44C4CD8]
+	48 Move v66 @ X9_v4, [44C4CD0]
+	49 Nop
+	50 Nop
+	51 Call 2348760, v69 @ X0_v9, [v65 @ X8_v9], [v66 @ X9_v4]
+	52 Move v84 @ X8_v10, [v12 @ X20_v2]
+	53 Nop
+	54 Move v85 @ X8_v11, [v84 @ X8_v10+A0]
+	55 Move [v85 @ X8_v11], v69 @ X0_v9
+	56 Move v76 @ X8_v12, [v12 @ X20_v2]
+	57 Nop
+	58 Call 1D77A14, v74 @ X0_v11, [v76 @ X8_v12+A0], v69 @ X0_v9, 0, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	59 Move v77 @ X8_v6, [v12 @ X20_v2]
+	60 Nop
+	61 Nop
+	62 Move v80 @ X8_v7, [v77 @ X8_v6+A0]
+	63 Nop
+	64 Nop
+	65 Nop
+	66 Nop
+	67 Return [v80 @ X8_v7]
+
+Method: System.Int32 LayoutHash()
+
+Disassembly:
+	0x034392C4 STP X30, X19, [X31 - 0x10]!
+	0x034392C8 MOV W1, W31
+	0x034392CC MOV X19, X0
+	0x034392D0 BL 0x3439314
+	0x034392D4 MOV W1, W0
+	0x034392D8 MOV X0, X19
+	0x034392DC BL 0x3439694
+	0x034392E0 MOV W1, W0
+	0x034392E4 MOV X0, X19
+	0x034392E8 BL 0x3439988
+	0x034392EC MOV W1, W0
+	0x034392F0 MOV X0, X19
+	0x034392F4 BL 0x3439BC8
+	0x034392F8 MOV W1, W0
+	0x034392FC MOV X0, X19
+	0x03439300 BL 0x3439D80
+	0x03439304 MOV W1, W0
+	0x03439308 MOV X0, X19
+	0x0343930C LDP X30, X19, [X31], #0x10
+	0x03439310 B 0x343A160
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Call StreakPageConfig.HashPart1, v7 @ X0_v1 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), 0
+	6 Nop
+	7 Nop
+	8 Call StreakPageConfig.HashPart2, v11 @ X0_v3 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), v7 @ X0_v1 (System.Int32)
+	9 Nop
+	10 Nop
+	11 Call StreakPageConfig.HashPart3, v14 @ X0_v5 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), v11 @ X0_v3 (System.Int32)
+	12 Nop
+	13 Nop
+	14 Call StreakPageConfig.HashPart4, v17 @ X0_v7 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), v14 @ X0_v5 (System.Int32)
+	15 Nop
+	16 Nop
+	17 Call StreakPageConfig.HashPart5, v20 @ X0_v9 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), v17 @ X0_v7 (System.Int32)
+	18 Nop
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Call StreakPageConfig.HashPart6, returnVal1 @ X0_v11 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), v20 @ X0_v9 (System.Int32)
+	24 Return returnVal1 @ X0_v11 (System.Int32)
+
+Method: System.Int32 HashPart1(System.Int32 h)
+
+Disassembly:
+	0x03439314 STP X30, X23, [X31 - 0x30]!
+	0x03439318 STP X22, X21, [X31 + 0x10]
+	0x0343931C STP X20, X19, [X31 + 0x20]
+	0x03439320 MOV W20, W1
+	0x03439324 MOV X19, X0
+	0x03439328 ADD X0, X0, 0x18
+	0x0343932C MOV X1, X31
+	0x03439330 BL 0x361FF74
+	0x03439334 SUB W8, W0, W20
+	0x03439338 ADD X0, X19, 0x1C
+	0x0343933C MOV X1, X31
+	0x03439340 ADD W21, W8, W20, 0x5, LSL
+	0x03439344 BL 0x361FF74
+	0x03439348 MOV W20, W0
+	0x0343934C ADD X0, X19, 0x20
+	0x03439350 MOV X1, X31
+	0x03439354 BL 0x361FF74
+	0x03439358 EOR W8, W20, W0, LSL 0x2
+	0x0343935C ADD X0, X19, 0x24
+	0x03439360 MOV X1, X31
+	0x03439364 SUB W8, W8, W21
+	0x03439368 ADD W20, W8, W21, 0x5, LSL
+	0x0343936C BL 0x361FF74
+	0x03439370 SUB W8, W0, W20
+	0x03439374 ADD X0, X19, 0x28
+	0x03439378 MOV X1, X31
+	0x0343937C ADD W21, W8, W20, 0x5, LSL
+	0x03439380 BL 0x361FF74
+	0x03439384 MOV W20, W0
+	0x03439388 ADD X0, X19, 0x2C
+	0x0343938C MOV X1, X31
+	0x03439390 BL 0x361FF74
+	0x03439394 EOR W8, W20, W0, LSL 0x2
+	0x03439398 ADD X0, X19, 0x30
+	0x0343939C MOV X1, X31
+	0x034393A0 SUB W8, W8, W21
+	0x034393A4 ADD W20, W8, W21, 0x5, LSL
+	0x034393A8 BL 0x361FF74
+	0x034393AC SUB W8, W0, W20
+	0x034393B0 ADD X0, X19, 0x34
+	0x034393B4 MOV X1, X31
+	0x034393B8 ADD W20, W8, W20, 0x5, LSL
+	0x034393BC BL 0x361FF74
+	0x034393C0 SUB W8, W0, W20
+	0x034393C4 ADD X0, X19, 0x38
+	0x034393C8 MOV X1, X31
+	0x034393CC ADD W21, W8, W20, 0x5, LSL
+	0x034393D0 BL 0x361FF74
+	0x034393D4 MOV W20, W0
+	0x034393D8 ADD X0, X19, 0x3C
+	0x034393DC MOV X1, X31
+	0x034393E0 BL 0x361FF74
+	0x034393E4 EOR W8, W20, W0, LSL 0x2
+	0x034393E8 ADD X0, X19, 0x98
+	0x034393EC MOV X1, X31
+	0x034393F0 SUB W8, W8, W21
+	0x034393F4 ADD W21, W8, W21, 0x5, LSL
+	0x034393F8 BL 0x361FF74
+	0x034393FC MOV W20, W0
+	0x03439400 ADD X0, X19, 0x9C
+	0x03439404 MOV X1, X31
+	0x03439408 BL 0x361FF74
+	0x0343940C EOR W8, W20, W0, LSL 0x2
+	0x03439410 ADD X0, X19, 0xA0
+	0x03439414 MOV X1, X31
+	0x03439418 SUB W8, W8, W21
+	0x0343941C ADD W21, W8, W21, 0x5, LSL
+	0x03439420 BL 0x361FF74
+	0x03439424 MOV W20, W0
+	0x03439428 ADD X0, X19, 0xA4
+	0x0343942C MOV X1, X31
+	0x03439430 BL 0x361FF74
+	0x03439434 EOR W8, W20, W0, LSL 0x2
+	0x03439438 ADD X0, X19, 0x90
+	0x0343943C MOV X1, X31
+	0x03439440 SUB W8, W8, W21
+	0x03439444 ADD W20, W8, W21, 0x5, LSL
+	0x03439448 BL 0x361FF74
+	0x0343944C SUB W8, W0, W20
+	0x03439450 ADD X0, X19, 0x94
+	0x03439454 MOV X1, X31
+	0x03439458 ADD W20, W8, W20, 0x5, LSL
+	0x0343945C BL 0x361FF74
+	0x03439460 SUB W8, W0, W20
+	0x03439464 ADD X0, X19, 0xA8
+	0x03439468 MOV X1, X31
+	0x0343946C ADD W21, W8, W20, 0x5, LSL
+	0x03439470 BL 0x361FF74
+	0x03439474 MOV W20, W0
+	0x03439478 ADD X0, X19, 0xAC
+	0x0343947C MOV X1, X31
+	0x03439480 BL 0x361FF74
+	0x03439484 EOR W8, W20, W0, LSL 0x2
+	0x03439488 ADD X0, X19, 0xB0
+	0x0343948C MOV X1, X31
+	0x03439490 SUB W8, W8, W21
+	0x03439494 ADD W21, W8, W21, 0x5, LSL
+	0x03439498 BL 0x361FF74
+	0x0343949C MOV W20, W0
+	0x034394A0 ADD X0, X19, 0xB4
+	0x034394A4 MOV X1, X31
+	0x034394A8 BL 0x361FF74
+	0x034394AC EOR W8, W20, W0, LSL 0x2
+	0x034394B0 ADD X0, X19, 0xB8
+	0x034394B4 MOV X1, X31
+	0x034394B8 SUB W8, W8, W21
+	0x034394BC ADD W21, W8, W21, 0x5, LSL
+	0x034394C0 BL 0x361FF74
+	0x034394C4 MOV W20, W0
+	0x034394C8 ADD X0, X19, 0xBC
+	0x034394CC MOV X1, X31
+	0x034394D0 BL 0x361FF74
+	0x034394D4 EOR W8, W20, W0, LSL 0x2
+	0x034394D8 ADD X0, X19, 0xC0
+	0x034394DC MOV X1, X31
+	0x034394E0 SUB W8, W8, W21
+	0x034394E4 ADD W20, W8, W21, 0x5, LSL
+	0x034394E8 BL 0x361FF74
+	0x034394EC SUB W8, W0, W20
+	0x034394F0 ADD X0, X19, 0xC4
+	0x034394F4 MOV X1, X31
+	0x034394F8 ADD W20, W8, W20, 0x5, LSL
+	0x034394FC BL 0x361FF74
+	0x03439500 SUB W8, W0, W20
+	0x03439504 ADD X0, X19, 0xC8
+	0x03439508 MOV X1, X31
+	0x0343950C ADD W21, W8, W20, 0x5, LSL
+	0x03439510 BL 0x361FF74
+	0x03439514 MOV W20, W0
+	0x03439518 ADD X0, X19, 0xCC
+	0x0343951C MOV X1, X31
+	0x03439520 BL 0x361FF74
+	0x03439524 EOR W8, W20, W0, LSL 0x2
+	0x03439528 ADD X0, X19, 0xD0
+	0x0343952C MOV X1, X31
+	0x03439530 SUB W8, W8, W21
+	0x03439534 ADD W21, W8, W21, 0x5, LSL
+	0x03439538 BL 0x361FF74
+	0x0343953C MOV W20, W0
+	0x03439540 ADD X0, X19, 0xD4
+	0x03439544 MOV X1, X31
+	0x03439548 BL 0x361FF74
+	0x0343954C EOR W8, W20, W0, LSL 0x2
+	0x03439550 ADD X0, X19, 0xD8
+	0x03439554 MOV X1, X31
+	0x03439558 SUB W8, W8, W21
+	0x0343955C ADD W23, W8, W21, 0x5, LSL
+	0x03439560 BL 0x361FF74
+	0x03439564 MOV W20, W0
+	0x03439568 ADD X0, X19, 0xDC
+	0x0343956C MOV X1, X31
+	0x03439570 BL 0x361FF74
+	0x03439574 MOV W21, W0
+	0x03439578 ADD X0, X19, 0xE0
+	0x0343957C MOV X1, X31
+	0x03439580 BL 0x361FF74
+	0x03439584 MOV W22, W0
+	0x03439588 ADD X0, X19, 0xE4
+	0x0343958C MOV X1, X31
+	0x03439590 BL 0x361FF74
+	0x03439594 EOR W8, W20, W21, LSL 0x2
+	0x03439598 MOV X1, X31
+	0x0343959C EOR W8, W8, W22, ASR 0x2
+	0x034395A0 EOR W8, W8, W0, ASR 0x1
+	0x034395A4 ADD X0, X19, 0xE8
+	0x034395A8 SUB W8, W8, W23
+	0x034395AC ADD W23, W8, W23, 0x5, LSL
+	0x034395B0 BL 0x361FF74
+	0x034395B4 MOV W20, W0
+	0x034395B8 ADD X0, X19, 0xEC
+	0x034395BC MOV X1, X31
+	0x034395C0 BL 0x361FF74
+	0x034395C4 MOV W21, W0
+	0x034395C8 ADD X0, X19, 0xF0
+	0x034395CC MOV X1, X31
+	0x034395D0 BL 0x361FF74
+	0x034395D4 MOV W22, W0
+	0x034395D8 ADD X0, X19, 0xF4
+	0x034395DC MOV X1, X31
+	0x034395E0 BL 0x361FF74
+	0x034395E4 EOR W8, W20, W21, LSL 0x2
+	0x034395E8 MOV X1, X31
+	0x034395EC EOR W8, W8, W22, ASR 0x2
+	0x034395F0 EOR W8, W8, W0, ASR 0x1
+	0x034395F4 ADD X0, X19, 0xF8
+	0x034395F8 SUB W8, W8, W23
+	0x034395FC ADD W20, W8, W23, 0x5, LSL
+	0x03439600 BL 0x361FF74
+	0x03439604 SUB W8, W0, W20
+	0x03439608 ADD X0, X19, 0x100
+	0x0343960C MOV X1, X31
+	0x03439610 ADD W20, W8, W20, 0x5, LSL
+	0x03439614 BL 0x361FF74
+	0x03439618 SUB W8, W0, W20
+	0x0343961C ADD X0, X19, 0xFC
+	0x03439620 MOV X1, X31
+	0x03439624 ADD W20, W8, W20, 0x5, LSL
+	0x03439628 BL 0x360A2D8
+	0x0343962C SUB W8, W0, W20
+	0x03439630 ADD X0, X19, 0x104
+	0x03439634 MOV X1, X31
+	0x03439638 ADD W21, W8, W20, 0x5, LSL
+	0x0343963C BL 0x361FF74
+	0x03439640 MOV W20, W0
+	0x03439644 ADD X0, X19, 0x108
+	0x03439648 MOV X1, X31
+	0x0343964C BL 0x361FF74
+	0x03439650 EOR W8, W20, W0, LSL 0x2
+	0x03439654 ADD X0, X19, 0x10C
+	0x03439658 MOV X1, X31
+	0x0343965C SUB W8, W8, W21
+	0x03439660 ADD W20, W8, W21, 0x5, LSL
+	0x03439664 BL 0x361FF74
+	0x03439668 SUB W8, W0, W20
+	0x0343966C ADD X0, X19, 0x110
+	0x03439670 MOV X1, X31
+	0x03439674 ADD W20, W8, W20, 0x5, LSL
+	0x03439678 BL 0x361FF74
+	0x0343967C SUB W8, W0, W20
+	0x03439680 LDP X22, X21, [X31 + 0x10]
+	0x03439684 ADD W0, W8, W20, 0x5, LSL
+	0x03439688 LDP X20, X19, [X31 + 0x20]
+	0x0343968C LDP X30, X23, [X31], #0x30
+	0x03439690 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v16 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 24
+	10 Nop
+	11 Call Single.GetHashCode, v18 @ X0_v2 (System.Int32), v16 @ X0_v1 (System.Single)
+	12 Subtract v19 @ X8_v1, v18 @ X0_v2 (System.Int32), h @ X1 (System.Int32)
+	13 Add v20 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 28
+	14 Nop
+	15 Add v22 @ X21_v1, v19 @ X8_v1, h @ X1 (System.Int32)
+	16 Call Single.GetHashCode, v23 @ X0_v4 (System.Int32), v20 @ X0_v3 (System.Single)
+	17 Nop
+	18 Add v25 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 32
+	19 Nop
+	20 Call Single.GetHashCode, v27 @ X0_v6 (System.Int32), v25 @ X0_v5 (System.Single)
+	21 Xor v28 @ X8_v2 (System.Int32), v23 @ X0_v4 (System.Int32), v27 @ X0_v6 (System.Int32)
+	22 Add v29 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 36
+	23 Nop
+	24 Subtract v31 @ X8_v3, v28 @ X8_v2 (System.Int32), v22 @ X21_v1
+	25 Add v32 @ X20_v3, v31 @ X8_v3, v22 @ X21_v1
+	26 Call Single.GetHashCode, v33 @ X0_v8 (System.Int32), v29 @ X0_v7 (System.Single)
+	27 Subtract v34 @ X8_v4, v33 @ X0_v8 (System.Int32), v32 @ X20_v3
+	28 Add v35 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 40
+	29 Nop
+	30 Add v37 @ X21_v2, v34 @ X8_v4, v32 @ X20_v3
+	31 Call Single.GetHashCode, v38 @ X0_v10 (System.Int32), v35 @ X0_v9 (System.Single)
+	32 Nop
+	33 Add v40 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 44
+	34 Nop
+	35 Call Single.GetHashCode, v42 @ X0_v12 (System.Int32), v40 @ X0_v11 (System.Single)
+	36 Xor v43 @ X8_v5 (System.Int32), v38 @ X0_v10 (System.Int32), v42 @ X0_v12 (System.Int32)
+	37 Add v44 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 48
+	38 Nop
+	39 Subtract v46 @ X8_v6, v43 @ X8_v5 (System.Int32), v37 @ X21_v2
+	40 Add v47 @ X20_v5, v46 @ X8_v6, v37 @ X21_v2
+	41 Call Single.GetHashCode, v48 @ X0_v14 (System.Int32), v44 @ X0_v13 (System.Single)
+	42 Subtract v49 @ X8_v7, v48 @ X0_v14 (System.Int32), v47 @ X20_v5
+	43 Add v50 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 52
+	44 Nop
+	45 Add v52 @ X20_v6, v49 @ X8_v7, v47 @ X20_v5
+	46 Call Single.GetHashCode, v53 @ X0_v16 (System.Int32), v50 @ X0_v15 (System.Single)
+	47 Subtract v54 @ X8_v8, v53 @ X0_v16 (System.Int32), v52 @ X20_v6
+	48 Add v55 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 56
+	49 Nop
+	50 Add v57 @ X21_v3, v54 @ X8_v8, v52 @ X20_v6
+	51 Call Single.GetHashCode, v58 @ X0_v18 (System.Int32), v55 @ X0_v17 (System.Single)
+	52 Nop
+	53 Add v60 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 60
+	54 Nop
+	55 Call Single.GetHashCode, v62 @ X0_v20 (System.Int32), v60 @ X0_v19 (System.Single)
+	56 Xor v63 @ X8_v9 (System.Int32), v58 @ X0_v18 (System.Int32), v62 @ X0_v20 (System.Int32)
+	57 Add v64 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 152
+	58 Nop
+	59 Subtract v66 @ X8_v10, v63 @ X8_v9 (System.Int32), v57 @ X21_v3
+	60 Add v67 @ X21_v4, v66 @ X8_v10, v57 @ X21_v3
+	61 Call Single.GetHashCode, v68 @ X0_v22 (System.Int32), v64 @ X0_v21 (System.Single)
+	62 Nop
+	63 Add v70 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 156
+	64 Nop
+	65 Call Single.GetHashCode, v72 @ X0_v24 (System.Int32), v70 @ X0_v23 (System.Single)
+	66 Xor v73 @ X8_v11 (System.Int32), v68 @ X0_v22 (System.Int32), v72 @ X0_v24 (System.Int32)
+	67 Add v74 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 160
+	68 Nop
+	69 Subtract v76 @ X8_v12, v73 @ X8_v11 (System.Int32), v67 @ X21_v4
+	70 Add v77 @ X21_v5, v76 @ X8_v12, v67 @ X21_v4
+	71 Call Single.GetHashCode, v78 @ X0_v26 (System.Int32), v74 @ X0_v25 (System.Single)
+	72 Nop
+	73 Add v80 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 164
+	74 Nop
+	75 Call Single.GetHashCode, v82 @ X0_v28 (System.Int32), v80 @ X0_v27 (System.Single)
+	76 Xor v83 @ X8_v13 (System.Int32), v78 @ X0_v26 (System.Int32), v82 @ X0_v28 (System.Int32)
+	77 Add v84 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 144
+	78 Nop
+	79 Subtract v86 @ X8_v14, v83 @ X8_v13 (System.Int32), v77 @ X21_v5
+	80 Add v87 @ X20_v10, v86 @ X8_v14, v77 @ X21_v5
+	81 Call Single.GetHashCode, v88 @ X0_v30 (System.Int32), v84 @ X0_v29 (System.Single)
+	82 Subtract v89 @ X8_v15, v88 @ X0_v30 (System.Int32), v87 @ X20_v10
+	83 Add v90 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 148
+	84 Nop
+	85 Add v92 @ X20_v11, v89 @ X8_v15, v87 @ X20_v10
+	86 Call Single.GetHashCode, v93 @ X0_v32 (System.Int32), v90 @ X0_v31 (System.Single)
+	87 Subtract v94 @ X8_v16, v93 @ X0_v32 (System.Int32), v92 @ X20_v11
+	88 Add v95 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 168
+	89 Nop
+	90 Add v97 @ X21_v6, v94 @ X8_v16, v92 @ X20_v11
+	91 Call Single.GetHashCode, v98 @ X0_v34 (System.Int32), v95 @ X0_v33 (System.Single)
+	92 Nop
+	93 Add v100 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 172
+	94 Nop
+	95 Call Single.GetHashCode, v102 @ X0_v36 (System.Int32), v100 @ X0_v35 (System.Single)
+	96 Xor v103 @ X8_v17 (System.Int32), v98 @ X0_v34 (System.Int32), v102 @ X0_v36 (System.Int32)
+	97 Add v104 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 176
+	98 Nop
+	99 Subtract v106 @ X8_v18, v103 @ X8_v17 (System.Int32), v97 @ X21_v6
+	100 Add v107 @ X21_v7, v106 @ X8_v18, v97 @ X21_v6
+	101 Call Single.GetHashCode, v108 @ X0_v38 (System.Int32), v104 @ X0_v37 (System.Single)
+	102 Nop
+	103 Add v110 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 180
+	104 Nop
+	105 Call Single.GetHashCode, v112 @ X0_v40 (System.Int32), v110 @ X0_v39 (System.Single)
+	106 Xor v113 @ X8_v19 (System.Int32), v108 @ X0_v38 (System.Int32), v112 @ X0_v40 (System.Int32)
+	107 Add v114 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 184
+	108 Nop
+	109 Subtract v116 @ X8_v20, v113 @ X8_v19 (System.Int32), v107 @ X21_v7
+	110 Add v117 @ X21_v8, v116 @ X8_v20, v107 @ X21_v7
+	111 Call Single.GetHashCode, v118 @ X0_v42 (System.Int32), v114 @ X0_v41 (System.Single)
+	112 Nop
+	113 Add v120 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 188
+	114 Nop
+	115 Call Single.GetHashCode, v122 @ X0_v44 (System.Int32), v120 @ X0_v43 (System.Single)
+	116 Xor v123 @ X8_v21 (System.Int32), v118 @ X0_v42 (System.Int32), v122 @ X0_v44 (System.Int32)
+	117 Add v124 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 192
+	118 Nop
+	119 Subtract v126 @ X8_v22, v123 @ X8_v21 (System.Int32), v117 @ X21_v8
+	120 Add v127 @ X20_v15, v126 @ X8_v22, v117 @ X21_v8
+	121 Call Single.GetHashCode, v128 @ X0_v46 (System.Int32), v124 @ X0_v45 (System.Single)
+	122 Subtract v129 @ X8_v23, v128 @ X0_v46 (System.Int32), v127 @ X20_v15
+	123 Add v130 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 196
+	124 Nop
+	125 Add v132 @ X20_v16, v129 @ X8_v23, v127 @ X20_v15
+	126 Call Single.GetHashCode, v133 @ X0_v48 (System.Int32), v130 @ X0_v47 (System.Single)
+	127 Subtract v134 @ X8_v24, v133 @ X0_v48 (System.Int32), v132 @ X20_v16
+	128 Add v135 @ X0_v49 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 200
+	129 Nop
+	130 Add v137 @ X21_v9, v134 @ X8_v24, v132 @ X20_v16
+	131 Call Single.GetHashCode, v138 @ X0_v50 (System.Int32), v135 @ X0_v49 (System.Single)
+	132 Nop
+	133 Add v140 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 204
+	134 Nop
+	135 Call Single.GetHashCode, v142 @ X0_v52 (System.Int32), v140 @ X0_v51 (System.Single)
+	136 Xor v143 @ X8_v25 (System.Int32), v138 @ X0_v50 (System.Int32), v142 @ X0_v52 (System.Int32)
+	137 Add v144 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 208
+	138 Nop
+	139 Subtract v146 @ X8_v26, v143 @ X8_v25 (System.Int32), v137 @ X21_v9
+	140 Add v147 @ X21_v10, v146 @ X8_v26, v137 @ X21_v9
+	141 Call Single.GetHashCode, v148 @ X0_v54 (System.Int32), v144 @ X0_v53 (System.Single)
+	142 Nop
+	143 Add v150 @ X0_v55 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 212
+	144 Nop
+	145 Call Single.GetHashCode, v152 @ X0_v56 (System.Int32), v150 @ X0_v55 (System.Single)
+	146 Xor v153 @ X8_v27 (System.Int32), v148 @ X0_v54 (System.Int32), v152 @ X0_v56 (System.Int32)
+	147 Add v154 @ X0_v57 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 216
+	148 Nop
+	149 Subtract v156 @ X8_v28, v153 @ X8_v27 (System.Int32), v147 @ X21_v10
+	150 Add v157 @ X23_v1, v156 @ X8_v28, v147 @ X21_v10
+	151 Call Single.GetHashCode, v158 @ X0_v58 (System.Int32), v154 @ X0_v57 (System.Single)
+	152 Nop
+	153 Add v160 @ X0_v59 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 220
+	154 Nop
+	155 Call Single.GetHashCode, v162 @ X0_v60 (System.Int32), v160 @ X0_v59 (System.Single)
+	156 Nop
+	157 Add v164 @ X0_v61 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 224
+	158 Nop
+	159 Call Single.GetHashCode, v166 @ X0_v62 (System.Int32), v164 @ X0_v61 (System.Single)
+	160 Nop
+	161 Add v168 @ X0_v63 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 228
+	162 Nop
+	163 Call Single.GetHashCode, v170 @ X0_v64 (System.Int32), v168 @ X0_v63 (System.Single)
+	164 Xor v171 @ X8_v29 (System.Int32), v158 @ X0_v58 (System.Int32), v162 @ X0_v60 (System.Int32)
+	165 Nop
+	166 Xor v173 @ X8_v30 (System.Int32), v171 @ X8_v29 (System.Int32), v166 @ X0_v62 (System.Int32)
+	167 Xor v174 @ X8_v31 (System.Int32), v173 @ X8_v30 (System.Int32), v170 @ X0_v64 (System.Int32)
+	168 Add v175 @ X0_v65 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 232
+	169 Subtract v176 @ X8_v32, v174 @ X8_v31 (System.Int32), v157 @ X23_v1
+	170 Add v177 @ X23_v2, v176 @ X8_v32, v157 @ X23_v1
+	171 Call Single.GetHashCode, v178 @ X0_v66 (System.Int32), v175 @ X0_v65 (System.Single)
+	172 Nop
+	173 Add v180 @ X0_v67 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 236
+	174 Nop
+	175 Call Single.GetHashCode, v182 @ X0_v68 (System.Int32), v180 @ X0_v67 (System.Single)
+	176 Nop
+	177 Add v184 @ X0_v69 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 240
+	178 Nop
+	179 Call Single.GetHashCode, v186 @ X0_v70 (System.Int32), v184 @ X0_v69 (System.Single)
+	180 Nop
+	181 Add v188 @ X0_v71 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 244
+	182 Nop
+	183 Call Single.GetHashCode, v190 @ X0_v72 (System.Int32), v188 @ X0_v71 (System.Single)
+	184 Xor v191 @ X8_v33 (System.Int32), v178 @ X0_v66 (System.Int32), v182 @ X0_v68 (System.Int32)
+	185 Nop
+	186 Xor v193 @ X8_v34 (System.Int32), v191 @ X8_v33 (System.Int32), v186 @ X0_v70 (System.Int32)
+	187 Xor v194 @ X8_v35 (System.Int32), v193 @ X8_v34 (System.Int32), v190 @ X0_v72 (System.Int32)
+	188 Add v195 @ X0_v73 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 248
+	189 Subtract v196 @ X8_v36, v194 @ X8_v35 (System.Int32), v177 @ X23_v2
+	190 Add v197 @ X20_v21, v196 @ X8_v36, v177 @ X23_v2
+	191 Call Single.GetHashCode, v198 @ X0_v74 (System.Int32), v195 @ X0_v73 (System.Single)
+	192 Subtract v199 @ X8_v37, v198 @ X0_v74 (System.Int32), v197 @ X20_v21
+	193 Add v200 @ X0_v75 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 256
+	194 Nop
+	195 Add v202 @ X20_v22, v199 @ X8_v37, v197 @ X20_v21
+	196 Call Single.GetHashCode, v203 @ X0_v76 (System.Int32), v200 @ X0_v75 (System.Single)
+	197 Subtract v204 @ X8_v38, v203 @ X0_v76 (System.Int32), v202 @ X20_v22
+	198 Add v205 @ X0_v77 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), 252
+	199 Nop
+	200 Add v207 @ X20_v23, v204 @ X8_v38, v202 @ X20_v22
+	201 Call Int32.GetHashCode, v208 @ X0_v78 (System.Int32), v205 @ X0_v77 (System.Int32)
+	202 Subtract v209 @ X8_v39, v208 @ X0_v78 (System.Int32), v207 @ X20_v23
+	203 Add v210 @ X0_v79 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 260
+	204 Nop
+	205 Add v212 @ X21_v13, v209 @ X8_v39, v207 @ X20_v23
+	206 Call Single.GetHashCode, v213 @ X0_v80 (System.Int32), v210 @ X0_v79 (System.Single)
+	207 Nop
+	208 Add v215 @ X0_v81 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 264
+	209 Nop
+	210 Call Single.GetHashCode, v217 @ X0_v82 (System.Int32), v215 @ X0_v81 (System.Single)
+	211 Xor v218 @ X8_v40 (System.Int32), v213 @ X0_v80 (System.Int32), v217 @ X0_v82 (System.Int32)
+	212 Add v219 @ X0_v83 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 268
+	213 Nop
+	214 Subtract v221 @ X8_v41, v218 @ X8_v40 (System.Int32), v212 @ X21_v13
+	215 Add v222 @ X20_v25, v221 @ X8_v41, v212 @ X21_v13
+	216 Call Single.GetHashCode, v223 @ X0_v84 (System.Int32), v219 @ X0_v83 (System.Single)
+	217 Subtract v224 @ X8_v42, v223 @ X0_v84 (System.Int32), v222 @ X20_v25
+	218 Add v225 @ X0_v85 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 272
+	219 Nop
+	220 Add v227 @ X20_v26, v224 @ X8_v42, v222 @ X20_v25
+	221 Call Single.GetHashCode, v228 @ X0_v86 (System.Int32), v225 @ X0_v85 (System.Single)
+	222 Subtract v229 @ X8_v43, v228 @ X0_v86 (System.Int32), v227 @ X20_v26
+	223 Nop
+	224 Nop
+	225 Add returnVal1 @ X0_v87 (System.Int32), v229 @ X8_v43, v227 @ X20_v26
+	226 Nop
+	227 Nop
+	228 Nop
+	229 Nop
+	230 Nop
+	231 Return returnVal1 @ X0_v87 (System.Int32)
+
+Method: System.Int32 HashPart2(System.Int32 h)
+
+Disassembly:
+	0x03439694 STP X30, X23, [X31 - 0x30]!
+	0x03439698 STP X22, X21, [X31 + 0x10]
+	0x0343969C STP X20, X19, [X31 + 0x20]
+	0x034396A0 LDR W8, [X0 + 0x204]
+	0x034396A4 MOV X19, X0
+	0x034396A8 ADD X0, X0, 0x208
+	0x034396AC SUB W8, W8, W1
+	0x034396B0 ADD W20, W8, W1, 0x5, LSL
+	0x034396B4 MOV X1, X31
+	0x034396B8 BL 0x361FF74
+	0x034396BC SUB W8, W0, W20
+	0x034396C0 ADD X0, X19, 0x20C
+	0x034396C4 MOV X1, X31
+	0x034396C8 ADD W20, W8, W20, 0x5, LSL
+	0x034396CC BL 0x361FF74
+	0x034396D0 SUB W8, W0, W20
+	0x034396D4 ADD X0, X19, 0x210
+	0x034396D8 MOV X1, X31
+	0x034396DC ADD W20, W8, W20, 0x5, LSL
+	0x034396E0 BL 0x361FF74
+	0x034396E4 SUB W8, W0, W20
+	0x034396E8 ADD X0, X19, 0x114
+	0x034396EC MOV X1, X31
+	0x034396F0 ADD W23, W8, W20, 0x5, LSL
+	0x034396F4 BL 0x361FF74
+	0x034396F8 MOV W20, W0
+	0x034396FC ADD X0, X19, 0x118
+	0x03439700 MOV X1, X31
+	0x03439704 BL 0x361FF74
+	0x03439708 MOV W21, W0
+	0x0343970C ADD X0, X19, 0x11C
+	0x03439710 MOV X1, X31
+	0x03439714 BL 0x361FF74
+	0x03439718 MOV W22, W0
+	0x0343971C ADD X0, X19, 0x120
+	0x03439720 MOV X1, X31
+	0x03439724 BL 0x361FF74
+	0x03439728 EOR W8, W20, W21, LSL 0x2
+	0x0343972C MOV X1, X31
+	0x03439730 EOR W8, W8, W22, ASR 0x2
+	0x03439734 EOR W8, W8, W0, ASR 0x1
+	0x03439738 ADD X0, X19, 0x124
+	0x0343973C SUB W8, W8, W23
+	0x03439740 ADD W20, W8, W23, 0x5, LSL
+	0x03439744 BL 0x361FF74
+	0x03439748 SUB W8, W0, W20
+	0x0343974C ADD X0, X19, 0x128
+	0x03439750 MOV X1, X31
+	0x03439754 ADD W20, W8, W20, 0x5, LSL
+	0x03439758 BL 0x361FF74
+	0x0343975C SUB W8, W0, W20
+	0x03439760 ADD X0, X19, 0x12C
+	0x03439764 MOV X1, X31
+	0x03439768 ADD W20, W8, W20, 0x5, LSL
+	0x0343976C BL 0x361FF74
+	0x03439770 SUB W8, W0, W20
+	0x03439774 ADD X0, X19, 0x130
+	0x03439778 MOV X1, X31
+	0x0343977C ADD W20, W8, W20, 0x5, LSL
+	0x03439780 BL 0x361FF74
+	0x03439784 SUB W9, W0, W20
+	0x03439788 LDR W8, [X19 + 0x134]
+	0x0343978C ADD X0, X19, 0x138
+	0x03439790 ADD W9, W9, W20, 0x5, LSL
+	0x03439794 MOV X1, X31
+	0x03439798 SUB W8, W8, W9
+	0x0343979C ADD W20, W8, W9, 0x5, LSL
+	0x034397A0 BL 0x361FF74
+	0x034397A4 SUB W8, W0, W20
+	0x034397A8 ADD X0, X19, 0x13C
+	0x034397AC MOV X1, X31
+	0x034397B0 ADD W20, W8, W20, 0x5, LSL
+	0x034397B4 BL 0x361FF74
+	0x034397B8 SUB W8, W0, W20
+	0x034397BC ADD X0, X19, 0x140
+	0x034397C0 MOV X1, X31
+	0x034397C4 ADD W20, W8, W20, 0x5, LSL
+	0x034397C8 BL 0x361FF74
+	0x034397CC SUB W8, W0, W20
+	0x034397D0 ADD X0, X19, 0x40
+	0x034397D4 MOV X1, X31
+	0x034397D8 ADD W23, W8, W20, 0x5, LSL
+	0x034397DC BL 0x361FF74
+	0x034397E0 MOV W20, W0
+	0x034397E4 ADD X0, X19, 0x44
+	0x034397E8 MOV X1, X31
+	0x034397EC BL 0x361FF74
+	0x034397F0 MOV W21, W0
+	0x034397F4 ADD X0, X19, 0x48
+	0x034397F8 MOV X1, X31
+	0x034397FC BL 0x361FF74
+	0x03439800 MOV W22, W0
+	0x03439804 ADD X0, X19, 0x4C
+	0x03439808 MOV X1, X31
+	0x0343980C BL 0x361FF74
+	0x03439810 EOR W8, W20, W21, LSL 0x2
+	0x03439814 MOV X1, X31
+	0x03439818 EOR W8, W8, W22, ASR 0x2
+	0x0343981C EOR W8, W8, W0, ASR 0x1
+	0x03439820 ADD X0, X19, 0x50
+	0x03439824 SUB W8, W8, W23
+	0x03439828 ADD W23, W8, W23, 0x5, LSL
+	0x0343982C BL 0x361FF74
+	0x03439830 MOV W20, W0
+	0x03439834 ADD X0, X19, 0x54
+	0x03439838 MOV X1, X31
+	0x0343983C BL 0x361FF74
+	0x03439840 MOV W21, W0
+	0x03439844 ADD X0, X19, 0x58
+	0x03439848 MOV X1, X31
+	0x0343984C BL 0x361FF74
+	0x03439850 MOV W22, W0
+	0x03439854 ADD X0, X19, 0x5C
+	0x03439858 MOV X1, X31
+	0x0343985C BL 0x361FF74
+	0x03439860 EOR W8, W20, W21, LSL 0x2
+	0x03439864 MOV X1, X31
+	0x03439868 EOR W8, W8, W22, ASR 0x2
+	0x0343986C EOR W8, W8, W0, ASR 0x1
+	0x03439870 ADD X0, X19, 0x60
+	0x03439874 SUB W8, W8, W23
+	0x03439878 ADD W20, W8, W23, 0x5, LSL
+	0x0343987C BL 0x361FF74
+	0x03439880 SUB W8, W0, W20
+	0x03439884 ADD X0, X19, 0x64
+	0x03439888 MOV X1, X31
+	0x0343988C ADD W20, W8, W20, 0x5, LSL
+	0x03439890 BL 0x361FF74
+	0x03439894 SUB W8, W0, W20
+	0x03439898 ADD X0, X19, 0x68
+	0x0343989C MOV X1, X31
+	0x034398A0 ADD W20, W8, W20, 0x5, LSL
+	0x034398A4 BL 0x360A2D8
+	0x034398A8 SUB W8, W0, W20
+	0x034398AC ADD X0, X19, 0x6C
+	0x034398B0 MOV X1, X31
+	0x034398B4 ADD W20, W8, W20, 0x5, LSL
+	0x034398B8 BL 0x361FF74
+	0x034398BC SUB W8, W0, W20
+	0x034398C0 ADD X0, X19, 0x70
+	0x034398C4 MOV X1, X31
+	0x034398C8 ADD W20, W8, W20, 0x5, LSL
+	0x034398CC BL 0x361FF74
+	0x034398D0 SUB W8, W0, W20
+	0x034398D4 ADD X0, X19, 0x74
+	0x034398D8 MOV X1, X31
+	0x034398DC ADD W20, W8, W20, 0x5, LSL
+	0x034398E0 BL 0x361FF74
+	0x034398E4 SUB W8, W0, W20
+	0x034398E8 ADD X0, X19, 0x78
+	0x034398EC MOV X1, X31
+	0x034398F0 ADD W20, W8, W20, 0x5, LSL
+	0x034398F4 BL 0x361FF74
+	0x034398F8 SUB W8, W0, W20
+	0x034398FC ADD X0, X19, 0x7C
+	0x03439900 MOV X1, X31
+	0x03439904 ADD W21, W8, W20, 0x5, LSL
+	0x03439908 BL 0x361FF74
+	0x0343990C MOV W20, W0
+	0x03439910 ADD X0, X19, 0x80
+	0x03439914 MOV X1, X31
+	0x03439918 BL 0x361FF74
+	0x0343991C EOR W8, W20, W0, LSL 0x2
+	0x03439920 ADD X0, X19, 0x84
+	0x03439924 MOV X1, X31
+	0x03439928 SUB W8, W8, W21
+	0x0343992C ADD W20, W8, W21, 0x5, LSL
+	0x03439930 BL 0x361FF74
+	0x03439934 SUB W8, W0, W20
+	0x03439938 ADD X0, X19, 0x88
+	0x0343993C MOV X1, X31
+	0x03439940 ADD W21, W8, W20, 0x5, LSL
+	0x03439944 BL 0x361FF74
+	0x03439948 MOV W20, W0
+	0x0343994C ADD X0, X19, 0x8C
+	0x03439950 MOV X1, X31
+	0x03439954 BL 0x361FF74
+	0x03439958 EOR W8, W20, W0, LSL 0x2
+	0x0343995C ADD X0, X19, 0x214
+	0x03439960 MOV X1, X31
+	0x03439964 SUB W8, W8, W21
+	0x03439968 ADD W20, W8, W21, 0x5, LSL
+	0x0343996C BL 0x361FF74
+	0x03439970 SUB W8, W0, W20
+	0x03439974 LDP X22, X21, [X31 + 0x10]
+	0x03439978 ADD W0, W8, W20, 0x5, LSL
+	0x0343997C LDP X20, X19, [X31 + 0x20]
+	0x03439980 LDP X30, X23, [X31], #0x30
+	0x03439984 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v15 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 520
+	10 Subtract v16 @ X8_v2, this.petalCount (System.Int32), h @ X1 (System.Int32)
+	11 Add v18 @ X20_v1, v16 @ X8_v2, h @ X1 (System.Int32)
+	12 Nop
+	13 Call Single.GetHashCode, v20 @ X0_v2 (System.Int32), v15 @ X0_v1 (System.Single)
+	14 Subtract v21 @ X8_v3, v20 @ X0_v2 (System.Int32), v18 @ X20_v1
+	15 Add v22 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 524
+	16 Nop
+	17 Add v24 @ X20_v2, v21 @ X8_v3, v18 @ X20_v1
+	18 Call Single.GetHashCode, v25 @ X0_v4 (System.Int32), v22 @ X0_v3 (System.Single)
+	19 Subtract v26 @ X8_v4, v25 @ X0_v4 (System.Int32), v24 @ X20_v2
+	20 Add v27 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 528
+	21 Nop
+	22 Add v29 @ X20_v3, v26 @ X8_v4, v24 @ X20_v2
+	23 Call Single.GetHashCode, v30 @ X0_v6 (System.Int32), v27 @ X0_v5 (System.Single)
+	24 Subtract v31 @ X8_v5, v30 @ X0_v6 (System.Int32), v29 @ X20_v3
+	25 Add v32 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 276
+	26 Nop
+	27 Add v34 @ X23_v1, v31 @ X8_v5, v29 @ X20_v3
+	28 Call Single.GetHashCode, v35 @ X0_v8 (System.Int32), v32 @ X0_v7 (System.Single)
+	29 Nop
+	30 Add v37 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 280
+	31 Nop
+	32 Call Single.GetHashCode, v39 @ X0_v10 (System.Int32), v37 @ X0_v9 (System.Single)
+	33 Nop
+	34 Add v41 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 284
+	35 Nop
+	36 Call Single.GetHashCode, v43 @ X0_v12 (System.Int32), v41 @ X0_v11 (System.Single)
+	37 Nop
+	38 Add v45 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 288
+	39 Nop
+	40 Call Single.GetHashCode, v47 @ X0_v14 (System.Int32), v45 @ X0_v13 (System.Single)
+	41 Xor v48 @ X8_v6 (System.Int32), v35 @ X0_v8 (System.Int32), v39 @ X0_v10 (System.Int32)
+	42 Nop
+	43 Xor v50 @ X8_v7 (System.Int32), v48 @ X8_v6 (System.Int32), v43 @ X0_v12 (System.Int32)
+	44 Xor v51 @ X8_v8 (System.Int32), v50 @ X8_v7 (System.Int32), v47 @ X0_v14 (System.Int32)
+	45 Add v52 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 292
+	46 Subtract v53 @ X8_v9, v51 @ X8_v8 (System.Int32), v34 @ X23_v1
+	47 Add v54 @ X20_v5, v53 @ X8_v9, v34 @ X23_v1
+	48 Call Single.GetHashCode, v55 @ X0_v16 (System.Int32), v52 @ X0_v15 (System.Single)
+	49 Subtract v56 @ X8_v10, v55 @ X0_v16 (System.Int32), v54 @ X20_v5
+	50 Add v57 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 296
+	51 Nop
+	52 Add v59 @ X20_v6, v56 @ X8_v10, v54 @ X20_v5
+	53 Call Single.GetHashCode, v60 @ X0_v18 (System.Int32), v57 @ X0_v17 (System.Single)
+	54 Subtract v61 @ X8_v11, v60 @ X0_v18 (System.Int32), v59 @ X20_v6
+	55 Add v62 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 300
+	56 Nop
+	57 Add v64 @ X20_v7, v61 @ X8_v11, v59 @ X20_v6
+	58 Call Single.GetHashCode, v65 @ X0_v20 (System.Int32), v62 @ X0_v19 (System.Single)
+	59 Subtract v66 @ X8_v12, v65 @ X0_v20 (System.Int32), v64 @ X20_v7
+	60 Add v67 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 304
+	61 Nop
+	62 Add v69 @ X20_v8, v66 @ X8_v12, v64 @ X20_v7
+	63 Call Single.GetHashCode, v70 @ X0_v22 (System.Int32), v67 @ X0_v21 (System.Single)
+	64 Subtract v71 @ X9_v1, v70 @ X0_v22 (System.Int32), v69 @ X20_v8
+	65 Nop
+	66 Add v73 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 312
+	67 Add v74 @ X9_v2, v71 @ X9_v1, v69 @ X20_v8
+	68 Nop
+	69 Subtract v76 @ X8_v14, this.moteCount (System.Int32), v74 @ X9_v2
+	70 Add v77 @ X20_v9, v76 @ X8_v14, v74 @ X9_v2
+	71 Call Single.GetHashCode, v78 @ X0_v24 (System.Int32), v73 @ X0_v23 (System.Single)
+	72 Subtract v79 @ X8_v15, v78 @ X0_v24 (System.Int32), v77 @ X20_v9
+	73 Add v80 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 316
+	74 Nop
+	75 Add v82 @ X20_v10, v79 @ X8_v15, v77 @ X20_v9
+	76 Call Single.GetHashCode, v83 @ X0_v26 (System.Int32), v80 @ X0_v25 (System.Single)
+	77 Subtract v84 @ X8_v16, v83 @ X0_v26 (System.Int32), v82 @ X20_v10
+	78 Add v85 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 320
+	79 Nop
+	80 Add v87 @ X20_v11, v84 @ X8_v16, v82 @ X20_v10
+	81 Call Single.GetHashCode, v88 @ X0_v28 (System.Int32), v85 @ X0_v27 (System.Single)
+	82 Subtract v89 @ X8_v17, v88 @ X0_v28 (System.Int32), v87 @ X20_v11
+	83 Add v90 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 64
+	84 Nop
+	85 Add v92 @ X23_v2, v89 @ X8_v17, v87 @ X20_v11
+	86 Call Single.GetHashCode, v93 @ X0_v30 (System.Int32), v90 @ X0_v29 (System.Single)
+	87 Nop
+	88 Add v95 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 68
+	89 Nop
+	90 Call Single.GetHashCode, v97 @ X0_v32 (System.Int32), v95 @ X0_v31 (System.Single)
+	91 Nop
+	92 Add v99 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 72
+	93 Nop
+	94 Call Single.GetHashCode, v101 @ X0_v34 (System.Int32), v99 @ X0_v33 (System.Single)
+	95 Nop
+	96 Add v103 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 76
+	97 Nop
+	98 Call Single.GetHashCode, v105 @ X0_v36 (System.Int32), v103 @ X0_v35 (System.Single)
+	99 Xor v106 @ X8_v18 (System.Int32), v93 @ X0_v30 (System.Int32), v97 @ X0_v32 (System.Int32)
+	100 Nop
+	101 Xor v108 @ X8_v19 (System.Int32), v106 @ X8_v18 (System.Int32), v101 @ X0_v34 (System.Int32)
+	102 Xor v109 @ X8_v20 (System.Int32), v108 @ X8_v19 (System.Int32), v105 @ X0_v36 (System.Int32)
+	103 Add v110 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 80
+	104 Subtract v111 @ X8_v21, v109 @ X8_v20 (System.Int32), v92 @ X23_v2
+	105 Add v112 @ X23_v3, v111 @ X8_v21, v92 @ X23_v2
+	106 Call Single.GetHashCode, v113 @ X0_v38 (System.Int32), v110 @ X0_v37 (System.Single)
+	107 Nop
+	108 Add v115 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 84
+	109 Nop
+	110 Call Single.GetHashCode, v117 @ X0_v40 (System.Int32), v115 @ X0_v39 (System.Single)
+	111 Nop
+	112 Add v119 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 88
+	113 Nop
+	114 Call Single.GetHashCode, v121 @ X0_v42 (System.Int32), v119 @ X0_v41 (System.Single)
+	115 Nop
+	116 Add v123 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 92
+	117 Nop
+	118 Call Single.GetHashCode, v125 @ X0_v44 (System.Int32), v123 @ X0_v43 (System.Single)
+	119 Xor v126 @ X8_v22 (System.Int32), v113 @ X0_v38 (System.Int32), v117 @ X0_v40 (System.Int32)
+	120 Nop
+	121 Xor v128 @ X8_v23 (System.Int32), v126 @ X8_v22 (System.Int32), v121 @ X0_v42 (System.Int32)
+	122 Xor v129 @ X8_v24 (System.Int32), v128 @ X8_v23 (System.Int32), v125 @ X0_v44 (System.Int32)
+	123 Add v130 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 96
+	124 Subtract v131 @ X8_v25, v129 @ X8_v24 (System.Int32), v112 @ X23_v3
+	125 Add v132 @ X20_v14, v131 @ X8_v25, v112 @ X23_v3
+	126 Call Single.GetHashCode, v133 @ X0_v46 (System.Int32), v130 @ X0_v45 (System.Single)
+	127 Subtract v134 @ X8_v26, v133 @ X0_v46 (System.Int32), v132 @ X20_v14
+	128 Add v135 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 100
+	129 Nop
+	130 Add v137 @ X20_v15, v134 @ X8_v26, v132 @ X20_v14
+	131 Call Single.GetHashCode, v138 @ X0_v48 (System.Int32), v135 @ X0_v47 (System.Single)
+	132 Subtract v139 @ X8_v27, v138 @ X0_v48 (System.Int32), v137 @ X20_v15
+	133 Add v140 @ X0_v49 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), 104
+	134 Nop
+	135 Add v142 @ X20_v16, v139 @ X8_v27, v137 @ X20_v15
+	136 Call Int32.GetHashCode, v143 @ X0_v50 (System.Int32), v140 @ X0_v49 (System.Int32)
+	137 Subtract v144 @ X8_v28, v143 @ X0_v50 (System.Int32), v142 @ X20_v16
+	138 Add v145 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 108
+	139 Nop
+	140 Add v147 @ X20_v17, v144 @ X8_v28, v142 @ X20_v16
+	141 Call Single.GetHashCode, v148 @ X0_v52 (System.Int32), v145 @ X0_v51 (System.Single)
+	142 Subtract v149 @ X8_v29, v148 @ X0_v52 (System.Int32), v147 @ X20_v17
+	143 Add v150 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 112
+	144 Nop
+	145 Add v152 @ X20_v18, v149 @ X8_v29, v147 @ X20_v17
+	146 Call Single.GetHashCode, v153 @ X0_v54 (System.Int32), v150 @ X0_v53 (System.Single)
+	147 Subtract v154 @ X8_v30, v153 @ X0_v54 (System.Int32), v152 @ X20_v18
+	148 Add v155 @ X0_v55 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 116
+	149 Nop
+	150 Add v157 @ X20_v19, v154 @ X8_v30, v152 @ X20_v18
+	151 Call Single.GetHashCode, v158 @ X0_v56 (System.Int32), v155 @ X0_v55 (System.Single)
+	152 Subtract v159 @ X8_v31, v158 @ X0_v56 (System.Int32), v157 @ X20_v19
+	153 Add v160 @ X0_v57 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 120
+	154 Nop
+	155 Add v162 @ X20_v20, v159 @ X8_v31, v157 @ X20_v19
+	156 Call Single.GetHashCode, v163 @ X0_v58 (System.Int32), v160 @ X0_v57 (System.Single)
+	157 Subtract v164 @ X8_v32, v163 @ X0_v58 (System.Int32), v162 @ X20_v20
+	158 Add v165 @ X0_v59 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 124
+	159 Nop
+	160 Add v167 @ X21_v4, v164 @ X8_v32, v162 @ X20_v20
+	161 Call Single.GetHashCode, v168 @ X0_v60 (System.Int32), v165 @ X0_v59 (System.Single)
+	162 Nop
+	163 Add v170 @ X0_v61 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 128
+	164 Nop
+	165 Call Single.GetHashCode, v172 @ X0_v62 (System.Int32), v170 @ X0_v61 (System.Single)
+	166 Xor v173 @ X8_v33 (System.Int32), v168 @ X0_v60 (System.Int32), v172 @ X0_v62 (System.Int32)
+	167 Add v174 @ X0_v63 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 132
+	168 Nop
+	169 Subtract v176 @ X8_v34, v173 @ X8_v33 (System.Int32), v167 @ X21_v4
+	170 Add v177 @ X20_v22, v176 @ X8_v34, v167 @ X21_v4
+	171 Call Single.GetHashCode, v178 @ X0_v64 (System.Int32), v174 @ X0_v63 (System.Single)
+	172 Subtract v179 @ X8_v35, v178 @ X0_v64 (System.Int32), v177 @ X20_v22
+	173 Add v180 @ X0_v65 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 136
+	174 Nop
+	175 Add v182 @ X21_v5, v179 @ X8_v35, v177 @ X20_v22
+	176 Call Single.GetHashCode, v183 @ X0_v66 (System.Int32), v180 @ X0_v65 (System.Single)
+	177 Nop
+	178 Add v185 @ X0_v67 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 140
+	179 Nop
+	180 Call Single.GetHashCode, v187 @ X0_v68 (System.Int32), v185 @ X0_v67 (System.Single)
+	181 Xor v188 @ X8_v36 (System.Int32), v183 @ X0_v66 (System.Int32), v187 @ X0_v68 (System.Int32)
+	182 Add v189 @ X0_v69 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 532
+	183 Nop
+	184 Subtract v191 @ X8_v37, v188 @ X8_v36 (System.Int32), v182 @ X21_v5
+	185 Add v192 @ X20_v24, v191 @ X8_v37, v182 @ X21_v5
+	186 Call Single.GetHashCode, v193 @ X0_v70 (System.Int32), v189 @ X0_v69 (System.Single)
+	187 Subtract v194 @ X8_v38, v193 @ X0_v70 (System.Int32), v192 @ X20_v24
+	188 Nop
+	189 Nop
+	190 Add returnVal1 @ X0_v71 (System.Int32), v194 @ X8_v38, v192 @ X20_v24
+	191 Nop
+	192 Nop
+	193 Nop
+	194 Nop
+	195 Nop
+	196 Return returnVal1 @ X0_v71 (System.Int32)
+
+Method: System.Int32 HashPart3(System.Int32 h)
+
+Disassembly:
+	0x03439988 STP X30, X23, [X31 - 0x30]!
+	0x0343998C STP X22, X21, [X31 + 0x10]
+	0x03439990 STP X20, X19, [X31 + 0x20]
+	0x03439994 MOV W20, W1
+	0x03439998 MOV X19, X0
+	0x0343999C ADD X0, X0, 0x180
+	0x034399A0 MOV X1, X31
+	0x034399A4 BL 0x361FF74
+	0x034399A8 SUB W8, W0, W20
+	0x034399AC ADD X0, X19, 0x184
+	0x034399B0 MOV X1, X31
+	0x034399B4 ADD W20, W8, W20, 0x5, LSL
+	0x034399B8 BL 0x361FF74
+	0x034399BC SUB W8, W0, W20
+	0x034399C0 ADD X0, X19, 0x188
+	0x034399C4 MOV X1, X31
+	0x034399C8 ADD W20, W8, W20, 0x5, LSL
+	0x034399CC BL 0x361FF74
+	0x034399D0 SUB W8, W0, W20
+	0x034399D4 ADD X0, X19, 0x18C
+	0x034399D8 MOV X1, X31
+	0x034399DC ADD W20, W8, W20, 0x5, LSL
+	0x034399E0 BL 0x361FF74
+	0x034399E4 SUB W8, W0, W20
+	0x034399E8 ADD X0, X19, 0x190
+	0x034399EC MOV X1, X31
+	0x034399F0 ADD W20, W8, W20, 0x5, LSL
+	0x034399F4 BL 0x361FF74
+	0x034399F8 SUB W8, W0, W20
+	0x034399FC ADD X0, X19, 0x194
+	0x03439A00 MOV X1, X31
+	0x03439A04 ADD W20, W8, W20, 0x5, LSL
+	0x03439A08 BL 0x361FF74
+	0x03439A0C SUB W8, W0, W20
+	0x03439A10 ADD X0, X19, 0x198
+	0x03439A14 MOV X1, X31
+	0x03439A18 ADD W20, W8, W20, 0x5, LSL
+	0x03439A1C BL 0x361FF74
+	0x03439A20 SUB W8, W0, W20
+	0x03439A24 ADD X0, X19, 0x19C
+	0x03439A28 MOV X1, X31
+	0x03439A2C ADD W20, W8, W20, 0x5, LSL
+	0x03439A30 BL 0x361FF74
+	0x03439A34 SUB W8, W0, W20
+	0x03439A38 ADD X0, X19, 0x1A0
+	0x03439A3C MOV X1, X31
+	0x03439A40 ADD W20, W8, W20, 0x5, LSL
+	0x03439A44 BL 0x361FF74
+	0x03439A48 SUB W8, W0, W20
+	0x03439A4C ADD X0, X19, 0x1A4
+	0x03439A50 MOV X1, X31
+	0x03439A54 ADD W20, W8, W20, 0x5, LSL
+	0x03439A58 BL 0x361FF74
+	0x03439A5C SUB W8, W0, W20
+	0x03439A60 ADD X0, X19, 0x1A8
+	0x03439A64 MOV X1, X31
+	0x03439A68 ADD W20, W8, W20, 0x5, LSL
+	0x03439A6C BL 0x361FF74
+	0x03439A70 SUB W8, W0, W20
+	0x03439A74 ADD X0, X19, 0x1AC
+	0x03439A78 MOV X1, X31
+	0x03439A7C ADD W20, W8, W20, 0x5, LSL
+	0x03439A80 BL 0x361FF74
+	0x03439A84 SUB W8, W0, W20
+	0x03439A88 ADD X0, X19, 0x1B0
+	0x03439A8C MOV X1, X31
+	0x03439A90 ADD W20, W8, W20, 0x5, LSL
+	0x03439A94 BL 0x361FF74
+	0x03439A98 SUB W8, W0, W20
+	0x03439A9C ADD X0, X19, 0x1B4
+	0x03439AA0 MOV X1, X31
+	0x03439AA4 ADD W20, W8, W20, 0x5, LSL
+	0x03439AA8 BL 0x361FF74
+	0x03439AAC SUB W8, W0, W20
+	0x03439AB0 ADD X0, X19, 0x1B8
+	0x03439AB4 MOV X1, X31
+	0x03439AB8 ADD W20, W8, W20, 0x5, LSL
+	0x03439ABC BL 0x361FF74
+	0x03439AC0 SUB W8, W0, W20
+	0x03439AC4 ADD X0, X19, 0x1BC
+	0x03439AC8 MOV X1, X31
+	0x03439ACC ADD W20, W8, W20, 0x5, LSL
+	0x03439AD0 BL 0x360A2D8
+	0x03439AD4 SUB W8, W0, W20
+	0x03439AD8 ADD X0, X19, 0x1CC
+	0x03439ADC MOV X1, X31
+	0x03439AE0 ADD W20, W8, W20, 0x5, LSL
+	0x03439AE4 BL 0x361FF74
+	0x03439AE8 SUB W8, W0, W20
+	0x03439AEC ADD X0, X19, 0x1D0
+	0x03439AF0 MOV X1, X31
+	0x03439AF4 ADD W20, W8, W20, 0x5, LSL
+	0x03439AF8 BL 0x361FF74
+	0x03439AFC SUB W8, W0, W20
+	0x03439B00 ADD X0, X19, 0x1D4
+	0x03439B04 MOV X1, X31
+	0x03439B08 ADD W23, W8, W20, 0x5, LSL
+	0x03439B0C BL 0x361FF74
+	0x03439B10 MOV W20, W0
+	0x03439B14 ADD X0, X19, 0x1D8
+	0x03439B18 MOV X1, X31
+	0x03439B1C BL 0x361FF74
+	0x03439B20 MOV W21, W0
+	0x03439B24 ADD X0, X19, 0x1DC
+	0x03439B28 MOV X1, X31
+	0x03439B2C BL 0x361FF74
+	0x03439B30 MOV W22, W0
+	0x03439B34 ADD X0, X19, 0x1E0
+	0x03439B38 MOV X1, X31
+	0x03439B3C BL 0x361FF74
+	0x03439B40 EOR W8, W20, W21, LSL 0x2
+	0x03439B44 MOV X1, X31
+	0x03439B48 EOR W8, W8, W22, ASR 0x2
+	0x03439B4C EOR W8, W8, W0, ASR 0x1
+	0x03439B50 ADD X0, X19, 0x1E4
+	0x03439B54 SUB W8, W8, W23
+	0x03439B58 ADD W20, W8, W23, 0x5, LSL
+	0x03439B5C BL 0x361FF74
+	0x03439B60 SUB W8, W0, W20
+	0x03439B64 ADD X0, X19, 0x1E8
+	0x03439B68 MOV X1, X31
+	0x03439B6C ADD W20, W8, W20, 0x5, LSL
+	0x03439B70 BL 0x361FF74
+	0x03439B74 SUB W8, W0, W20
+	0x03439B78 ADD X0, X19, 0x1EC
+	0x03439B7C MOV X1, X31
+	0x03439B80 ADD W20, W8, W20, 0x5, LSL
+	0x03439B84 BL 0x361FF74
+	0x03439B88 SUB W8, W0, W20
+	0x03439B8C ADD X0, X19, 0x1F0
+	0x03439B90 MOV X1, X31
+	0x03439B94 ADD W20, W8, W20, 0x5, LSL
+	0x03439B98 BL 0x361FF74
+	0x03439B9C SUB W8, W0, W20
+	0x03439BA0 ADD X0, X19, 0x1F4
+	0x03439BA4 MOV X1, X31
+	0x03439BA8 ADD W20, W8, W20, 0x5, LSL
+	0x03439BAC BL 0x361FF74
+	0x03439BB0 SUB W8, W0, W20
+	0x03439BB4 LDP X22, X21, [X31 + 0x10]
+	0x03439BB8 ADD W0, W8, W20, 0x5, LSL
+	0x03439BBC LDP X20, X19, [X31 + 0x20]
+	0x03439BC0 LDP X30, X23, [X31], #0x30
+	0x03439BC4 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v16 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 384
+	10 Nop
+	11 Call Single.GetHashCode, v18 @ X0_v2 (System.Int32), v16 @ X0_v1 (System.Single)
+	12 Subtract v19 @ X8_v1, v18 @ X0_v2 (System.Int32), h @ X1 (System.Int32)
+	13 Add v20 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 388
+	14 Nop
+	15 Add v22 @ X20_v2, v19 @ X8_v1, h @ X1 (System.Int32)
+	16 Call Single.GetHashCode, v23 @ X0_v4 (System.Int32), v20 @ X0_v3 (System.Single)
+	17 Subtract v24 @ X8_v2, v23 @ X0_v4 (System.Int32), v22 @ X20_v2
+	18 Add v25 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 392
+	19 Nop
+	20 Add v27 @ X20_v3, v24 @ X8_v2, v22 @ X20_v2
+	21 Call Single.GetHashCode, v28 @ X0_v6 (System.Int32), v25 @ X0_v5 (System.Single)
+	22 Subtract v29 @ X8_v3, v28 @ X0_v6 (System.Int32), v27 @ X20_v3
+	23 Add v30 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 396
+	24 Nop
+	25 Add v32 @ X20_v4, v29 @ X8_v3, v27 @ X20_v3
+	26 Call Single.GetHashCode, v33 @ X0_v8 (System.Int32), v30 @ X0_v7 (System.Single)
+	27 Subtract v34 @ X8_v4, v33 @ X0_v8 (System.Int32), v32 @ X20_v4
+	28 Add v35 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 400
+	29 Nop
+	30 Add v37 @ X20_v5, v34 @ X8_v4, v32 @ X20_v4
+	31 Call Single.GetHashCode, v38 @ X0_v10 (System.Int32), v35 @ X0_v9 (System.Single)
+	32 Subtract v39 @ X8_v5, v38 @ X0_v10 (System.Int32), v37 @ X20_v5
+	33 Add v40 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 404
+	34 Nop
+	35 Add v42 @ X20_v6, v39 @ X8_v5, v37 @ X20_v5
+	36 Call Single.GetHashCode, v43 @ X0_v12 (System.Int32), v40 @ X0_v11 (System.Single)
+	37 Subtract v44 @ X8_v6, v43 @ X0_v12 (System.Int32), v42 @ X20_v6
+	38 Add v45 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 408
+	39 Nop
+	40 Add v47 @ X20_v7, v44 @ X8_v6, v42 @ X20_v6
+	41 Call Single.GetHashCode, v48 @ X0_v14 (System.Int32), v45 @ X0_v13 (System.Single)
+	42 Subtract v49 @ X8_v7, v48 @ X0_v14 (System.Int32), v47 @ X20_v7
+	43 Add v50 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 412
+	44 Nop
+	45 Add v52 @ X20_v8, v49 @ X8_v7, v47 @ X20_v7
+	46 Call Single.GetHashCode, v53 @ X0_v16 (System.Int32), v50 @ X0_v15 (System.Single)
+	47 Subtract v54 @ X8_v8, v53 @ X0_v16 (System.Int32), v52 @ X20_v8
+	48 Add v55 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 416
+	49 Nop
+	50 Add v57 @ X20_v9, v54 @ X8_v8, v52 @ X20_v8
+	51 Call Single.GetHashCode, v58 @ X0_v18 (System.Int32), v55 @ X0_v17 (System.Single)
+	52 Subtract v59 @ X8_v9, v58 @ X0_v18 (System.Int32), v57 @ X20_v9
+	53 Add v60 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 420
+	54 Nop
+	55 Add v62 @ X20_v10, v59 @ X8_v9, v57 @ X20_v9
+	56 Call Single.GetHashCode, v63 @ X0_v20 (System.Int32), v60 @ X0_v19 (System.Single)
+	57 Subtract v64 @ X8_v10, v63 @ X0_v20 (System.Int32), v62 @ X20_v10
+	58 Add v65 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 424
+	59 Nop
+	60 Add v67 @ X20_v11, v64 @ X8_v10, v62 @ X20_v10
+	61 Call Single.GetHashCode, v68 @ X0_v22 (System.Int32), v65 @ X0_v21 (System.Single)
+	62 Subtract v69 @ X8_v11, v68 @ X0_v22 (System.Int32), v67 @ X20_v11
+	63 Add v70 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 428
+	64 Nop
+	65 Add v72 @ X20_v12, v69 @ X8_v11, v67 @ X20_v11
+	66 Call Single.GetHashCode, v73 @ X0_v24 (System.Int32), v70 @ X0_v23 (System.Single)
+	67 Subtract v74 @ X8_v12, v73 @ X0_v24 (System.Int32), v72 @ X20_v12
+	68 Add v75 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 432
+	69 Nop
+	70 Add v77 @ X20_v13, v74 @ X8_v12, v72 @ X20_v12
+	71 Call Single.GetHashCode, v78 @ X0_v26 (System.Int32), v75 @ X0_v25 (System.Single)
+	72 Subtract v79 @ X8_v13, v78 @ X0_v26 (System.Int32), v77 @ X20_v13
+	73 Add v80 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 436
+	74 Nop
+	75 Add v82 @ X20_v14, v79 @ X8_v13, v77 @ X20_v13
+	76 Call Single.GetHashCode, v83 @ X0_v28 (System.Int32), v80 @ X0_v27 (System.Single)
+	77 Subtract v84 @ X8_v14, v83 @ X0_v28 (System.Int32), v82 @ X20_v14
+	78 Add v85 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 440
+	79 Nop
+	80 Add v87 @ X20_v15, v84 @ X8_v14, v82 @ X20_v14
+	81 Call Single.GetHashCode, v88 @ X0_v30 (System.Int32), v85 @ X0_v29 (System.Single)
+	82 Subtract v89 @ X8_v15, v88 @ X0_v30 (System.Int32), v87 @ X20_v15
+	83 Add v90 @ X0_v31 (System.Int32), this @ X0 (Hamdoku.UI.StreakPageConfig), 444
+	84 Nop
+	85 Add v92 @ X20_v16, v89 @ X8_v15, v87 @ X20_v15
+	86 Call Int32.GetHashCode, v93 @ X0_v32 (System.Int32), v90 @ X0_v31 (System.Int32)
+	87 Subtract v94 @ X8_v16, v93 @ X0_v32 (System.Int32), v92 @ X20_v16
+	88 Add v95 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 460
+	89 Nop
+	90 Add v97 @ X20_v17, v94 @ X8_v16, v92 @ X20_v16
+	91 Call Single.GetHashCode, v98 @ X0_v34 (System.Int32), v95 @ X0_v33 (System.Single)
+	92 Subtract v99 @ X8_v17, v98 @ X0_v34 (System.Int32), v97 @ X20_v17
+	93 Add v100 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 464
+	94 Nop
+	95 Add v102 @ X20_v18, v99 @ X8_v17, v97 @ X20_v17
+	96 Call Single.GetHashCode, v103 @ X0_v36 (System.Int32), v100 @ X0_v35 (System.Single)
+	97 Subtract v104 @ X8_v18, v103 @ X0_v36 (System.Int32), v102 @ X20_v18
+	98 Add v105 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 468
+	99 Nop
+	100 Add v107 @ X23_v1, v104 @ X8_v18, v102 @ X20_v18
+	101 Call Single.GetHashCode, v108 @ X0_v38 (System.Int32), v105 @ X0_v37 (System.Single)
+	102 Nop
+	103 Add v110 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 472
+	104 Nop
+	105 Call Single.GetHashCode, v112 @ X0_v40 (System.Int32), v110 @ X0_v39 (System.Single)
+	106 Nop
+	107 Add v114 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 476
+	108 Nop
+	109 Call Single.GetHashCode, v116 @ X0_v42 (System.Int32), v114 @ X0_v41 (System.Single)
+	110 Nop
+	111 Add v118 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 480
+	112 Nop
+	113 Call Single.GetHashCode, v120 @ X0_v44 (System.Int32), v118 @ X0_v43 (System.Single)
+	114 Xor v121 @ X8_v19 (System.Int32), v108 @ X0_v38 (System.Int32), v112 @ X0_v40 (System.Int32)
+	115 Nop
+	116 Xor v123 @ X8_v20 (System.Int32), v121 @ X8_v19 (System.Int32), v116 @ X0_v42 (System.Int32)
+	117 Xor v124 @ X8_v21 (System.Int32), v123 @ X8_v20 (System.Int32), v120 @ X0_v44 (System.Int32)
+	118 Add v125 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 484
+	119 Subtract v126 @ X8_v22, v124 @ X8_v21 (System.Int32), v107 @ X23_v1
+	120 Add v127 @ X20_v20, v126 @ X8_v22, v107 @ X23_v1
+	121 Call Single.GetHashCode, v128 @ X0_v46 (System.Int32), v125 @ X0_v45 (System.Single)
+	122 Subtract v129 @ X8_v23, v128 @ X0_v46 (System.Int32), v127 @ X20_v20
+	123 Add v130 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 488
+	124 Nop
+	125 Add v132 @ X20_v21, v129 @ X8_v23, v127 @ X20_v20
+	126 Call Single.GetHashCode, v133 @ X0_v48 (System.Int32), v130 @ X0_v47 (System.Single)
+	127 Subtract v134 @ X8_v24, v133 @ X0_v48 (System.Int32), v132 @ X20_v21
+	128 Add v135 @ X0_v49 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 492
+	129 Nop
+	130 Add v137 @ X20_v22, v134 @ X8_v24, v132 @ X20_v21
+	131 Call Single.GetHashCode, v138 @ X0_v50 (System.Int32), v135 @ X0_v49 (System.Single)
+	132 Subtract v139 @ X8_v25, v138 @ X0_v50 (System.Int32), v137 @ X20_v22
+	133 Add v140 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 496
+	134 Nop
+	135 Add v142 @ X20_v23, v139 @ X8_v25, v137 @ X20_v22
+	136 Call Single.GetHashCode, v143 @ X0_v52 (System.Int32), v140 @ X0_v51 (System.Single)
+	137 Subtract v144 @ X8_v26, v143 @ X0_v52 (System.Int32), v142 @ X20_v23
+	138 Add v145 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 500
+	139 Nop
+	140 Add v147 @ X20_v24, v144 @ X8_v26, v142 @ X20_v23
+	141 Call Single.GetHashCode, v148 @ X0_v54 (System.Int32), v145 @ X0_v53 (System.Single)
+	142 Subtract v149 @ X8_v27, v148 @ X0_v54 (System.Int32), v147 @ X20_v24
+	143 Nop
+	144 Nop
+	145 Add returnVal1 @ X0_v55 (System.Int32), v149 @ X8_v27, v147 @ X20_v24
+	146 Nop
+	147 Nop
+	148 Nop
+	149 Nop
+	150 Nop
+	151 Return returnVal1 @ X0_v55 (System.Int32)
+
+Method: System.Int32 HashPart5(System.Int32 h)
+
+Disassembly:
+	0x03439D80 STP X30, X23, [X31 - 0x30]!
+	0x03439D84 STP X22, X21, [X31 + 0x10]
+	0x03439D88 STP X20, X19, [X31 + 0x20]
+	0x03439D8C MOV W20, W1
+	0x03439D90 MOV X19, X0
+	0x03439D94 ADD X0, X0, 0x218
+	0x03439D98 MOV X1, X31
+	0x03439D9C BL 0x361FF74
+	0x03439DA0 MOV W21, W0
+	0x03439DA4 ADD X0, X19, 0x21C
+	0x03439DA8 MOV X1, X31
+	0x03439DAC BL 0x361FF74
+	0x03439DB0 EOR W8, W21, W0, LSL 0x2
+	0x03439DB4 ADD X0, X19, 0x220
+	0x03439DB8 MOV X1, X31
+	0x03439DBC SUB W8, W8, W20
+	0x03439DC0 ADD W20, W8, W20, 0x5, LSL
+	0x03439DC4 BL 0x361FF74
+	0x03439DC8 SUB W8, W0, W20
+	0x03439DCC ADD X0, X19, 0x224
+	0x03439DD0 MOV X1, X31
+	0x03439DD4 ADD W20, W8, W20, 0x5, LSL
+	0x03439DD8 BL 0x361FF74
+	0x03439DDC SUB W8, W0, W20
+	0x03439DE0 ADD X0, X19, 0x228
+	0x03439DE4 MOV X1, X31
+	0x03439DE8 ADD W20, W8, W20, 0x5, LSL
+	0x03439DEC BL 0x361FF74
+	0x03439DF0 SUB W8, W0, W20
+	0x03439DF4 ADD X0, X19, 0x22C
+	0x03439DF8 MOV X1, X31
+	0x03439DFC ADD W20, W8, W20, 0x5, LSL
+	0x03439E00 BL 0x361FF74
+	0x03439E04 SUB W8, W0, W20
+	0x03439E08 ADD X0, X19, 0x230
+	0x03439E0C MOV X1, X31
+	0x03439E10 ADD W23, W8, W20, 0x5, LSL
+	0x03439E14 BL 0x361FF74
+	0x03439E18 MOV W20, W0
+	0x03439E1C ADD X0, X19, 0x234
+	0x03439E20 MOV X1, X31
+	0x03439E24 BL 0x361FF74
+	0x03439E28 MOV W21, W0
+	0x03439E2C ADD X0, X19, 0x238
+	0x03439E30 MOV X1, X31
+	0x03439E34 BL 0x361FF74
+	0x03439E38 MOV W22, W0
+	0x03439E3C ADD X0, X19, 0x23C
+	0x03439E40 MOV X1, X31
+	0x03439E44 BL 0x361FF74
+	0x03439E48 EOR W8, W20, W21, LSL 0x2
+	0x03439E4C MOV X1, X31
+	0x03439E50 EOR W8, W8, W22, ASR 0x2
+	0x03439E54 EOR W8, W8, W0, ASR 0x1
+	0x03439E58 ADD X0, X19, 0x240
+	0x03439E5C SUB W8, W8, W23
+	0x03439E60 ADD W21, W8, W23, 0x5, LSL
+	0x03439E64 BL 0x361FF74
+	0x03439E68 MOV W20, W0
+	0x03439E6C ADD X0, X19, 0x244
+	0x03439E70 MOV X1, X31
+	0x03439E74 BL 0x361FF74
+	0x03439E78 EOR W8, W20, W0, LSL 0x2
+	0x03439E7C ADD X0, X19, 0x248
+	0x03439E80 MOV X1, X31
+	0x03439E84 SUB W8, W8, W21
+	0x03439E88 ADD W20, W8, W21, 0x5, LSL
+	0x03439E8C BL 0x361FF74
+	0x03439E90 SUB W8, W0, W20
+	0x03439E94 ADD X0, X19, 0x24C
+	0x03439E98 MOV X1, X31
+	0x03439E9C ADD W23, W8, W20, 0x5, LSL
+	0x03439EA0 BL 0x361FF74
+	0x03439EA4 MOV W20, W0
+	0x03439EA8 ADD X0, X19, 0x250
+	0x03439EAC MOV X1, X31
+	0x03439EB0 BL 0x361FF74
+	0x03439EB4 MOV W21, W0
+	0x03439EB8 ADD X0, X19, 0x254
+	0x03439EBC MOV X1, X31
+	0x03439EC0 BL 0x361FF74
+	0x03439EC4 MOV W22, W0
+	0x03439EC8 ADD X0, X19, 0x258
+	0x03439ECC MOV X1, X31
+	0x03439ED0 BL 0x361FF74
+	0x03439ED4 EOR W8, W20, W21, LSL 0x2
+	0x03439ED8 MOV X1, X31
+	0x03439EDC EOR W8, W8, W22, ASR 0x2
+	0x03439EE0 EOR W8, W8, W0, ASR 0x1
+	0x03439EE4 ADD X0, X19, 0x25C
+	0x03439EE8 SUB W8, W8, W23
+	0x03439EEC ADD W20, W8, W23, 0x5, LSL
+	0x03439EF0 BL 0x361FF74
+	0x03439EF4 SUB W9, W0, W20
+	0x03439EF8 LDR W8, [X19 + 0x260]
+	0x03439EFC ADD X0, X19, 0x268
+	0x03439F00 ADD W9, W9, W20, 0x5, LSL
+	0x03439F04 MOV X1, X31
+	0x03439F08 SUB W8, W8, W9
+	0x03439F0C ADD W8, W8, W9, 0x5, LSL
+	0x03439F10 LDR W9, [X19 + 0x264]
+	0x03439F14 SUB W9, W9, W8
+	0x03439F18 ADD W20, W9, W8, 0x5, LSL
+	0x03439F1C BL 0x361FF74
+	0x03439F20 SUB W8, W0, W20
+	0x03439F24 ADD X0, X19, 0x26C
+	0x03439F28 MOV X1, X31
+	0x03439F2C ADD W20, W8, W20, 0x5, LSL
+	0x03439F30 BL 0x361FF74
+	0x03439F34 SUB W8, W0, W20
+	0x03439F38 ADD X0, X19, 0x270
+	0x03439F3C MOV X1, X31
+	0x03439F40 ADD W20, W8, W20, 0x5, LSL
+	0x03439F44 BL 0x361FF74
+	0x03439F48 SUB W8, W0, W20
+	0x03439F4C ADD X0, X19, 0x274
+	0x03439F50 MOV X1, X31
+	0x03439F54 ADD W20, W8, W20, 0x5, LSL
+	0x03439F58 BL 0x361FF74
+	0x03439F5C SUB W8, W0, W20
+	0x03439F60 ADD X0, X19, 0x278
+	0x03439F64 MOV X1, X31
+	0x03439F68 ADD W23, W8, W20, 0x5, LSL
+	0x03439F6C BL 0x361FF74
+	0x03439F70 MOV W20, W0
+	0x03439F74 ADD X0, X19, 0x27C
+	0x03439F78 MOV X1, X31
+	0x03439F7C BL 0x361FF74
+	0x03439F80 MOV W21, W0
+	0x03439F84 ADD X0, X19, 0x280
+	0x03439F88 MOV X1, X31
+	0x03439F8C BL 0x361FF74
+	0x03439F90 MOV W22, W0
+	0x03439F94 ADD X0, X19, 0x284
+	0x03439F98 MOV X1, X31
+	0x03439F9C BL 0x361FF74
+	0x03439FA0 EOR W8, W20, W21, LSL 0x2
+	0x03439FA4 LDR W9, [X19 + 0x288]
+	0x03439FA8 MOV X1, X31
+	0x03439FAC EOR W8, W8, W22, ASR 0x2
+	0x03439FB0 EOR W8, W8, W0, ASR 0x1
+	0x03439FB4 ADD X0, X19, 0x28C
+	0x03439FB8 SUB W8, W8, W23
+	0x03439FBC ADD W8, W8, W23, 0x5, LSL
+	0x03439FC0 SUB W9, W9, W8
+	0x03439FC4 ADD W20, W9, W8, 0x5, LSL
+	0x03439FC8 BL 0x361FF74
+	0x03439FCC SUB W8, W0, W20
+	0x03439FD0 ADD X0, X19, 0x290
+	0x03439FD4 MOV X1, X31
+	0x03439FD8 ADD W23, W8, W20, 0x5, LSL
+	0x03439FDC BL 0x361FF74
+	0x03439FE0 MOV W20, W0
+	0x03439FE4 ADD X0, X19, 0x294
+	0x03439FE8 MOV X1, X31
+	0x03439FEC BL 0x361FF74
+	0x03439FF0 MOV W21, W0
+	0x03439FF4 ADD X0, X19, 0x298
+	0x03439FF8 MOV X1, X31
+	0x03439FFC BL 0x361FF74
+	0x0343A000 MOV W22, W0
+	0x0343A004 ADD X0, X19, 0x29C
+	0x0343A008 MOV X1, X31
+	0x0343A00C BL 0x361FF74
+	0x0343A010 EOR W8, W20, W21, LSL 0x2
+	0x0343A014 MOV X1, X31
+	0x0343A018 EOR W8, W8, W22, ASR 0x2
+	0x0343A01C EOR W8, W8, W0, ASR 0x1
+	0x0343A020 ADD X0, X19, 0x2A0
+	0x0343A024 SUB W8, W8, W23
+	0x0343A028 ADD W20, W8, W23, 0x5, LSL
+	0x0343A02C BL 0x361FF74
+	0x0343A030 SUB W8, W0, W20
+	0x0343A034 ADD X0, X19, 0x2A4
+	0x0343A038 MOV X1, X31
+	0x0343A03C ADD W20, W8, W20, 0x5, LSL
+	0x0343A040 BL 0x361FF74
+	0x0343A044 SUB W8, W0, W20
+	0x0343A048 ADD X0, X19, 0x2A8
+	0x0343A04C MOV X1, X31
+	0x0343A050 ADD W20, W8, W20, 0x5, LSL
+	0x0343A054 BL 0x361FF74
+	0x0343A058 SUB W8, W0, W20
+	0x0343A05C ADD X0, X19, 0x2AC
+	0x0343A060 MOV X1, X31
+	0x0343A064 ADD W20, W8, W20, 0x5, LSL
+	0x0343A068 BL 0x361FF74
+	0x0343A06C SUB W8, W0, W20
+	0x0343A070 ADD X0, X19, 0x2B0
+	0x0343A074 MOV X1, X31
+	0x0343A078 ADD W20, W8, W20, 0x5, LSL
+	0x0343A07C BL 0x361FF74
+	0x0343A080 SUB W8, W0, W20
+	0x0343A084 ADD X0, X19, 0x2B4
+	0x0343A088 MOV X1, X31
+	0x0343A08C ADD W20, W8, W20, 0x5, LSL
+	0x0343A090 BL 0x361FF74
+	0x0343A094 SUB W8, W0, W20
+	0x0343A098 ADD X0, X19, 0x2B8
+	0x0343A09C MOV X1, X31
+	0x0343A0A0 ADD W20, W8, W20, 0x5, LSL
+	0x0343A0A4 BL 0x361FF74
+	0x0343A0A8 SUB W8, W0, W20
+	0x0343A0AC ADD X0, X19, 0x2BC
+	0x0343A0B0 MOV X1, X31
+	0x0343A0B4 ADD W23, W8, W20, 0x5, LSL
+	0x0343A0B8 BL 0x361FF74
+	0x0343A0BC MOV W20, W0
+	0x0343A0C0 ADD X0, X19, 0x2C0
+	0x0343A0C4 MOV X1, X31
+	0x0343A0C8 BL 0x361FF74
+	0x0343A0CC MOV W21, W0
+	0x0343A0D0 ADD X0, X19, 0x2C4
+	0x0343A0D4 MOV X1, X31
+	0x0343A0D8 BL 0x361FF74
+	0x0343A0DC MOV W22, W0
+	0x0343A0E0 ADD X0, X19, 0x2C8
+	0x0343A0E4 MOV X1, X31
+	0x0343A0E8 BL 0x361FF74
+	0x0343A0EC EOR W8, W20, W21, LSL 0x2
+	0x0343A0F0 MOV X1, X31
+	0x0343A0F4 EOR W8, W8, W22, ASR 0x2
+	0x0343A0F8 EOR W8, W8, W0, ASR 0x1
+	0x0343A0FC ADD X0, X19, 0x2CC
+	0x0343A100 SUB W8, W8, W23
+	0x0343A104 ADD W23, W8, W23, 0x5, LSL
+	0x0343A108 BL 0x361FF74
+	0x0343A10C MOV W20, W0
+	0x0343A110 ADD X0, X19, 0x2D0
+	0x0343A114 MOV X1, X31
+	0x0343A118 BL 0x361FF74
+	0x0343A11C MOV W21, W0
+	0x0343A120 ADD X0, X19, 0x2D4
+	0x0343A124 MOV X1, X31
+	0x0343A128 BL 0x361FF74
+	0x0343A12C MOV W22, W0
+	0x0343A130 ADD X0, X19, 0x2D8
+	0x0343A134 MOV X1, X31
+	0x0343A138 BL 0x361FF74
+	0x0343A13C EOR W8, W20, W21, LSL 0x2
+	0x0343A140 LDP X20, X19, [X31 + 0x20]
+	0x0343A144 EOR W8, W8, W22, ASR 0x2
+	0x0343A148 LDP X22, X21, [X31 + 0x10]
+	0x0343A14C EOR W8, W8, W0, ASR 0x1
+	0x0343A150 SUB W8, W8, W23
+	0x0343A154 ADD W0, W8, W23, 0x5, LSL
+	0x0343A158 LDP X30, X23, [X31], #0x30
+	0x0343A15C RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v16 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 536
+	10 Nop
+	11 Call Single.GetHashCode, v18 @ X0_v2 (System.Int32), v16 @ X0_v1 (System.Single)
+	12 Nop
+	13 Add v20 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 540
+	14 Nop
+	15 Call Single.GetHashCode, v22 @ X0_v4 (System.Int32), v20 @ X0_v3 (System.Single)
+	16 Xor v23 @ X8_v1 (System.Int32), v18 @ X0_v2 (System.Int32), v22 @ X0_v4 (System.Int32)
+	17 Add v24 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 544
+	18 Nop
+	19 Subtract v26 @ X8_v2, v23 @ X8_v1 (System.Int32), h @ X1 (System.Int32)
+	20 Add v27 @ X20_v2, v26 @ X8_v2, h @ X1 (System.Int32)
+	21 Call Single.GetHashCode, v28 @ X0_v6 (System.Int32), v24 @ X0_v5 (System.Single)
+	22 Subtract v29 @ X8_v3, v28 @ X0_v6 (System.Int32), v27 @ X20_v2
+	23 Add v30 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 548
+	24 Nop
+	25 Add v32 @ X20_v3, v29 @ X8_v3, v27 @ X20_v2
+	26 Call Single.GetHashCode, v33 @ X0_v8 (System.Int32), v30 @ X0_v7 (System.Single)
+	27 Subtract v34 @ X8_v4, v33 @ X0_v8 (System.Int32), v32 @ X20_v3
+	28 Add v35 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 552
+	29 Nop
+	30 Add v37 @ X20_v4, v34 @ X8_v4, v32 @ X20_v3
+	31 Call Single.GetHashCode, v38 @ X0_v10 (System.Int32), v35 @ X0_v9 (System.Single)
+	32 Subtract v39 @ X8_v5, v38 @ X0_v10 (System.Int32), v37 @ X20_v4
+	33 Add v40 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 556
+	34 Nop
+	35 Add v42 @ X20_v5, v39 @ X8_v5, v37 @ X20_v4
+	36 Call Single.GetHashCode, v43 @ X0_v12 (System.Int32), v40 @ X0_v11 (System.Single)
+	37 Subtract v44 @ X8_v6, v43 @ X0_v12 (System.Int32), v42 @ X20_v5
+	38 Add v45 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 560
+	39 Nop
+	40 Add v47 @ X23_v1, v44 @ X8_v6, v42 @ X20_v5
+	41 Call Single.GetHashCode, v48 @ X0_v14 (System.Int32), v45 @ X0_v13 (System.Single)
+	42 Nop
+	43 Add v50 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 564
+	44 Nop
+	45 Call Single.GetHashCode, v52 @ X0_v16 (System.Int32), v50 @ X0_v15 (System.Single)
+	46 Nop
+	47 Add v54 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 568
+	48 Nop
+	49 Call Single.GetHashCode, v56 @ X0_v18 (System.Int32), v54 @ X0_v17 (System.Single)
+	50 Nop
+	51 Add v58 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 572
+	52 Nop
+	53 Call Single.GetHashCode, v60 @ X0_v20 (System.Int32), v58 @ X0_v19 (System.Single)
+	54 Xor v61 @ X8_v7 (System.Int32), v48 @ X0_v14 (System.Int32), v52 @ X0_v16 (System.Int32)
+	55 Nop
+	56 Xor v63 @ X8_v8 (System.Int32), v61 @ X8_v7 (System.Int32), v56 @ X0_v18 (System.Int32)
+	57 Xor v64 @ X8_v9 (System.Int32), v63 @ X8_v8 (System.Int32), v60 @ X0_v20 (System.Int32)
+	58 Add v65 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 576
+	59 Subtract v66 @ X8_v10, v64 @ X8_v9 (System.Int32), v47 @ X23_v1
+	60 Add v67 @ X21_v3, v66 @ X8_v10, v47 @ X23_v1
+	61 Call Single.GetHashCode, v68 @ X0_v22 (System.Int32), v65 @ X0_v21 (System.Single)
+	62 Nop
+	63 Add v70 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 580
+	64 Nop
+	65 Call Single.GetHashCode, v72 @ X0_v24 (System.Int32), v70 @ X0_v23 (System.Single)
+	66 Xor v73 @ X8_v11 (System.Int32), v68 @ X0_v22 (System.Int32), v72 @ X0_v24 (System.Int32)
+	67 Add v74 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 584
+	68 Nop
+	69 Subtract v76 @ X8_v12, v73 @ X8_v11 (System.Int32), v67 @ X21_v3
+	70 Add v77 @ X20_v8, v76 @ X8_v12, v67 @ X21_v3
+	71 Call Single.GetHashCode, v78 @ X0_v26 (System.Int32), v74 @ X0_v25 (System.Single)
+	72 Subtract v79 @ X8_v13, v78 @ X0_v26 (System.Int32), v77 @ X20_v8
+	73 Add v80 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 588
+	74 Nop
+	75 Add v82 @ X23_v2, v79 @ X8_v13, v77 @ X20_v8
+	76 Call Single.GetHashCode, v83 @ X0_v28 (System.Int32), v80 @ X0_v27 (System.Single)
+	77 Nop
+	78 Add v85 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 592
+	79 Nop
+	80 Call Single.GetHashCode, v87 @ X0_v30 (System.Int32), v85 @ X0_v29 (System.Single)
+	81 Nop
+	82 Add v89 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 596
+	83 Nop
+	84 Call Single.GetHashCode, v91 @ X0_v32 (System.Int32), v89 @ X0_v31 (System.Single)
+	85 Nop
+	86 Add v93 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 600
+	87 Nop
+	88 Call Single.GetHashCode, v95 @ X0_v34 (System.Int32), v93 @ X0_v33 (System.Single)
+	89 Xor v96 @ X8_v14 (System.Int32), v83 @ X0_v28 (System.Int32), v87 @ X0_v30 (System.Int32)
+	90 Nop
+	91 Xor v98 @ X8_v15 (System.Int32), v96 @ X8_v14 (System.Int32), v91 @ X0_v32 (System.Int32)
+	92 Xor v99 @ X8_v16 (System.Int32), v98 @ X8_v15 (System.Int32), v95 @ X0_v34 (System.Int32)
+	93 Add v100 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 604
+	94 Subtract v101 @ X8_v17, v99 @ X8_v16 (System.Int32), v82 @ X23_v2
+	95 Add v102 @ X20_v10, v101 @ X8_v17, v82 @ X23_v2
+	96 Call Single.GetHashCode, v103 @ X0_v36 (System.Int32), v100 @ X0_v35 (System.Single)
+	97 Subtract v104 @ X9_v1, v103 @ X0_v36 (System.Int32), v102 @ X20_v10
+	98 Nop
+	99 Add v106 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 616
+	100 Add v107 @ X9_v2, v104 @ X9_v1, v102 @ X20_v10
+	101 Nop
+	102 Subtract v109 @ X8_v19, this.recoverPlantNowStage (System.Int32), v107 @ X9_v2
+	103 Add v110 @ X8_v20, v109 @ X8_v19, v107 @ X9_v2
+	104 Nop
+	105 Subtract v112 @ X9_v4, this.recoverPlantLostStage (System.Int32), v110 @ X8_v20
+	106 Add v113 @ X20_v11, v112 @ X9_v4, v110 @ X8_v20
+	107 Call Single.GetHashCode, v114 @ X0_v38 (System.Int32), v106 @ X0_v37 (System.Single)
+	108 Subtract v115 @ X8_v21, v114 @ X0_v38 (System.Int32), v113 @ X20_v11
+	109 Add v116 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 620
+	110 Nop
+	111 Add v118 @ X20_v12, v115 @ X8_v21, v113 @ X20_v11
+	112 Call Single.GetHashCode, v119 @ X0_v40 (System.Int32), v116 @ X0_v39 (System.Single)
+	113 Subtract v120 @ X8_v22, v119 @ X0_v40 (System.Int32), v118 @ X20_v12
+	114 Add v121 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 624
+	115 Nop
+	116 Add v123 @ X20_v13, v120 @ X8_v22, v118 @ X20_v12
+	117 Call Single.GetHashCode, v124 @ X0_v42 (System.Int32), v121 @ X0_v41 (System.Single)
+	118 Subtract v125 @ X8_v23, v124 @ X0_v42 (System.Int32), v123 @ X20_v13
+	119 Add v126 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 628
+	120 Nop
+	121 Add v128 @ X20_v14, v125 @ X8_v23, v123 @ X20_v13
+	122 Call Single.GetHashCode, v129 @ X0_v44 (System.Int32), v126 @ X0_v43 (System.Single)
+	123 Subtract v130 @ X8_v24, v129 @ X0_v44 (System.Int32), v128 @ X20_v14
+	124 Add v131 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 632
+	125 Nop
+	126 Add v133 @ X23_v3, v130 @ X8_v24, v128 @ X20_v14
+	127 Call Single.GetHashCode, v134 @ X0_v46 (System.Int32), v131 @ X0_v45 (System.Single)
+	128 Nop
+	129 Add v136 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 636
+	130 Nop
+	131 Call Single.GetHashCode, v138 @ X0_v48 (System.Int32), v136 @ X0_v47 (System.Single)
+	132 Nop
+	133 Add v140 @ X0_v49 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 640
+	134 Nop
+	135 Call Single.GetHashCode, v142 @ X0_v50 (System.Int32), v140 @ X0_v49 (System.Single)
+	136 Nop
+	137 Add v144 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 644
+	138 Nop
+	139 Call Single.GetHashCode, v146 @ X0_v52 (System.Int32), v144 @ X0_v51 (System.Single)
+	140 Xor v147 @ X8_v25 (System.Int32), v134 @ X0_v46 (System.Int32), v138 @ X0_v48 (System.Int32)
+	141 Nop
+	142 Nop
+	143 Xor v150 @ X8_v26 (System.Int32), v147 @ X8_v25 (System.Int32), v142 @ X0_v50 (System.Int32)
+	144 Xor v151 @ X8_v27 (System.Int32), v150 @ X8_v26 (System.Int32), v146 @ X0_v52 (System.Int32)
+	145 Add v152 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 652
+	146 Subtract v153 @ X8_v28, v151 @ X8_v27 (System.Int32), v133 @ X23_v3
+	147 Add v154 @ X8_v29, v153 @ X8_v28, v133 @ X23_v3
+	148 Subtract v155 @ X9_v6, this.recoverArrowCount (System.Int32), v154 @ X8_v29
+	149 Add v156 @ X20_v16, v155 @ X9_v6, v154 @ X8_v29
+	150 Call Single.GetHashCode, v157 @ X0_v54 (System.Int32), v152 @ X0_v53 (System.Single)
+	151 Subtract v158 @ X8_v30, v157 @ X0_v54 (System.Int32), v156 @ X20_v16
+	152 Add v159 @ X0_v55 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 656
+	153 Nop
+	154 Add v161 @ X23_v4, v158 @ X8_v30, v156 @ X20_v16
+	155 Call Single.GetHashCode, v162 @ X0_v56 (System.Int32), v159 @ X0_v55 (System.Single)
+	156 Nop
+	157 Add v164 @ X0_v57 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 660
+	158 Nop
+	159 Call Single.GetHashCode, v166 @ X0_v58 (System.Int32), v164 @ X0_v57 (System.Single)
+	160 Nop
+	161 Add v168 @ X0_v59 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 664
+	162 Nop
+	163 Call Single.GetHashCode, v170 @ X0_v60 (System.Int32), v168 @ X0_v59 (System.Single)
+	164 Nop
+	165 Add v172 @ X0_v61 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 668
+	166 Nop
+	167 Call Single.GetHashCode, v174 @ X0_v62 (System.Int32), v172 @ X0_v61 (System.Single)
+	168 Xor v175 @ X8_v31 (System.Int32), v162 @ X0_v56 (System.Int32), v166 @ X0_v58 (System.Int32)
+	169 Nop
+	170 Xor v177 @ X8_v32 (System.Int32), v175 @ X8_v31 (System.Int32), v170 @ X0_v60 (System.Int32)
+	171 Xor v178 @ X8_v33 (System.Int32), v177 @ X8_v32 (System.Int32), v174 @ X0_v62 (System.Int32)
+	172 Add v179 @ X0_v63 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 672
+	173 Subtract v180 @ X8_v34, v178 @ X8_v33 (System.Int32), v161 @ X23_v4
+	174 Add v181 @ X20_v18, v180 @ X8_v34, v161 @ X23_v4
+	175 Call Single.GetHashCode, v182 @ X0_v64 (System.Int32), v179 @ X0_v63 (System.Single)
+	176 Subtract v183 @ X8_v35, v182 @ X0_v64 (System.Int32), v181 @ X20_v18
+	177 Add v184 @ X0_v65 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 676
+	178 Nop
+	179 Add v186 @ X20_v19, v183 @ X8_v35, v181 @ X20_v18
+	180 Call Single.GetHashCode, v187 @ X0_v66 (System.Int32), v184 @ X0_v65 (System.Single)
+	181 Subtract v188 @ X8_v36, v187 @ X0_v66 (System.Int32), v186 @ X20_v19
+	182 Add v189 @ X0_v67 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 680
+	183 Nop
+	184 Add v191 @ X20_v20, v188 @ X8_v36, v186 @ X20_v19
+	185 Call Single.GetHashCode, v192 @ X0_v68 (System.Int32), v189 @ X0_v67 (System.Single)
+	186 Subtract v193 @ X8_v37, v192 @ X0_v68 (System.Int32), v191 @ X20_v20
+	187 Add v194 @ X0_v69 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 684
+	188 Nop
+	189 Add v196 @ X20_v21, v193 @ X8_v37, v191 @ X20_v20
+	190 Call Single.GetHashCode, v197 @ X0_v70 (System.Int32), v194 @ X0_v69 (System.Single)
+	191 Subtract v198 @ X8_v38, v197 @ X0_v70 (System.Int32), v196 @ X20_v21
+	192 Add v199 @ X0_v71 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 688
+	193 Nop
+	194 Add v201 @ X20_v22, v198 @ X8_v38, v196 @ X20_v21
+	195 Call Single.GetHashCode, v202 @ X0_v72 (System.Int32), v199 @ X0_v71 (System.Single)
+	196 Subtract v203 @ X8_v39, v202 @ X0_v72 (System.Int32), v201 @ X20_v22
+	197 Add v204 @ X0_v73 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 692
+	198 Nop
+	199 Add v206 @ X20_v23, v203 @ X8_v39, v201 @ X20_v22
+	200 Call Single.GetHashCode, v207 @ X0_v74 (System.Int32), v204 @ X0_v73 (System.Single)
+	201 Subtract v208 @ X8_v40, v207 @ X0_v74 (System.Int32), v206 @ X20_v23
+	202 Add v209 @ X0_v75 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 696
+	203 Nop
+	204 Add v211 @ X20_v24, v208 @ X8_v40, v206 @ X20_v23
+	205 Call Single.GetHashCode, v212 @ X0_v76 (System.Int32), v209 @ X0_v75 (System.Single)
+	206 Subtract v213 @ X8_v41, v212 @ X0_v76 (System.Int32), v211 @ X20_v24
+	207 Add v214 @ X0_v77 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 700
+	208 Nop
+	209 Add v216 @ X23_v5, v213 @ X8_v41, v211 @ X20_v24
+	210 Call Single.GetHashCode, v217 @ X0_v78 (System.Int32), v214 @ X0_v77 (System.Single)
+	211 Nop
+	212 Add v219 @ X0_v79 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 704
+	213 Nop
+	214 Call Single.GetHashCode, v221 @ X0_v80 (System.Int32), v219 @ X0_v79 (System.Single)
+	215 Nop
+	216 Add v223 @ X0_v81 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 708
+	217 Nop
+	218 Call Single.GetHashCode, v225 @ X0_v82 (System.Int32), v223 @ X0_v81 (System.Single)
+	219 Nop
+	220 Add v227 @ X0_v83 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 712
+	221 Nop
+	222 Call Single.GetHashCode, v229 @ X0_v84 (System.Int32), v227 @ X0_v83 (System.Single)
+	223 Xor v230 @ X8_v42 (System.Int32), v217 @ X0_v78 (System.Int32), v221 @ X0_v80 (System.Int32)
+	224 Nop
+	225 Xor v232 @ X8_v43 (System.Int32), v230 @ X8_v42 (System.Int32), v225 @ X0_v82 (System.Int32)
+	226 Xor v233 @ X8_v44 (System.Int32), v232 @ X8_v43 (System.Int32), v229 @ X0_v84 (System.Int32)
+	227 Add v234 @ X0_v85 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 716
+	228 Subtract v235 @ X8_v45, v233 @ X8_v44 (System.Int32), v216 @ X23_v5
+	229 Add v236 @ X23_v6, v235 @ X8_v45, v216 @ X23_v5
+	230 Call Single.GetHashCode, v237 @ X0_v86 (System.Int32), v234 @ X0_v85 (System.Single)
+	231 Nop
+	232 Add v239 @ X0_v87 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 720
+	233 Nop
+	234 Call Single.GetHashCode, v241 @ X0_v88 (System.Int32), v239 @ X0_v87 (System.Single)
+	235 Nop
+	236 Add v243 @ X0_v89 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 724
+	237 Nop
+	238 Call Single.GetHashCode, v245 @ X0_v90 (System.Int32), v243 @ X0_v89 (System.Single)
+	239 Nop
+	240 Add v247 @ X0_v91 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 728
+	241 Nop
+	242 Call Single.GetHashCode, v249 @ X0_v92 (System.Int32), v247 @ X0_v91 (System.Single)
+	243 Xor v250 @ X8_v46 (System.Int32), v237 @ X0_v86 (System.Int32), v241 @ X0_v88 (System.Int32)
+	244 Nop
+	245 Nop
+	246 Xor v253 @ X8_v47 (System.Int32), v250 @ X8_v46 (System.Int32), v245 @ X0_v90 (System.Int32)
+	247 Nop
+	248 Nop
+	249 Xor v256 @ X8_v48 (System.Int32), v253 @ X8_v47 (System.Int32), v249 @ X0_v92 (System.Int32)
+	250 Subtract v257 @ X8_v49, v256 @ X8_v48 (System.Int32), v236 @ X23_v6
+	251 Add returnVal1 @ X0_v93 (System.Int32), v257 @ X8_v49, v236 @ X23_v6
+	252 Nop
+	253 Nop
+	254 Nop
+	255 Return returnVal1 @ X0_v93 (System.Int32)
+
+Method: System.Int32 HashPart6(System.Int32 h)
+
+Disassembly:
+	0x0343A160 STP X30, X23, [X31 - 0x30]!
+	0x0343A164 STP X22, X21, [X31 + 0x10]
+	0x0343A168 STP X20, X19, [X31 + 0x20]
+	0x0343A16C MOV W20, W1
+	0x0343A170 MOV X19, X0
+	0x0343A174 ADD X0, X0, 0x2F4
+	0x0343A178 MOV X1, X31
+	0x0343A17C BL 0x361FF74
+	0x0343A180 MOV W21, W0
+	0x0343A184 ADD X0, X19, 0x2F8
+	0x0343A188 MOV X1, X31
+	0x0343A18C BL 0x361FF74
+	0x0343A190 EOR W8, W21, W0, LSL 0x2
+	0x0343A194 ADD X0, X19, 0x2FC
+	0x0343A198 MOV X1, X31
+	0x0343A19C SUB W8, W8, W20
+	0x0343A1A0 ADD W20, W8, W20, 0x5, LSL
+	0x0343A1A4 BL 0x361FF74
+	0x0343A1A8 SUB W8, W0, W20
+	0x0343A1AC ADD X0, X19, 0x300
+	0x0343A1B0 MOV X1, X31
+	0x0343A1B4 ADD W20, W8, W20, 0x5, LSL
+	0x0343A1B8 BL 0x361FF74
+	0x0343A1BC SUB W8, W0, W20
+	0x0343A1C0 ADD X0, X19, 0x304
+	0x0343A1C4 MOV X1, X31
+	0x0343A1C8 ADD W23, W8, W20, 0x5, LSL
+	0x0343A1CC BL 0x361FF74
+	0x0343A1D0 MOV W20, W0
+	0x0343A1D4 ADD X0, X19, 0x308
+	0x0343A1D8 MOV X1, X31
+	0x0343A1DC BL 0x361FF74
+	0x0343A1E0 MOV W21, W0
+	0x0343A1E4 ADD X0, X19, 0x30C
+	0x0343A1E8 MOV X1, X31
+	0x0343A1EC BL 0x361FF74
+	0x0343A1F0 MOV W22, W0
+	0x0343A1F4 ADD X0, X19, 0x310
+	0x0343A1F8 MOV X1, X31
+	0x0343A1FC BL 0x361FF74
+	0x0343A200 EOR W8, W20, W21, LSL 0x2
+	0x0343A204 MOV X1, X31
+	0x0343A208 EOR W8, W8, W22, ASR 0x2
+	0x0343A20C EOR W8, W8, W0, ASR 0x1
+	0x0343A210 ADD X0, X19, 0x314
+	0x0343A214 SUB W8, W8, W23
+	0x0343A218 ADD W20, W8, W23, 0x5, LSL
+	0x0343A21C BL 0x361FF74
+	0x0343A220 SUB W8, W0, W20
+	0x0343A224 ADD X0, X19, 0x318
+	0x0343A228 MOV X1, X31
+	0x0343A22C ADD W21, W8, W20, 0x5, LSL
+	0x0343A230 BL 0x361FF74
+	0x0343A234 MOV W20, W0
+	0x0343A238 ADD X0, X19, 0x31C
+	0x0343A23C MOV X1, X31
+	0x0343A240 BL 0x361FF74
+	0x0343A244 EOR W8, W20, W0, LSL 0x2
+	0x0343A248 ADD X0, X19, 0x320
+	0x0343A24C MOV X1, X31
+	0x0343A250 SUB W8, W8, W21
+	0x0343A254 ADD W20, W8, W21, 0x5, LSL
+	0x0343A258 BL 0x361FF74
+	0x0343A25C SUB W8, W0, W20
+	0x0343A260 ADD X0, X19, 0x324
+	0x0343A264 MOV X1, X31
+	0x0343A268 ADD W20, W8, W20, 0x5, LSL
+	0x0343A26C BL 0x361FF74
+	0x0343A270 SUB W8, W0, W20
+	0x0343A274 ADD X0, X19, 0x328
+	0x0343A278 MOV X1, X31
+	0x0343A27C ADD W21, W8, W20, 0x5, LSL
+	0x0343A280 BL 0x361FF74
+	0x0343A284 MOV W20, W0
+	0x0343A288 ADD X0, X19, 0x32C
+	0x0343A28C MOV X1, X31
+	0x0343A290 BL 0x361FF74
+	0x0343A294 EOR W8, W20, W0, LSL 0x2
+	0x0343A298 ADD X0, X19, 0x330
+	0x0343A29C MOV X1, X31
+	0x0343A2A0 SUB W8, W8, W21
+	0x0343A2A4 ADD W20, W8, W21, 0x5, LSL
+	0x0343A2A8 BL 0x361FF74
+	0x0343A2AC SUB W8, W0, W20
+	0x0343A2B0 ADD X0, X19, 0x334
+	0x0343A2B4 MOV X1, X31
+	0x0343A2B8 ADD W20, W8, W20, 0x5, LSL
+	0x0343A2BC BL 0x361FF74
+	0x0343A2C0 SUB W8, W0, W20
+	0x0343A2C4 ADD X0, X19, 0x338
+	0x0343A2C8 MOV X1, X31
+	0x0343A2CC ADD W23, W8, W20, 0x5, LSL
+	0x0343A2D0 BL 0x361FF74
+	0x0343A2D4 MOV W20, W0
+	0x0343A2D8 ADD X0, X19, 0x33C
+	0x0343A2DC MOV X1, X31
+	0x0343A2E0 BL 0x361FF74
+	0x0343A2E4 MOV W21, W0
+	0x0343A2E8 ADD X0, X19, 0x340
+	0x0343A2EC MOV X1, X31
+	0x0343A2F0 BL 0x361FF74
+	0x0343A2F4 MOV W22, W0
+	0x0343A2F8 ADD X0, X19, 0x344
+	0x0343A2FC MOV X1, X31
+	0x0343A300 BL 0x361FF74
+	0x0343A304 EOR W8, W20, W21, LSL 0x2
+	0x0343A308 MOV X1, X31
+	0x0343A30C EOR W8, W8, W22, ASR 0x2
+	0x0343A310 EOR W8, W8, W0, ASR 0x1
+	0x0343A314 ADD X0, X19, 0x348
+	0x0343A318 SUB W8, W8, W23
+	0x0343A31C ADD W23, W8, W23, 0x5, LSL
+	0x0343A320 BL 0x361FF74
+	0x0343A324 MOV W20, W0
+	0x0343A328 ADD X0, X19, 0x34C
+	0x0343A32C MOV X1, X31
+	0x0343A330 BL 0x361FF74
+	0x0343A334 MOV W21, W0
+	0x0343A338 ADD X0, X19, 0x350
+	0x0343A33C MOV X1, X31
+	0x0343A340 BL 0x361FF74
+	0x0343A344 MOV W22, W0
+	0x0343A348 ADD X0, X19, 0x354
+	0x0343A34C MOV X1, X31
+	0x0343A350 BL 0x361FF74
+	0x0343A354 EOR W8, W20, W21, LSL 0x2
+	0x0343A358 MOV X1, X31
+	0x0343A35C EOR W8, W8, W22, ASR 0x2
+	0x0343A360 EOR W8, W8, W0, ASR 0x1
+	0x0343A364 ADD X0, X19, 0x358
+	0x0343A368 SUB W8, W8, W23
+	0x0343A36C ADD W23, W8, W23, 0x5, LSL
+	0x0343A370 BL 0x361FF74
+	0x0343A374 MOV W20, W0
+	0x0343A378 ADD X0, X19, 0x35C
+	0x0343A37C MOV X1, X31
+	0x0343A380 BL 0x361FF74
+	0x0343A384 MOV W21, W0
+	0x0343A388 ADD X0, X19, 0x360
+	0x0343A38C MOV X1, X31
+	0x0343A390 BL 0x361FF74
+	0x0343A394 MOV W22, W0
+	0x0343A398 ADD X0, X19, 0x364
+	0x0343A39C MOV X1, X31
+	0x0343A3A0 BL 0x361FF74
+	0x0343A3A4 EOR W8, W20, W21, LSL 0x2
+	0x0343A3A8 MOV X1, X31
+	0x0343A3AC EOR W8, W8, W22, ASR 0x2
+	0x0343A3B0 EOR W8, W8, W0, ASR 0x1
+	0x0343A3B4 ADD X0, X19, 0x368
+	0x0343A3B8 SUB W8, W8, W23
+	0x0343A3BC ADD W23, W8, W23, 0x5, LSL
+	0x0343A3C0 BL 0x361FF74
+	0x0343A3C4 MOV W20, W0
+	0x0343A3C8 ADD X0, X19, 0x36C
+	0x0343A3CC MOV X1, X31
+	0x0343A3D0 BL 0x361FF74
+	0x0343A3D4 MOV W21, W0
+	0x0343A3D8 ADD X0, X19, 0x370
+	0x0343A3DC MOV X1, X31
+	0x0343A3E0 BL 0x361FF74
+	0x0343A3E4 MOV W22, W0
+	0x0343A3E8 ADD X0, X19, 0x374
+	0x0343A3EC MOV X1, X31
+	0x0343A3F0 BL 0x361FF74
+	0x0343A3F4 EOR W8, W20, W21, LSL 0x2
+	0x0343A3F8 MOV X1, X31
+	0x0343A3FC EOR W8, W8, W22, ASR 0x2
+	0x0343A400 EOR W8, W8, W0, ASR 0x1
+	0x0343A404 ADD X0, X19, 0x378
+	0x0343A408 SUB W8, W8, W23
+	0x0343A40C ADD W20, W8, W23, 0x5, LSL
+	0x0343A410 BL 0x361FF74
+	0x0343A414 SUB W8, W0, W20
+	0x0343A418 ADD X0, X19, 0x37C
+	0x0343A41C MOV X1, X31
+	0x0343A420 ADD W20, W8, W20, 0x5, LSL
+	0x0343A424 BL 0x361FF74
+	0x0343A428 SUB W9, W0, W20
+	0x0343A42C LDR W8, [X19 + 0x380]
+	0x0343A430 ADD X0, X19, 0x384
+	0x0343A434 ADD W9, W9, W20, 0x5, LSL
+	0x0343A438 MOV X1, X31
+	0x0343A43C SUB W8, W8, W9
+	0x0343A440 ADD W21, W8, W9, 0x5, LSL
+	0x0343A444 BL 0x361FF74
+	0x0343A448 MOV W20, W0
+	0x0343A44C ADD X0, X19, 0x388
+	0x0343A450 MOV X1, X31
+	0x0343A454 BL 0x361FF74
+	0x0343A458 EOR W8, W20, W0, LSL 0x2
+	0x0343A45C ADD X0, X19, 0x38C
+	0x0343A460 MOV X1, X31
+	0x0343A464 SUB W8, W8, W21
+	0x0343A468 ADD W21, W8, W21, 0x5, LSL
+	0x0343A46C BL 0x361FF74
+	0x0343A470 MOV W20, W0
+	0x0343A474 ADD X0, X19, 0x390
+	0x0343A478 MOV X1, X31
+	0x0343A47C BL 0x361FF74
+	0x0343A480 EOR W8, W20, W0, LSL 0x2
+	0x0343A484 ADD X0, X19, 0x394
+	0x0343A488 MOV X1, X31
+	0x0343A48C SUB W8, W8, W21
+	0x0343A490 ADD W20, W8, W21, 0x5, LSL
+	0x0343A494 BL 0x361FF74
+	0x0343A498 SUB W8, W0, W20
+	0x0343A49C ADD X0, X19, 0x398
+	0x0343A4A0 MOV X1, X31
+	0x0343A4A4 ADD W20, W8, W20, 0x5, LSL
+	0x0343A4A8 BL 0x361FF74
+	0x0343A4AC SUB W8, W0, W20
+	0x0343A4B0 ADD X0, X19, 0x39C
+	0x0343A4B4 MOV X1, X31
+	0x0343A4B8 ADD W21, W8, W20, 0x5, LSL
+	0x0343A4BC BL 0x361FF74
+	0x0343A4C0 MOV W20, W0
+	0x0343A4C4 ADD X0, X19, 0x3A0
+	0x0343A4C8 MOV X1, X31
+	0x0343A4CC BL 0x361FF74
+	0x0343A4D0 EOR W8, W20, W0, LSL 0x2
+	0x0343A4D4 ADD X0, X19, 0x2DC
+	0x0343A4D8 MOV X1, X31
+	0x0343A4DC SUB W8, W8, W21
+	0x0343A4E0 ADD W20, W8, W21, 0x5, LSL
+	0x0343A4E4 BL 0x361FF74
+	0x0343A4E8 SUB W8, W0, W20
+	0x0343A4EC ADD X0, X19, 0x2E0
+	0x0343A4F0 MOV X1, X31
+	0x0343A4F4 ADD W20, W8, W20, 0x5, LSL
+	0x0343A4F8 BL 0x361FF74
+	0x0343A4FC SUB W8, W0, W20
+	0x0343A500 ADD X0, X19, 0x2E4
+	0x0343A504 MOV X1, X31
+	0x0343A508 ADD W23, W8, W20, 0x5, LSL
+	0x0343A50C BL 0x361FF74
+	0x0343A510 MOV W20, W0
+	0x0343A514 ADD X0, X19, 0x2E8
+	0x0343A518 MOV X1, X31
+	0x0343A51C BL 0x361FF74
+	0x0343A520 MOV W21, W0
+	0x0343A524 ADD X0, X19, 0x2EC
+	0x0343A528 MOV X1, X31
+	0x0343A52C BL 0x361FF74
+	0x0343A530 MOV W22, W0
+	0x0343A534 ADD X0, X19, 0x2F0
+	0x0343A538 MOV X1, X31
+	0x0343A53C BL 0x361FF74
+	0x0343A540 EOR W8, W20, W21, LSL 0x2
+	0x0343A544 LDP X20, X19, [X31 + 0x20]
+	0x0343A548 EOR W8, W8, W22, ASR 0x2
+	0x0343A54C LDP X22, X21, [X31 + 0x10]
+	0x0343A550 EOR W8, W8, W0, ASR 0x1
+	0x0343A554 SUB W8, W8, W23
+	0x0343A558 ADD W0, W8, W23, 0x5, LSL
+	0x0343A55C LDP X30, X23, [X31], #0x30
+	0x0343A560 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v16 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 756
+	10 Nop
+	11 Call Single.GetHashCode, v18 @ X0_v2 (System.Int32), v16 @ X0_v1 (System.Single)
+	12 Nop
+	13 Add v20 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 760
+	14 Nop
+	15 Call Single.GetHashCode, v22 @ X0_v4 (System.Int32), v20 @ X0_v3 (System.Single)
+	16 Xor v23 @ X8_v1 (System.Int32), v18 @ X0_v2 (System.Int32), v22 @ X0_v4 (System.Int32)
+	17 Add v24 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 764
+	18 Nop
+	19 Subtract v26 @ X8_v2, v23 @ X8_v1 (System.Int32), h @ X1 (System.Int32)
+	20 Add v27 @ X20_v2, v26 @ X8_v2, h @ X1 (System.Int32)
+	21 Call Single.GetHashCode, v28 @ X0_v6 (System.Int32), v24 @ X0_v5 (System.Single)
+	22 Subtract v29 @ X8_v3, v28 @ X0_v6 (System.Int32), v27 @ X20_v2
+	23 Add v30 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 768
+	24 Nop
+	25 Add v32 @ X20_v3, v29 @ X8_v3, v27 @ X20_v2
+	26 Call Single.GetHashCode, v33 @ X0_v8 (System.Int32), v30 @ X0_v7 (System.Single)
+	27 Subtract v34 @ X8_v4, v33 @ X0_v8 (System.Int32), v32 @ X20_v3
+	28 Add v35 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 772
+	29 Nop
+	30 Add v37 @ X23_v1, v34 @ X8_v4, v32 @ X20_v3
+	31 Call Single.GetHashCode, v38 @ X0_v10 (System.Int32), v35 @ X0_v9 (System.Single)
+	32 Nop
+	33 Add v40 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 776
+	34 Nop
+	35 Call Single.GetHashCode, v42 @ X0_v12 (System.Int32), v40 @ X0_v11 (System.Single)
+	36 Nop
+	37 Add v44 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 780
+	38 Nop
+	39 Call Single.GetHashCode, v46 @ X0_v14 (System.Int32), v44 @ X0_v13 (System.Single)
+	40 Nop
+	41 Add v48 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 784
+	42 Nop
+	43 Call Single.GetHashCode, v50 @ X0_v16 (System.Int32), v48 @ X0_v15 (System.Single)
+	44 Xor v51 @ X8_v5 (System.Int32), v38 @ X0_v10 (System.Int32), v42 @ X0_v12 (System.Int32)
+	45 Nop
+	46 Xor v53 @ X8_v6 (System.Int32), v51 @ X8_v5 (System.Int32), v46 @ X0_v14 (System.Int32)
+	47 Xor v54 @ X8_v7 (System.Int32), v53 @ X8_v6 (System.Int32), v50 @ X0_v16 (System.Int32)
+	48 Add v55 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 788
+	49 Subtract v56 @ X8_v8, v54 @ X8_v7 (System.Int32), v37 @ X23_v1
+	50 Add v57 @ X20_v5, v56 @ X8_v8, v37 @ X23_v1
+	51 Call Single.GetHashCode, v58 @ X0_v18 (System.Int32), v55 @ X0_v17 (System.Single)
+	52 Subtract v59 @ X8_v9, v58 @ X0_v18 (System.Int32), v57 @ X20_v5
+	53 Add v60 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 792
+	54 Nop
+	55 Add v62 @ X21_v3, v59 @ X8_v9, v57 @ X20_v5
+	56 Call Single.GetHashCode, v63 @ X0_v20 (System.Int32), v60 @ X0_v19 (System.Single)
+	57 Nop
+	58 Add v65 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 796
+	59 Nop
+	60 Call Single.GetHashCode, v67 @ X0_v22 (System.Int32), v65 @ X0_v21 (System.Single)
+	61 Xor v68 @ X8_v10 (System.Int32), v63 @ X0_v20 (System.Int32), v67 @ X0_v22 (System.Int32)
+	62 Add v69 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 800
+	63 Nop
+	64 Subtract v71 @ X8_v11, v68 @ X8_v10 (System.Int32), v62 @ X21_v3
+	65 Add v72 @ X20_v7, v71 @ X8_v11, v62 @ X21_v3
+	66 Call Single.GetHashCode, v73 @ X0_v24 (System.Int32), v69 @ X0_v23 (System.Single)
+	67 Subtract v74 @ X8_v12, v73 @ X0_v24 (System.Int32), v72 @ X20_v7
+	68 Add v75 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 804
+	69 Nop
+	70 Add v77 @ X20_v8, v74 @ X8_v12, v72 @ X20_v7
+	71 Call Single.GetHashCode, v78 @ X0_v26 (System.Int32), v75 @ X0_v25 (System.Single)
+	72 Subtract v79 @ X8_v13, v78 @ X0_v26 (System.Int32), v77 @ X20_v8
+	73 Add v80 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 808
+	74 Nop
+	75 Add v82 @ X21_v4, v79 @ X8_v13, v77 @ X20_v8
+	76 Call Single.GetHashCode, v83 @ X0_v28 (System.Int32), v80 @ X0_v27 (System.Single)
+	77 Nop
+	78 Add v85 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 812
+	79 Nop
+	80 Call Single.GetHashCode, v87 @ X0_v30 (System.Int32), v85 @ X0_v29 (System.Single)
+	81 Xor v88 @ X8_v14 (System.Int32), v83 @ X0_v28 (System.Int32), v87 @ X0_v30 (System.Int32)
+	82 Add v89 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 816
+	83 Nop
+	84 Subtract v91 @ X8_v15, v88 @ X8_v14 (System.Int32), v82 @ X21_v4
+	85 Add v92 @ X20_v10, v91 @ X8_v15, v82 @ X21_v4
+	86 Call Single.GetHashCode, v93 @ X0_v32 (System.Int32), v89 @ X0_v31 (System.Single)
+	87 Subtract v94 @ X8_v16, v93 @ X0_v32 (System.Int32), v92 @ X20_v10
+	88 Add v95 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 820
+	89 Nop
+	90 Add v97 @ X20_v11, v94 @ X8_v16, v92 @ X20_v10
+	91 Call Single.GetHashCode, v98 @ X0_v34 (System.Int32), v95 @ X0_v33 (System.Single)
+	92 Subtract v99 @ X8_v17, v98 @ X0_v34 (System.Int32), v97 @ X20_v11
+	93 Add v100 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 824
+	94 Nop
+	95 Add v102 @ X23_v2, v99 @ X8_v17, v97 @ X20_v11
+	96 Call Single.GetHashCode, v103 @ X0_v36 (System.Int32), v100 @ X0_v35 (System.Single)
+	97 Nop
+	98 Add v105 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 828
+	99 Nop
+	100 Call Single.GetHashCode, v107 @ X0_v38 (System.Int32), v105 @ X0_v37 (System.Single)
+	101 Nop
+	102 Add v109 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 832
+	103 Nop
+	104 Call Single.GetHashCode, v111 @ X0_v40 (System.Int32), v109 @ X0_v39 (System.Single)
+	105 Nop
+	106 Add v113 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 836
+	107 Nop
+	108 Call Single.GetHashCode, v115 @ X0_v42 (System.Int32), v113 @ X0_v41 (System.Single)
+	109 Xor v116 @ X8_v18 (System.Int32), v103 @ X0_v36 (System.Int32), v107 @ X0_v38 (System.Int32)
+	110 Nop
+	111 Xor v118 @ X8_v19 (System.Int32), v116 @ X8_v18 (System.Int32), v111 @ X0_v40 (System.Int32)
+	112 Xor v119 @ X8_v20 (System.Int32), v118 @ X8_v19 (System.Int32), v115 @ X0_v42 (System.Int32)
+	113 Add v120 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 840
+	114 Subtract v121 @ X8_v21, v119 @ X8_v20 (System.Int32), v102 @ X23_v2
+	115 Add v122 @ X23_v3, v121 @ X8_v21, v102 @ X23_v2
+	116 Call Single.GetHashCode, v123 @ X0_v44 (System.Int32), v120 @ X0_v43 (System.Single)
+	117 Nop
+	118 Add v125 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 844
+	119 Nop
+	120 Call Single.GetHashCode, v127 @ X0_v46 (System.Int32), v125 @ X0_v45 (System.Single)
+	121 Nop
+	122 Add v129 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 848
+	123 Nop
+	124 Call Single.GetHashCode, v131 @ X0_v48 (System.Int32), v129 @ X0_v47 (System.Single)
+	125 Nop
+	126 Add v133 @ X0_v49 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 852
+	127 Nop
+	128 Call Single.GetHashCode, v135 @ X0_v50 (System.Int32), v133 @ X0_v49 (System.Single)
+	129 Xor v136 @ X8_v22 (System.Int32), v123 @ X0_v44 (System.Int32), v127 @ X0_v46 (System.Int32)
+	130 Nop
+	131 Xor v138 @ X8_v23 (System.Int32), v136 @ X8_v22 (System.Int32), v131 @ X0_v48 (System.Int32)
+	132 Xor v139 @ X8_v24 (System.Int32), v138 @ X8_v23 (System.Int32), v135 @ X0_v50 (System.Int32)
+	133 Add v140 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 856
+	134 Subtract v141 @ X8_v25, v139 @ X8_v24 (System.Int32), v122 @ X23_v3
+	135 Add v142 @ X23_v4, v141 @ X8_v25, v122 @ X23_v3
+	136 Call Single.GetHashCode, v143 @ X0_v52 (System.Int32), v140 @ X0_v51 (System.Single)
+	137 Nop
+	138 Add v145 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 860
+	139 Nop
+	140 Call Single.GetHashCode, v147 @ X0_v54 (System.Int32), v145 @ X0_v53 (System.Single)
+	141 Nop
+	142 Add v149 @ X0_v55 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 864
+	143 Nop
+	144 Call Single.GetHashCode, v151 @ X0_v56 (System.Int32), v149 @ X0_v55 (System.Single)
+	145 Nop
+	146 Add v153 @ X0_v57 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 868
+	147 Nop
+	148 Call Single.GetHashCode, v155 @ X0_v58 (System.Int32), v153 @ X0_v57 (System.Single)
+	149 Xor v156 @ X8_v26 (System.Int32), v143 @ X0_v52 (System.Int32), v147 @ X0_v54 (System.Int32)
+	150 Nop
+	151 Xor v158 @ X8_v27 (System.Int32), v156 @ X8_v26 (System.Int32), v151 @ X0_v56 (System.Int32)
+	152 Xor v159 @ X8_v28 (System.Int32), v158 @ X8_v27 (System.Int32), v155 @ X0_v58 (System.Int32)
+	153 Add v160 @ X0_v59 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 872
+	154 Subtract v161 @ X8_v29, v159 @ X8_v28 (System.Int32), v142 @ X23_v4
+	155 Add v162 @ X23_v5, v161 @ X8_v29, v142 @ X23_v4
+	156 Call Single.GetHashCode, v163 @ X0_v60 (System.Int32), v160 @ X0_v59 (System.Single)
+	157 Nop
+	158 Add v165 @ X0_v61 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 876
+	159 Nop
+	160 Call Single.GetHashCode, v167 @ X0_v62 (System.Int32), v165 @ X0_v61 (System.Single)
+	161 Nop
+	162 Add v169 @ X0_v63 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 880
+	163 Nop
+	164 Call Single.GetHashCode, v171 @ X0_v64 (System.Int32), v169 @ X0_v63 (System.Single)
+	165 Nop
+	166 Add v173 @ X0_v65 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 884
+	167 Nop
+	168 Call Single.GetHashCode, v175 @ X0_v66 (System.Int32), v173 @ X0_v65 (System.Single)
+	169 Xor v176 @ X8_v30 (System.Int32), v163 @ X0_v60 (System.Int32), v167 @ X0_v62 (System.Int32)
+	170 Nop
+	171 Xor v178 @ X8_v31 (System.Int32), v176 @ X8_v30 (System.Int32), v171 @ X0_v64 (System.Int32)
+	172 Xor v179 @ X8_v32 (System.Int32), v178 @ X8_v31 (System.Int32), v175 @ X0_v66 (System.Int32)
+	173 Add v180 @ X0_v67 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 888
+	174 Subtract v181 @ X8_v33, v179 @ X8_v32 (System.Int32), v162 @ X23_v5
+	175 Add v182 @ X20_v16, v181 @ X8_v33, v162 @ X23_v5
+	176 Call Single.GetHashCode, v183 @ X0_v68 (System.Int32), v180 @ X0_v67 (System.Single)
+	177 Subtract v184 @ X8_v34, v183 @ X0_v68 (System.Int32), v182 @ X20_v16
+	178 Add v185 @ X0_v69 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 892
+	179 Nop
+	180 Add v187 @ X20_v17, v184 @ X8_v34, v182 @ X20_v16
+	181 Call Single.GetHashCode, v188 @ X0_v70 (System.Int32), v185 @ X0_v69 (System.Single)
+	182 Subtract v189 @ X9_v1, v188 @ X0_v70 (System.Int32), v187 @ X20_v17
+	183 Nop
+	184 Add v191 @ X0_v71 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 900
+	185 Add v192 @ X9_v2, v189 @ X9_v1, v187 @ X20_v17
+	186 Nop
+	187 Subtract v194 @ X8_v36, this.recoverBtnShadowLayers (System.Int32), v192 @ X9_v2
+	188 Add v195 @ X21_v9, v194 @ X8_v36, v192 @ X9_v2
+	189 Call Single.GetHashCode, v196 @ X0_v72 (System.Int32), v191 @ X0_v71 (System.Single)
+	190 Nop
+	191 Add v198 @ X0_v73 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 904
+	192 Nop
+	193 Call Single.GetHashCode, v200 @ X0_v74 (System.Int32), v198 @ X0_v73 (System.Single)
+	194 Xor v201 @ X8_v37 (System.Int32), v196 @ X0_v72 (System.Int32), v200 @ X0_v74 (System.Int32)
+	195 Add v202 @ X0_v75 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 908
+	196 Nop
+	197 Subtract v204 @ X8_v38, v201 @ X8_v37 (System.Int32), v195 @ X21_v9
+	198 Add v205 @ X21_v10, v204 @ X8_v38, v195 @ X21_v9
+	199 Call Single.GetHashCode, v206 @ X0_v76 (System.Int32), v202 @ X0_v75 (System.Single)
+	200 Nop
+	201 Add v208 @ X0_v77 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 912
+	202 Nop
+	203 Call Single.GetHashCode, v210 @ X0_v78 (System.Int32), v208 @ X0_v77 (System.Single)
+	204 Xor v211 @ X8_v39 (System.Int32), v206 @ X0_v76 (System.Int32), v210 @ X0_v78 (System.Int32)
+	205 Add v212 @ X0_v79 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 916
+	206 Nop
+	207 Subtract v214 @ X8_v40, v211 @ X8_v39 (System.Int32), v205 @ X21_v10
+	208 Add v215 @ X20_v20, v214 @ X8_v40, v205 @ X21_v10
+	209 Call Single.GetHashCode, v216 @ X0_v80 (System.Int32), v212 @ X0_v79 (System.Single)
+	210 Subtract v217 @ X8_v41, v216 @ X0_v80 (System.Int32), v215 @ X20_v20
+	211 Add v218 @ X0_v81 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 920
+	212 Nop
+	213 Add v220 @ X20_v21, v217 @ X8_v41, v215 @ X20_v20
+	214 Call Single.GetHashCode, v221 @ X0_v82 (System.Int32), v218 @ X0_v81 (System.Single)
+	215 Subtract v222 @ X8_v42, v221 @ X0_v82 (System.Int32), v220 @ X20_v21
+	216 Add v223 @ X0_v83 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 924
+	217 Nop
+	218 Add v225 @ X21_v11, v222 @ X8_v42, v220 @ X20_v21
+	219 Call Single.GetHashCode, v226 @ X0_v84 (System.Int32), v223 @ X0_v83 (System.Single)
+	220 Nop
+	221 Add v228 @ X0_v85 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 928
+	222 Nop
+	223 Call Single.GetHashCode, v230 @ X0_v86 (System.Int32), v228 @ X0_v85 (System.Single)
+	224 Xor v231 @ X8_v43 (System.Int32), v226 @ X0_v84 (System.Int32), v230 @ X0_v86 (System.Int32)
+	225 Add v232 @ X0_v87 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 732
+	226 Nop
+	227 Subtract v234 @ X8_v44, v231 @ X8_v43 (System.Int32), v225 @ X21_v11
+	228 Add v235 @ X20_v23, v234 @ X8_v44, v225 @ X21_v11
+	229 Call Single.GetHashCode, v236 @ X0_v88 (System.Int32), v232 @ X0_v87 (System.Single)
+	230 Subtract v237 @ X8_v45, v236 @ X0_v88 (System.Int32), v235 @ X20_v23
+	231 Add v238 @ X0_v89 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 736
+	232 Nop
+	233 Add v240 @ X20_v24, v237 @ X8_v45, v235 @ X20_v23
+	234 Call Single.GetHashCode, v241 @ X0_v90 (System.Int32), v238 @ X0_v89 (System.Single)
+	235 Subtract v242 @ X8_v46, v241 @ X0_v90 (System.Int32), v240 @ X20_v24
+	236 Add v243 @ X0_v91 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 740
+	237 Nop
+	238 Add v245 @ X23_v6, v242 @ X8_v46, v240 @ X20_v24
+	239 Call Single.GetHashCode, v246 @ X0_v92 (System.Int32), v243 @ X0_v91 (System.Single)
+	240 Nop
+	241 Add v248 @ X0_v93 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 744
+	242 Nop
+	243 Call Single.GetHashCode, v250 @ X0_v94 (System.Int32), v248 @ X0_v93 (System.Single)
+	244 Nop
+	245 Add v252 @ X0_v95 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 748
+	246 Nop
+	247 Call Single.GetHashCode, v254 @ X0_v96 (System.Int32), v252 @ X0_v95 (System.Single)
+	248 Nop
+	249 Add v256 @ X0_v97 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 752
+	250 Nop
+	251 Call Single.GetHashCode, v258 @ X0_v98 (System.Int32), v256 @ X0_v97 (System.Single)
+	252 Xor v259 @ X8_v47 (System.Int32), v246 @ X0_v92 (System.Int32), v250 @ X0_v94 (System.Int32)
+	253 Nop
+	254 Nop
+	255 Xor v262 @ X8_v48 (System.Int32), v259 @ X8_v47 (System.Int32), v254 @ X0_v96 (System.Int32)
+	256 Nop
+	257 Nop
+	258 Xor v265 @ X8_v49 (System.Int32), v262 @ X8_v48 (System.Int32), v258 @ X0_v98 (System.Int32)
+	259 Subtract v266 @ X8_v50, v265 @ X8_v49 (System.Int32), v245 @ X23_v6
+	260 Add returnVal1 @ X0_v99 (System.Int32), v266 @ X8_v50, v245 @ X23_v6
+	261 Nop
+	262 Nop
+	263 Nop
+	264 Return returnVal1 @ X0_v99 (System.Int32)
+
+Method: System.Int32 HashPart4(System.Int32 h)
+
+Disassembly:
+	0x03439BC8 STP X30, X23, [X31 - 0x30]!
+	0x03439BCC STP X22, X21, [X31 + 0x10]
+	0x03439BD0 STP X20, X19, [X31 + 0x20]
+	0x03439BD4 MOV W20, W1
+	0x03439BD8 MOV X19, X0
+	0x03439BDC ADD X0, X0, 0x1F8
+	0x03439BE0 MOV X1, X31
+	0x03439BE4 BL 0x361FF74
+	0x03439BE8 SUB W8, W0, W20
+	0x03439BEC ADD X0, X19, 0x1FC
+	0x03439BF0 MOV X1, X31
+	0x03439BF4 ADD W20, W8, W20, 0x5, LSL
+	0x03439BF8 BL 0x361FF74
+	0x03439BFC SUB W8, W0, W20
+	0x03439C00 ADD X0, X19, 0x200
+	0x03439C04 MOV X1, X31
+	0x03439C08 ADD W20, W8, W20, 0x5, LSL
+	0x03439C0C BL 0x361FF74
+	0x03439C10 SUB W8, W0, W20
+	0x03439C14 ADD X0, X19, 0x1C0
+	0x03439C18 MOV X1, X31
+	0x03439C1C ADD W20, W8, W20, 0x5, LSL
+	0x03439C20 BL 0x361FF74
+	0x03439C24 SUB W8, W0, W20
+	0x03439C28 ADD X0, X19, 0x1C4
+	0x03439C2C MOV X1, X31
+	0x03439C30 ADD W20, W8, W20, 0x5, LSL
+	0x03439C34 BL 0x361FF74
+	0x03439C38 SUB W8, W0, W20
+	0x03439C3C ADD X0, X19, 0x1C8
+	0x03439C40 MOV X1, X31
+	0x03439C44 ADD W20, W8, W20, 0x5, LSL
+	0x03439C48 BL 0x361FF74
+	0x03439C4C SUB W9, W0, W20
+	0x03439C50 LDR W8, [X19 + 0x160]
+	0x03439C54 ADD X0, X19, 0x164
+	0x03439C58 ADD W9, W9, W20, 0x5, LSL
+	0x03439C5C MOV X1, X31
+	0x03439C60 SUB W8, W8, W9
+	0x03439C64 ADD W23, W8, W9, 0x5, LSL
+	0x03439C68 BL 0x361FF74
+	0x03439C6C MOV W20, W0
+	0x03439C70 ADD X0, X19, 0x168
+	0x03439C74 MOV X1, X31
+	0x03439C78 BL 0x361FF74
+	0x03439C7C MOV W21, W0
+	0x03439C80 ADD X0, X19, 0x16C
+	0x03439C84 MOV X1, X31
+	0x03439C88 BL 0x361FF74
+	0x03439C8C MOV W22, W0
+	0x03439C90 ADD X0, X19, 0x170
+	0x03439C94 MOV X1, X31
+	0x03439C98 BL 0x361FF74
+	0x03439C9C EOR W8, W20, W21, LSL 0x2
+	0x03439CA0 MOV X1, X31
+	0x03439CA4 EOR W8, W8, W22, ASR 0x2
+	0x03439CA8 EOR W8, W8, W0, ASR 0x1
+	0x03439CAC ADD X0, X19, 0x174
+	0x03439CB0 SUB W8, W8, W23
+	0x03439CB4 ADD W20, W8, W23, 0x5, LSL
+	0x03439CB8 BL 0x361FF74
+	0x03439CBC SUB W8, W0, W20
+	0x03439CC0 ADD X0, X19, 0x178
+	0x03439CC4 MOV X1, X31
+	0x03439CC8 ADD W20, W8, W20, 0x5, LSL
+	0x03439CCC BL 0x361FF74
+	0x03439CD0 SUB W8, W0, W20
+	0x03439CD4 ADD X0, X19, 0x17C
+	0x03439CD8 MOV X1, X31
+	0x03439CDC ADD W20, W8, W20, 0x5, LSL
+	0x03439CE0 BL 0x361FF74
+	0x03439CE4 SUB W9, W0, W20
+	0x03439CE8 LDR W8, [X19 + 0x144]
+	0x03439CEC ADD X0, X19, 0x148
+	0x03439CF0 ADD W9, W9, W20, 0x5, LSL
+	0x03439CF4 MOV X1, X31
+	0x03439CF8 SUB W8, W8, W9
+	0x03439CFC ADD W20, W8, W9, 0x5, LSL
+	0x03439D00 BL 0x361FF74
+	0x03439D04 SUB W8, W0, W20
+	0x03439D08 ADD X0, X19, 0x14C
+	0x03439D0C MOV X1, X31
+	0x03439D10 ADD W20, W8, W20, 0x5, LSL
+	0x03439D14 BL 0x361FF74
+	0x03439D18 SUB W8, W0, W20
+	0x03439D1C ADD X0, X19, 0x150
+	0x03439D20 MOV X1, X31
+	0x03439D24 ADD W20, W8, W20, 0x5, LSL
+	0x03439D28 BL 0x361FF74
+	0x03439D2C SUB W8, W0, W20
+	0x03439D30 ADD X0, X19, 0x154
+	0x03439D34 MOV X1, X31
+	0x03439D38 ADD W20, W8, W20, 0x5, LSL
+	0x03439D3C BL 0x361FF74
+	0x03439D40 SUB W8, W0, W20
+	0x03439D44 ADD X0, X19, 0x158
+	0x03439D48 MOV X1, X31
+	0x03439D4C ADD W20, W8, W20, 0x5, LSL
+	0x03439D50 BL 0x361FF74
+	0x03439D54 SUB W8, W0, W20
+	0x03439D58 ADD X0, X19, 0x15C
+	0x03439D5C MOV X1, X31
+	0x03439D60 ADD W20, W8, W20, 0x5, LSL
+	0x03439D64 BL 0x361FF74
+	0x03439D68 SUB W8, W0, W20
+	0x03439D6C LDP X22, X21, [X31 + 0x10]
+	0x03439D70 ADD W0, W8, W20, 0x5, LSL
+	0x03439D74 LDP X20, X19, [X31 + 0x20]
+	0x03439D78 LDP X30, X23, [X31], #0x30
+	0x03439D7C RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Add v16 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 504
+	10 Nop
+	11 Call Single.GetHashCode, v18 @ X0_v2 (System.Int32), v16 @ X0_v1 (System.Single)
+	12 Subtract v19 @ X8_v1, v18 @ X0_v2 (System.Int32), h @ X1 (System.Int32)
+	13 Add v20 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 508
+	14 Nop
+	15 Add v22 @ X20_v2, v19 @ X8_v1, h @ X1 (System.Int32)
+	16 Call Single.GetHashCode, v23 @ X0_v4 (System.Int32), v20 @ X0_v3 (System.Single)
+	17 Subtract v24 @ X8_v2, v23 @ X0_v4 (System.Int32), v22 @ X20_v2
+	18 Add v25 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 512
+	19 Nop
+	20 Add v27 @ X20_v3, v24 @ X8_v2, v22 @ X20_v2
+	21 Call Single.GetHashCode, v28 @ X0_v6 (System.Int32), v25 @ X0_v5 (System.Single)
+	22 Subtract v29 @ X8_v3, v28 @ X0_v6 (System.Int32), v27 @ X20_v3
+	23 Add v30 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 448
+	24 Nop
+	25 Add v32 @ X20_v4, v29 @ X8_v3, v27 @ X20_v3
+	26 Call Single.GetHashCode, v33 @ X0_v8 (System.Int32), v30 @ X0_v7 (System.Single)
+	27 Subtract v34 @ X8_v4, v33 @ X0_v8 (System.Int32), v32 @ X20_v4
+	28 Add v35 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 452
+	29 Nop
+	30 Add v37 @ X20_v5, v34 @ X8_v4, v32 @ X20_v4
+	31 Call Single.GetHashCode, v38 @ X0_v10 (System.Int32), v35 @ X0_v9 (System.Single)
+	32 Subtract v39 @ X8_v5, v38 @ X0_v10 (System.Int32), v37 @ X20_v5
+	33 Add v40 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 456
+	34 Nop
+	35 Add v42 @ X20_v6, v39 @ X8_v5, v37 @ X20_v5
+	36 Call Single.GetHashCode, v43 @ X0_v12 (System.Int32), v40 @ X0_v11 (System.Single)
+	37 Subtract v44 @ X9_v1, v43 @ X0_v12 (System.Int32), v42 @ X20_v6
+	38 Nop
+	39 Add v46 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 356
+	40 Add v47 @ X9_v2, v44 @ X9_v1, v42 @ X20_v6
+	41 Nop
+	42 Subtract v49 @ X8_v7, this.sparkleCount (System.Int32), v47 @ X9_v2
+	43 Add v50 @ X23_v1, v49 @ X8_v7, v47 @ X9_v2
+	44 Call Single.GetHashCode, v51 @ X0_v14 (System.Int32), v46 @ X0_v13 (System.Single)
+	45 Nop
+	46 Add v53 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 360
+	47 Nop
+	48 Call Single.GetHashCode, v55 @ X0_v16 (System.Int32), v53 @ X0_v15 (System.Single)
+	49 Nop
+	50 Add v57 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 364
+	51 Nop
+	52 Call Single.GetHashCode, v59 @ X0_v18 (System.Int32), v57 @ X0_v17 (System.Single)
+	53 Nop
+	54 Add v61 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 368
+	55 Nop
+	56 Call Single.GetHashCode, v63 @ X0_v20 (System.Int32), v61 @ X0_v19 (System.Single)
+	57 Xor v64 @ X8_v8 (System.Int32), v51 @ X0_v14 (System.Int32), v55 @ X0_v16 (System.Int32)
+	58 Nop
+	59 Xor v66 @ X8_v9 (System.Int32), v64 @ X8_v8 (System.Int32), v59 @ X0_v18 (System.Int32)
+	60 Xor v67 @ X8_v10 (System.Int32), v66 @ X8_v9 (System.Int32), v63 @ X0_v20 (System.Int32)
+	61 Add v68 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 372
+	62 Subtract v69 @ X8_v11, v67 @ X8_v10 (System.Int32), v50 @ X23_v1
+	63 Add v70 @ X20_v8, v69 @ X8_v11, v50 @ X23_v1
+	64 Call Single.GetHashCode, v71 @ X0_v22 (System.Int32), v68 @ X0_v21 (System.Single)
+	65 Subtract v72 @ X8_v12, v71 @ X0_v22 (System.Int32), v70 @ X20_v8
+	66 Add v73 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 376
+	67 Nop
+	68 Add v75 @ X20_v9, v72 @ X8_v12, v70 @ X20_v8
+	69 Call Single.GetHashCode, v76 @ X0_v24 (System.Int32), v73 @ X0_v23 (System.Single)
+	70 Subtract v77 @ X8_v13, v76 @ X0_v24 (System.Int32), v75 @ X20_v9
+	71 Add v78 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 380
+	72 Nop
+	73 Add v80 @ X20_v10, v77 @ X8_v13, v75 @ X20_v9
+	74 Call Single.GetHashCode, v81 @ X0_v26 (System.Int32), v78 @ X0_v25 (System.Single)
+	75 Subtract v82 @ X9_v3, v81 @ X0_v26 (System.Int32), v80 @ X20_v10
+	76 Nop
+	77 Add v84 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 328
+	78 Add v85 @ X9_v4, v82 @ X9_v3, v80 @ X20_v10
+	79 Nop
+	80 Subtract v87 @ X8_v15, this.butterflyCount (System.Int32), v85 @ X9_v4
+	81 Add v88 @ X20_v11, v87 @ X8_v15, v85 @ X9_v4
+	82 Call Single.GetHashCode, v89 @ X0_v28 (System.Int32), v84 @ X0_v27 (System.Single)
+	83 Subtract v90 @ X8_v16, v89 @ X0_v28 (System.Int32), v88 @ X20_v11
+	84 Add v91 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 332
+	85 Nop
+	86 Add v93 @ X20_v12, v90 @ X8_v16, v88 @ X20_v11
+	87 Call Single.GetHashCode, v94 @ X0_v30 (System.Int32), v91 @ X0_v29 (System.Single)
+	88 Subtract v95 @ X8_v17, v94 @ X0_v30 (System.Int32), v93 @ X20_v12
+	89 Add v96 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 336
+	90 Nop
+	91 Add v98 @ X20_v13, v95 @ X8_v17, v93 @ X20_v12
+	92 Call Single.GetHashCode, v99 @ X0_v32 (System.Int32), v96 @ X0_v31 (System.Single)
+	93 Subtract v100 @ X8_v18, v99 @ X0_v32 (System.Int32), v98 @ X20_v13
+	94 Add v101 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 340
+	95 Nop
+	96 Add v103 @ X20_v14, v100 @ X8_v18, v98 @ X20_v13
+	97 Call Single.GetHashCode, v104 @ X0_v34 (System.Int32), v101 @ X0_v33 (System.Single)
+	98 Subtract v105 @ X8_v19, v104 @ X0_v34 (System.Int32), v103 @ X20_v14
+	99 Add v106 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 344
+	100 Nop
+	101 Add v108 @ X20_v15, v105 @ X8_v19, v103 @ X20_v14
+	102 Call Single.GetHashCode, v109 @ X0_v36 (System.Int32), v106 @ X0_v35 (System.Single)
+	103 Subtract v110 @ X8_v20, v109 @ X0_v36 (System.Int32), v108 @ X20_v15
+	104 Add v111 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.StreakPageConfig), 348
+	105 Nop
+	106 Add v113 @ X20_v16, v110 @ X8_v20, v108 @ X20_v15
+	107 Call Single.GetHashCode, v114 @ X0_v38 (System.Int32), v111 @ X0_v37 (System.Single)
+	108 Subtract v115 @ X8_v21, v114 @ X0_v38 (System.Int32), v113 @ X20_v16
+	109 Nop
+	110 Nop
+	111 Add returnVal1 @ X0_v39 (System.Int32), v115 @ X8_v21, v113 @ X20_v16
+	112 Nop
+	113 Nop
+	114 Nop
+	115 Nop
+	116 Nop
+	117 Return returnVal1 @ X0_v39 (System.Int32)
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x0343A564 STP X30, X21, [X31 - 0x20]!
+	0x0343A568 STP X20, X19, [X31 + 0x10]
+	0x0343A56C MOV W8, 0x442A0000
+	0x0343A570 ADRP X9, 0xFFFFFFFFFD7D1000
+	0x0343A574 MOV W10, 0x43E60000
+	0x0343A578 STR W8, [X0 + 0x18]
+	0x0343A57C ADRP X8, 0xFFFFFFFFFD7D2000
+	0x0343A580 LDR D0, [X9 + 0xD40]
+	0x0343A584 LDR D1, [X8 + 0x700]
+	0x0343A588 ADRP X8, 0xFFFFFFFFFD7D1000
+	0x0343A58C MOV W9, 0x6
+	0x0343A590 LDR D2, [X8 + 0x808]
+	0x0343A594 ADRP X8, 0xFFFFFFFFFD7D2000
+	0x0343A598 STUR D0, [X0 + 0x1C]
+	0x0343A59C LDR D3, [X8 + 0xB20]
+	0x0343A5A0 ADRP X8, 0xFFFFFFFFFD80E000
+	0x0343A5A4 STR W9, [X0 + 0x68]
+	0x0343A5A8 LDR V0, [X8]
+	0x0343A5AC ADRP X8, 0xFFFFFFFFFD80A000
+	0x0343A5B0 STP D1, D2, [X0 + 0x28]
+	0x0343A5B4 LDR V1, [X8 + 0x3C0]
+	0x0343A5B8 ADRP X8, 0xFFFFFFFFFD7D2000
+	0x0343A5BC ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A5C0 LDR D2, [X8 + 0xBA8]
+	0x0343A5C4 ADRP X8, 0xFFFFFFFFFD80A000
+	0x0343A5C8 STR D3, [X0 + 0x38]
+	0x0343A5CC STP V0, V1, [X0 + 0x40]
+	0x0343A5D0 LDR V1, [X8 + 0xD0]
+	0x0343A5D4 ADRP X8, 0xFFFFFFFFFD7D2000
+	0x0343A5D8 STR D2, [X0 + 0x60]
+	0x0343A5DC LDR D2, [X8 + 0x5A8]
+	0x0343A5E0 MOV W11, 0xC1300000
+	0x0343A5E4 STUR V1, [X0 + 0x6C]
+	0x0343A5E8 LDR D1, [X9 + 0x8]
+	0x0343A5EC ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A5F0 STUR D2, [X0 + 0x7C]
+	0x0343A5F4 LDR D2, [X9 + 0x1B8]
+	0x0343A5F8 ADRP X9, 0xFFFFFFFFFD80E000
+	0x0343A5FC LDR V3, [X9 + 0x890]
+	0x0343A600 ADRP X9, 0xFFFFFFFFFD809000
+	0x0343A604 STR W10, [X0 + 0x24]
+	0x0343A608 STP D1, D2, [X0 + 0x88]
+	0x0343A60C LDR V1, [X9 + 0xA80]
+	0x0343A610 ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A614 LDR D2, [X9 + 0xB28]
+	0x0343A618 ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A61C STUR V3, [X0 + 0x98]
+	0x0343A620 STUR V1, [X0 + 0xA8]
+	0x0343A624 LDR D1, [X9 + 0x708]
+	0x0343A628 ADRP X9, 0xFFFFFFFFFD80E000
+	0x0343A62C LDR V3, [X9 + 0x330]
+	0x0343A630 ADRP X9, 0xFFFFFFFFFD809000
+	0x0343A634 MOV W10, 0x41900000
+	0x0343A638 STP D2, D1, [X0 + 0xB8]
+	0x0343A63C LDR V1, [X9 + 0xA90]
+	0x0343A640 ADRP X9, 0xFFFFFFFFFD80A000
+	0x0343A644 LDR V2, [X9 + 0xCD0]
+	0x0343A648 MOV X9, 0x1EB8
+	0x0343A64C STR W11, [X0 + 0x108]
+	0x0343A650 MOVK X9, 0x3E850000
+	0x0343A654 MOV X11, 0x999A
+	0x0343A658 STUR V1, [X0 + 0xD8]
+	0x0343A65C MOVK X9, 0x400000000
+	0x0343A660 MOVK X11, 0x3E190000
+	0x0343A664 STUR V2, [X0 + 0xE8]
+	0x0343A668 STP X9, X10, [X0 + 0xF8]
+	0x0343A66C ADRP X9, 0xFFFFFFFFFD80E000
+	0x0343A670 MOVK X11, 0x666600000000
+	0x0343A674 LDR V1, [X9 + 0x660]
+	0x0343A678 ADRP X9, 0xFFFFFFFFFD80C000
+	0x0343A67C ADD X10, X0, 0x10C
+	0x0343A680 LDR V2, [X9 + 0x9B0]
+	0x0343A684 ADD X9, X0, 0x12C
+	0x0343A688 MOVK X11, 0x3EE6000000000000
+	0x0343A68C ADRP X12, 0xFFFFFFFFFD7D2000
+	0x0343A690 STR X11, [X9]
+	0x0343A694 MOV W9, 0x7
+	0x0343A698 STP V1, V2, [X10]
+	0x0343A69C LDR D1, [X12 + 0x448]
+	0x0343A6A0 MOV X11, 0x47AE
+	0x0343A6A4 STR W9, [X0 + 0x134]
+	0x0343A6A8 ADRP X9, 0xFFFFFFFFFD80B000
+	0x0343A6AC MOVK X11, 0x3D610000
+	0x0343A6B0 STR D1, [X0 + 0x138]
+	0x0343A6B4 MOVK X11, 0x100000000
+	0x0343A6B8 LDR V1, [X9 + 0xE10]
+	0x0343A6BC ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A6C0 STR X11, [X0 + 0x140]
+	0x0343A6C4 ADRP X11, 0xFFFFFFFFFD80B000
+	0x0343A6C8 LDR D2, [X9 + 0x2A0]
+	0x0343A6CC STUR V1, [X10 + 0x3C]
+	0x0343A6D0 LDR V1, [X11 + 0xF70]
+	0x0343A6D4 ADRP X11, 0xFFFFFFFFFD80E000
+	0x0343A6D8 MOV X12, 0xA3D
+	0x0343A6DC STUR V3, [X0 + 0xC8]
+	0x0343A6E0 STR D2, [X0 + 0x158]
+	0x0343A6E4 LDR V2, [X11 + 0x8A0]
+	0x0343A6E8 ADRP X11, 0xFFFFFFFFFD80D000
+	0x0343A6EC STUR V1, [X10 + 0x58]
+	0x0343A6F0 LDR V1, [X11 + 0x940]
+	0x0343A6F4 ADRP X11, 0xFFFFFFFFFD809000
+	0x0343A6F8 MOVK X12, 0x3ED70000
+	0x0343A6FC STUR V2, [X10 + 0x68]
+	0x0343A700 LDR V2, [X11 + 0x550]
+	0x0343A704 ADRP X11, 0xFFFFFFFFFD809000
+	0x0343A708 MOVK X12, 0x1EB800000000
+	0x0343A70C STUR V1, [X10 + 0x78]
+	0x0343A710 LDR V1, [X11 + 0xAA0]
+	0x0343A714 ADD X11, X0, 0x1B4
+	0x0343A718 MOVK X12, 0x3E05000000000000
+	0x0343A71C STR X12, [X11]
+	0x0343A720 ADRP X11, 0xFFFFFFFFFD80D000
+	0x0343A724 MOV W9, 0x4
+	0x0343A728 STUR V1, [X10 + 0x98]
+	0x0343A72C LDR V1, [X11 + 0xC30]
+	0x0343A730 ADRP X11, 0xFFFFFFFFFD80C000
+	0x0343A734 STUR V2, [X10 + 0x88]
+	0x0343A738 LDR V2, [X11 + 0xCE0]
+	0x0343A73C ADRP X11, 0xFFFFFFFFFD80A000
+	0x0343A740 LDR V3, [X11 + 0x3D0]
+	0x0343A744 ADRP X11, 0xFFFFFFFFFD80E000
+	0x0343A748 STR W9, [X0 + 0x160]
+	0x0343A74C STP V1, V2, [X0 + 0x1C0]
+	0x0343A750 LDR V1, [X11 + 0x8B0]
+	0x0343A754 ADRP X11, 0xFFFFFFFFFD809000
+	0x0343A758 STR W9, [X0 + 0x288]
+	0x0343A75C ADRP X9, 0xFFFFFFFFFD80B000
+	0x0343A760 MOV W8, 0xCCCD
+	0x0343A764 STP V3, V1, [X0 + 0x1E0]
+	0x0343A768 LDR V1, [X11 + 0xD00]
+	0x0343A76C ADRP X11, 0xFFFFFFFFFD7D1000
+	0x0343A770 LDR D2, [X11 + 0x880]
+	0x0343A774 ADRP X11, 0xFFFFFFFFFD80C000
+	0x0343A778 MOVK W8, 0x3E4C0000
+	0x0343A77C STUR V1, [X10 + 0xFC]
+	0x0343A780 MOV W10, 0x999A
+	0x0343A784 LDR V1, [X11 + 0x9C0]
+	0x0343A788 MOVK W10, 0x3F190000
+	0x0343A78C STR D2, [X0 + 0x218]
+	0x0343A790 ADD X11, X0, 0x228
+	0x0343A794 STR W10, [X0 + 0x220]
+	0x0343A798 ADRP X10, 0xFFFFFFFFFD7D2000
+	0x0343A79C MOV W12, 0x3
+	0x0343A7A0 LDR D2, [X10 + 0xA30]
+	0x0343A7A4 ADRP X10, 0xFFFFFFFFFD7D1000
+	0x0343A7A8 STR V1, [X11]
+	0x0343A7AC LDR D1, [X10 + 0x810]
+	0x0343A7B0 ADRP X10, 0xFFFFFFFFFD80C000
+	0x0343A7B4 ADD X11, X0, 0x248
+	0x0343A7B8 STR D2, [X0 + 0x238]
+	0x0343A7BC ADRP X21, 0x135E000
+	0x0343A7C0 MOV X19, X0
+	0x0343A7C4 STR D1, [X0 + 0x240]
+	0x0343A7C8 LDR V1, [X10 + 0xCF0]
+	0x0343A7CC ADRP X10, 0xFFFFFFFFFD7D2000
+	0x0343A7D0 LDR D2, [X10 + 0x408]
+	0x0343A7D4 ADRP X10, 0xFFFFFFFFFD7D2000
+	0x0343A7D8 STR W8, [X0 + 0x84]
+	0x0343A7DC STR V1, [X11]
+	0x0343A7E0 LDR D1, [X10 + 0x280]
+	0x0343A7E4 ADRP X10, 0xFFFFFFFFFD80B000
+	0x0343A7E8 STR D2, [X0 + 0x258]
+	0x0343A7EC LDR V2, [X10 + 0xB0]
+	0x0343A7F0 ADRP X10, 0xFFFFFFFFFD80B000
+	0x0343A7F4 STR D1, [X0 + 0x260]
+	0x0343A7F8 ADD X11, X0, 0x268
+	0x0343A7FC LDR V1, [X10 + 0xE20]
+	0x0343A800 ADD X10, X0, 0x278
+	0x0343A804 STR V2, [X11]
+	0x0343A808 ADRP X11, 0xFFFFFFFFFD80A000
+	0x0343A80C STR V1, [X10]
+	0x0343A810 LDR V1, [X11 + 0x8A0]
+	0x0343A814 ADRP X11, 0xFFFFFFFFFD80A000
+	0x0343A818 LDR V2, [X11 + 0x660]
+	0x0343A81C MOV X11, 0xCCCD
+	0x0343A820 STUR V0, [X10 + 0x44]
+	0x0343A824 STUR V1, [X10 + 0x14]
+	0x0343A828 LDR V1, [X9 + 0x3F0]
+	0x0343A82C ADRP X9, 0xFFFFFFFFFD80A000
+	0x0343A830 MOVK X11, 0x3ECC0000
+	0x0343A834 STR W8, [X0 + 0x30C]
+	0x0343A838 ADRP X8, 0xFFFFFFFFFD7D1000
+	0x0343A83C STUR V1, [X10 + 0x34]
+	0x0343A840 LDR V1, [X9 + 0x570]
+	0x0343A844 ADRP X9, 0xFFFFFFFFFD80B000
+	0x0343A848 LDR V0, [X9 + 0x660]
+	0x0343A84C ADD X9, X0, 0x2EC
+	0x0343A850 MOVK X11, 0x3F80000000000000
+	0x0343A854 STR X11, [X9]
+	0x0343A858 ADRP X9, 0xFFFFFFFFFD80C000
+	0x0343A85C ADD X11, X0, 0x2F4
+	0x0343A860 STUR V0, [X10 + 0x64]
+	0x0343A864 LDR V0, [X9 + 0xD00]
+	0x0343A868 ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A86C STUR V1, [X10 + 0x54]
+	0x0343A870 ADD X20, X0, 0x39C
+	0x0343A874 STUR V0, [X10 + 0x84]
+	0x0343A878 LDR D0, [X9 + 0x7A8]
+	0x0343A87C ADRP X9, 0xFFFFFFFFFD7D2000
+	0x0343A880 LDR D1, [X9 + 0x608]
+	0x0343A884 STUR V2, [X10 + 0x24]
+	0x0343A888 LDRB W9, [X21 + 0xE80]
+	0x0343A88C STR D0, [X0 + 0x310]
+	0x0343A890 LDR D0, [X8 + 0xBC8]
+	0x0343A894 ADRP X8, 0xFFFFFFFFFD7D1000
+	0x0343A898 STR D1, [X0 + 0x318]
+	0x0343A89C LDR D1, [X8 + 0xB70]
+	0x0343A8A0 ADRP X8, 0xFFFFFFFFFD80D000
+	0x0343A8A4 STR D0, [X0 + 0x320]
+	0x0343A8A8 LDR V0, [X8 + 0xC40]
+	0x0343A8AC ADRP X8, 0xFFFFFFFFFD80C000
+	0x0343A8B0 STR D1, [X0 + 0x328]
+	0x0343A8B4 LDR V1, [X8 + 0x9D0]
+	0x0343A8B8 ADRP X8, 0xFFFFFFFFFD809000
+	0x0343A8BC LDR V2, [X8 + 0x560]
+	0x0343A8C0 ADRP X8, 0xFFFFFFFFFD80C000
+	0x0343A8C4 STR W12, [X0 + 0x1BC]
+	0x0343A8C8 MOV X12, 0x3FC00000
+	0x0343A8CC STP V0, V1, [X0 + 0x330]
+	0x0343A8D0 LDR V0, [X8 + 0x670]
+	0x0343A8D4 ADRP X8, 0xFFFFFFFFFD809000
+	0x0343A8D8 MOVK X12, 0xC00000000
+	0x0343A8DC MOV X10, 0x42380000
+	0x0343A8E0 LDR V1, [X8 + 0x570]
+	0x0343A8E4 ADRP X8, 0xFFFFFFFFFD80D000
+	0x0343A8E8 STR X12, [X0 + 0x200]
+	0x0343A8EC MOV X12, 0x442F0000
+	0x0343A8F0 STP V2, V0, [X0 + 0x350]
+	0x0343A8F4 LDR V0, [X8 + 0x850]
+	0x0343A8F8 MOV W8, 0x42780000
+	0x0343A8FC MOVK X12, 0x4334000000000000
+	0x0343A900 MOVK X10, 0x41A0000000000000
+	0x0343A904 STR W8, [X0 + 0x390]
+	0x0343A908 ADD X8, X0, 0x394
+	0x0343A90C STR X12, [X11]
+	0x0343A910 STP V1, V0, [X0 + 0x370]
+	0x0343A914 STR X10, [X8]
+	0x0343A918 CBNZ W9, 0x343A930
+	0x0343A91C ADRP X0, 0x1071000
+	0x0343A920 LDR X0, [X0 + 0x288]
+	0x0343A924 BL 0x1D77A60
+	0x0343A928 MOV W8, 0x1
+	0x0343A92C STRB W8, [X21 + 0xE80]
+	0x0343A930 ADRP X8, 0x1071000
+	0x0343A934 MOV X0, X19
+	0x0343A938 MOV X1, X31
+	0x0343A93C LDR X8, [X8 + 0x288]
+	0x0343A940 LDR X8, [X8]
+	0x0343A944 LDR X8, [X8 + 0xA0]
+	0x0343A948 LDR D0, [X8]
+	0x0343A94C STR D0, [X20]
+	0x0343A950 LDP X20, X19, [X31 + 0x10]
+	0x0343A954 LDP X30, X21, [X31], #0x20
+	0x0343A958 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Move this.plantIntroSize (System.Single), 680f
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Nop
+	16 Move this.plantIntroPos (UnityEngine.Vector2), [C0BD40]
+	17 Nop
+	18 Nop
+	19 Move this.todaySparkleCount (System.Int32), 6
+	20 Nop
+	21 Nop
+	22 Move this.plantStatusPos (UnityEngine.Vector2), [C0C700]
+	23 Move this.slotSpacing (System.Single), [C0B808]
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Move this.weekPos (UnityEngine.Vector2), [C0CB20]
+	30 Move this.checkDiscColor (UnityEngine.Color), [C48000]
+	31 Move this.todayGlowColor (UnityEngine.Color), [C443C0]
+	32 Nop
+	33 Nop
+	34 Move this.todayGlowAlpha (System.Single), [C0CBA8]
+	35 Nop
+	36 Nop
+	37 Move this.todaySparkleSize (System.Single), [C440D0]
+	38 Nop
+	39 Nop
+	40 Move this.checkShadowOffset (UnityEngine.Vector2), [C0C5A8]
+	41 Nop
+	42 Nop
+	43 Nop
+	44 Nop
+	45 Move this.plantStatusSize (System.Single), 460f
+	46 Move this.giftShadowOffset (UnityEngine.Vector2), [C0C008]
+	47 Move this.countFontSize (System.Single), [C0C1B8]
+	48 Nop
+	49 Nop
+	50 Nop
+	51 Nop
+	52 Move this.titlePos (UnityEngine.Vector2), [C48890]
+	53 Move this.countLabelPos (UnityEngine.Vector2), [C43A80]
+	54 Nop
+	55 Nop
+	56 Nop
+	57 Nop
+	58 Nop
+	59 Move this.bestPillSize (UnityEngine.Vector2), [C0CB28]
+	60 Move this.bestPillFontSize (System.Single), [C0C708]
+	61 Nop
+	62 Nop
+	63 Nop
+	64 Nop
+	65 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+108], 3241148416
+	66 Nop
+	67 Nop
+	68 Move this.ctaTint (UnityEngine.Color), [C43A90]
+	69 Nop
+	70 Nop
+	71 Move this.ctaLabelGlow (UnityEngine.Color), [C44CD0]
+	72 Move this.ctaShadowAlpha (System.Single), 0.26f
+	73 Move this.ctaShadowSpread (System.Single), 18f
+	74 Nop
+	75 Nop
+	76 Nop
+	77 Nop
+	78 Add v59 @ X10_v3, this @ X0 (Hamdoku.UI.StreakPageConfig), 268
+	79 Nop
+	80 Add v61 @ X9_v17, this @ X0 (Hamdoku.UI.StreakPageConfig), 300
+	81 Nop
+	82 Nop
+	83 Move [v61 @ X9_v17], 4532422664309545370
+	84 Nop
+	85 Move [v59 @ X10_v3], [C48660]
+	86 Move [v59 @ X10_v3+10], [C469B0]
+	87 Nop
+	88 Nop
+	89 Move this.moteCount (System.Int32), 7
+	90 Nop
+	91 Nop
+	92 Move this.moteRiseSeconds (System.Single), [C0C448]
+	93 Nop
+	94 Nop
+	95 Nop
+	96 Move this.moteSize (System.Single), 0.055f
+	97 Nop
+	98 Nop
+	99 Move [v59 @ X10_v3+3C], [C45E10]
+	100 Nop
+	101 Nop
+	102 Nop
+	103 Move this.ctaPos (UnityEngine.Vector2), [C48330]
+	104 Move this.butterflyFlapSeconds (System.Single), [C0C2A0]
+	105 Nop
+	106 Nop
+	107 Move [v59 @ X10_v3+58], [C45F70]
+	108 Nop
+	109 Nop
+	110 Nop
+	111 Move [v59 @ X10_v3+68], [C488A0]
+	112 Nop
+	113 Nop
+	114 Nop
+	115 Move [v59 @ X10_v3+78], [C47940]
+	116 Nop
+	117 Add v86 @ X11_v14, this @ X0 (Hamdoku.UI.StreakPageConfig), 436
+	118 Nop
+	119 Move [v86 @ X11_v14], 4469011981912181309
+	120 Nop
+	121 Nop
+	122 Move [v59 @ X10_v3+98], [C43AA0]
+	123 Nop
+	124 Nop
+	125 Move [v59 @ X10_v3+88], [C43550]
+	126 Nop
+	127 Nop
+	128 Nop
+	129 Nop
+	130 Move this.sparkleCount (System.Int32), 4
+	131 Move this.companionGroundOffset (System.Single), [C47C30]
+	132 Move this.rewardFontSize (System.Single), [C46CE0]
+	133 Nop
+	134 Nop
+	135 Move this.recoverArrowCount (System.Int32), 4
+	136 Nop
+	137 Nop
+	138 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+1E0], [C443D0]
+	139 Move this.rewardRayAlpha (System.Single), [C488B0]
+	140 Nop
+	141 Nop
+	142 Nop
+	143 Nop
+	144 Nop
+	145 Move [v59 @ X10_v3+FC], [C43D00]
+	146 Nop
+	147 Nop
+	148 Nop
+	149 Move this.recoverPanelSize (UnityEngine.Vector2), [C0B880]
+	150 Add v108 @ X11_v22, this @ X0 (Hamdoku.UI.StreakPageConfig), 552
+	151 Move this.recoverPanelPpum (System.Single), 0.6f
+	152 Nop
+	153 Nop
+	154 Nop
+	155 Nop
+	156 Move [v108 @ X11_v22], [C469C0]
+	157 Nop
+	158 Nop
+	159 Add v115 @ X11_v23, this @ X0 (Hamdoku.UI.StreakPageConfig), 584
+	160 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+238], [C0CA30]
+	161 Nop
+	162 Nop
+	163 Move this.recoverHeroSize (UnityEngine.Vector2), [C0B810]
+	164 Nop
+	165 Nop
+	166 Nop
+	167 Nop
+	168 Move this.giftShadowAlpha (System.Single), 0.2f
+	169 Move [v115 @ X11_v23], [C46CF0]
+	170 Nop
+	171 Nop
+	172 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+258], [C0C408]
+	173 Nop
+	174 Nop
+	175 Move this.recoverPlantNowStage (System.Int32), [C0C280]
+	176 Add v126 @ X11_v24, this @ X0 (Hamdoku.UI.StreakPageConfig), 616
+	177 Nop
+	178 Add v128 @ X10_v13, this @ X0 (Hamdoku.UI.StreakPageConfig), 632
+	179 Move [v126 @ X11_v24], [C450B0]
+	180 Nop
+	181 Move [v128 @ X10_v13], [C45E20]
+	182 Nop
+	183 Nop
+	184 Nop
+	185 Nop
+	186 Move [v128 @ X10_v13+44], [C48000]
+	187 Move [v128 @ X10_v13+14], [C448A0]
+	188 Nop
+	189 Nop
+	190 Nop
+	191 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+30C], 1045220557
+	192 Nop
+	193 Move [v128 @ X10_v13+34], [C453F0]
+	194 Nop
+	195 Nop
+	196 Nop
+	197 Add v141 @ X9_v25, this @ X0 (Hamdoku.UI.StreakPageConfig), 748
+	198 Nop
+	199 Move [v141 @ X9_v25], 4575657222462033101
+	200 Nop
+	201 Add v144 @ X11_v30, this @ X0 (Hamdoku.UI.StreakPageConfig), 756
+	202 Move [v128 @ X10_v13+64], [C45660]
+	203 Nop
+	204 Nop
+	205 Move [v128 @ X10_v13+54], [C44570]
+	206 Add v147 @ X20_v1, this @ X0 (Hamdoku.UI.StreakPageConfig), 924
+	207 Move [v128 @ X10_v13+84], [C46D00]
+	208 Nop
+	209 Nop
+	210 Nop
+	211 Move [v128 @ X10_v13+24], [C44660]
+	212 Nop
+	213 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+310], [C0C7A8]
+	214 Nop
+	215 Nop
+	216 Move this.recoverBtnSize (UnityEngine.Vector2), [C0C608]
+	217 Nop
+	218 Nop
+	219 Move this.recoverBtnY (System.Single), [C0BBC8]
+	220 Nop
+	221 Nop
+	222 Move this.recoverGiveUpSize (UnityEngine.Vector2), [C0BB70]
+	223 Nop
+	224 Nop
+	225 Nop
+	226 Nop
+	227 Move this.bedSparkleCount (System.Int32), 3
+	228 Nop
+	229 Move this.recoverBtnFontSize (System.Single), [C47C40]
+	230 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+340], [C469D0]
+	231 Nop
+	232 Nop
+	233 Nop
+	234 Nop
+	235 Nop
+	236 Nop
+	237 Move this.rewardHold (System.Single), 1.5f
+	238 Nop
+	239 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+350], [C43560]
+	240 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+360], [C46670]
+	241 Nop
+	242 Nop
+	243 Nop
+	244 Nop
+	245 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+390], 1115160576
+	246 Add v174 @ X8_v21, this @ X0 (Hamdoku.UI.StreakPageConfig), 916
+	247 Move [v144 @ X11_v30], 4842495500474056704
+	248 Move [this @ X0 (Hamdoku.UI.StreakPageConfig)+370], [C43570]
+	249 Move this.recoverBtnShadowLayers (System.Int32), [C47850]
+	250 Move [v174 @ X8_v21], 4728779609849987072
+	251 Nop
+	252 Nop
+	253 Jump @b6
+	254 Nop
+	255 Move v178 @ X0_v4, [44AB288]
+	256 Call "il2cpp_codegen_initialize_runtime_metadata", v179 @ X0_v5, v178 @ X0_v4, methodInfo @ X1 (Il2CppMethodInfo), v181 @ X2, v182 @ X3, v183 @ X4, v184 @ X5, v185 @ X6, v186 @ X7, v170 @ V0_v9 (System.Int32), v167 @ V1_v28, v160 @ V2_v17, v94 @ V3_v4, v187 @ V4, v188 @ V5, v189 @ V6, v190 @ V7
+	257 Move v193 @ X8_v27, 1
+	258 Move [4798E80], v193 @ X8_v27
+	259 Nop
+	260 Nop
+	261 Nop
+	262 Move v197 @ X8_v24, [44AB288]
+	263 Move v198 @ X8_v25, [v197 @ X8_v24]
+	264 Move v199 @ X8_v26, [v198 @ X8_v25+A0]
+	265 Nop
+	266 Move [v147 @ X20_v1], [v199 @ X8_v26]
+	267 Nop
+	268 Nop
+	269 Nop
+	270 Nop
+	271 Nop
+	272 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.UI.StreakPageConfig)
+	273 Return
+

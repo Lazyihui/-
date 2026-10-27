@@ -1,0 +1,140 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public SettingsPopupLayout() { }
+; token=0x60011FA file_offset=0x32CA4A0 tool_rva=0x32CA4A0 length=0x218
+00000000032ce4a0: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce4a4: 00f7050f fmov     v0.2s, #-24.00000000
+00000000032ce4a8: c9cbfe90 adrp     x9, #0xc46000
+00000000032ce4ac: 0181c03d ldr      q1, [x8, #0x200]
+00000000032ce4b0: a8cbfeb0 adrp     x8, #0xc43000
+00000000032ce4b4: 22f5c13d ldr      q2, [x9, #0x7d0]
+00000000032ce4b8: c9cbfe90 adrp     x9, #0xc46000
+00000000032ce4bc: aa008052 mov      w10, #5
+00000000032ce4c0: e1031faa mov      x1, xzr
+00000000032ce4c4: 0180813c stur     q1, [x0, #0x18]
+00000000032ce4c8: 01cdc03d ldr      q1, [x8, #0x330]
+00000000032ce4cc: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce4d0: 001c00fd str      d0, [x0, #0x38]
+00000000032ce4d4: 00b1c23d ldr      q0, [x8, #0xac0]
+00000000032ce4d8: e8c9fed0 adrp     x8, #0xc0c000
+00000000032ce4dc: 0280823c stur     q2, [x0, #0x28]
+00000000032ce4e0: 2229c13d ldr      q2, [x9, #0x4a0]
+00000000032ce4e4: 49339352 mov      w9, #0x999a
+00000000032ce4e8: 0018803d str      q0, [x0, #0x60]
+00000000032ce4ec: 00ed41fd ldr      d0, [x8, #0x3d8]
+00000000032ce4f0: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce4f4: 010802ad stp      q1, q2, [x0, #0x40]
+00000000032ce4f8: 01d5c23d ldr      q1, [x8, #0xb50]
+00000000032ce4fc: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce500: 02d9c23d ldr      q2, [x8, #0xb60]
+00000000032ce504: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce508: 29c3a772 movk     w9, #0x3e19, lsl #16
+00000000032ce50c: 01c0873c stur     q1, [x0, #0x7c]
+00000000032ce510: 01ddc13d ldr      q1, [x8, #0x770]
+00000000032ce514: e8c9fed0 adrp     x8, #0xc0c000
+00000000032ce518: 02c0883c stur     q2, [x0, #0x8c]
+00000000032ce51c: 01c0893c stur     q1, [x0, #0x9c]
+00000000032ce520: 01f942fd ldr      d1, [x8, #0x5f0]
+00000000032ce524: a8cbfef0 adrp     x8, #0xc45000
+00000000032ce528: 029dc03d ldr      q2, [x8, #0x270]
+00000000032ce52c: a8cbfef0 adrp     x8, #0xc45000
+00000000032ce530: 097000b9 str      w9, [x0, #0x70]
+00000000032ce534: 016000fd str      d1, [x0, #0xc0]
+00000000032ce538: 01a1c03d ldr      q1, [x8, #0x280]
+00000000032ce53c: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce540: 02808c3c stur     q2, [x0, #0xc8]
+00000000032ce544: 0291c33d ldr      q2, [x8, #0xe40]
+00000000032ce548: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce54c: 01808d3c stur     q1, [x0, #0xd8]
+00000000032ce550: 0199c23d ldr      q1, [x8, #0xa60]
+00000000032ce554: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce558: 09f0a752 mov      w9, #0x3f800000
+00000000032ce55c: 02808e3c stur     q2, [x0, #0xe8]
+00000000032ce560: 028dc03d ldr      q2, [x8, #0x230]
+00000000032ce564: 09bc00b9 str      w9, [x0, #0xbc]
+00000000032ce568: 09200491 add      x9, x0, #0x108
+00000000032ce56c: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce570: 210900ad stp      q1, q2, [x9]
+00000000032ce574: 01d5c13d ldr      q1, [x8, #0x750]
+00000000032ce578: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce57c: 004007fc stur     d0, [x0, #0x74]
+00000000032ce580: 00f6034f fmov     v0.4s, #1.00000000
+00000000032ce584: 2141823c stur     q1, [x9, #0x24]
+00000000032ce588: 012dc13d ldr      q1, [x8, #0x4b0]
+00000000032ce58c: a8cbfef0 adrp     x8, #0xc45000
+00000000032ce590: 02a1c23d ldr      q2, [x8, #0xa80]
+00000000032ce594: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce598: 0a2801b9 str      w10, [x0, #0x128]
+00000000032ce59c: 2141833c stur     q1, [x9, #0x34]
+00000000032ce5a0: 015dc03d ldr      q1, [x8, #0x170]
+00000000032ce5a4: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce5a8: 0361c03d ldr      q3, [x8, #0x180]
+00000000032ce5ac: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce5b0: 00c08a3c stur     q0, [x0, #0xac]
+00000000032ce5b4: 2241843c stur     q2, [x9, #0x44]
+00000000032ce5b8: 0a42a852 mov      w10, #0x42100000
+00000000032ce5bc: 210d03ad stp      q1, q3, [x9, #0x60]
+00000000032ce5c0: 01e1c13d ldr      q1, [x8, #0x780]
+00000000032ce5c4: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce5c8: 03ddc23d ldr      q3, [x8, #0xb70]
+00000000032ce5cc: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce5d0: 0a5c01b9 str      w10, [x0, #0x15c]
+00000000032ce5d4: 200504ad stp      q0, q1, [x9, #0x80]
+00000000032ce5d8: 00e9c33d ldr      q0, [x8, #0xfa0]
+00000000032ce5dc: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce5e0: 01e5c13d ldr      q1, [x8, #0x790]
+00000000032ce5e4: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce5e8: 230105ad stp      q3, q0, [x9, #0xa0]
+00000000032ce5ec: 0095c33d ldr      q0, [x8, #0xe50]
+00000000032ce5f0: c8cbfed0 adrp     x8, #0xc48000
+00000000032ce5f4: 210906ad stp      q1, q2, [x9, #0xc0]
+00000000032ce5f8: 01d1c13d ldr      q1, [x8, #0x740]
+00000000032ce5fc: 083aa852 mov      w8, #0x41d00000
+00000000032ce600: 2039803d str      q0, [x9, #0xe0]
+00000000032ce604: e9c9fed0 adrp     x9, #0xc0c000
+00000000032ce608: 08f801b9 str      w8, [x0, #0x1f8]
+00000000032ce60c: 28008052 mov      w8, #1
+00000000032ce610: 20bd45fd ldr      d0, [x9, #0xb78]
+00000000032ce614: 08f00739 strb     w8, [x0, #0x1fc]
+00000000032ce618: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce61c: 01808f3c stur     q1, [x0, #0xf8]
+00000000032ce620: 0185c03d ldr      q1, [x8, #0x210]
+00000000032ce624: a8cbfeb0 adrp     x8, #0xc43000
+00000000032ce628: 00b000fd str      d0, [x0, #0x160]
+00000000032ce62c: 00cdc33d ldr      q0, [x8, #0xf30]
+00000000032ce630: c8cbfe90 adrp     x8, #0xc46000
+00000000032ce634: 0299c33d ldr      q2, [x8, #0xe60]
+00000000032ce638: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce63c: 010010ad stp      q1, q0, [x0, #0x200]
+00000000032ce640: 00b5c23d ldr      q0, [x8, #0xad0]
+00000000032ce644: a8cbfef0 adrp     x8, #0xc45000
+00000000032ce648: 0139c33d ldr      q1, [x8, #0xce0]
+00000000032ce64c: a8cbfef0 adrp     x8, #0xc45000
+00000000032ce650: 020011ad stp      q2, q0, [x0, #0x220]
+00000000032ce654: 0051c13d ldr      q0, [x8, #0x540]
+00000000032ce658: c8cbfed0 adrp     x8, #0xc48000
+00000000032ce65c: 0289c23d ldr      q2, [x8, #0xa20]
+00000000032ce660: a8cbfeb0 adrp     x8, #0xc43000
+00000000032ce664: 010012ad stp      q1, q0, [x0, #0x240]
+00000000032ce668: 009dc13d ldr      q0, [x8, #0x670]
+00000000032ce66c: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce670: 01e9c13d ldr      q1, [x8, #0x7a0]
+00000000032ce674: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce678: 020013ad stp      q2, q0, [x0, #0x260]
+00000000032ce67c: 0091c03d ldr      q0, [x8, #0x240]
+00000000032ce680: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce684: 02edc13d ldr      q2, [x8, #0x7b0]
+00000000032ce688: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce68c: 010014ad stp      q1, q0, [x0, #0x280]
+00000000032ce690: 0049c13d ldr      q0, [x8, #0x520]
+00000000032ce694: c8cbfeb0 adrp     x8, #0xc47000
+00000000032ce698: 01edc33d ldr      q1, [x8, #0xfb0]
+00000000032ce69c: a8cbfed0 adrp     x8, #0xc44000
+00000000032ce6a0: 020015ad stp      q2, q0, [x0, #0x2a0]
+00000000032ce6a4: 0095c03d ldr      q0, [x8, #0x250]
+00000000032ce6a8: 08500b91 add      x8, x0, #0x2d4
+00000000032ce6ac: 01b0803d str      q1, [x0, #0x2c0]
+00000000032ce6b0: 0001803d str      q0, [x8]
+00000000032ce6b4: 775a3214 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }

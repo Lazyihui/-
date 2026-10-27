@@ -1,0 +1,204 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public CloudSaveRunner() { }
+; token=0x6000233 file_offset=0x3217114 tool_rva=0x3217114 length=0x8
+000000000321b114: e1031faa mov      x1, xzr
+000000000321b118: 88273514 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; internal static void Ensure() { }
+; token=0x600022E file_offset=0x3212BF4 tool_rva=0x3212BF4 length=0x128
+0000000003216bf4: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+0000000003216bf8: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003216bfc: 33ac0090 adrp     x19, #0x479a000
+0000000003216c00: 149500d0 adrp     x20, #0x44b8000
+0000000003216c04: 959400d0 adrp     x21, #0x44a8000
+0000000003216c08: 68966b39 ldrb     w8, [x19, #0xae5]
+0000000003216c0c: 94c646f9 ldr      x20, [x20, #0xd88]
+0000000003216c10: b56245f9 ldr      x21, [x21, #0xac0]
+0000000003216c14: 48020037 tbnz     w8, #0, #0x3216c5c
+0000000003216c18: 009500d0 adrp     x0, #0x44b8000
+0000000003216c1c: 00c446f9 ldr      x0, [x0, #0xd88]
+0000000003216c20: 9083ad97 bl       #0x1d77a60
+0000000003216c24: 009500d0 adrp     x0, #0x44b8000
+0000000003216c28: 00c846f9 ldr      x0, [x0, #0xd90]
+0000000003216c2c: 8d83ad97 bl       #0x1d77a60
+0000000003216c30: 809400d0 adrp     x0, #0x44a8000
+0000000003216c34: 005c45f9 ldr      x0, [x0, #0xab8]
+0000000003216c38: 8a83ad97 bl       #0x1d77a60
+0000000003216c3c: 809400d0 adrp     x0, #0x44a8000
+0000000003216c40: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003216c44: 8783ad97 bl       #0x1d77a60
+0000000003216c48: 009500d0 adrp     x0, #0x44b8000
+0000000003216c4c: 00cc46f9 ldr      x0, [x0, #0xd98]
+0000000003216c50: 8483ad97 bl       #0x1d77a60
+0000000003216c54: 28008052 mov      w8, #1
+0000000003216c58: 68962b39 strb     w8, [x19, #0xae5]
+0000000003216c5c: 880240f9 ldr      x8, [x20]
+0000000003216c60: a00240f9 ldr      x0, [x21]
+0000000003216c64: 085140f9 ldr      x8, [x8, #0xa0]
+0000000003216c68: 09e440b9 ldr      w9, [x0, #0xe4]
+0000000003216c6c: 130140f9 ldr      x19, [x8]
+0000000003216c70: 49000035 cbnz     w9, #0x3216c78
+0000000003216c74: c883ad97 bl       #0x1d77b94
+0000000003216c78: e00313aa mov      x0, x19
+0000000003216c7c: e1031faa mov      x1, xzr
+0000000003216c80: e2031faa mov      x2, xzr
+0000000003216c84: 262d3594 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+0000000003216c88: 80000036 tbz      w0, #0, #0x3216c98
+0000000003216c8c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003216c90: fe57c2a8 ldp      x30, x21, [sp], #0x20
+0000000003216c94: c0035fd6 ret      
+0000000003216c98: 889400d0 adrp     x8, #0x44a8000
+0000000003216c9c: 139500d0 adrp     x19, #0x44b8000
+0000000003216ca0: 085d45f9 ldr      x8, [x8, #0xab8]
+0000000003216ca4: 73ce46f9 ldr      x19, [x19, #0xd98]
+0000000003216ca8: 000140f9 ldr      x0, [x8]
+0000000003216cac: 8684ad97 bl       #0x1d77ec4
+0000000003216cb0: 610240f9 ldr      x1, [x19]
+0000000003216cb4: e2031faa mov      x2, xzr
+0000000003216cb8: f30300aa mov      x19, x0
+0000000003216cbc: 512f3594 bl       #0x3f62a00 ; GameObject :: public GameObject(string name) { }
+0000000003216cc0: a00240f9 ldr      x0, [x21]
+0000000003216cc4: 08e440b9 ldr      w8, [x0, #0xe4]
+0000000003216cc8: 48000035 cbnz     w8, #0x3216cd0
+0000000003216ccc: b283ad97 bl       #0x1d77b94
+0000000003216cd0: e00313aa mov      x0, x19
+0000000003216cd4: e1031faa mov      x1, xzr
+0000000003216cd8: e6443594 bl       #0x3f68070
+0000000003216cdc: f30100b4 cbz      x19, #0x3216d18
+0000000003216ce0: 089500d0 adrp     x8, #0x44b8000
+0000000003216ce4: e00313aa mov      x0, x19
+0000000003216ce8: 08c946f9 ldr      x8, [x8, #0xd90]
+0000000003216cec: 010140f9 ldr      x1, [x8]
+0000000003216cf0: c751c097 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+0000000003216cf4: 880240f9 ldr      x8, [x20]
+0000000003216cf8: e10300aa mov      x1, x0
+0000000003216cfc: 085140f9 ldr      x8, [x8, #0xa0]
+0000000003216d00: 000100f9 str      x0, [x8]
+0000000003216d04: 880240f9 ldr      x8, [x20]
+0000000003216d08: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003216d0c: 005140f9 ldr      x0, [x8, #0xa0]
+0000000003216d10: fe57c2a8 ldp      x30, x21, [sp], #0x20
+0000000003216d14: 4083ad17 b        #0x1d77a14
+0000000003216d18: 4f83ad97 bl       #0x1d77a54
+
+; private void OnApplicationPause(bool paused) { }
+; token=0x6000230 file_offset=0x3216FB4 tool_rva=0x3216FB4 length=0x60
+000000000321afb4: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000321afb8: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000321afbc: 14ac0090 adrp     x20, #0x479a000
+000000000321afc0: f303012a mov      w19, w1
+000000000321afc4: 889e6b39 ldrb     w8, [x20, #0xae7]
+000000000321afc8: c8000037 tbnz     w8, #0, #0x321afe0
+000000000321afcc: e09400b0 adrp     x0, #0x44b7000
+000000000321afd0: 00fc47f9 ldr      x0, [x0, #0xff8]
+000000000321afd4: a372ad97 bl       #0x1d77a60
+000000000321afd8: 28008052 mov      w8, #1
+000000000321afdc: 889e2b39 strb     w8, [x20, #0xae7]
+000000000321afe0: 53010036 tbz      w19, #0, #0x321b008
+000000000321afe4: e89400b0 adrp     x8, #0x44b7000
+000000000321afe8: 08fd47f9 ldr      x8, [x8, #0xff8]
+000000000321afec: 000140f9 ldr      x0, [x8]
+000000000321aff0: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000321aff4: 48000035 cbnz     w8, #0x321affc
+000000000321aff8: e772ad97 bl       #0x1d77b94
+000000000321affc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000321b000: fe0742f8 ldr      x30, [sp], #0x20
+000000000321b004: c3efff17 b        #0x3216f10 ; CloudSaveManager :: public static void FlushNow() { }
+000000000321b008: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000321b00c: fe0742f8 ldr      x30, [sp], #0x20
+000000000321b010: c0035fd6 ret      
+
+; private void OnApplicationQuit() { }
+; token=0x6000231 file_offset=0x3217014 tool_rva=0x3217014 length=0x4C
+000000000321b014: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000321b018: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000321b01c: f3ab00f0 adrp     x19, #0x479a000
+000000000321b020: f4940090 adrp     x20, #0x44b7000
+000000000321b024: 68a26b39 ldrb     w8, [x19, #0xae8]
+000000000321b028: 94fe47f9 ldr      x20, [x20, #0xff8]
+000000000321b02c: c8000037 tbnz     w8, #0, #0x321b044
+000000000321b030: e0940090 adrp     x0, #0x44b7000
+000000000321b034: 00fc47f9 ldr      x0, [x0, #0xff8]
+000000000321b038: 8a72ad97 bl       #0x1d77a60
+000000000321b03c: 28008052 mov      w8, #1
+000000000321b040: 68a22b39 strb     w8, [x19, #0xae8]
+000000000321b044: 800240f9 ldr      x0, [x20]
+000000000321b048: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000321b04c: 48000035 cbnz     w8, #0x321b054
+000000000321b050: d172ad97 bl       #0x1d77b94
+000000000321b054: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000321b058: fe0742f8 ldr      x30, [sp], #0x20
+000000000321b05c: adefff17 b        #0x3216f10 ; CloudSaveManager :: public static void FlushNow() { }
+
+; private void OnDestroy() { }
+; token=0x6000232 file_offset=0x3217060 tool_rva=0x3217060 length=0xB4
+000000000321b060: fe0f1df8 str      x30, [sp, #-0x30]!
+000000000321b064: f65701a9 stp      x22, x21, [sp, #0x10]
+000000000321b068: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000321b06c: f6ab00f0 adrp     x22, #0x479a000
+000000000321b070: f59400b0 adrp     x21, #0x44b8000
+000000000321b074: 749400b0 adrp     x20, #0x44a8000
+000000000321b078: c8a66b39 ldrb     w8, [x22, #0xae9]
+000000000321b07c: b5c646f9 ldr      x21, [x21, #0xd88]
+000000000321b080: 946245f9 ldr      x20, [x20, #0xac0]
+000000000321b084: f30300aa mov      x19, x0
+000000000321b088: 28010037 tbnz     w8, #0, #0x321b0ac
+000000000321b08c: e09400b0 adrp     x0, #0x44b8000
+000000000321b090: 00c446f9 ldr      x0, [x0, #0xd88]
+000000000321b094: 7372ad97 bl       #0x1d77a60
+000000000321b098: 609400b0 adrp     x0, #0x44a8000
+000000000321b09c: 006045f9 ldr      x0, [x0, #0xac0]
+000000000321b0a0: 7072ad97 bl       #0x1d77a60
+000000000321b0a4: 28008052 mov      w8, #1
+000000000321b0a8: c8a62b39 strb     w8, [x22, #0xae9]
+000000000321b0ac: a80240f9 ldr      x8, [x21]
+000000000321b0b0: 800240f9 ldr      x0, [x20]
+000000000321b0b4: 085140f9 ldr      x8, [x8, #0xa0]
+000000000321b0b8: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000321b0bc: 140140f9 ldr      x20, [x8]
+000000000321b0c0: 49000035 cbnz     w9, #0x321b0c8
+000000000321b0c4: b472ad97 bl       #0x1d77b94
+000000000321b0c8: e00314aa mov      x0, x20
+000000000321b0cc: e10313aa mov      x1, x19
+000000000321b0d0: e2031faa mov      x2, xzr
+000000000321b0d4: fa203594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000321b0d8: 60010036 tbz      w0, #0, #0x321b104
+000000000321b0dc: a80240f9 ldr      x8, [x21]
+000000000321b0e0: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000321b0e4: e1031faa mov      x1, xzr
+000000000321b0e8: 085140f9 ldr      x8, [x8, #0xa0]
+000000000321b0ec: 1f0100f9 str      xzr, [x8]
+000000000321b0f0: a80240f9 ldr      x8, [x21]
+000000000321b0f4: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000321b0f8: 005140f9 ldr      x0, [x8, #0xa0]
+000000000321b0fc: fe0743f8 ldr      x30, [sp], #0x30
+000000000321b100: 4572ad17 b        #0x1d77a14
+000000000321b104: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000321b108: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000321b10c: fe0743f8 ldr      x30, [sp], #0x30
+000000000321b110: c0035fd6 ret      
+
+; private void Update() { }
+; token=0x600022F file_offset=0x3216F68 tool_rva=0x3216F68 length=0x4C
+000000000321af68: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000321af6c: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000321af70: 13ac0090 adrp     x19, #0x479a000
+000000000321af74: f49400b0 adrp     x20, #0x44b7000
+000000000321af78: 689a6b39 ldrb     w8, [x19, #0xae6]
+000000000321af7c: 94fe47f9 ldr      x20, [x20, #0xff8]
+000000000321af80: c8000037 tbnz     w8, #0, #0x321af98
+000000000321af84: e09400b0 adrp     x0, #0x44b7000
+000000000321af88: 00fc47f9 ldr      x0, [x0, #0xff8]
+000000000321af8c: b572ad97 bl       #0x1d77a60
+000000000321af90: 28008052 mov      w8, #1
+000000000321af94: 689a2b39 strb     w8, [x19, #0xae6]
+000000000321af98: 800240f9 ldr      x0, [x20]
+000000000321af9c: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000321afa0: 48000035 cbnz     w8, #0x321afa8
+000000000321afa4: fc72ad97 bl       #0x1d77b94
+000000000321afa8: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000321afac: fe0742f8 ldr      x30, [sp], #0x20
+000000000321afb0: d5f0ff17 b        #0x3217304 ; CloudSaveManager :: internal static void Tick() { }

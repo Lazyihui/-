@@ -1,0 +1,451 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public ForceUpdateGateConfig() { }
+; token=0x60001D8 file_offset=0x33F148C tool_rva=0x33F148C length=0x10C
+00000000033f548c: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000033f5490: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000033f5494: a8c0fed0 adrp     x8, #0xc0b000
+00000000033f5498: 89c2feb0 adrp     x9, #0xc46000
+00000000033f549c: 149d00f0 adrp     x20, #0x4798000
+00000000033f54a0: 00d545fd ldr      d0, [x8, #0xba8]
+00000000033f54a4: 68c2fed0 adrp     x8, #0xc43000
+00000000033f54a8: 21d5c33d ldr      q1, [x9, #0xf50]
+00000000033f54ac: 0219c13d ldr      q2, [x8, #0x460]
+00000000033f54b0: 88027a39 ldrb     w8, [x20, #0xe80]
+00000000033f54b4: f30300aa mov      x19, x0
+00000000033f54b8: c977a852 mov      w9, #0x43be0000
+00000000033f54bc: 000c00fd str      d0, [x0, #0x18]
+00000000033f54c0: 010801ad stp      q1, q2, [x0, #0x20]
+00000000033f54c4: 094000b9 str      w9, [x0, #0x40]
+00000000033f54c8: c8000035 cbnz     w8, #0x33f54e0
+00000000033f54cc: a08500d0 adrp     x0, #0x44ab000
+00000000033f54d0: 004441f9 ldr      x0, [x0, #0x288]
+00000000033f54d4: 6309a697 bl       #0x1d77a60
+00000000033f54d8: 28008052 mov      w8, #1
+00000000033f54dc: 88023a39 strb     w8, [x20, #0xe80]
+00000000033f54e0: a88500d0 adrp     x8, #0x44ab000
+00000000033f54e4: a9c0fef0 adrp     x9, #0xc0c000
+00000000033f54e8: 6ac2fed0 adrp     x10, #0xc43000
+00000000033f54ec: 084541f9 ldr      x8, [x8, #0x288]
+00000000033f54f0: 200143fd ldr      d0, [x9, #0x600]
+00000000033f54f4: a9c0fef0 adrp     x9, #0xc0c000
+00000000033f54f8: 411dc13d ldr      q1, [x10, #0x470]
+00000000033f54fc: 22d543fd ldr      d2, [x9, #0x7a8]
+00000000033f5500: e00313aa mov      x0, x19
+00000000033f5504: 080140f9 ldr      x8, [x8]
+00000000033f5508: e1031faa mov      x1, xzr
+00000000033f550c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f5510: 030140fd ldr      d3, [x8]
+00000000033f5514: a8c0fef0 adrp     x8, #0xc0c000
+00000000033f5518: 602a00fd str      d0, [x19, #0x50]
+00000000033f551c: 000543fd ldr      d0, [x8, #0x608]
+00000000033f5520: 88c2feb0 adrp     x8, #0xc46000
+00000000033f5524: 6182853c stur     q1, [x19, #0x58]
+00000000033f5528: 0119c33d ldr      q1, [x8, #0xc60]
+00000000033f552c: 88c2feb0 adrp     x8, #0xc46000
+00000000033f5530: 634204fc stur     d3, [x19, #0x44]
+00000000033f5534: 6282066d stp      d2, d0, [x19, #0x68]
+00000000033f5538: 0031c23d ldr      q0, [x8, #0x8c0]
+00000000033f553c: 88c2fe90 adrp     x8, #0xc45000
+00000000033f5540: 6182873c stur     q1, [x19, #0x78]
+00000000033f5544: 6082883c stur     q0, [x19, #0x88]
+00000000033f5548: 00e1c03d ldr      q0, [x8, #0x380]
+00000000033f554c: 88c2feb0 adrp     x8, #0xc46000
+00000000033f5550: 6082893c stur     q0, [x19, #0x98]
+00000000033f5554: 0009c03d ldr      q0, [x8, #0x20]
+00000000033f5558: c867b852 mov      w8, #-0x3cc20000
+00000000033f555c: 684e00b9 str      w8, [x19, #0x4c]
+00000000033f5560: 88c2fef0 adrp     x8, #0xc48000
+00000000033f5564: 60828a3c stur     q0, [x19, #0xa8]
+00000000033f5568: 00b1c03d ldr      q0, [x8, #0x2c0]
+00000000033f556c: 0814a852 mov      w8, #0x40a00000
+00000000033f5570: 68ca00b9 str      w8, [x19, #0xc8]
+00000000033f5574: a8c0fef0 adrp     x8, #0xc0c000
+00000000033f5578: 60828b3c stur     q0, [x19, #0xb8]
+00000000033f557c: 008544fd ldr      d0, [x8, #0x908]
+00000000033f5580: 0826b852 mov      w8, #-0x3ed00000
+00000000033f5584: 68d600b9 str      w8, [x19, #0xd4]
+00000000033f5588: 60c20cfc stur     d0, [x19, #0xcc]
+00000000033f558c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000033f5590: fe0742f8 ldr      x30, [sp], #0x20
+00000000033f5594: bfbe2d14 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }
+
+; public int LayoutHash() { }
+; token=0x60001D7 file_offset=0x33F1000 tool_rva=0x33F1000 length=0x48C
+00000000033f5000: ff8302d1 sub      sp, sp, #0xa0
+00000000033f5004: fd7b04a9 stp      x29, x30, [sp, #0x40]
+00000000033f5008: fc6f05a9 stp      x28, x27, [sp, #0x50]
+00000000033f500c: fa6706a9 stp      x26, x25, [sp, #0x60]
+00000000033f5010: f85f07a9 stp      x24, x23, [sp, #0x70]
+00000000033f5014: f65708a9 stp      x22, x21, [sp, #0x80]
+00000000033f5018: f44f09a9 stp      x20, x19, [sp, #0x90]
+00000000033f501c: f30300aa mov      x19, x0
+00000000033f5020: 00600091 add      x0, x0, #0x18
+00000000033f5024: e1031faa mov      x1, xzr
+00000000033f5028: d3ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f502c: f403002a mov      w20, w0
+00000000033f5030: 60720091 add      x0, x19, #0x1c
+00000000033f5034: e1031faa mov      x1, xzr
+00000000033f5038: cfab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f503c: 880a004a eor      w8, w20, w0, lsl #2
+00000000033f5040: 60820091 add      x0, x19, #0x20
+00000000033f5044: e1031faa mov      x1, xzr
+00000000033f5048: e83f00b9 str      w8, [sp, #0x3c]
+00000000033f504c: caab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5050: e03b00b9 str      w0, [sp, #0x38]
+00000000033f5054: 60920091 add      x0, x19, #0x24
+00000000033f5058: e1031faa mov      x1, xzr
+00000000033f505c: c6ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5060: e03700b9 str      w0, [sp, #0x34]
+00000000033f5064: 60a20091 add      x0, x19, #0x28
+00000000033f5068: e1031faa mov      x1, xzr
+00000000033f506c: c2ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5070: e03300b9 str      w0, [sp, #0x30]
+00000000033f5074: 60b20091 add      x0, x19, #0x2c
+00000000033f5078: e1031faa mov      x1, xzr
+00000000033f507c: beab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5080: f403002a mov      w20, w0
+00000000033f5084: 60c20091 add      x0, x19, #0x30
+00000000033f5088: e1031faa mov      x1, xzr
+00000000033f508c: baab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5090: f503002a mov      w21, w0
+00000000033f5094: 60d20091 add      x0, x19, #0x34
+00000000033f5098: e1031faa mov      x1, xzr
+00000000033f509c: b6ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50a0: f603002a mov      w22, w0
+00000000033f50a4: 60e20091 add      x0, x19, #0x38
+00000000033f50a8: e1031faa mov      x1, xzr
+00000000033f50ac: b2ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50b0: 880a154a eor      w8, w20, w21, lsl #2
+00000000033f50b4: e1031faa mov      x1, xzr
+00000000033f50b8: 0809964a eor      w8, w8, w22, asr #2
+00000000033f50bc: 0805804a eor      w8, w8, w0, asr #1
+00000000033f50c0: 60f20091 add      x0, x19, #0x3c
+00000000033f50c4: e82f00b9 str      w8, [sp, #0x2c]
+00000000033f50c8: abab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50cc: e02b00b9 str      w0, [sp, #0x28]
+00000000033f50d0: 60020191 add      x0, x19, #0x40
+00000000033f50d4: e1031faa mov      x1, xzr
+00000000033f50d8: a7ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50dc: e02700b9 str      w0, [sp, #0x24]
+00000000033f50e0: 60120191 add      x0, x19, #0x44
+00000000033f50e4: e1031faa mov      x1, xzr
+00000000033f50e8: a3ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50ec: f403002a mov      w20, w0
+00000000033f50f0: 60220191 add      x0, x19, #0x48
+00000000033f50f4: e1031faa mov      x1, xzr
+00000000033f50f8: 9fab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f50fc: 880a004a eor      w8, w20, w0, lsl #2
+00000000033f5100: 60320191 add      x0, x19, #0x4c
+00000000033f5104: e1031faa mov      x1, xzr
+00000000033f5108: e82300b9 str      w8, [sp, #0x20]
+00000000033f510c: 9aab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5110: e01f00b9 str      w0, [sp, #0x1c]
+00000000033f5114: 60420191 add      x0, x19, #0x50
+00000000033f5118: e1031faa mov      x1, xzr
+00000000033f511c: 96ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5120: f403002a mov      w20, w0
+00000000033f5124: 60520191 add      x0, x19, #0x54
+00000000033f5128: e1031faa mov      x1, xzr
+00000000033f512c: 92ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5130: 880a004a eor      w8, w20, w0, lsl #2
+00000000033f5134: 60620191 add      x0, x19, #0x58
+00000000033f5138: e1031faa mov      x1, xzr
+00000000033f513c: e81b00b9 str      w8, [sp, #0x18]
+00000000033f5140: 8dab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5144: e01700b9 str      w0, [sp, #0x14]
+00000000033f5148: 60720191 add      x0, x19, #0x5c
+00000000033f514c: e1031faa mov      x1, xzr
+00000000033f5150: 89ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5154: f403002a mov      w20, w0
+00000000033f5158: 60820191 add      x0, x19, #0x60
+00000000033f515c: e1031faa mov      x1, xzr
+00000000033f5160: 85ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5164: f503002a mov      w21, w0
+00000000033f5168: 60920191 add      x0, x19, #0x64
+00000000033f516c: e1031faa mov      x1, xzr
+00000000033f5170: 81ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5174: f603002a mov      w22, w0
+00000000033f5178: 60a20191 add      x0, x19, #0x68
+00000000033f517c: e1031faa mov      x1, xzr
+00000000033f5180: 7dab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5184: 880a154a eor      w8, w20, w21, lsl #2
+00000000033f5188: e1031faa mov      x1, xzr
+00000000033f518c: 0809964a eor      w8, w8, w22, asr #2
+00000000033f5190: 0805804a eor      w8, w8, w0, asr #1
+00000000033f5194: 60b20191 add      x0, x19, #0x6c
+00000000033f5198: e81300b9 str      w8, [sp, #0x10]
+00000000033f519c: 76ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51a0: e00f00b9 str      w0, [sp, #0xc]
+00000000033f51a4: 60c20191 add      x0, x19, #0x70
+00000000033f51a8: e1031faa mov      x1, xzr
+00000000033f51ac: 72ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51b0: f403002a mov      w20, w0
+00000000033f51b4: 60d20191 add      x0, x19, #0x74
+00000000033f51b8: e1031faa mov      x1, xzr
+00000000033f51bc: 6eab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51c0: 880a004a eor      w8, w20, w0, lsl #2
+00000000033f51c4: 60e20191 add      x0, x19, #0x78
+00000000033f51c8: e1031faa mov      x1, xzr
+00000000033f51cc: e80b00b9 str      w8, [sp, #8]
+00000000033f51d0: 69ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51d4: e00700b9 str      w0, [sp, #4]
+00000000033f51d8: 60f20191 add      x0, x19, #0x7c
+00000000033f51dc: e1031faa mov      x1, xzr
+00000000033f51e0: 65ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51e4: fd03002a mov      w29, w0
+00000000033f51e8: 60020291 add      x0, x19, #0x80
+00000000033f51ec: e1031faa mov      x1, xzr
+00000000033f51f0: 61ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f51f4: f403002a mov      w20, w0
+00000000033f51f8: 60120291 add      x0, x19, #0x84
+00000000033f51fc: e1031faa mov      x1, xzr
+00000000033f5200: 5dab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5204: f503002a mov      w21, w0
+00000000033f5208: 60220291 add      x0, x19, #0x88
+00000000033f520c: e1031faa mov      x1, xzr
+00000000033f5210: 59ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5214: f603002a mov      w22, w0
+00000000033f5218: 60320291 add      x0, x19, #0x8c
+00000000033f521c: e1031faa mov      x1, xzr
+00000000033f5220: 55ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5224: f703002a mov      w23, w0
+00000000033f5228: 60420291 add      x0, x19, #0x90
+00000000033f522c: e1031faa mov      x1, xzr
+00000000033f5230: 51ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5234: a80a164a eor      w8, w21, w22, lsl #2
+00000000033f5238: e1031faa mov      x1, xzr
+00000000033f523c: 0809974a eor      w8, w8, w23, asr #2
+00000000033f5240: 1905804a eor      w25, w8, w0, asr #1
+00000000033f5244: 60520291 add      x0, x19, #0x94
+00000000033f5248: 4bab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f524c: f503002a mov      w21, w0
+00000000033f5250: 60620291 add      x0, x19, #0x98
+00000000033f5254: e1031faa mov      x1, xzr
+00000000033f5258: 47ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f525c: f603002a mov      w22, w0
+00000000033f5260: 60720291 add      x0, x19, #0x9c
+00000000033f5264: e1031faa mov      x1, xzr
+00000000033f5268: 43ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f526c: f703002a mov      w23, w0
+00000000033f5270: 60820291 add      x0, x19, #0xa0
+00000000033f5274: e1031faa mov      x1, xzr
+00000000033f5278: 3fab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f527c: a80a164a eor      w8, w21, w22, lsl #2
+00000000033f5280: e1031faa mov      x1, xzr
+00000000033f5284: 0809974a eor      w8, w8, w23, asr #2
+00000000033f5288: 1b05804a eor      w27, w8, w0, asr #1
+00000000033f528c: 60920291 add      x0, x19, #0xa4
+00000000033f5290: 39ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5294: f503002a mov      w21, w0
+00000000033f5298: 60a20291 add      x0, x19, #0xa8
+00000000033f529c: e1031faa mov      x1, xzr
+00000000033f52a0: 35ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52a4: f603002a mov      w22, w0
+00000000033f52a8: 60b20291 add      x0, x19, #0xac
+00000000033f52ac: e1031faa mov      x1, xzr
+00000000033f52b0: 31ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52b4: f703002a mov      w23, w0
+00000000033f52b8: 60c20291 add      x0, x19, #0xb0
+00000000033f52bc: e1031faa mov      x1, xzr
+00000000033f52c0: 2dab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52c4: a80a164a eor      w8, w21, w22, lsl #2
+00000000033f52c8: e1031faa mov      x1, xzr
+00000000033f52cc: 0809974a eor      w8, w8, w23, asr #2
+00000000033f52d0: 1a05804a eor      w26, w8, w0, asr #1
+00000000033f52d4: 60d20291 add      x0, x19, #0xb4
+00000000033f52d8: 27ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52dc: f503002a mov      w21, w0
+00000000033f52e0: 60e20291 add      x0, x19, #0xb8
+00000000033f52e4: e1031faa mov      x1, xzr
+00000000033f52e8: 23ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52ec: f603002a mov      w22, w0
+00000000033f52f0: 60f20291 add      x0, x19, #0xbc
+00000000033f52f4: e1031faa mov      x1, xzr
+00000000033f52f8: 1fab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f52fc: f703002a mov      w23, w0
+00000000033f5300: 60020391 add      x0, x19, #0xc0
+00000000033f5304: e1031faa mov      x1, xzr
+00000000033f5308: 1bab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f530c: a80a164a eor      w8, w21, w22, lsl #2
+00000000033f5310: e1031faa mov      x1, xzr
+00000000033f5314: 0809974a eor      w8, w8, w23, asr #2
+00000000033f5318: 1c05804a eor      w28, w8, w0, asr #1
+00000000033f531c: 60120391 add      x0, x19, #0xc4
+00000000033f5320: 15ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5324: f503002a mov      w21, w0
+00000000033f5328: 60220391 add      x0, x19, #0xc8
+00000000033f532c: e1031faa mov      x1, xzr
+00000000033f5330: 11ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5334: f603002a mov      w22, w0
+00000000033f5338: 60320391 add      x0, x19, #0xcc
+00000000033f533c: e1031faa mov      x1, xzr
+00000000033f5340: e6530894 bl       #0x360a2d8 ; Int32 :: public override int GetHashCode() { }
+00000000033f5344: f703002a mov      w23, w0
+00000000033f5348: 60420391 add      x0, x19, #0xd0
+00000000033f534c: e1031faa mov      x1, xzr
+00000000033f5350: 09ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5354: f803002a mov      w24, w0
+00000000033f5358: 60520391 add      x0, x19, #0xd4
+00000000033f535c: e1031faa mov      x1, xzr
+00000000033f5360: 05ab0894 bl       #0x361ff74 ; Single :: public override int GetHashCode() { }
+00000000033f5364: e8274729 ldp      w8, w9, [sp, #0x38]
+00000000033f5368: 0a0b004a eor      w10, w24, w0, lsl #2
+00000000033f536c: 0801094b sub      w8, w8, w9
+00000000033f5370: 0815090b add      w8, w8, w9, lsl #5
+00000000033f5374: e93740b9 ldr      w9, [sp, #0x34]
+00000000033f5378: 2901084b sub      w9, w9, w8
+00000000033f537c: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5380: e93340b9 ldr      w9, [sp, #0x30]
+00000000033f5384: 2901084b sub      w9, w9, w8
+00000000033f5388: 2815080b add      w8, w9, w8, lsl #5
+00000000033f538c: e92f40b9 ldr      w9, [sp, #0x2c]
+00000000033f5390: 2901084b sub      w9, w9, w8
+00000000033f5394: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5398: e92b40b9 ldr      w9, [sp, #0x28]
+00000000033f539c: 2901084b sub      w9, w9, w8
+00000000033f53a0: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53a4: e92740b9 ldr      w9, [sp, #0x24]
+00000000033f53a8: 2901084b sub      w9, w9, w8
+00000000033f53ac: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53b0: e92340b9 ldr      w9, [sp, #0x20]
+00000000033f53b4: 2901084b sub      w9, w9, w8
+00000000033f53b8: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53bc: e91f40b9 ldr      w9, [sp, #0x1c]
+00000000033f53c0: 2901084b sub      w9, w9, w8
+00000000033f53c4: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53c8: e91b40b9 ldr      w9, [sp, #0x18]
+00000000033f53cc: 2901084b sub      w9, w9, w8
+00000000033f53d0: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53d4: e91740b9 ldr      w9, [sp, #0x14]
+00000000033f53d8: 2901084b sub      w9, w9, w8
+00000000033f53dc: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53e0: e91340b9 ldr      w9, [sp, #0x10]
+00000000033f53e4: 2901084b sub      w9, w9, w8
+00000000033f53e8: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53ec: e90f40b9 ldr      w9, [sp, #0xc]
+00000000033f53f0: 2901084b sub      w9, w9, w8
+00000000033f53f4: 2815080b add      w8, w9, w8, lsl #5
+00000000033f53f8: e90b40b9 ldr      w9, [sp, #8]
+00000000033f53fc: 2901084b sub      w9, w9, w8
+00000000033f5400: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5404: e90740b9 ldr      w9, [sp, #4]
+00000000033f5408: 2901084b sub      w9, w9, w8
+00000000033f540c: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5410: a903084b sub      w9, w29, w8
+00000000033f5414: fd7b44a9 ldp      x29, x30, [sp, #0x40]
+00000000033f5418: 2815080b add      w8, w9, w8, lsl #5
+00000000033f541c: 8902084b sub      w9, w20, w8
+00000000033f5420: f44f49a9 ldp      x20, x19, [sp, #0x90]
+00000000033f5424: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5428: 2903084b sub      w9, w25, w8
+00000000033f542c: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5430: 6903084b sub      w9, w27, w8
+00000000033f5434: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5438: 4903084b sub      w9, w26, w8
+00000000033f543c: fa6746a9 ldp      x26, x25, [sp, #0x60]
+00000000033f5440: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5444: 8903084b sub      w9, w28, w8
+00000000033f5448: fc6f45a9 ldp      x28, x27, [sp, #0x50]
+00000000033f544c: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5450: a902084b sub      w9, w21, w8
+00000000033f5454: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5458: c902084b sub      w9, w22, w8
+00000000033f545c: f65748a9 ldp      x22, x21, [sp, #0x80]
+00000000033f5460: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5464: e902084b sub      w9, w23, w8
+00000000033f5468: f85f47a9 ldp      x24, x23, [sp, #0x70]
+00000000033f546c: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5470: 4901084b sub      w9, w10, w8
+00000000033f5474: 2815080b add      w8, w9, w8, lsl #5
+00000000033f5478: e9a19052 mov      w9, #0x850f
+00000000033f547c: c9eda372 movk     w9, #0x1f6e, lsl #16
+00000000033f5480: 0001090b add      w0, w8, w9
+00000000033f5484: ff830291 add      sp, sp, #0xa0
+00000000033f5488: c0035fd6 ret      
+
+; public static ForceUpdateGateConfig Load() { }
+; token=0x60001D6 file_offset=0x33F0EBC tool_rva=0x33F0EBC length=0x144
+00000000033f4ebc: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000033f4ec0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000033f4ec4: 339d00f0 adrp     x19, #0x479b000
+00000000033f4ec8: 748600f0 adrp     x20, #0x44c3000
+00000000033f4ecc: b5850090 adrp     x21, #0x44a8000
+00000000033f4ed0: 68fa6039 ldrb     w8, [x19, #0x83e]
+00000000033f4ed4: 944245f9 ldr      x20, [x20, #0xa80]
+00000000033f4ed8: b56245f9 ldr      x21, [x21, #0xac0]
+00000000033f4edc: 48020037 tbnz     w8, #0, #0x33f4f24
+00000000033f4ee0: 608600f0 adrp     x0, #0x44c3000
+00000000033f4ee4: 004045f9 ldr      x0, [x0, #0xa80]
+00000000033f4ee8: de0aa697 bl       #0x1d77a60
+00000000033f4eec: a0850090 adrp     x0, #0x44a8000
+00000000033f4ef0: 006045f9 ldr      x0, [x0, #0xac0]
+00000000033f4ef4: db0aa697 bl       #0x1d77a60
+00000000033f4ef8: 608600f0 adrp     x0, #0x44c3000
+00000000033f4efc: 004445f9 ldr      x0, [x0, #0xa88]
+00000000033f4f00: d80aa697 bl       #0x1d77a60
+00000000033f4f04: 608600f0 adrp     x0, #0x44c3000
+00000000033f4f08: 004845f9 ldr      x0, [x0, #0xa90]
+00000000033f4f0c: d50aa697 bl       #0x1d77a60
+00000000033f4f10: 608600f0 adrp     x0, #0x44c3000
+00000000033f4f14: 004c45f9 ldr      x0, [x0, #0xa98]
+00000000033f4f18: d20aa697 bl       #0x1d77a60
+00000000033f4f1c: 28008052 mov      w8, #1
+00000000033f4f20: 68fa2039 strb     w8, [x19, #0x83e]
+00000000033f4f24: 880240f9 ldr      x8, [x20]
+00000000033f4f28: a00240f9 ldr      x0, [x21]
+00000000033f4f2c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f4f30: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000033f4f34: 130140f9 ldr      x19, [x8]
+00000000033f4f38: 49000035 cbnz     w9, #0x33f4f40
+00000000033f4f3c: 160ba697 bl       #0x1d77b94
+00000000033f4f40: e00313aa mov      x0, x19
+00000000033f4f44: e1031faa mov      x1, xzr
+00000000033f4f48: e2031faa mov      x2, xzr
+00000000033f4f4c: 5cb92d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000033f4f50: e0010036 tbz      w0, #0, #0x33f4f8c
+00000000033f4f54: 688600f0 adrp     x8, #0x44c3000
+00000000033f4f58: 698600f0 adrp     x9, #0x44c3000
+00000000033f4f5c: 084d45f9 ldr      x8, [x8, #0xa98]
+00000000033f4f60: 294545f9 ldr      x9, [x9, #0xa88]
+00000000033f4f64: 000140f9 ldr      x0, [x8]
+00000000033f4f68: 210140f9 ldr      x1, [x9]
+00000000033f4f6c: fd4dbd97 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+00000000033f4f70: 880240f9 ldr      x8, [x20]
+00000000033f4f74: e10300aa mov      x1, x0
+00000000033f4f78: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f4f7c: 000100f9 str      x0, [x8]
+00000000033f4f80: 880240f9 ldr      x8, [x20]
+00000000033f4f84: 005140f9 ldr      x0, [x8, #0xa0]
+00000000033f4f88: a30aa697 bl       #0x1d77a14
+00000000033f4f8c: 880240f9 ldr      x8, [x20]
+00000000033f4f90: a00240f9 ldr      x0, [x21]
+00000000033f4f94: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f4f98: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000033f4f9c: 130140f9 ldr      x19, [x8]
+00000000033f4fa0: 49000035 cbnz     w9, #0x33f4fa8
+00000000033f4fa4: fc0aa697 bl       #0x1d77b94
+00000000033f4fa8: e00313aa mov      x0, x19
+00000000033f4fac: e1031faa mov      x1, xzr
+00000000033f4fb0: e2031faa mov      x2, xzr
+00000000033f4fb4: 42b92d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000033f4fb8: 80010036 tbz      w0, #0, #0x33f4fe8
+00000000033f4fbc: 688600f0 adrp     x8, #0x44c3000
+00000000033f4fc0: 084945f9 ldr      x8, [x8, #0xa90]
+00000000033f4fc4: 000140f9 ldr      x0, [x8]
+00000000033f4fc8: 2659bd97 bl       #0x234b460 ; ScriptableObject :: public static T CreateInstance() { }
+00000000033f4fcc: 880240f9 ldr      x8, [x20]
+00000000033f4fd0: e10300aa mov      x1, x0
+00000000033f4fd4: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f4fd8: 000100f9 str      x0, [x8]
+00000000033f4fdc: 880240f9 ldr      x8, [x20]
+00000000033f4fe0: 005140f9 ldr      x0, [x8, #0xa0]
+00000000033f4fe4: 8c0aa697 bl       #0x1d77a14
+00000000033f4fe8: 880240f9 ldr      x8, [x20]
+00000000033f4fec: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000033f4ff0: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033f4ff4: 000140f9 ldr      x0, [x8]
+00000000033f4ff8: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000033f4ffc: c0035fd6 ret      

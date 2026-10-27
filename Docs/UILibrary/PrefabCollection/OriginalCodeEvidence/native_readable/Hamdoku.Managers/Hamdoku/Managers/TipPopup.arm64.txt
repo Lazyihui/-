@@ -1,0 +1,2327 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; get { } //Length: 136
+; token=0x60013B9 file_offset=0x32F4C58 tool_rva=0x32F4C58 length=0x88
+00000000032f8c58: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000032f8c5c: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032f8c60: 15a500f0 adrp     x21, #0x479b000
+00000000032f8c64: 948d0090 adrp     x20, #0x44a8000
+00000000032f8c68: f30300aa mov      x19, x0
+00000000032f8c6c: a8ea4239 ldrb     w8, [x21, #0xba]
+00000000032f8c70: 946245f9 ldr      x20, [x20, #0xac0]
+00000000032f8c74: c8000037 tbnz     w8, #0, #0x32f8c8c
+00000000032f8c78: 808d0090 adrp     x0, #0x44a8000
+00000000032f8c7c: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f8c80: 78fba997 bl       #0x1d77a60
+00000000032f8c84: 28008052 mov      w8, #1
+00000000032f8c88: a8ea0239 strb     w8, [x21, #0xba]
+00000000032f8c8c: 800240f9 ldr      x0, [x20]
+00000000032f8c90: 741240f9 ldr      x20, [x19, #0x20]
+00000000032f8c94: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8c98: 48000035 cbnz     w8, #0x32f8ca0
+00000000032f8c9c: befba997 bl       #0x1d77b94
+00000000032f8ca0: e00314aa mov      x0, x20
+00000000032f8ca4: e1031faa mov      x1, xzr
+00000000032f8ca8: e2031faa mov      x2, xzr
+00000000032f8cac: 1ca53194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f8cb0: e0000036 tbz      w0, #0, #0x32f8ccc
+00000000032f8cb4: 601240f9 ldr      x0, [x19, #0x20]
+00000000032f8cb8: 200100b4 cbz      x0, #0x32f8cdc
+00000000032f8cbc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8cc0: e1031faa mov      x1, xzr
+00000000032f8cc4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8cc8: 65a63114 b        #0x3f6265c
+00000000032f8ccc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8cd0: e0031f2a mov      w0, wzr
+00000000032f8cd4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8cd8: c0035fd6 ret      
+00000000032f8cdc: 5efba997 bl       #0x1d77a54
+
+; private static TipPopup() { }
+; token=0x60013C7 file_offset=0x32F6E18 tool_rva=0x32F6E18 length=0x134
+00000000032fae18: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032fae1c: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032fae20: 14a500b0 adrp     x20, #0x479b000
+00000000032fae24: f38d00f0 adrp     x19, #0x44b9000
+00000000032fae28: 881a4339 ldrb     w8, [x20, #0xc6]
+00000000032fae2c: 734a43f9 ldr      x19, [x19, #0x690]
+00000000032fae30: 28010037 tbnz     w8, #0, #0x32fae54
+00000000032fae34: 008e00f0 adrp     x0, #0x44bd000
+00000000032fae38: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032fae3c: 09f3a997 bl       #0x1d77a60
+00000000032fae40: e08d00f0 adrp     x0, #0x44b9000
+00000000032fae44: 004843f9 ldr      x0, [x0, #0x690]
+00000000032fae48: 06f3a997 bl       #0x1d77a60
+00000000032fae4c: 28008052 mov      w8, #1
+00000000032fae50: 881a0339 strb     w8, [x20, #0xc6]
+00000000032fae54: 600240f9 ldr      x0, [x19]
+00000000032fae58: 148e00f0 adrp     x20, #0x44bd000
+00000000032fae5c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032fae60: 948647f9 ldr      x20, [x20, #0xf08]
+00000000032fae64: 68000035 cbnz     w8, #0x32fae70
+00000000032fae68: 4bf3a997 bl       #0x1d77b94
+00000000032fae6c: 600240f9 ldr      x0, [x19]
+00000000032fae70: 085040f9 ldr      x8, [x0, #0xa0]
+00000000032fae74: 890240f9 ldr      x9, [x20]
+00000000032fae78: 295140f9 ldr      x9, [x9, #0xa0]
+00000000032fae7c: 0001c03d ldr      q0, [x8]
+00000000032fae80: 2001803d str      q0, [x9]
+00000000032fae84: 49cafef0 adrp     x9, #0xc45000
+00000000032fae88: 880240f9 ldr      x8, [x20]
+00000000032fae8c: 20d1c13d ldr      q0, [x9, #0x740]
+00000000032fae90: 49cafeb0 adrp     x9, #0xc43000
+00000000032fae94: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032fae98: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032fae9c: 4005803d str      q0, [x10, #0x10]
+00000000032faea0: 2001c33d ldr      q0, [x9, #0xc00]
+00000000032faea4: 49cafed0 adrp     x9, #0xc44000
+00000000032faea8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faeac: 4009803d str      q0, [x10, #0x20]
+00000000032faeb0: 20adc23d ldr      q0, [x9, #0xab0]
+00000000032faeb4: 49cafef0 adrp     x9, #0xc45000
+00000000032faeb8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faebc: 400d803d str      q0, [x10, #0x30]
+00000000032faec0: 20e1c33d ldr      q0, [x9, #0xf80]
+00000000032faec4: 49cafeb0 adrp     x9, #0xc43000
+00000000032faec8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faecc: 4011803d str      q0, [x10, #0x40]
+00000000032faed0: 20e5c03d ldr      q0, [x9, #0x390]
+00000000032faed4: 49cafed0 adrp     x9, #0xc44000
+00000000032faed8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faedc: 4015803d str      q0, [x10, #0x50]
+00000000032faee0: 20b1c23d ldr      q0, [x9, #0xac0]
+00000000032faee4: 49cafed0 adrp     x9, #0xc44000
+00000000032faee8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faeec: 4019803d str      q0, [x10, #0x60]
+00000000032faef0: 2041c13d ldr      q0, [x9, #0x500]
+00000000032faef4: 69cafe90 adrp     x9, #0xc46000
+00000000032faef8: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faefc: 401d803d str      q0, [x10, #0x70]
+00000000032faf00: 20cdc23d ldr      q0, [x9, #0xb30]
+00000000032faf04: 69cafeb0 adrp     x9, #0xc47000
+00000000032faf08: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faf0c: 4021803d str      q0, [x10, #0x80]
+00000000032faf10: 2071c03d ldr      q0, [x9, #0x1c0]
+00000000032faf14: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faf18: 4025803d str      q0, [x10, #0x90]
+00000000032faf1c: 095140f9 ldr      x9, [x8, #0xa0]
+00000000032faf20: 2029803d str      q0, [x9, #0xa0]
+00000000032faf24: 49cafed0 adrp     x9, #0xc44000
+00000000032faf28: 0a5140f9 ldr      x10, [x8, #0xa0]
+00000000032faf2c: 2095c23d ldr      q0, [x9, #0xa50]
+00000000032faf30: 49cafeb0 adrp     x9, #0xc43000
+00000000032faf34: 402d803d str      q0, [x10, #0xb0]
+00000000032faf38: 20e9c03d ldr      q0, [x9, #0x3a0]
+00000000032faf3c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032faf40: 0031803d str      q0, [x8, #0xc0]
+00000000032faf44: fe0742f8 ldr      x30, [sp], #0x20
+00000000032faf48: c0035fd6 ret      
+
+; public TipPopup() { }
+; token=0x60013C6 file_offset=0x32F6E10 tool_rva=0x32F6E10 length=0x8
+00000000032fae10: e1031faa mov      x1, xzr
+00000000032fae14: 49a83114 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; private void Build() { }
+; token=0x60013BD file_offset=0x32F4EE4 tool_rva=0x32F4EE4 length=0x8FC
+00000000032f8ee4: ffc301d1 sub      sp, sp, #0x70
+00000000032f8ee8: fd7b01a9 stp      x29, x30, [sp, #0x10]
+00000000032f8eec: fc6f02a9 stp      x28, x27, [sp, #0x20]
+00000000032f8ef0: fa6703a9 stp      x26, x25, [sp, #0x30]
+00000000032f8ef4: f85f04a9 stp      x24, x23, [sp, #0x40]
+00000000032f8ef8: f65705a9 stp      x22, x21, [sp, #0x50]
+00000000032f8efc: f44f06a9 stp      x20, x19, [sp, #0x60]
+00000000032f8f00: 15a500f0 adrp     x21, #0x479b000
+00000000032f8f04: 148e00b0 adrp     x20, #0x44b9000
+00000000032f8f08: f30300aa mov      x19, x0
+00000000032f8f0c: a8f64239 ldrb     w8, [x21, #0xbd]
+00000000032f8f10: 944a43f9 ldr      x20, [x20, #0x690]
+00000000032f8f14: 880a0037 tbnz     w8, #0, #0x32f9064
+00000000032f8f18: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f1c: 009843f9 ldr      x0, [x0, #0x730]
+00000000032f8f20: d0faa997 bl       #0x1d77a60
+00000000032f8f24: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f28: 006846f9 ldr      x0, [x0, #0xcd0]
+00000000032f8f2c: cdfaa997 bl       #0x1d77a60
+00000000032f8f30: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f34: 007445f9 ldr      x0, [x0, #0xae8]
+00000000032f8f38: cafaa997 bl       #0x1d77a60
+00000000032f8f3c: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f40: 005443f9 ldr      x0, [x0, #0x6a8]
+00000000032f8f44: c7faa997 bl       #0x1d77a60
+00000000032f8f48: a08d0090 adrp     x0, #0x44ac000
+00000000032f8f4c: 003441f9 ldr      x0, [x0, #0x268]
+00000000032f8f50: c4faa997 bl       #0x1d77a60
+00000000032f8f54: e08d00f0 adrp     x0, #0x44b7000
+00000000032f8f58: 00ec45f9 ldr      x0, [x0, #0xbd8]
+00000000032f8f5c: c1faa997 bl       #0x1d77a60
+00000000032f8f60: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f64: 005843f9 ldr      x0, [x0, #0x6b0]
+00000000032f8f68: befaa997 bl       #0x1d77a60
+00000000032f8f6c: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8f70: 007c47f9 ldr      x0, [x0, #0xef8]
+00000000032f8f74: bbfaa997 bl       #0x1d77a60
+00000000032f8f78: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8f7c: 008047f9 ldr      x0, [x0, #0xf00]
+00000000032f8f80: b8faa997 bl       #0x1d77a60
+00000000032f8f84: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8f88: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032f8f8c: b5faa997 bl       #0x1d77a60
+00000000032f8f90: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8f94: 004843f9 ldr      x0, [x0, #0x690]
+00000000032f8f98: b2faa997 bl       #0x1d77a60
+00000000032f8f9c: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8fa0: 009c43f9 ldr      x0, [x0, #0x738]
+00000000032f8fa4: affaa997 bl       #0x1d77a60
+00000000032f8fa8: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8fac: 008847f9 ldr      x0, [x0, #0xf10]
+00000000032f8fb0: acfaa997 bl       #0x1d77a60
+00000000032f8fb4: 208e0090 adrp     x0, #0x44bc000
+00000000032f8fb8: 008442f9 ldr      x0, [x0, #0x508]
+00000000032f8fbc: a9faa997 bl       #0x1d77a60
+00000000032f8fc0: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8fc4: 008c47f9 ldr      x0, [x0, #0xf18]
+00000000032f8fc8: a6faa997 bl       #0x1d77a60
+00000000032f8fcc: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8fd0: 009047f9 ldr      x0, [x0, #0xf20]
+00000000032f8fd4: a3faa997 bl       #0x1d77a60
+00000000032f8fd8: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8fdc: 00a043f9 ldr      x0, [x0, #0x740]
+00000000032f8fe0: a0faa997 bl       #0x1d77a60
+00000000032f8fe4: 808d00f0 adrp     x0, #0x44ab000
+00000000032f8fe8: 008c45f9 ldr      x0, [x0, #0xb18]
+00000000032f8fec: 9dfaa997 bl       #0x1d77a60
+00000000032f8ff0: 208e00b0 adrp     x0, #0x44bd000
+00000000032f8ff4: 009447f9 ldr      x0, [x0, #0xf28]
+00000000032f8ff8: 9afaa997 bl       #0x1d77a60
+00000000032f8ffc: 208e00b0 adrp     x0, #0x44bd000
+00000000032f9000: 009847f9 ldr      x0, [x0, #0xf30]
+00000000032f9004: 97faa997 bl       #0x1d77a60
+00000000032f9008: 208e0090 adrp     x0, #0x44bd000
+00000000032f900c: 009c47f9 ldr      x0, [x0, #0xf38]
+00000000032f9010: 94faa997 bl       #0x1d77a60
+00000000032f9014: 208e0090 adrp     x0, #0x44bd000
+00000000032f9018: 00a047f9 ldr      x0, [x0, #0xf40]
+00000000032f901c: 91faa997 bl       #0x1d77a60
+00000000032f9020: 008e0090 adrp     x0, #0x44b9000
+00000000032f9024: 006843f9 ldr      x0, [x0, #0x6d0]
+00000000032f9028: 8efaa997 bl       #0x1d77a60
+00000000032f902c: 208e0090 adrp     x0, #0x44bd000
+00000000032f9030: 00a447f9 ldr      x0, [x0, #0xf48]
+00000000032f9034: 8bfaa997 bl       #0x1d77a60
+00000000032f9038: 208e0090 adrp     x0, #0x44bd000
+00000000032f903c: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000032f9040: 88faa997 bl       #0x1d77a60
+00000000032f9044: 208e0090 adrp     x0, #0x44bd000
+00000000032f9048: 00ac47f9 ldr      x0, [x0, #0xf58]
+00000000032f904c: 85faa997 bl       #0x1d77a60
+00000000032f9050: 208e0090 adrp     x0, #0x44bd000
+00000000032f9054: 00b047f9 ldr      x0, [x0, #0xf60]
+00000000032f9058: 82faa997 bl       #0x1d77a60
+00000000032f905c: 28008052 mov      w8, #1
+00000000032f9060: a8f60239 strb     w8, [x21, #0xbd]
+00000000032f9064: 800240f9 ldr      x0, [x20]
+00000000032f9068: 358e0090 adrp     x21, #0x44bd000
+00000000032f906c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9070: b5a647f9 ldr      x21, [x21, #0xf48]
+00000000032f9074: 741a40f9 ldr      x20, [x19, #0x30]
+00000000032f9078: 48000035 cbnz     w8, #0x32f9080
+00000000032f907c: c6faa997 bl       #0x1d77b94
+00000000032f9080: a00240f9 ldr      x0, [x21]
+00000000032f9084: e10314aa mov      x1, x20
+00000000032f9088: e2031faa mov      x2, xzr
+00000000032f908c: ff0c0594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f9090: f40313aa mov      x20, x19
+00000000032f9094: e10300aa mov      x1, x0
+00000000032f9098: 800e02f8 str      x0, [x20, #0x20]!
+00000000032f909c: e00314aa mov      x0, x20
+00000000032f90a0: 5dfaa997 bl       #0x1d77a14
+00000000032f90a4: 800240f9 ldr      x0, [x20]
+00000000032f90a8: 203900b4 cbz      x0, #0x32f97cc
+00000000032f90ac: 998d00f0 adrp     x25, #0x44ac000
+00000000032f90b0: 393741f9 ldr      x25, [x25, #0x268]
+00000000032f90b4: 210340f9 ldr      x1, [x25]
+00000000032f90b8: f9c8bc97 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+00000000032f90bc: e1031faa mov      x1, xzr
+00000000032f90c0: 3e1b0594 bl       #0x343fdb8 ; UiFactory :: public static void Stretch(RectTransform rt) { }
+00000000032f90c4: 800240f9 ldr      x0, [x20]
+00000000032f90c8: 203800b4 cbz      x0, #0x32f97cc
+00000000032f90cc: 088e0090 adrp     x8, #0x44b9000
+00000000032f90d0: 086946f9 ldr      x8, [x8, #0xcd0]
+00000000032f90d4: 010140f9 ldr      x1, [x8]
+00000000032f90d8: cdc8bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f90dc: 803700b4 cbz      x0, #0x32f97cc
+00000000032f90e0: 21008052 mov      w1, #1
+00000000032f90e4: e2031faa mov      x2, xzr
+00000000032f90e8: f50300aa mov      x21, x0
+00000000032f90ec: 00c13b94 bl       #0x41e94ec ; Canvas :: public void set_overrideSorting(bool value) { }
+00000000032f90f0: e00315aa mov      x0, x21
+00000000032f90f4: c1768052 mov      w1, #0x3b6
+00000000032f90f8: e2031faa mov      x2, xzr
+00000000032f90fc: 5ac13b94 bl       #0x41e9664 ; Canvas :: public void set_sortingOrder(int value) { }
+00000000032f9100: 800240f9 ldr      x0, [x20]
+00000000032f9104: 403600b4 cbz      x0, #0x32f97cc
+00000000032f9108: 088e0090 adrp     x8, #0x44b9000
+00000000032f910c: 087545f9 ldr      x8, [x8, #0xae8]
+00000000032f9110: 010140f9 ldr      x1, [x8]
+00000000032f9114: bec8bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9118: 800240f9 ldr      x0, [x20]
+00000000032f911c: 803500b4 cbz      x0, #0x32f97cc
+00000000032f9120: 088e0090 adrp     x8, #0x44b9000
+00000000032f9124: 378e0090 adrp     x23, #0x44bd000
+00000000032f9128: 085543f9 ldr      x8, [x8, #0x6a8]
+00000000032f912c: f78647f9 ldr      x23, [x23, #0xf08]
+00000000032f9130: 010140f9 ldr      x1, [x8]
+00000000032f9134: b6c8bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9138: e80240f9 ldr      x8, [x23]
+00000000032f913c: f50300aa mov      x21, x0
+00000000032f9140: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032f9144: 69000035 cbnz     w9, #0x32f9150
+00000000032f9148: e00308aa mov      x0, x8
+00000000032f914c: 92faa997 bl       #0x1d77b94
+00000000032f9150: f53300b4 cbz      x21, #0x32f97cc
+00000000032f9154: e80240f9 ldr      x8, [x23]
+00000000032f9158: a90240f9 ldr      x9, [x21]
+00000000032f915c: e00315aa mov      x0, x21
+00000000032f9160: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9164: 215941f9 ldr      x1, [x9, #0x2b0]
+00000000032f9168: 020d412d ldp      s2, s3, [x8, #8]
+00000000032f916c: 0005402d ldp      s0, s1, [x8]
+00000000032f9170: 285541f9 ldr      x8, [x9, #0x2a8]
+00000000032f9174: 00013fd6 blr      x8
+00000000032f9178: 800240f9 ldr      x0, [x20]
+00000000032f917c: 803200b4 cbz      x0, #0x32f97cc
+00000000032f9180: 088e0090 adrp     x8, #0x44b9000
+00000000032f9184: 089943f9 ldr      x8, [x8, #0x730]
+00000000032f9188: 010140f9 ldr      x1, [x8]
+00000000032f918c: a0c8bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9190: e03100b4 cbz      x0, #0x32f97cc
+00000000032f9194: 188e0090 adrp     x24, #0x44b9000
+00000000032f9198: 368e0090 adrp     x22, #0x44bd000
+00000000032f919c: e1031f2a mov      w1, wzr
+00000000032f91a0: 189f43f9 ldr      x24, [x24, #0x738]
+00000000032f91a4: d67e47f9 ldr      x22, [x22, #0xef8]
+00000000032f91a8: e2031faa mov      x2, xzr
+00000000032f91ac: f50300aa mov      x21, x0
+00000000032f91b0: 72363c94 bl       #0x4206b78 ; Selectable :: public void set_transition(Transition value) { }
+00000000032f91b4: 000340f9 ldr      x0, [x24]
+00000000032f91b8: b58240f9 ldr      x21, [x21, #0x100]
+00000000032f91bc: 42fba997 bl       #0x1d77ec4
+00000000032f91c0: c20240f9 ldr      x2, [x22]
+00000000032f91c4: e10313aa mov      x1, x19
+00000000032f91c8: e3031faa mov      x3, xzr
+00000000032f91cc: f60300aa mov      x22, x0
+00000000032f91d0: 8ff03194 bl       #0x3f7540c ; UnityAction :: public UnityAction(object object, nint method) { }
+00000000032f91d4: d52f00b4 cbz      x21, #0x32f97cc
+00000000032f91d8: e00315aa mov      x0, x21
+00000000032f91dc: e10316aa mov      x1, x22
+00000000032f91e0: e2031faa mov      x2, xzr
+00000000032f91e4: b7f03194 bl       #0x3f754c0 ; UnityEvent :: public void AddListener(UnityAction call) { }
+00000000032f91e8: 800240f9 ldr      x0, [x20]
+00000000032f91ec: 002f00b4 cbz      x0, #0x32f97cc
+00000000032f91f0: 158e0090 adrp     x21, #0x44b9000
+00000000032f91f4: 168e0090 adrp     x22, #0x44b9000
+00000000032f91f8: e1031faa mov      x1, xzr
+00000000032f91fc: b56a43f9 ldr      x21, [x21, #0x6d0]
+00000000032f9200: d65a43f9 ldr      x22, [x22, #0x6b0]
+00000000032f9204: 5ba43194 bl       #0x3f62370
+00000000032f9208: e80300aa mov      x8, x0
+00000000032f920c: a00240f9 ldr      x0, [x21]
+00000000032f9210: a80000b4 cbz      x8, #0x32f9224
+00000000032f9214: c10240f9 ldr      x1, [x22]
+00000000032f9218: 090140f9 ldr      x9, [x8]
+00000000032f921c: 3f0101eb cmp      x9, x1
+00000000032f9220: c12d0054 b.ne     #0x32f97d8
+00000000032f9224: e10308aa mov      x1, x8
+00000000032f9228: e2031faa mov      x2, xzr
+00000000032f922c: 970c0594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f9230: e02c00b4 cbz      x0, #0x32f97cc
+00000000032f9234: 210340f9 ldr      x1, [x25]
+00000000032f9238: 99c8bc97 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+00000000032f923c: f50313aa mov      x21, x19
+00000000032f9240: e10300aa mov      x1, x0
+00000000032f9244: a08e02f8 str      x0, [x21, #0x28]!
+00000000032f9248: e00315aa mov      x0, x21
+00000000032f924c: f2f9a997 bl       #0x1d77a14
+00000000032f9250: b60240f9 ldr      x22, [x21]
+00000000032f9254: d62b00b4 cbz      x22, #0x32f97cc
+00000000032f9258: 00102c1e fmov     s0, #0.50000000
+00000000032f925c: 01102c1e fmov     s1, #0.50000000
+00000000032f9260: e00316aa mov      x0, x22
+00000000032f9264: e1031faa mov      x1, xzr
+00000000032f9268: 0bd93194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032f926c: 00102c1e fmov     s0, #0.50000000
+00000000032f9270: 01102c1e fmov     s1, #0.50000000
+00000000032f9274: e00316aa mov      x0, x22
+00000000032f9278: e1031faa mov      x1, xzr
+00000000032f927c: a5d83194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032f9280: a00240f9 ldr      x0, [x21]
+00000000032f9284: 402a00b4 cbz      x0, #0x32f97cc
+00000000032f9288: e88aa852 mov      w8, #0x44570000
+00000000032f928c: 098ea852 mov      w9, #0x44700000
+00000000032f9290: e1031faa mov      x1, xzr
+00000000032f9294: 0001271e fmov     s0, w8
+00000000032f9298: 2101271e fmov     s1, w9
+00000000032f929c: c0d93194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032f92a0: a00240f9 ldr      x0, [x21]
+00000000032f92a4: 402900b4 cbz      x0, #0x32f97cc
+00000000032f92a8: e1031faa mov      x1, xzr
+00000000032f92ac: 399e3194 bl       #0x3f60b90
+00000000032f92b0: e02800b4 cbz      x0, #0x32f97cc
+00000000032f92b4: f68d00d0 adrp     x22, #0x44b7000
+00000000032f92b8: 3c8e0090 adrp     x28, #0x44bd000
+00000000032f92bc: 988d00d0 adrp     x24, #0x44ab000
+00000000032f92c0: 3b8e0090 adrp     x27, #0x44bd000
+00000000032f92c4: 3a8e0090 adrp     x26, #0x44bd000
+00000000032f92c8: 398e0090 adrp     x25, #0x44bd000
+00000000032f92cc: 3d8e0090 adrp     x29, #0x44bd000
+00000000032f92d0: 088e0090 adrp     x8, #0x44b9000
+00000000032f92d4: d6ee45f9 ldr      x22, [x22, #0xbd8]
+00000000032f92d8: 9cb347f9 ldr      x28, [x28, #0xf60]
+00000000032f92dc: 188f45f9 ldr      x24, [x24, #0xb18]
+00000000032f92e0: 7b9f47f9 ldr      x27, [x27, #0xf38]
+00000000032f92e4: 5aa347f9 ldr      x26, [x26, #0xf40]
+00000000032f92e8: 398b47f9 ldr      x25, [x25, #0xf10]
+00000000032f92ec: bdab47f9 ldr      x29, [x29, #0xf50]
+00000000032f92f0: 085543f9 ldr      x8, [x8, #0x6a8]
+00000000032f92f4: 010140f9 ldr      x1, [x8]
+00000000032f92f8: 45c8bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f92fc: e80240f9 ldr      x8, [x23]
+00000000032f9300: e1031faa mov      x1, xzr
+00000000032f9304: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9308: 0005422d ldp      s0, s1, [x8, #0x10]
+00000000032f930c: 020d432d ldp      s2, s3, [x8, #0x18]
+00000000032f9310: ac0a0594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032f9314: c00240f9 ldr      x0, [x22]
+00000000032f9318: b60240f9 ldr      x22, [x21]
+00000000032f931c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9320: 48000035 cbnz     w8, #0x32f9328
+00000000032f9324: 1cfaa997 bl       #0x1d77b94
+00000000032f9328: 800340f9 ldr      x0, [x28]
+00000000032f932c: e1031faa mov      x1, xzr
+00000000032f9330: 116f0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9334: e80240f9 ldr      x8, [x23]
+00000000032f9338: 094fa852 mov      w9, #0x42780000
+00000000032f933c: 05e4002f movi     d5, #0000000000000000
+00000000032f9340: 2001271e fmov     s0, w9
+00000000032f9344: 0979a852 mov      w9, #0x43c80000
+00000000032f9348: 4a85a8d2 mov      x10, #0x442a0000
+00000000032f934c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9350: 2601271e fmov     s6, w9
+00000000032f9354: e20300aa mov      x2, x0
+00000000032f9358: 0a59e8f2 movk     x10, #0x42c8, lsl #48
+00000000032f935c: e10316aa mov      x1, x22
+00000000032f9360: e3031faa mov      x3, xzr
+00000000032f9364: 0109442d ldp      s1, s2, [x8, #0x20]
+00000000032f9368: 0311452d ldp      s3, s4, [x8, #0x28]
+00000000032f936c: 080340f9 ldr      x8, [x24]
+00000000032f9370: ea0300f9 str      x10, [sp]
+00000000032f9374: e00308aa mov      x0, x8
+00000000032f9378: e81e0594 bl       #0x3440f18 ; UiFactory :: public static TMP_Text MakeText(string name, RectTransform parent, string text, float size, Color color, Vector2 pos, Vector2 sizeDelta) { }
+00000000032f937c: e00313aa mov      x0, x19
+00000000032f9380: f0010094 bl       #0x32f9b40 ; TipPopup :: private void BuildCloseX() { }
+00000000032f9384: 600340f9 ldr      x0, [x27]
+00000000032f9388: e1031faa mov      x1, xzr
+00000000032f938c: fa6e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9390: e80240f9 ldr      x8, [x23]
+00000000032f9394: e10300aa mov      x1, x0
+00000000032f9398: e00313aa mov      x0, x19
+00000000032f939c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f93a0: 0005542d ldp      s0, s1, [x8, #0xa0]
+00000000032f93a4: 020d552d ldp      s2, s3, [x8, #0xa8]
+00000000032f93a8: 486fa852 mov      w8, #0x437a0000
+00000000032f93ac: 0401271e fmov     s4, w8
+00000000032f93b0: c3020094 bl       #0x32f9ebc ; TipPopup :: private void MakeRuleRow(string text, Color dotColor, float y) { }
+00000000032f93b4: 400340f9 ldr      x0, [x26]
+00000000032f93b8: e1031faa mov      x1, xzr
+00000000032f93bc: ee6e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f93c0: e80240f9 ldr      x8, [x23]
+00000000032f93c4: e10300aa mov      x1, x0
+00000000032f93c8: e00313aa mov      x0, x19
+00000000032f93cc: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f93d0: 0005562d ldp      s0, s1, [x8, #0xb0]
+00000000032f93d4: 020d572d ldp      s2, s3, [x8, #0xb8]
+00000000032f93d8: 4860a852 mov      w8, #0x43020000
+00000000032f93dc: 0401271e fmov     s4, w8
+00000000032f93e0: b7020094 bl       #0x32f9ebc ; TipPopup :: private void MakeRuleRow(string text, Color dotColor, float y) { }
+00000000032f93e4: 200340f9 ldr      x0, [x25]
+00000000032f93e8: e1031faa mov      x1, xzr
+00000000032f93ec: e26e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f93f0: e80240f9 ldr      x8, [x23]
+00000000032f93f4: 0490241e fmov     s4, #10.00000000
+00000000032f93f8: e10300aa mov      x1, x0
+00000000032f93fc: e00313aa mov      x0, x19
+00000000032f9400: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9404: 0005582d ldp      s0, s1, [x8, #0xc0]
+00000000032f9408: 020d592d ldp      s2, s3, [x8, #0xc8]
+00000000032f940c: ac020094 bl       #0x32f9ebc ; TipPopup :: private void MakeRuleRow(string text, Color dotColor, float y) { }
+00000000032f9410: 611640f9 ldr      x1, [x19, #0x28]
+00000000032f9414: a00340f9 ldr      x0, [x29]
+00000000032f9418: e2031faa mov      x2, xzr
+00000000032f941c: 1b0c0594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f9420: 601d00b4 cbz      x0, #0x32f97cc
+00000000032f9424: 888d00f0 adrp     x8, #0x44ac000
+00000000032f9428: 083541f9 ldr      x8, [x8, #0x268]
+00000000032f942c: 010140f9 ldr      x1, [x8]
+00000000032f9430: 1bc8bc97 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+00000000032f9434: c01c00b4 cbz      x0, #0x32f97cc
+00000000032f9438: 00102c1e fmov     s0, #0.50000000
+00000000032f943c: 01102c1e fmov     s1, #0.50000000
+00000000032f9440: e1031faa mov      x1, xzr
+00000000032f9444: f60300aa mov      x22, x0
+00000000032f9448: 93d83194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032f944c: 00102c1e fmov     s0, #0.50000000
+00000000032f9450: 01102c1e fmov     s1, #0.50000000
+00000000032f9454: e00316aa mov      x0, x22
+00000000032f9458: e1031faa mov      x1, xzr
+00000000032f945c: 2dd83194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032f9460: 4885a852 mov      w8, #0x442a0000
+00000000032f9464: 0110221e fmov     s1, #4.00000000
+00000000032f9468: e00316aa mov      x0, x22
+00000000032f946c: 0001271e fmov     s0, w8
+00000000032f9470: e1031faa mov      x1, xzr
+00000000032f9474: 4ad93194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032f9478: 00e4002f movi     d0, #0000000000000000
+00000000032f947c: 0854b852 mov      w8, #-0x3d600000
+00000000032f9480: e00316aa mov      x0, x22
+00000000032f9484: 0101271e fmov     s1, w8
+00000000032f9488: e1031faa mov      x1, xzr
+00000000032f948c: e3d83194 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+00000000032f9490: e00316aa mov      x0, x22
+00000000032f9494: e1031faa mov      x1, xzr
+00000000032f9498: be9d3194 bl       #0x3f60b90
+00000000032f949c: 801900b4 cbz      x0, #0x32f97cc
+00000000032f94a0: 088e0090 adrp     x8, #0x44b9000
+00000000032f94a4: 085543f9 ldr      x8, [x8, #0x6a8]
+00000000032f94a8: 010140f9 ldr      x1, [x8]
+00000000032f94ac: d8c7bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f94b0: e01800b4 cbz      x0, #0x32f97cc
+00000000032f94b4: e80240f9 ldr      x8, [x23]
+00000000032f94b8: 388e0090 adrp     x24, #0x44bd000
+00000000032f94bc: 398e0090 adrp     x25, #0x44bd000
+00000000032f94c0: 18af47f9 ldr      x24, [x24, #0xf58]
+00000000032f94c4: f60300aa mov      x22, x0
+00000000032f94c8: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f94cc: 399347f9 ldr      x25, [x25, #0xf20]
+00000000032f94d0: 090040f9 ldr      x9, [x0]
+00000000032f94d4: 020d4d2d ldp      s2, s3, [x8, #0x68]
+00000000032f94d8: 215941f9 ldr      x1, [x9, #0x2b0]
+00000000032f94dc: 00054c2d ldp      s0, s1, [x8, #0x60]
+00000000032f94e0: 285541f9 ldr      x8, [x9, #0x2a8]
+00000000032f94e4: 00013fd6 blr      x8
+00000000032f94e8: c80240f9 ldr      x8, [x22]
+00000000032f94ec: e00316aa mov      x0, x22
+00000000032f94f0: e1031f2a mov      w1, wzr
+00000000032f94f4: 096541f9 ldr      x9, [x8, #0x2c8]
+00000000032f94f8: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032f94fc: 20013fd6 blr      x9
+00000000032f9500: 000340f9 ldr      x0, [x24]
+00000000032f9504: b50240f9 ldr      x21, [x21]
+00000000032f9508: e1031faa mov      x1, xzr
+00000000032f950c: 9a6e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9510: e80240f9 ldr      x8, [x23]
+00000000032f9514: 0942a852 mov      w9, #0x42100000
+00000000032f9518: 05e4002f movi     d5, #0000000000000000
+00000000032f951c: 2001271e fmov     s0, w9
+00000000032f9520: 8961b852 mov      w9, #-0x3cf40000
+00000000032f9524: 4a85a8d2 mov      x10, #0x442a0000
+00000000032f9528: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f952c: 2601271e fmov     s6, w9
+00000000032f9530: e20300aa mov      x2, x0
+00000000032f9534: 0a4ee8f2 movk     x10, #0x4270, lsl #48
+00000000032f9538: e10315aa mov      x1, x21
+00000000032f953c: e3031faa mov      x3, xzr
+00000000032f9540: 01094a2d ldp      s1, s2, [x8, #0x50]
+00000000032f9544: 03114b2d ldp      s3, s4, [x8, #0x58]
+00000000032f9548: 280340f9 ldr      x8, [x25]
+00000000032f954c: ea0300f9 str      x10, [sp]
+00000000032f9550: e00308aa mov      x0, x8
+00000000032f9554: 711e0594 bl       #0x3440f18 ; UiFactory :: public static TMP_Text MakeText(string name, RectTransform parent, string text, float size, Color color, Vector2 pos, Vector2 sizeDelta) { }
+00000000032f9558: a01300b4 cbz      x0, #0x32f97cc
+00000000032f955c: 358e0090 adrp     x21, #0x44bd000
+00000000032f9560: 368e0090 adrp     x22, #0x44bd000
+00000000032f9564: 188e00f0 adrp     x24, #0x44bc000
+00000000032f9568: b58e47f9 ldr      x21, [x21, #0xf18]
+00000000032f956c: d69647f9 ldr      x22, [x22, #0xf28]
+00000000032f9570: 188742f9 ldr      x24, [x24, #0x508]
+00000000032f9574: 21008052 mov      w1, #1
+00000000032f9578: e2031faa mov      x2, xzr
+00000000032f957c: 0fd72e94 bl       #0x3eaf1b8 ; TMP_Text :: public void set_fontStyle(FontStyles value) { }
+00000000032f9580: a00240f9 ldr      x0, [x21]
+00000000032f9584: e1031faa mov      x1, xzr
+00000000032f9588: 7b6e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f958c: a869b852 mov      w8, #-0x3cb30000
+00000000032f9590: e10300aa mov      x1, x0
+00000000032f9594: e00313aa mov      x0, x19
+00000000032f9598: 0001271e fmov     s0, w8
+00000000032f959c: 33030094 bl       #0x32fa268 ; TipPopup :: private void MakeCtrlLine(string text, float y) { }
+00000000032f95a0: c00240f9 ldr      x0, [x22]
+00000000032f95a4: e1031faa mov      x1, xzr
+00000000032f95a8: 736e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f95ac: e870b852 mov      w8, #-0x3c790000
+00000000032f95b0: e10300aa mov      x1, x0
+00000000032f95b4: e00313aa mov      x0, x19
+00000000032f95b8: 0001271e fmov     s0, w8
+00000000032f95bc: 2b030094 bl       #0x32fa268 ; TipPopup :: private void MakeCtrlLine(string text, float y) { }
+00000000032f95c0: 611640f9 ldr      x1, [x19, #0x28]
+00000000032f95c4: 000340f9 ldr      x0, [x24]
+00000000032f95c8: e2031faa mov      x2, xzr
+00000000032f95cc: af0b0594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f95d0: 188e0090 adrp     x24, #0x44b9000
+00000000032f95d4: 189b43f9 ldr      x24, [x24, #0x730]
+00000000032f95d8: a00f00b4 cbz      x0, #0x32f97cc
+00000000032f95dc: e1031faa mov      x1, xzr
+00000000032f95e0: f60300aa mov      x22, x0
+00000000032f95e4: 63a33194 bl       #0x3f62370
+00000000032f95e8: 200f00b4 cbz      x0, #0x32f97cc
+00000000032f95ec: 088e0090 adrp     x8, #0x44b9000
+00000000032f95f0: f50300aa mov      x21, x0
+00000000032f95f4: 085943f9 ldr      x8, [x8, #0x6b0]
+00000000032f95f8: 010140f9 ldr      x1, [x8]
+00000000032f95fc: 080040f9 ldr      x8, [x0]
+00000000032f9600: 1f0101eb cmp      x8, x1
+00000000032f9604: 610e0054 b.ne     #0x32f97d0
+00000000032f9608: 00102c1e fmov     s0, #0.50000000
+00000000032f960c: 01102c1e fmov     s1, #0.50000000
+00000000032f9610: e00315aa mov      x0, x21
+00000000032f9614: e1031faa mov      x1, xzr
+00000000032f9618: 1fd83194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032f961c: 00102c1e fmov     s0, #0.50000000
+00000000032f9620: 01102c1e fmov     s1, #0.50000000
+00000000032f9624: e00315aa mov      x0, x21
+00000000032f9628: e1031faa mov      x1, xzr
+00000000032f962c: b9d73194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032f9630: 487aa852 mov      w8, #0x43d20000
+00000000032f9634: 095ea852 mov      w9, #0x42f00000
+00000000032f9638: e00315aa mov      x0, x21
+00000000032f963c: 0001271e fmov     s0, w8
+00000000032f9640: 2101271e fmov     s1, w9
+00000000032f9644: e1031faa mov      x1, xzr
+00000000032f9648: d5d83194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032f964c: 00e4002f movi     d0, #0000000000000000
+00000000032f9650: 6878b852 mov      w8, #-0x3c3d0000
+00000000032f9654: e00315aa mov      x0, x21
+00000000032f9658: 0101271e fmov     s1, w8
+00000000032f965c: e1031faa mov      x1, xzr
+00000000032f9660: 6ed83194 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+00000000032f9664: 088e0090 adrp     x8, #0x44b9000
+00000000032f9668: e00316aa mov      x0, x22
+00000000032f966c: 085543f9 ldr      x8, [x8, #0x6a8]
+00000000032f9670: 010140f9 ldr      x1, [x8]
+00000000032f9674: 66c7bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9678: e80240f9 ldr      x8, [x23]
+00000000032f967c: e1031faa mov      x1, xzr
+00000000032f9680: f70300aa mov      x23, x0
+00000000032f9684: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9688: 0005522d ldp      s0, s1, [x8, #0x90]
+00000000032f968c: 020d532d ldp      s2, s3, [x8, #0x98]
+00000000032f9690: cc090594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032f9694: 010340f9 ldr      x1, [x24]
+00000000032f9698: e00316aa mov      x0, x22
+00000000032f969c: 5cc7bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f96a0: 600900b4 cbz      x0, #0x32f97cc
+00000000032f96a4: 388e0090 adrp     x24, #0x44bd000
+00000000032f96a8: e10317aa mov      x1, x23
+00000000032f96ac: e2031faa mov      x2, xzr
+00000000032f96b0: 188347f9 ldr      x24, [x24, #0xf00]
+00000000032f96b4: f60300aa mov      x22, x0
+00000000032f96b8: b3353c94 bl       #0x4206d84 ; Selectable :: public void set_targetGraphic(Graphic value) { }
+00000000032f96bc: 088e0090 adrp     x8, #0x44b9000
+00000000032f96c0: d68240f9 ldr      x22, [x22, #0x100]
+00000000032f96c4: 089d43f9 ldr      x8, [x8, #0x738]
+00000000032f96c8: 000140f9 ldr      x0, [x8]
+00000000032f96cc: fef9a997 bl       #0x1d77ec4
+00000000032f96d0: 020340f9 ldr      x2, [x24]
+00000000032f96d4: e10313aa mov      x1, x19
+00000000032f96d8: e3031faa mov      x3, xzr
+00000000032f96dc: f70300aa mov      x23, x0
+00000000032f96e0: 4bef3194 bl       #0x3f7540c ; UnityAction :: public UnityAction(object object, nint method) { }
+00000000032f96e4: 560700b4 cbz      x22, #0x32f97cc
+00000000032f96e8: 338e0090 adrp     x19, #0x44bd000
+00000000032f96ec: 188e0090 adrp     x24, #0x44b9000
+00000000032f96f0: e00316aa mov      x0, x22
+00000000032f96f4: 739a47f9 ldr      x19, [x19, #0xf30]
+00000000032f96f8: 18a343f9 ldr      x24, [x24, #0x740]
+00000000032f96fc: e10317aa mov      x1, x23
+00000000032f9700: e2031faa mov      x2, xzr
+00000000032f9704: 6fef3194 bl       #0x3f754c0 ; UnityEvent :: public void AddListener(UnityAction call) { }
+00000000032f9708: 600240f9 ldr      x0, [x19]
+00000000032f970c: e1031faa mov      x1, xzr
+00000000032f9710: 196e0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9714: f6a400f0 adrp     x22, #0x4798000
+00000000032f9718: f30300aa mov      x19, x0
+00000000032f971c: c8027a39 ldrb     w8, [x22, #0xe80]
+00000000032f9720: c8000035 cbnz     w8, #0x32f9738
+00000000032f9724: 808d00d0 adrp     x0, #0x44ab000
+00000000032f9728: 004441f9 ldr      x0, [x0, #0x288]
+00000000032f972c: cdf8a997 bl       #0x1d77a60
+00000000032f9730: 28008052 mov      w8, #1
+00000000032f9734: c8023a39 strb     w8, [x22, #0xe80]
+00000000032f9738: 888d00d0 adrp     x8, #0x44ab000
+00000000032f973c: 0946a852 mov      w9, #0x42300000
+00000000032f9740: 01102e1e fmov     s1, #1.00000000
+00000000032f9744: 084541f9 ldr      x8, [x8, #0x288]
+00000000032f9748: 02102e1e fmov     s2, #1.00000000
+00000000032f974c: 03102e1e fmov     s3, #1.00000000
+00000000032f9750: 2001271e fmov     s0, w9
+00000000032f9754: 04102e1e fmov     s4, #1.00000000
+00000000032f9758: 000340f9 ldr      x0, [x24]
+00000000032f975c: 080140f9 ldr      x8, [x8]
+00000000032f9760: e10315aa mov      x1, x21
+00000000032f9764: e20313aa mov      x2, x19
+00000000032f9768: e3031faa mov      x3, xzr
+00000000032f976c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032f9770: 0519402d ldp      s5, s6, [x8]
+00000000032f9774: 8876a8d2 mov      x8, #0x43b40000
+00000000032f9778: 8856e8f2 movk     x8, #0x42b4, lsl #48
+00000000032f977c: e80300f9 str      x8, [sp]
+00000000032f9780: e61d0594 bl       #0x3440f18 ; UiFactory :: public static TMP_Text MakeText(string name, RectTransform parent, string text, float size, Color color, Vector2 pos, Vector2 sizeDelta) { }
+00000000032f9784: 400200b4 cbz      x0, #0x32f97cc
+00000000032f9788: 080040f9 ldr      x8, [x0]
+00000000032f978c: e1031f2a mov      w1, wzr
+00000000032f9790: 096541f9 ldr      x9, [x8, #0x2c8]
+00000000032f9794: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032f9798: 20013fd6 blr      x9
+00000000032f979c: 800240f9 ldr      x0, [x20]
+00000000032f97a0: 600100b4 cbz      x0, #0x32f97cc
+00000000032f97a4: f44f46a9 ldp      x20, x19, [sp, #0x60]
+00000000032f97a8: e1031f2a mov      w1, wzr
+00000000032f97ac: f65745a9 ldp      x22, x21, [sp, #0x50]
+00000000032f97b0: e2031faa mov      x2, xzr
+00000000032f97b4: f85f44a9 ldp      x24, x23, [sp, #0x40]
+00000000032f97b8: fa6743a9 ldp      x26, x25, [sp, #0x30]
+00000000032f97bc: fc6f42a9 ldp      x28, x27, [sp, #0x20]
+00000000032f97c0: fd7b41a9 ldp      x29, x30, [sp, #0x10]
+00000000032f97c4: ffc30191 add      sp, sp, #0x70
+00000000032f97c8: 76a33114 b        #0x3f625a0
+00000000032f97cc: a2f8a997 bl       #0x1d77a54
+00000000032f97d0: e00315aa mov      x0, x21
+00000000032f97d4: 50faa997 bl       #0x1d78114
+00000000032f97d8: e00308aa mov      x0, x8
+00000000032f97dc: 4efaa997 bl       #0x1d78114
+
+; private void BuildCloseX() { }
+; token=0x60013C0 file_offset=0x32F5B40 tool_rva=0x32F5B40 length=0x37C
+00000000032f9b40: eb2bb96d stp      d11, d10, [sp, #-0x70]!
+00000000032f9b44: e923016d stp      d9, d8, [sp, #0x10]
+00000000032f9b48: fe1300f9 str      x30, [sp, #0x20]
+00000000032f9b4c: fa6703a9 stp      x26, x25, [sp, #0x30]
+00000000032f9b50: f85f04a9 stp      x24, x23, [sp, #0x40]
+00000000032f9b54: f65705a9 stp      x22, x21, [sp, #0x50]
+00000000032f9b58: f44f06a9 stp      x20, x19, [sp, #0x60]
+00000000032f9b5c: 14a500d0 adrp     x20, #0x479b000
+00000000032f9b60: 188e0090 adrp     x24, #0x44b9000
+00000000032f9b64: f30300aa mov      x19, x0
+00000000032f9b68: 88024339 ldrb     w8, [x20, #0xc0]
+00000000032f9b6c: 184b43f9 ldr      x24, [x24, #0x690]
+00000000032f9b70: 88040037 tbnz     w8, #0, #0x32f9c00
+00000000032f9b74: 008e0090 adrp     x0, #0x44b9000
+00000000032f9b78: 009843f9 ldr      x0, [x0, #0x730]
+00000000032f9b7c: b9f7a997 bl       #0x1d77a60
+00000000032f9b80: 008e0090 adrp     x0, #0x44b9000
+00000000032f9b84: 005443f9 ldr      x0, [x0, #0x6a8]
+00000000032f9b88: b6f7a997 bl       #0x1d77a60
+00000000032f9b8c: 608d00f0 adrp     x0, #0x44a8000
+00000000032f9b90: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f9b94: b3f7a997 bl       #0x1d77a60
+00000000032f9b98: 008e0090 adrp     x0, #0x44b9000
+00000000032f9b9c: 005843f9 ldr      x0, [x0, #0x6b0]
+00000000032f9ba0: b0f7a997 bl       #0x1d77a60
+00000000032f9ba4: 008e0090 adrp     x0, #0x44b9000
+00000000032f9ba8: 005c43f9 ldr      x0, [x0, #0x6b8]
+00000000032f9bac: adf7a997 bl       #0x1d77a60
+00000000032f9bb0: 208e0090 adrp     x0, #0x44bd000
+00000000032f9bb4: 00b447f9 ldr      x0, [x0, #0xf68]
+00000000032f9bb8: aaf7a997 bl       #0x1d77a60
+00000000032f9bbc: 208e0090 adrp     x0, #0x44bd000
+00000000032f9bc0: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032f9bc4: a7f7a997 bl       #0x1d77a60
+00000000032f9bc8: 008e0090 adrp     x0, #0x44b9000
+00000000032f9bcc: 004843f9 ldr      x0, [x0, #0x690]
+00000000032f9bd0: a4f7a997 bl       #0x1d77a60
+00000000032f9bd4: 008e0090 adrp     x0, #0x44b9000
+00000000032f9bd8: 009c43f9 ldr      x0, [x0, #0x738]
+00000000032f9bdc: a1f7a997 bl       #0x1d77a60
+00000000032f9be0: 008e0090 adrp     x0, #0x44b9000
+00000000032f9be4: 00c043f9 ldr      x0, [x0, #0x780]
+00000000032f9be8: 9ef7a997 bl       #0x1d77a60
+00000000032f9bec: 008e00b0 adrp     x0, #0x44ba000
+00000000032f9bf0: 00a446f9 ldr      x0, [x0, #0xd48]
+00000000032f9bf4: 9bf7a997 bl       #0x1d77a60
+00000000032f9bf8: 28008052 mov      w8, #1
+00000000032f9bfc: 88020339 strb     w8, [x20, #0xc0]
+00000000032f9c00: 000340f9 ldr      x0, [x24]
+00000000032f9c04: 158e00b0 adrp     x21, #0x44ba000
+00000000032f9c08: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9c0c: b5a646f9 ldr      x21, [x21, #0xd48]
+00000000032f9c10: 741640f9 ldr      x20, [x19, #0x28]
+00000000032f9c14: 48000035 cbnz     w8, #0x32f9c1c
+00000000032f9c18: dff7a997 bl       #0x1d77b94
+00000000032f9c1c: a00240f9 ldr      x0, [x21]
+00000000032f9c20: e10314aa mov      x1, x20
+00000000032f9c24: e2031faa mov      x2, xzr
+00000000032f9c28: 180a0594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f9c2c: 201400b4 cbz      x0, #0x32f9eb0
+00000000032f9c30: e1031faa mov      x1, xzr
+00000000032f9c34: f50300aa mov      x21, x0
+00000000032f9c38: cea13194 bl       #0x3f62370
+00000000032f9c3c: a01300b4 cbz      x0, #0x32f9eb0
+00000000032f9c40: 088e0090 adrp     x8, #0x44b9000
+00000000032f9c44: f40300aa mov      x20, x0
+00000000032f9c48: 085943f9 ldr      x8, [x8, #0x6b0]
+00000000032f9c4c: 010140f9 ldr      x1, [x8]
+00000000032f9c50: 080040f9 ldr      x8, [x0]
+00000000032f9c54: 1f0101eb cmp      x8, x1
+00000000032f9c58: e1120054 b.ne     #0x32f9eb4
+00000000032f9c5c: 00102e1e fmov     s0, #1.00000000
+00000000032f9c60: 01102e1e fmov     s1, #1.00000000
+00000000032f9c64: 168e0090 adrp     x22, #0x44b9000
+00000000032f9c68: 178e0090 adrp     x23, #0x44b9000
+00000000032f9c6c: 1a8e0090 adrp     x26, #0x44b9000
+00000000032f9c70: 798d00f0 adrp     x25, #0x44a8000
+00000000032f9c74: d65643f9 ldr      x22, [x22, #0x6a8]
+00000000032f9c78: f7c243f9 ldr      x23, [x23, #0x780]
+00000000032f9c7c: 5a5f43f9 ldr      x26, [x26, #0x6b8]
+00000000032f9c80: 396345f9 ldr      x25, [x25, #0xac0]
+00000000032f9c84: e00314aa mov      x0, x20
+00000000032f9c88: e1031faa mov      x1, xzr
+00000000032f9c8c: 82d63194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032f9c90: 00102e1e fmov     s0, #1.00000000
+00000000032f9c94: 01102e1e fmov     s1, #1.00000000
+00000000032f9c98: e00314aa mov      x0, x20
+00000000032f9c9c: e1031faa mov      x1, xzr
+00000000032f9ca0: 1cd63194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032f9ca4: 00102e1e fmov     s0, #1.00000000
+00000000032f9ca8: 01102e1e fmov     s1, #1.00000000
+00000000032f9cac: e00314aa mov      x0, x20
+00000000032f9cb0: e1031faa mov      x1, xzr
+00000000032f9cb4: 9bd73194 bl       #0x3f6fb20 ; RectTransform :: public void set_pivot(Vector2 value) { }
+00000000032f9cb8: 0090371e fmov     s0, #-28.00000000
+00000000032f9cbc: 0190371e fmov     s1, #-28.00000000
+00000000032f9cc0: e00314aa mov      x0, x20
+00000000032f9cc4: e1031faa mov      x1, xzr
+00000000032f9cc8: d4d63194 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+00000000032f9ccc: 085da852 mov      w8, #0x42e80000
+00000000032f9cd0: e00314aa mov      x0, x20
+00000000032f9cd4: e1031faa mov      x1, xzr
+00000000032f9cd8: 0001271e fmov     s0, w8
+00000000032f9cdc: 0140201e fmov     s1, s0
+00000000032f9ce0: 2fd73194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032f9ce4: c10240f9 ldr      x1, [x22]
+00000000032f9ce8: e00315aa mov      x0, x21
+00000000032f9cec: c8c5bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9cf0: e80240f9 ldr      x8, [x23]
+00000000032f9cf4: 410340f9 ldr      x1, [x26]
+00000000032f9cf8: f70300aa mov      x23, x0
+00000000032f9cfc: e00308aa mov      x0, x8
+00000000032f9d00: 983ac197 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+00000000032f9d04: 280340f9 ldr      x8, [x25]
+00000000032f9d08: f60300aa mov      x22, x0
+00000000032f9d0c: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032f9d10: 69000035 cbnz     w9, #0x32f9d1c
+00000000032f9d14: e00308aa mov      x0, x8
+00000000032f9d18: 9ff7a997 bl       #0x1d77b94
+00000000032f9d1c: e00316aa mov      x0, x22
+00000000032f9d20: e1031faa mov      x1, xzr
+00000000032f9d24: e2031faa mov      x2, xzr
+00000000032f9d28: fda03194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f9d2c: 60010036 tbz      w0, #0, #0x32f9d58
+00000000032f9d30: 170c00b4 cbz      x23, #0x32f9eb0
+00000000032f9d34: e00317aa mov      x0, x23
+00000000032f9d38: e10316aa mov      x1, x22
+00000000032f9d3c: e2031faa mov      x2, xzr
+00000000032f9d40: 89fe3494 bl       #0x4039764 ; Image :: public void set_sprite(Sprite value) { }
+00000000032f9d44: e00317aa mov      x0, x23
+00000000032f9d48: 21008052 mov      w1, #1
+00000000032f9d4c: e2031faa mov      x2, xzr
+00000000032f9d50: 14343594 bl       #0x4046da0 ; Image :: public void set_preserveAspect(bool value) { }
+00000000032f9d54: 16000014 b        #0x32f9dac
+00000000032f9d58: 3a8e0090 adrp     x26, #0x44bd000
+00000000032f9d5c: 5a8747f9 ldr      x26, [x26, #0xf08]
+00000000032f9d60: 400340f9 ldr      x0, [x26]
+00000000032f9d64: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9d68: 68000035 cbnz     w8, #0x32f9d74
+00000000032f9d6c: 8af7a997 bl       #0x1d77b94
+00000000032f9d70: 400340f9 ldr      x0, [x26]
+00000000032f9d74: 085040f9 ldr      x8, [x0, #0xa0]
+00000000032f9d78: 000340f9 ldr      x0, [x24]
+00000000032f9d7c: 08254e2d ldp      s8, s9, [x8, #0x70]
+00000000032f9d80: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000032f9d84: 0a2d4f2d ldp      s10, s11, [x8, #0x78]
+00000000032f9d88: 49000035 cbnz     w9, #0x32f9d90
+00000000032f9d8c: 82f7a997 bl       #0x1d77b94
+00000000032f9d90: 0041201e fmov     s0, s8
+00000000032f9d94: 2141201e fmov     s1, s9
+00000000032f9d98: e00317aa mov      x0, x23
+00000000032f9d9c: 4241201e fmov     s2, s10
+00000000032f9da0: 6341201e fmov     s3, s11
+00000000032f9da4: e1031faa mov      x1, xzr
+00000000032f9da8: 06080594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032f9dac: 088e0090 adrp     x8, #0x44b9000
+00000000032f9db0: e00315aa mov      x0, x21
+00000000032f9db4: 089943f9 ldr      x8, [x8, #0x730]
+00000000032f9db8: 010140f9 ldr      x1, [x8]
+00000000032f9dbc: 94c5bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032f9dc0: 800700b4 cbz      x0, #0x32f9eb0
+00000000032f9dc4: 188e0090 adrp     x24, #0x44b9000
+00000000032f9dc8: 3a8e0090 adrp     x26, #0x44bd000
+00000000032f9dcc: e10317aa mov      x1, x23
+00000000032f9dd0: 189f43f9 ldr      x24, [x24, #0x738]
+00000000032f9dd4: 5ab747f9 ldr      x26, [x26, #0xf68]
+00000000032f9dd8: e2031faa mov      x2, xzr
+00000000032f9ddc: f50300aa mov      x21, x0
+00000000032f9de0: e9333c94 bl       #0x4206d84 ; Selectable :: public void set_targetGraphic(Graphic value) { }
+00000000032f9de4: 000340f9 ldr      x0, [x24]
+00000000032f9de8: b58240f9 ldr      x21, [x21, #0x100]
+00000000032f9dec: 36f8a997 bl       #0x1d77ec4
+00000000032f9df0: 420340f9 ldr      x2, [x26]
+00000000032f9df4: e10313aa mov      x1, x19
+00000000032f9df8: e3031faa mov      x3, xzr
+00000000032f9dfc: f70300aa mov      x23, x0
+00000000032f9e00: 83ed3194 bl       #0x3f7540c ; UnityAction :: public UnityAction(object object, nint method) { }
+00000000032f9e04: 750500b4 cbz      x21, #0x32f9eb0
+00000000032f9e08: e00315aa mov      x0, x21
+00000000032f9e0c: e10317aa mov      x1, x23
+00000000032f9e10: e2031faa mov      x2, xzr
+00000000032f9e14: abed3194 bl       #0x3f754c0 ; UnityEvent :: public void AddListener(UnityAction call) { }
+00000000032f9e18: 200340f9 ldr      x0, [x25]
+00000000032f9e1c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9e20: 48000035 cbnz     w8, #0x32f9e28
+00000000032f9e24: 5cf7a997 bl       #0x1d77b94
+00000000032f9e28: e00316aa mov      x0, x22
+00000000032f9e2c: e1031faa mov      x1, xzr
+00000000032f9e30: e2031faa mov      x2, xzr
+00000000032f9e34: a2a53194 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000032f9e38: c0020036 tbz      w0, #0, #0x32f9e90
+00000000032f9e3c: 288e0090 adrp     x8, #0x44bd000
+00000000032f9e40: 088547f9 ldr      x8, [x8, #0xf08]
+00000000032f9e44: 000140f9 ldr      x0, [x8]
+00000000032f9e48: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9e4c: 48000035 cbnz     w8, #0x32f9e54
+00000000032f9e50: 51f7a997 bl       #0x1d77b94
+00000000032f9e54: 8846a852 mov      w8, #0x42340000
+00000000032f9e58: e00314aa mov      x0, x20
+00000000032f9e5c: 0001271e fmov     s0, w8
+00000000032f9e60: 5d010094 bl       #0x32fa3d4 ; TipPopup :: private static void MakeBar(RectTransform parent, float deg) { }
+00000000032f9e64: e00314aa mov      x0, x20
+00000000032f9e68: f44f46a9 ldp      x20, x19, [sp, #0x60]
+00000000032f9e6c: f65745a9 ldp      x22, x21, [sp, #0x50]
+00000000032f9e70: 8846b852 mov      w8, #-0x3dcc0000
+00000000032f9e74: f85f44a9 ldp      x24, x23, [sp, #0x40]
+00000000032f9e78: 0001271e fmov     s0, w8
+00000000032f9e7c: fa6743a9 ldp      x26, x25, [sp, #0x30]
+00000000032f9e80: fe1340f9 ldr      x30, [sp, #0x20]
+00000000032f9e84: e923416d ldp      d9, d8, [sp, #0x10]
+00000000032f9e88: eb2bc76c ldp      d11, d10, [sp], #0x70
+00000000032f9e8c: 52010014 b        #0x32fa3d4 ; TipPopup :: private static void MakeBar(RectTransform parent, float deg) { }
+00000000032f9e90: f44f46a9 ldp      x20, x19, [sp, #0x60]
+00000000032f9e94: fe1340f9 ldr      x30, [sp, #0x20]
+00000000032f9e98: f65745a9 ldp      x22, x21, [sp, #0x50]
+00000000032f9e9c: f85f44a9 ldp      x24, x23, [sp, #0x40]
+00000000032f9ea0: fa6743a9 ldp      x26, x25, [sp, #0x30]
+00000000032f9ea4: e923416d ldp      d9, d8, [sp, #0x10]
+00000000032f9ea8: eb2bc76c ldp      d11, d10, [sp], #0x70
+00000000032f9eac: c0035fd6 ret      
+00000000032f9eb0: e9f6a997 bl       #0x1d77a54
+00000000032f9eb4: e00314aa mov      x0, x20
+00000000032f9eb8: 97f8a997 bl       #0x1d78114
+
+; public bool get_IsOpen() { }
+; token=0x60013B9 file_offset=0x32F4C58 tool_rva=0x32F4C58 length=0x88
+00000000032f8c58: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000032f8c5c: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032f8c60: 15a500f0 adrp     x21, #0x479b000
+00000000032f8c64: 948d0090 adrp     x20, #0x44a8000
+00000000032f8c68: f30300aa mov      x19, x0
+00000000032f8c6c: a8ea4239 ldrb     w8, [x21, #0xba]
+00000000032f8c70: 946245f9 ldr      x20, [x20, #0xac0]
+00000000032f8c74: c8000037 tbnz     w8, #0, #0x32f8c8c
+00000000032f8c78: 808d0090 adrp     x0, #0x44a8000
+00000000032f8c7c: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f8c80: 78fba997 bl       #0x1d77a60
+00000000032f8c84: 28008052 mov      w8, #1
+00000000032f8c88: a8ea0239 strb     w8, [x21, #0xba]
+00000000032f8c8c: 800240f9 ldr      x0, [x20]
+00000000032f8c90: 741240f9 ldr      x20, [x19, #0x20]
+00000000032f8c94: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8c98: 48000035 cbnz     w8, #0x32f8ca0
+00000000032f8c9c: befba997 bl       #0x1d77b94
+00000000032f8ca0: e00314aa mov      x0, x20
+00000000032f8ca4: e1031faa mov      x1, xzr
+00000000032f8ca8: e2031faa mov      x2, xzr
+00000000032f8cac: 1ca53194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f8cb0: e0000036 tbz      w0, #0, #0x32f8ccc
+00000000032f8cb4: 601240f9 ldr      x0, [x19, #0x20]
+00000000032f8cb8: 200100b4 cbz      x0, #0x32f8cdc
+00000000032f8cbc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8cc0: e1031faa mov      x1, xzr
+00000000032f8cc4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8cc8: 65a63114 b        #0x3f6265c
+00000000032f8ccc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8cd0: e0031f2a mov      w0, wzr
+00000000032f8cd4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8cd8: c0035fd6 ret      
+00000000032f8cdc: 5efba997 bl       #0x1d77a54
+
+; public void Hide() { }
+; token=0x60013BC file_offset=0x32F4D08 tool_rva=0x32F4D08 length=0x88
+00000000032f8d08: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000032f8d0c: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032f8d10: 15a500f0 adrp     x21, #0x479b000
+00000000032f8d14: 948d0090 adrp     x20, #0x44a8000
+00000000032f8d18: f30300aa mov      x19, x0
+00000000032f8d1c: a8f24239 ldrb     w8, [x21, #0xbc]
+00000000032f8d20: 946245f9 ldr      x20, [x20, #0xac0]
+00000000032f8d24: c8000037 tbnz     w8, #0, #0x32f8d3c
+00000000032f8d28: 808d0090 adrp     x0, #0x44a8000
+00000000032f8d2c: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f8d30: 4cfba997 bl       #0x1d77a60
+00000000032f8d34: 28008052 mov      w8, #1
+00000000032f8d38: a8f20239 strb     w8, [x21, #0xbc]
+00000000032f8d3c: 800240f9 ldr      x0, [x20]
+00000000032f8d40: 741240f9 ldr      x20, [x19, #0x20]
+00000000032f8d44: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8d48: 48000035 cbnz     w8, #0x32f8d50
+00000000032f8d4c: 92fba997 bl       #0x1d77b94
+00000000032f8d50: e00314aa mov      x0, x20
+00000000032f8d54: e1031faa mov      x1, xzr
+00000000032f8d58: e2031faa mov      x2, xzr
+00000000032f8d5c: f0a43194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f8d60: 00010036 tbz      w0, #0, #0x32f8d80
+00000000032f8d64: 601240f9 ldr      x0, [x19, #0x20]
+00000000032f8d68: 200100b4 cbz      x0, #0x32f8d8c
+00000000032f8d6c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8d70: e1031f2a mov      w1, wzr
+00000000032f8d74: e2031faa mov      x2, xzr
+00000000032f8d78: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8d7c: 09a63114 b        #0x3f625a0
+00000000032f8d80: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8d84: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8d88: c0035fd6 ret      
+00000000032f8d8c: 32fba997 bl       #0x1d77a54
+
+; public void Init(RectTransform canvas) { }
+; token=0x60013B8 file_offset=0x32F4C50 tool_rva=0x32F4C50 length=0x8
+00000000032f8c50: 010c03f8 str      x1, [x0, #0x30]!
+00000000032f8c54: 70fba917 b        #0x1d77a14
+
+; private static void MakeBar(RectTransform parent, float deg) { }
+; token=0x60013C1 file_offset=0x32F63D4 tool_rva=0x32F63D4 length=0x1A8
+00000000032fa3d4: e80f1dfc str      d8, [sp, #-0x30]!
+00000000032fa3d8: fe0700f9 str      x30, [sp, #8]
+00000000032fa3dc: f65701a9 stp      x22, x21, [sp, #0x10]
+00000000032fa3e0: f44f02a9 stp      x20, x19, [sp, #0x20]
+00000000032fa3e4: 0840201e fmov     s8, s0
+00000000032fa3e8: 15a500b0 adrp     x21, #0x479b000
+00000000032fa3ec: f48d00f0 adrp     x20, #0x44b9000
+00000000032fa3f0: a8064339 ldrb     w8, [x21, #0xc1]
+00000000032fa3f4: 944a43f9 ldr      x20, [x20, #0x690]
+00000000032fa3f8: f30300aa mov      x19, x0
+00000000032fa3fc: 48020037 tbnz     w8, #0, #0x32fa444
+00000000032fa400: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa404: 005443f9 ldr      x0, [x0, #0x6a8]
+00000000032fa408: 96f5a997 bl       #0x1d77a60
+00000000032fa40c: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa410: 005843f9 ldr      x0, [x0, #0x6b0]
+00000000032fa414: 93f5a997 bl       #0x1d77a60
+00000000032fa418: 008e00f0 adrp     x0, #0x44bd000
+00000000032fa41c: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032fa420: 90f5a997 bl       #0x1d77a60
+00000000032fa424: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa428: 004843f9 ldr      x0, [x0, #0x690]
+00000000032fa42c: 8df5a997 bl       #0x1d77a60
+00000000032fa430: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa434: 00a846f9 ldr      x0, [x0, #0xd50]
+00000000032fa438: 8af5a997 bl       #0x1d77a60
+00000000032fa43c: 28008052 mov      w8, #1
+00000000032fa440: a8060339 strb     w8, [x21, #0xc1]
+00000000032fa444: 800240f9 ldr      x0, [x20]
+00000000032fa448: f48d00f0 adrp     x20, #0x44b9000
+00000000032fa44c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032fa450: 94aa46f9 ldr      x20, [x20, #0xd50]
+00000000032fa454: 48000035 cbnz     w8, #0x32fa45c
+00000000032fa458: cff5a997 bl       #0x1d77b94
+00000000032fa45c: 800240f9 ldr      x0, [x20]
+00000000032fa460: e10313aa mov      x1, x19
+00000000032fa464: e2031faa mov      x2, xzr
+00000000032fa468: 08080594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032fa46c: 200800b4 cbz      x0, #0x32fa570
+00000000032fa470: e1031faa mov      x1, xzr
+00000000032fa474: f30300aa mov      x19, x0
+00000000032fa478: be9f3194 bl       #0x3f62370
+00000000032fa47c: a00700b4 cbz      x0, #0x32fa570
+00000000032fa480: e88d00f0 adrp     x8, #0x44b9000
+00000000032fa484: f40300aa mov      x20, x0
+00000000032fa488: 085943f9 ldr      x8, [x8, #0x6b0]
+00000000032fa48c: 010140f9 ldr      x1, [x8]
+00000000032fa490: 080040f9 ldr      x8, [x0]
+00000000032fa494: 1f0101eb cmp      x8, x1
+00000000032fa498: e1060054 b.ne     #0x32fa574
+00000000032fa49c: 00102c1e fmov     s0, #0.50000000
+00000000032fa4a0: 01102c1e fmov     s1, #0.50000000
+00000000032fa4a4: f68d00f0 adrp     x22, #0x44b9000
+00000000032fa4a8: 158e00f0 adrp     x21, #0x44bd000
+00000000032fa4ac: d65643f9 ldr      x22, [x22, #0x6a8]
+00000000032fa4b0: e00314aa mov      x0, x20
+00000000032fa4b4: b58647f9 ldr      x21, [x21, #0xf08]
+00000000032fa4b8: e1031faa mov      x1, xzr
+00000000032fa4bc: 76d43194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032fa4c0: 00102c1e fmov     s0, #0.50000000
+00000000032fa4c4: 01102c1e fmov     s1, #0.50000000
+00000000032fa4c8: e00314aa mov      x0, x20
+00000000032fa4cc: e1031faa mov      x1, xzr
+00000000032fa4d0: 10d43194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032fa4d4: 0846a852 mov      w8, #0x42300000
+00000000032fa4d8: 0190241e fmov     s1, #10.00000000
+00000000032fa4dc: e00314aa mov      x0, x20
+00000000032fa4e0: 0001271e fmov     s0, w8
+00000000032fa4e4: e1031faa mov      x1, xzr
+00000000032fa4e8: 2dd53194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032fa4ec: 00e4002f movi     d0, #0000000000000000
+00000000032fa4f0: 01e4002f movi     d1, #0000000000000000
+00000000032fa4f4: e00314aa mov      x0, x20
+00000000032fa4f8: 0241201e fmov     s2, s8
+00000000032fa4fc: e1031faa mov      x1, xzr
+00000000032fa500: 95d93194 bl       #0x3f70b54 ; Transform :: public void set_localEulerAngles(Vector3 value) { }
+00000000032fa504: c10240f9 ldr      x1, [x22]
+00000000032fa508: e00313aa mov      x0, x19
+00000000032fa50c: c0c3bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032fa510: a80240f9 ldr      x8, [x21]
+00000000032fa514: f30300aa mov      x19, x0
+00000000032fa518: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032fa51c: 89000035 cbnz     w9, #0x32fa52c
+00000000032fa520: e00308aa mov      x0, x8
+00000000032fa524: 9cf5a997 bl       #0x1d77b94
+00000000032fa528: a80240f9 ldr      x8, [x21]
+00000000032fa52c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032fa530: e00313aa mov      x0, x19
+00000000032fa534: e1031faa mov      x1, xzr
+00000000032fa538: 0005502d ldp      s0, s1, [x8, #0x80]
+00000000032fa53c: 020d512d ldp      s2, s3, [x8, #0x88]
+00000000032fa540: 20060594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032fa544: 730100b4 cbz      x19, #0x32fa570
+00000000032fa548: 680240f9 ldr      x8, [x19]
+00000000032fa54c: e00313aa mov      x0, x19
+00000000032fa550: fe0740f9 ldr      x30, [sp, #8]
+00000000032fa554: f44f42a9 ldp      x20, x19, [sp, #0x20]
+00000000032fa558: e1031f2a mov      w1, wzr
+00000000032fa55c: f65741a9 ldp      x22, x21, [sp, #0x10]
+00000000032fa560: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032fa564: 036541f9 ldr      x3, [x8, #0x2c8]
+00000000032fa568: e80743fc ldr      d8, [sp], #0x30
+00000000032fa56c: 60001fd6 br       x3
+00000000032fa570: 39f5a997 bl       #0x1d77a54
+00000000032fa574: e00314aa mov      x0, x20
+00000000032fa578: e7f6a997 bl       #0x1d78114
+
+; private void MakeCtrlLine(string text, float y) { }
+; token=0x60013BF file_offset=0x32F6268 tool_rva=0x32F6268 length=0x16C
+00000000032fa268: ff8301d1 sub      sp, sp, #0x60
+00000000032fa26c: ec0b00fd str      d12, [sp, #0x10]
+00000000032fa270: ebab016d stp      d11, d10, [sp, #0x18]
+00000000032fa274: e9a3026d stp      d9, d8, [sp, #0x28]
+00000000032fa278: fe1f00f9 str      x30, [sp, #0x38]
+00000000032fa27c: f65704a9 stp      x22, x21, [sp, #0x40]
+00000000032fa280: f44f05a9 stp      x20, x19, [sp, #0x50]
+00000000032fa284: 0840201e fmov     s8, s0
+00000000032fa288: 16a500b0 adrp     x22, #0x479b000
+00000000032fa28c: 158e00f0 adrp     x21, #0x44bd000
+00000000032fa290: c8fe4239 ldrb     w8, [x22, #0xbf]
+00000000032fa294: b58647f9 ldr      x21, [x21, #0xf08]
+00000000032fa298: f30301aa mov      x19, x1
+00000000032fa29c: f40300aa mov      x20, x0
+00000000032fa2a0: 88010037 tbnz     w8, #0, #0x32fa2d0
+00000000032fa2a4: 008e00f0 adrp     x0, #0x44bd000
+00000000032fa2a8: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032fa2ac: edf5a997 bl       #0x1d77a60
+00000000032fa2b0: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa2b4: 004843f9 ldr      x0, [x0, #0x690]
+00000000032fa2b8: eaf5a997 bl       #0x1d77a60
+00000000032fa2bc: 008e00f0 adrp     x0, #0x44bd000
+00000000032fa2c0: 00c047f9 ldr      x0, [x0, #0xf80]
+00000000032fa2c4: e7f5a997 bl       #0x1d77a60
+00000000032fa2c8: 28008052 mov      w8, #1
+00000000032fa2cc: c8fe0239 strb     w8, [x22, #0xbf]
+00000000032fa2d0: a00240f9 ldr      x0, [x21]
+00000000032fa2d4: f68d00f0 adrp     x22, #0x44b9000
+00000000032fa2d8: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032fa2dc: d64a43f9 ldr      x22, [x22, #0x690]
+00000000032fa2e0: 941640f9 ldr      x20, [x20, #0x28]
+00000000032fa2e4: 68000035 cbnz     w8, #0x32fa2f0
+00000000032fa2e8: 2bf6a997 bl       #0x1d77b94
+00000000032fa2ec: a00240f9 ldr      x0, [x21]
+00000000032fa2f0: 085040f9 ldr      x8, [x0, #0xa0]
+00000000032fa2f4: c00240f9 ldr      x0, [x22]
+00000000032fa2f8: 158e00f0 adrp     x21, #0x44bd000
+00000000032fa2fc: b5c247f9 ldr      x21, [x21, #0xf80]
+00000000032fa300: 09294a2d ldp      s9, s10, [x8, #0x50]
+00000000032fa304: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000032fa308: 0b314b2d ldp      s11, s12, [x8, #0x58]
+00000000032fa30c: 49000035 cbnz     w9, #0x32fa314
+00000000032fa310: 21f6a997 bl       #0x1d77b94
+00000000032fa314: 0941a852 mov      w9, #0x42080000
+00000000032fa318: 05e4002f movi     d5, #0000000000000000
+00000000032fa31c: 2141201e fmov     s1, s9
+00000000032fa320: 4241201e fmov     s2, s10
+00000000032fa324: 6341201e fmov     s3, s11
+00000000032fa328: a00240f9 ldr      x0, [x21]
+00000000032fa32c: 8441201e fmov     s4, s12
+00000000032fa330: 0641201e fmov     s6, s8
+00000000032fa334: c887a8d2 mov      x8, #0x443e0000
+00000000032fa338: 2001271e fmov     s0, w9
+00000000032fa33c: 084ce8f2 movk     x8, #0x4260, lsl #48
+00000000032fa340: e10314aa mov      x1, x20
+00000000032fa344: e20313aa mov      x2, x19
+00000000032fa348: e3031faa mov      x3, xzr
+00000000032fa34c: e80300f9 str      x8, [sp]
+00000000032fa350: f21a0594 bl       #0x3440f18 ; UiFactory :: public static TMP_Text MakeText(string name, RectTransform parent, string text, float size, Color color, Vector2 pos, Vector2 sizeDelta) { }
+00000000032fa354: e00300b4 cbz      x0, #0x32fa3d0
+00000000032fa358: e1031f2a mov      w1, wzr
+00000000032fa35c: e2031faa mov      x2, xzr
+00000000032fa360: f30300aa mov      x19, x0
+00000000032fa364: 89d42e94 bl       #0x3eaf588 ; TMP_Text :: public void set_enableWordWrapping(bool value) { }
+00000000032fa368: e00313aa mov      x0, x19
+00000000032fa36c: 21008052 mov      w1, #1
+00000000032fa370: e2031faa mov      x2, xzr
+00000000032fa374: 57d32e94 bl       #0x3eaf0d0 ; TMP_Text :: public void set_enableAutoSizing(bool value) { }
+00000000032fa378: 0010271e fmov     s0, #24.00000000
+00000000032fa37c: e00313aa mov      x0, x19
+00000000032fa380: e1031faa mov      x1, xzr
+00000000032fa384: 67d32e94 bl       #0x3eaf120 ; TMP_Text :: public void set_fontSizeMin(float value) { }
+00000000032fa388: 0841a852 mov      w8, #0x42080000
+00000000032fa38c: e00313aa mov      x0, x19
+00000000032fa390: e1031faa mov      x1, xzr
+00000000032fa394: 0001271e fmov     s0, w8
+00000000032fa398: 75d32e94 bl       #0x3eaf16c ; TMP_Text :: public void set_fontSizeMax(float value) { }
+00000000032fa39c: 680240f9 ldr      x8, [x19]
+00000000032fa3a0: e00313aa mov      x0, x19
+00000000032fa3a4: fe1f40f9 ldr      x30, [sp, #0x38]
+00000000032fa3a8: f44f45a9 ldp      x20, x19, [sp, #0x50]
+00000000032fa3ac: e1031f2a mov      w1, wzr
+00000000032fa3b0: f65744a9 ldp      x22, x21, [sp, #0x40]
+00000000032fa3b4: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032fa3b8: e9a3426d ldp      d9, d8, [sp, #0x28]
+00000000032fa3bc: 036541f9 ldr      x3, [x8, #0x2c8]
+00000000032fa3c0: ec0b40fd ldr      d12, [sp, #0x10]
+00000000032fa3c4: ebab416d ldp      d11, d10, [sp, #0x18]
+00000000032fa3c8: ff830191 add      sp, sp, #0x60
+00000000032fa3cc: 60001fd6 br       x3
+00000000032fa3d0: a1f5a997 bl       #0x1d77a54
+
+; private void MakeRuleRow(string text, Color dotColor, float y) { }
+; token=0x60013BE file_offset=0x32F5EBC tool_rva=0x32F5EBC length=0x3AC
+00000000032f9ebc: ff0302d1 sub      sp, sp, #0x80
+00000000032f9ec0: ec0b00fd str      d12, [sp, #0x10]
+00000000032f9ec4: eb2b026d stp      d11, d10, [sp, #0x20]
+00000000032f9ec8: e923036d stp      d9, d8, [sp, #0x30]
+00000000032f9ecc: fe6704a9 stp      x30, x25, [sp, #0x40]
+00000000032f9ed0: f85f05a9 stp      x24, x23, [sp, #0x50]
+00000000032f9ed4: f65706a9 stp      x22, x21, [sp, #0x60]
+00000000032f9ed8: f44f07a9 stp      x20, x19, [sp, #0x70]
+00000000032f9edc: 8c40201e fmov     s12, s4
+00000000032f9ee0: 6840201e fmov     s8, s3
+00000000032f9ee4: 16a500d0 adrp     x22, #0x479b000
+00000000032f9ee8: 4940201e fmov     s9, s2
+00000000032f9eec: 2a40201e fmov     s10, s1
+00000000032f9ef0: 158e0090 adrp     x21, #0x44b9000
+00000000032f9ef4: 0b40201e fmov     s11, s0
+00000000032f9ef8: c8fa4239 ldrb     w8, [x22, #0xbe]
+00000000032f9efc: b54a43f9 ldr      x21, [x21, #0x690]
+00000000032f9f00: f30301aa mov      x19, x1
+00000000032f9f04: f40300aa mov      x20, x0
+00000000032f9f08: 08030037 tbnz     w8, #0, #0x32f9f68
+00000000032f9f0c: 008e0090 adrp     x0, #0x44b9000
+00000000032f9f10: 005443f9 ldr      x0, [x0, #0x6a8]
+00000000032f9f14: d3f6a997 bl       #0x1d77a60
+00000000032f9f18: 008e0090 adrp     x0, #0x44b9000
+00000000032f9f1c: 005843f9 ldr      x0, [x0, #0x6b0]
+00000000032f9f20: d0f6a997 bl       #0x1d77a60
+00000000032f9f24: 208e0090 adrp     x0, #0x44bd000
+00000000032f9f28: 008447f9 ldr      x0, [x0, #0xf08]
+00000000032f9f2c: cdf6a997 bl       #0x1d77a60
+00000000032f9f30: 008e0090 adrp     x0, #0x44b9000
+00000000032f9f34: 004843f9 ldr      x0, [x0, #0x690]
+00000000032f9f38: caf6a997 bl       #0x1d77a60
+00000000032f9f3c: 008e0090 adrp     x0, #0x44b9000
+00000000032f9f40: 007c46f9 ldr      x0, [x0, #0xcf8]
+00000000032f9f44: c7f6a997 bl       #0x1d77a60
+00000000032f9f48: 208e0090 adrp     x0, #0x44bd000
+00000000032f9f4c: 00b847f9 ldr      x0, [x0, #0xf70]
+00000000032f9f50: c4f6a997 bl       #0x1d77a60
+00000000032f9f54: 208e0090 adrp     x0, #0x44bd000
+00000000032f9f58: 00bc47f9 ldr      x0, [x0, #0xf78]
+00000000032f9f5c: c1f6a997 bl       #0x1d77a60
+00000000032f9f60: 28008052 mov      w8, #1
+00000000032f9f64: c8fa0239 strb     w8, [x22, #0xbe]
+00000000032f9f68: a00240f9 ldr      x0, [x21]
+00000000032f9f6c: 358e0090 adrp     x21, #0x44bd000
+00000000032f9f70: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9f74: b5be47f9 ldr      x21, [x21, #0xf78]
+00000000032f9f78: 941640f9 ldr      x20, [x20, #0x28]
+00000000032f9f7c: 48000035 cbnz     w8, #0x32f9f84
+00000000032f9f80: 05f7a997 bl       #0x1d77b94
+00000000032f9f84: a00240f9 ldr      x0, [x21]
+00000000032f9f88: e10314aa mov      x1, x20
+00000000032f9f8c: e2031faa mov      x2, xzr
+00000000032f9f90: 3e090594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032f9f94: 001600b4 cbz      x0, #0x32fa254
+00000000032f9f98: e1031faa mov      x1, xzr
+00000000032f9f9c: f50300aa mov      x21, x0
+00000000032f9fa0: f4a03194 bl       #0x3f62370
+00000000032f9fa4: 801500b4 cbz      x0, #0x32fa254
+00000000032f9fa8: 198e0090 adrp     x25, #0x44b9000
+00000000032f9fac: f40300aa mov      x20, x0
+00000000032f9fb0: 395b43f9 ldr      x25, [x25, #0x6b0]
+00000000032f9fb4: 080040f9 ldr      x8, [x0]
+00000000032f9fb8: 210340f9 ldr      x1, [x25]
+00000000032f9fbc: 1f0101eb cmp      x8, x1
+00000000032f9fc0: c1140054 b.ne     #0x32fa258
+00000000032f9fc4: 00102c1e fmov     s0, #0.50000000
+00000000032f9fc8: 01102c1e fmov     s1, #0.50000000
+00000000032f9fcc: 188e0090 adrp     x24, #0x44b9000
+00000000032f9fd0: 378e0090 adrp     x23, #0x44bd000
+00000000032f9fd4: 185743f9 ldr      x24, [x24, #0x6a8]
+00000000032f9fd8: e00314aa mov      x0, x20
+00000000032f9fdc: f78647f9 ldr      x23, [x23, #0xf08]
+00000000032f9fe0: e1031faa mov      x1, xzr
+00000000032f9fe4: acd53194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032f9fe8: 00102c1e fmov     s0, #0.50000000
+00000000032f9fec: 01102c1e fmov     s1, #0.50000000
+00000000032f9ff0: e00314aa mov      x0, x20
+00000000032f9ff4: e1031faa mov      x1, xzr
+00000000032f9ff8: 46d53194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032f9ffc: 2887a852 mov      w8, #0x44390000
+00000000032fa000: 0959a852 mov      w9, #0x42c80000
+00000000032fa004: e00314aa mov      x0, x20
+00000000032fa008: 0001271e fmov     s0, w8
+00000000032fa00c: 2101271e fmov     s1, w9
+00000000032fa010: e1031faa mov      x1, xzr
+00000000032fa014: 62d63194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032fa018: 00e4002f movi     d0, #0000000000000000
+00000000032fa01c: 8141201e fmov     s1, s12
+00000000032fa020: e00314aa mov      x0, x20
+00000000032fa024: e1031faa mov      x1, xzr
+00000000032fa028: fcd53194 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+00000000032fa02c: 010340f9 ldr      x1, [x24]
+00000000032fa030: e00315aa mov      x0, x21
+00000000032fa034: f6c4bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032fa038: e80240f9 ldr      x8, [x23]
+00000000032fa03c: f50300aa mov      x21, x0
+00000000032fa040: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032fa044: 89000035 cbnz     w9, #0x32fa054
+00000000032fa048: e00308aa mov      x0, x8
+00000000032fa04c: d2f6a997 bl       #0x1d77b94
+00000000032fa050: e80240f9 ldr      x8, [x23]
+00000000032fa054: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032fa058: e00315aa mov      x0, x21
+00000000032fa05c: e1031faa mov      x1, xzr
+00000000032fa060: 0005462d ldp      s0, s1, [x8, #0x30]
+00000000032fa064: 020d472d ldp      s2, s3, [x8, #0x38]
+00000000032fa068: 56070594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032fa06c: 550f00b4 cbz      x21, #0x32fa254
+00000000032fa070: a80240f9 ldr      x8, [x21]
+00000000032fa074: 168e00f0 adrp     x22, #0x44bd000
+00000000032fa078: e00315aa mov      x0, x21
+00000000032fa07c: d6ba47f9 ldr      x22, [x22, #0xf70]
+00000000032fa080: e1031f2a mov      w1, wzr
+00000000032fa084: 096541f9 ldr      x9, [x8, #0x2c8]
+00000000032fa088: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032fa08c: 20013fd6 blr      x9
+00000000032fa090: c00240f9 ldr      x0, [x22]
+00000000032fa094: e10314aa mov      x1, x20
+00000000032fa098: e2031faa mov      x2, xzr
+00000000032fa09c: fb080594 bl       #0x343c488 ; UiFactory :: public static GameObject NewRect(string name, RectTransform parent) { }
+00000000032fa0a0: a00d00b4 cbz      x0, #0x32fa254
+00000000032fa0a4: e1031faa mov      x1, xzr
+00000000032fa0a8: f50300aa mov      x21, x0
+00000000032fa0ac: b1a03194 bl       #0x3f62370
+00000000032fa0b0: 200d00b4 cbz      x0, #0x32fa254
+00000000032fa0b4: 210340f9 ldr      x1, [x25]
+00000000032fa0b8: 080040f9 ldr      x8, [x0]
+00000000032fa0bc: f60300aa mov      x22, x0
+00000000032fa0c0: 1f0101eb cmp      x8, x1
+00000000032fa0c4: e10c0054 b.ne     #0x32fa260
+00000000032fa0c8: 00e4002f movi     d0, #0000000000000000
+00000000032fa0cc: 01102c1e fmov     s1, #0.50000000
+00000000032fa0d0: e00316aa mov      x0, x22
+00000000032fa0d4: e1031faa mov      x1, xzr
+00000000032fa0d8: 6fd53194 bl       #0x3f6f694 ; RectTransform :: public void set_anchorMax(Vector2 value) { }
+00000000032fa0dc: 00e4002f movi     d0, #0000000000000000
+00000000032fa0e0: 01102c1e fmov     s1, #0.50000000
+00000000032fa0e4: e00316aa mov      x0, x22
+00000000032fa0e8: e1031faa mov      x1, xzr
+00000000032fa0ec: 09d53194 bl       #0x3f6f510 ; RectTransform :: public void set_anchorMin(Vector2 value) { }
+00000000032fa0f0: 00102c1e fmov     s0, #0.50000000
+00000000032fa0f4: 01102c1e fmov     s1, #0.50000000
+00000000032fa0f8: e00316aa mov      x0, x22
+00000000032fa0fc: e1031faa mov      x1, xzr
+00000000032fa100: 88d63194 bl       #0x3f6fb20 ; RectTransform :: public void set_pivot(Vector2 value) { }
+00000000032fa104: 0847a852 mov      w8, #0x42380000
+00000000032fa108: e00316aa mov      x0, x22
+00000000032fa10c: e1031faa mov      x1, xzr
+00000000032fa110: 0001271e fmov     s0, w8
+00000000032fa114: 0140201e fmov     s1, s0
+00000000032fa118: 21d63194 bl       #0x3f6f99c ; RectTransform :: public void set_sizeDelta(Vector2 value) { }
+00000000032fa11c: 01e4002f movi     d1, #0000000000000000
+00000000032fa120: 8850a852 mov      w8, #0x42840000
+00000000032fa124: e00316aa mov      x0, x22
+00000000032fa128: 0001271e fmov     s0, w8
+00000000032fa12c: e1031faa mov      x1, xzr
+00000000032fa130: bad53194 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+00000000032fa134: 010340f9 ldr      x1, [x24]
+00000000032fa138: e00315aa mov      x0, x21
+00000000032fa13c: b4c4bc97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+00000000032fa140: 6041201e fmov     s0, s11
+00000000032fa144: 4141201e fmov     s1, s10
+00000000032fa148: e1031faa mov      x1, xzr
+00000000032fa14c: 2241201e fmov     s2, s9
+00000000032fa150: 0341201e fmov     s3, s8
+00000000032fa154: f50300aa mov      x21, x0
+00000000032fa158: 1a070594 bl       #0x343bdc0 ; UiFactory :: public static void SetRounded(Image img, Color color) { }
+00000000032fa15c: d50700b4 cbz      x21, #0x32fa254
+00000000032fa160: a80240f9 ldr      x8, [x21]
+00000000032fa164: f68d00f0 adrp     x22, #0x44b9000
+00000000032fa168: e00315aa mov      x0, x21
+00000000032fa16c: d67e46f9 ldr      x22, [x22, #0xcf8]
+00000000032fa170: e1031f2a mov      w1, wzr
+00000000032fa174: 096541f9 ldr      x9, [x8, #0x2c8]
+00000000032fa178: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032fa17c: 20013fd6 blr      x9
+00000000032fa180: e80240f9 ldr      x8, [x23]
+00000000032fa184: 06e4002f movi     d6, #0000000000000000
+00000000032fa188: c00240f9 ldr      x0, [x22]
+00000000032fa18c: c982a8d2 mov      x9, #0x44160000
+00000000032fa190: e10314aa mov      x1, x20
+00000000032fa194: e20313aa mov      x2, x19
+00000000032fa198: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032fa19c: 0956e8f2 movk     x9, #0x42b0, lsl #48
+00000000032fa1a0: e3031faa mov      x3, xzr
+00000000032fa1a4: 0109482d ldp      s1, s2, [x8, #0x40]
+00000000032fa1a8: 0311492d ldp      s3, s4, [x8, #0x48]
+00000000032fa1ac: 0841a852 mov      w8, #0x42080000
+00000000032fa1b0: 0001271e fmov     s0, w8
+00000000032fa1b4: 0855a852 mov      w8, #0x42a80000
+00000000032fa1b8: e90300f9 str      x9, [sp]
+00000000032fa1bc: 0501271e fmov     s5, w8
+00000000032fa1c0: 561b0594 bl       #0x3440f18 ; UiFactory :: public static TMP_Text MakeText(string name, RectTransform parent, string text, float size, Color color, Vector2 pos, Vector2 sizeDelta) { }
+00000000032fa1c4: 800400b4 cbz      x0, #0x32fa254
+00000000032fa1c8: 21408052 mov      w1, #0x201
+00000000032fa1cc: e2031faa mov      x2, xzr
+00000000032fa1d0: f30300aa mov      x19, x0
+00000000032fa1d4: 2ed42e94 bl       #0x3eaf28c ; TMP_Text :: public void set_alignment(TextAlignmentOptions value) { }
+00000000032fa1d8: e00313aa mov      x0, x19
+00000000032fa1dc: 21008052 mov      w1, #1
+00000000032fa1e0: e2031faa mov      x2, xzr
+00000000032fa1e4: e9d42e94 bl       #0x3eaf588 ; TMP_Text :: public void set_enableWordWrapping(bool value) { }
+00000000032fa1e8: e00313aa mov      x0, x19
+00000000032fa1ec: 21008052 mov      w1, #1
+00000000032fa1f0: e2031faa mov      x2, xzr
+00000000032fa1f4: b7d32e94 bl       #0x3eaf0d0 ; TMP_Text :: public void set_enableAutoSizing(bool value) { }
+00000000032fa1f8: 00d0261e fmov     s0, #22.00000000
+00000000032fa1fc: e00313aa mov      x0, x19
+00000000032fa200: e1031faa mov      x1, xzr
+00000000032fa204: c7d32e94 bl       #0x3eaf120 ; TMP_Text :: public void set_fontSizeMin(float value) { }
+00000000032fa208: 0841a852 mov      w8, #0x42080000
+00000000032fa20c: e00313aa mov      x0, x19
+00000000032fa210: e1031faa mov      x1, xzr
+00000000032fa214: 0001271e fmov     s0, w8
+00000000032fa218: d5d32e94 bl       #0x3eaf16c ; TMP_Text :: public void set_fontSizeMax(float value) { }
+00000000032fa21c: 680240f9 ldr      x8, [x19]
+00000000032fa220: e00313aa mov      x0, x19
+00000000032fa224: ec0b40fd ldr      d12, [sp, #0x10]
+00000000032fa228: f44f47a9 ldp      x20, x19, [sp, #0x70]
+00000000032fa22c: e1031f2a mov      w1, wzr
+00000000032fa230: f65746a9 ldp      x22, x21, [sp, #0x60]
+00000000032fa234: 026941f9 ldr      x2, [x8, #0x2d0]
+00000000032fa238: f85f45a9 ldp      x24, x23, [sp, #0x50]
+00000000032fa23c: 036541f9 ldr      x3, [x8, #0x2c8]
+00000000032fa240: fe6744a9 ldp      x30, x25, [sp, #0x40]
+00000000032fa244: e923436d ldp      d9, d8, [sp, #0x30]
+00000000032fa248: eb2b426d ldp      d11, d10, [sp, #0x20]
+00000000032fa24c: ff030291 add      sp, sp, #0x80
+00000000032fa250: 60001fd6 br       x3
+00000000032fa254: 00f6a997 bl       #0x1d77a54
+00000000032fa258: e00314aa mov      x0, x20
+00000000032fa25c: aef7a997 bl       #0x1d78114
+00000000032fa260: e00316aa mov      x0, x22
+00000000032fa264: acf7a997 bl       #0x1d78114
+
+; private void RefreshText() { }
+; token=0x60013C2 file_offset=0x32F57E0 tool_rva=0x32F57E0 length=0x360
+00000000032f97e0: fd7bbaa9 stp      x29, x30, [sp, #-0x60]!
+00000000032f97e4: fc6f01a9 stp      x28, x27, [sp, #0x10]
+00000000032f97e8: fa6702a9 stp      x26, x25, [sp, #0x20]
+00000000032f97ec: f85f03a9 stp      x24, x23, [sp, #0x30]
+00000000032f97f0: f65704a9 stp      x22, x21, [sp, #0x40]
+00000000032f97f4: f44f05a9 stp      x20, x19, [sp, #0x50]
+00000000032f97f8: 14a500d0 adrp     x20, #0x479b000
+00000000032f97fc: 758d00f0 adrp     x21, #0x44a8000
+00000000032f9800: f30300aa mov      x19, x0
+00000000032f9804: 880a4339 ldrb     w8, [x20, #0xc2]
+00000000032f9808: b56245f9 ldr      x21, [x21, #0xac0]
+00000000032f980c: 08060037 tbnz     w8, #0, #0x32f98cc
+00000000032f9810: 008e00b0 adrp     x0, #0x44ba000
+00000000032f9814: 00a841f9 ldr      x0, [x0, #0x350]
+00000000032f9818: 92f8a997 bl       #0x1d77a60
+00000000032f981c: e08d00d0 adrp     x0, #0x44b7000
+00000000032f9820: 00ec45f9 ldr      x0, [x0, #0xbd8]
+00000000032f9824: 8ff8a997 bl       #0x1d77a60
+00000000032f9828: 608d00f0 adrp     x0, #0x44a8000
+00000000032f982c: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f9830: 8cf8a997 bl       #0x1d77a60
+00000000032f9834: 208e0090 adrp     x0, #0x44bd000
+00000000032f9838: 008847f9 ldr      x0, [x0, #0xf10]
+00000000032f983c: 89f8a997 bl       #0x1d77a60
+00000000032f9840: 008e00f0 adrp     x0, #0x44bc000
+00000000032f9844: 008442f9 ldr      x0, [x0, #0x508]
+00000000032f9848: 86f8a997 bl       #0x1d77a60
+00000000032f984c: 208e0090 adrp     x0, #0x44bd000
+00000000032f9850: 008c47f9 ldr      x0, [x0, #0xf18]
+00000000032f9854: 83f8a997 bl       #0x1d77a60
+00000000032f9858: 208e0090 adrp     x0, #0x44bd000
+00000000032f985c: 009047f9 ldr      x0, [x0, #0xf20]
+00000000032f9860: 80f8a997 bl       #0x1d77a60
+00000000032f9864: 008e0090 adrp     x0, #0x44b9000
+00000000032f9868: 00a043f9 ldr      x0, [x0, #0x740]
+00000000032f986c: 7df8a997 bl       #0x1d77a60
+00000000032f9870: 808d00d0 adrp     x0, #0x44ab000
+00000000032f9874: 008c45f9 ldr      x0, [x0, #0xb18]
+00000000032f9878: 7af8a997 bl       #0x1d77a60
+00000000032f987c: 208e0090 adrp     x0, #0x44bd000
+00000000032f9880: 009447f9 ldr      x0, [x0, #0xf28]
+00000000032f9884: 77f8a997 bl       #0x1d77a60
+00000000032f9888: 208e0090 adrp     x0, #0x44bd000
+00000000032f988c: 009847f9 ldr      x0, [x0, #0xf30]
+00000000032f9890: 74f8a997 bl       #0x1d77a60
+00000000032f9894: 208e0090 adrp     x0, #0x44bd000
+00000000032f9898: 009c47f9 ldr      x0, [x0, #0xf38]
+00000000032f989c: 71f8a997 bl       #0x1d77a60
+00000000032f98a0: 208e0090 adrp     x0, #0x44bd000
+00000000032f98a4: 00a047f9 ldr      x0, [x0, #0xf40]
+00000000032f98a8: 6ef8a997 bl       #0x1d77a60
+00000000032f98ac: 208e0090 adrp     x0, #0x44bd000
+00000000032f98b0: 00ac47f9 ldr      x0, [x0, #0xf58]
+00000000032f98b4: 6bf8a997 bl       #0x1d77a60
+00000000032f98b8: 208e0090 adrp     x0, #0x44bd000
+00000000032f98bc: 00b047f9 ldr      x0, [x0, #0xf60]
+00000000032f98c0: 68f8a997 bl       #0x1d77a60
+00000000032f98c4: 28008052 mov      w8, #1
+00000000032f98c8: 880a0339 strb     w8, [x20, #0xc2]
+00000000032f98cc: a00240f9 ldr      x0, [x21]
+00000000032f98d0: 741640f9 ldr      x20, [x19, #0x28]
+00000000032f98d4: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f98d8: 48000035 cbnz     w8, #0x32f98e0
+00000000032f98dc: aef8a997 bl       #0x1d77b94
+00000000032f98e0: e00314aa mov      x0, x20
+00000000032f98e4: e1031faa mov      x1, xzr
+00000000032f98e8: e2031faa mov      x2, xzr
+00000000032f98ec: f4a63194 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000032f98f0: 80110037 tbnz     w0, #0, #0x32f9b20
+00000000032f98f4: e88d00d0 adrp     x8, #0x44b7000
+00000000032f98f8: 348e0090 adrp     x20, #0x44bd000
+00000000032f98fc: 9d8d00d0 adrp     x29, #0x44ab000
+00000000032f9900: 08ed45f9 ldr      x8, [x8, #0xbd8]
+00000000032f9904: 3c8e0090 adrp     x28, #0x44bd000
+00000000032f9908: 3b8e0090 adrp     x27, #0x44bd000
+00000000032f990c: 3a8e0090 adrp     x26, #0x44bd000
+00000000032f9910: 398e0090 adrp     x25, #0x44bd000
+00000000032f9914: 94b247f9 ldr      x20, [x20, #0xf60]
+00000000032f9918: bd8f45f9 ldr      x29, [x29, #0xb18]
+00000000032f991c: 9c9f47f9 ldr      x28, [x28, #0xf38]
+00000000032f9920: 7ba347f9 ldr      x27, [x27, #0xf40]
+00000000032f9924: 5a8b47f9 ldr      x26, [x26, #0xf10]
+00000000032f9928: 39af47f9 ldr      x25, [x25, #0xf58]
+00000000032f992c: 000140f9 ldr      x0, [x8]
+00000000032f9930: 388e0090 adrp     x24, #0x44bd000
+00000000032f9934: 378e0090 adrp     x23, #0x44bd000
+00000000032f9938: 368e0090 adrp     x22, #0x44bd000
+00000000032f993c: 189347f9 ldr      x24, [x24, #0xf20]
+00000000032f9940: f78e47f9 ldr      x23, [x23, #0xf18]
+00000000032f9944: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9948: d69647f9 ldr      x22, [x22, #0xf28]
+00000000032f994c: 48000035 cbnz     w8, #0x32f9954
+00000000032f9950: 91f8a997 bl       #0x1d77b94
+00000000032f9954: 800240f9 ldr      x0, [x20]
+00000000032f9958: e1031faa mov      x1, xzr
+00000000032f995c: 866d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9960: a10340f9 ldr      x1, [x29]
+00000000032f9964: e20300aa mov      x2, x0
+00000000032f9968: e00313aa mov      x0, x19
+00000000032f996c: 04030094 bl       #0x32fa57c ; TipPopup :: private void SetText(string childName, string value) { }
+00000000032f9970: 800340f9 ldr      x0, [x28]
+00000000032f9974: e1031faa mov      x1, xzr
+00000000032f9978: 7f6d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f997c: e20300aa mov      x2, x0
+00000000032f9980: e00313aa mov      x0, x19
+00000000032f9984: e1031f2a mov      w1, wzr
+00000000032f9988: 40030094 bl       #0x32fa688 ; TipPopup :: private void SetRule(int index, string value) { }
+00000000032f998c: 600340f9 ldr      x0, [x27]
+00000000032f9990: e1031faa mov      x1, xzr
+00000000032f9994: 786d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9998: e20300aa mov      x2, x0
+00000000032f999c: e00313aa mov      x0, x19
+00000000032f99a0: 21008052 mov      w1, #1
+00000000032f99a4: 39030094 bl       #0x32fa688 ; TipPopup :: private void SetRule(int index, string value) { }
+00000000032f99a8: 400340f9 ldr      x0, [x26]
+00000000032f99ac: e1031faa mov      x1, xzr
+00000000032f99b0: 716d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f99b4: e20300aa mov      x2, x0
+00000000032f99b8: e00313aa mov      x0, x19
+00000000032f99bc: 41008052 mov      w1, #2
+00000000032f99c0: 32030094 bl       #0x32fa688 ; TipPopup :: private void SetRule(int index, string value) { }
+00000000032f99c4: 200340f9 ldr      x0, [x25]
+00000000032f99c8: e1031faa mov      x1, xzr
+00000000032f99cc: 6a6d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f99d0: 010340f9 ldr      x1, [x24]
+00000000032f99d4: e20300aa mov      x2, x0
+00000000032f99d8: e00313aa mov      x0, x19
+00000000032f99dc: e8020094 bl       #0x32fa57c ; TipPopup :: private void SetText(string childName, string value) { }
+00000000032f99e0: e00240f9 ldr      x0, [x23]
+00000000032f99e4: e1031faa mov      x1, xzr
+00000000032f99e8: 636d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f99ec: e20300aa mov      x2, x0
+00000000032f99f0: e00313aa mov      x0, x19
+00000000032f99f4: e1031f2a mov      w1, wzr
+00000000032f99f8: 1b040094 bl       #0x32faa64 ; TipPopup :: private void SetCtrl(int index, string value) { }
+00000000032f99fc: c00240f9 ldr      x0, [x22]
+00000000032f9a00: e1031faa mov      x1, xzr
+00000000032f9a04: 5c6d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9a08: e20300aa mov      x2, x0
+00000000032f9a0c: e00313aa mov      x0, x19
+00000000032f9a10: 21008052 mov      w1, #1
+00000000032f9a14: 14040094 bl       #0x32faa64 ; TipPopup :: private void SetCtrl(int index, string value) { }
+00000000032f9a18: 601640f9 ldr      x0, [x19, #0x28]
+00000000032f9a1c: 000900b4 cbz      x0, #0x32f9b3c
+00000000032f9a20: 088e00f0 adrp     x8, #0x44bc000
+00000000032f9a24: e2031faa mov      x2, xzr
+00000000032f9a28: 088542f9 ldr      x8, [x8, #0x508]
+00000000032f9a2c: 010140f9 ldr      x1, [x8]
+00000000032f9a30: 38e23194 bl       #0x3f72310 ; Transform :: public Transform Find(string n) { }
+00000000032f9a34: a80240f9 ldr      x8, [x21]
+00000000032f9a38: f30300aa mov      x19, x0
+00000000032f9a3c: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032f9a40: 69000035 cbnz     w9, #0x32f9a4c
+00000000032f9a44: e00308aa mov      x0, x8
+00000000032f9a48: 53f8a997 bl       #0x1d77b94
+00000000032f9a4c: e00313aa mov      x0, x19
+00000000032f9a50: e1031faa mov      x1, xzr
+00000000032f9a54: e2031faa mov      x2, xzr
+00000000032f9a58: b1a13194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f9a5c: 20060036 tbz      w0, #0, #0x32f9b20
+00000000032f9a60: f30600b4 cbz      x19, #0x32f9b3c
+00000000032f9a64: 088e0090 adrp     x8, #0x44b9000
+00000000032f9a68: e00313aa mov      x0, x19
+00000000032f9a6c: e2031faa mov      x2, xzr
+00000000032f9a70: 08a143f9 ldr      x8, [x8, #0x740]
+00000000032f9a74: 010140f9 ldr      x1, [x8]
+00000000032f9a78: 26e23194 bl       #0x3f72310 ; Transform :: public Transform Find(string n) { }
+00000000032f9a7c: e00000b4 cbz      x0, #0x32f9a98
+00000000032f9a80: 088e00b0 adrp     x8, #0x44ba000
+00000000032f9a84: 08a941f9 ldr      x8, [x8, #0x350]
+00000000032f9a88: 010140f9 ldr      x1, [x8]
+00000000032f9a8c: 6107bb97 bl       #0x21bb810 ; Component :: public T GetComponent() { }
+00000000032f9a90: f30300aa mov      x19, x0
+00000000032f9a94: 02000014 b        #0x32f9a9c
+00000000032f9a98: f3031faa mov      x19, xzr
+00000000032f9a9c: a00240f9 ldr      x0, [x21]
+00000000032f9aa0: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9aa4: 48000035 cbnz     w8, #0x32f9aac
+00000000032f9aa8: 3bf8a997 bl       #0x1d77b94
+00000000032f9aac: e00313aa mov      x0, x19
+00000000032f9ab0: e1031faa mov      x1, xzr
+00000000032f9ab4: e2031faa mov      x2, xzr
+00000000032f9ab8: 99a13194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032f9abc: 20030036 tbz      w0, #0, #0x32f9b20
+00000000032f9ac0: e88d00d0 adrp     x8, #0x44b7000
+00000000032f9ac4: 08ed45f9 ldr      x8, [x8, #0xbd8]
+00000000032f9ac8: 000140f9 ldr      x0, [x8]
+00000000032f9acc: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f9ad0: 48000035 cbnz     w8, #0x32f9ad8
+00000000032f9ad4: 30f8a997 bl       #0x1d77b94
+00000000032f9ad8: 288e0090 adrp     x8, #0x44bd000
+00000000032f9adc: e1031faa mov      x1, xzr
+00000000032f9ae0: 089947f9 ldr      x8, [x8, #0xf30]
+00000000032f9ae4: 000140f9 ldr      x0, [x8]
+00000000032f9ae8: 236d0494 bl       #0x3414f74 ; Loc :: public static string Get(string key) { }
+00000000032f9aec: 930200b4 cbz      x19, #0x32f9b3c
+00000000032f9af0: 680240f9 ldr      x8, [x19]
+00000000032f9af4: e10300aa mov      x1, x0
+00000000032f9af8: e00313aa mov      x0, x19
+00000000032f9afc: f44f45a9 ldp      x20, x19, [sp, #0x50]
+00000000032f9b00: f65744a9 ldp      x22, x21, [sp, #0x40]
+00000000032f9b04: 02b142f9 ldr      x2, [x8, #0x560]
+00000000032f9b08: f85f43a9 ldp      x24, x23, [sp, #0x30]
+00000000032f9b0c: 03ad42f9 ldr      x3, [x8, #0x558]
+00000000032f9b10: fa6742a9 ldp      x26, x25, [sp, #0x20]
+00000000032f9b14: fc6f41a9 ldp      x28, x27, [sp, #0x10]
+00000000032f9b18: fd7bc6a8 ldp      x29, x30, [sp], #0x60
+00000000032f9b1c: 60001fd6 br       x3
+00000000032f9b20: f44f45a9 ldp      x20, x19, [sp, #0x50]
+00000000032f9b24: f65744a9 ldp      x22, x21, [sp, #0x40]
+00000000032f9b28: f85f43a9 ldp      x24, x23, [sp, #0x30]
+00000000032f9b2c: fa6742a9 ldp      x26, x25, [sp, #0x20]
+00000000032f9b30: fc6f41a9 ldp      x28, x27, [sp, #0x10]
+00000000032f9b34: fd7bc6a8 ldp      x29, x30, [sp], #0x60
+00000000032f9b38: c0035fd6 ret      
+00000000032f9b3c: c6f7a997 bl       #0x1d77a54
+
+; private void SetCtrl(int index, string value) { }
+; token=0x60013C3 file_offset=0x32F6A64 tool_rva=0x32F6A64 length=0x3AC
+00000000032faa64: ff0302d1 sub      sp, sp, #0x80
+00000000032faa68: fe1b00f9 str      x30, [sp, #0x30]
+00000000032faa6c: fa6704a9 stp      x26, x25, [sp, #0x40]
+00000000032faa70: f85f05a9 stp      x24, x23, [sp, #0x50]
+00000000032faa74: f65706a9 stp      x22, x21, [sp, #0x60]
+00000000032faa78: f44f07a9 stp      x20, x19, [sp, #0x70]
+00000000032faa7c: 16a500b0 adrp     x22, #0x479b000
+00000000032faa80: f30302aa mov      x19, x2
+00000000032faa84: f403012a mov      w20, w1
+00000000032faa88: c80e4339 ldrb     w8, [x22, #0xc3]
+00000000032faa8c: f50300aa mov      x21, x0
+00000000032faa90: a8020037 tbnz     w8, #0, #0x32faae4
+00000000032faa94: 008e0090 adrp     x0, #0x44ba000
+00000000032faa98: 00a841f9 ldr      x0, [x0, #0x350]
+00000000032faa9c: f1f3a997 bl       #0x1d77a60
+00000000032faaa0: 608d00d0 adrp     x0, #0x44a8000
+00000000032faaa4: 00f845f9 ldr      x0, [x0, #0xbf0]
+00000000032faaa8: eef3a997 bl       #0x1d77a60
+00000000032faaac: 608d00f0 adrp     x0, #0x44a9000
+00000000032faab0: 004441f9 ldr      x0, [x0, #0x288]
+00000000032faab4: ebf3a997 bl       #0x1d77a60
+00000000032faab8: 608d00d0 adrp     x0, #0x44a8000
+00000000032faabc: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032faac0: e8f3a997 bl       #0x1d77a60
+00000000032faac4: 808d0090 adrp     x0, #0x44aa000
+00000000032faac8: 003047f9 ldr      x0, [x0, #0xe60]
+00000000032faacc: e5f3a997 bl       #0x1d77a60
+00000000032faad0: 008e00f0 adrp     x0, #0x44bd000
+00000000032faad4: 00c047f9 ldr      x0, [x0, #0xf80]
+00000000032faad8: e2f3a997 bl       #0x1d77a60
+00000000032faadc: 28008052 mov      w8, #1
+00000000032faae0: c80e0339 strb     w8, [x22, #0xc3]
+00000000032faae4: a01640f9 ldr      x0, [x21, #0x28]
+00000000032faae8: ff1f00f9 str      xzr, [sp, #0x38]
+00000000032faaec: ff1700f9 str      xzr, [sp, #0x28]
+00000000032faaf0: 201400b4 cbz      x0, #0x32fad74
+00000000032faaf4: 778d00f0 adrp     x23, #0x44a9000
+00000000032faaf8: 988d0090 adrp     x24, #0x44aa000
+00000000032faafc: 198e00f0 adrp     x25, #0x44bd000
+00000000032fab00: 768d00d0 adrp     x22, #0x44a8000
+00000000032fab04: f74641f9 ldr      x23, [x23, #0x288]
+00000000032fab08: 183347f9 ldr      x24, [x24, #0xe60]
+00000000032fab0c: 39c347f9 ldr      x25, [x25, #0xf80]
+00000000032fab10: d6fa45f9 ldr      x22, [x22, #0xbf0]
+00000000032fab14: e1031faa mov      x1, xzr
+00000000032fab18: b1de3194 bl       #0x3f725dc ; Transform :: public IEnumerator GetEnumerator() { }
+00000000032fab1c: fa031f2a mov      w26, wzr
+00000000032fab20: e8e30091 add      x8, sp, #0x38
+00000000032fab24: e9a30091 add      x9, sp, #0x28
+00000000032fab28: e01f00f9 str      x0, [sp, #0x38]
+00000000032fab2c: e8a700a9 stp      x8, x9, [sp, #8]
+00000000032fab30: ff0f00f9 str      xzr, [sp, #0x18]
+00000000032fab34: ff830039 strb     wzr, [sp, #0x20]
+00000000032fab38: f51f40f9 ldr      x21, [sp, #0x38]
+00000000032fab3c: 751100b4 cbz      x21, #0x32fad68
+00000000032fab40: a80240f9 ldr      x8, [x21]
+00000000032fab44: e10240f9 ldr      x1, [x23]
+00000000032fab48: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032fab4c: 290100b4 cbz      x9, #0x32fab70
+00000000032fab50: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032fab54: 4a210091 add      x10, x10, #8
+00000000032fab58: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032fab5c: 7f0101eb cmp      x11, x1
+00000000032fab60: 00010054 b.eq     #0x32fab80
+00000000032fab64: 290500f1 subs     x9, x9, #1
+00000000032fab68: 4a410091 add      x10, x10, #0x10
+00000000032fab6c: 61ffff54 b.ne     #0x32fab58
+00000000032fab70: e00315aa mov      x0, x21
+00000000032fab74: e2031f2a mov      w2, wzr
+00000000032fab78: 3ddaaa97 bl       #0x1db146c
+00000000032fab7c: 04000014 b        #0x32fab8c
+00000000032fab80: 490180b9 ldrsw    x9, [x10]
+00000000032fab84: 0811098b add      x8, x8, x9, lsl #4
+00000000032fab88: 00e10491 add      x0, x8, #0x138
+00000000032fab8c: 080440a9 ldp      x8, x1, [x0]
+00000000032fab90: e00315aa mov      x0, x21
+00000000032fab94: 00013fd6 blr      x8
+00000000032fab98: 20090036 tbz      w0, #0, #0x32facbc
+00000000032fab9c: f51f40f9 ldr      x21, [sp, #0x38]
+00000000032faba0: 750e00b4 cbz      x21, #0x32fad6c
+00000000032faba4: a80240f9 ldr      x8, [x21]
+00000000032faba8: e10240f9 ldr      x1, [x23]
+00000000032fabac: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032fabb0: 290100b4 cbz      x9, #0x32fabd4
+00000000032fabb4: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032fabb8: 4a210091 add      x10, x10, #8
+00000000032fabbc: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032fabc0: 7f0101eb cmp      x11, x1
+00000000032fabc4: 00010054 b.eq     #0x32fabe4
+00000000032fabc8: 290500f1 subs     x9, x9, #1
+00000000032fabcc: 4a410091 add      x10, x10, #0x10
+00000000032fabd0: 61ffff54 b.ne     #0x32fabbc
+00000000032fabd4: e00315aa mov      x0, x21
+00000000032fabd8: 22008052 mov      w2, #1
+00000000032fabdc: 24daaa97 bl       #0x1db146c
+00000000032fabe0: 05000014 b        #0x32fabf4
+00000000032fabe4: 490140b9 ldr      w9, [x10]
+00000000032fabe8: 29050011 add      w9, w9, #1
+00000000032fabec: 08d1298b add      x8, x8, w9, sxtw #4
+00000000032fabf0: 00e10491 add      x0, x8, #0x138
+00000000032fabf4: 080440a9 ldp      x8, x1, [x0]
+00000000032fabf8: e00315aa mov      x0, x21
+00000000032fabfc: 00013fd6 blr      x8
+00000000032fac00: f50300aa mov      x21, x0
+00000000032fac04: 600b00b4 cbz      x0, #0x32fad70
+00000000032fac08: 010340f9 ldr      x1, [x24]
+00000000032fac0c: a80240f9 ldr      x8, [x21]
+00000000032fac10: 0ac14439 ldrb     w10, [x8, #0x130]
+00000000032fac14: 29c04439 ldrb     w9, [x1, #0x130]
+00000000032fac18: 5f01096b cmp      w10, w9
+00000000032fac1c: 230a0054 b.lo     #0x32fad60
+00000000032fac20: 085940f9 ldr      x8, [x8, #0xb0]
+00000000032fac24: 080d098b add      x8, x8, x9, lsl #3
+00000000032fac28: 08815ff8 ldur     x8, [x8, #-8]
+00000000032fac2c: 1f0101eb cmp      x8, x1
+00000000032fac30: 81090054 b.ne     #0x32fad60
+00000000032fac34: e00315aa mov      x0, x21
+00000000032fac38: e1031faa mov      x1, xzr
+00000000032fac3c: c1b13194 bl       #0x3f67340 ; Object :: public string get_name() { }
+00000000032fac40: 210340f9 ldr      x1, [x25]
+00000000032fac44: e2031faa mov      x2, xzr
+00000000032fac48: 95840694 bl       #0x349be9c ; String :: public static bool op_Inequality(string a, string b) { }
+00000000032fac4c: 60f70737 tbnz     w0, #0, #0x32fab38
+00000000032fac50: 5f03146b cmp      w26, w20
+00000000032fac54: 5a070011 add      w26, w26, #1
+00000000032fac58: 01f7ff54 b.ne     #0x32fab38
+00000000032fac5c: 088e0090 adrp     x8, #0x44ba000
+00000000032fac60: 08a941f9 ldr      x8, [x8, #0x350]
+00000000032fac64: 010140f9 ldr      x1, [x8]
+00000000032fac68: e00315aa mov      x0, x21
+00000000032fac6c: e902bb97 bl       #0x21bb810 ; Component :: public T GetComponent() { }
+00000000032fac70: 688d00d0 adrp     x8, #0x44a8000
+00000000032fac74: f40300aa mov      x20, x0
+00000000032fac78: 086145f9 ldr      x8, [x8, #0xac0]
+00000000032fac7c: 000140f9 ldr      x0, [x8]
+00000000032fac80: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032fac84: 48000035 cbnz     w8, #0x32fac8c
+00000000032fac88: c3f3a997 bl       #0x1d77b94
+00000000032fac8c: e00314aa mov      x0, x20
+00000000032fac90: e1031faa mov      x1, xzr
+00000000032fac94: e2031faa mov      x2, xzr
+00000000032fac98: 219d3194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032fac9c: 00010036 tbz      w0, #0, #0x32facbc
+00000000032faca0: 140700b4 cbz      x20, #0x32fad80
+00000000032faca4: 880240f9 ldr      x8, [x20]
+00000000032faca8: 09ad42f9 ldr      x9, [x8, #0x558]
+00000000032facac: 02b142f9 ldr      x2, [x8, #0x560]
+00000000032facb0: e00314aa mov      x0, x20
+00000000032facb4: e10313aa mov      x1, x19
+00000000032facb8: 20013fd6 blr      x9
+00000000032facbc: e80740f9 ldr      x8, [sp, #8]
+00000000032facc0: c10240f9 ldr      x1, [x22]
+00000000032facc4: 000140f9 ldr      x0, [x8]
+00000000032facc8: b4f3a997 bl       #0x1d77b98
+00000000032faccc: e80b40f9 ldr      x8, [sp, #0x10]
+00000000032facd0: 000100f9 str      x0, [x8]
+00000000032facd4: 000300b4 cbz      x0, #0x32fad34
+00000000032facd8: 080040f9 ldr      x8, [x0]
+00000000032facdc: c10240f9 ldr      x1, [x22]
+00000000032face0: f30300aa mov      x19, x0
+00000000032face4: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032face8: 290100b4 cbz      x9, #0x32fad0c
+00000000032facec: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032facf0: 4a210091 add      x10, x10, #8
+00000000032facf4: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032facf8: 7f0101eb cmp      x11, x1
+00000000032facfc: 00010054 b.eq     #0x32fad1c
+00000000032fad00: 290500f1 subs     x9, x9, #1
+00000000032fad04: 4a410091 add      x10, x10, #0x10
+00000000032fad08: 61ffff54 b.ne     #0x32facf4
+00000000032fad0c: e00313aa mov      x0, x19
+00000000032fad10: e2031f2a mov      w2, wzr
+00000000032fad14: d6d9aa97 bl       #0x1db146c
+00000000032fad18: 04000014 b        #0x32fad28
+00000000032fad1c: 490180b9 ldrsw    x9, [x10]
+00000000032fad20: 0811098b add      x8, x8, x9, lsl #4
+00000000032fad24: 00e10491 add      x0, x8, #0x138
+00000000032fad28: 080440a9 ldp      x8, x1, [x0]
+00000000032fad2c: e00313aa mov      x0, x19
+00000000032fad30: 00013fd6 blr      x8
+00000000032fad34: e00f40f9 ldr      x0, [sp, #0x18]
+00000000032fad38: 000200b5 cbnz     x0, #0x32fad78
+00000000032fad3c: e8834039 ldrb     w8, [sp, #0x20]
+00000000032fad40: e8010035 cbnz     w8, #0x32fad7c
+00000000032fad44: f44f47a9 ldp      x20, x19, [sp, #0x70]
+00000000032fad48: fe1b40f9 ldr      x30, [sp, #0x30]
+00000000032fad4c: f65746a9 ldp      x22, x21, [sp, #0x60]
+00000000032fad50: f85f45a9 ldp      x24, x23, [sp, #0x50]
+00000000032fad54: fa6744a9 ldp      x26, x25, [sp, #0x40]
+00000000032fad58: ff030291 add      sp, sp, #0x80
+00000000032fad5c: c0035fd6 ret      
+00000000032fad60: e00315aa mov      x0, x21
+00000000032fad64: ecf4a997 bl       #0x1d78114
+00000000032fad68: 3bf3a997 bl       #0x1d77a54
+00000000032fad6c: 3af3a997 bl       #0x1d77a54
+00000000032fad70: 39f3a997 bl       #0x1d77a54
+00000000032fad74: 38f3a997 bl       #0x1d77a54
+00000000032fad78: 55f4a997 bl       #0x1d77ecc
+00000000032fad7c: 99d3aa97 bl       #0x1dafbe0
+00000000032fad80: 35f3a997 bl       #0x1d77a54
+00000000032fad84: 0b000014 b        #0x32fadb0
+00000000032fad88: 0a000014 b        #0x32fadb0
+00000000032fad8c: 09000014 b        #0x32fadb0
+00000000032fad90: 08000014 b        #0x32fadb0
+00000000032fad94: 07000014 b        #0x32fadb0
+00000000032fad98: 06000014 b        #0x32fadb0
+00000000032fad9c: 05000014 b        #0x32fadb0
+00000000032fada0: 04000014 b        #0x32fadb0
+00000000032fada4: 03000014 b        #0x32fadb0
+00000000032fada8: 02000014 b        #0x32fadb0
+00000000032fadac: 01000014 b        #0x32fadb0
+00000000032fadb0: f30300aa mov      x19, x0
+00000000032fadb4: 3f080071 cmp      w1, #2
+00000000032fadb8: e1000054 b.ne     #0x32fadd4
+00000000032fadbc: e00313aa mov      x0, x19
+00000000032fadc0: 2ccf3c94 bl       #0x422ea70
+00000000032fadc4: 28008052 mov      w8, #1
+00000000032fadc8: e8830039 strb     w8, [sp, #0x20]
+00000000032fadcc: 2dcf3c94 bl       #0x422ea80
+00000000032fadd0: bbffff17 b        #0x32facbc
+00000000032fadd4: 3f040071 cmp      w1, #1
+00000000032fadd8: 21010054 b.ne     #0x32fadfc
+00000000032faddc: e00313aa mov      x0, x19
+00000000032fade0: 24cf3c94 bl       #0x422ea70
+00000000032fade4: 080040f9 ldr      x8, [x0]
+00000000032fade8: e80f00f9 str      x8, [sp, #0x18]
+00000000032fadec: 25cf3c94 bl       #0x422ea80
+00000000032fadf0: b3ffff17 b        #0x32facbc
+00000000032fadf4: 01000014 b        #0x32fadf8
+00000000032fadf8: f30300aa mov      x19, x0
+00000000032fadfc: e0230091 add      x0, sp, #8
+00000000032fae00: f310a097 bl       #0x1aff1cc
+00000000032fae04: e00313aa mov      x0, x19
+00000000032fae08: 4db6ad97 bl       #0x1e6873c
+00000000032fae0c: 5110a097 bl       #0x1afef50
+
+; private void SetRule(int index, string value) { }
+; token=0x60013C5 file_offset=0x32F6688 tool_rva=0x32F6688 length=0x3DC
+00000000032fa688: ff0302d1 sub      sp, sp, #0x80
+00000000032fa68c: fe1b00f9 str      x30, [sp, #0x30]
+00000000032fa690: fa6704a9 stp      x26, x25, [sp, #0x40]
+00000000032fa694: f85f05a9 stp      x24, x23, [sp, #0x50]
+00000000032fa698: f65706a9 stp      x22, x21, [sp, #0x60]
+00000000032fa69c: f44f07a9 stp      x20, x19, [sp, #0x70]
+00000000032fa6a0: 16a500b0 adrp     x22, #0x479b000
+00000000032fa6a4: f30302aa mov      x19, x2
+00000000032fa6a8: f403012a mov      w20, w1
+00000000032fa6ac: c8164339 ldrb     w8, [x22, #0xc5]
+00000000032fa6b0: f50300aa mov      x21, x0
+00000000032fa6b4: 08030037 tbnz     w8, #0, #0x32fa714
+00000000032fa6b8: 008e0090 adrp     x0, #0x44ba000
+00000000032fa6bc: 00a841f9 ldr      x0, [x0, #0x350]
+00000000032fa6c0: e8f4a997 bl       #0x1d77a60
+00000000032fa6c4: 608d00d0 adrp     x0, #0x44a8000
+00000000032fa6c8: 00f845f9 ldr      x0, [x0, #0xbf0]
+00000000032fa6cc: e5f4a997 bl       #0x1d77a60
+00000000032fa6d0: 608d00f0 adrp     x0, #0x44a9000
+00000000032fa6d4: 004441f9 ldr      x0, [x0, #0x288]
+00000000032fa6d8: e2f4a997 bl       #0x1d77a60
+00000000032fa6dc: 608d00d0 adrp     x0, #0x44a8000
+00000000032fa6e0: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032fa6e4: dff4a997 bl       #0x1d77a60
+00000000032fa6e8: 808d0090 adrp     x0, #0x44aa000
+00000000032fa6ec: 003047f9 ldr      x0, [x0, #0xe60]
+00000000032fa6f0: dcf4a997 bl       #0x1d77a60
+00000000032fa6f4: e08d00f0 adrp     x0, #0x44b9000
+00000000032fa6f8: 007c46f9 ldr      x0, [x0, #0xcf8]
+00000000032fa6fc: d9f4a997 bl       #0x1d77a60
+00000000032fa700: 008e00f0 adrp     x0, #0x44bd000
+00000000032fa704: 00bc47f9 ldr      x0, [x0, #0xf78]
+00000000032fa708: d6f4a997 bl       #0x1d77a60
+00000000032fa70c: 28008052 mov      w8, #1
+00000000032fa710: c8160339 strb     w8, [x22, #0xc5]
+00000000032fa714: a01640f9 ldr      x0, [x21, #0x28]
+00000000032fa718: ff1f00f9 str      xzr, [sp, #0x38]
+00000000032fa71c: ff1700f9 str      xzr, [sp, #0x28]
+00000000032fa720: 201500b4 cbz      x0, #0x32fa9c4
+00000000032fa724: 778d00f0 adrp     x23, #0x44a9000
+00000000032fa728: 988d0090 adrp     x24, #0x44aa000
+00000000032fa72c: 198e00f0 adrp     x25, #0x44bd000
+00000000032fa730: 768d00d0 adrp     x22, #0x44a8000
+00000000032fa734: f74641f9 ldr      x23, [x23, #0x288]
+00000000032fa738: 183347f9 ldr      x24, [x24, #0xe60]
+00000000032fa73c: 39bf47f9 ldr      x25, [x25, #0xf78]
+00000000032fa740: d6fa45f9 ldr      x22, [x22, #0xbf0]
+00000000032fa744: e1031faa mov      x1, xzr
+00000000032fa748: a5df3194 bl       #0x3f725dc ; Transform :: public IEnumerator GetEnumerator() { }
+00000000032fa74c: fa031f2a mov      w26, wzr
+00000000032fa750: e8e30091 add      x8, sp, #0x38
+00000000032fa754: e9a30091 add      x9, sp, #0x28
+00000000032fa758: e01f00f9 str      x0, [sp, #0x38]
+00000000032fa75c: e8a700a9 stp      x8, x9, [sp, #8]
+00000000032fa760: ff0f00f9 str      xzr, [sp, #0x18]
+00000000032fa764: ff830039 strb     wzr, [sp, #0x20]
+00000000032fa768: f51f40f9 ldr      x21, [sp, #0x38]
+00000000032fa76c: 751200b4 cbz      x21, #0x32fa9b8
+00000000032fa770: a80240f9 ldr      x8, [x21]
+00000000032fa774: e10240f9 ldr      x1, [x23]
+00000000032fa778: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032fa77c: 290100b4 cbz      x9, #0x32fa7a0
+00000000032fa780: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032fa784: 4a210091 add      x10, x10, #8
+00000000032fa788: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032fa78c: 7f0101eb cmp      x11, x1
+00000000032fa790: 00010054 b.eq     #0x32fa7b0
+00000000032fa794: 290500f1 subs     x9, x9, #1
+00000000032fa798: 4a410091 add      x10, x10, #0x10
+00000000032fa79c: 61ffff54 b.ne     #0x32fa788
+00000000032fa7a0: e00315aa mov      x0, x21
+00000000032fa7a4: e2031f2a mov      w2, wzr
+00000000032fa7a8: 31dbaa97 bl       #0x1db146c
+00000000032fa7ac: 04000014 b        #0x32fa7bc
+00000000032fa7b0: 490180b9 ldrsw    x9, [x10]
+00000000032fa7b4: 0811098b add      x8, x8, x9, lsl #4
+00000000032fa7b8: 00e10491 add      x0, x8, #0x138
+00000000032fa7bc: 080440a9 ldp      x8, x1, [x0]
+00000000032fa7c0: e00315aa mov      x0, x21
+00000000032fa7c4: 00013fd6 blr      x8
+00000000032fa7c8: 200a0036 tbz      w0, #0, #0x32fa90c
+00000000032fa7cc: f51f40f9 ldr      x21, [sp, #0x38]
+00000000032fa7d0: 750f00b4 cbz      x21, #0x32fa9bc
+00000000032fa7d4: a80240f9 ldr      x8, [x21]
+00000000032fa7d8: e10240f9 ldr      x1, [x23]
+00000000032fa7dc: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032fa7e0: 290100b4 cbz      x9, #0x32fa804
+00000000032fa7e4: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032fa7e8: 4a210091 add      x10, x10, #8
+00000000032fa7ec: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032fa7f0: 7f0101eb cmp      x11, x1
+00000000032fa7f4: 00010054 b.eq     #0x32fa814
+00000000032fa7f8: 290500f1 subs     x9, x9, #1
+00000000032fa7fc: 4a410091 add      x10, x10, #0x10
+00000000032fa800: 61ffff54 b.ne     #0x32fa7ec
+00000000032fa804: e00315aa mov      x0, x21
+00000000032fa808: 22008052 mov      w2, #1
+00000000032fa80c: 18dbaa97 bl       #0x1db146c
+00000000032fa810: 05000014 b        #0x32fa824
+00000000032fa814: 490140b9 ldr      w9, [x10]
+00000000032fa818: 29050011 add      w9, w9, #1
+00000000032fa81c: 08d1298b add      x8, x8, w9, sxtw #4
+00000000032fa820: 00e10491 add      x0, x8, #0x138
+00000000032fa824: 080440a9 ldp      x8, x1, [x0]
+00000000032fa828: e00315aa mov      x0, x21
+00000000032fa82c: 00013fd6 blr      x8
+00000000032fa830: f50300aa mov      x21, x0
+00000000032fa834: 600c00b4 cbz      x0, #0x32fa9c0
+00000000032fa838: 010340f9 ldr      x1, [x24]
+00000000032fa83c: a80240f9 ldr      x8, [x21]
+00000000032fa840: 0ac14439 ldrb     w10, [x8, #0x130]
+00000000032fa844: 29c04439 ldrb     w9, [x1, #0x130]
+00000000032fa848: 5f01096b cmp      w10, w9
+00000000032fa84c: 230b0054 b.lo     #0x32fa9b0
+00000000032fa850: 085940f9 ldr      x8, [x8, #0xb0]
+00000000032fa854: 080d098b add      x8, x8, x9, lsl #3
+00000000032fa858: 08815ff8 ldur     x8, [x8, #-8]
+00000000032fa85c: 1f0101eb cmp      x8, x1
+00000000032fa860: 810a0054 b.ne     #0x32fa9b0
+00000000032fa864: e00315aa mov      x0, x21
+00000000032fa868: e1031faa mov      x1, xzr
+00000000032fa86c: b5b23194 bl       #0x3f67340 ; Object :: public string get_name() { }
+00000000032fa870: 210340f9 ldr      x1, [x25]
+00000000032fa874: e2031faa mov      x2, xzr
+00000000032fa878: 89850694 bl       #0x349be9c ; String :: public static bool op_Inequality(string a, string b) { }
+00000000032fa87c: 60f70737 tbnz     w0, #0, #0x32fa768
+00000000032fa880: 5f03146b cmp      w26, w20
+00000000032fa884: 5a070011 add      w26, w26, #1
+00000000032fa888: 01f7ff54 b.ne     #0x32fa768
+00000000032fa88c: e88d00f0 adrp     x8, #0x44b9000
+00000000032fa890: 087d46f9 ldr      x8, [x8, #0xcf8]
+00000000032fa894: 010140f9 ldr      x1, [x8]
+00000000032fa898: e00315aa mov      x0, x21
+00000000032fa89c: e2031faa mov      x2, xzr
+00000000032fa8a0: 9cde3194 bl       #0x3f72310 ; Transform :: public Transform Find(string n) { }
+00000000032fa8a4: e00000b4 cbz      x0, #0x32fa8c0
+00000000032fa8a8: 088e0090 adrp     x8, #0x44ba000
+00000000032fa8ac: 08a941f9 ldr      x8, [x8, #0x350]
+00000000032fa8b0: 010140f9 ldr      x1, [x8]
+00000000032fa8b4: d703bb97 bl       #0x21bb810 ; Component :: public T GetComponent() { }
+00000000032fa8b8: f40300aa mov      x20, x0
+00000000032fa8bc: 02000014 b        #0x32fa8c4
+00000000032fa8c0: f4031faa mov      x20, xzr
+00000000032fa8c4: 688d00d0 adrp     x8, #0x44a8000
+00000000032fa8c8: 086145f9 ldr      x8, [x8, #0xac0]
+00000000032fa8cc: 000140f9 ldr      x0, [x8]
+00000000032fa8d0: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032fa8d4: 48000035 cbnz     w8, #0x32fa8dc
+00000000032fa8d8: aff4a997 bl       #0x1d77b94
+00000000032fa8dc: e00314aa mov      x0, x20
+00000000032fa8e0: e1031faa mov      x1, xzr
+00000000032fa8e4: e2031faa mov      x2, xzr
+00000000032fa8e8: 0d9e3194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032fa8ec: 00010036 tbz      w0, #0, #0x32fa90c
+00000000032fa8f0: 140700b4 cbz      x20, #0x32fa9d0
+00000000032fa8f4: 880240f9 ldr      x8, [x20]
+00000000032fa8f8: 09ad42f9 ldr      x9, [x8, #0x558]
+00000000032fa8fc: 02b142f9 ldr      x2, [x8, #0x560]
+00000000032fa900: e00314aa mov      x0, x20
+00000000032fa904: e10313aa mov      x1, x19
+00000000032fa908: 20013fd6 blr      x9
+00000000032fa90c: e80740f9 ldr      x8, [sp, #8]
+00000000032fa910: c10240f9 ldr      x1, [x22]
+00000000032fa914: 000140f9 ldr      x0, [x8]
+00000000032fa918: a0f4a997 bl       #0x1d77b98
+00000000032fa91c: e80b40f9 ldr      x8, [sp, #0x10]
+00000000032fa920: 000100f9 str      x0, [x8]
+00000000032fa924: 000300b4 cbz      x0, #0x32fa984
+00000000032fa928: 080040f9 ldr      x8, [x0]
+00000000032fa92c: c10240f9 ldr      x1, [x22]
+00000000032fa930: f30300aa mov      x19, x0
+00000000032fa934: 095d4279 ldrh     w9, [x8, #0x12e]
+00000000032fa938: 290100b4 cbz      x9, #0x32fa95c
+00000000032fa93c: 0a4d40f9 ldr      x10, [x8, #0x98]
+00000000032fa940: 4a210091 add      x10, x10, #8
+00000000032fa944: 4b815ff8 ldur     x11, [x10, #-8]
+00000000032fa948: 7f0101eb cmp      x11, x1
+00000000032fa94c: 00010054 b.eq     #0x32fa96c
+00000000032fa950: 290500f1 subs     x9, x9, #1
+00000000032fa954: 4a410091 add      x10, x10, #0x10
+00000000032fa958: 61ffff54 b.ne     #0x32fa944
+00000000032fa95c: e00313aa mov      x0, x19
+00000000032fa960: e2031f2a mov      w2, wzr
+00000000032fa964: c2daaa97 bl       #0x1db146c
+00000000032fa968: 04000014 b        #0x32fa978
+00000000032fa96c: 490180b9 ldrsw    x9, [x10]
+00000000032fa970: 0811098b add      x8, x8, x9, lsl #4
+00000000032fa974: 00e10491 add      x0, x8, #0x138
+00000000032fa978: 080440a9 ldp      x8, x1, [x0]
+00000000032fa97c: e00313aa mov      x0, x19
+00000000032fa980: 00013fd6 blr      x8
+00000000032fa984: e00f40f9 ldr      x0, [sp, #0x18]
+00000000032fa988: 000200b5 cbnz     x0, #0x32fa9c8
+00000000032fa98c: e8834039 ldrb     w8, [sp, #0x20]
+00000000032fa990: e8010035 cbnz     w8, #0x32fa9cc
+00000000032fa994: f44f47a9 ldp      x20, x19, [sp, #0x70]
+00000000032fa998: fe1b40f9 ldr      x30, [sp, #0x30]
+00000000032fa99c: f65746a9 ldp      x22, x21, [sp, #0x60]
+00000000032fa9a0: f85f45a9 ldp      x24, x23, [sp, #0x50]
+00000000032fa9a4: fa6744a9 ldp      x26, x25, [sp, #0x40]
+00000000032fa9a8: ff030291 add      sp, sp, #0x80
+00000000032fa9ac: c0035fd6 ret      
+00000000032fa9b0: e00315aa mov      x0, x21
+00000000032fa9b4: d8f5a997 bl       #0x1d78114
+00000000032fa9b8: 27f4a997 bl       #0x1d77a54
+00000000032fa9bc: 26f4a997 bl       #0x1d77a54
+00000000032fa9c0: 25f4a997 bl       #0x1d77a54
+00000000032fa9c4: 24f4a997 bl       #0x1d77a54
+00000000032fa9c8: 41f5a997 bl       #0x1d77ecc
+00000000032fa9cc: 85d4aa97 bl       #0x1dafbe0
+00000000032fa9d0: 21f4a997 bl       #0x1d77a54
+00000000032fa9d4: 0c000014 b        #0x32faa04
+00000000032fa9d8: 0b000014 b        #0x32faa04
+00000000032fa9dc: 0a000014 b        #0x32faa04
+00000000032fa9e0: 09000014 b        #0x32faa04
+00000000032fa9e4: 08000014 b        #0x32faa04
+00000000032fa9e8: 07000014 b        #0x32faa04
+00000000032fa9ec: 06000014 b        #0x32faa04
+00000000032fa9f0: 05000014 b        #0x32faa04
+00000000032fa9f4: 04000014 b        #0x32faa04
+00000000032fa9f8: 03000014 b        #0x32faa04
+00000000032fa9fc: 02000014 b        #0x32faa04
+00000000032faa00: 01000014 b        #0x32faa04
+00000000032faa04: f30300aa mov      x19, x0
+00000000032faa08: 3f080071 cmp      w1, #2
+00000000032faa0c: e1000054 b.ne     #0x32faa28
+00000000032faa10: e00313aa mov      x0, x19
+00000000032faa14: 17d03c94 bl       #0x422ea70
+00000000032faa18: 28008052 mov      w8, #1
+00000000032faa1c: e8830039 strb     w8, [sp, #0x20]
+00000000032faa20: 18d03c94 bl       #0x422ea80
+00000000032faa24: baffff17 b        #0x32fa90c
+00000000032faa28: 3f040071 cmp      w1, #1
+00000000032faa2c: 21010054 b.ne     #0x32faa50
+00000000032faa30: e00313aa mov      x0, x19
+00000000032faa34: 0fd03c94 bl       #0x422ea70
+00000000032faa38: 080040f9 ldr      x8, [x0]
+00000000032faa3c: e80f00f9 str      x8, [sp, #0x18]
+00000000032faa40: 10d03c94 bl       #0x422ea80
+00000000032faa44: b2ffff17 b        #0x32fa90c
+00000000032faa48: 01000014 b        #0x32faa4c
+00000000032faa4c: f30300aa mov      x19, x0
+00000000032faa50: e0230091 add      x0, sp, #8
+00000000032faa54: de11a097 bl       #0x1aff1cc
+00000000032faa58: e00313aa mov      x0, x19
+00000000032faa5c: 38b7ad97 bl       #0x1e6873c
+00000000032faa60: 3c11a097 bl       #0x1afef50
+
+; private void SetText(string childName, string value) { }
+; token=0x60013C4 file_offset=0x32F657C tool_rva=0x32F657C length=0x10C
+00000000032fa57c: fe0f1df8 str      x30, [sp, #-0x30]!
+00000000032fa580: f65701a9 stp      x22, x21, [sp, #0x10]
+00000000032fa584: f44f02a9 stp      x20, x19, [sp, #0x20]
+00000000032fa588: 16a500b0 adrp     x22, #0x479b000
+00000000032fa58c: f30302aa mov      x19, x2
+00000000032fa590: f40301aa mov      x20, x1
+00000000032fa594: c8124339 ldrb     w8, [x22, #0xc4]
+00000000032fa598: f50300aa mov      x21, x0
+00000000032fa59c: 28010037 tbnz     w8, #0, #0x32fa5c0
+00000000032fa5a0: 008e0090 adrp     x0, #0x44ba000
+00000000032fa5a4: 00a841f9 ldr      x0, [x0, #0x350]
+00000000032fa5a8: 2ef5a997 bl       #0x1d77a60
+00000000032fa5ac: 608d00d0 adrp     x0, #0x44a8000
+00000000032fa5b0: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032fa5b4: 2bf5a997 bl       #0x1d77a60
+00000000032fa5b8: 28008052 mov      w8, #1
+00000000032fa5bc: c8120339 strb     w8, [x22, #0xc4]
+00000000032fa5c0: a01640f9 ldr      x0, [x21, #0x28]
+00000000032fa5c4: 000600b4 cbz      x0, #0x32fa684
+00000000032fa5c8: 758d00d0 adrp     x21, #0x44a8000
+00000000032fa5cc: e10314aa mov      x1, x20
+00000000032fa5d0: e2031faa mov      x2, xzr
+00000000032fa5d4: b56245f9 ldr      x21, [x21, #0xac0]
+00000000032fa5d8: 4edf3194 bl       #0x3f72310 ; Transform :: public Transform Find(string n) { }
+00000000032fa5dc: a80240f9 ldr      x8, [x21]
+00000000032fa5e0: f40300aa mov      x20, x0
+00000000032fa5e4: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032fa5e8: 69000035 cbnz     w9, #0x32fa5f4
+00000000032fa5ec: e00308aa mov      x0, x8
+00000000032fa5f0: 69f5a997 bl       #0x1d77b94
+00000000032fa5f4: e00314aa mov      x0, x20
+00000000032fa5f8: e1031faa mov      x1, xzr
+00000000032fa5fc: e2031faa mov      x2, xzr
+00000000032fa600: c79e3194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032fa604: 80030036 tbz      w0, #0, #0x32fa674
+00000000032fa608: f40300b4 cbz      x20, #0x32fa684
+00000000032fa60c: 088e0090 adrp     x8, #0x44ba000
+00000000032fa610: e00314aa mov      x0, x20
+00000000032fa614: 08a941f9 ldr      x8, [x8, #0x350]
+00000000032fa618: 010140f9 ldr      x1, [x8]
+00000000032fa61c: 7d04bb97 bl       #0x21bb810 ; Component :: public T GetComponent() { }
+00000000032fa620: a80240f9 ldr      x8, [x21]
+00000000032fa624: f40300aa mov      x20, x0
+00000000032fa628: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032fa62c: 69000035 cbnz     w9, #0x32fa638
+00000000032fa630: e00308aa mov      x0, x8
+00000000032fa634: 58f5a997 bl       #0x1d77b94
+00000000032fa638: e00314aa mov      x0, x20
+00000000032fa63c: e1031faa mov      x1, xzr
+00000000032fa640: e2031faa mov      x2, xzr
+00000000032fa644: b69e3194 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032fa648: 60010036 tbz      w0, #0, #0x32fa674
+00000000032fa64c: d40100b4 cbz      x20, #0x32fa684
+00000000032fa650: 880240f9 ldr      x8, [x20]
+00000000032fa654: e00314aa mov      x0, x20
+00000000032fa658: e10313aa mov      x1, x19
+00000000032fa65c: f44f42a9 ldp      x20, x19, [sp, #0x20]
+00000000032fa660: f65741a9 ldp      x22, x21, [sp, #0x10]
+00000000032fa664: 02b142f9 ldr      x2, [x8, #0x560]
+00000000032fa668: 03ad42f9 ldr      x3, [x8, #0x558]
+00000000032fa66c: fe0743f8 ldr      x30, [sp], #0x30
+00000000032fa670: 60001fd6 br       x3
+00000000032fa674: f44f42a9 ldp      x20, x19, [sp, #0x20]
+00000000032fa678: f65741a9 ldp      x22, x21, [sp, #0x10]
+00000000032fa67c: fe0743f8 ldr      x30, [sp], #0x30
+00000000032fa680: c0035fd6 ret      
+00000000032fa684: f4f4a997 bl       #0x1d77a54
+
+; public void Show() { }
+; token=0x60013BB file_offset=0x32F4D90 tool_rva=0x32F4D90 length=0x154
+00000000032f8d90: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000032f8d94: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032f8d98: 14a500f0 adrp     x20, #0x479b000
+00000000032f8d9c: 958d0090 adrp     x21, #0x44a8000
+00000000032f8da0: f30300aa mov      x19, x0
+00000000032f8da4: 88ee4239 ldrb     w8, [x20, #0xbb]
+00000000032f8da8: b56245f9 ldr      x21, [x21, #0xac0]
+00000000032f8dac: 88010037 tbnz     w8, #0, #0x32f8ddc
+00000000032f8db0: 808d0090 adrp     x0, #0x44a8000
+00000000032f8db4: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032f8db8: 2afba997 bl       #0x1d77a60
+00000000032f8dbc: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8dc0: 004443f9 ldr      x0, [x0, #0x688]
+00000000032f8dc4: 27fba997 bl       #0x1d77a60
+00000000032f8dc8: 008e00b0 adrp     x0, #0x44b9000
+00000000032f8dcc: 004843f9 ldr      x0, [x0, #0x690]
+00000000032f8dd0: 24fba997 bl       #0x1d77a60
+00000000032f8dd4: 28008052 mov      w8, #1
+00000000032f8dd8: 88ee0239 strb     w8, [x20, #0xbb]
+00000000032f8ddc: a00240f9 ldr      x0, [x21]
+00000000032f8de0: 741a40f9 ldr      x20, [x19, #0x30]
+00000000032f8de4: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8de8: 48000035 cbnz     w8, #0x32f8df0
+00000000032f8dec: 6afba997 bl       #0x1d77b94
+00000000032f8df0: e00314aa mov      x0, x20
+00000000032f8df4: e1031faa mov      x1, xzr
+00000000032f8df8: e2031faa mov      x2, xzr
+00000000032f8dfc: b0a93194 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000032f8e00: 80000036 tbz      w0, #0, #0x32f8e10
+00000000032f8e04: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8e08: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8e0c: c0035fd6 ret      
+00000000032f8e10: a00240f9 ldr      x0, [x21]
+00000000032f8e14: 741240f9 ldr      x20, [x19, #0x20]
+00000000032f8e18: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8e1c: 48000035 cbnz     w8, #0x32f8e24
+00000000032f8e20: 5dfba997 bl       #0x1d77b94
+00000000032f8e24: 158e00b0 adrp     x21, #0x44b9000
+00000000032f8e28: e00314aa mov      x0, x20
+00000000032f8e2c: e1031faa mov      x1, xzr
+00000000032f8e30: b54643f9 ldr      x21, [x21, #0x688]
+00000000032f8e34: e2031faa mov      x2, xzr
+00000000032f8e38: a1a93194 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000032f8e3c: 60000036 tbz      w0, #0, #0x32f8e48
+00000000032f8e40: e00313aa mov      x0, x19
+00000000032f8e44: 28000094 bl       #0x32f8ee4 ; TipPopup :: private void Build() { }
+00000000032f8e48: a00240f9 ldr      x0, [x21]
+00000000032f8e4c: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8e50: 48000035 cbnz     w8, #0x32f8e58
+00000000032f8e54: 50fba997 bl       #0x1d77b94
+00000000032f8e58: e0031faa mov      x0, xzr
+00000000032f8e5c: ee64fd97 bl       #0x3252214 ; PerformanceManager :: public static void Poke() { }
+00000000032f8e60: e00313aa mov      x0, x19
+00000000032f8e64: 5f020094 bl       #0x32f97e0 ; TipPopup :: private void RefreshText() { }
+00000000032f8e68: 601240f9 ldr      x0, [x19, #0x20]
+00000000032f8e6c: a00300b4 cbz      x0, #0x32f8ee0
+00000000032f8e70: 21008052 mov      w1, #1
+00000000032f8e74: e2031faa mov      x2, xzr
+00000000032f8e78: caa53194 bl       #0x3f625a0
+00000000032f8e7c: 600642a9 ldp      x0, x1, [x19, #0x20]
+00000000032f8e80: a8c8fe90 adrp     x8, #0xc0c000
+00000000032f8e84: a9c8feb0 adrp     x9, #0xc0d000
+00000000032f8e88: 00294ebd ldr      s0, [x8, #0xe28]
+00000000032f8e8c: e2031faa mov      x2, xzr
+00000000032f8e90: 218541bd ldr      s1, [x9, #0x184]
+00000000032f8e94: 05c50494 bl       #0x342a2a8 ; ResponsiveUI :: public static float Fit(GameObject popupRoot, RectTransform content, float wideScale = 0.8, float margin = 0.94) { }
+00000000032f8e98: 088e00b0 adrp     x8, #0x44b9000
+00000000032f8e9c: 084943f9 ldr      x8, [x8, #0x690]
+00000000032f8ea0: 741640f9 ldr      x20, [x19, #0x28]
+00000000032f8ea4: 000140f9 ldr      x0, [x8]
+00000000032f8ea8: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032f8eac: 48000035 cbnz     w8, #0x32f8eb4
+00000000032f8eb0: 39fba997 bl       #0x1d77b94
+00000000032f8eb4: a8c8fe90 adrp     x8, #0xc0c000
+00000000032f8eb8: e00314aa mov      x0, x20
+00000000032f8ebc: e1031faa mov      x1, xzr
+00000000032f8ec0: 00a54fbd ldr      s0, [x8, #0xfa4]
+00000000032f8ec4: a1210594 bl       #0x3441548
+00000000032f8ec8: e10300aa mov      x1, x0
+00000000032f8ecc: e00313aa mov      x0, x19
+00000000032f8ed0: e2031faa mov      x2, xzr
+00000000032f8ed4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032f8ed8: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032f8edc: a1ac3114 b        #0x3f64160 ; MonoBehaviour :: public Coroutine StartCoroutine(IEnumerator routine) { }
+00000000032f8ee0: ddfaa997 bl       #0x1d77a54
+
+; public void Toggle() { }
+; token=0x60013BA file_offset=0x32F4CE0 tool_rva=0x32F4CE0 length=0x28
+00000000032f8ce0: fe4fbfa9 stp      x30, x19, [sp, #-0x10]!
+00000000032f8ce4: f30300aa mov      x19, x0
+00000000032f8ce8: dcffff97 bl       #0x32f8c58 ; TipPopup :: public bool get_IsOpen() { }
+00000000032f8cec: 80000036 tbz      w0, #0, #0x32f8cfc
+00000000032f8cf0: e00313aa mov      x0, x19
+00000000032f8cf4: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+00000000032f8cf8: 04000014 b        #0x32f8d08 ; TipPopup :: public void Hide() { }
+00000000032f8cfc: e00313aa mov      x0, x19
+00000000032f8d00: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+00000000032f8d04: 23000014 b        #0x32f8d90 ; TipPopup :: public void Show() { }

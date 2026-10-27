@@ -1,0 +1,710 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 1,
+    "m_PathID": 419
+  },
+  "m_Name": "ShopPopupLayout",
+  "bgTint": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "columnWidth": 920.0,
+  "padSide": 36.0,
+  "padTop": 20.0,
+  "padBottom": 48.0,
+  "titleFs": 75.0,
+  "titleH": 116.0,
+  "closeSize": 100.0,
+  "titleBannerWidth": 880.0,
+  "titleTextYFrac": 0.6399999856948853,
+  "padPpumScale": 1.0,
+  "padBandTextCol": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "padFallbackBandH": 46.0,
+  "offerTabFs": 26.0,
+  "offerTabPadL": 18.0,
+  "offerTabPadR": 16.0,
+  "offerTabIconScale": 0.5,
+  "offerTabIconGap": 8.0,
+  "offerTabTextCol": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "offerTabInsetL": 24.0,
+  "offerTabInsetR": 6.0,
+  "offerTitleFs": 45.0,
+  "offerTitleLeft": 44.0,
+  "offerTitleTop": 96.0,
+  "offerRowTop": 218.0,
+  "offerArtTop": 290.0,
+  "offerArtSize": 260.0,
+  "offerArtX": 160.0,
+  "offerArtShadowCol": {
+    "r": 0.41999998688697815,
+    "g": 0.30000001192092896,
+    "b": 0.1599999964237213,
+    "a": 0.3400000035762787
+  },
+  "offerArtShadowOffset": {
+    "x": 0.0,
+    "y": -10.0
+  },
+  "offerArtShadowSpread": 7.0,
+  "offerArtShadowSteps": 6,
+  "offerHaloCol": {
+    "r": 1.0,
+    "g": 0.7799999713897705,
+    "b": 0.30000001192092896,
+    "a": 0.5
+  },
+  "haloOverrides": [
+    {
+      "productId": "starter_pack",
+      "color": {
+        "r": 1.0,
+        "g": 0.7200000286102295,
+        "b": 0.41999998688697815,
+        "a": 0.7843137383460999
+      }
+    },
+    {
+      "productId": "special_offer",
+      "color": {
+        "r": 0.9811320900917053,
+        "g": 0.7729059457778931,
+        "b": 0.3748665153980255,
+        "a": 0.5
+      }
+    },
+    {
+      "productId": "club_gold_30d",
+      "color": {
+        "r": 1.0,
+        "g": 1.0,
+        "b": 0.8799999952316284,
+        "a": 0.8500000238418579
+      }
+    }
+  ],
+  "offerHaloScale": 1.350000023841858,
+  "offerHaloOffset": {
+    "x": 0.0,
+    "y": 0.0
+  },
+  "offerHaloSpokes": 10,
+  "offerHaloSpinSeconds": 19.0,
+  "offerNoteFs": 50.0,
+  "offerNoteGap": 12.0,
+  "offerNoteH": 56.0,
+  "offerNoteLeft": 0.0,
+  "offerNoteRightAlign": 1,
+  "offerNoteLineSpacing": 12.0,
+  "offerBtnPpum": 1.600000023841858,
+  "offerBtnSize": {
+    "x": 290.0,
+    "y": 88.0
+  },
+  "offerBtnFs": 36.0,
+  "timerHeight": 56.0,
+  "timerIconScale": 0.6200000047683716,
+  "timerTopOffset": 70.0,
+  "timerTextCol": {
+    "r": 0.550000011920929,
+    "g": 0.2800000011920929,
+    "b": 0.30000001192092896,
+    "a": 1.0
+  },
+  "timerFallbackCol": {
+    "r": 0.3499999940395355,
+    "g": 0.25,
+    "b": 0.15000000596046448,
+    "a": 0.800000011920929
+  },
+  "refundNoticeH": 88.0,
+  "refundNoticeFs": 26.0,
+  "refundLinkFs": 25.0,
+  "refundLinkCol": {
+    "r": 0.20000000298023224,
+    "g": 0.46000000834465027,
+    "b": 0.6800000071525574,
+    "a": 1.0
+  },
+  "bottomLinkGap": 56.0,
+  "footerHeartSize": 44.0,
+  "cardGap": 30.0,
+  "cardShadowSpread": 20.0,
+  "cardShadowOffset": {
+    "x": 0.0,
+    "y": -5.0
+  },
+  "cardShadowCol": {
+    "r": 0.41999998688697815,
+    "g": 0.30000001192092896,
+    "b": 0.1599999964237213,
+    "a": 0.19607843458652496
+  },
+  "offerCardH": 500.0,
+  "clubCardH": 680.0,
+  "clubCardCol": {
+    "r": 1.0,
+    "g": 0.878000020980835,
+    "b": 0.4699999988079071,
+    "a": 1.0
+  },
+  "clubCardLine": {
+    "r": 0.9020000100135803,
+    "g": 0.6470000147819519,
+    "b": 0.17000000178813934,
+    "a": 1.0
+  },
+  "clubTagCol": {
+    "r": 0.8510000109672546,
+    "g": 0.5759999752044678,
+    "b": 0.15700000524520874,
+    "a": 1.0
+  },
+  "clubDaysBadgeCol": {
+    "r": 0.949999988079071,
+    "g": 0.6399999856948853,
+    "b": 0.3199999928474426,
+    "a": 1.0
+  },
+  "clubTitleFs": 46.0,
+  "clubSubFs": 30.0,
+  "clubTitleGap": 20.0,
+  "clubTitleLeft": 40.0,
+  "clubTitleTop": 55.0,
+  "clubChipH": 200.0,
+  "clubChipFs": 30.0,
+  "clubChipPad": 18.0,
+  "clubChipIconGap": 10.0,
+  "clubTagFs": 32.0,
+  "clubChipCol": {
+    "r": 1.0,
+    "g": 0.9760000109672546,
+    "b": 0.9290000200271606,
+    "a": 1.0
+  },
+  "clubArtH": 350.0,
+  "clubArtOffset": {
+    "x": 140.0,
+    "y": 340.0
+  },
+  "clubTotalFs": 29.0,
+  "clubGlassSparkles": 4,
+  "clubGlassPoints": [
+    {
+      "x": 0.20999999344348907,
+      "y": 0.3700000047683716
+    },
+    {
+      "x": 0.10000000149011612,
+      "y": 0.4399999976158142
+    },
+    {
+      "x": 0.15000000596046448,
+      "y": 0.3199999928474426
+    }
+  ],
+  "clubGlassSparkleSize": {
+    "x": 0.15000000596046448,
+    "y": 0.2199999988079071
+  },
+  "clubGlassOpal": [
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 0.8399999737739563,
+      "b": 0.949999988079071,
+      "a": 1.0
+    },
+    {
+      "r": 0.8399999737739563,
+      "g": 0.8799999952316284,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.8199999928474426,
+      "g": 1.0,
+      "b": 0.9399999976158142,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 0.9599999785423279,
+      "b": 0.8199999928474426,
+      "a": 1.0
+    }
+  ],
+  "clubBtnSize": {
+    "x": 300.0,
+    "y": 84.0
+  },
+  "offerFramePpum": 1.2000000476837158,
+  "itemCardH": 420.0,
+  "itemDescFs": 35.0,
+  "itemDescTop": 95.0,
+  "itemDescLeft": 60.0,
+  "itemDescRightPad": 60.0,
+  "itemDescH": 76.0,
+  "itemArtSize": 165.0,
+  "itemArtX": 130.0,
+  "itemArtTop": 255.0,
+  "itemSparkleCount": 6,
+  "itemSparkleCol": {
+    "r": 1.0,
+    "g": 0.9300000071525574,
+    "b": 0.6000000238418579,
+    "a": 1.0
+  },
+  "itemSparkleSizeRange": {
+    "x": 18.0,
+    "y": 40.0
+  },
+  "itemSparkleInnerScale": 0.550000011920929,
+  "itemSparkleAreaScale": 1.0499999523162842,
+  "itemPadW": 300.0,
+  "itemPadH": 230.0,
+  "itemPadGap": 16.0,
+  "itemPadBottom": 40.0,
+  "itemPadBlockLeft": 268.0,
+  "itemPadRightPad": 35.0,
+  "itemBandFs": 28.0,
+  "itemPadIconSize": 56.0,
+  "itemPadIconGap": 8.0,
+  "itemPadContentPad": 12.0,
+  "itemCountFs": 34.0,
+  "itemPriceFs": 28.0,
+  "itemPricePillH": 60.0,
+  "itemPricePillSidePad": 7.0,
+  "itemPricePillBottom": 10.0,
+  "headerPillH": 66.0,
+  "restoreH": 60.0,
+  "adsCardH": 450.0,
+  "adsCardOwnedH": 250.0,
+  "adsIconSize": 150.0,
+  "adsIconX": 110.0,
+  "adsIconTop": 110.0,
+  "adsTextLeft": 220.0,
+  "adsTitleFs": 40.0,
+  "adsTitleTop": 70.0,
+  "adsDescFs": 26.0,
+  "adsDescTop": 150.0,
+  "adsDescH": 80.0,
+  "adsDescLineSpacing": 12.0,
+  "adsOwnedPillSize": {
+    "x": 230.0,
+    "y": 66.0
+  },
+  "adsOwnedPillRight": 40.0,
+  "adsOwnedPillTop": 120.0,
+  "adsOwnedIconGap": 10.0,
+  "adsOwnedPillPadR": 20.0,
+  "adsOwnedFs": 30.0,
+  "adsOwnedRemainFs": 24.0,
+  "adsOwnedRemainGap": 6.0,
+  "adsOwnedPillBg": {
+    "r": 0.9100000262260437,
+    "g": 0.9700000286102295,
+    "b": 0.8500000238418579,
+    "a": 1.0
+  },
+  "adsOwnedPillPadL": 20.0,
+  "adsBtnSize": {
+    "x": 240.0,
+    "y": 190.0
+  },
+  "adsBtnGap": 20.0,
+  "adsBtnBottom": 40.0,
+  "adsBandFs": 30.0,
+  "adsPriceFs": 30.0,
+  "adsDurIconSize": 50.0,
+  "adsDurIconTop": 8.0,
+  "adsBtnShadowSpread": 13.0,
+  "adsBtnShadowOffset": {
+    "x": 0.0,
+    "y": -16.0
+  },
+  "adsBtnShadowCol": {
+    "r": 0.41999998688697815,
+    "g": 0.30000001192092896,
+    "b": 0.1599999964237213,
+    "a": 0.3400000035762787
+  },
+  "tileIconScale": 0.7599999904632568,
+  "offerTileW": 120.0,
+  "offerTileHRatio": 1.25,
+  "offerTileGap": 12.0,
+  "offerTileLeftReserve": 300.0,
+  "offerTileRightPad": 30.0,
+  "offerTileLabelFs": 27.0,
+  "offerTileLabelBottom": 26.0,
+  "tileShadowSpread": 14.0,
+  "tileShadowOffset": {
+    "x": 0.0,
+    "y": -3.0
+  },
+  "tileShadowCol": {
+    "r": 0.41999998688697815,
+    "g": 0.30000001192092896,
+    "b": 0.1599999964237213,
+    "a": 0.3921568691730499
+  },
+  "autoXInfoSize": 60.0,
+  "autoXInfoHitSize": 92.0,
+  "autoXInfoOffset": {
+    "x": -9.0,
+    "y": -7.0
+  },
+  "autoXDemoPanelSize": {
+    "x": 850.0,
+    "y": 1360.0
+  },
+  "autoXDemoContentY": 0.0,
+  "autoXDemoPanelPpum": 0.6000000238418579,
+  "autoXDemoTitleY": 580.0,
+  "autoXDemoTitleFs": 68.0,
+  "autoXDemoTitleColor": {
+    "r": 0.41999998688697815,
+    "g": 0.30000001192092896,
+    "b": 0.18000000715255737,
+    "a": 1.0
+  },
+  "autoXDemoHeroSize": {
+    "x": 720.0,
+    "y": 720.0
+  },
+  "autoXDemoHeroY": 150.0,
+  "autoXDemoHeroBgColor": {
+    "r": 0.9900000095367432,
+    "g": 0.9300000071525574,
+    "b": 0.800000011920929,
+    "a": 1.0
+  },
+  "autoXDemoHeroPpum": 0.699999988079071,
+  "autoXDemoBoardPad": 24.0,
+  "autoXDemoBoardInset": 0.02500000037252903,
+  "autoXDemoCellGap": 0.009999999776482582,
+  "autoXDemoBoardColor": {
+    "r": 1.0,
+    "g": 0.9900000095367432,
+    "b": 0.9599999785423279,
+    "a": 1.0
+  },
+  "autoXDemoHamsterScale": 0.8999999761581421,
+  "autoXDemoPalette": [
+    {
+      "r": 0.950980007648468,
+      "g": 0.6017799973487854,
+      "b": 0.5435799956321716,
+      "a": 1.0
+    },
+    {
+      "r": 0.3183879852294922,
+      "g": 0.7645879983901978,
+      "b": 0.7193220257759094,
+      "a": 1.0
+    },
+    {
+      "r": 0.9395689964294434,
+      "g": 0.7908350229263306,
+      "b": 0.3737350106239319,
+      "a": 1.0
+    },
+    {
+      "r": 0.4467709958553314,
+      "g": 0.5179039835929871,
+      "b": 0.8444709777832031,
+      "a": 1.0
+    },
+    {
+      "r": 0.4325059950351715,
+      "g": 0.7493730187416077,
+      "b": 0.4616059958934784,
+      "a": 1.0
+    }
+  ],
+  "autoXDemoGlowColor": {
+    "r": 1.0,
+    "g": 0.8799999952316284,
+    "b": 0.44999998807907104,
+    "a": 1.0
+  },
+  "autoXDemoGlowRest": 0.4000000059604645,
+  "autoXDemoStartDelay": 0.5,
+  "autoXDemoFingerTime": 0.75,
+  "autoXDemoPlaceHold": 0.4000000059604645,
+  "autoXDemoCrossGap": 0.05999999865889549,
+  "autoXDemoStepHold": 1.100000023841858,
+  "autoXDemoLoopPause": 1.2000000476837158,
+  "autoXDemoDescY": -295.0,
+  "autoXDemoDescFs": 42.0,
+  "autoXDemoDescSize": {
+    "x": 740.0,
+    "y": 150.0
+  },
+  "autoXDemoDescColor": {
+    "r": 0.44999998807907104,
+    "g": 0.33000001311302185,
+    "b": 0.20000000298023224,
+    "a": 1.0
+  },
+  "autoXDemoDescLineSpacing": 20.0,
+  "autoXDemoNoteY": -392.0,
+  "autoXDemoNoteFs": 32.0,
+  "autoXDemoNoteSize": {
+    "x": 740.0,
+    "y": 56.0
+  },
+  "autoXDemoNoteColor": {
+    "r": 0.6000000238418579,
+    "g": 0.49000000953674316,
+    "b": 0.3700000047683716,
+    "a": 1.0
+  },
+  "autoXDemoBtnSize": {
+    "x": 640.0,
+    "y": 140.0
+  },
+  "autoXDemoBtnY": -540.0,
+  "autoXDemoBtnFs": 52.0,
+  "autoXDemoBtnTint": {
+    "r": 1.0,
+    "g": 0.75,
+    "b": 0.46000000834465027,
+    "a": 1.0
+  },
+  "autoXDemoBtnLabelGlow": {
+    "r": 0.7599999904632568,
+    "g": 0.44999998807907104,
+    "b": 0.1599999964237213,
+    "a": 1.0
+  },
+  "autoXDemoBtnShadowAlpha": 0.20000000298023224,
+  "autoXDemoBtnShadowSpread": 10.0,
+  "autoXDemoBtnShadowOffset": {
+    "x": 0.0,
+    "y": -5.0
+  },
+  "cardCol": {
+    "r": 1.0,
+    "g": 0.9900000095367432,
+    "b": 0.9599999785423279,
+    "a": 1.0
+  },
+  "titleCol": {
+    "r": 0.3199999928474426,
+    "g": 0.2199999988079071,
+    "b": 0.11999999731779099,
+    "a": 1.0
+  },
+  "subCol": {
+    "r": 0.47999998927116394,
+    "g": 0.3799999952316284,
+    "b": 0.27000001072883606,
+    "a": 1.0
+  },
+  "packBgCol": {
+    "r": 1.0,
+    "g": 0.9714837074279785,
+    "b": 0.9103773832321167,
+    "a": 1.0
+  },
+  "ownedCol": {
+    "r": 0.3499999940395355,
+    "g": 0.6499999761581421,
+    "b": 0.4000000059604645,
+    "a": 1.0
+  },
+  "packBgOverrides": [
+    {
+      "productId": "starter_pack",
+      "color": {
+        "r": 1.0,
+        "g": 0.972000002861023,
+        "b": 0.972000002861023,
+        "a": 1.0
+      }
+    },
+    {
+      "productId": "special_offer",
+      "color": {
+        "r": 1.0,
+        "g": 0.9952830076217651,
+        "b": 0.9764150977134705,
+        "a": 1.0
+      }
+    }
+  ],
+  "offerCol": {
+    "r": 0.949999988079071,
+    "g": 0.6000000238418579,
+    "b": 0.25,
+    "a": 1.0
+  },
+  "magnifierCol": {
+    "r": 0.41999998688697815,
+    "g": 0.6200000047683716,
+    "b": 0.8600000143051147,
+    "a": 1.0
+  },
+  "hintCol": {
+    "r": 0.9599999785423279,
+    "g": 0.7200000286102295,
+    "b": 0.2199999988079071,
+    "a": 1.0
+  },
+  "adsCol": {
+    "r": 0.9300000071525574,
+    "g": 0.5,
+    "b": 0.6000000238418579,
+    "a": 1.0
+  },
+  "resultW": 800.0,
+  "resultH": 974.0,
+  "resultYOffset": 0.0,
+  "resultDimAlpha": 0.9800000190734863,
+  "resultCloseSize": 140.0,
+  "resultClosePos": {
+    "x": -8.0,
+    "y": -125.0
+  },
+  "resultCloseShadowSpread": 16.0,
+  "resultCloseShadowCol": {
+    "r": 0.30000001192092896,
+    "g": 0.20000000298023224,
+    "b": 0.10999999940395355,
+    "a": 0.3799999952316284
+  },
+  "resultCloseShadowOffset": {
+    "x": 0.0,
+    "y": -6.0
+  },
+  "resultTitleFs": 58.0,
+  "resultTitleTop": 46.0,
+  "resultTitleH": 90.0,
+  "resultMsgFs": 34.0,
+  "resultMsgTop": 152.0,
+  "resultMsgH": 120.0,
+  "resultMsgLineSpacing": 14.0,
+  "resultTextSidePad": 60.0,
+  "resultBoxTop": 300.0,
+  "resultBoxH": 190.0,
+  "resultBoxRadiusPpum": 1.0,
+  "resultBoxBg": {
+    "r": 0.9900000095367432,
+    "g": 0.9100000262260437,
+    "b": 0.9300000071525574,
+    "a": 1.0
+  },
+  "resultBoxLine": {
+    "r": 0.949999988079071,
+    "g": 0.7799999713897705,
+    "b": 0.8299999833106995,
+    "a": 1.0
+  },
+  "resultBoxLineW": 4.0,
+  "resultBoxIconSize": 116.0,
+  "resultBoxIconLeft": 36.0,
+  "resultBoxIconGap": 24.0,
+  "resultBoxFs": 32.0,
+  "resultBoxLineSpacing": 14.0,
+  "resultBoxTextRightPad": 28.0,
+  "resultRewardIconSize": 104.0,
+  "resultRewardGap": 40.0,
+  "resultRewardFs": 32.0,
+  "resultRewardLabelTop": 8.0,
+  "resultRewardSoloIconSize": 140.0,
+  "resultRewardSoloFs": 56.0,
+  "resultRewardSoloGap": 16.0,
+  "resultBtnSize": {
+    "x": 400.0,
+    "y": 110.0
+  },
+  "resultBtnBottom": 56.0,
+  "resultBtnFs": 46.0,
+  "resultBtnTextCol": {
+    "r": 1.0,
+    "g": 1.0,
+    "b": 1.0,
+    "a": 1.0
+  },
+  "resultBtnPairW": 268.0,
+  "resultBtnGap": 26.0,
+  "resultCancelTint": {
+    "r": 0.7200000286102295,
+    "g": 0.6800000071525574,
+    "b": 0.6600000262260437,
+    "a": 1.0
+  },
+  "resultCancelTextCol": {
+    "r": 0.36000001430511475,
+    "g": 0.28999999165534973,
+    "b": 0.23000000417232513,
+    "a": 1.0
+  },
+  "resultConfirmH": 760.0,
+  "resultBtnStackedW": 600.0,
+  "termsFrameH": 1300.0,
+  "termsBoxH": 388.0,
+  "termsBoxPad": 12.0,
+  "termsHeartX": 252.0,
+  "termsHeartSize": {
+    "x": 56.0,
+    "y": 50.0
+  },
+  "termsHeartYOffset": 0.0,
+  "termsHeartTilt": 12.0,
+  "termsRowH": 112.0,
+  "termsRowGap": 10.0,
+  "termsRowBg": {
+    "r": 1.0,
+    "g": 0.9900000095367432,
+    "b": 0.9599999785423279,
+    "a": 1.0
+  },
+  "termsCheckSize": 58.0,
+  "termsCheckLeft": 15.0,
+  "termsCheckInset": 9.0,
+  "termsCheckOff": {
+    "r": 0.9300000071525574,
+    "g": 0.8999999761581421,
+    "b": 0.8500000238418579,
+    "a": 1.0
+  },
+  "termsCheckOn": {
+    "r": 0.8799999952316284,
+    "g": 0.949999988079071,
+    "b": 0.8600000143051147,
+    "a": 1.0
+  },
+  "termsLabelGap": 15.0,
+  "termsLabelFs": 32.0,
+  "termsLinkW": 88.0,
+  "termsLinkFs": 22.0,
+  "termsLinkCol": {
+    "r": 0.36000001430511475,
+    "g": 0.5199999809265137,
+    "b": 0.6200000047683716,
+    "a": 1.0
+  }
+}

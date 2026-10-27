@@ -1,0 +1,416 @@
+Type: Hamdoku.UI.DailyRetryConfig
+
+Method: Hamdoku.UI.DailyRetryConfig Load()
+
+Disassembly:
+	0x033EF960 STP X30, X21, [X31 - 0x20]!
+	0x033EF964 STP X20, X19, [X31 + 0x10]
+	0x033EF968 ADRP X19, 0x13AC000
+	0x033EF96C ADRP X20, 0x10D4000
+	0x033EF970 ADRP X21, 0x10B9000
+	0x033EF974 LDRB W8, [X19 + 0x825]
+	0x033EF978 LDR X20, [X20 + 0x910]
+	0x033EF97C LDR X21, [X21 + 0xAC0]
+	0x033EF980 TBNZ W8, 0x0, 0x33EF9C8
+	0x033EF984 ADRP X0, 0x10D4000
+	0x033EF988 LDR X0, [X0 + 0x910]
+	0x033EF98C BL 0x1D77A60
+	0x033EF990 ADRP X0, 0x10B9000
+	0x033EF994 LDR X0, [X0 + 0xAC0]
+	0x033EF998 BL 0x1D77A60
+	0x033EF99C ADRP X0, 0x10D4000
+	0x033EF9A0 LDR X0, [X0 + 0x918]
+	0x033EF9A4 BL 0x1D77A60
+	0x033EF9A8 ADRP X0, 0x10D4000
+	0x033EF9AC LDR X0, [X0 + 0x920]
+	0x033EF9B0 BL 0x1D77A60
+	0x033EF9B4 ADRP X0, 0x10D4000
+	0x033EF9B8 LDR X0, [X0 + 0x928]
+	0x033EF9BC BL 0x1D77A60
+	0x033EF9C0 MOV W8, 0x1
+	0x033EF9C4 STRB W8, [X19 + 0x825]
+	0x033EF9C8 LDR X8, [X20]
+	0x033EF9CC LDR X0, [X21]
+	0x033EF9D0 LDR X8, [X8 + 0xA0]
+	0x033EF9D4 LDR W9, [X0 + 0xE4]
+	0x033EF9D8 LDR X19, [X8]
+	0x033EF9DC CBNZ W9, 0x33EF9E4
+	0x033EF9E0 BL 0x1D77B94
+	0x033EF9E4 MOV X0, X19
+	0x033EF9E8 MOV X1, X31
+	0x033EF9EC MOV X2, X31
+	0x033EF9F0 BL 0x3F634BC
+	0x033EF9F4 TBZ W0, 0x0, 0x33EFA30
+	0x033EF9F8 ADRP X8, 0x10D4000
+	0x033EF9FC ADRP X9, 0x10D4000
+	0x033EFA00 LDR X8, [X8 + 0x928]
+	0x033EFA04 LDR X9, [X9 + 0x918]
+	0x033EFA08 LDR X0, [X8]
+	0x033EFA0C LDR X1, [X9]
+	0x033EFA10 BL 0x2348760
+	0x033EFA14 LDR X8, [X20]
+	0x033EFA18 MOV X1, X0
+	0x033EFA1C LDR X8, [X8 + 0xA0]
+	0x033EFA20 STR X0, [X8]
+	0x033EFA24 LDR X8, [X20]
+	0x033EFA28 LDR X0, [X8 + 0xA0]
+	0x033EFA2C BL 0x1D77A14
+	0x033EFA30 LDR X8, [X20]
+	0x033EFA34 LDR X0, [X21]
+	0x033EFA38 LDR X8, [X8 + 0xA0]
+	0x033EFA3C LDR W9, [X0 + 0xE4]
+	0x033EFA40 LDR X19, [X8]
+	0x033EFA44 CBNZ W9, 0x33EFA4C
+	0x033EFA48 BL 0x1D77B94
+	0x033EFA4C MOV X0, X19
+	0x033EFA50 MOV X1, X31
+	0x033EFA54 MOV X2, X31
+	0x033EFA58 BL 0x3F634BC
+	0x033EFA5C TBZ W0, 0x0, 0x33EFA8C
+	0x033EFA60 ADRP X8, 0x10D4000
+	0x033EFA64 LDR X8, [X8 + 0x920]
+	0x033EFA68 LDR X0, [X8]
+	0x033EFA6C BL 0x234B460
+	0x033EFA70 LDR X8, [X20]
+	0x033EFA74 MOV X1, X0
+	0x033EFA78 LDR X8, [X8 + 0xA0]
+	0x033EFA7C STR X0, [X8]
+	0x033EFA80 LDR X8, [X20]
+	0x033EFA84 LDR X0, [X8 + 0xA0]
+	0x033EFA88 BL 0x1D77A14
+	0x033EFA8C LDR X8, [X20]
+	0x033EFA90 LDP X20, X19, [X31 + 0x10]
+	0x033EFA94 LDR X8, [X8 + 0xA0]
+	0x033EFA98 LDR X0, [X8]
+	0x033EFA9C LDP X30, X21, [X31], #0x20
+	0x033EFAA0 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Move v12 @ X20_v2, [44C3910]
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Jump @b21
+	15 Nop
+	16 Move v18 @ X0_v24, [44C3910]
+	17 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v25, v18 @ X0_v24, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	18 Nop
+	19 Move v48 @ X0_v27, [44A8AC0]
+	20 Call "il2cpp_codegen_initialize_runtime_metadata", v49 @ X0_v28, v48 @ X0_v27, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	21 Nop
+	22 Move v57 @ X0_v30, [44C3918]
+	23 Call "il2cpp_codegen_initialize_runtime_metadata", v58 @ X0_v31, v57 @ X0_v30, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	24 Nop
+	25 Move v62 @ X0_v33, [44C3920]
+	26 Call "il2cpp_codegen_initialize_runtime_metadata", v63 @ X0_v34, v62 @ X0_v33, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	27 Nop
+	28 Move v86 @ X0_v36, [44C3928]
+	29 Call "il2cpp_codegen_initialize_runtime_metadata", v36 @ X0_v37, v86 @ X0_v36, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	30 Move v39 @ X8_v21, 1
+	31 Move [479B825], v39 @ X8_v21
+	32 Move v40 @ X8_v3, [v12 @ X20_v2]
+	33 Nop
+	34 Move v42 @ X8_v4, [v40 @ X8_v3+A0]
+	35 Nop
+	36 Nop
+	37 Nop
+	38 Nop
+	39 Jump @b10
+	40 Call "il2cpp_codegen_runtime_class_init", v50 @ X0_v22, v41 @ X0_v2, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	41 Nop
+	42 Nop
+	43 Nop
+	44 Call Object.op_Equality, v55 @ X0_v5 (System.Boolean), [v42 @ X8_v4], 0
+	45 Nop
+	46 CheckEqual v60 @ TEMP_v7 (System.Boolean), v55 @ X0_v5 (System.Boolean), 0
+	47 ConditionalJump @b14, v60 @ TEMP_v7 (System.Boolean)
+	48 Nop
+	49 Nop
+	50 Move v66 @ X8_v17, [44C3928]
+	51 Move v67 @ X9_v5, [44C3918]
+	52 Nop
+	53 Nop
+	54 Call 2348760, v70 @ X0_v19, [v66 @ X8_v17], [v67 @ X9_v5]
+	55 Move v87 @ X8_v18, [v12 @ X20_v2]
+	56 Nop
+	57 Move v88 @ X8_v19, [v87 @ X8_v18+A0]
+	58 Move [v88 @ X8_v19], v70 @ X0_v19
+	59 Move v77 @ X8_v20, [v12 @ X20_v2]
+	60 Nop
+	61 Call 1D77A14, v75 @ X0_v21, [v77 @ X8_v20+A0], v70 @ X0_v19, 0, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	62 Move v78 @ X8_v6, [v12 @ X20_v2]
+	63 Nop
+	64 Move v80 @ X8_v7, [v78 @ X8_v6+A0]
+	65 Nop
+	66 Nop
+	67 Nop
+	68 Nop
+	69 Jump @b16
+	70 Call "il2cpp_codegen_runtime_class_init", v90 @ X0_v17, v79 @ X0_v7, v72 @ X1_v2, v54 @ X2_v1, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	71 Nop
+	72 Nop
+	73 Nop
+	74 Call Object.op_Equality, v95 @ X0_v10 (System.Boolean), [v80 @ X8_v7], 0
+	75 Nop
+	76 CheckEqual v97 @ TEMP_v11 (System.Boolean), v95 @ X0_v10 (System.Boolean), 0
+	77 ConditionalJump @b20, v97 @ TEMP_v11 (System.Boolean)
+	78 Nop
+	79 Move v99 @ X8_v12, [44C3920]
+	80 Nop
+	81 Call 234B460, v101 @ X0_v14, [v99 @ X8_v12]
+	82 Move v115 @ X8_v13, [v12 @ X20_v2]
+	83 Nop
+	84 Move v116 @ X8_v14, [v115 @ X8_v13+A0]
+	85 Move [v116 @ X8_v14], v101 @ X0_v14
+	86 Move v107 @ X8_v15, [v12 @ X20_v2]
+	87 Nop
+	88 Call 1D77A14, v105 @ X0_v16, [v107 @ X8_v15+A0], v101 @ X0_v14, 0, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	89 Move v108 @ X8_v9, [v12 @ X20_v2]
+	90 Nop
+	91 Nop
+	92 Move v111 @ X8_v10, [v108 @ X8_v9+A0]
+	93 Nop
+	94 Nop
+	95 Nop
+	96 Nop
+	97 Return [v111 @ X8_v10]
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x033EFAA4 STR X30, [X31 - 0x30]!
+	0x033EFAA8 STP X22, X21, [X31 + 0x10]
+	0x033EFAAC STP X20, X19, [X31 + 0x20]
+	0x033EFAB0 ADRP X22, 0x13AC000
+	0x033EFAB4 ADRP X21, 0x10D4000
+	0x033EFAB8 MOV X19, X0
+	0x033EFABC LDRB W8, [X22 + 0x826]
+	0x033EFAC0 LDR X21, [X21 + 0x930]
+	0x033EFAC4 ADD X20, X0, 0x108
+	0x033EFAC8 TBNZ W8, 0x0, 0x33EFAE0
+	0x033EFACC ADRP X0, 0x10D4000
+	0x033EFAD0 LDR X0, [X0 + 0x930]
+	0x033EFAD4 BL 0x1D77A60
+	0x033EFAD8 MOV W8, 0x1
+	0x033EFADC STRB W8, [X22 + 0x826]
+	0x033EFAE0 ADRP X8, 0xFFFFFFFFFD81C000
+	0x033EFAE4 ADRP X9, 0xFFFFFFFFFD856000
+	0x033EFAE8 LDR X1, [X21]
+	0x033EFAEC LDR D0, [X8 + 0xF28]
+	0x033EFAF0 ADRP X8, 0xFFFFFFFFFD859000
+	0x033EFAF4 LDR V1, [X9 + 0x800]
+	0x033EFAF8 LDR V2, [X8 + 0x490]
+	0x033EFAFC MOV X0, X19
+	0x033EFB00 STR D0, [X19 + 0x18]
+	0x033EFB04 STP V1, V2, [X19 + 0x20]
+	0x033EFB08 STR X1, [X0 + 0x40]!
+	0x033EFB0C BL 0x1D77A14
+	0x033EFB10 ADRP X8, 0xFFFFFFFFFD81D000
+	0x033EFB14 ADD X10, X19, 0x164
+	0x033EFB18 ADRP X9, 0xFFFFFFFFFD856000
+	0x033EFB1C LDR D0, [X8 + 0x6B8]
+	0x033EFB20 MOV X8, 0x42200000
+	0x033EFB24 LDR V1, [X9 + 0x5B0]
+	0x033EFB28 MOVK X8, 0x4180000000000000
+	0x033EFB2C ADRP X9, 0xFFFFFFFFFD858000
+	0x033EFB30 STR W31, [X19 + 0x74]
+	0x033EFB34 STR X8, [X10]
+	0x033EFB38 ADRP X8, 0xFFFFFFFFFD81D000
+	0x033EFB3C MOV X0, X19
+	0x033EFB40 LDR D2, [X8 + 0x408]
+	0x033EFB44 ADRP X8, 0xFFFFFFFFFD81C000
+	0x033EFB48 STUR D0, [X19 + 0x4C]
+	0x033EFB4C LDR D0, [X8 + 0x7C8]
+	0x033EFB50 ADRP X8, 0xFFFFFFFFFD856000
+	0x033EFB54 STUR V1, [X19 + 0x54]
+	0x033EFB58 LDR V1, [X8 + 0xFD0]
+	0x033EFB5C ADRP X8, 0xFFFFFFFFFD857000
+	0x033EFB60 STUR D2, [X19 + 0x64]
+	0x033EFB64 STR D0, [X19 + 0x78]
+	0x033EFB68 LDR V0, [X8 + 0xEE0]
+	0x033EFB6C ADRP X8, 0xFFFFFFFFFD854000
+	0x033EFB70 STUR V1, [X19 + 0x84]
+	0x033EFB74 LDR V1, [X8 + 0x400]
+	0x033EFB78 ADRP X8, 0xFFFFFFFFFD856000
+	0x033EFB7C STUR V0, [X19 + 0x94]
+	0x033EFB80 LDR V0, [X8 + 0x10]
+	0x033EFB84 ADRP X8, 0xFFFFFFFFFD81D000
+	0x033EFB88 STUR V1, [X19 + 0xA4]
+	0x033EFB8C LDR D1, [X8 + 0xAE8]
+	0x033EFB90 ADRP X8, 0xFFFFFFFFFD81C000
+	0x033EFB94 STUR V0, [X19 + 0xB4]
+	0x033EFB98 LDR D0, [X8 + 0xB98]
+	0x033EFB9C ADRP X8, 0xFFFFFFFFFD859000
+	0x033EFBA0 STUR D1, [X19 + 0xC4]
+	0x033EFBA4 LDR V1, [X8 + 0x7A0]
+	0x033EFBA8 ADRP X8, 0xFFFFFFFFFD859000
+	0x033EFBAC STUR D0, [X19 + 0xCC]
+	0x033EFBB0 LDR V0, [X8 + 0x540]
+	0x033EFBB4 ADRP X8, 0xFFFFFFFFFD854000
+	0x033EFBB8 STUR V1, [X19 + 0xD4]
+	0x033EFBBC LDR V1, [X8 + 0xC80]
+	0x033EFBC0 ADRP X8, 0xFFFFFFFFFD857000
+	0x033EFBC4 STUR V0, [X19 + 0xE8]
+	0x033EFBC8 LDR V0, [X8 + 0x780]
+	0x033EFBCC ADRP X8, 0xFFFFFFFFFD857000
+	0x033EFBD0 LDR V2, [X8 + 0xC00]
+	0x033EFBD4 ADRP X8, 0xFFFFFFFFFD855000
+	0x033EFBD8 MOV X1, X31
+	0x033EFBDC STP V1, V0, [X20]
+	0x033EFBE0 LDR V0, [X8 + 0xCD0]
+	0x033EFBE4 MOV W8, 0x43DC0000
+	0x033EFBE8 STP W8, W31, [X19 + 0x6C]
+	0x033EFBEC ADRP X8, 0xFFFFFFFFFD81D000
+	0x033EFBF0 STP V2, V0, [X20 + 0x20]
+	0x033EFBF4 LDR V0, [X9 + 0xE20]
+	0x033EFBF8 LDP X22, X21, [X31 + 0x10]
+	0x033EFBFC STUR V0, [X19 + 0xF8]
+	0x033EFC00 LDR D0, [X8 + 0xA50]
+	0x033EFC04 MOV W8, 0x3
+	0x033EFC08 STR W8, [X19 + 0x80]
+	0x033EFC0C ADRP X8, 0xFFFFFFFFFD858000
+	0x033EFC10 STR D0, [X19 + 0x148]
+	0x033EFC14 LDR V0, [X8 + 0x850]
+	0x033EFC18 MOV W8, 0x3F800000
+	0x033EFC1C STR W8, [X19 + 0xE4]
+	0x033EFC20 ADRP X8, 0xFFFFFFFFFD856000
+	0x033EFC24 STR V0, [X19 + 0x150]
+	0x033EFC28 LDR V0, [X8 + 0xFE0]
+	0x033EFC2C MOV W8, 0x42780000
+	0x033EFC30 STR W8, [X19 + 0x160]
+	0x033EFC34 STR V0, [X19 + 0x170]
+	0x033EFC38 LDP X20, X19, [X31 + 0x20]
+	0x033EFC3C LDR X30, [X31], #0x30
+	0x033EFC40 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Move v15 @ X21_v2, [44C3930]
+	11 Add v16 @ X20_v1, this @ X0 (Hamdoku.UI.DailyRetryConfig), 264
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Jump @b7
+	16 Nop
+	17 Move v21 @ X0_v7, [44C3930]
+	18 Call "il2cpp_codegen_initialize_runtime_metadata", v22 @ X0_v8, v21 @ X0_v7, methodInfo @ X1 (Il2CppMethodInfo), v24 @ X2, v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, v30 @ V0, v31 @ V1, v32 @ V2, v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	19 Move v40 @ X8_v29, 1
+	20 Move [479B826], v40 @ X8_v29
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Move this.panelSize (UnityEngine.Vector2), [C0BF28]
+	30 Move this.panelPpum (System.Single), [C45800]
+	31 Move this.titleColor (UnityEngine.Color), [C48490]
+	32 Add v49 @ X0_v3, this @ X0 (Hamdoku.UI.DailyRetryConfig), 64
+	33 Move [v49 @ X0_v3], [v15 @ X21_v2]
+	34 Call 1D77A14, v50 @ X0_v4, v49 @ X0_v3, [v15 @ X21_v2], v24 @ X2, v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, [C0BF28], [C45800], [C48490], v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	35 Nop
+	36 Add v52 @ X10_v1, this @ X0 (Hamdoku.UI.DailyRetryConfig), 356
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Nop
+	43 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+74], 0
+	44 Move [v52 @ X10_v1], 4719772410593673216
+	45 Nop
+	46 Nop
+	47 Nop
+	48 Nop
+	49 Move this.heroSize (UnityEngine.Vector2), [C0C6B8]
+	50 Nop
+	51 Nop
+	52 Move this.heroY (System.Single), [C455B0]
+	53 Nop
+	54 Nop
+	55 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+64], [C0C408]
+	56 Move this.heroBreathAmount (System.Single), [C0B7C8]
+	57 Nop
+	58 Nop
+	59 Move this.heroSparkleSize (System.Single), [C45FD0]
+	60 Nop
+	61 Nop
+	62 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+94], [C46EE0]
+	63 Nop
+	64 Nop
+	65 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+A4], [C43400]
+	66 Nop
+	67 Nop
+	68 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+B4], [C45010]
+	69 Nop
+	70 Nop
+	71 Move this.recordIconGap (System.Single), [C0CAE8]
+	72 Nop
+	73 Nop
+	74 Move this.descSize (UnityEngine.Vector2), [C0BB98]
+	75 Nop
+	76 Nop
+	77 Move this.descFontSize (System.Single), [C487A0]
+	78 Nop
+	79 Nop
+	80 Move this.btnSize (UnityEngine.Vector2), [C48540]
+	81 Nop
+	82 Nop
+	83 Nop
+	84 Nop
+	85 Nop
+	86 Move [v16 @ X20_v1], [C43C80]
+	87 Move [v16 @ X20_v1+10], [C46780]
+	88 Nop
+	89 Nop
+	90 Move this.heroHamsterHeight (System.Single), 440f
+	91 Move this.heroHamsterOffset (UnityEngine.Vector2), 0
+	92 Nop
+	93 Move [v16 @ X20_v1+20], [C46C00]
+	94 Move [v16 @ X20_v1+30], [C44CD0]
+	95 Nop
+	96 Nop
+	97 Nop
+	98 Move this.btnY (System.Single), [C47E20]
+	99 Nop
+	100 Nop
+	101 Move this.heroSparkleCount (System.Int32), 3
+	102 Nop
+	103 Move this.btnShadowAlpha (System.Single), [C0CA50]
+	104 Nop
+	105 Nop
+	106 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+E4], 1065353216
+	107 Nop
+	108 Move this.btnShadowLayers (System.Int32), [C47850]
+	109 Nop
+	110 Nop
+	111 Move [this @ X0 (Hamdoku.UI.DailyRetryConfig)+160], 1115160576
+	112 Move this.adBadgeSize (UnityEngine.Vector2), [C45FE0]
+	113 Nop
+	114 Nop
+	115 Nop
+	116 Nop
+	117 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.UI.DailyRetryConfig)
+	118 Return
+

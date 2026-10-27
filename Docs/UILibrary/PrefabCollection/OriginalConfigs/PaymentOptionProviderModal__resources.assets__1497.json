@@ -1,0 +1,2709 @@
+{
+  "m_GameObject": {
+    "m_FileID": 0,
+    "m_PathID": 0
+  },
+  "m_Enabled": 1,
+  "m_Script": {
+    "m_FileID": 2,
+    "m_PathID": 11998
+  },
+  "m_Name": "PaymentOptionProviderModal",
+  "m_ImportedWithErrors": false,
+  "m_ImportedWithWarnings": false,
+  "m_Rules": [
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 0
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-sheet",
+          "m_Line": 10,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 0
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-title",
+          "m_Line": 11,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 1
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-button-text",
+          "m_Line": 12,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 2
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-native-bg",
+          "m_Line": 13,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 3
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-branded-bg",
+          "m_Line": 14,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 4
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-generic-bg",
+          "m_Line": 15,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 5
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-close-glyph",
+          "m_Line": 16,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 6
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-close-glyph-hover",
+          "m_Line": 17,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 7
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-badge",
+          "m_Line": 18,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 8
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-badge-text",
+          "m_Line": 19,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 9
+            }
+          ]
+        },
+        {
+          "m_Id": 60,
+          "m_CustomName": "",
+          "m_Line": 21,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 0
+            }
+          ]
+        },
+        {
+          "m_Id": 42,
+          "m_CustomName": "",
+          "m_Line": 22,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 0
+            }
+          ]
+        },
+        {
+          "m_Id": 61,
+          "m_CustomName": "",
+          "m_Line": 23,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 1
+            }
+          ]
+        },
+        {
+          "m_Id": 66,
+          "m_CustomName": "",
+          "m_Line": 24,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 2
+            }
+          ]
+        },
+        {
+          "m_Id": 28,
+          "m_CustomName": "",
+          "m_Line": 25,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 3
+            }
+          ]
+        }
+      ],
+      "line": 9
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__overlay",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 1
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 60,
+          "m_CustomName": "",
+          "m_Line": 29,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 1
+            }
+          ]
+        },
+        {
+          "m_Id": 42,
+          "m_CustomName": "",
+          "m_Line": 30,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 4
+            }
+          ]
+        },
+        {
+          "m_Id": 61,
+          "m_CustomName": "",
+          "m_Line": 31,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 5
+            }
+          ]
+        },
+        {
+          "m_Id": 66,
+          "m_CustomName": "",
+          "m_Line": 32,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 6
+            }
+          ]
+        },
+        {
+          "m_Id": 28,
+          "m_CustomName": "",
+          "m_Line": 33,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 7
+            }
+          ]
+        },
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 34,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 10
+            }
+          ]
+        },
+        {
+          "m_Id": 2,
+          "m_CustomName": "",
+          "m_Line": 35,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 2
+            }
+          ]
+        },
+        {
+          "m_Id": 41,
+          "m_CustomName": "",
+          "m_Line": 36,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 3
+            }
+          ]
+        }
+      ],
+      "line": 28
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__overlay--hidden",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 2
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 31,
+          "m_CustomName": "",
+          "m_Line": 40,
+          "m_Values": [
+            {
+              "m_ValueType": 1,
+              "valueIndex": 6
+            }
+          ]
+        }
+      ],
+      "line": 39
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__sheet",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 3
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 98,
+          "m_CustomName": "",
+          "m_Line": 44,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 0
+            }
+          ]
+        },
+        {
+          "m_Id": 50,
+          "m_CustomName": "",
+          "m_Line": 45,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 1
+            }
+          ]
+        },
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 46,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 8
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 4
+            }
+          ]
+        },
+        {
+          "m_Id": 59,
+          "m_CustomName": "",
+          "m_Line": 47,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 2
+            }
+          ]
+        },
+        {
+          "m_Id": 56,
+          "m_CustomName": "",
+          "m_Line": 48,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 3
+            }
+          ]
+        },
+        {
+          "m_Id": 57,
+          "m_CustomName": "",
+          "m_Line": 49,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 4
+            }
+          ]
+        },
+        {
+          "m_Id": 58,
+          "m_CustomName": "",
+          "m_Line": 50,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 5
+            }
+          ]
+        },
+        {
+          "m_Id": 20,
+          "m_CustomName": "",
+          "m_Line": 51,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 6
+            }
+          ]
+        }
+      ],
+      "line": 43
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__header",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 4
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 35,
+          "m_CustomName": "",
+          "m_Line": 55,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 5
+            }
+          ]
+        },
+        {
+          "m_Id": 2,
+          "m_CustomName": "",
+          "m_Line": 56,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 6
+            }
+          ]
+        },
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 57,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 7
+            }
+          ]
+        },
+        {
+          "m_Id": 45,
+          "m_CustomName": "",
+          "m_Line": 58,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 8
+            }
+          ]
+        },
+        {
+          "m_Id": 57,
+          "m_CustomName": "",
+          "m_Line": 59,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 9
+            }
+          ]
+        }
+      ],
+      "line": 54
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__title",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 5
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 36,
+          "m_CustomName": "",
+          "m_Line": 63,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 9
+            }
+          ]
+        },
+        {
+          "m_Id": 39,
+          "m_CustomName": "",
+          "m_Line": 64,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 10
+            }
+          ]
+        },
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 65,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 10
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 7
+            }
+          ]
+        },
+        {
+          "m_Id": 89,
+          "m_CustomName": "",
+          "m_Line": 66,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 8
+            }
+          ]
+        },
+        {
+          "m_Id": 79,
+          "m_CustomName": "",
+          "m_Line": 67,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 9
+            }
+          ]
+        }
+      ],
+      "line": 62
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__close",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 6
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 98,
+          "m_CustomName": "",
+          "m_Line": 71,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 11
+            }
+          ]
+        },
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 72,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 12
+            }
+          ]
+        },
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 73,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 11
+            }
+          ]
+        },
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 74,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 11
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 10
+            }
+          ]
+        },
+        {
+          "m_Id": 39,
+          "m_CustomName": "",
+          "m_Line": 75,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 13
+            }
+          ]
+        },
+        {
+          "m_Id": 27,
+          "m_CustomName": "",
+          "m_Line": 76,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 12
+            }
+          ]
+        },
+        {
+          "m_Id": 55,
+          "m_CustomName": "",
+          "m_Line": 77,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 13
+            }
+          ]
+        },
+        {
+          "m_Id": 44,
+          "m_CustomName": "",
+          "m_Line": 78,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 14
+            }
+          ]
+        },
+        {
+          "m_Id": 70,
+          "m_CustomName": "",
+          "m_Line": 79,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 14
+            }
+          ]
+        }
+      ],
+      "line": 70
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__close",
+                  "m_Type": 3
+                },
+                {
+                  "m_Value": "hover",
+                  "m_Type": 4
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 7
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 83,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 15
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 11
+            }
+          ]
+        }
+      ],
+      "line": 82
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 8
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 87,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 15
+            }
+          ]
+        },
+        {
+          "m_Id": 20,
+          "m_CustomName": "",
+          "m_Line": 88,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 16
+            }
+          ]
+        },
+        {
+          "m_Id": 27,
+          "m_CustomName": "",
+          "m_Line": 89,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 16
+            }
+          ]
+        },
+        {
+          "m_Id": 48,
+          "m_CustomName": "",
+          "m_Line": 90,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 17
+            }
+          ]
+        },
+        {
+          "m_Id": 45,
+          "m_CustomName": "",
+          "m_Line": 91,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 17
+            }
+          ]
+        },
+        {
+          "m_Id": 46,
+          "m_CustomName": "",
+          "m_Line": 92,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 18
+            }
+          ]
+        },
+        {
+          "m_Id": 47,
+          "m_CustomName": "",
+          "m_Line": 93,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 19
+            }
+          ]
+        },
+        {
+          "m_Id": 59,
+          "m_CustomName": "",
+          "m_Line": 94,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 20
+            }
+          ]
+        },
+        {
+          "m_Id": 56,
+          "m_CustomName": "",
+          "m_Line": 95,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 21
+            }
+          ]
+        },
+        {
+          "m_Id": 57,
+          "m_CustomName": "",
+          "m_Line": 96,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 18
+            }
+          ]
+        },
+        {
+          "m_Id": 58,
+          "m_CustomName": "",
+          "m_Line": 97,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 19
+            }
+          ]
+        },
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 98,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 22
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 12
+            }
+          ]
+        },
+        {
+          "m_Id": 39,
+          "m_CustomName": "",
+          "m_Line": 99,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 20
+            }
+          ]
+        },
+        {
+          "m_Id": 35,
+          "m_CustomName": "",
+          "m_Line": 100,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 13
+            }
+          ]
+        },
+        {
+          "m_Id": 2,
+          "m_CustomName": "",
+          "m_Line": 101,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 14
+            }
+          ]
+        },
+        {
+          "m_Id": 41,
+          "m_CustomName": "",
+          "m_Line": 102,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 15
+            }
+          ]
+        },
+        {
+          "m_Id": 70,
+          "m_CustomName": "",
+          "m_Line": 103,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 21
+            }
+          ]
+        }
+      ],
+      "line": 86
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button",
+                  "m_Type": 3
+                },
+                {
+                  "m_Value": "active",
+                  "m_Type": 4
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 9
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 63,
+          "m_CustomName": "",
+          "m_Line": 107,
+          "m_Values": [
+            {
+              "m_ValueType": 2,
+              "valueIndex": 23
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 24
+            }
+          ]
+        }
+      ],
+      "line": 106
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--native",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 10
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 111,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 25
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 16
+            }
+          ]
+        }
+      ],
+      "line": 110
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--branded",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 11
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 115,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 26
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 17
+            }
+          ]
+        }
+      ],
+      "line": 114
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--generic",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 12
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 119,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 27
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 18
+            }
+          ]
+        }
+      ],
+      "line": 118
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--apple-pay",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 13
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 126,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 12
+            }
+          ]
+        }
+      ],
+      "line": 125
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--apple-pay",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 14
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 130,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 13
+            }
+          ]
+        }
+      ],
+      "line": 129
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--google-pay",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 15
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 137,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 14
+            }
+          ]
+        }
+      ],
+      "line": 136
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--google-pay",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 16
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 141,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 15
+            }
+          ]
+        }
+      ],
+      "line": 140
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--coda",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 17
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 149,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 16
+            }
+          ]
+        }
+      ],
+      "line": 148
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--coda",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 18
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 153,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 17
+            }
+          ]
+        }
+      ],
+      "line": 152
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--coda",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 19
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 157,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 18
+            }
+          ]
+        }
+      ],
+      "line": 156
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 768
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--coda",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 20
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 161,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 19
+            }
+          ]
+        }
+      ],
+      "line": 160
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--stripe",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 21
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 169,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 20
+            }
+          ]
+        }
+      ],
+      "line": 168
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--stripe",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 22
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 173,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 21
+            }
+          ]
+        }
+      ],
+      "line": 172
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--stripe",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 23
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 177,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 22
+            }
+          ]
+        }
+      ],
+      "line": 176
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 768
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--stripe",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 24
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 181,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 23
+            }
+          ]
+        }
+      ],
+      "line": 180
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 25
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 185,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 28
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 12
+            }
+          ]
+        },
+        {
+          "m_Id": 39,
+          "m_CustomName": "",
+          "m_Line": 186,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 22
+            }
+          ]
+        },
+        {
+          "m_Id": 79,
+          "m_CustomName": "",
+          "m_Line": 187,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 19
+            }
+          ]
+        },
+        {
+          "m_Id": 47,
+          "m_CustomName": "",
+          "m_Line": 188,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 23
+            }
+          ]
+        },
+        {
+          "m_Id": 89,
+          "m_CustomName": "",
+          "m_Line": 189,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 20
+            }
+          ]
+        }
+      ],
+      "line": 184
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__brand",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 26
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 193,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 24
+            }
+          ]
+        }
+      ],
+      "line": 192
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__brand--large",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 27
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 197,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 25
+            }
+          ]
+        }
+      ],
+      "line": 196
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--webshop",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 28
+        }
+      ],
+      "m_Properties": [],
+      "line": 200
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 512
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button--webshop",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            },
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-label",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 2
+            }
+          ],
+          "ruleIndex": 29
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 79,
+          "m_CustomName": "",
+          "m_Line": 207,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 21
+            }
+          ]
+        }
+      ],
+      "line": 206
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__button-glyph",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 30
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 211,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 26
+            }
+          ]
+        },
+        {
+          "m_Id": 47,
+          "m_CustomName": "",
+          "m_Line": 212,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 27
+            }
+          ]
+        }
+      ],
+      "line": 210
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker__badge",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 31
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": 60,
+          "m_CustomName": "",
+          "m_Line": 219,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 22
+            }
+          ]
+        },
+        {
+          "m_Id": 61,
+          "m_CustomName": "",
+          "m_Line": 220,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 28
+            }
+          ]
+        },
+        {
+          "m_Id": 66,
+          "m_CustomName": "",
+          "m_Line": 221,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 29
+            }
+          ]
+        },
+        {
+          "m_Id": 40,
+          "m_CustomName": "",
+          "m_Line": 222,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 30
+            }
+          ]
+        },
+        {
+          "m_Id": 57,
+          "m_CustomName": "",
+          "m_Line": 223,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 31
+            }
+          ]
+        },
+        {
+          "m_Id": 58,
+          "m_CustomName": "",
+          "m_Line": 224,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 32
+            }
+          ]
+        },
+        {
+          "m_Id": 20,
+          "m_CustomName": "",
+          "m_Line": 225,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 33
+            }
+          ]
+        },
+        {
+          "m_Id": 6,
+          "m_CustomName": "",
+          "m_Line": 226,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 29
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 23
+            }
+          ]
+        },
+        {
+          "m_Id": 29,
+          "m_CustomName": "",
+          "m_Line": 227,
+          "m_Values": [
+            {
+              "m_ValueType": 10,
+              "valueIndex": 1
+            },
+            {
+              "m_ValueType": 2,
+              "valueIndex": 30
+            },
+            {
+              "m_ValueType": 8,
+              "valueIndex": 24
+            }
+          ]
+        },
+        {
+          "m_Id": 39,
+          "m_CustomName": "",
+          "m_Line": 228,
+          "m_Values": [
+            {
+              "m_ValueType": 3,
+              "valueIndex": 34
+            }
+          ]
+        },
+        {
+          "m_Id": 79,
+          "m_CustomName": "",
+          "m_Line": 229,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 25
+            }
+          ]
+        },
+        {
+          "m_Id": 89,
+          "m_CustomName": "",
+          "m_Line": 230,
+          "m_Values": [
+            {
+              "m_ValueType": 7,
+              "valueIndex": 26
+            }
+          ]
+        }
+      ],
+      "line": 218
+    },
+    {
+      "m_ComplexSelectors": [
+        {
+          "m_Specificity": {
+            "m_Score": 256
+          },
+          "m_Selectors": [
+            {
+              "m_Parts": [
+                {
+                  "m_Value": "unity-iap-picker--dark",
+                  "m_Type": 3
+                }
+              ],
+              "m_PreviousRelationship": 0
+            }
+          ],
+          "ruleIndex": 32
+        }
+      ],
+      "m_Properties": [
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-sheet",
+          "m_Line": 235,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 24
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-title",
+          "m_Line": 236,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 25
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-button-text",
+          "m_Line": 237,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 26
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-native-bg",
+          "m_Line": 238,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 27
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-branded-bg",
+          "m_Line": 239,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 28
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-generic-bg",
+          "m_Line": 240,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 29
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-close-glyph",
+          "m_Line": 241,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 30
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-close-glyph-hover",
+          "m_Line": 242,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 31
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-badge",
+          "m_Line": 243,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 32
+            }
+          ]
+        },
+        {
+          "m_Id": -1,
+          "m_CustomName": "--color-badge-text",
+          "m_Line": 244,
+          "m_Values": [
+            {
+              "m_ValueType": 4,
+              "valueIndex": 33
+            }
+          ]
+        }
+      ],
+      "line": 234
+    }
+  ],
+  "resourcePaths": [],
+  "floats": [
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    0.0,
+    1.0,
+    0.9800000190734863,
+    0.9800000190734863,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "dimensions": [
+    {
+      "unit": 1,
+      "value": 880.0
+    },
+    {
+      "unit": 2,
+      "value": 92.0
+    },
+    {
+      "unit": 1,
+      "value": 28.0
+    },
+    {
+      "unit": 1,
+      "value": 28.0
+    },
+    {
+      "unit": 1,
+      "value": 36.0
+    },
+    {
+      "unit": 1,
+      "value": 36.0
+    },
+    {
+      "unit": 1,
+      "value": 32.0
+    },
+    {
+      "unit": 1,
+      "value": 56.0
+    },
+    {
+      "unit": 1,
+      "value": 44.0
+    },
+    {
+      "unit": 1,
+      "value": 8.0
+    },
+    {
+      "unit": 1,
+      "value": 30.0
+    },
+    {
+      "unit": 1,
+      "value": 40.0
+    },
+    {
+      "unit": 1,
+      "value": 40.0
+    },
+    {
+      "unit": 1,
+      "value": 36.0
+    },
+    {
+      "unit": 3,
+      "value": 0.11999999731779099
+    },
+    {
+      "unit": 1,
+      "value": 96.0
+    },
+    {
+      "unit": 1,
+      "value": 18.0
+    },
+    {
+      "unit": 1,
+      "value": 14.0
+    },
+    {
+      "unit": 1,
+      "value": 20.0
+    },
+    {
+      "unit": 1,
+      "value": 20.0
+    },
+    {
+      "unit": 1,
+      "value": 32.0
+    },
+    {
+      "unit": 3,
+      "value": 0.11999999731779099
+    },
+    {
+      "unit": 1,
+      "value": 32.0
+    },
+    {
+      "unit": 1,
+      "value": 10.0
+    },
+    {
+      "unit": 1,
+      "value": 40.0
+    },
+    {
+      "unit": 1,
+      "value": 52.0
+    },
+    {
+      "unit": 1,
+      "value": 32.0
+    },
+    {
+      "unit": 1,
+      "value": 4.0
+    },
+    {
+      "unit": 1,
+      "value": -10.0
+    },
+    {
+      "unit": 1,
+      "value": 30.0
+    },
+    {
+      "unit": 1,
+      "value": 36.0
+    },
+    {
+      "unit": 1,
+      "value": 14.0
+    },
+    {
+      "unit": 1,
+      "value": 14.0
+    },
+    {
+      "unit": 1,
+      "value": 18.0
+    },
+    {
+      "unit": 1,
+      "value": 22.0
+    }
+  ],
+  "colors": [
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.10196078568696976,
+      "g": 0.10196078568696976,
+      "b": 0.10196078568696976,
+      "a": 1.0
+    },
+    {
+      "r": 0.10196078568696976,
+      "g": 0.10196078568696976,
+      "b": 0.10196078568696976,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9490196108818054,
+      "b": 0.9098039269447327,
+      "a": 1.0
+    },
+    {
+      "r": 0.9098039269447327,
+      "g": 0.9098039269447327,
+      "b": 0.9098039269447327,
+      "a": 1.0
+    },
+    {
+      "r": 0.5490196347236633,
+      "g": 0.5490196347236633,
+      "b": 0.5647059082984924,
+      "a": 1.0
+    },
+    {
+      "r": 0.3137255012989044,
+      "g": 0.3137255012989044,
+      "b": 0.3529411852359772,
+      "a": 1.0
+    },
+    {
+      "r": 0.7843137383460999,
+      "g": 0.9372549057006836,
+      "b": 0.843137264251709,
+      "a": 1.0
+    },
+    {
+      "r": 0.05882352963089943,
+      "g": 0.22745098173618317,
+      "b": 0.12156862765550613,
+      "a": 1.0
+    },
+    {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.6499999761581421
+    },
+    {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 0.0
+    },
+    {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.0,
+      "g": 0.0,
+      "b": 0.0,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.19607843458652496,
+      "g": 0.1882352977991104,
+      "b": 0.16470588743686676,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9607843160629272,
+      "b": 0.9607843160629272,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9490196108818054,
+      "b": 0.9098039269447327,
+      "a": 1.0
+    },
+    {
+      "r": 0.10196078568696976,
+      "g": 0.10196078568696976,
+      "b": 0.10196078568696976,
+      "a": 1.0
+    },
+    {
+      "r": 0.38823530077934265,
+      "g": 0.35686275362968445,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 1.0,
+      "g": 1.0,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.38823530077934265,
+      "g": 0.35686275362968445,
+      "b": 1.0,
+      "a": 1.0
+    },
+    {
+      "r": 0.10980392247438431,
+      "g": 0.10980392247438431,
+      "b": 0.125490203499794,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9607843160629272,
+      "b": 0.9607843160629272,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9607843160629272,
+      "b": 0.9607843160629272,
+      "a": 1.0
+    },
+    {
+      "r": 0.1764705926179886,
+      "g": 0.1764705926179886,
+      "b": 0.19607843458652496,
+      "a": 1.0
+    },
+    {
+      "r": 0.19607843458652496,
+      "g": 0.1882352977991104,
+      "b": 0.16470588743686676,
+      "a": 1.0
+    },
+    {
+      "r": 0.23529411852359772,
+      "g": 0.23529411852359772,
+      "b": 0.25882354378700256,
+      "a": 1.0
+    },
+    {
+      "r": 0.7058823704719543,
+      "g": 0.7058823704719543,
+      "b": 0.7450980544090271,
+      "a": 1.0
+    },
+    {
+      "r": 0.8627451062202454,
+      "g": 0.8627451062202454,
+      "b": 0.9019607901573181,
+      "a": 1.0
+    },
+    {
+      "r": 0.10980392247438431,
+      "g": 0.4313725531101227,
+      "b": 0.250980406999588,
+      "a": 1.0
+    },
+    {
+      "r": 0.9607843160629272,
+      "g": 0.9803921580314636,
+      "b": 0.9647058844566345,
+      "a": 1.0
+    }
+  ],
+  "strings": [
+    "absolute",
+    "absolute",
+    "center",
+    "center",
+    "--color-sheet",
+    "row",
+    "center",
+    "--color-title",
+    "middle-left",
+    "bold",
+    "--color-close-glyph",
+    "--color-close-glyph-hover",
+    "--color-button-text",
+    "row",
+    "center",
+    "center",
+    "--color-native-bg",
+    "--color-branded-bg",
+    "--color-generic-bg",
+    "normal",
+    "middle-center",
+    "bold",
+    "absolute",
+    "--color-badge",
+    "--color-badge-text",
+    "bold",
+    "middle-center"
+  ],
+  "assets": [],
+  "imports": [],
+  "m_FlattenedImportedStyleSheets": [],
+  "m_ContentHash": 1945919319,
+  "scalableImages": []
+}

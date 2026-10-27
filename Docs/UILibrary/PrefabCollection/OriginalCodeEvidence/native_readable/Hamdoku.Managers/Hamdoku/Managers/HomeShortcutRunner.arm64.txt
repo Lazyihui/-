@@ -1,0 +1,184 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public HomeShortcutRunner() { }
+; token=0x6000C70 file_offset=0x3237AF8 tool_rva=0x3237AF8 length=0x8
+000000000323baf8: e1031faa mov      x1, xzr
+000000000323bafc: 0fa53414 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; internal static void Ensure() { }
+; token=0x6000C6B file_offset=0x3236F24 tool_rva=0x3236F24 length=0x128
+000000000323af24: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000323af28: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323af2c: 13ab0090 adrp     x19, #0x479a000
+000000000323af30: f49300f0 adrp     x20, #0x44b9000
+000000000323af34: 759300d0 adrp     x21, #0x44a8000
+000000000323af38: 68127039 ldrb     w8, [x19, #0xc04]
+000000000323af3c: 94be46f9 ldr      x20, [x20, #0xd78]
+000000000323af40: b56245f9 ldr      x21, [x21, #0xac0]
+000000000323af44: 48020037 tbnz     w8, #0, #0x323af8c
+000000000323af48: e09300f0 adrp     x0, #0x44b9000
+000000000323af4c: 00c046f9 ldr      x0, [x0, #0xd80]
+000000000323af50: c4f2ac97 bl       #0x1d77a60
+000000000323af54: 609300d0 adrp     x0, #0x44a8000
+000000000323af58: 005c45f9 ldr      x0, [x0, #0xab8]
+000000000323af5c: c1f2ac97 bl       #0x1d77a60
+000000000323af60: e09300f0 adrp     x0, #0x44b9000
+000000000323af64: 00bc46f9 ldr      x0, [x0, #0xd78]
+000000000323af68: bef2ac97 bl       #0x1d77a60
+000000000323af6c: 609300d0 adrp     x0, #0x44a8000
+000000000323af70: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323af74: bbf2ac97 bl       #0x1d77a60
+000000000323af78: e09300f0 adrp     x0, #0x44b9000
+000000000323af7c: 00c446f9 ldr      x0, [x0, #0xd88]
+000000000323af80: b8f2ac97 bl       #0x1d77a60
+000000000323af84: 28008052 mov      w8, #1
+000000000323af88: 68123039 strb     w8, [x19, #0xc04]
+000000000323af8c: 880240f9 ldr      x8, [x20]
+000000000323af90: a00240f9 ldr      x0, [x21]
+000000000323af94: 085140f9 ldr      x8, [x8, #0xa0]
+000000000323af98: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000323af9c: 130140f9 ldr      x19, [x8]
+000000000323afa0: 49000035 cbnz     w9, #0x323afa8
+000000000323afa4: fcf2ac97 bl       #0x1d77b94
+000000000323afa8: e00313aa mov      x0, x19
+000000000323afac: e1031faa mov      x1, xzr
+000000000323afb0: e2031faa mov      x2, xzr
+000000000323afb4: 5a9c3494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000323afb8: 80000036 tbz      w0, #0, #0x323afc8
+000000000323afbc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323afc0: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000323afc4: c0035fd6 ret      
+000000000323afc8: 689300d0 adrp     x8, #0x44a8000
+000000000323afcc: f39300f0 adrp     x19, #0x44b9000
+000000000323afd0: 085d45f9 ldr      x8, [x8, #0xab8]
+000000000323afd4: 73c646f9 ldr      x19, [x19, #0xd88]
+000000000323afd8: 000140f9 ldr      x0, [x8]
+000000000323afdc: baf3ac97 bl       #0x1d77ec4
+000000000323afe0: 610240f9 ldr      x1, [x19]
+000000000323afe4: e2031faa mov      x2, xzr
+000000000323afe8: f30300aa mov      x19, x0
+000000000323afec: 859e3494 bl       #0x3f62a00 ; GameObject :: public GameObject(string name) { }
+000000000323aff0: a00240f9 ldr      x0, [x21]
+000000000323aff4: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000323aff8: 48000035 cbnz     w8, #0x323b000
+000000000323affc: e6f2ac97 bl       #0x1d77b94
+000000000323b000: e00313aa mov      x0, x19
+000000000323b004: e1031faa mov      x1, xzr
+000000000323b008: 1ab43494 bl       #0x3f68070
+000000000323b00c: f30100b4 cbz      x19, #0x323b048
+000000000323b010: e89300d0 adrp     x8, #0x44b9000
+000000000323b014: e00313aa mov      x0, x19
+000000000323b018: 08c146f9 ldr      x8, [x8, #0xd80]
+000000000323b01c: 010140f9 ldr      x1, [x8]
+000000000323b020: fbc0bf97 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+000000000323b024: 880240f9 ldr      x8, [x20]
+000000000323b028: e10300aa mov      x1, x0
+000000000323b02c: 085140f9 ldr      x8, [x8, #0xa0]
+000000000323b030: 000100f9 str      x0, [x8]
+000000000323b034: 880240f9 ldr      x8, [x20]
+000000000323b038: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323b03c: 005140f9 ldr      x0, [x8, #0xa0]
+000000000323b040: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000323b044: 74f2ac17 b        #0x1d77a14
+000000000323b048: 83f2ac97 bl       #0x1d77a54
+
+; private void OnApplicationFocus(bool focused) { }
+; token=0x6000C6C file_offset=0x323799C tool_rva=0x323799C length=0xC
+000000000323b99c: 41000036 tbz      w1, #0, #0x323b9a4
+000000000323b9a0: 02000014 b        #0x323b9a8 ; HomeShortcutRunner :: private static void Recapture() { }
+000000000323b9a4: c0035fd6 ret      
+
+; private void OnApplicationPause(bool paused) { }
+; token=0x6000C6D file_offset=0x3237A38 tool_rva=0x3237A38 length=0xC
+000000000323ba38: 41000036 tbz      w1, #0, #0x323ba40
+000000000323ba3c: c0035fd6 ret      
+000000000323ba40: daffff17 b        #0x323b9a8 ; HomeShortcutRunner :: private static void Recapture() { }
+
+; private void OnDestroy() { }
+; token=0x6000C6F file_offset=0x3237A44 tool_rva=0x3237A44 length=0xB4
+000000000323ba44: fe0f1df8 str      x30, [sp, #-0x30]!
+000000000323ba48: f65701a9 stp      x22, x21, [sp, #0x10]
+000000000323ba4c: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000323ba50: f6aa00f0 adrp     x22, #0x479a000
+000000000323ba54: f59300d0 adrp     x21, #0x44b9000
+000000000323ba58: 749300b0 adrp     x20, #0x44a8000
+000000000323ba5c: c81a7039 ldrb     w8, [x22, #0xc06]
+000000000323ba60: b5be46f9 ldr      x21, [x21, #0xd78]
+000000000323ba64: 946245f9 ldr      x20, [x20, #0xac0]
+000000000323ba68: f30300aa mov      x19, x0
+000000000323ba6c: 28010037 tbnz     w8, #0, #0x323ba90
+000000000323ba70: e09300d0 adrp     x0, #0x44b9000
+000000000323ba74: 00bc46f9 ldr      x0, [x0, #0xd78]
+000000000323ba78: faefac97 bl       #0x1d77a60
+000000000323ba7c: 609300b0 adrp     x0, #0x44a8000
+000000000323ba80: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323ba84: f7efac97 bl       #0x1d77a60
+000000000323ba88: 28008052 mov      w8, #1
+000000000323ba8c: c81a3039 strb     w8, [x22, #0xc06]
+000000000323ba90: a80240f9 ldr      x8, [x21]
+000000000323ba94: 800240f9 ldr      x0, [x20]
+000000000323ba98: 085140f9 ldr      x8, [x8, #0xa0]
+000000000323ba9c: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000323baa0: 140140f9 ldr      x20, [x8]
+000000000323baa4: 49000035 cbnz     w9, #0x323baac
+000000000323baa8: 3bf0ac97 bl       #0x1d77b94
+000000000323baac: e00314aa mov      x0, x20
+000000000323bab0: e10313aa mov      x1, x19
+000000000323bab4: e2031faa mov      x2, xzr
+000000000323bab8: 819e3494 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000323babc: 60010036 tbz      w0, #0, #0x323bae8
+000000000323bac0: a80240f9 ldr      x8, [x21]
+000000000323bac4: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000323bac8: e1031faa mov      x1, xzr
+000000000323bacc: 085140f9 ldr      x8, [x8, #0xa0]
+000000000323bad0: 1f0100f9 str      xzr, [x8]
+000000000323bad4: a80240f9 ldr      x8, [x21]
+000000000323bad8: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000323badc: 005140f9 ldr      x0, [x8, #0xa0]
+000000000323bae0: fe0743f8 ldr      x30, [sp], #0x30
+000000000323bae4: ccefac17 b        #0x1d77a14
+000000000323bae8: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000323baec: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000323baf0: fe0743f8 ldr      x30, [sp], #0x30
+000000000323baf4: c0035fd6 ret      
+
+; private static void Recapture() { }
+; token=0x6000C6E file_offset=0x32379A8 tool_rva=0x32379A8 length=0x90
+000000000323b9a8: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323b9ac: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323b9b0: f3aa00f0 adrp     x19, #0x479a000
+000000000323b9b4: 68167039 ldrb     w8, [x19, #0xc05]
+000000000323b9b8: c8000037 tbnz     w8, #0, #0x323b9d0
+000000000323b9bc: e09300d0 adrp     x0, #0x44b9000
+000000000323b9c0: 00b846f9 ldr      x0, [x0, #0xd70]
+000000000323b9c4: 27f0ac97 bl       #0x1d77a60
+000000000323b9c8: 28008052 mov      w8, #1
+000000000323b9cc: 68163039 strb     w8, [x19, #0xc05]
+000000000323b9d0: f39300d0 adrp     x19, #0x44b9000
+000000000323b9d4: 73ba46f9 ldr      x19, [x19, #0xd70]
+000000000323b9d8: 36fdff97 bl       #0x323aeb0 ; HomeShortcuts :: internal static void Capture() { }
+000000000323b9dc: f4aa00f0 adrp     x20, #0x479a000
+000000000323b9e0: 883a7139 ldrb     w8, [x20, #0xc4e]
+000000000323b9e4: c8000035 cbnz     w8, #0x323b9fc
+000000000323b9e8: e09300d0 adrp     x0, #0x44b9000
+000000000323b9ec: 00b846f9 ldr      x0, [x0, #0xd70]
+000000000323b9f0: 1cf0ac97 bl       #0x1d77a60
+000000000323b9f4: 28008052 mov      w8, #1
+000000000323b9f8: 883a3139 strb     w8, [x20, #0xc4e]
+000000000323b9fc: 680240f9 ldr      x8, [x19]
+000000000323ba00: 085140f9 ldr      x8, [x8, #0xa0]
+000000000323ba04: 090140f9 ldr      x9, [x8]
+000000000323ba08: 290100b4 cbz      x9, #0x323ba2c
+000000000323ba0c: 080540f9 ldr      x8, [x8, #8]
+000000000323ba10: e80000b4 cbz      x8, #0x323ba2c
+000000000323ba14: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323ba18: 002140f9 ldr      x0, [x8, #0x40]
+000000000323ba1c: 011540f9 ldr      x1, [x8, #0x28]
+000000000323ba20: 020d40f9 ldr      x2, [x8, #0x18]
+000000000323ba24: fe0742f8 ldr      x30, [sp], #0x20
+000000000323ba28: 40001fd6 br       x2
+000000000323ba2c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323ba30: fe0742f8 ldr      x30, [sp], #0x20
+000000000323ba34: c0035fd6 ret      

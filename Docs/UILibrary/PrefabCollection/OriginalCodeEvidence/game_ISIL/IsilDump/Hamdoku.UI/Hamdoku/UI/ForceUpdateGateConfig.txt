@@ -1,0 +1,937 @@
+Type: Hamdoku.UI.ForceUpdateGateConfig
+
+Method: Hamdoku.UI.ForceUpdateGateConfig Load()
+
+Disassembly:
+	0x033F4EBC STP X30, X21, [X31 - 0x20]!
+	0x033F4EC0 STP X20, X19, [X31 + 0x10]
+	0x033F4EC4 ADRP X19, 0x13A7000
+	0x033F4EC8 ADRP X20, 0x10CF000
+	0x033F4ECC ADRP X21, 0x10B4000
+	0x033F4ED0 LDRB W8, [X19 + 0x83E]
+	0x033F4ED4 LDR X20, [X20 + 0xA80]
+	0x033F4ED8 LDR X21, [X21 + 0xAC0]
+	0x033F4EDC TBNZ W8, 0x0, 0x33F4F24
+	0x033F4EE0 ADRP X0, 0x10CF000
+	0x033F4EE4 LDR X0, [X0 + 0xA80]
+	0x033F4EE8 BL 0x1D77A60
+	0x033F4EEC ADRP X0, 0x10B4000
+	0x033F4EF0 LDR X0, [X0 + 0xAC0]
+	0x033F4EF4 BL 0x1D77A60
+	0x033F4EF8 ADRP X0, 0x10CF000
+	0x033F4EFC LDR X0, [X0 + 0xA88]
+	0x033F4F00 BL 0x1D77A60
+	0x033F4F04 ADRP X0, 0x10CF000
+	0x033F4F08 LDR X0, [X0 + 0xA90]
+	0x033F4F0C BL 0x1D77A60
+	0x033F4F10 ADRP X0, 0x10CF000
+	0x033F4F14 LDR X0, [X0 + 0xA98]
+	0x033F4F18 BL 0x1D77A60
+	0x033F4F1C MOV W8, 0x1
+	0x033F4F20 STRB W8, [X19 + 0x83E]
+	0x033F4F24 LDR X8, [X20]
+	0x033F4F28 LDR X0, [X21]
+	0x033F4F2C LDR X8, [X8 + 0xA0]
+	0x033F4F30 LDR W9, [X0 + 0xE4]
+	0x033F4F34 LDR X19, [X8]
+	0x033F4F38 CBNZ W9, 0x33F4F40
+	0x033F4F3C BL 0x1D77B94
+	0x033F4F40 MOV X0, X19
+	0x033F4F44 MOV X1, X31
+	0x033F4F48 MOV X2, X31
+	0x033F4F4C BL 0x3F634BC
+	0x033F4F50 TBZ W0, 0x0, 0x33F4F8C
+	0x033F4F54 ADRP X8, 0x10CF000
+	0x033F4F58 ADRP X9, 0x10CF000
+	0x033F4F5C LDR X8, [X8 + 0xA98]
+	0x033F4F60 LDR X9, [X9 + 0xA88]
+	0x033F4F64 LDR X0, [X8]
+	0x033F4F68 LDR X1, [X9]
+	0x033F4F6C BL 0x2348760
+	0x033F4F70 LDR X8, [X20]
+	0x033F4F74 MOV X1, X0
+	0x033F4F78 LDR X8, [X8 + 0xA0]
+	0x033F4F7C STR X0, [X8]
+	0x033F4F80 LDR X8, [X20]
+	0x033F4F84 LDR X0, [X8 + 0xA0]
+	0x033F4F88 BL 0x1D77A14
+	0x033F4F8C LDR X8, [X20]
+	0x033F4F90 LDR X0, [X21]
+	0x033F4F94 LDR X8, [X8 + 0xA0]
+	0x033F4F98 LDR W9, [X0 + 0xE4]
+	0x033F4F9C LDR X19, [X8]
+	0x033F4FA0 CBNZ W9, 0x33F4FA8
+	0x033F4FA4 BL 0x1D77B94
+	0x033F4FA8 MOV X0, X19
+	0x033F4FAC MOV X1, X31
+	0x033F4FB0 MOV X2, X31
+	0x033F4FB4 BL 0x3F634BC
+	0x033F4FB8 TBZ W0, 0x0, 0x33F4FE8
+	0x033F4FBC ADRP X8, 0x10CF000
+	0x033F4FC0 LDR X8, [X8 + 0xA90]
+	0x033F4FC4 LDR X0, [X8]
+	0x033F4FC8 BL 0x234B460
+	0x033F4FCC LDR X8, [X20]
+	0x033F4FD0 MOV X1, X0
+	0x033F4FD4 LDR X8, [X8 + 0xA0]
+	0x033F4FD8 STR X0, [X8]
+	0x033F4FDC LDR X8, [X20]
+	0x033F4FE0 LDR X0, [X8 + 0xA0]
+	0x033F4FE4 BL 0x1D77A14
+	0x033F4FE8 LDR X8, [X20]
+	0x033F4FEC LDP X20, X19, [X31 + 0x10]
+	0x033F4FF0 LDR X8, [X8 + 0xA0]
+	0x033F4FF4 LDR X0, [X8]
+	0x033F4FF8 LDP X30, X21, [X31], #0x20
+	0x033F4FFC RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Move v12 @ X20_v2, [44C3A80]
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Jump @b21
+	15 Nop
+	16 Move v18 @ X0_v24, [44C3A80]
+	17 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v25, v18 @ X0_v24, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	18 Nop
+	19 Move v48 @ X0_v27, [44A8AC0]
+	20 Call "il2cpp_codegen_initialize_runtime_metadata", v49 @ X0_v28, v48 @ X0_v27, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	21 Nop
+	22 Move v57 @ X0_v30, [44C3A88]
+	23 Call "il2cpp_codegen_initialize_runtime_metadata", v58 @ X0_v31, v57 @ X0_v30, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	24 Nop
+	25 Move v62 @ X0_v33, [44C3A90]
+	26 Call "il2cpp_codegen_initialize_runtime_metadata", v63 @ X0_v34, v62 @ X0_v33, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	27 Nop
+	28 Move v86 @ X0_v36, [44C3A98]
+	29 Call "il2cpp_codegen_initialize_runtime_metadata", v36 @ X0_v37, v86 @ X0_v36, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	30 Move v39 @ X8_v21, 1
+	31 Move [479B83E], v39 @ X8_v21
+	32 Move v40 @ X8_v3, [v12 @ X20_v2]
+	33 Nop
+	34 Move v42 @ X8_v4, [v40 @ X8_v3+A0]
+	35 Nop
+	36 Nop
+	37 Nop
+	38 Nop
+	39 Jump @b10
+	40 Call "il2cpp_codegen_runtime_class_init", v50 @ X0_v22, v41 @ X0_v2, v20 @ X1, v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	41 Nop
+	42 Nop
+	43 Nop
+	44 Call Object.op_Equality, v55 @ X0_v5 (System.Boolean), [v42 @ X8_v4], 0
+	45 Nop
+	46 CheckEqual v60 @ TEMP_v7 (System.Boolean), v55 @ X0_v5 (System.Boolean), 0
+	47 ConditionalJump @b14, v60 @ TEMP_v7 (System.Boolean)
+	48 Nop
+	49 Nop
+	50 Move v66 @ X8_v17, [44C3A98]
+	51 Move v67 @ X9_v5, [44C3A88]
+	52 Nop
+	53 Nop
+	54 Call 2348760, v70 @ X0_v19, [v66 @ X8_v17], [v67 @ X9_v5]
+	55 Move v87 @ X8_v18, [v12 @ X20_v2]
+	56 Nop
+	57 Move v88 @ X8_v19, [v87 @ X8_v18+A0]
+	58 Move [v88 @ X8_v19], v70 @ X0_v19
+	59 Move v77 @ X8_v20, [v12 @ X20_v2]
+	60 Nop
+	61 Call 1D77A14, v75 @ X0_v21, [v77 @ X8_v20+A0], v70 @ X0_v19, 0, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	62 Move v78 @ X8_v6, [v12 @ X20_v2]
+	63 Nop
+	64 Move v80 @ X8_v7, [v78 @ X8_v6+A0]
+	65 Nop
+	66 Nop
+	67 Nop
+	68 Nop
+	69 Jump @b16
+	70 Call "il2cpp_codegen_runtime_class_init", v90 @ X0_v17, v79 @ X0_v7, v72 @ X1_v2, v54 @ X2_v1, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	71 Nop
+	72 Nop
+	73 Nop
+	74 Call Object.op_Equality, v95 @ X0_v10 (System.Boolean), [v80 @ X8_v7], 0
+	75 Nop
+	76 CheckEqual v97 @ TEMP_v11 (System.Boolean), v95 @ X0_v10 (System.Boolean), 0
+	77 ConditionalJump @b20, v97 @ TEMP_v11 (System.Boolean)
+	78 Nop
+	79 Move v99 @ X8_v12, [44C3A90]
+	80 Nop
+	81 Call 234B460, v101 @ X0_v14, [v99 @ X8_v12]
+	82 Move v115 @ X8_v13, [v12 @ X20_v2]
+	83 Nop
+	84 Move v116 @ X8_v14, [v115 @ X8_v13+A0]
+	85 Move [v116 @ X8_v14], v101 @ X0_v14
+	86 Move v107 @ X8_v15, [v12 @ X20_v2]
+	87 Nop
+	88 Call 1D77A14, v105 @ X0_v16, [v107 @ X8_v15+A0], v101 @ X0_v14, 0, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	89 Move v108 @ X8_v9, [v12 @ X20_v2]
+	90 Nop
+	91 Nop
+	92 Move v111 @ X8_v10, [v108 @ X8_v9+A0]
+	93 Nop
+	94 Nop
+	95 Nop
+	96 Nop
+	97 Return [v111 @ X8_v10]
+
+Method: System.Int32 LayoutHash()
+
+Disassembly:
+	0x033F5000 SUB X31, X31, 0xA0
+	0x033F5004 STP X29, X30, [X31 + 0x40]
+	0x033F5008 STP X28, X27, [X31 + 0x50]
+	0x033F500C STP X26, X25, [X31 + 0x60]
+	0x033F5010 STP X24, X23, [X31 + 0x70]
+	0x033F5014 STP X22, X21, [X31 + 0x80]
+	0x033F5018 STP X20, X19, [X31 + 0x90]
+	0x033F501C MOV X19, X0
+	0x033F5020 ADD X0, X0, 0x18
+	0x033F5024 MOV X1, X31
+	0x033F5028 BL 0x361FF74
+	0x033F502C MOV W20, W0
+	0x033F5030 ADD X0, X19, 0x1C
+	0x033F5034 MOV X1, X31
+	0x033F5038 BL 0x361FF74
+	0x033F503C EOR W8, W20, W0, LSL 0x2
+	0x033F5040 ADD X0, X19, 0x20
+	0x033F5044 MOV X1, X31
+	0x033F5048 STR W8, [X31 + 0x3C]
+	0x033F504C BL 0x361FF74
+	0x033F5050 STR W0, [X31 + 0x38]
+	0x033F5054 ADD X0, X19, 0x24
+	0x033F5058 MOV X1, X31
+	0x033F505C BL 0x361FF74
+	0x033F5060 STR W0, [X31 + 0x34]
+	0x033F5064 ADD X0, X19, 0x28
+	0x033F5068 MOV X1, X31
+	0x033F506C BL 0x361FF74
+	0x033F5070 STR W0, [X31 + 0x30]
+	0x033F5074 ADD X0, X19, 0x2C
+	0x033F5078 MOV X1, X31
+	0x033F507C BL 0x361FF74
+	0x033F5080 MOV W20, W0
+	0x033F5084 ADD X0, X19, 0x30
+	0x033F5088 MOV X1, X31
+	0x033F508C BL 0x361FF74
+	0x033F5090 MOV W21, W0
+	0x033F5094 ADD X0, X19, 0x34
+	0x033F5098 MOV X1, X31
+	0x033F509C BL 0x361FF74
+	0x033F50A0 MOV W22, W0
+	0x033F50A4 ADD X0, X19, 0x38
+	0x033F50A8 MOV X1, X31
+	0x033F50AC BL 0x361FF74
+	0x033F50B0 EOR W8, W20, W21, LSL 0x2
+	0x033F50B4 MOV X1, X31
+	0x033F50B8 EOR W8, W8, W22, ASR 0x2
+	0x033F50BC EOR W8, W8, W0, ASR 0x1
+	0x033F50C0 ADD X0, X19, 0x3C
+	0x033F50C4 STR W8, [X31 + 0x2C]
+	0x033F50C8 BL 0x361FF74
+	0x033F50CC STR W0, [X31 + 0x28]
+	0x033F50D0 ADD X0, X19, 0x40
+	0x033F50D4 MOV X1, X31
+	0x033F50D8 BL 0x361FF74
+	0x033F50DC STR W0, [X31 + 0x24]
+	0x033F50E0 ADD X0, X19, 0x44
+	0x033F50E4 MOV X1, X31
+	0x033F50E8 BL 0x361FF74
+	0x033F50EC MOV W20, W0
+	0x033F50F0 ADD X0, X19, 0x48
+	0x033F50F4 MOV X1, X31
+	0x033F50F8 BL 0x361FF74
+	0x033F50FC EOR W8, W20, W0, LSL 0x2
+	0x033F5100 ADD X0, X19, 0x4C
+	0x033F5104 MOV X1, X31
+	0x033F5108 STR W8, [X31 + 0x20]
+	0x033F510C BL 0x361FF74
+	0x033F5110 STR W0, [X31 + 0x1C]
+	0x033F5114 ADD X0, X19, 0x50
+	0x033F5118 MOV X1, X31
+	0x033F511C BL 0x361FF74
+	0x033F5120 MOV W20, W0
+	0x033F5124 ADD X0, X19, 0x54
+	0x033F5128 MOV X1, X31
+	0x033F512C BL 0x361FF74
+	0x033F5130 EOR W8, W20, W0, LSL 0x2
+	0x033F5134 ADD X0, X19, 0x58
+	0x033F5138 MOV X1, X31
+	0x033F513C STR W8, [X31 + 0x18]
+	0x033F5140 BL 0x361FF74
+	0x033F5144 STR W0, [X31 + 0x14]
+	0x033F5148 ADD X0, X19, 0x5C
+	0x033F514C MOV X1, X31
+	0x033F5150 BL 0x361FF74
+	0x033F5154 MOV W20, W0
+	0x033F5158 ADD X0, X19, 0x60
+	0x033F515C MOV X1, X31
+	0x033F5160 BL 0x361FF74
+	0x033F5164 MOV W21, W0
+	0x033F5168 ADD X0, X19, 0x64
+	0x033F516C MOV X1, X31
+	0x033F5170 BL 0x361FF74
+	0x033F5174 MOV W22, W0
+	0x033F5178 ADD X0, X19, 0x68
+	0x033F517C MOV X1, X31
+	0x033F5180 BL 0x361FF74
+	0x033F5184 EOR W8, W20, W21, LSL 0x2
+	0x033F5188 MOV X1, X31
+	0x033F518C EOR W8, W8, W22, ASR 0x2
+	0x033F5190 EOR W8, W8, W0, ASR 0x1
+	0x033F5194 ADD X0, X19, 0x6C
+	0x033F5198 STR W8, [X31 + 0x10]
+	0x033F519C BL 0x361FF74
+	0x033F51A0 STR W0, [X31 + 0xC]
+	0x033F51A4 ADD X0, X19, 0x70
+	0x033F51A8 MOV X1, X31
+	0x033F51AC BL 0x361FF74
+	0x033F51B0 MOV W20, W0
+	0x033F51B4 ADD X0, X19, 0x74
+	0x033F51B8 MOV X1, X31
+	0x033F51BC BL 0x361FF74
+	0x033F51C0 EOR W8, W20, W0, LSL 0x2
+	0x033F51C4 ADD X0, X19, 0x78
+	0x033F51C8 MOV X1, X31
+	0x033F51CC STR W8, [X31 + 0x8]
+	0x033F51D0 BL 0x361FF74
+	0x033F51D4 STR W0, [X31 + 0x4]
+	0x033F51D8 ADD X0, X19, 0x7C
+	0x033F51DC MOV X1, X31
+	0x033F51E0 BL 0x361FF74
+	0x033F51E4 MOV W29, W0
+	0x033F51E8 ADD X0, X19, 0x80
+	0x033F51EC MOV X1, X31
+	0x033F51F0 BL 0x361FF74
+	0x033F51F4 MOV W20, W0
+	0x033F51F8 ADD X0, X19, 0x84
+	0x033F51FC MOV X1, X31
+	0x033F5200 BL 0x361FF74
+	0x033F5204 MOV W21, W0
+	0x033F5208 ADD X0, X19, 0x88
+	0x033F520C MOV X1, X31
+	0x033F5210 BL 0x361FF74
+	0x033F5214 MOV W22, W0
+	0x033F5218 ADD X0, X19, 0x8C
+	0x033F521C MOV X1, X31
+	0x033F5220 BL 0x361FF74
+	0x033F5224 MOV W23, W0
+	0x033F5228 ADD X0, X19, 0x90
+	0x033F522C MOV X1, X31
+	0x033F5230 BL 0x361FF74
+	0x033F5234 EOR W8, W21, W22, LSL 0x2
+	0x033F5238 MOV X1, X31
+	0x033F523C EOR W8, W8, W23, ASR 0x2
+	0x033F5240 EOR W25, W8, W0, ASR 0x1
+	0x033F5244 ADD X0, X19, 0x94
+	0x033F5248 BL 0x361FF74
+	0x033F524C MOV W21, W0
+	0x033F5250 ADD X0, X19, 0x98
+	0x033F5254 MOV X1, X31
+	0x033F5258 BL 0x361FF74
+	0x033F525C MOV W22, W0
+	0x033F5260 ADD X0, X19, 0x9C
+	0x033F5264 MOV X1, X31
+	0x033F5268 BL 0x361FF74
+	0x033F526C MOV W23, W0
+	0x033F5270 ADD X0, X19, 0xA0
+	0x033F5274 MOV X1, X31
+	0x033F5278 BL 0x361FF74
+	0x033F527C EOR W8, W21, W22, LSL 0x2
+	0x033F5280 MOV X1, X31
+	0x033F5284 EOR W8, W8, W23, ASR 0x2
+	0x033F5288 EOR W27, W8, W0, ASR 0x1
+	0x033F528C ADD X0, X19, 0xA4
+	0x033F5290 BL 0x361FF74
+	0x033F5294 MOV W21, W0
+	0x033F5298 ADD X0, X19, 0xA8
+	0x033F529C MOV X1, X31
+	0x033F52A0 BL 0x361FF74
+	0x033F52A4 MOV W22, W0
+	0x033F52A8 ADD X0, X19, 0xAC
+	0x033F52AC MOV X1, X31
+	0x033F52B0 BL 0x361FF74
+	0x033F52B4 MOV W23, W0
+	0x033F52B8 ADD X0, X19, 0xB0
+	0x033F52BC MOV X1, X31
+	0x033F52C0 BL 0x361FF74
+	0x033F52C4 EOR W8, W21, W22, LSL 0x2
+	0x033F52C8 MOV X1, X31
+	0x033F52CC EOR W8, W8, W23, ASR 0x2
+	0x033F52D0 EOR W26, W8, W0, ASR 0x1
+	0x033F52D4 ADD X0, X19, 0xB4
+	0x033F52D8 BL 0x361FF74
+	0x033F52DC MOV W21, W0
+	0x033F52E0 ADD X0, X19, 0xB8
+	0x033F52E4 MOV X1, X31
+	0x033F52E8 BL 0x361FF74
+	0x033F52EC MOV W22, W0
+	0x033F52F0 ADD X0, X19, 0xBC
+	0x033F52F4 MOV X1, X31
+	0x033F52F8 BL 0x361FF74
+	0x033F52FC MOV W23, W0
+	0x033F5300 ADD X0, X19, 0xC0
+	0x033F5304 MOV X1, X31
+	0x033F5308 BL 0x361FF74
+	0x033F530C EOR W8, W21, W22, LSL 0x2
+	0x033F5310 MOV X1, X31
+	0x033F5314 EOR W8, W8, W23, ASR 0x2
+	0x033F5318 EOR W28, W8, W0, ASR 0x1
+	0x033F531C ADD X0, X19, 0xC4
+	0x033F5320 BL 0x361FF74
+	0x033F5324 MOV W21, W0
+	0x033F5328 ADD X0, X19, 0xC8
+	0x033F532C MOV X1, X31
+	0x033F5330 BL 0x361FF74
+	0x033F5334 MOV W22, W0
+	0x033F5338 ADD X0, X19, 0xCC
+	0x033F533C MOV X1, X31
+	0x033F5340 BL 0x360A2D8
+	0x033F5344 MOV W23, W0
+	0x033F5348 ADD X0, X19, 0xD0
+	0x033F534C MOV X1, X31
+	0x033F5350 BL 0x361FF74
+	0x033F5354 MOV W24, W0
+	0x033F5358 ADD X0, X19, 0xD4
+	0x033F535C MOV X1, X31
+	0x033F5360 BL 0x361FF74
+	0x033F5364 LDP W8, W9, [X31 + 0x38]
+	0x033F5368 EOR W10, W24, W0, LSL 0x2
+	0x033F536C SUB W8, W8, W9
+	0x033F5370 ADD W8, W8, W9, 0x5, LSL
+	0x033F5374 LDR W9, [X31 + 0x34]
+	0x033F5378 SUB W9, W9, W8
+	0x033F537C ADD W8, W9, W8, 0x5, LSL
+	0x033F5380 LDR W9, [X31 + 0x30]
+	0x033F5384 SUB W9, W9, W8
+	0x033F5388 ADD W8, W9, W8, 0x5, LSL
+	0x033F538C LDR W9, [X31 + 0x2C]
+	0x033F5390 SUB W9, W9, W8
+	0x033F5394 ADD W8, W9, W8, 0x5, LSL
+	0x033F5398 LDR W9, [X31 + 0x28]
+	0x033F539C SUB W9, W9, W8
+	0x033F53A0 ADD W8, W9, W8, 0x5, LSL
+	0x033F53A4 LDR W9, [X31 + 0x24]
+	0x033F53A8 SUB W9, W9, W8
+	0x033F53AC ADD W8, W9, W8, 0x5, LSL
+	0x033F53B0 LDR W9, [X31 + 0x20]
+	0x033F53B4 SUB W9, W9, W8
+	0x033F53B8 ADD W8, W9, W8, 0x5, LSL
+	0x033F53BC LDR W9, [X31 + 0x1C]
+	0x033F53C0 SUB W9, W9, W8
+	0x033F53C4 ADD W8, W9, W8, 0x5, LSL
+	0x033F53C8 LDR W9, [X31 + 0x18]
+	0x033F53CC SUB W9, W9, W8
+	0x033F53D0 ADD W8, W9, W8, 0x5, LSL
+	0x033F53D4 LDR W9, [X31 + 0x14]
+	0x033F53D8 SUB W9, W9, W8
+	0x033F53DC ADD W8, W9, W8, 0x5, LSL
+	0x033F53E0 LDR W9, [X31 + 0x10]
+	0x033F53E4 SUB W9, W9, W8
+	0x033F53E8 ADD W8, W9, W8, 0x5, LSL
+	0x033F53EC LDR W9, [X31 + 0xC]
+	0x033F53F0 SUB W9, W9, W8
+	0x033F53F4 ADD W8, W9, W8, 0x5, LSL
+	0x033F53F8 LDR W9, [X31 + 0x8]
+	0x033F53FC SUB W9, W9, W8
+	0x033F5400 ADD W8, W9, W8, 0x5, LSL
+	0x033F5404 LDR W9, [X31 + 0x4]
+	0x033F5408 SUB W9, W9, W8
+	0x033F540C ADD W8, W9, W8, 0x5, LSL
+	0x033F5410 SUB W9, W29, W8
+	0x033F5414 LDP X29, X30, [X31 + 0x40]
+	0x033F5418 ADD W8, W9, W8, 0x5, LSL
+	0x033F541C SUB W9, W20, W8
+	0x033F5420 LDP X20, X19, [X31 + 0x90]
+	0x033F5424 ADD W8, W9, W8, 0x5, LSL
+	0x033F5428 SUB W9, W25, W8
+	0x033F542C ADD W8, W9, W8, 0x5, LSL
+	0x033F5430 SUB W9, W27, W8
+	0x033F5434 ADD W8, W9, W8, 0x5, LSL
+	0x033F5438 SUB W9, W26, W8
+	0x033F543C LDP X26, X25, [X31 + 0x60]
+	0x033F5440 ADD W8, W9, W8, 0x5, LSL
+	0x033F5444 SUB W9, W28, W8
+	0x033F5448 LDP X28, X27, [X31 + 0x50]
+	0x033F544C ADD W8, W9, W8, 0x5, LSL
+	0x033F5450 SUB W9, W21, W8
+	0x033F5454 ADD W8, W9, W8, 0x5, LSL
+	0x033F5458 SUB W9, W22, W8
+	0x033F545C LDP X22, X21, [X31 + 0x80]
+	0x033F5460 ADD W8, W9, W8, 0x5, LSL
+	0x033F5464 SUB W9, W23, W8
+	0x033F5468 LDP X24, X23, [X31 + 0x70]
+	0x033F546C ADD W8, W9, W8, 0x5, LSL
+	0x033F5470 SUB W9, W10, W8
+	0x033F5474 ADD W8, W9, W8, 0x5, LSL
+	0x033F5478 MOV W9, 0x850F
+	0x033F547C MOVK W9, 0x1F6E0000
+	0x033F5480 ADD W0, W8, W9
+	0x033F5484 ADD X31, X31, 0xA0
+	0x033F5488 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Add v26 @ X0_v1 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 24
+	15 Nop
+	16 Call Single.GetHashCode, v28 @ X0_v2 (System.Int32), v26 @ X0_v1 (System.Single)
+	17 Nop
+	18 Add v30 @ X0_v3 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 28
+	19 Nop
+	20 Call Single.GetHashCode, v32 @ X0_v4 (System.Int32), v30 @ X0_v3 (System.Single)
+	21 Xor v33 @ X8_v1 (System.Int32), v28 @ X0_v2 (System.Int32), v32 @ X0_v4 (System.Int32)
+	22 Add v34 @ X0_v5 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 32
+	23 Nop
+	24 Nop
+	25 Call Single.GetHashCode, v37 @ X0_v6 (System.Int32), v34 @ X0_v5 (System.Single)
+	26 Nop
+	27 Add v39 @ X0_v7 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 36
+	28 Nop
+	29 Call Single.GetHashCode, v41 @ X0_v8 (System.Int32), v39 @ X0_v7 (System.Single)
+	30 Nop
+	31 Add v43 @ X0_v9 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 40
+	32 Nop
+	33 Call Single.GetHashCode, v45 @ X0_v10 (System.Int32), v43 @ X0_v9 (System.Single)
+	34 Nop
+	35 Add v47 @ X0_v11 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 44
+	36 Nop
+	37 Call Single.GetHashCode, v49 @ X0_v12 (System.Int32), v47 @ X0_v11 (System.Single)
+	38 Nop
+	39 Add v51 @ X0_v13 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 48
+	40 Nop
+	41 Call Single.GetHashCode, v53 @ X0_v14 (System.Int32), v51 @ X0_v13 (System.Single)
+	42 Nop
+	43 Add v55 @ X0_v15 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 52
+	44 Nop
+	45 Call Single.GetHashCode, v57 @ X0_v16 (System.Int32), v55 @ X0_v15 (System.Single)
+	46 Nop
+	47 Add v59 @ X0_v17 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 56
+	48 Nop
+	49 Call Single.GetHashCode, v61 @ X0_v18 (System.Int32), v59 @ X0_v17 (System.Single)
+	50 Xor v62 @ X8_v2 (System.Int32), v49 @ X0_v12 (System.Int32), v53 @ X0_v14 (System.Int32)
+	51 Nop
+	52 Xor v64 @ X8_v3 (System.Int32), v62 @ X8_v2 (System.Int32), v57 @ X0_v16 (System.Int32)
+	53 Xor v65 @ X8_v4 (System.Int32), v64 @ X8_v3 (System.Int32), v61 @ X0_v18 (System.Int32)
+	54 Add v66 @ X0_v19 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 60
+	55 Nop
+	56 Call Single.GetHashCode, v68 @ X0_v20 (System.Int32), v66 @ X0_v19 (System.Single)
+	57 Nop
+	58 Add v70 @ X0_v21 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 64
+	59 Nop
+	60 Call Single.GetHashCode, v72 @ X0_v22 (System.Int32), v70 @ X0_v21 (System.Single)
+	61 Nop
+	62 Add v74 @ X0_v23 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 68
+	63 Nop
+	64 Call Single.GetHashCode, v76 @ X0_v24 (System.Int32), v74 @ X0_v23 (System.Single)
+	65 Nop
+	66 Add v78 @ X0_v25 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 72
+	67 Nop
+	68 Call Single.GetHashCode, v80 @ X0_v26 (System.Int32), v78 @ X0_v25 (System.Single)
+	69 Xor v81 @ X8_v5 (System.Int32), v76 @ X0_v24 (System.Int32), v80 @ X0_v26 (System.Int32)
+	70 Add v82 @ X0_v27 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 76
+	71 Nop
+	72 Nop
+	73 Call Single.GetHashCode, v85 @ X0_v28 (System.Int32), v82 @ X0_v27 (System.Single)
+	74 Nop
+	75 Add v87 @ X0_v29 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 80
+	76 Nop
+	77 Call Single.GetHashCode, v89 @ X0_v30 (System.Int32), v87 @ X0_v29 (System.Single)
+	78 Nop
+	79 Add v91 @ X0_v31 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 84
+	80 Nop
+	81 Call Single.GetHashCode, v93 @ X0_v32 (System.Int32), v91 @ X0_v31 (System.Single)
+	82 Xor v94 @ X8_v6 (System.Int32), v89 @ X0_v30 (System.Int32), v93 @ X0_v32 (System.Int32)
+	83 Add v95 @ X0_v33 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 88
+	84 Nop
+	85 Nop
+	86 Call Single.GetHashCode, v98 @ X0_v34 (System.Int32), v95 @ X0_v33 (System.Single)
+	87 Nop
+	88 Add v100 @ X0_v35 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 92
+	89 Nop
+	90 Call Single.GetHashCode, v102 @ X0_v36 (System.Int32), v100 @ X0_v35 (System.Single)
+	91 Nop
+	92 Add v104 @ X0_v37 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 96
+	93 Nop
+	94 Call Single.GetHashCode, v106 @ X0_v38 (System.Int32), v104 @ X0_v37 (System.Single)
+	95 Nop
+	96 Add v108 @ X0_v39 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 100
+	97 Nop
+	98 Call Single.GetHashCode, v110 @ X0_v40 (System.Int32), v108 @ X0_v39 (System.Single)
+	99 Nop
+	100 Add v112 @ X0_v41 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 104
+	101 Nop
+	102 Call Single.GetHashCode, v114 @ X0_v42 (System.Int32), v112 @ X0_v41 (System.Single)
+	103 Xor v115 @ X8_v7 (System.Int32), v102 @ X0_v36 (System.Int32), v106 @ X0_v38 (System.Int32)
+	104 Nop
+	105 Xor v117 @ X8_v8 (System.Int32), v115 @ X8_v7 (System.Int32), v110 @ X0_v40 (System.Int32)
+	106 Xor v118 @ X8_v9 (System.Int32), v117 @ X8_v8 (System.Int32), v114 @ X0_v42 (System.Int32)
+	107 Add v119 @ X0_v43 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 108
+	108 Nop
+	109 Call Single.GetHashCode, v121 @ X0_v44 (System.Int32), v119 @ X0_v43 (System.Single)
+	110 Nop
+	111 Add v123 @ X0_v45 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 112
+	112 Nop
+	113 Call Single.GetHashCode, v125 @ X0_v46 (System.Int32), v123 @ X0_v45 (System.Single)
+	114 Nop
+	115 Add v127 @ X0_v47 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 116
+	116 Nop
+	117 Call Single.GetHashCode, v129 @ X0_v48 (System.Int32), v127 @ X0_v47 (System.Single)
+	118 Xor v130 @ X8_v10 (System.Int32), v125 @ X0_v46 (System.Int32), v129 @ X0_v48 (System.Int32)
+	119 Add v131 @ X0_v49 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 120
+	120 Nop
+	121 Nop
+	122 Call Single.GetHashCode, v134 @ X0_v50 (System.Int32), v131 @ X0_v49 (System.Single)
+	123 Nop
+	124 Add v136 @ X0_v51 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 124
+	125 Nop
+	126 Call Single.GetHashCode, v138 @ X0_v52 (System.Int32), v136 @ X0_v51 (System.Single)
+	127 Nop
+	128 Add v140 @ X0_v53 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 128
+	129 Nop
+	130 Call Single.GetHashCode, v142 @ X0_v54 (System.Int32), v140 @ X0_v53 (System.Single)
+	131 Nop
+	132 Add v144 @ X0_v55 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 132
+	133 Nop
+	134 Call Single.GetHashCode, v146 @ X0_v56 (System.Int32), v144 @ X0_v55 (System.Single)
+	135 Nop
+	136 Add v148 @ X0_v57 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 136
+	137 Nop
+	138 Call Single.GetHashCode, v150 @ X0_v58 (System.Int32), v148 @ X0_v57 (System.Single)
+	139 Nop
+	140 Add v152 @ X0_v59 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 140
+	141 Nop
+	142 Call Single.GetHashCode, v154 @ X0_v60 (System.Int32), v152 @ X0_v59 (System.Single)
+	143 Nop
+	144 Add v156 @ X0_v61 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 144
+	145 Nop
+	146 Call Single.GetHashCode, v158 @ X0_v62 (System.Int32), v156 @ X0_v61 (System.Single)
+	147 Xor v159 @ X8_v11 (System.Int32), v146 @ X0_v56 (System.Int32), v150 @ X0_v58 (System.Int32)
+	148 Nop
+	149 Xor v161 @ X8_v12 (System.Int32), v159 @ X8_v11 (System.Int32), v154 @ X0_v60 (System.Int32)
+	150 Xor v162 @ X25_v1 (System.Int32), v161 @ X8_v12 (System.Int32), v158 @ X0_v62 (System.Int32)
+	151 Add v163 @ X0_v63 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 148
+	152 Call Single.GetHashCode, v164 @ X0_v64 (System.Int32), v163 @ X0_v63 (System.Single)
+	153 Nop
+	154 Add v166 @ X0_v65 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 152
+	155 Nop
+	156 Call Single.GetHashCode, v168 @ X0_v66 (System.Int32), v166 @ X0_v65 (System.Single)
+	157 Nop
+	158 Add v170 @ X0_v67 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 156
+	159 Nop
+	160 Call Single.GetHashCode, v172 @ X0_v68 (System.Int32), v170 @ X0_v67 (System.Single)
+	161 Nop
+	162 Add v174 @ X0_v69 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 160
+	163 Nop
+	164 Call Single.GetHashCode, v176 @ X0_v70 (System.Int32), v174 @ X0_v69 (System.Single)
+	165 Xor v177 @ X8_v13 (System.Int32), v164 @ X0_v64 (System.Int32), v168 @ X0_v66 (System.Int32)
+	166 Nop
+	167 Xor v179 @ X8_v14 (System.Int32), v177 @ X8_v13 (System.Int32), v172 @ X0_v68 (System.Int32)
+	168 Xor v180 @ X27_v1 (System.Int32), v179 @ X8_v14 (System.Int32), v176 @ X0_v70 (System.Int32)
+	169 Add v181 @ X0_v71 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 164
+	170 Call Single.GetHashCode, v182 @ X0_v72 (System.Int32), v181 @ X0_v71 (System.Single)
+	171 Nop
+	172 Add v184 @ X0_v73 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 168
+	173 Nop
+	174 Call Single.GetHashCode, v186 @ X0_v74 (System.Int32), v184 @ X0_v73 (System.Single)
+	175 Nop
+	176 Add v188 @ X0_v75 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 172
+	177 Nop
+	178 Call Single.GetHashCode, v190 @ X0_v76 (System.Int32), v188 @ X0_v75 (System.Single)
+	179 Nop
+	180 Add v192 @ X0_v77 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 176
+	181 Nop
+	182 Call Single.GetHashCode, v194 @ X0_v78 (System.Int32), v192 @ X0_v77 (System.Single)
+	183 Xor v195 @ X8_v15 (System.Int32), v182 @ X0_v72 (System.Int32), v186 @ X0_v74 (System.Int32)
+	184 Nop
+	185 Xor v197 @ X8_v16 (System.Int32), v195 @ X8_v15 (System.Int32), v190 @ X0_v76 (System.Int32)
+	186 Xor v198 @ X26_v1 (System.Int32), v197 @ X8_v16 (System.Int32), v194 @ X0_v78 (System.Int32)
+	187 Add v199 @ X0_v79 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 180
+	188 Call Single.GetHashCode, v200 @ X0_v80 (System.Int32), v199 @ X0_v79 (System.Single)
+	189 Nop
+	190 Add v202 @ X0_v81 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 184
+	191 Nop
+	192 Call Single.GetHashCode, v204 @ X0_v82 (System.Int32), v202 @ X0_v81 (System.Single)
+	193 Nop
+	194 Add v206 @ X0_v83 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 188
+	195 Nop
+	196 Call Single.GetHashCode, v208 @ X0_v84 (System.Int32), v206 @ X0_v83 (System.Single)
+	197 Nop
+	198 Add v210 @ X0_v85 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 192
+	199 Nop
+	200 Call Single.GetHashCode, v212 @ X0_v86 (System.Int32), v210 @ X0_v85 (System.Single)
+	201 Xor v213 @ X8_v17 (System.Int32), v200 @ X0_v80 (System.Int32), v204 @ X0_v82 (System.Int32)
+	202 Nop
+	203 Xor v215 @ X8_v18 (System.Int32), v213 @ X8_v17 (System.Int32), v208 @ X0_v84 (System.Int32)
+	204 Xor v216 @ X28_v1 (System.Int32), v215 @ X8_v18 (System.Int32), v212 @ X0_v86 (System.Int32)
+	205 Add v217 @ X0_v87 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 196
+	206 Call Single.GetHashCode, v218 @ X0_v88 (System.Int32), v217 @ X0_v87 (System.Single)
+	207 Nop
+	208 Add v220 @ X0_v89 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 200
+	209 Nop
+	210 Call Single.GetHashCode, v222 @ X0_v90 (System.Int32), v220 @ X0_v89 (System.Single)
+	211 Nop
+	212 Add v224 @ X0_v91 (System.Int32), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 204
+	213 Nop
+	214 Call Int32.GetHashCode, v226 @ X0_v92 (System.Int32), v224 @ X0_v91 (System.Int32)
+	215 Nop
+	216 Add v228 @ X0_v93 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 208
+	217 Nop
+	218 Call Single.GetHashCode, v230 @ X0_v94 (System.Int32), v228 @ X0_v93 (System.Single)
+	219 Nop
+	220 Add v232 @ X0_v95 (System.Single), this @ X0 (Hamdoku.UI.ForceUpdateGateConfig), 212
+	221 Nop
+	222 Call Single.GetHashCode, v234 @ X0_v96 (System.Int32), v232 @ X0_v95 (System.Single)
+	223 Nop
+	224 Nop
+	225 Xor v237 @ X10_v1 (System.Int32), v230 @ X0_v94 (System.Int32), v234 @ X0_v96 (System.Int32)
+	226 Subtract v238 @ X8_v20, v37 @ X0_v6 (System.Int32), v33 @ X8_v1 (System.Int32)
+	227 Add v239 @ X8_v21, v238 @ X8_v20, v33 @ X8_v1 (System.Int32)
+	228 Nop
+	229 Subtract v241 @ X9_v3, v41 @ X0_v8 (System.Int32), v239 @ X8_v21
+	230 Add v242 @ X8_v22, v241 @ X9_v3, v239 @ X8_v21
+	231 Nop
+	232 Subtract v244 @ X9_v5, v45 @ X0_v10 (System.Int32), v242 @ X8_v22
+	233 Add v245 @ X8_v23, v244 @ X9_v5, v242 @ X8_v22
+	234 Nop
+	235 Subtract v247 @ X9_v7, v65 @ X8_v4 (System.Int32), v245 @ X8_v23
+	236 Add v248 @ X8_v24, v247 @ X9_v7, v245 @ X8_v23
+	237 Nop
+	238 Subtract v250 @ X9_v9, v68 @ X0_v20 (System.Int32), v248 @ X8_v24
+	239 Add v251 @ X8_v25, v250 @ X9_v9, v248 @ X8_v24
+	240 Nop
+	241 Subtract v253 @ X9_v11, v72 @ X0_v22 (System.Int32), v251 @ X8_v25
+	242 Add v254 @ X8_v26, v253 @ X9_v11, v251 @ X8_v25
+	243 Nop
+	244 Subtract v256 @ X9_v13, v81 @ X8_v5 (System.Int32), v254 @ X8_v26
+	245 Add v257 @ X8_v27, v256 @ X9_v13, v254 @ X8_v26
+	246 Nop
+	247 Subtract v259 @ X9_v15, v85 @ X0_v28 (System.Int32), v257 @ X8_v27
+	248 Add v260 @ X8_v28, v259 @ X9_v15, v257 @ X8_v27
+	249 Nop
+	250 Subtract v262 @ X9_v17, v94 @ X8_v6 (System.Int32), v260 @ X8_v28
+	251 Add v263 @ X8_v29, v262 @ X9_v17, v260 @ X8_v28
+	252 Nop
+	253 Subtract v265 @ X9_v19, v98 @ X0_v34 (System.Int32), v263 @ X8_v29
+	254 Add v266 @ X8_v30, v265 @ X9_v19, v263 @ X8_v29
+	255 Nop
+	256 Subtract v268 @ X9_v21, v118 @ X8_v9 (System.Int32), v266 @ X8_v30
+	257 Add v269 @ X8_v31, v268 @ X9_v21, v266 @ X8_v30
+	258 Nop
+	259 Subtract v271 @ X9_v23, v121 @ X0_v44 (System.Int32), v269 @ X8_v31
+	260 Add v272 @ X8_v32, v271 @ X9_v23, v269 @ X8_v31
+	261 Nop
+	262 Subtract v274 @ X9_v25, v130 @ X8_v10 (System.Int32), v272 @ X8_v32
+	263 Add v275 @ X8_v33, v274 @ X9_v25, v272 @ X8_v32
+	264 Nop
+	265 Subtract v277 @ X9_v27, v134 @ X0_v50 (System.Int32), v275 @ X8_v33
+	266 Add v278 @ X8_v34, v277 @ X9_v27, v275 @ X8_v33
+	267 Subtract v279 @ X9_v28, v138 @ X0_v52 (System.Int32), v278 @ X8_v34
+	268 Nop
+	269 Nop
+	270 Add v282 @ X8_v35, v279 @ X9_v28, v278 @ X8_v34
+	271 Subtract v283 @ X9_v29, v142 @ X0_v54 (System.Int32), v282 @ X8_v35
+	272 Nop
+	273 Nop
+	274 Add v286 @ X8_v36, v283 @ X9_v29, v282 @ X8_v35
+	275 Subtract v287 @ X9_v30, v162 @ X25_v1 (System.Int32), v286 @ X8_v36
+	276 Add v288 @ X8_v37, v287 @ X9_v30, v286 @ X8_v36
+	277 Subtract v289 @ X9_v31, v180 @ X27_v1 (System.Int32), v288 @ X8_v37
+	278 Add v290 @ X8_v38, v289 @ X9_v31, v288 @ X8_v37
+	279 Subtract v291 @ X9_v32, v198 @ X26_v1 (System.Int32), v290 @ X8_v38
+	280 Nop
+	281 Nop
+	282 Add v294 @ X8_v39, v291 @ X9_v32, v290 @ X8_v38
+	283 Subtract v295 @ X9_v33, v216 @ X28_v1 (System.Int32), v294 @ X8_v39
+	284 Nop
+	285 Nop
+	286 Add v298 @ X8_v40, v295 @ X9_v33, v294 @ X8_v39
+	287 Subtract v299 @ X9_v34, v218 @ X0_v88 (System.Int32), v298 @ X8_v40
+	288 Add v300 @ X8_v41, v299 @ X9_v34, v298 @ X8_v40
+	289 Subtract v301 @ X9_v35, v222 @ X0_v90 (System.Int32), v300 @ X8_v41
+	290 Nop
+	291 Nop
+	292 Add v304 @ X8_v42, v301 @ X9_v35, v300 @ X8_v41
+	293 Subtract v305 @ X9_v36, v226 @ X0_v92 (System.Int32), v304 @ X8_v42
+	294 Nop
+	295 Nop
+	296 Add v308 @ X8_v43, v305 @ X9_v36, v304 @ X8_v42
+	297 Subtract v309 @ X9_v37, v237 @ X10_v1 (System.Int32), v308 @ X8_v43
+	298 Add v310 @ X8_v44, v309 @ X9_v37, v308 @ X8_v43
+	299 Nop
+	300 Nop
+	301 Add returnVal1 @ X0_v97 (System.Int32), v310 @ X8_v44, 527336719
+	302 Nop
+	303 Return returnVal1 @ X0_v97 (System.Int32)
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x033F548C STR X30, [X31 - 0x20]!
+	0x033F5490 STP X20, X19, [X31 + 0x10]
+	0x033F5494 ADRP X8, 0xFFFFFFFFFD816000
+	0x033F5498 ADRP X9, 0xFFFFFFFFFD851000
+	0x033F549C ADRP X20, 0x13A3000
+	0x033F54A0 LDR D0, [X8 + 0xBA8]
+	0x033F54A4 ADRP X8, 0xFFFFFFFFFD84E000
+	0x033F54A8 LDR V1, [X9 + 0xF50]
+	0x033F54AC LDR V2, [X8 + 0x460]
+	0x033F54B0 LDRB W8, [X20 + 0xE80]
+	0x033F54B4 MOV X19, X0
+	0x033F54B8 MOV W9, 0x43BE0000
+	0x033F54BC STR D0, [X0 + 0x18]
+	0x033F54C0 STP V1, V2, [X0 + 0x20]
+	0x033F54C4 STR W9, [X0 + 0x40]
+	0x033F54C8 CBNZ W8, 0x33F54E0
+	0x033F54CC ADRP X0, 0x10B6000
+	0x033F54D0 LDR X0, [X0 + 0x288]
+	0x033F54D4 BL 0x1D77A60
+	0x033F54D8 MOV W8, 0x1
+	0x033F54DC STRB W8, [X20 + 0xE80]
+	0x033F54E0 ADRP X8, 0x10B6000
+	0x033F54E4 ADRP X9, 0xFFFFFFFFFD817000
+	0x033F54E8 ADRP X10, 0xFFFFFFFFFD84E000
+	0x033F54EC LDR X8, [X8 + 0x288]
+	0x033F54F0 LDR D0, [X9 + 0x600]
+	0x033F54F4 ADRP X9, 0xFFFFFFFFFD817000
+	0x033F54F8 LDR V1, [X10 + 0x470]
+	0x033F54FC LDR D2, [X9 + 0x7A8]
+	0x033F5500 MOV X0, X19
+	0x033F5504 LDR X8, [X8]
+	0x033F5508 MOV X1, X31
+	0x033F550C LDR X8, [X8 + 0xA0]
+	0x033F5510 LDR D3, [X8]
+	0x033F5514 ADRP X8, 0xFFFFFFFFFD817000
+	0x033F5518 STR D0, [X19 + 0x50]
+	0x033F551C LDR D0, [X8 + 0x608]
+	0x033F5520 ADRP X8, 0xFFFFFFFFFD851000
+	0x033F5524 STUR V1, [X19 + 0x58]
+	0x033F5528 LDR V1, [X8 + 0xC60]
+	0x033F552C ADRP X8, 0xFFFFFFFFFD851000
+	0x033F5530 STUR D3, [X19 + 0x44]
+	0x033F5534 STP D2, D0, [X19 + 0x68]
+	0x033F5538 LDR V0, [X8 + 0x8C0]
+	0x033F553C ADRP X8, 0xFFFFFFFFFD850000
+	0x033F5540 STUR V1, [X19 + 0x78]
+	0x033F5544 STUR V0, [X19 + 0x88]
+	0x033F5548 LDR V0, [X8 + 0x380]
+	0x033F554C ADRP X8, 0xFFFFFFFFFD851000
+	0x033F5550 STUR V0, [X19 + 0x98]
+	0x033F5554 LDR V0, [X8 + 0x20]
+	0x033F5558 MOV W8, 0xC33E0000
+	0x033F555C STR W8, [X19 + 0x4C]
+	0x033F5560 ADRP X8, 0xFFFFFFFFFD853000
+	0x033F5564 STUR V0, [X19 + 0xA8]
+	0x033F5568 LDR V0, [X8 + 0x2C0]
+	0x033F556C MOV W8, 0x40A00000
+	0x033F5570 STR W8, [X19 + 0xC8]
+	0x033F5574 ADRP X8, 0xFFFFFFFFFD817000
+	0x033F5578 STUR V0, [X19 + 0xB8]
+	0x033F557C LDR D0, [X8 + 0x908]
+	0x033F5580 MOV W8, 0xC1300000
+	0x033F5584 STR W8, [X19 + 0xD4]
+	0x033F5588 STUR D0, [X19 + 0xCC]
+	0x033F558C LDP X20, X19, [X31 + 0x10]
+	0x033F5590 LDR X30, [X31], #0x20
+	0x033F5594 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Move this.panelSize (UnityEngine.Vector2), [C0BBA8]
+	15 Move this.panelPpum (System.Single), [C46F50]
+	16 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+30], [C43460]
+	17 Move this.mascotHeight (System.Single), 380f
+	18 Nop
+	19 Nop
+	20 Jump @b6
+	21 Nop
+	22 Move v20 @ X0_v4, [44AB288]
+	23 Call "il2cpp_codegen_initialize_runtime_metadata", v21 @ X0_v5, v20 @ X0_v4, methodInfo @ X1 (Il2CppMethodInfo), v23 @ X2, v24 @ X3, v25 @ X4, v26 @ X5, v27 @ X6, v28 @ X7, v9 @ V0_v1 (UnityEngine.Vector2), v11 @ V1_v1 (System.Single), v12 @ V2_v1, v29 @ V3, v30 @ V4, v31 @ V5, v32 @ V6, v33 @ V7
+	24 Move v36 @ X8_v19, 1
+	25 Move [4798E80], v36 @ X8_v19
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Move v40 @ X8_v6, [44AB288]
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Move v46 @ X8_v7, [v40 @ X8_v6]
+	36 Nop
+	37 Move v48 @ X8_v8, [v46 @ X8_v7+A0]
+	38 Nop
+	39 Nop
+	40 Move this.bodySize (UnityEngine.Vector2), [C0C600]
+	41 Nop
+	42 Nop
+	43 Move this.bodyFontSize (System.Single), [C43470]
+	44 Nop
+	45 Nop
+	46 Move this.mascotOffset (UnityEngine.Vector2), [v48 @ X8_v8]
+	47 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+68], [C0C7A8]
+	48 Move this.btnSize (UnityEngine.Vector2), [C0C608]
+	49 Nop
+	50 Nop
+	51 Move this.btnY (System.Single), [C46C60]
+	52 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+88], [C468C0]
+	53 Nop
+	54 Nop
+	55 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+98], [C45380]
+	56 Nop
+	57 Nop
+	58 Move this.bodyY (System.Single), -190f
+	59 Nop
+	60 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+A8], [C46020]
+	61 Nop
+	62 Nop
+	63 Move this.btnShadowSpread (System.Single), 5f
+	64 Nop
+	65 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+B8], [C482C0]
+	66 Nop
+	67 Nop
+	68 Move [this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)+D4], 3241148416
+	69 Move this.btnShadowLayers (System.Int32), [C0C908]
+	70 Nop
+	71 Nop
+	72 Nop
+	73 Nop
+	74 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.UI.ForceUpdateGateConfig)
+	75 Return
+

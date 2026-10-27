@@ -1,0 +1,5172 @@
+Type: Hamdoku.UI.MotivationBanner
+
+Method: System.String Highlight(System.Object value)
+
+Disassembly:
+	0x0341CC6C SUB X31, X31, 0x30
+	0x0341CC70 STP X30, X21, [X31 + 0x10]
+	0x0341CC74 STP X20, X19, [X31 + 0x20]
+	0x0341CC78 ADRP X21, 0x137F000
+	0x0341CC7C ADRP X20, 0x10A6000
+	0x0341CC80 MOV X19, X0
+	0x0341CC84 LDRB W8, [X21 + 0x970]
+	0x0341CC88 LDR X20, [X20 + 0x410]
+	0x0341CC8C TBNZ W8, 0x0, 0x341CCB0
+	0x0341CC90 ADRP X0, 0x10A6000
+	0x0341CC94 LDR X0, [X0 + 0x410]
+	0x0341CC98 BL 0x1D77A60
+	0x0341CC9C ADRP X0, 0x109F000
+	0x0341CCA0 LDR X0, [X0 + 0x2D8]
+	0x0341CCA4 BL 0x1D77A60
+	0x0341CCA8 MOV W8, 0x1
+	0x0341CCAC STRB W8, [X21 + 0x970]
+	0x0341CCB0 LDR X0, [X20]
+	0x0341CCB4 ADRP X21, 0x109F000
+	0x0341CCB8 LDR W8, [X0 + 0xE4]
+	0x0341CCBC LDR X21, [X21 + 0x2D8]
+	0x0341CCC0 CBNZ W8, 0x341CCCC
+	0x0341CCC4 BL 0x1D77B94
+	0x0341CCC8 LDR X0, [X20]
+	0x0341CCCC LDR X8, [X0 + 0xA0]
+	0x0341CCD0 ADD X0, X31, 0x0
+	0x0341CCD4 MOV X1, X31
+	0x0341CCD8 LDR V0, [X8 + 0x20]
+	0x0341CCDC STR V0, [X31]
+	0x0341CCE0 BL 0x3F51994
+	0x0341CCE4 LDR X8, [X21]
+	0x0341CCE8 MOV X1, X0
+	0x0341CCEC MOV X2, X19
+	0x0341CCF0 MOV X3, X31
+	0x0341CCF4 MOV X0, X8
+	0x0341CCF8 BL 0x349E268
+	0x0341CCFC LDP X20, X19, [X31 + 0x20]
+	0x0341CD00 LDP X30, X21, [X31 + 0x10]
+	0x0341CD04 ADD X31, X31, 0x30
+	0x0341CD08 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Jump @b10
+	14 Nop
+	15 Move v18 @ X0_v11, [44C2410]
+	16 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v12, v18 @ X0_v11, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	17 Nop
+	18 Move v46 @ X0_v14, [44BB2D8]
+	19 Call "il2cpp_codegen_initialize_runtime_metadata", v36 @ X0_v15, v46 @ X0_v14, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	20 Move v38 @ X8_v6, 1
+	21 Move [479B970], v38 @ X8_v6
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Move v42 @ X21_v3, [44BB2D8]
+	26 Nop
+	27 Nop
+	28 Jump @b11
+	29 Call "il2cpp_codegen_runtime_class_init", v47 @ X0_v8, v39 @ X0_v2, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Call ColorUtility.ToHtmlStringRGB, v56 @ X0_v5 (System.String), &v52 @ stack_-30 (UnityEngine.Color)
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Call String.Format, returnVal1 @ X0_v7 (System.String), [v42 @ X21_v3], v56 @ X0_v5 (System.String), value @ X0 (System.Object)
+	43 Nop
+	44 Nop
+	45 Nop
+	46 Nop
+	47 Nop
+	48 Return returnVal1 @ X0_v7 (System.String)
+
+Method: System.Boolean get_IsShowing()
+
+Disassembly:
+	0x0341CD0C STR X30, [X31 - 0x20]!
+	0x0341CD10 STP X20, X19, [X31 + 0x10]
+	0x0341CD14 ADRP X20, 0x137F000
+	0x0341CD18 ADRP X19, 0x10A6000
+	0x0341CD1C LDRB W8, [X20 + 0x971]
+	0x0341CD20 LDR X19, [X19 + 0x410]
+	0x0341CD24 TBNZ W8, 0x0, 0x341CD48
+	0x0341CD28 ADRP X0, 0x10A6000
+	0x0341CD2C LDR X0, [X0 + 0x410]
+	0x0341CD30 BL 0x1D77A60
+	0x0341CD34 ADRP X0, 0x108C000
+	0x0341CD38 LDR X0, [X0 + 0xAC0]
+	0x0341CD3C BL 0x1D77A60
+	0x0341CD40 MOV W8, 0x1
+	0x0341CD44 STRB W8, [X20 + 0x971]
+	0x0341CD48 LDR X0, [X19]
+	0x0341CD4C ADRP X20, 0x108C000
+	0x0341CD50 LDR W8, [X0 + 0xE4]
+	0x0341CD54 LDR X20, [X20 + 0xAC0]
+	0x0341CD58 CBNZ W8, 0x341CD64
+	0x0341CD5C BL 0x1D77B94
+	0x0341CD60 LDR X0, [X19]
+	0x0341CD64 LDR X8, [X20]
+	0x0341CD68 LDR X9, [X0 + 0xA0]
+	0x0341CD6C LDR W10, [X8 + 0xE4]
+	0x0341CD70 LDR X19, [X9 + 0x8]
+	0x0341CD74 CBNZ W10, 0x341CD80
+	0x0341CD78 MOV X0, X8
+	0x0341CD7C BL 0x1D77B94
+	0x0341CD80 MOV X0, X19
+	0x0341CD84 LDP X20, X19, [X31 + 0x10]
+	0x0341CD88 MOV X1, X31
+	0x0341CD8C MOV X2, X31
+	0x0341CD90 LDR X30, [X31], #0x20
+	0x0341CD94 B 0x3F6211C
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Move v9 @ X19_v2, [44C2410]
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Jump @b11
+	12 Nop
+	13 Move v14 @ X0_v12, [44C2410]
+	14 Call "il2cpp_codegen_initialize_runtime_metadata", v15 @ X0_v13, v14 @ X0_v12, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	15 Nop
+	16 Move v43 @ X0_v15, [44A8AC0]
+	17 Call "il2cpp_codegen_initialize_runtime_metadata", v32 @ X0_v16, v43 @ X0_v15, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	18 Move v35 @ X8_v5, 1
+	19 Move [479B971], v35 @ X8_v5
+	20 Move v45 @ X0_v3, [v9 @ X19_v2]
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Jump @b12
+	27 Call "il2cpp_codegen_runtime_class_init", v44 @ X0_v9, v36 @ X0_v2, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	28 Move v46 @ X0_v10, [v9 @ X19_v2]
+	29 Nop
+	30 Move v48 @ X9_v1, [v45 @ X0_v3+A0]
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Jump @b9
+	36 Move v53 @ X0_v7, v47 @ X8_v4
+	37 Call "il2cpp_codegen_runtime_class_init", v54 @ X0_v8, v53 @ X0_v7, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Nop
+	43 Nop
+	44 Nop
+	45 Call Object.op_Inequality, returnVal1 @ X0_v6 (System.Boolean), [v48 @ X9_v1+8], 0
+	46 Return returnVal1 @ X0_v6 (System.Boolean)
+
+Method: System.Void Hide()
+
+Disassembly:
+	0x0341CD98 STP X30, X21, [X31 - 0x20]!
+	0x0341CD9C STP X20, X19, [X31 + 0x10]
+	0x0341CDA0 ADRP X19, 0x137F000
+	0x0341CDA4 ADRP X20, 0x10A6000
+	0x0341CDA8 LDRB W8, [X19 + 0x972]
+	0x0341CDAC LDR X20, [X20 + 0x410]
+	0x0341CDB0 TBNZ W8, 0x0, 0x341CDD4
+	0x0341CDB4 ADRP X0, 0x10A6000
+	0x0341CDB8 LDR X0, [X0 + 0x410]
+	0x0341CDBC BL 0x1D77A60
+	0x0341CDC0 ADRP X0, 0x108C000
+	0x0341CDC4 LDR X0, [X0 + 0xAC0]
+	0x0341CDC8 BL 0x1D77A60
+	0x0341CDCC MOV W8, 0x1
+	0x0341CDD0 STRB W8, [X19 + 0x972]
+	0x0341CDD4 LDR X0, [X20]
+	0x0341CDD8 LDR W8, [X0 + 0xE4]
+	0x0341CDDC CBNZ W8, 0x341CDE8
+	0x0341CDE0 BL 0x1D77B94
+	0x0341CDE4 LDR X0, [X20]
+	0x0341CDE8 LDR X8, [X0 + 0xA0]
+	0x0341CDEC LDR X8, [X8 + 0x18]
+	0x0341CDF0 CBZ X8, 0x341CE08
+	0x0341CDF4 MOV X0, X8
+	0x0341CDF8 MOV W1, W31
+	0x0341CDFC MOV X2, X31
+	0x0341CE00 BL 0x1E8F728
+	0x0341CE04 LDR X0, [X20]
+	0x0341CE08 ADRP X21, 0x108C000
+	0x0341CE0C LDR W8, [X0 + 0xE4]
+	0x0341CE10 LDR X21, [X21 + 0xAC0]
+	0x0341CE14 CBNZ W8, 0x341CE20
+	0x0341CE18 BL 0x1D77B94
+	0x0341CE1C LDR X0, [X20]
+	0x0341CE20 LDR X0, [X0 + 0xA0]
+	0x0341CE24 MOV X1, X31
+	0x0341CE28 STR X31, [X0 + 0x18]!
+	0x0341CE2C BL 0x1D77A14
+	0x0341CE30 LDR X8, [X20]
+	0x0341CE34 MOV X1, X31
+	0x0341CE38 LDR X0, [X8 + 0xA0]
+	0x0341CE3C STR X31, [X0 + 0x10]!
+	0x0341CE40 BL 0x1D77A14
+	0x0341CE44 LDR X8, [X20]
+	0x0341CE48 LDR X0, [X21]
+	0x0341CE4C LDR X8, [X8 + 0xA0]
+	0x0341CE50 LDR W9, [X0 + 0xE4]
+	0x0341CE54 LDR X19, [X8 + 0x8]
+	0x0341CE58 CBNZ W9, 0x341CE60
+	0x0341CE5C BL 0x1D77B94
+	0x0341CE60 MOV X0, X19
+	0x0341CE64 MOV X1, X31
+	0x0341CE68 MOV X2, X31
+	0x0341CE6C BL 0x3F6211C
+	0x0341CE70 TBZ W0, 0x0, 0x341CEB0
+	0x0341CE74 LDR X0, [X20]
+	0x0341CE78 LDR W8, [X0 + 0xE4]
+	0x0341CE7C CBNZ W8, 0x341CE88
+	0x0341CE80 BL 0x1D77B94
+	0x0341CE84 LDR X0, [X20]
+	0x0341CE88 LDR X8, [X21]
+	0x0341CE8C LDR X9, [X0 + 0xA0]
+	0x0341CE90 LDR W10, [X8 + 0xE4]
+	0x0341CE94 LDR X19, [X9 + 0x8]
+	0x0341CE98 CBNZ W10, 0x341CEA4
+	0x0341CE9C MOV X0, X8
+	0x0341CEA0 BL 0x1D77B94
+	0x0341CEA4 MOV X0, X19
+	0x0341CEA8 MOV X1, X31
+	0x0341CEAC BL 0x3F67D34
+	0x0341CEB0 LDR X0, [X20]
+	0x0341CEB4 LDR W8, [X0 + 0xE4]
+	0x0341CEB8 CBNZ W8, 0x341CEC4
+	0x0341CEBC BL 0x1D77B94
+	0x0341CEC0 LDR X0, [X20]
+	0x0341CEC4 LDR X0, [X0 + 0xA0]
+	0x0341CEC8 MOV X1, X31
+	0x0341CECC STR X31, [X0 + 0x8]!
+	0x0341CED0 BL 0x1D77A14
+	0x0341CED4 LDR X8, [X20]
+	0x0341CED8 LDP X20, X19, [X31 + 0x10]
+	0x0341CEDC MOV W9, 0x7918
+	0x0341CEE0 LDR X8, [X8 + 0xA0]
+	0x0341CEE4 STR W9, [X8]
+	0x0341CEE8 LDP X30, X21, [X31], #0x20
+	0x0341CEEC RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Move v11 @ X20_v2, [44C2410]
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Jump @b26
+	13 Nop
+	14 Move v16 @ X0_v40, [44C2410]
+	15 Call "il2cpp_codegen_initialize_runtime_metadata", v17 @ X0_v41, v16 @ X0_v40, v18 @ X1, v19 @ X2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	16 Nop
+	17 Move v43 @ X0_v43, [44A8AC0]
+	18 Call "il2cpp_codegen_initialize_runtime_metadata", v34 @ X0_v44, v43 @ X0_v43, v18 @ X1, v19 @ X2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	19 Move v37 @ X8_v16, 1
+	20 Move [479B972], v37 @ X8_v16
+	21 Move v63 @ X0_v5, [v11 @ X20_v2]
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Jump @b30
+	26 Call "il2cpp_codegen_runtime_class_init", v44 @ X0_v37, v38 @ X0_v2, v18 @ X1, v19 @ X2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	27 Move v46 @ X0_v38, [v11 @ X20_v2]
+	28 Move v47 @ X8_v4, [v63 @ X0_v5+A0]
+	29 Nop
+	30 CheckEqual v49 @ TEMP_v6 (System.Boolean), [v47 @ X8_v4+18], 0
+	31 ConditionalJump @b27, v49 @ TEMP_v6 (System.Boolean)
+	32 Nop
+	33 Nop
+	34 Nop
+	35 CallVoid TweenExtensions.Kill, [v47 @ X8_v4+18], 0
+	36 Move v63 @ X0_v5, [v11 @ X20_v2]
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Jump @b31
+	43 Call "il2cpp_codegen_runtime_class_init", v62 @ X0_v33, v55 @ X0_v4, v54 @ X1_v1, v53 @ X2_v1, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	44 Move v64 @ X0_v34, [v11 @ X20_v2]
+	45 Nop
+	46 Nop
+	47 Add v67 @ X0_v7, [v63 @ X0_v5+A0], 24
+	48 Move [v67 @ X0_v7], 0
+	49 Call 1D77A14, v68 @ X0_v8, v67 @ X0_v7, 0, 0, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	50 Move v69 @ X8_v7, [v11 @ X20_v2]
+	51 Nop
+	52 Nop
+	53 Add v72 @ X0_v10, [v69 @ X8_v7+A0], 16
+	54 Move [v72 @ X0_v10], 0
+	55 Call 1D77A14, v73 @ X0_v11, v72 @ X0_v10, 0, 0, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	56 Move v74 @ X8_v8, [v11 @ X20_v2]
+	57 Nop
+	58 Move v76 @ X8_v9, [v74 @ X8_v8+A0]
+	59 Nop
+	60 Nop
+	61 Nop
+	62 Nop
+	63 Jump @b15
+	64 Call "il2cpp_codegen_runtime_class_init", v81 @ X0_v32, v75 @ X0_v12, v70 @ X1_v3, v53 @ X2_v1, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	65 Nop
+	66 Nop
+	67 Nop
+	68 Call Object.op_Inequality, v86 @ X0_v15 (System.Boolean), [v76 @ X8_v9+8], 0
+	69 Nop
+	70 CheckEqual v88 @ TEMP_v12 (System.Boolean), v86 @ X0_v15 (System.Boolean), 0
+	71 ConditionalJump @b22, v88 @ TEMP_v12 (System.Boolean)
+	72 Move v113 @ X0_v25, [v11 @ X20_v2]
+	73 Nop
+	74 Nop
+	75 Nop
+	76 Jump @b28
+	77 Call "il2cpp_codegen_runtime_class_init", v112 @ X0_v30, v89 @ X0_v24, v84 @ X1_v4 (UnityEngine.Object), v85 @ X2_v2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	78 Move v114 @ X0_v31, [v11 @ X20_v2]
+	79 Nop
+	80 Move v97 @ X9_v4, [v113 @ X0_v25+A0]
+	81 Nop
+	82 Nop
+	83 Nop
+	84 Nop
+	85 Jump @b21
+	86 Move v123 @ X0_v28, v105 @ X8_v15
+	87 Call "il2cpp_codegen_runtime_class_init", v124 @ X0_v29, v123 @ X0_v28, v84 @ X1_v4 (UnityEngine.Object), v85 @ X2_v2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	88 Nop
+	89 Nop
+	90 CallVoid Object.Destroy, [v97 @ X9_v4+8]
+	91 Move v117 @ X0_v18, [v11 @ X20_v2]
+	92 Nop
+	93 Nop
+	94 Nop
+	95 Jump @b29
+	96 Call "il2cpp_codegen_runtime_class_init", v116 @ X0_v22, v108 @ X0_v17, v98 @ X1_v5, v85 @ X2_v2, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	97 Move v118 @ X0_v23, [v11 @ X20_v2]
+	98 Nop
+	99 Nop
+	100 Add v121 @ X0_v20, [v117 @ X0_v18+A0], 8
+	101 Move [v121 @ X0_v20], 0
+	102 Call 1D77A14, v122 @ X0_v21, v121 @ X0_v20, 0, 0, v20 @ X3, v21 @ X4, v22 @ X5, v23 @ X6, v24 @ X7, v25 @ V0, v26 @ V1, v27 @ V2, v28 @ V3, v29 @ V4, v30 @ V5, v31 @ V6, v32 @ V7
+	103 Move v126 @ X8_v12, [v11 @ X20_v2]
+	104 Nop
+	105 Nop
+	106 Nop
+	107 Move v130 @ X8_v13, [v126 @ X8_v12+A0]
+	108 Move [v130 @ X8_v13], 31000
+	109 Nop
+	110 Nop
+	111 Nop
+	112 Return
+
+Method: System.Void Dismiss(System.Single fade = 0.15)
+
+Disassembly:
+	0x0341CEF0 STR D8, [X31 - 0x40]!
+	0x0341CEF4 STP X30, X23, [X31 + 0x10]
+	0x0341CEF8 STP X22, X21, [X31 + 0x20]
+	0x0341CEFC STP X20, X19, [X31 + 0x30]
+	0x0341CF00 FMOV S8, S0
+	0x0341CF04 ADRP X20, 0x137F000
+	0x0341CF08 ADRP X19, 0x10A8000
+	0x0341CF0C ADRP X22, 0x10A6000
+	0x0341CF10 LDRB W8, [X20 + 0x973]
+	0x0341CF14 LDR X19, [X19 + 0x6C8]
+	0x0341CF18 LDR X22, [X22 + 0x410]
+	0x0341CF1C TBNZ W8, 0x0, 0x341CF7C
+	0x0341CF20 ADRP X0, 0x10A6000
+	0x0341CF24 LDR X0, [X0 + 0x410]
+	0x0341CF28 BL 0x1D77A60
+	0x0341CF2C ADRP X0, 0x108C000
+	0x0341CF30 LDR X0, [X0 + 0xAC0]
+	0x0341CF34 BL 0x1D77A60
+	0x0341CF38 ADRP X0, 0x108D000
+	0x0341CF3C LDR X0, [X0 + 0xAA8]
+	0x0341CF40 BL 0x1D77A60
+	0x0341CF44 ADRP X0, 0x10A0000
+	0x0341CF48 LDR X0, [X0 + 0x1E0]
+	0x0341CF4C BL 0x1D77A60
+	0x0341CF50 ADRP X0, 0x109D000
+	0x0341CF54 LDR X0, [X0 + 0x6C8]
+	0x0341CF58 BL 0x1D77A60
+	0x0341CF5C ADRP X0, 0x10A8000
+	0x0341CF60 LDR X0, [X0 + 0x6D0]
+	0x0341CF64 BL 0x1D77A60
+	0x0341CF68 ADRP X0, 0x10A8000
+	0x0341CF6C LDR X0, [X0 + 0x6C8]
+	0x0341CF70 BL 0x1D77A60
+	0x0341CF74 MOV W8, 0x1
+	0x0341CF78 STRB W8, [X20 + 0x973]
+	0x0341CF7C ADRP X23, 0x108C000
+	0x0341CF80 LDR X23, [X23 + 0xAC0]
+	0x0341CF84 LDR X0, [X19]
+	0x0341CF88 BL 0x1D77EC4
+	0x0341CF8C MOV X1, X31
+	0x0341CF90 MOV X19, X0
+	0x0341CF94 BL 0x364F544
+	0x0341CF98 LDR X0, [X22]
+	0x0341CF9C LDR W8, [X0 + 0xE4]
+	0x0341CFA0 CBNZ W8, 0x341CFAC
+	0x0341CFA4 BL 0x1D77B94
+	0x0341CFA8 LDR X0, [X22]
+	0x0341CFAC LDR X8, [X23]
+	0x0341CFB0 LDR X9, [X0 + 0xA0]
+	0x0341CFB4 LDR W10, [X8 + 0xE4]
+	0x0341CFB8 LDR X20, [X9 + 0x8]
+	0x0341CFBC CBNZ W10, 0x341CFC8
+	0x0341CFC0 MOV X0, X8
+	0x0341CFC4 BL 0x1D77B94
+	0x0341CFC8 MOV X0, X20
+	0x0341CFCC MOV X1, X31
+	0x0341CFD0 MOV X2, X31
+	0x0341CFD4 BL 0x3F634BC
+	0x0341CFD8 TBZ W0, 0x0, 0x341CFF0
+	0x0341CFDC LDP X20, X19, [X31 + 0x30]
+	0x0341CFE0 LDP X22, X21, [X31 + 0x20]
+	0x0341CFE4 LDP X30, X23, [X31 + 0x10]
+	0x0341CFE8 LDR D8, [X31], #0x40
+	0x0341CFEC RET
+	0x0341CFF0 LDR X0, [X22]
+	0x0341CFF4 LDR W8, [X0 + 0xE4]
+	0x0341CFF8 CBNZ W8, 0x341D004
+	0x0341CFFC BL 0x1D77B94
+	0x0341D000 LDR X0, [X22]
+	0x0341D004 LDR X8, [X0 + 0xA0]
+	0x0341D008 LDR X8, [X8 + 0x18]
+	0x0341D00C CBZ X8, 0x341D024
+	0x0341D010 MOV X0, X8
+	0x0341D014 MOV W1, W31
+	0x0341D018 MOV X2, X31
+	0x0341D01C BL 0x1E8F728
+	0x0341D020 LDR X0, [X22]
+	0x0341D024 LDR W8, [X0 + 0xE4]
+	0x0341D028 CBNZ W8, 0x341D034
+	0x0341D02C BL 0x1D77B94
+	0x0341D030 LDR X0, [X22]
+	0x0341D034 LDR X0, [X0 + 0xA0]
+	0x0341D038 MOV X1, X31
+	0x0341D03C STR X31, [X0 + 0x18]!
+	0x0341D040 BL 0x1D77A14
+	0x0341D044 CBZ X19, 0x341D194
+	0x0341D048 LDR X8, [X22]
+	0x0341D04C MOV X20, X19
+	0x0341D050 LDR X8, [X8 + 0xA0]
+	0x0341D054 LDR X1, [X8 + 0x8]
+	0x0341D058 STR X1, [X20 + 0x10]!
+	0x0341D05C MOV X0, X20
+	0x0341D060 BL 0x1D77A14
+	0x0341D064 LDR X8, [X22]
+	0x0341D068 MOV X1, X31
+	0x0341D06C LDR X0, [X8 + 0xA0]
+	0x0341D070 STR X31, [X0 + 0x8]!
+	0x0341D074 LDR X21, [X0 + 0x8]
+	0x0341D078 BL 0x1D77A14
+	0x0341D07C LDR X8, [X22]
+	0x0341D080 MOV X1, X31
+	0x0341D084 LDR X0, [X8 + 0xA0]
+	0x0341D088 STR X31, [X0 + 0x10]!
+	0x0341D08C BL 0x1D77A14
+	0x0341D090 LDR X8, [X22]
+	0x0341D094 LDR X0, [X23]
+	0x0341D098 MOV W10, 0x7918
+	0x0341D09C LDR X8, [X8 + 0xA0]
+	0x0341D0A0 LDR W9, [X0 + 0xE4]
+	0x0341D0A4 STR W10, [X8]
+	0x0341D0A8 CBNZ W9, 0x341D0B0
+	0x0341D0AC BL 0x1D77B94
+	0x0341D0B0 MOV X0, X21
+	0x0341D0B4 MOV X1, X31
+	0x0341D0B8 MOV X2, X31
+	0x0341D0BC BL 0x3F634BC
+	0x0341D0C0 TBZ W0, 0x0, 0x341D0F4
+	0x0341D0C4 LDR X0, [X23]
+	0x0341D0C8 LDR X19, [X20]
+	0x0341D0CC LDR W8, [X0 + 0xE4]
+	0x0341D0D0 CBNZ W8, 0x341D0D8
+	0x0341D0D4 BL 0x1D77B94
+	0x0341D0D8 MOV X0, X19
+	0x0341D0DC LDP X20, X19, [X31 + 0x30]
+	0x0341D0E0 LDP X22, X21, [X31 + 0x20]
+	0x0341D0E4 MOV X1, X31
+	0x0341D0E8 LDP X30, X23, [X31 + 0x10]
+	0x0341D0EC LDR D8, [X31], #0x40
+	0x0341D0F0 B 0x3F67D34
+	0x0341D0F4 MOV X0, X21
+	0x0341D0F8 MOV W1, W31
+	0x0341D0FC MOV X2, X31
+	0x0341D100 BL 0x1E9CFDC
+	0x0341D104 ADRP X8, 0xFFFFFFFFFD7F0000
+	0x0341D108 MOV X0, X21
+	0x0341D10C MOV X1, X31
+	0x0341D110 LDR S0, [X8 + 0x20]
+	0x0341D114 FCMP S8, S0
+	0x0341D118 FCSEL S1, S0, S8, MI
+	0x0341D11C MOVI D0, 0x0
+	0x0341D120 BL 0x1EA5C60
+	0x0341D124 ADRP X8, 0x109C000
+	0x0341D128 MOV W1, 0x1
+	0x0341D12C LDR X8, [X8 + 0x6C8]
+	0x0341D130 LDR X2, [X8]
+	0x0341D134 BL 0x236ECD4
+	0x0341D138 ADRP X8, 0x108C000
+	0x0341D13C MOV X20, X0
+	0x0341D140 LDR X8, [X8 + 0xAA8]
+	0x0341D144 LDR X8, [X8]
+	0x0341D148 MOV X0, X8
+	0x0341D14C BL 0x1D77EC4
+	0x0341D150 ADRP X8, 0x10A7000
+	0x0341D154 MOV X1, X19
+	0x0341D158 MOV X3, X31
+	0x0341D15C LDR X8, [X8 + 0x6D0]
+	0x0341D160 MOV X21, X0
+	0x0341D164 LDR X2, [X8]
+	0x0341D168 BL 0x1E88D98
+	0x0341D16C ADRP X8, 0x109F000
+	0x0341D170 MOV X0, X20
+	0x0341D174 MOV X1, X21
+	0x0341D178 LDR X8, [X8 + 0x1E0]
+	0x0341D17C LDP X20, X19, [X31 + 0x30]
+	0x0341D180 LDP X22, X21, [X31 + 0x20]
+	0x0341D184 LDP X30, X23, [X31 + 0x10]
+	0x0341D188 LDR X2, [X8]
+	0x0341D18C LDR D8, [X31], #0x40
+	0x0341D190 B 0x236DE60
+	0x0341D194 BL 0x1D77A54
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Move v20 @ X19_v2, [44C46C8]
+	14 Move v21 @ X22_v2, [44C2410]
+	15 Nop
+	16 Nop
+	17 Nop
+	18 Jump @b49
+	19 Nop
+	20 Move v26 @ X0_v55, [44C2410]
+	21 Call "il2cpp_codegen_initialize_runtime_metadata", v27 @ X0_v56, v26 @ X0_v55, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	22 Nop
+	23 Move v52 @ X0_v58, [44A8AC0]
+	24 Call "il2cpp_codegen_initialize_runtime_metadata", v53 @ X0_v59, v52 @ X0_v58, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	25 Nop
+	26 Move v57 @ X0_v61, [44A9AA8]
+	27 Call "il2cpp_codegen_initialize_runtime_metadata", v58 @ X0_v62, v57 @ X0_v61, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	28 Nop
+	29 Move v64 @ X0_v64, [44BC1E0]
+	30 Call "il2cpp_codegen_initialize_runtime_metadata", v65 @ X0_v65, v64 @ X0_v64, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	31 Nop
+	32 Move v76 @ X0_v67, [44B96C8]
+	33 Call "il2cpp_codegen_initialize_runtime_metadata", v77 @ X0_v68, v76 @ X0_v67, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	34 Nop
+	35 Move v86 @ X0_v70, [44C46D0]
+	36 Call "il2cpp_codegen_initialize_runtime_metadata", v87 @ X0_v71, v86 @ X0_v70, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	37 Nop
+	38 Move v91 @ X0_v73, [44C46C8]
+	39 Call "il2cpp_codegen_initialize_runtime_metadata", v43 @ X0_v74, v91 @ X0_v73, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	40 Move v46 @ X8_v27, 1
+	41 Move [479B973], v46 @ X8_v27
+	42 Nop
+	43 Nop
+	44 Nop
+	45 Newobj v50 @ X0_v3 (System.Object), [v20 @ X19_v2]
+	46 Nop
+	47 Nop
+	48 CallVoid Object..ctor, v50 @ X0_v3 (System.Object)
+	49 Move v67 @ X0_v5, [v21 @ X22_v2]
+	50 Nop
+	51 Nop
+	52 Nop
+	53 Jump @b50
+	54 Call "il2cpp_codegen_runtime_class_init", v66 @ X0_v52, v59 @ X0_v4, v54 @ X1_v1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	55 Move v68 @ X0_v53, [v21 @ X22_v2]
+	56 Nop
+	57 Move v70 @ X9_v1, [v67 @ X0_v5+A0]
+	58 Nop
+	59 Nop
+	60 Nop
+	61 Nop
+	62 Jump @b16
+	63 Move v78 @ X0_v50, v69 @ X8_v4
+	64 Call "il2cpp_codegen_runtime_class_init", v79 @ X0_v51, v78 @ X0_v50, v54 @ X1_v1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	65 Nop
+	66 Nop
+	67 Nop
+	68 Call Object.op_Equality, v84 @ X0_v8 (System.Boolean), [v70 @ X9_v1+8], 0
+	69 Nop
+	70 CheckEqual v89 @ TEMP_v9 (System.Boolean), v84 @ X0_v8 (System.Boolean), 0
+	71 ConditionalJump @b19, v89 @ TEMP_v9 (System.Boolean)
+	72 Nop
+	73 Nop
+	74 Nop
+	75 Nop
+	76 Nop
+	77 Nop
+	78 Nop
+	79 Nop
+	80 Return
+	81 Move v196 @ X0_v12, [v21 @ X22_v2]
+	82 Nop
+	83 Nop
+	84 Nop
+	85 Jump @b51
+	86 Call "il2cpp_codegen_runtime_class_init", v181 @ X0_v47, v99 @ X0_v9, v82 @ X1_v2 (UnityEngine.Object), v83 @ X2_v1, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	87 Move v183 @ X0_v48, [v21 @ X22_v2]
+	88 Move v184 @ X8_v6, [v196 @ X0_v12+A0]
+	89 Nop
+	90 CheckEqual v186 @ TEMP_v12 (System.Boolean), [v184 @ X8_v6+18], 0
+	91 ConditionalJump @b54, v186 @ TEMP_v12 (System.Boolean)
+	92 Nop
+	93 Nop
+	94 Nop
+	95 CallVoid TweenExtensions.Kill, [v184 @ X8_v6+18], 0
+	96 Move v196 @ X0_v12, [v21 @ X22_v2]
+	97 Nop
+	98 Nop
+	99 Nop
+	100 Jump @b52
+	101 Call "il2cpp_codegen_runtime_class_init", v195 @ X0_v43, v191 @ X0_v11, v190 @ X1_v3, v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	102 Move v197 @ X0_v44, [v21 @ X22_v2]
+	103 Nop
+	104 Nop
+	105 Add v199 @ X0_v14, [v196 @ X0_v12+A0], 24
+	106 Move [v199 @ X0_v14], 0
+	107 Call 1D77A14, v200 @ X0_v15, v199 @ X0_v14, 0, v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	108 Nop
+	109 Nop
+	110 Move v201 @ X8_v9, [v21 @ X22_v2]
+	111 Nop
+	112 Move v203 @ X8_v10, [v201 @ X8_v9+A0]
+	113 Nop
+	114 Add v205 @ X20_v4, v50 @ X0_v3 (System.Object), 16
+	115 Move [v205 @ X20_v4], [v203 @ X8_v10+8]
+	116 Nop
+	117 Call 1D77A14, v207 @ X0_v18, v205 @ X20_v4, [v203 @ X8_v10+8], v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	118 Move v208 @ X8_v11, [v21 @ X22_v2]
+	119 Nop
+	120 Nop
+	121 Add v211 @ X0_v20, [v208 @ X8_v11+A0], 8
+	122 Move [v211 @ X0_v20], 0
+	123 Nop
+	124 Call 1D77A14, v213 @ X0_v21, v211 @ X0_v20, 0, v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	125 Move v214 @ X8_v12, [v21 @ X22_v2]
+	126 Nop
+	127 Nop
+	128 Add v217 @ X0_v23, [v214 @ X8_v12+A0], 16
+	129 Move [v217 @ X0_v23], 0
+	130 Call 1D77A14, v218 @ X0_v24, v217 @ X0_v23, 0, v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	131 Move v219 @ X8_v13, [v21 @ X22_v2]
+	132 Nop
+	133 Nop
+	134 Move v221 @ X8_v14, [v219 @ X8_v13+A0]
+	135 Nop
+	136 Move [v221 @ X8_v14], 31000
+	137 Nop
+	138 Nop
+	139 Jump @b32
+	140 Call "il2cpp_codegen_runtime_class_init", v224 @ X0_v42, v220 @ X0_v25, v215 @ X1_v7, v152 @ X2_v2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	141 Nop
+	142 Nop
+	143 Nop
+	144 Call Object.op_Equality, v228 @ X0_v28 (System.Boolean), [v211 @ X0_v20+8], 0
+	145 Nop
+	146 CheckEqual v163 @ TEMP_v19 (System.Boolean), v228 @ X0_v28 (System.Boolean), 0
+	147 ConditionalJump @b38, v163 @ TEMP_v19 (System.Boolean)
+	148 Nop
+	149 Nop
+	150 Nop
+	151 Nop
+	152 Nop
+	153 Jump @b36
+	154 Call "il2cpp_codegen_runtime_class_init", v237 @ X0_v41, v230 @ X0_v38, v227 @ X1_v8 (UnityEngine.Object), v150 @ X2_v3, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, fade @ V0 (System.Single), v35 @ V1, v36 @ V2, v37 @ V3, v38 @ V4, v39 @ V5, v40 @ V6, v41 @ V7
+	155 Nop
+	156 Nop
+	157 Nop
+	158 Nop
+	159 Nop
+	160 Nop
+	161 Nop
+	162 Nop
+	163 Nop
+	164 Nop
+	165 CallVoid Object.Destroy, [v205 @ X20_v4]
+	166 Return
+	167 Nop
+	168 Nop
+	169 Nop
+	170 Call ShortcutExtensions.DOKill, v236 @ X0_v30 (System.Int32), [v211 @ X0_v20+8], 0
+	171 Nop
+	172 Nop
+	173 Nop
+	174 Nop
+	175 Nop
+	176 Nop
+	177 Nop
+	178 Nop
+	179 Nop
+	180 Nop
+	181 Nop
+	182 Nop
+	183 Nop
+	184 CheckGreaterOrEqual v109 @ TEMPCSEL_v1 (System.Boolean), fade @ V0 (System.Single), [C0D020]
+	185 ConditionalJump @b41, v109 @ TEMPCSEL_v1 (System.Boolean)
+	186 Nop
+	187 Jump @b53
+	188 Nop
+	189 Nop
+	190 Nop
+	191 Call DOTweenModuleUI.DOFade, v246 @ X0_v32 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>), [v211 @ X0_v20+8], 0f, v106 @ V1_v1 (System.Single)
+	192 Nop
+	193 Nop
+	194 Move v249 @ X8_v17, [44B96C8]
+	195 Nop
+	196 Call 236ECD4, v251 @ X0_v33, v246 @ X0_v32 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>), 1, [v249 @ X8_v17]
+	197 Nop
+	198 Nop
+	199 Move v254 @ X8_v19, [44A9AA8]
+	200 Nop
+	201 Nop
+	202 Newobj v257 @ X0_v35 (DG.Tweening.TweenCallback), [v254 @ X8_v19]
+	203 Nop
+	204 Nop
+	205 Nop
+	206 Move v260 @ X8_v22, [44C46D0]
+	207 Nop
+	208 Nop
+	209 CallVoid TweenCallback..ctor, v257 @ X0_v35 (DG.Tweening.TweenCallback), v50 @ X0_v3 (System.Object), [v260 @ X8_v22]
+	210 Nop
+	211 Nop
+	212 Nop
+	213 Move v167 @ X8_v24, [44BC1E0]
+	214 Nop
+	215 Nop
+	216 Nop
+	217 Nop
+	218 Nop
+	219 Nop
+	220 Nop
+	221 Nop
+	222 Nop
+	223 Call 236DE60, v159 @ X0_v37, v251 @ X0_v33, v257 @ X0_v35 (DG.Tweening.TweenCallback), [v167 @ X8_v24]
+	224 Return
+	225 Throw typeof(System.NullReferenceException)
+	226 Return
+
+Method: System.Void Show(System.String message)
+
+Disassembly:
+	0x0341D1A0 SUB X31, X31, 0x60
+	0x0341D1A4 STP X30, X21, [X31 + 0x40]
+	0x0341D1A8 STP X20, X19, [X31 + 0x50]
+	0x0341D1AC ADRP X21, 0x137E000
+	0x0341D1B0 ADRP X20, 0x10A5000
+	0x0341D1B4 MOV X19, X0
+	0x0341D1B8 LDRB W8, [X21 + 0x974]
+	0x0341D1BC LDR X20, [X20 + 0x410]
+	0x0341D1C0 TBNZ W8, 0x0, 0x341D1D8
+	0x0341D1C4 ADRP X0, 0x10A5000
+	0x0341D1C8 LDR X0, [X0 + 0x410]
+	0x0341D1CC BL 0x1D77A60
+	0x0341D1D0 MOV W8, 0x1
+	0x0341D1D4 STRB W8, [X21 + 0x974]
+	0x0341D1D8 ADRP X8, 0xFFFFFFFFFD82A000
+	0x0341D1DC MOVI V0.2D, 0x0
+	0x0341D1E0 LDR X0, [X20]
+	0x0341D1E4 LDR V1, [X8 + 0x5A0]
+	0x0341D1E8 ADRP X8, 0xFFFFFFFFFD826000
+	0x0341D1EC LDR V2, [X8 + 0x490]
+	0x0341D1F0 ADRP X8, 0xFFFFFFFFFD7EF000
+	0x0341D1F4 STP V1, V2, [X31]
+	0x0341D1F8 LDR D1, [X8 + 0x48]
+	0x0341D1FC LDR W8, [X0 + 0xE4]
+	0x0341D200 STR V0, [X31 + 0x20]
+	0x0341D204 STUR V0, [X31 + 0x2C]
+	0x0341D208 STR D1, [X31 + 0x20]
+	0x0341D20C STP X31, X31, [X31 + 0x28]
+	0x0341D210 STR W31, [X31 + 0x38]
+	0x0341D214 CBNZ W8, 0x341D21C
+	0x0341D218 BL 0x1D77B94
+	0x0341D21C ADD X1, X31, 0x0
+	0x0341D220 MOV X0, X19
+	0x0341D224 BL 0x341D264
+	0x0341D228 LDP X20, X19, [X31 + 0x50]
+	0x0341D22C LDP X30, X21, [X31 + 0x40]
+	0x0341D230 ADD X31, X31, 0x60
+	0x0341D234 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Jump @b8
+	14 Nop
+	15 Move v18 @ X0_v7, [44C2410]
+	16 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v8, v18 @ X0_v7, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	17 Move v37 @ X8_v7, 1
+	18 Move [479B974], v37 @ X8_v7
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Nop
+	37 Nop
+	38 Jump @b6
+	39 Call "il2cpp_codegen_runtime_class_init", v57 @ X0_v5, v40 @ X0_v2, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v39 @ V0_v1, v47 @ V1_v2, v43 @ V2_v1, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	40 Nop
+	41 Nop
+	42 CallVoid MotivationBanner.Show, message @ X0 (System.String), &v45 @ stack_-60_v1 (Hamdoku.UI.MotivationBanner+Style)
+	43 Nop
+	44 Nop
+	45 Nop
+	46 Nop
+	47 Nop
+	48 Return
+
+Method: System.Void Show(System.String message, in Hamdoku.UI.MotivationBanner+Style style)
+
+Disassembly:
+	0x0341D264 STR X30, [X31 - 0x30]!
+	0x0341D268 STP X22, X21, [X31 + 0x10]
+	0x0341D26C STP X20, X19, [X31 + 0x20]
+	0x0341D270 ADRP X21, 0x137E000
+	0x0341D274 ADRP X22, 0x10A5000
+	0x0341D278 MOV X19, X1
+	0x0341D27C LDRB W8, [X21 + 0x975]
+	0x0341D280 LDR X22, [X22 + 0x410]
+	0x0341D284 MOV X20, X0
+	0x0341D288 TBNZ W8, 0x0, 0x341D2A0
+	0x0341D28C ADRP X0, 0x10A5000
+	0x0341D290 LDR X0, [X0 + 0x410]
+	0x0341D294 BL 0x1D77A60
+	0x0341D298 MOV W8, 0x1
+	0x0341D29C STRB W8, [X21 + 0x975]
+	0x0341D2A0 LDR X0, [X22]
+	0x0341D2A4 LDR W8, [X0 + 0xE4]
+	0x0341D2A8 CBNZ W8, 0x341D2B0
+	0x0341D2AC BL 0x1D77B94
+	0x0341D2B0 MOV X0, X20
+	0x0341D2B4 MOV X1, X19
+	0x0341D2B8 MOV X2, X31
+	0x0341D2BC LDP X20, X19, [X31 + 0x20]
+	0x0341D2C0 MOV X3, X31
+	0x0341D2C4 LDP X22, X21, [X31 + 0x10]
+	0x0341D2C8 LDR X30, [X31], #0x30
+	0x0341D2CC B 0x341D2D0
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Jump @b8
+	16 Nop
+	17 Move v22 @ X0_v7, [44C2410]
+	18 Call "il2cpp_codegen_initialize_runtime_metadata", v23 @ X0_v8, v22 @ X0_v7, style @ X1 (Style&), methodInfo @ X2 (Il2CppMethodInfo), v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, v30 @ V0, v31 @ V1, v32 @ V2, v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	19 Move v40 @ X8_v4, 1
+	20 Move [479B975], v40 @ X8_v4
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Jump @b6
+	26 Call "il2cpp_codegen_runtime_class_init", v45 @ X0_v5, v41 @ X0_v2, style @ X1 (Style&), methodInfo @ X2 (Il2CppMethodInfo), v25 @ X3, v26 @ X4, v27 @ X5, v28 @ X6, v29 @ X7, v30 @ V0, v31 @ V1, v32 @ V2, v33 @ V3, v34 @ V4, v35 @ V5, v36 @ V6, v37 @ V7
+	27 Nop
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Nop
+	37 CallVoid MotivationBanner.Show, message @ X0 (System.String), style @ X1 (Style&), 0, 0
+	38 Return
+
+Method: System.Void Show(System.String message, in Hamdoku.UI.MotivationBanner+Style style, System.String title, UnityEngine.Sprite titleIcon)
+
+Disassembly:
+	0x0341D2D0 SUB X31, X31, 0xB0
+	0x0341D2D4 STR D14, [X31 + 0x10]
+	0x0341D2D8 STP D13, D12, [X31 + 0x20]
+	0x0341D2DC STP D11, D10, [X31 + 0x30]
+	0x0341D2E0 STP D9, D8, [X31 + 0x40]
+	0x0341D2E4 STP X29, X30, [X31 + 0x50]
+	0x0341D2E8 STP X28, X27, [X31 + 0x60]
+	0x0341D2EC STP X26, X25, [X31 + 0x70]
+	0x0341D2F0 STP X24, X23, [X31 + 0x80]
+	0x0341D2F4 STP X22, X21, [X31 + 0x90]
+	0x0341D2F8 STP X20, X19, [X31 + 0xA0]
+	0x0341D2FC ADRP X20, 0x137E000
+	0x0341D300 ADRP X22, 0x10A7000
+	0x0341D304 MOV X26, X3
+	0x0341D308 LDRB W8, [X20 + 0x976]
+	0x0341D30C LDR X22, [X22 + 0x6D8]
+	0x0341D310 MOV X28, X2
+	0x0341D314 MOV X19, X1
+	0x0341D318 MOV X21, X0
+	0x0341D31C TBNZ W8, 0x0, 0x341D454
+	0x0341D320 ADRP X0, 0x10A0000
+	0x0341D324 LDR X0, [X0 + 0xAB0]
+	0x0341D328 BL 0x1D77A60
+	0x0341D32C ADRP X0, 0x109C000
+	0x0341D330 LDR X0, [X0 + 0xAD0]
+	0x0341D334 BL 0x1D77A60
+	0x0341D338 ADRP X0, 0x108C000
+	0x0341D33C LDR X0, [X0 + 0x910]
+	0x0341D340 BL 0x1D77A60
+	0x0341D344 ADRP X0, 0x109C000
+	0x0341D348 LDR X0, [X0 + 0xAE0]
+	0x0341D34C BL 0x1D77A60
+	0x0341D350 ADRP X0, 0x10A7000
+	0x0341D354 LDR X0, [X0 + 0x6E0]
+	0x0341D358 BL 0x1D77A60
+	0x0341D35C ADRP X0, 0x109E000
+	0x0341D360 LDR X0, [X0 + 0x1F0]
+	0x0341D364 BL 0x1D77A60
+	0x0341D368 ADRP X0, 0x109E000
+	0x0341D36C LDR X0, [X0 + 0xF98]
+	0x0341D370 BL 0x1D77A60
+	0x0341D374 ADRP X0, 0x109C000
+	0x0341D378 LDR X0, [X0 + 0xAF0]
+	0x0341D37C BL 0x1D77A60
+	0x0341D380 ADRP X0, 0x109D000
+	0x0341D384 LDR X0, [X0 + 0x328]
+	0x0341D388 BL 0x1D77A60
+	0x0341D38C ADRP X0, 0x108F000
+	0x0341D390 LDR X0, [X0 + 0x268]
+	0x0341D394 BL 0x1D77A60
+	0x0341D398 ADRP X0, 0x108B000
+	0x0341D39C LDR X0, [X0 + 0xAB8]
+	0x0341D3A0 BL 0x1D77A60
+	0x0341D3A4 ADRP X0, 0x109D000
+	0x0341D3A8 LDR X0, [X0 + 0x330]
+	0x0341D3AC BL 0x1D77A60
+	0x0341D3B0 ADRP X0, 0x10A5000
+	0x0341D3B4 LDR X0, [X0 + 0x410]
+	0x0341D3B8 BL 0x1D77A60
+	0x0341D3BC ADRP X0, 0x108B000
+	0x0341D3C0 LDR X0, [X0 + 0xAC0]
+	0x0341D3C4 BL 0x1D77A60
+	0x0341D3C8 ADRP X0, 0x109C000
+	0x0341D3CC LDR X0, [X0 + 0xB00]
+	0x0341D3D0 BL 0x1D77A60
+	0x0341D3D4 ADRP X0, 0x108C000
+	0x0341D3D8 LDR X0, [X0 + 0xAA8]
+	0x0341D3DC BL 0x1D77A60
+	0x0341D3E0 ADRP X0, 0x109D000
+	0x0341D3E4 LDR X0, [X0 + 0x468]
+	0x0341D3E8 BL 0x1D77A60
+	0x0341D3EC ADRP X0, 0x109D000
+	0x0341D3F0 LDR X0, [X0 + 0x3C0]
+	0x0341D3F4 BL 0x1D77A60
+	0x0341D3F8 ADRP X0, 0x109D000
+	0x0341D3FC LDR X0, [X0 + 0x3F0]
+	0x0341D400 BL 0x1D77A60
+	0x0341D404 ADRP X0, 0x108F000
+	0x0341D408 LDR X0, [X0 + 0x1C0]
+	0x0341D40C BL 0x1D77A60
+	0x0341D410 ADRP X0, 0x10A7000
+	0x0341D414 LDR X0, [X0 + 0x6E8]
+	0x0341D418 BL 0x1D77A60
+	0x0341D41C ADRP X0, 0x10A7000
+	0x0341D420 LDR X0, [X0 + 0x6D8]
+	0x0341D424 BL 0x1D77A60
+	0x0341D428 ADRP X0, 0x109C000
+	0x0341D42C LDR X0, [X0 + 0xCF8]
+	0x0341D430 BL 0x1D77A60
+	0x0341D434 ADRP X0, 0x10A7000
+	0x0341D438 LDR X0, [X0 + 0x6F0]
+	0x0341D43C BL 0x1D77A60
+	0x0341D440 ADRP X0, 0x109C000
+	0x0341D444 LDR X0, [X0 + 0xD50]
+	0x0341D448 BL 0x1D77A60
+	0x0341D44C MOV W8, 0x1
+	0x0341D450 STRB W8, [X20 + 0x976]
+	0x0341D454 LDR X0, [X22]
+	0x0341D458 BL 0x1D77EC4
+	0x0341D45C MOV X1, X31
+	0x0341D460 MOV X20, X0
+	0x0341D464 BL 0x364F544
+	0x0341D468 MOV X0, X21
+	0x0341D46C MOV X1, X31
+	0x0341D470 BL 0x349CDE0
+	0x0341D474 TBZ W0, 0x0, 0x341D4A8
+	0x0341D478 LDP X20, X19, [X31 + 0xA0]
+	0x0341D47C LDR D14, [X31 + 0x10]
+	0x0341D480 LDP X22, X21, [X31 + 0x90]
+	0x0341D484 LDP X24, X23, [X31 + 0x80]
+	0x0341D488 LDP X26, X25, [X31 + 0x70]
+	0x0341D48C LDP X28, X27, [X31 + 0x60]
+	0x0341D490 LDP X29, X30, [X31 + 0x50]
+	0x0341D494 LDP D9, D8, [X31 + 0x40]
+	0x0341D498 LDP D11, D10, [X31 + 0x30]
+	0x0341D49C LDP D13, D12, [X31 + 0x20]
+	0x0341D4A0 ADD X31, X31, 0xB0
+	0x0341D4A4 RET
+	0x0341D4A8 ADRP X29, 0x10A5000
+	0x0341D4AC ADRP X23, 0x108B000
+	0x0341D4B0 LDR X29, [X29 + 0x410]
+	0x0341D4B4 LDR X0, [X29]
+	0x0341D4B8 LDR W8, [X0 + 0xE4]
+	0x0341D4BC LDR X23, [X23 + 0xAC0]
+	0x0341D4C0 CBNZ W8, 0x341D4CC
+	0x0341D4C4 BL 0x1D77B94
+	0x0341D4C8 LDR X0, [X29]
+	0x0341D4CC LDR X8, [X23]
+	0x0341D4D0 LDR X9, [X0 + 0xA0]
+	0x0341D4D4 LDR W10, [X8 + 0xE4]
+	0x0341D4D8 LDR X24, [X9 + 0x8]
+	0x0341D4DC CBNZ W10, 0x341D4E8
+	0x0341D4E0 MOV X0, X8
+	0x0341D4E4 BL 0x1D77B94
+	0x0341D4E8 ADRP X27, 0x108F000
+	0x0341D4EC ADRP X22, 0x109C000
+	0x0341D4F0 MOV X0, X24
+	0x0341D4F4 LDR X27, [X27 + 0x1C0]
+	0x0341D4F8 LDR X22, [X22 + 0xAD0]
+	0x0341D4FC MOV X1, X31
+	0x0341D500 MOV X2, X31
+	0x0341D504 BL 0x3F6211C
+	0x0341D508 TBZ W0, 0x0, 0x341D548
+	0x0341D50C LDR X0, [X29]
+	0x0341D510 LDR W8, [X0 + 0xE4]
+	0x0341D514 CBNZ W8, 0x341D520
+	0x0341D518 BL 0x1D77B94
+	0x0341D51C LDR X0, [X29]
+	0x0341D520 LDR X8, [X23]
+	0x0341D524 LDR X9, [X0 + 0xA0]
+	0x0341D528 LDR W10, [X8 + 0xE4]
+	0x0341D52C LDR X24, [X9 + 0x8]
+	0x0341D530 CBNZ W10, 0x341D53C
+	0x0341D534 MOV X0, X8
+	0x0341D538 BL 0x1D77B94
+	0x0341D53C MOV X0, X24
+	0x0341D540 MOV X1, X31
+	0x0341D544 BL 0x3F67D34
+	0x0341D548 LDR X0, [X27]
+	0x0341D54C MOV W1, 0x1
+	0x0341D550 BL 0x1D77B04
+	0x0341D554 ADRP X8, 0x108B000
+	0x0341D558 MOV X24, X0
+	0x0341D55C LDR X8, [X8 + 0xAF8]
+	0x0341D560 LDR X25, [X22]
+	0x0341D564 LDR X8, [X8 + 0xE8]
+	0x0341D568 LDR W9, [X8 + 0xE4]
+	0x0341D56C CBNZ W9, 0x341D578
+	0x0341D570 MOV X0, X8
+	0x0341D574 BL 0x1D77B94
+	0x0341D578 MOV X0, X25
+	0x0341D57C MOV X1, X31
+	0x0341D580 BL 0x361C774
+	0x0341D584 CBZ X24, 0x341DEFC
+	0x0341D588 MOV X25, X0
+	0x0341D58C CBZ X0, 0x341D5A4
+	0x0341D590 LDR X8, [X24]
+	0x0341D594 MOV X0, X25
+	0x0341D598 LDR X1, [X8 + 0x40]
+	0x0341D59C BL 0x1D77B98
+	0x0341D5A0 CBZ X0, 0x341DF04
+	0x0341D5A4 LDR W8, [X24 + 0x18]
+	0x0341D5A8 STR X28, [X31 + 0x8]
+	0x0341D5AC STR X26, [X31 + 0x18]
+	0x0341D5B0 CBZ W8, 0x341DF00
+	0x0341D5B4 MOV X0, X24
+	0x0341D5B8 MOV X1, X25
+	0x0341D5BC STR X25, [X0 + 0x20]!
+	0x0341D5C0 BL 0x1D77A14
+	0x0341D5C4 ADRP X28, 0x108B000
+	0x0341D5C8 LDR X28, [X28 + 0xAB8]
+	0x0341D5CC LDR X0, [X28]
+	0x0341D5D0 BL 0x1D77EC4
+	0x0341D5D4 ADRP X8, 0x10A7000
+	0x0341D5D8 MOV X2, X24
+	0x0341D5DC MOV X3, X31
+	0x0341D5E0 LDR X8, [X8 + 0x6F0]
+	0x0341D5E4 MOV X26, X0
+	0x0341D5E8 LDR X1, [X8]
+	0x0341D5EC BL 0x3F62C84
+	0x0341D5F0 CBZ X20, 0x341DEFC
+	0x0341D5F4 MOV X25, X20
+	0x0341D5F8 MOV X1, X26
+	0x0341D5FC STR X26, [X25 + 0x10]!
+	0x0341D600 MOV X0, X25
+	0x0341D604 BL 0x1D77A14
+	0x0341D608 LDR X0, [X29]
+	0x0341D60C LDR X24, [X25]
+	0x0341D610 LDR W8, [X0 + 0xE4]
+	0x0341D614 CBNZ W8, 0x341D620
+	0x0341D618 BL 0x1D77B94
+	0x0341D61C LDR X0, [X29]
+	0x0341D620 LDR X0, [X0 + 0xA0]
+	0x0341D624 MOV X1, X24
+	0x0341D628 STR X24, [X0 + 0x8]!
+	0x0341D62C BL 0x1D77A14
+	0x0341D630 LDR X0, [X25]
+	0x0341D634 CBZ X0, 0x341DEFC
+	0x0341D638 ADRP X8, 0x109C000
+	0x0341D63C LDR X8, [X8 + 0xAF0]
+	0x0341D640 LDR X1, [X8]
+	0x0341D644 BL 0x222B49C
+	0x0341D648 CBZ X0, 0x341DEFC
+	0x0341D64C MOV W1, W31
+	0x0341D650 MOV X2, X31
+	0x0341D654 MOV X24, X0
+	0x0341D658 BL 0x41E8D70
+	0x0341D65C LDR X8, [X29]
+	0x0341D660 MOV X0, X24
+	0x0341D664 MOV X2, X31
+	0x0341D668 LDR X8, [X8 + 0xA0]
+	0x0341D66C LDR W9, [X8]
+	0x0341D670 ADD W1, W9, 0x1
+	0x0341D674 STR W1, [X8]
+	0x0341D678 BL 0x41E9664
+	0x0341D67C LDR X0, [X25]
+	0x0341D680 CBZ X0, 0x341DEFC
+	0x0341D684 ADRP X8, 0x10A7000
+	0x0341D688 LDR X8, [X8 + 0x6E0]
+	0x0341D68C LDR X1, [X8]
+	0x0341D690 BL 0x222B40C
+	0x0341D694 CBZ X0, 0x341DEFC
+	0x0341D698 LDR X1, [X25]
+	0x0341D69C STR X1, [X0 + 0x20]!
+	0x0341D6A0 BL 0x1D77A14
+	0x0341D6A4 LDR X0, [X25]
+	0x0341D6A8 CBZ X0, 0x341DEFC
+	0x0341D6AC ADRP X8, 0x109C000
+	0x0341D6B0 LDR X8, [X8 + 0xAE0]
+	0x0341D6B4 LDR X1, [X8]
+	0x0341D6B8 BL 0x222B40C
+	0x0341D6BC CBZ X0, 0x341DEFC
+	0x0341D6C0 MOV W8, 0x1
+	0x0341D6C4 MOV W9, 0x44F00000
+	0x0341D6C8 MOV X1, X31
+	0x0341D6CC STR W8, [X0 + 0x20]
+	0x0341D6D0 MOV W8, 0x44870000
+	0x0341D6D4 FMOV S1, W9
+	0x0341D6D8 FMOV S0, W8
+	0x0341D6DC MOV X24, X0
+	0x0341D6E0 BL 0x41F535C
+	0x0341D6E4 LDR X0, [X27]
+	0x0341D6E8 MOV W8, 0x3F000000
+	0x0341D6EC MOV W1, 0x3
+	0x0341D6F0 STR W8, [X24 + 0x38]
+	0x0341D6F4 BL 0x1D77B04
+	0x0341D6F8 ADRP X22, 0x109C000
+	0x0341D6FC MOV X26, X0
+	0x0341D700 MOV X1, X31
+	0x0341D704 LDR X22, [X22 + 0xB00]
+	0x0341D708 LDR X8, [X22]
+	0x0341D70C MOV X0, X8
+	0x0341D710 BL 0x361C774
+	0x0341D714 CBZ X26, 0x341DEFC
+	0x0341D718 MOV X24, X0
+	0x0341D71C CBZ X0, 0x341D734
+	0x0341D720 LDR X8, [X26]
+	0x0341D724 MOV X0, X24
+	0x0341D728 LDR X1, [X8 + 0x40]
+	0x0341D72C BL 0x1D77B98
+	0x0341D730 CBZ X0, 0x341DF04
+	0x0341D734 LDR W8, [X26 + 0x18]
+	0x0341D738 CBZ W8, 0x341DF00
+	0x0341D73C MOV X0, X26
+	0x0341D740 MOV X1, X24
+	0x0341D744 STR X24, [X0 + 0x20]!
+	0x0341D748 BL 0x1D77A14
+	0x0341D74C ADRP X8, 0x109D000
+	0x0341D750 MOV X1, X31
+	0x0341D754 LDR X8, [X8 + 0x330]
+	0x0341D758 LDR X0, [X8]
+	0x0341D75C BL 0x361C774
+	0x0341D760 MOV X24, X0
+	0x0341D764 CBZ X0, 0x341D77C
+	0x0341D768 LDR X8, [X26]
+	0x0341D76C MOV X0, X24
+	0x0341D770 LDR X1, [X8 + 0x40]
+	0x0341D774 BL 0x1D77B98
+	0x0341D778 CBZ X0, 0x341DF04
+	0x0341D77C LDR W8, [X26 + 0x18]
+	0x0341D780 ANDS W31, W8, 0xFFFFFFFE
+	0x0341D784 B.EQ 0x341DF00
+	0x0341D788 MOV X0, X26
+	0x0341D78C MOV X1, X24
+	0x0341D790 STR X24, [X0 + 0x28]!
+	0x0341D794 BL 0x1D77A14
+	0x0341D798 ADRP X8, 0x10A0000
+	0x0341D79C MOV X1, X31
+	0x0341D7A0 LDR X8, [X8 + 0xAB0]
+	0x0341D7A4 LDR X0, [X8]
+	0x0341D7A8 BL 0x361C774
+	0x0341D7AC MOV X24, X0
+	0x0341D7B0 CBZ X0, 0x341D7C8
+	0x0341D7B4 LDR X8, [X26]
+	0x0341D7B8 MOV X0, X24
+	0x0341D7BC LDR X1, [X8 + 0x40]
+	0x0341D7C0 BL 0x1D77B98
+	0x0341D7C4 CBZ X0, 0x341DF04
+	0x0341D7C8 LDR W8, [X26 + 0x18]
+	0x0341D7CC CMP W8, 0x2
+	0x0341D7D0 B.LS 0x341DF00
+	0x0341D7D4 MOV X0, X26
+	0x0341D7D8 MOV X1, X24
+	0x0341D7DC STR X24, [X0 + 0x30]!
+	0x0341D7E0 BL 0x1D77A14
+	0x0341D7E4 LDR X0, [X28]
+	0x0341D7E8 BL 0x1D77EC4
+	0x0341D7EC ADRP X8, 0x109C000
+	0x0341D7F0 MOV X2, X26
+	0x0341D7F4 MOV X3, X31
+	0x0341D7F8 LDR X8, [X8 + 0xD50]
+	0x0341D7FC MOV X24, X0
+	0x0341D800 LDR X1, [X8]
+	0x0341D804 BL 0x3F62C84
+	0x0341D808 CBZ X24, 0x341DEFC
+	0x0341D80C MOV X0, X24
+	0x0341D810 MOV X1, X31
+	0x0341D814 BL 0x3F62370
+	0x0341D818 LDR X8, [X25]
+	0x0341D81C CBZ X8, 0x341DEFC
+	0x0341D820 MOV X25, X0
+	0x0341D824 MOV X0, X8
+	0x0341D828 MOV X1, X31
+	0x0341D82C BL 0x3F62370
+	0x0341D830 CBZ X25, 0x341DEFC
+	0x0341D834 MOV X1, X0
+	0x0341D838 MOV X0, X25
+	0x0341D83C MOV W2, W31
+	0x0341D840 MOV X3, X31
+	0x0341D844 BL 0x3F711E8
+	0x0341D848 ADRP X8, 0x108F000
+	0x0341D84C MOV X0, X24
+	0x0341D850 LDR X8, [X8 + 0x268]
+	0x0341D854 LDR X1, [X8]
+	0x0341D858 BL 0x222B49C
+	0x0341D85C LDR S0, [X19 + 0x8]
+	0x0341D860 MOVI D1, 0x0
+	0x0341D864 MOV X25, X0
+	0x0341D868 FCMP S0, 0x0
+	0x0341D86C B.MI 0x341D884
+	0x0341D870 FMOV S1, 1
+	0x0341D874 FCMP S0, S1
+	0x0341D878 FMOV S1, S0
+	0x0341D87C B.LE 0x341D884
+	0x0341D880 FMOV S1, 1
+	0x0341D884 CBZ X25, 0x341DEFC
+	0x0341D888 MOVI D0, 0x0
+	0x0341D88C MOV X0, X25
+	0x0341D890 MOV X1, X31
+	0x0341D894 MOVI D8, 0x0
+	0x0341D898 BL 0x3F6F510
+	0x0341D89C LDR S0, [X19 + 0x8]
+	0x0341D8A0 FCMP S0, 0x0
+	0x0341D8A4 B.MI 0x341D8BC
+	0x0341D8A8 FMOV S1, 1
+	0x0341D8AC FMOV S8, S0
+	0x0341D8B0 FCMP S0, S1
+	0x0341D8B4 B.LE 0x341D8BC
+	0x0341D8B8 FMOV S8, 1
+	0x0341D8BC FMOV S1, S8
+	0x0341D8C0 FMOV S0, 1
+	0x0341D8C4 MOV X0, X25
+	0x0341D8C8 MOV X1, X31
+	0x0341D8CC BL 0x3F6F694
+	0x0341D8D0 FMOV S0, 0.5
+	0x0341D8D4 FMOV S1, 0.5
+	0x0341D8D8 MOV X0, X25
+	0x0341D8DC MOV X1, X31
+	0x0341D8E0 BL 0x3F6FB20
+	0x0341D8E4 ADRP X29, 0x137B000
+	0x0341D8E8 LDRB W8, [X29 + 0xE80]
+	0x0341D8EC CBNZ W8, 0x341D904
+	0x0341D8F0 ADRP X0, 0x108E000
+	0x0341D8F4 LDR X0, [X0 + 0x288]
+	0x0341D8F8 BL 0x1D77A60
+	0x0341D8FC MOV W8, 0x1
+	0x0341D900 STRB W8, [X29 + 0xE80]
+	0x0341D904 ADRP X23, 0x108E000
+	0x0341D908 MOV X0, X25
+	0x0341D90C MOV X1, X31
+	0x0341D910 LDR X23, [X23 + 0x288]
+	0x0341D914 LDR X8, [X23]
+	0x0341D918 LDR X8, [X8 + 0xA0]
+	0x0341D91C LDP S0, S1, [X8]
+	0x0341D920 BL 0x3F6FDB0
+	0x0341D924 LDRB W8, [X29 + 0xE80]
+	0x0341D928 CBNZ W8, 0x341D940
+	0x0341D92C ADRP X0, 0x108E000
+	0x0341D930 LDR X0, [X0 + 0x288]
+	0x0341D934 BL 0x1D77A60
+	0x0341D938 MOV W8, 0x1
+	0x0341D93C STRB W8, [X29 + 0xE80]
+	0x0341D940 LDR X8, [X23]
+	0x0341D944 MOV X0, X25
+	0x0341D948 MOV X1, X31
+	0x0341D94C LDR X8, [X8 + 0xA0]
+	0x0341D950 LDP S0, S1, [X8]
+	0x0341D954 BL 0x3F6FF44
+	0x0341D958 ADRP X8, 0x109D000
+	0x0341D95C MOV X0, X24
+	0x0341D960 LDR X8, [X8 + 0x328]
+	0x0341D964 LDR X1, [X8]
+	0x0341D968 BL 0x222B49C
+	0x0341D96C LDP S0, S1, [X19 + 0xC]
+	0x0341D970 MOV X26, X0
+	0x0341D974 BL 0x341DF18
+	0x0341D978 CBZ X26, 0x341DEFC
+	0x0341D97C MOV X1, X0
+	0x0341D980 MOV X0, X26
+	0x0341D984 MOV X2, X31
+	0x0341D988 BL 0x4039764
+	0x0341D98C MOV X0, X26
+	0x0341D990 MOV W1, W31
+	0x0341D994 MOV X2, X31
+	0x0341D998 BL 0x4039AD4
+	0x0341D99C ADRP X8, 0x10A5000
+	0x0341D9A0 MOVI D3, 0x0
+	0x0341D9A4 LDR X8, [X8 + 0x410]
+	0x0341D9A8 LDR S4, [X19 + 0x14]
+	0x0341D9AC LDR X8, [X8]
+	0x0341D9B0 FCMP S4, 0x0
+	0x0341D9B4 LDR X8, [X8 + 0xA0]
+	0x0341D9B8 LDP S0, S1, [X8 + 0x40]
+	0x0341D9BC LDR S2, [X8 + 0x48]
+	0x0341D9C0 B.MI 0x341D9D8
+	0x0341D9C4 FMOV S3, 1
+	0x0341D9C8 FCMP S4, S3
+	0x0341D9CC FMOV S3, S4
+	0x0341D9D0 B.LE 0x341D9D8
+	0x0341D9D4 FMOV S3, 1
+	0x0341D9D8 LDR X8, [X26]
+	0x0341D9DC MOV X0, X26
+	0x0341D9E0 LDR X9, [X8 + 0x2A8]
+	0x0341D9E4 LDR X1, [X8 + 0x2B0]
+	0x0341D9E8 BLR X9
+	0x0341D9EC LDR X8, [X26]
+	0x0341D9F0 MOV X0, X26
+	0x0341D9F4 MOV W1, W31
+	0x0341D9F8 LDR X9, [X8 + 0x2C8]
+	0x0341D9FC LDR X2, [X8 + 0x2D0]
+	0x0341DA00 BLR X9
+	0x0341DA04 LDR X0, [X27]
+	0x0341DA08 MOV W1, 0x1
+	0x0341DA0C BL 0x1D77B04
+	0x0341DA10 LDR X8, [X22]
+	0x0341DA14 MOV X26, X0
+	0x0341DA18 MOV X1, X31
+	0x0341DA1C MOV X0, X8
+	0x0341DA20 BL 0x361C774
+	0x0341DA24 CBZ X26, 0x341DEFC
+	0x0341DA28 MOV X27, X0
+	0x0341DA2C CBZ X0, 0x341DA44
+	0x0341DA30 LDR X8, [X26]
+	0x0341DA34 MOV X0, X27
+	0x0341DA38 LDR X1, [X8 + 0x40]
+	0x0341DA3C BL 0x1D77B98
+	0x0341DA40 CBZ X0, 0x341DF04
+	0x0341DA44 LDR W8, [X26 + 0x18]
+	0x0341DA48 CBZ W8, 0x341DF00
+	0x0341DA4C MOV X0, X26
+	0x0341DA50 MOV X1, X27
+	0x0341DA54 STR X27, [X0 + 0x20]!
+	0x0341DA58 BL 0x1D77A14
+	0x0341DA5C LDR X0, [X28]
+	0x0341DA60 BL 0x1D77EC4
+	0x0341DA64 ADRP X8, 0x109C000
+	0x0341DA68 MOV X2, X26
+	0x0341DA6C MOV X3, X31
+	0x0341DA70 LDR X8, [X8 + 0xCF8]
+	0x0341DA74 MOV X27, X0
+	0x0341DA78 LDR X1, [X8]
+	0x0341DA7C BL 0x3F62C84
+	0x0341DA80 CBZ X27, 0x341DEFC
+	0x0341DA84 MOV X0, X27
+	0x0341DA88 MOV X1, X31
+	0x0341DA8C BL 0x3F62370
+	0x0341DA90 MOV X26, X0
+	0x0341DA94 MOV X0, X24
+	0x0341DA98 MOV X1, X31
+	0x0341DA9C BL 0x3F62370
+	0x0341DAA0 CBZ X26, 0x341DEFC
+	0x0341DAA4 MOV X1, X0
+	0x0341DAA8 MOV X0, X26
+	0x0341DAAC MOV W2, W31
+	0x0341DAB0 MOV X3, X31
+	0x0341DAB4 BL 0x3F711E8
+	0x0341DAB8 ADRP X8, 0x109E000
+	0x0341DABC MOV X0, X27
+	0x0341DAC0 LDR X8, [X8 + 0x1F0]
+	0x0341DAC4 LDR X1, [X8]
+	0x0341DAC8 BL 0x222B40C
+	0x0341DACC CBZ X0, 0x341DEFC
+	0x0341DAD0 LDR X8, [X0]
+	0x0341DAD4 MOV X1, X21
+	0x0341DAD8 MOV X26, X0
+	0x0341DADC LDR X9, [X8 + 0x558]
+	0x0341DAE0 LDR X2, [X8 + 0x560]
+	0x0341DAE4 BLR X9
+	0x0341DAE8 MOV X0, X26
+	0x0341DAEC MOV W1, 0x1
+	0x0341DAF0 MOV X2, X31
+	0x0341DAF4 BL 0x3EAFC34
+	0x0341DAF8 MOV X0, X26
+	0x0341DAFC MOV W1, 0x202
+	0x0341DB00 MOV X2, X31
+	0x0341DB04 BL 0x3EAF28C
+	0x0341DB08 ADRP X22, 0x10A5000
+	0x0341DB0C MOV X0, X26
+	0x0341DB10 LDR X22, [X22 + 0x410]
+	0x0341DB14 LDR X9, [X26]
+	0x0341DB18 LDR X8, [X22]
+	0x0341DB1C LDR X1, [X9 + 0x2B0]
+	0x0341DB20 LDR X8, [X8 + 0xA0]
+	0x0341DB24 LDP S0, S1, [X8 + 0x50]
+	0x0341DB28 LDP S2, S3, [X8 + 0x58]
+	0x0341DB2C LDR X8, [X9 + 0x2A8]
+	0x0341DB30 BLR X8
+	0x0341DB34 LDR X8, [X26]
+	0x0341DB38 MOV X0, X26
+	0x0341DB3C MOV W1, W31
+	0x0341DB40 LDR X9, [X8 + 0x2C8]
+	0x0341DB44 LDR X2, [X8 + 0x2D0]
+	0x0341DB48 BLR X9
+	0x0341DB4C MOV X0, X26
+	0x0341DB50 MOV W1, 0x1
+	0x0341DB54 MOV X2, X31
+	0x0341DB58 BL 0x3EAF524
+	0x0341DB5C MOV X0, X26
+	0x0341DB60 MOV W1, 0x1
+	0x0341DB64 MOV X2, X31
+	0x0341DB68 BL 0x3EAF0D0
+	0x0341DB6C FMOV S0, 30
+	0x0341DB70 MOV X0, X26
+	0x0341DB74 MOV X1, X31
+	0x0341DB78 BL 0x3EAF120
+	0x0341DB7C MOV W8, 0x42600000
+	0x0341DB80 MOV X0, X26
+	0x0341DB84 MOV X1, X31
+	0x0341DB88 FMOV S0, W8
+	0x0341DB8C BL 0x3EAF16C
+	0x0341DB90 LDR S0, [X19 + 0x18]
+	0x0341DB94 MOV X0, X26
+	0x0341DB98 MOV X1, X31
+	0x0341DB9C BL 0x3EAF3D4
+	0x0341DBA0 MOV X0, X26
+	0x0341DBA4 BL 0x341E390
+	0x0341DBA8 LDR S0, [X19 + 0x1C]
+	0x0341DBAC MOVI D1, 0x0
+	0x0341DBB0 MOV X0, X24
+	0x0341DBB4 MOV X1, X31
+	0x0341DBB8 FCMP S0, 0x0
+	0x0341DBBC FCSEL S8, S1, S0, MI
+	0x0341DBC0 BL 0x3F62370
+	0x0341DBC4 LDR S11, [X19 + 0x34]
+	0x0341DBC8 LDP S9, S10, [X19 + 0x20]
+	0x0341DBCC MOV X28, X0
+	0x0341DBD0 FCMP S11, 0x0
+	0x0341DBD4 B.LE 0x341DBEC
+	0x0341DBD8 LDR X0, [X22]
+	0x0341DBDC ADD X10, X19, 0x28
+	0x0341DBE0 ADD X8, X19, 0x2C
+	0x0341DBE4 ADD X9, X19, 0x30
+	0x0341DBE8 B 0x341DC14
+	0x0341DBEC LDR X0, [X22]
+	0x0341DBF0 LDR W8, [X0 + 0xE4]
+	0x0341DBF4 CBNZ W8, 0x341DC00
+	0x0341DBF8 BL 0x1D77B94
+	0x0341DBFC LDR X0, [X22]
+	0x0341DC00 LDR X9, [X0 + 0xA0]
+	0x0341DC04 LDR S11, [X9 + 0x6C]
+	0x0341DC08 ADD X10, X9, 0x60
+	0x0341DC0C ADD X8, X9, 0x64
+	0x0341DC10 ADD X9, X9, 0x68
+	0x0341DC14 LDR S12, [X10]
+	0x0341DC18 LDR W10, [X0 + 0xE4]
+	0x0341DC1C LDR S13, [X8]
+	0x0341DC20 LDR S14, [X9]
+	0x0341DC24 LDRB W22, [X19 + 0x38]
+	0x0341DC28 CBNZ W10, 0x341DC30
+	0x0341DC2C BL 0x1D77B94
+	0x0341DC30 FMOV S0, S9
+	0x0341DC34 FMOV S1, S10
+	0x0341DC38 CMP W22, 0x0
+	0x0341DC3C FMOV S2, S8
+	0x0341DC40 FMOV S3, S12
+	0x0341DC44 LDR X1, [X31 + 0x8]
+	0x0341DC48 FMOV S4, S13
+	0x0341DC4C FMOV S5, S14
+	0x0341DC50 LDR X2, [X31 + 0x18]
+	0x0341DC54 FMOV S6, S11
+	0x0341DC58 CSET W3, NE
+	0x0341DC5C MOV X0, X28
+	0x0341DC60 BL 0x341E59C
+	0x0341DC64 ADRP X8, 0x108F000
+	0x0341DC68 MOV X0, X27
+	0x0341DC6C FMOV S9, S0
+	0x0341DC70 LDR X8, [X8 + 0x268]
+	0x0341DC74 LDR X1, [X8]
+	0x0341DC78 BL 0x222B49C
+	0x0341DC7C LDRB W8, [X29 + 0xE80]
+	0x0341DC80 MOV X22, X0
+	0x0341DC84 CBNZ W8, 0x341DC9C
+	0x0341DC88 ADRP X0, 0x108E000
+	0x0341DC8C LDR X0, [X0 + 0x288]
+	0x0341DC90 BL 0x1D77A60
+	0x0341DC94 MOV W8, 0x1
+	0x0341DC98 STRB W8, [X29 + 0xE80]
+	0x0341DC9C CBZ X22, 0x341DEFC
+	0x0341DCA0 LDR X8, [X23]
+	0x0341DCA4 MOV X0, X22
+	0x0341DCA8 MOV X1, X31
+	0x0341DCAC LDR X8, [X8 + 0xA0]
+	0x0341DCB0 LDP S0, S1, [X8]
+	0x0341DCB4 BL 0x3F6F510
+	0x0341DCB8 ADRP X27, 0x137D000
+	0x0341DCBC ADRP X28, 0x10A5000
+	0x0341DCC0 LDRB W8, [X27 + 0xC4C]
+	0x0341DCC4 LDR X28, [X28 + 0x410]
+	0x0341DCC8 CBNZ W8, 0x341DCE0
+	0x0341DCCC ADRP X0, 0x108E000
+	0x0341DCD0 LDR X0, [X0 + 0x288]
+	0x0341DCD4 BL 0x1D77A60
+	0x0341DCD8 MOV W8, 0x1
+	0x0341DCDC STRB W8, [X27 + 0xC4C]
+	0x0341DCE0 LDR X8, [X23]
+	0x0341DCE4 MOV X0, X22
+	0x0341DCE8 MOV X1, X31
+	0x0341DCEC LDR X8, [X8 + 0xA0]
+	0x0341DCF0 LDP S0, S1, [X8 + 0x8]
+	0x0341DCF4 BL 0x3F6F694
+	0x0341DCF8 MOV W8, 0x42700000
+	0x0341DCFC FMOV S1, S8
+	0x0341DD00 MOV X0, X22
+	0x0341DD04 FMOV S0, W8
+	0x0341DD08 MOV X1, X31
+	0x0341DD0C BL 0x3F6FDB0
+	0x0341DD10 FADD S0, S8, S9
+	0x0341DD14 MOV W8, 0xC2700000
+	0x0341DD18 MOV X0, X22
+	0x0341DD1C MOV X1, X31
+	0x0341DD20 FNEG S1, S0
+	0x0341DD24 FMOV S0, W8
+	0x0341DD28 BL 0x3F6FF44
+	0x0341DD2C MOVI D1, 0x0
+	0x0341DD30 MOV W8, 0x44700000
+	0x0341DD34 MOV X0, X26
+	0x0341DD38 FMOV S0, W8
+	0x0341DD3C MOV X1, X21
+	0x0341DD40 MOV X2, X31
+	0x0341DD44 BL 0x3EB4C6C
+	0x0341DD48 FADD S0, S8, S8
+	0x0341DD4C FADD S1, S9, S1
+	0x0341DD50 MOV W8, 0x43200000
+	0x0341DD54 MOV X0, X25
+	0x0341DD58 MOV X1, X31
+	0x0341DD5C FADD S0, S0, S1
+	0x0341DD60 FMOV S1, W8
+	0x0341DD64 FCMP S0, S1
+	0x0341DD68 FCSEL S1, S1, S0, MI
+	0x0341DD6C MOVI D0, 0x0
+	0x0341DD70 BL 0x3F6F99C
+	0x0341DD74 ADRP X8, 0x109E000
+	0x0341DD78 MOV X0, X24
+	0x0341DD7C LDR X8, [X8 + 0xF98]
+	0x0341DD80 LDR X1, [X8]
+	0x0341DD84 BL 0x222B49C
+	0x0341DD88 CBZ X0, 0x341DEFC
+	0x0341DD8C MOVI D0, 0x0
+	0x0341DD90 MOV X1, X31
+	0x0341DD94 MOV X21, X0
+	0x0341DD98 BL 0x41E3FB8
+	0x0341DD9C LDR X8, [X28]
+	0x0341DDA0 MOV X1, X21
+	0x0341DDA4 LDR X0, [X8 + 0xA0]
+	0x0341DDA8 STR X21, [X0 + 0x10]!
+	0x0341DDAC BL 0x1D77A14
+	0x0341DDB0 ADRP X8, 0xFFFFFFFFFD7F0000
+	0x0341DDB4 LDR S0, [X19 + 0x4]
+	0x0341DDB8 LDR S1, [X8 + 0x18]
+	0x0341DDBC ADRP X8, 0x108C000
+	0x0341DDC0 LDR X8, [X8 + 0x910]
+	0x0341DDC4 FCMP S0, S1
+	0x0341DDC8 LDR X0, [X8]
+	0x0341DDCC FCSEL S8, S1, S0, MI
+	0x0341DDD0 LDR W8, [X0 + 0xE4]
+	0x0341DDD4 CBNZ W8, 0x341DDDC
+	0x0341DDD8 BL 0x1D77B94
+	0x0341DDDC MOV X0, X31
+	0x0341DDE0 BL 0x1E8C1E4
+	0x0341DDE4 ADRP X8, 0x109D000
+	0x0341DDE8 LDR X8, [X8 + 0x3C0]
+	0x0341DDEC LDR X1, [X20 + 0x10]
+	0x0341DDF0 LDR X2, [X8]
+	0x0341DDF4 BL 0x236E830
+	0x0341DDF8 ADRP X8, 0x109D000
+	0x0341DDFC MOV W1, 0x1
+	0x0341DE00 LDR X8, [X8 + 0x3F0]
+	0x0341DE04 LDR X2, [X8]
+	0x0341DE08 BL 0x236ECD4
+	0x0341DE0C FMOV S1, S8
+	0x0341DE10 FMOV S0, 1
+	0x0341DE14 MOV X22, X0
+	0x0341DE18 MOV X0, X21
+	0x0341DE1C MOV X1, X31
+	0x0341DE20 BL 0x1EA5C60
+	0x0341DE24 MOV X1, X0
+	0x0341DE28 MOV X0, X22
+	0x0341DE2C MOV X2, X31
+	0x0341DE30 BL 0x1E9AAB4
+	0x0341DE34 ADRP X8, 0xFFFFFFFFFD7F0000
+	0x0341DE38 LDR S0, [X19]
+	0x0341DE3C MOV X0, X22
+	0x0341DE40 LDR S1, [X8 + 0x200]
+	0x0341DE44 MOV X1, X31
+	0x0341DE48 FCMP S0, S1
+	0x0341DE4C FCSEL S0, S1, S0, MI
+	0x0341DE50 BL 0x1E8ECAC
+	0x0341DE54 MOVI D0, 0x0
+	0x0341DE58 FMOV S1, S8
+	0x0341DE5C MOV X0, X21
+	0x0341DE60 MOV X1, X31
+	0x0341DE64 BL 0x1EA5C60
+	0x0341DE68 MOV X1, X0
+	0x0341DE6C MOV X0, X22
+	0x0341DE70 MOV X2, X31
+	0x0341DE74 BL 0x1E9AAB4
+	0x0341DE78 ADRP X8, 0x108C000
+	0x0341DE7C LDR X8, [X8 + 0xAA8]
+	0x0341DE80 LDR X0, [X8]
+	0x0341DE84 BL 0x1D77EC4
+	0x0341DE88 ADRP X8, 0x10A7000
+	0x0341DE8C MOV X1, X20
+	0x0341DE90 MOV X3, X31
+	0x0341DE94 LDR X8, [X8 + 0x6E8]
+	0x0341DE98 MOV X19, X0
+	0x0341DE9C LDR X2, [X8]
+	0x0341DEA0 BL 0x1E88D98
+	0x0341DEA4 ADRP X8, 0x109D000
+	0x0341DEA8 MOV X0, X22
+	0x0341DEAC MOV X1, X19
+	0x0341DEB0 LDR X8, [X8 + 0x468]
+	0x0341DEB4 LDR X2, [X8]
+	0x0341DEB8 BL 0x236DE60
+	0x0341DEBC LDR X8, [X28]
+	0x0341DEC0 MOV X1, X22
+	0x0341DEC4 LDR D14, [X31 + 0x10]
+	0x0341DEC8 LDP X20, X19, [X31 + 0xA0]
+	0x0341DECC LDR X0, [X8 + 0xA0]
+	0x0341DED0 LDP X24, X23, [X31 + 0x80]
+	0x0341DED4 LDP X26, X25, [X31 + 0x70]
+	0x0341DED8 STR X22, [X0 + 0x18]!
+	0x0341DEDC LDP X22, X21, [X31 + 0x90]
+	0x0341DEE0 LDP X28, X27, [X31 + 0x60]
+	0x0341DEE4 LDP X29, X30, [X31 + 0x50]
+	0x0341DEE8 LDP D9, D8, [X31 + 0x40]
+	0x0341DEEC LDP D11, D10, [X31 + 0x30]
+	0x0341DEF0 LDP D13, D12, [X31 + 0x20]
+	0x0341DEF4 ADD X31, X31, 0xB0
+	0x0341DEF8 B 0x1D77A14
+	0x0341DEFC BL 0x1D77A54
+	0x0341DF00 BL 0x1D77ED4
+	0x0341DF04 BL 0x1D77F04
+	0x0341DF08 MOV X1, X31
+	0x0341DF0C BL 0x1D77B84
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Nop
+	16 Nop
+	17 Nop
+	18 Nop
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Move v43 @ X22_v2, [44C46D8]
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Jump @b201
+	32 Nop
+	33 Move v54 @ X0_v212, [44BDAB0]
+	34 Call "il2cpp_codegen_initialize_runtime_metadata", v55 @ X0_v213, v54 @ X0_v212, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	35 Nop
+	36 Move v75 @ X0_v215, [44B9AD0]
+	37 Call "il2cpp_codegen_initialize_runtime_metadata", v76 @ X0_v216, v75 @ X0_v215, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	38 Nop
+	39 Move v80 @ X0_v218, [44A9910]
+	40 Call "il2cpp_codegen_initialize_runtime_metadata", v81 @ X0_v219, v80 @ X0_v218, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	41 Nop
+	42 Move v86 @ X0_v221, [44B9AE0]
+	43 Call "il2cpp_codegen_initialize_runtime_metadata", v87 @ X0_v222, v86 @ X0_v221, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	44 Nop
+	45 Move v91 @ X0_v224, [44C46E0]
+	46 Call "il2cpp_codegen_initialize_runtime_metadata", v92 @ X0_v225, v91 @ X0_v224, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	47 Nop
+	48 Move v121 @ X0_v227, [44BB1F0]
+	49 Call "il2cpp_codegen_initialize_runtime_metadata", v122 @ X0_v228, v121 @ X0_v227, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	50 Nop
+	51 Move v281 @ X0_v230, [44BBF98]
+	52 Call "il2cpp_codegen_initialize_runtime_metadata", v282 @ X0_v231, v281 @ X0_v230, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	53 Nop
+	54 Move v295 @ X0_v233, [44B9AF0]
+	55 Call "il2cpp_codegen_initialize_runtime_metadata", v296 @ X0_v234, v295 @ X0_v233, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	56 Nop
+	57 Move v300 @ X0_v236, [44BA328]
+	58 Call "il2cpp_codegen_initialize_runtime_metadata", v301 @ X0_v237, v300 @ X0_v236, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	59 Nop
+	60 Move v324 @ X0_v239, [44AC268]
+	61 Call "il2cpp_codegen_initialize_runtime_metadata", v325 @ X0_v240, v324 @ X0_v239, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	62 Nop
+	63 Move v339 @ X0_v242, [44A8AB8]
+	64 Call "il2cpp_codegen_initialize_runtime_metadata", v340 @ X0_v243, v339 @ X0_v242, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	65 Nop
+	66 Move v351 @ X0_v245, [44BA330]
+	67 Call "il2cpp_codegen_initialize_runtime_metadata", v352 @ X0_v246, v351 @ X0_v245, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	68 Nop
+	69 Move v355 @ X0_v248, [44C2410]
+	70 Call "il2cpp_codegen_initialize_runtime_metadata", v356 @ X0_v249, v355 @ X0_v248, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	71 Nop
+	72 Move v593 @ X0_v251, [44A8AC0]
+	73 Call "il2cpp_codegen_initialize_runtime_metadata", v594 @ X0_v252, v593 @ X0_v251, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	74 Nop
+	75 Move v674 @ X0_v254, [44B9B00]
+	76 Call "il2cpp_codegen_initialize_runtime_metadata", v675 @ X0_v255, v674 @ X0_v254, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	77 Nop
+	78 Move v700 @ X0_v257, [44A9AA8]
+	79 Call "il2cpp_codegen_initialize_runtime_metadata", v701 @ X0_v258, v700 @ X0_v257, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	80 Nop
+	81 Move v705 @ X0_v260, [44BA468]
+	82 Call "il2cpp_codegen_initialize_runtime_metadata", v706 @ X0_v261, v705 @ X0_v260, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	83 Nop
+	84 Move v709 @ X0_v263, [44BA3C0]
+	85 Call "il2cpp_codegen_initialize_runtime_metadata", v710 @ X0_v264, v709 @ X0_v263, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	86 Nop
+	87 Move v712 @ X0_v266, [44BA3F0]
+	88 Call "il2cpp_codegen_initialize_runtime_metadata", v713 @ X0_v267, v712 @ X0_v266, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	89 Nop
+	90 Move v719 @ X0_v269, [44AC1C0]
+	91 Call "il2cpp_codegen_initialize_runtime_metadata", v720 @ X0_v270, v719 @ X0_v269, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	92 Nop
+	93 Move v725 @ X0_v272, [44C46E8]
+	94 Call "il2cpp_codegen_initialize_runtime_metadata", v726 @ X0_v273, v725 @ X0_v272, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	95 Nop
+	96 Move v734 @ X0_v275, [44C46D8]
+	97 Call "il2cpp_codegen_initialize_runtime_metadata", v735 @ X0_v276, v734 @ X0_v275, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	98 Nop
+	99 Move v737 @ X0_v278, [44B9CF8]
+	100 Call "il2cpp_codegen_initialize_runtime_metadata", v738 @ X0_v279, v737 @ X0_v278, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	101 Nop
+	102 Move v741 @ X0_v281, [44C46F0]
+	103 Call "il2cpp_codegen_initialize_runtime_metadata", v742 @ X0_v282, v741 @ X0_v281, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	104 Nop
+	105 Move v744 @ X0_v284, [44B9D50]
+	106 Call "il2cpp_codegen_initialize_runtime_metadata", v69 @ X0_v285, v744 @ X0_v284, style @ X1 (Style&), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	107 Move v71 @ X8_v122, 1
+	108 Move [479B976], v71 @ X8_v122
+	109 Nop
+	110 Newobj v73 @ X0_v3 (System.Object), [v43 @ X22_v2]
+	111 Nop
+	112 Nop
+	113 CallVoid Object..ctor, v73 @ X0_v3 (System.Object)
+	114 Nop
+	115 Nop
+	116 Call String.IsNullOrEmpty, v84 @ X0_v5 (System.Boolean), message @ X0 (System.String)
+	117 Nop
+	118 CheckEqual v89 @ TEMP_v5 (System.Boolean), v84 @ X0_v5 (System.Boolean), 0
+	119 ConditionalJump @b33, v89 @ TEMP_v5 (System.Boolean)
+	120 Nop
+	121 Nop
+	122 Nop
+	123 Nop
+	124 Nop
+	125 Nop
+	126 Nop
+	127 Nop
+	128 Nop
+	129 Nop
+	130 Nop
+	131 Nop
+	132 Nop
+	133 Nop
+	134 Nop
+	135 Nop
+	136 Nop
+	137 Nop
+	138 Nop
+	139 Nop
+	140 Return
+	141 Nop
+	142 Nop
+	143 Move v114 @ X29_v2, [44C2410]
+	144 Move v272 @ X0_v7, [v114 @ X29_v2]
+	145 Nop
+	146 Nop
+	147 Nop
+	148 Nop
+	149 Jump @b202
+	150 Call "il2cpp_codegen_runtime_class_init", v271 @ X0_v208, v115 @ X0_v6, v83 @ X1_v2, title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	151 Move v273 @ X0_v209, [v114 @ X29_v2]
+	152 Nop
+	153 Move v275 @ X9_v1, [v272 @ X0_v7+A0]
+	154 Nop
+	155 Nop
+	156 Nop
+	157 Nop
+	158 Jump @b37
+	159 Move v283 @ X0_v206, v274 @ X8_v4
+	160 Call "il2cpp_codegen_runtime_class_init", v284 @ X0_v207, v283 @ X0_v206, v83 @ X1_v2, title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	161 Nop
+	162 Nop
+	163 Nop
+	164 Move v289 @ X27_v2, [44AC1C0]
+	165 Move v290 @ X22_v4, [44B9AD0]
+	166 Nop
+	167 Nop
+	168 Call Object.op_Inequality, v293 @ X0_v10 (System.Boolean), [v275 @ X9_v1+8], 0
+	169 Nop
+	170 CheckEqual v298 @ TEMP_v11 (System.Boolean), v293 @ X0_v10 (System.Boolean), 0
+	171 ConditionalJump @b44, v298 @ TEMP_v11 (System.Boolean)
+	172 Move v327 @ X0_v199, [v114 @ X29_v2]
+	173 Nop
+	174 Nop
+	175 Nop
+	176 Jump @b203
+	177 Call "il2cpp_codegen_runtime_class_init", v326 @ X0_v204, v302 @ X0_v198, v291 @ X1_v3 (UnityEngine.Object), v292 @ X2_v1 (System.Type[]), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	178 Move v328 @ X0_v205, [v114 @ X29_v2]
+	179 Nop
+	180 Move v309 @ X9_v18, [v327 @ X0_v199+A0]
+	181 Nop
+	182 Nop
+	183 Nop
+	184 Nop
+	185 Jump @b43
+	186 Move v341 @ X0_v202, v319 @ X8_v120
+	187 Call "il2cpp_codegen_runtime_class_init", v342 @ X0_v203, v341 @ X0_v202, v291 @ X1_v3 (UnityEngine.Object), v292 @ X2_v1 (System.Type[]), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	188 Nop
+	189 Nop
+	190 CallVoid Object.Destroy, [v309 @ X9_v18+8]
+	191 Nop
+	192 Nop
+	193 Call "SzArrayNew", v322 @ X0_v13 (System.Type[]), [v289 @ X27_v2], 1, 0, titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	194 Nop
+	195 Nop
+	196 Nop
+	197 Nop
+	198 Nop
+	199 Nop
+	200 Nop
+	201 Nop
+	202 Jump @b47
+	203 Move v344 @ X0_v196, v334 @ X8_v8
+	204 Call "il2cpp_codegen_runtime_class_init", v345 @ X0_v197, v344 @ X0_v196, v321 @ X1_v5, v292 @ X2_v1 (System.Type[]), titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	205 Nop
+	206 Nop
+	207 Call Type.GetTypeFromHandle, v349 @ X0_v16 (System.Type), [v290 @ X22_v4]
+	208 CheckEqual v353 @ TEMP_v15 (System.Boolean), v322 @ X0_v13 (System.Type[]), 0
+	209 ConditionalJump @b196, v353 @ TEMP_v15 (System.Boolean)
+	210 Nop
+	211 CheckEqual v358 @ TEMP_v19 (System.Boolean), v349 @ X0_v16 (System.Type), 0
+	212 ConditionalJump @b52, v358 @ TEMP_v19 (System.Boolean)
+	213 Move v595 @ X8_v118 (Il2CppClass<System.Type[]>), [v322 @ X0_v13 (System.Type[])]
+	214 Nop
+	215 Move v649 @ X1_v9 (System.String), [v595 @ X8_v118 (Il2CppClass<System.Type[]>)+40]
+	216 Call 1D77B98, v685 @ X0_v17 (System.IndexOutOfRangeException), v349 @ X0_v16 (System.Type), [v595 @ X8_v118 (Il2CppClass<System.Type[]>)+40], 0, titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	217 CheckEqual v602 @ TEMP_v73 (System.Boolean), v685 @ X0_v17 (System.IndexOutOfRangeException), 0
+	218 ConditionalJump @b198, v602 @ TEMP_v73 (System.Boolean)
+	219 Nop
+	220 Nop
+	221 Nop
+	222 CheckEqual v605 @ TEMP_v21 (System.Boolean), v322.Length, 0
+	223 ConditionalJump @b197, v605 @ TEMP_v21 (System.Boolean)
+	224 Nop
+	225 Nop
+	226 Add v678 @ X0_v26, v322 @ X0_v13 (System.Type[]), 32
+	227 Move [v678 @ X0_v26], v349 @ X0_v16 (System.Type)
+	228 Call 1D77A14, v679 @ X0_v27, v678 @ X0_v26, v349 @ X0_v16 (System.Type), 0, titleIcon @ X3 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	229 Nop
+	230 Move v561 @ X28_v6, [44A8AB8]
+	231 Nop
+	232 Newobj v521 @ X0_v29 (UnityEngine.GameObject), [v561 @ X28_v6]
+	233 Nop
+	234 Nop
+	235 Nop
+	236 Move v565 @ X8_v15, [44C46F0]
+	237 Nop
+	238 Move v649 @ X1_v9 (System.String), [v565 @ X8_v15]
+	239 CallVoid GameObject..ctor, v521 @ X0_v29 (UnityEngine.GameObject), [v565 @ X8_v15], v322 @ X0_v13 (System.Type[])
+	240 CheckEqual v541 @ TEMP_v22 (System.Boolean), v73 @ X0_v3 (System.Object), 0
+	241 ConditionalJump @b196, v541 @ TEMP_v22 (System.Boolean)
+	242 Nop
+	243 Nop
+	244 Add v488 @ X25_v7, v73 @ X0_v3 (System.Object), 16
+	245 Move [v488 @ X25_v7], v521 @ X0_v29 (UnityEngine.GameObject)
+	246 Nop
+	247 Call 1D77A14, v717 @ X0_v31, v488 @ X25_v7, v521 @ X0_v29 (UnityEngine.GameObject), v322 @ X0_v13 (System.Type[]), 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	248 Move v728 @ X0_v33, [v114 @ X29_v2]
+	249 Nop
+	250 Nop
+	251 Nop
+	252 Nop
+	253 Jump @b204
+	254 Call "il2cpp_codegen_runtime_class_init", v727 @ X0_v192, v721 @ X0_v32, v715 @ X1_v14 (UnityEngine.GameObject), v460 @ X2_v5 (System.Type[]), v447 @ X3_v4 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v60 @ V0 (System.Single), v61 @ V1 (System.Single), v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	255 Move v729 @ X0_v193, [v114 @ X29_v2]
+	256 Nop
+	257 Nop
+	258 Add v731 @ X0_v35, [v728 @ X0_v33+A0], 8
+	259 Move [v731 @ X0_v35], [v488 @ X25_v7]
+	260 Call 1D77A14, v732 @ X0_v36, v731 @ X0_v35, [v488 @ X25_v7], v322 @ X0_v13 (System.Type[]), 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	261 Nop
+	262 CheckEqual v542 @ TEMP_v25 (System.Boolean), [v488 @ X25_v7], 0
+	263 ConditionalJump @b196, v542 @ TEMP_v25 (System.Boolean)
+	264 Nop
+	265 Move v567 @ X8_v18, [44B9AF0]
+	266 Move v649 @ X1_v9 (System.String), [v567 @ X8_v18]
+	267 Call 222B49C, v523 @ X0_v38 (UnityEngine.Canvas), [v488 @ X25_v7], [v567 @ X8_v18]
+	268 CheckEqual v543 @ TEMP_v26 (System.Boolean), v523 @ X0_v38 (UnityEngine.Canvas), 0
+	269 ConditionalJump @b196, v543 @ TEMP_v26 (System.Boolean)
+	270 Nop
+	271 Nop
+	272 Nop
+	273 CallVoid Canvas.set_renderMode, v523 @ X0_v38 (UnityEngine.Canvas), 0
+	274 Move v747 @ X8_v19, [v114 @ X29_v2]
+	275 Nop
+	276 Nop
+	277 Move v568 @ X8_v20, [v747 @ X8_v19+A0]
+	278 Nop
+	279 Add v504 @ X1_v18 (System.Int32), [v568 @ X8_v20], 1
+	280 Move [v568 @ X8_v20], v504 @ X1_v18 (System.Int32)
+	281 CallVoid Canvas.set_sortingOrder, v523 @ X0_v38 (UnityEngine.Canvas), v504 @ X1_v18 (System.Int32)
+	282 Nop
+	283 CheckEqual v544 @ TEMP_v27 (System.Boolean), [v488 @ X25_v7], 0
+	284 ConditionalJump @b196, v544 @ TEMP_v27 (System.Boolean)
+	285 Nop
+	286 Move v569 @ X8_v22, [44C46E0]
+	287 Move v649 @ X1_v9 (System.String), [v569 @ X8_v22]
+	288 Call 222B40C, v525 @ X0_v41, [v488 @ X25_v7], [v569 @ X8_v22]
+	289 CheckEqual v545 @ TEMP_v28 (System.Boolean), v525 @ X0_v41, 0
+	290 ConditionalJump @b196, v545 @ TEMP_v28 (System.Boolean)
+	291 Move v649 @ X1_v9 (System.String), [v488 @ X25_v7]
+	292 Add v750 @ X0_v42, v525 @ X0_v41, 32
+	293 Move [v750 @ X0_v42], [v488 @ X25_v7]
+	294 Call 1D77A14, v751 @ X0_v43, v750 @ X0_v42, [v488 @ X25_v7], 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	295 Nop
+	296 CheckEqual v546 @ TEMP_v29 (System.Boolean), [v488 @ X25_v7], 0
+	297 ConditionalJump @b196, v546 @ TEMP_v29 (System.Boolean)
+	298 Nop
+	299 Move v570 @ X8_v24, [44B9AE0]
+	300 Move v649 @ X1_v9 (System.String), [v570 @ X8_v24]
+	301 Call 222B40C, v527 @ X0_v45 (UnityEngine.UI.CanvasScaler), [v488 @ X25_v7], [v570 @ X8_v24]
+	302 CheckEqual v547 @ TEMP_v30 (System.Boolean), v527 @ X0_v45 (UnityEngine.UI.CanvasScaler), 0
+	303 ConditionalJump @b196, v547 @ TEMP_v30 (System.Boolean)
+	304 Nop
+	305 Nop
+	306 Nop
+	307 Move v527.m_UiScaleMode (UnityEngine.UI.CanvasScaler+ScaleMode), 1
+	308 Nop
+	309 Nop
+	310 Nop
+	311 Nop
+	312 CallVoid CanvasScaler.set_referenceResolution, v527 @ X0_v45 (UnityEngine.UI.CanvasScaler), 0
+	313 Nop
+	314 Nop
+	315 Nop
+	316 Move v527.m_MatchWidthOrHeight (System.Single), 0.5f
+	317 Call "SzArrayNew", v759 @ X0_v47 (System.Type[]), [v289 @ X27_v2], 3, 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	318 Nop
+	319 Nop
+	320 Nop
+	321 Move v589 @ X22_v9, [44B9B00]
+	322 Nop
+	323 Nop
+	324 Call Type.GetTypeFromHandle, v528 @ X0_v49 (System.Type), [v589 @ X22_v9]
+	325 CheckEqual v548 @ TEMP_v31 (System.Boolean), v759 @ X0_v47 (System.Type[]), 0
+	326 ConditionalJump @b196, v548 @ TEMP_v31 (System.Boolean)
+	327 Nop
+	328 CheckEqual v762 @ TEMP_v32 (System.Boolean), v528 @ X0_v49 (System.Type), 0
+	329 ConditionalJump @b80, v762 @ TEMP_v32 (System.Boolean)
+	330 Move v694 @ X8_v117 (Il2CppClass<System.Type[]>), [v759 @ X0_v47 (System.Type[])]
+	331 Nop
+	332 Move v649 @ X1_v9 (System.String), [v694 @ X8_v117 (Il2CppClass<System.Type[]>)+40]
+	333 Call 1D77B98, v685 @ X0_v17 (System.IndexOutOfRangeException), v528 @ X0_v49 (System.Type), [v694 @ X8_v117 (Il2CppClass<System.Type[]>)+40], 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	334 CheckEqual v690 @ TEMP_v72 (System.Boolean), v685 @ X0_v17 (System.IndexOutOfRangeException), 0
+	335 ConditionalJump @b198, v690 @ TEMP_v72 (System.Boolean)
+	336 Nop
+	337 CheckEqual v660 @ TEMP_v34 (System.Boolean), v759.Length, 0
+	338 ConditionalJump @b197, v660 @ TEMP_v34 (System.Boolean)
+	339 Nop
+	340 Nop
+	341 Add v768 @ X0_v52, v759 @ X0_v47 (System.Type[]), 32
+	342 Move [v768 @ X0_v52], v528 @ X0_v49 (System.Type)
+	343 Call 1D77A14, v769 @ X0_v53, v768 @ X0_v52, v528 @ X0_v49 (System.Type), 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	344 Nop
+	345 Nop
+	346 Move v772 @ X8_v32, [44BA330]
+	347 Nop
+	348 Call Type.GetTypeFromHandle, v774 @ X0_v55 (System.Type), [v772 @ X8_v32]
+	349 Nop
+	350 CheckEqual v775 @ TEMP_v35 (System.Boolean), v774 @ X0_v55 (System.Type), 0
+	351 ConditionalJump @b86, v775 @ TEMP_v35 (System.Boolean)
+	352 Move v695 @ X8_v116 (Il2CppClass<System.Type[]>), [v759 @ X0_v47 (System.Type[])]
+	353 Nop
+	354 Move v649 @ X1_v9 (System.String), [v695 @ X8_v116 (Il2CppClass<System.Type[]>)+40]
+	355 Call 1D77B98, v685 @ X0_v17 (System.IndexOutOfRangeException), v774 @ X0_v55 (System.Type), [v695 @ X8_v116 (Il2CppClass<System.Type[]>)+40], 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	356 CheckEqual v691 @ TEMP_v71 (System.Boolean), v685 @ X0_v17 (System.IndexOutOfRangeException), 0
+	357 ConditionalJump @b198, v691 @ TEMP_v71 (System.Boolean)
+	358 Nop
+	359 And v661 @ TEMP_v37, v759.Length, 4294967294
+	360 Nop
+	361 CheckEqual v623 @ Z_v4 (System.Boolean), v661 @ TEMP_v37, 0
+	362 Nop
+	363 Nop
+	364 ConditionalJump @b197, v623 @ Z_v4 (System.Boolean)
+	365 Nop
+	366 Nop
+	367 Add v781 @ X0_v58, v759 @ X0_v47 (System.Type[]), 40
+	368 Move [v781 @ X0_v58], v774 @ X0_v55 (System.Type)
+	369 Call 1D77A14, v782 @ X0_v59, v781 @ X0_v58, v774 @ X0_v55 (System.Type), 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	370 Nop
+	371 Nop
+	372 Move v785 @ X8_v36, [44BDAB0]
+	373 Nop
+	374 Call Type.GetTypeFromHandle, v787 @ X0_v61 (System.Type), [v785 @ X8_v36]
+	375 Nop
+	376 CheckEqual v788 @ TEMP_v38 (System.Boolean), v787 @ X0_v61 (System.Type), 0
+	377 ConditionalJump @b92, v788 @ TEMP_v38 (System.Boolean)
+	378 Move v696 @ X8_v115 (Il2CppClass<System.Type[]>), [v759 @ X0_v47 (System.Type[])]
+	379 Nop
+	380 Move v649 @ X1_v9 (System.String), [v696 @ X8_v115 (Il2CppClass<System.Type[]>)+40]
+	381 Call 1D77B98, v685 @ X0_v17 (System.IndexOutOfRangeException), v787 @ X0_v61 (System.Type), [v696 @ X8_v115 (Il2CppClass<System.Type[]>)+40], 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	382 CheckEqual v692 @ TEMP_v70 (System.Boolean), v685 @ X0_v17 (System.IndexOutOfRangeException), 0
+	383 ConditionalJump @b198, v692 @ TEMP_v70 (System.Boolean)
+	384 Nop
+	385 CheckLess v791 @ C_v5 (System.Boolean), v759.Length, 2
+	386 Not v412 @ C_v6, v791 @ C_v5 (System.Boolean)
+	387 Subtract v398 @ TEMP1_v4, v759.Length, 2
+	388 Nop
+	389 CheckEqual v419 @ Z_v5 (System.Boolean), v398 @ TEMP1_v4, 0
+	390 Nop
+	391 Nop
+	392 Nop
+	393 Nop
+	394 Not v792 @ TEMPCOND_v4, v412 @ C_v6
+	395 Or v372 @ TEMPCOND_v5, v792 @ TEMPCOND_v4, v419 @ Z_v5 (System.Boolean)
+	396 ConditionalJump @b197, v372 @ TEMPCOND_v5
+	397 Nop
+	398 Nop
+	399 Add v795 @ X0_v64, v759 @ X0_v47 (System.Type[]), 48
+	400 Move [v795 @ X0_v64], v787 @ X0_v61 (System.Type)
+	401 Call 1D77A14, v796 @ X0_v65, v795 @ X0_v64, v787 @ X0_v61 (System.Type), 0, 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 1149698048, 1156579328, v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	402 Nop
+	403 Newobj v529 @ X0_v67 (UnityEngine.GameObject), [v561 @ X28_v6]
+	404 Nop
+	405 Nop
+	406 Nop
+	407 Move v572 @ X8_v40, [44B9D50]
+	408 Nop
+	409 Move v649 @ X1_v9 (System.String), [v572 @ X8_v40]
+	410 CallVoid GameObject..ctor, v529 @ X0_v67 (UnityEngine.GameObject), [v572 @ X8_v40], v759 @ X0_v47 (System.Type[])
+	411 CheckEqual v549 @ TEMP_v40 (System.Boolean), v529 @ X0_v67 (UnityEngine.GameObject), 0
+	412 ConditionalJump @b196, v549 @ TEMP_v40 (System.Boolean)
+	413 Nop
+	414 Nop
+	415 Call GameObject.get_transform, v530 @ X0_v69 (UnityEngine.Transform), v529 @ X0_v67 (UnityEngine.GameObject)
+	416 Nop
+	417 CheckEqual v550 @ TEMP_v41 (System.Boolean), [v488 @ X25_v7], 0
+	418 ConditionalJump @b196, v550 @ TEMP_v41 (System.Boolean)
+	419 Nop
+	420 Nop
+	421 Nop
+	422 Call GameObject.get_transform, v531 @ X0_v71 (UnityEngine.Transform), [v488 @ X25_v7]
+	423 CheckEqual v551 @ TEMP_v42 (System.Boolean), v530 @ X0_v69 (UnityEngine.Transform), 0
+	424 ConditionalJump @b196, v551 @ TEMP_v42 (System.Boolean)
+	425 Nop
+	426 Nop
+	427 Nop
+	428 Nop
+	429 CallVoid Transform.SetParent, v530 @ X0_v69 (UnityEngine.Transform), v531 @ X0_v71 (UnityEngine.Transform), 0
+	430 Nop
+	431 Nop
+	432 Move v579 @ X8_v43, [44AC268]
+	433 Move v649 @ X1_v9 (System.String), [v579 @ X8_v43]
+	434 Call 222B49C, v538 @ X0_v74 (UnityEngine.RectTransform), v529 @ X0_v67 (UnityEngine.GameObject), [v579 @ X8_v43]
+	435 Move v184 @ V0_v1 (System.Single), [style @ X1 (Style&)+8]
+	436 Nop
+	437 Nop
+	438 Nop
+	439 Nop
+	440 Nop
+	441 CheckLess v809 @ N_v6 (System.Boolean), [style @ X1 (Style&)+8], 0
+	442 Nop
+	443 Nop
+	444 Nop
+	445 Nop
+	446 Nop
+	447 ConditionalJump @b205, v809 @ N_v6 (System.Boolean)
+	448 Nop
+	449 Nop
+	450 Nop
+	451 Nop
+	452 Nop
+	453 Nop
+	454 Nop
+	455 Nop
+	456 Nop
+	457 Nop
+	458 Nop
+	459 Nop
+	460 Nop
+	461 CheckLessOrEqual v828 @ TEMPCOND_v21 (System.Boolean), [style @ X1 (Style&)+8], 1d
+	462 ConditionalJump @b205, v828 @ TEMPCOND_v21 (System.Boolean)
+	463 Nop
+	464 CheckEqual v558 @ TEMP_v43 (System.Boolean), v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	465 ConditionalJump @b196, v558 @ TEMP_v43 (System.Boolean)
+	466 Nop
+	467 Nop
+	468 Nop
+	469 Nop
+	470 CallVoid RectTransform.set_anchorMin, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	471 Nop
+	472 Nop
+	473 Nop
+	474 Nop
+	475 CheckLess v838 @ N_v8 (System.Boolean), [style @ X1 (Style&)+8], 0
+	476 Nop
+	477 Nop
+	478 Nop
+	479 Nop
+	480 Nop
+	481 ConditionalJump @b206, v838 @ N_v8 (System.Boolean)
+	482 Nop
+	483 Nop
+	484 Nop
+	485 Nop
+	486 Nop
+	487 Nop
+	488 Nop
+	489 Nop
+	490 Nop
+	491 Nop
+	492 Nop
+	493 Nop
+	494 Nop
+	495 CheckLessOrEqual v857 @ TEMPCOND_v18 (System.Boolean), [style @ X1 (Style&)+8], 1d
+	496 ConditionalJump @b206, v857 @ TEMPCOND_v18 (System.Boolean)
+	497 Nop
+	498 Nop
+	499 Nop
+	500 Nop
+	501 Nop
+	502 CallVoid RectTransform.set_anchorMax, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	503 Nop
+	504 Nop
+	505 Nop
+	506 Nop
+	507 CallVoid RectTransform.set_pivot, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	508 Nop
+	509 Nop
+	510 Nop
+	511 Nop
+	512 Jump @b207
+	513 Nop
+	514 Move v872 @ X0_v184, [44AB288]
+	515 Call "il2cpp_codegen_initialize_runtime_metadata", v873 @ X0_v185, v872 @ X0_v184, v867 @ X1_v40 (UnityEngine.Vector2), v463 @ X2_v9 (System.Boolean), v449 @ X3_v6 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v864 @ V0_v9, v865 @ V1_v9, v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	516 Move v876 @ X8_v114, 1
+	517 Move [4798E80], v876 @ X8_v114
+	518 Nop
+	519 Nop
+	520 Nop
+	521 Nop
+	522 Nop
+	523 Nop
+	524 Nop
+	525 Nop
+	526 CallVoid RectTransform.set_offsetMin, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	527 Nop
+	528 Nop
+	529 Nop
+	530 Jump @b208
+	531 Nop
+	532 Move v888 @ X0_v181, [44AB288]
+	533 Call "il2cpp_codegen_initialize_runtime_metadata", v889 @ X0_v182, v888 @ X0_v181, v879 @ X1_v41 (UnityEngine.Vector2), v463 @ X2_v9 (System.Boolean), v449 @ X3_v6 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v882 @ V0_v10, v883 @ V1_v10, v62 @ V2 (System.Single), v63 @ V3 (System.Double), v64 @ V4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	534 Move v892 @ X8_v113, 1
+	535 Move [4798E80], v892 @ X8_v113
+	536 Nop
+	537 Nop
+	538 Nop
+	539 Nop
+	540 Nop
+	541 Nop
+	542 CallVoid RectTransform.set_offsetMax, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	543 Nop
+	544 Nop
+	545 Move v574 @ X8_v53, [44BA328]
+	546 Move v649 @ X1_v9 (System.String), [v574 @ X8_v53]
+	547 Call 222B49C, v901 @ X0_v83 (UnityEngine.UI.Image), v529 @ X0_v67 (UnityEngine.GameObject), [v574 @ X8_v53]
+	548 Move v184 @ V0_v1 (System.Single), [style @ X1 (Style&)+C]
+	549 Move v187 @ V1_v1 (System.Single), [style @ X1 (Style&)+10]
+	550 Nop
+	551 Call MotivationBanner.EdgeFadeSprite, v532 @ X0_v84 (UnityEngine.Sprite), [style @ X1 (Style&)+C], [style @ X1 (Style&)+10]
+	552 CheckEqual v552 @ TEMP_v48 (System.Boolean), v901 @ X0_v83 (UnityEngine.UI.Image), 0
+	553 ConditionalJump @b196, v552 @ TEMP_v48 (System.Boolean)
+	554 Nop
+	555 Nop
+	556 Nop
+	557 CallVoid Image.set_sprite, v901 @ X0_v83 (UnityEngine.UI.Image), v532 @ X0_v84 (UnityEngine.Sprite)
+	558 Nop
+	559 Nop
+	560 Nop
+	561 CallVoid Image.set_type, v901 @ X0_v83 (UnityEngine.UI.Image), 0
+	562 Nop
+	563 Nop
+	564 Move v910 @ X8_v55, [44C2410]
+	565 Move v142 @ V4_v1 (System.Double), [style @ X1 (Style&)+14]
+	566 Move v911 @ X8_v56, [v910 @ X8_v55]
+	567 Nop
+	568 Nop
+	569 Nop
+	570 CheckLess v915 @ N_v10 (System.Boolean), [style @ X1 (Style&)+14], 0
+	571 Nop
+	572 Nop
+	573 Nop
+	574 Nop
+	575 Nop
+	576 Move v921 @ X8_v57, [v911 @ X8_v56+A0]
+	577 Move v184 @ V0_v1 (System.Single), [v921 @ X8_v57+40]
+	578 Move v187 @ V1_v1 (System.Single), [v921 @ X8_v57+44]
+	579 Move v139 @ V2_v1 (System.Single), [v921 @ X8_v57+48]
+	580 ConditionalJump @b209, v915 @ N_v10 (System.Boolean)
+	581 Nop
+	582 Nop
+	583 Nop
+	584 Nop
+	585 Nop
+	586 Nop
+	587 Nop
+	588 Nop
+	589 Nop
+	590 Nop
+	591 Nop
+	592 Nop
+	593 Nop
+	594 CheckLessOrEqual v935 @ TEMPCOND_v15 (System.Boolean), [style @ X1 (Style&)+14], 1d
+	595 ConditionalJump @b209, v935 @ TEMPCOND_v15 (System.Boolean)
+	596 Nop
+	597 Nop
+	598 Nop
+	599 Nop
+	600 Nop
+	601 Call Graphic.set_color, v941 @ X0_v88, v901 @ X0_v83 (UnityEngine.UI.Image), methodof(UnityEngine.UI.Graphic::set_color)
+	602 Move v942 @ X8_v59 (Il2CppClass<UnityEngine.UI.Image>), [v901 @ X0_v83 (UnityEngine.UI.Image)]
+	603 Nop
+	604 Nop
+	605 Nop
+	606 Move v205 @ X2_v2 (System.Type[]), [v942 @ X8_v59 (Il2CppClass<UnityEngine.UI.Image>)+2D0]
+	607 Call Graphic.set_raycastTarget, v945 @ X0_v90, v901 @ X0_v83 (UnityEngine.UI.Image), 0
+	608 Nop
+	609 Nop
+	610 Call "SzArrayNew", v948 @ X0_v92 (System.Type[]), [v289 @ X27_v2], 1, [v942 @ X8_v59 (Il2CppClass<UnityEngine.UI.Image>)+2D0], 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	611 Nop
+	612 Nop
+	613 Nop
+	614 Nop
+	615 Call Type.GetTypeFromHandle, v533 @ X0_v94 (System.Type), [v589 @ X22_v9]
+	616 CheckEqual v553 @ TEMP_v49 (System.Boolean), v948 @ X0_v92 (System.Type[]), 0
+	617 ConditionalJump @b196, v553 @ TEMP_v49 (System.Boolean)
+	618 Nop
+	619 CheckEqual v950 @ TEMP_v50 (System.Boolean), v533 @ X0_v94 (System.Type), 0
+	620 ConditionalJump @b130, v950 @ TEMP_v50 (System.Boolean)
+	621 Move v697 @ X8_v112 (Il2CppClass<System.Type[]>), [v948 @ X0_v92 (System.Type[])]
+	622 Nop
+	623 Move v649 @ X1_v9 (System.String), [v697 @ X8_v112 (Il2CppClass<System.Type[]>)+40]
+	624 Call 1D77B98, v685 @ X0_v17 (System.IndexOutOfRangeException), v533 @ X0_v94 (System.Type), [v697 @ X8_v112 (Il2CppClass<System.Type[]>)+40], [v942 @ X8_v59 (Il2CppClass<UnityEngine.UI.Image>)+2D0], 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	625 CheckEqual v693 @ TEMP_v69 (System.Boolean), v685 @ X0_v17 (System.IndexOutOfRangeException), 0
+	626 ConditionalJump @b198, v693 @ TEMP_v69 (System.Boolean)
+	627 Nop
+	628 CheckEqual v663 @ TEMP_v52 (System.Boolean), v948.Length, 0
+	629 ConditionalJump @b197, v663 @ TEMP_v52 (System.Boolean)
+	630 Nop
+	631 Nop
+	632 Add v956 @ X0_v97, v948 @ X0_v92 (System.Type[]), 32
+	633 Move [v956 @ X0_v97], v533 @ X0_v94 (System.Type)
+	634 Call 1D77A14, v957 @ X0_v98, v956 @ X0_v97, v533 @ X0_v94 (System.Type), v205 @ X2_v2 (System.Type[]), 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	635 Nop
+	636 Newobj v534 @ X0_v100 (UnityEngine.GameObject), [v561 @ X28_v6]
+	637 Nop
+	638 Nop
+	639 Nop
+	640 Move v576 @ X8_v64, [44B9CF8]
+	641 Nop
+	642 Move v649 @ X1_v9 (System.String), [v576 @ X8_v64]
+	643 CallVoid GameObject..ctor, v534 @ X0_v100 (UnityEngine.GameObject), [v576 @ X8_v64], v948 @ X0_v92 (System.Type[])
+	644 CheckEqual v554 @ TEMP_v53 (System.Boolean), v534 @ X0_v100 (UnityEngine.GameObject), 0
+	645 ConditionalJump @b196, v554 @ TEMP_v53 (System.Boolean)
+	646 Nop
+	647 Nop
+	648 Call GameObject.get_transform, v962 @ X0_v102 (UnityEngine.Transform), v534 @ X0_v100 (UnityEngine.GameObject)
+	649 Nop
+	650 Nop
+	651 Nop
+	652 Call GameObject.get_transform, v535 @ X0_v104 (UnityEngine.Transform), v529 @ X0_v67 (UnityEngine.GameObject)
+	653 CheckEqual v555 @ TEMP_v54 (System.Boolean), v962 @ X0_v102 (UnityEngine.Transform), 0
+	654 ConditionalJump @b196, v555 @ TEMP_v54 (System.Boolean)
+	655 Nop
+	656 Nop
+	657 Nop
+	658 Nop
+	659 CallVoid Transform.SetParent, v962 @ X0_v102 (UnityEngine.Transform), v535 @ X0_v104 (UnityEngine.Transform), 0
+	660 Nop
+	661 Nop
+	662 Move v577 @ X8_v66, [44BB1F0]
+	663 Move v649 @ X1_v9 (System.String), [v577 @ X8_v66]
+	664 Call 222B40C, v536 @ X0_v107 (TMPro.TMP_Text), v534 @ X0_v100 (UnityEngine.GameObject), [v577 @ X8_v66]
+	665 CheckEqual v556 @ TEMP_v55 (System.Boolean), v536 @ X0_v107 (TMPro.TMP_Text), 0
+	666 ConditionalJump @b196, v556 @ TEMP_v55 (System.Boolean)
+	667 Nop
+	668 Nop
+	669 Nop
+	670 Nop
+	671 Nop
+	672 Call TMP_Text.set_text, v972 @ X0_v108, v536 @ X0_v107 (TMPro.TMP_Text), message @ X0 (System.String)
+	673 Nop
+	674 Nop
+	675 Nop
+	676 CallVoid TMP_Text.set_richText, v536 @ X0_v107 (TMPro.TMP_Text), 1
+	677 Nop
+	678 Nop
+	679 Nop
+	680 CallVoid TMP_Text.set_alignment, v536 @ X0_v107 (TMPro.TMP_Text), 514
+	681 Nop
+	682 Nop
+	683 Move v981 @ X22_v11, [44C2410]
+	684 Nop
+	685 Nop
+	686 Nop
+	687 Nop
+	688 Nop
+	689 Nop
+	690 Nop
+	691 Nop
+	692 Nop
+	693 Call TMP_Text.set_color, v991 @ X0_v112, v536 @ X0_v107 (TMPro.TMP_Text), methodof(TMPro.TMP_Text::set_color)
+	694 Nop
+	695 Nop
+	696 Nop
+	697 Nop
+	698 Nop
+	699 Call Graphic.set_raycastTarget, v997 @ X0_v114, v536 @ X0_v107 (TMPro.TMP_Text), 0
+	700 Nop
+	701 Nop
+	702 Nop
+	703 CallVoid TMP_Text.set_textWrappingMode, v536 @ X0_v107 (TMPro.TMP_Text), 1
+	704 Nop
+	705 Nop
+	706 Nop
+	707 CallVoid TMP_Text.set_enableAutoSizing, v536 @ X0_v107 (TMPro.TMP_Text), 1
+	708 Nop
+	709 Nop
+	710 Nop
+	711 CallVoid TMP_Text.set_fontSizeMin, v536 @ X0_v107 (TMPro.TMP_Text), 30d
+	712 Nop
+	713 Nop
+	714 Nop
+	715 Nop
+	716 CallVoid TMP_Text.set_fontSizeMax, v536 @ X0_v107 (TMPro.TMP_Text), 56f
+	717 Nop
+	718 Nop
+	719 Nop
+	720 CallVoid TMP_Text.set_lineSpacing, v536 @ X0_v107 (TMPro.TMP_Text), [style @ X1 (Style&)+18]
+	721 Nop
+	722 CallVoid MotivationBanner.ApplyFont, v536 @ X0_v107 (TMPro.TMP_Text)
+	723 Nop
+	724 Nop
+	725 Nop
+	726 Nop
+	727 Nop
+	728 Nop
+	729 Nop
+	730 Nop
+	731 Nop
+	732 Nop
+	733 Nop
+	734 Nop
+	735 Nop
+	736 CheckGreaterOrEqual v364 @ TEMPCSEL_v4 (System.Boolean), [style @ X1 (Style&)+1C], 0
+	737 ConditionalJump @b151, v364 @ TEMPCSEL_v4 (System.Boolean)
+	738 Nop
+	739 Jump @b210
+	740 Nop
+	741 Nop
+	742 Call GameObject.get_transform, v1030 @ X0_v122 (UnityEngine.Transform), v529 @ X0_v67 (UnityEngine.GameObject)
+	743 Move v476 @ V11_v5, [style @ X1 (Style&)+34]
+	744 Nop
+	745 Nop
+	746 Nop
+	747 Nop
+	748 Nop
+	749 Nop
+	750 Nop
+	751 Nop
+	752 Nop
+	753 Nop
+	754 Nop
+	755 Nop
+	756 Nop
+	757 Nop
+	758 CheckLessOrEqual v1044 @ TEMPCOND_v11 (System.Boolean), [style @ X1 (Style&)+34], 0
+	759 ConditionalJump @b154, v1044 @ TEMPCOND_v11 (System.Boolean)
+	760 Nop
+	761 Add v1053 @ X10_v6, style @ X1 (Style&), 40
+	762 Add v1060 @ X8_v73, style @ X1 (Style&), 44
+	763 Add v201 @ X9_v14, style @ X1 (Style&), 48
+	764 Jump @b211
+	765 Move v1058 @ X0_v174, [v981 @ X22_v11]
+	766 Nop
+	767 Nop
+	768 Nop
+	769 Jump @b212
+	770 Call "il2cpp_codegen_runtime_class_init", v1065 @ X0_v175, v1049 @ X0_v173, v1018 @ X1_v67, v1003 @ X2_v20, v451 @ X3_v8 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v1015 @ V0_v18 (System.Single), v1016 @ V1_v15 (System.Single), v988 @ V2_v5, v989 @ V3_v6, v368 @ V4_v4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	771 Move v1066 @ X0_v176, [v981 @ X22_v11]
+	772 Move v1067 @ X9_v15, [v1058 @ X0_v174+A0]
+	773 Move v476 @ V11_v5, [v1067 @ X9_v15+6C]
+	774 Add v1053 @ X10_v6, v1067 @ X9_v15, 96
+	775 Add v1060 @ X8_v73, v1067 @ X9_v15, 100
+	776 Add v201 @ X9_v14, v1067 @ X9_v15, 104
+	777 Nop
+	778 Nop
+	779 Nop
+	780 Nop
+	781 Nop
+	782 Nop
+	783 Nop
+	784 Jump @b158
+	785 Call "il2cpp_codegen_runtime_class_init", v1068 @ X0_v172, v1057 @ X0_v123, v1018 @ X1_v67, v1003 @ X2_v20, v451 @ X3_v8 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v1015 @ V0_v18 (System.Single), v1016 @ V1_v15 (System.Single), v988 @ V2_v5, v989 @ V3_v6, v368 @ V4_v4 (System.Double), v65 @ V5, v66 @ V6, v67 @ V7
+	786 Nop
+	787 Nop
+	788 Nop
+	789 Nop
+	790 Nop
+	791 Nop
+	792 CheckEqual v424 @ Z_v14 (System.Boolean), [style @ X1 (Style&)+38], 0
+	793 Nop
+	794 Nop
+	795 Nop
+	796 Nop
+	797 Nop
+	798 Nop
+	799 Nop
+	800 Nop
+	801 Nop
+	802 Nop
+	803 Nop
+	804 Not v148 @ TEMPCOND_v12 (UnityEngine.Color), v424 @ Z_v14 (System.Boolean)
+	805 Nop
+	806 Nop
+	807 Call MotivationBanner.BuildTitle, v184 @ V0_v1 (System.Single), v1030 @ X0_v122 (UnityEngine.Transform), title @ X2 (System.String), titleIcon @ X3 (UnityEngine.Sprite), [style @ X1 (Style&)+20], [style @ X1 (Style&)+24], v479 @ V8_v6 (System.Single), v148 @ TEMPCOND_v12 (UnityEngine.Color), methodInfo @ X4 (Il2CppMethodInfo)
+	808 Nop
+	809 Nop
+	810 Nop
+	811 Move v1076 @ X8_v75, [44AC268]
+	812 Move v649 @ X1_v9 (System.String), [v1076 @ X8_v75]
+	813 Call 222B49C, v1077 @ X0_v127 (UnityEngine.RectTransform), v534 @ X0_v100 (UnityEngine.GameObject), [v1076 @ X8_v75]
+	814 Nop
+	815 Nop
+	816 Nop
+	817 Nop
+	818 Jump @b213
+	819 Nop
+	820 Move v1082 @ X0_v170, [44AB288]
+	821 Call "il2cpp_codegen_initialize_runtime_metadata", v1083 @ X0_v171, v1082 @ X0_v170, v519 @ X1_v69 (System.String), v468 @ X2_v21 (UnityEngine.Sprite), v452 @ X3_v9 (UnityEngine.Color), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v438 @ V0_v20 (System.Single), v445 @ V1_v16 (System.Single), v138 @ V2_v6 (System.Single), v144 @ V3_v7 (System.Double), v141 @ V4_v5 (System.Double), v127 @ V5_v4, v124 @ V6_v4, v67 @ V7
+	822 Move v1084 @ X8_v108, 1
+	823 Move [4798E80], v1084 @ X8_v108
+	824 CheckEqual v559 @ TEMP_v61 (System.Boolean), v1077 @ X0_v127 (UnityEngine.RectTransform), 0
+	825 ConditionalJump @b196, v559 @ TEMP_v61 (System.Boolean)
+	826 Nop
+	827 Nop
+	828 Nop
+	829 Nop
+	830 Nop
+	831 Nop
+	832 CallVoid RectTransform.set_anchorMin, v1077 @ X0_v127 (UnityEngine.RectTransform), 0
+	833 Nop
+	834 Nop
+	835 Nop
+	836 Move v562 @ X28_v9, [44C2410]
+	837 Nop
+	838 Nop
+	839 Jump @b214
+	840 Nop
+	841 Move v1096 @ X0_v167, [44AB288]
+	842 Call "il2cpp_codegen_initialize_runtime_metadata", v1097 @ X0_v168, v1096 @ X0_v167, v1087 @ X1_v70 (UnityEngine.Vector2), v468 @ X2_v21 (UnityEngine.Sprite), v452 @ X3_v9 (UnityEngine.Color), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v1089 @ V0_v21, v1090 @ V1_v17, v138 @ V2_v6 (System.Single), v144 @ V3_v7 (System.Double), v141 @ V4_v5 (System.Double), v127 @ V5_v4, v124 @ V6_v4, v67 @ V7
+	843 Move v1100 @ X8_v107, 1
+	844 Move [479AC4C], v1100 @ X8_v107
+	845 Nop
+	846 Nop
+	847 Nop
+	848 Nop
+	849 Nop
+	850 Nop
+	851 CallVoid RectTransform.set_anchorMax, v1077 @ X0_v127 (UnityEngine.RectTransform), 0
+	852 Nop
+	853 Nop
+	854 Nop
+	855 Nop
+	856 Nop
+	857 CallVoid RectTransform.set_offsetMin, v1077 @ X0_v127 (UnityEngine.RectTransform), 0
+	858 Nop
+	859 Nop
+	860 Nop
+	861 Nop
+	862 Nop
+	863 Nop
+	864 CallVoid RectTransform.set_offsetMax, v1077 @ X0_v127 (UnityEngine.RectTransform), 0
+	865 Nop
+	866 Nop
+	867 Nop
+	868 Nop
+	869 Nop
+	870 Nop
+	871 Call TMP_Text.GetPreferredValues, v1123 @ X0_v135 (UnityEngine.Vector2), v536 @ X0_v107 (TMPro.TMP_Text), message @ X0 (System.String), 960f, 0f
+	872 Add v1124 @ V0_v27 (System.Single), v479 @ V8_v6 (System.Single), v479 @ V8_v6 (System.Single)
+	873 Nop
+	874 Nop
+	875 Nop
+	876 Nop
+	877 Add v1129 @ V0_v28 (System.Single), v1124 @ V0_v27 (System.Single), v184 @ V0_v1 (System.Single)
+	878 Nop
+	879 Nop
+	880 Nop
+	881 Nop
+	882 Nop
+	883 Nop
+	884 Nop
+	885 Nop
+	886 Nop
+	887 Nop
+	888 CheckGreaterOrEqual v363 @ TEMPCSEL_v5 (System.Boolean), v1129 @ V0_v28 (System.Single), 1126170624
+	889 ConditionalJump @b172, v363 @ TEMPCSEL_v5 (System.Boolean)
+	890 Nop
+	891 Jump @b215
+	892 Nop
+	893 Nop
+	894 Nop
+	895 CallVoid RectTransform.set_sizeDelta, v538 @ X0_v74 (UnityEngine.RectTransform), 0
+	896 Nop
+	897 Nop
+	898 Move v578 @ X8_v89, [44BBF98]
+	899 Move v649 @ X1_v9 (System.String), [v578 @ X8_v89]
+	900 Call 222B49C, v537 @ X0_v138 (UnityEngine.CanvasGroup), v529 @ X0_v67 (UnityEngine.GameObject), [v578 @ X8_v89]
+	901 CheckEqual v557 @ TEMP_v64 (System.Boolean), v537 @ X0_v138 (UnityEngine.CanvasGroup), 0
+	902 ConditionalJump @b196, v557 @ TEMP_v64 (System.Boolean)
+	903 Nop
+	904 Nop
+	905 Nop
+	906 CallVoid CanvasGroup.set_alpha, v537 @ X0_v138 (UnityEngine.CanvasGroup), 0f
+	907 Move v1139 @ X8_v90, [v562 @ X28_v9]
+	908 Nop
+	909 Nop
+	910 Add v1142 @ X0_v140, [v1139 @ X8_v90+A0], 16
+	911 Move [v1142 @ X0_v140], v537 @ X0_v138 (UnityEngine.CanvasGroup)
+	912 Call 1D77A14, v1143 @ X0_v141, v1142 @ X0_v140, v537 @ X0_v138 (UnityEngine.CanvasGroup), 0, v148 @ TEMPCOND_v12 (UnityEngine.Color), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 0, v187 @ V1_v1 (System.Single), v479 @ V8_v6 (System.Single), [v1053 @ X10_v6], [v1060 @ X8_v73], [v201 @ X9_v14], v476 @ V11_v5, v67 @ V7
+	913 Nop
+	914 Nop
+	915 Nop
+	916 Nop
+	917 Nop
+	918 Nop
+	919 Nop
+	920 Nop
+	921 Nop
+	922 Nop
+	923 Nop
+	924 Nop
+	925 Nop
+	926 Nop
+	927 Nop
+	928 CheckGreaterOrEqual v1159 @ TEMPCSEL_v6 (System.Boolean), [style @ X1 (Style&)+4], [C0D018]
+	929 ConditionalJump @b179, v1159 @ TEMPCSEL_v6 (System.Boolean)
+	930 Nop
+	931 Jump @b216
+	932 Nop
+	933 Nop
+	934 Nop
+	935 Nop
+	936 Nop
+	937 Jump @b181
+	938 Call "il2cpp_codegen_runtime_class_init", v1165 @ X0_v165, v1158 @ X0_v142, v1140 @ X1_v78 (UnityEngine.CanvasGroup), v467 @ X2_v22 (System.Type[]), v452 @ X3_v9 (UnityEngine.Color), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v1145 @ V0_v31 (System.Single), v1146 @ V1_v25 (System.Single), v138 @ V2_v6 (System.Single), v144 @ V3_v7 (System.Double), v141 @ V4_v5 (System.Double), v127 @ V5_v4, v124 @ V6_v4, v67 @ V7
+	939 Nop
+	940 Call DOTween.Sequence, v1168 @ X0_v145 (DG.Tweening.Sequence)
+	941 Nop
+	942 Move v1170 @ X8_v96, [44BA3C0]
+	943 Nop
+	944 Nop
+	945 Call 236E830, v1173 @ X0_v146, v1168 @ X0_v145 (DG.Tweening.Sequence), [v73 @ X0_v3 (System.Object)+10], [v1170 @ X8_v96]
+	946 Nop
+	947 Nop
+	948 Move v1176 @ X8_v98, [44BA3F0]
+	949 Nop
+	950 Call 236ECD4, v1178 @ X0_v147 (DG.Tweening.Sequence), v1173 @ X0_v146, 1, [v1176 @ X8_v98]
+	951 Nop
+	952 Nop
+	953 Nop
+	954 Nop
+	955 Nop
+	956 Call DOTweenModuleUI.DOFade, v1184 @ X0_v149 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>), v537 @ X0_v138 (UnityEngine.CanvasGroup), 1d, v1162 @ V8_v7 (System.Single)
+	957 Nop
+	958 Nop
+	959 Nop
+	960 Call TweenSettingsExtensions.Append, v1188 @ X0_v151 (DG.Tweening.Sequence), v1178 @ X0_v147 (DG.Tweening.Sequence), v1184 @ X0_v149 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>)
+	961 Nop
+	962 Move v1197 @ V0_v34 (System.Single), [style @ X1 (Style&)]
+	963 Nop
+	964 Nop
+	965 Nop
+	966 Nop
+	967 Nop
+	968 Nop
+	969 Nop
+	970 Nop
+	971 Nop
+	972 Nop
+	973 Nop
+	974 Nop
+	975 CheckGreaterOrEqual v135 @ TEMPCSEL_v7 (System.Boolean), [style @ X1 (Style&)], [C0D200]
+	976 ConditionalJump @b217, v135 @ TEMPCSEL_v7 (System.Boolean)
+	977 Nop
+	978 Jump @b217
+	979 Nop
+	980 Nop
+	981 Call TweenSettingsExtensions.AppendInterval, v1198 @ X0_v153 (DG.Tweening.Sequence), v1178 @ X0_v147 (DG.Tweening.Sequence), v1197 @ V0_v34 (System.Single)
+	982 Nop
+	983 Nop
+	984 Nop
+	985 Nop
+	986 Call DOTweenModuleUI.DOFade, v1201 @ X0_v155 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>), v537 @ X0_v138 (UnityEngine.CanvasGroup), 0f, v1162 @ V8_v7 (System.Single)
+	987 Nop
+	988 Nop
+	989 Nop
+	990 Call TweenSettingsExtensions.Append, v1205 @ X0_v157 (DG.Tweening.Sequence), v1178 @ X0_v147 (DG.Tweening.Sequence), v1201 @ X0_v155 (DG.Tweening.Core.TweenerCore`3<System.Single, System.Single, DG.Tweening.Plugins.Options.FloatOptions>)
+	991 Nop
+	992 Move v1207 @ X8_v101, [44A9AA8]
+	993 Nop
+	994 Newobj v1209 @ X0_v159 (DG.Tweening.TweenCallback), [v1207 @ X8_v101]
+	995 Nop
+	996 Nop
+	997 Nop
+	998 Move v1212 @ X8_v103, [44C46E8]
+	999 Nop
+	1000 Nop
+	1001 CallVoid TweenCallback..ctor, v1209 @ X0_v159 (DG.Tweening.TweenCallback), v73 @ X0_v3 (System.Object), [v1212 @ X8_v103]
+	1002 Nop
+	1003 Nop
+	1004 Nop
+	1005 Move v1218 @ X8_v105, [44BA468]
+	1006 Nop
+	1007 Call 236DE60, v1219 @ X0_v161, v1178 @ X0_v147 (DG.Tweening.Sequence), v1209 @ X0_v159 (DG.Tweening.TweenCallback), [v1218 @ X8_v105]
+	1008 Move v261 @ X8_v106, [v562 @ X28_v9]
+	1009 Nop
+	1010 Nop
+	1011 Nop
+	1012 Nop
+	1013 Nop
+	1014 Nop
+	1015 Nop
+	1016 Nop
+	1017 Nop
+	1018 Add v1221 @ X0_v163, [v261 @ X8_v106+A0], 24
+	1019 Move [v1221 @ X0_v163], v1178 @ X0_v147 (DG.Tweening.Sequence)
+	1020 Nop
+	1021 Nop
+	1022 Nop
+	1023 Nop
+	1024 Nop
+	1025 Nop
+	1026 Nop
+	1027 Nop
+	1028 Nop
+	1029 Nop
+	1030 Nop
+	1031 Nop
+	1032 Nop
+	1033 Call 1D77A14, v248 @ X0_v164, v1221 @ X0_v163, v1178 @ X0_v147 (DG.Tweening.Sequence), [v1218 @ X8_v105], 0, methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, 0, v1162 @ V8_v7 (System.Single), v479 @ V8_v6 (System.Single), [v1053 @ X10_v6], [v1060 @ X8_v73], [v201 @ X9_v14], v476 @ V11_v5, v67 @ V7
+	1034 Return
+	1035 Newobj v591 @ X0_v23 (System.NullReferenceException), typeof(System.NullReferenceException)
+	1036 Newobj v685 @ X0_v17 (System.IndexOutOfRangeException), typeof(System.IndexOutOfRangeException)
+	1037 Call 1D77F04, v698 @ X0_v18, v685 @ X0_v17 (System.IndexOutOfRangeException), v680 @ X1_v7 (System.String), v205 @ X2_v2 (System.Type[]), v190 @ X3_v1 (UnityEngine.Sprite), methodInfo @ X4 (Il2CppMethodInfo), v57 @ X5, v58 @ X6, v59 @ X7, v184 @ V0_v1 (System.Single), v187 @ V1_v1 (System.Single), v139 @ V2_v1 (System.Single), v145 @ V3_v1 (System.Double), v142 @ V4_v1 (System.Double), v128 @ V5_v1, v125 @ V6_v1, v67 @ V7
+	1038 Nop
+	1039 Throw typeof(System.ArgumentNullException)
+	1040 Return
+
+Method: System.Void ApplyFont(TMPro.TextMeshProUGUI t)
+
+Disassembly:
+	0x0341E390 STP X30, X21, [X31 - 0x20]!
+	0x0341E394 STP X20, X19, [X31 + 0x10]
+	0x0341E398 ADRP X20, 0x137D000
+	0x0341E39C ADRP X21, 0x109D000
+	0x0341E3A0 MOV X19, X0
+	0x0341E3A4 LDRB W8, [X20 + 0x977]
+	0x0341E3A8 LDR X21, [X21 + 0x1F8]
+	0x0341E3AC TBNZ W8, 0x0, 0x341E3E8
+	0x0341E3B0 ADRP X0, 0x10A5000
+	0x0341E3B4 LDR X0, [X0 + 0xB60]
+	0x0341E3B8 BL 0x1D77A60
+	0x0341E3BC ADRP X0, 0x108A000
+	0x0341E3C0 LDR X0, [X0 + 0xAC0]
+	0x0341E3C4 BL 0x1D77A60
+	0x0341E3C8 ADRP X0, 0x109B000
+	0x0341E3CC LDR X0, [X0 + 0x9F0]
+	0x0341E3D0 BL 0x1D77A60
+	0x0341E3D4 ADRP X0, 0x109D000
+	0x0341E3D8 LDR X0, [X0 + 0x1F8]
+	0x0341E3DC BL 0x1D77A60
+	0x0341E3E0 MOV W8, 0x1
+	0x0341E3E4 STRB W8, [X20 + 0x977]
+	0x0341E3E8 LDR X0, [X21]
+	0x0341E3EC ADRP X20, 0x108A000
+	0x0341E3F0 LDR W8, [X0 + 0xE4]
+	0x0341E3F4 LDR X20, [X20 + 0xAC0]
+	0x0341E3F8 CBNZ W8, 0x341E400
+	0x0341E3FC BL 0x1D77B94
+	0x0341E400 MOV X0, X31
+	0x0341E404 BL 0x3ED7304
+	0x0341E408 LDR X8, [X20]
+	0x0341E40C MOV X20, X0
+	0x0341E410 LDR W9, [X8 + 0xE4]
+	0x0341E414 CBNZ W9, 0x341E420
+	0x0341E418 MOV X0, X8
+	0x0341E41C BL 0x1D77B94
+	0x0341E420 MOV X0, X20
+	0x0341E424 MOV X1, X31
+	0x0341E428 MOV X2, X31
+	0x0341E42C BL 0x3F6211C
+	0x0341E430 TBZ W0, 0x0, 0x341E4A4
+	0x0341E434 LDR X0, [X21]
+	0x0341E438 LDR W8, [X0 + 0xE4]
+	0x0341E43C CBNZ W8, 0x341E444
+	0x0341E440 BL 0x1D77B94
+	0x0341E444 MOV X0, X31
+	0x0341E448 BL 0x3ED7304
+	0x0341E44C CBZ X19, 0x341E598
+	0x0341E450 MOV X1, X0
+	0x0341E454 MOV X0, X19
+	0x0341E458 MOV X2, X31
+	0x0341E45C BL 0x3EAE374
+	0x0341E460 MOV X0, X31
+	0x0341E464 BL 0x3ED7304
+	0x0341E468 CBZ X0, 0x341E598
+	0x0341E46C ADRP X8, 0x10A5000
+	0x0341E470 LDR X8, [X8 + 0xB60]
+	0x0341E474 LDR X20, [X0 + 0x90]
+	0x0341E478 LDR X0, [X8]
+	0x0341E47C BL 0x1D77EC4
+	0x0341E480 MOV X1, X20
+	0x0341E484 MOV X2, X31
+	0x0341E488 MOV X21, X0
+	0x0341E48C BL 0x3F3E53C
+	0x0341E490 MOV X0, X19
+	0x0341E494 MOV X1, X21
+	0x0341E498 MOV X2, X31
+	0x0341E49C BL 0x3EAE58C
+	0x0341E4A0 B 0x341E4A8
+	0x0341E4A4 CBZ X19, 0x341E598
+	0x0341E4A8 ADRP X20, 0x109B000
+	0x0341E4AC MOV X0, X19
+	0x0341E4B0 MOV X1, X31
+	0x0341E4B4 LDR X20, [X20 + 0x9F0]
+	0x0341E4B8 BL 0x3EAE578
+	0x0341E4BC LDR X8, [X20]
+	0x0341E4C0 MOV X19, X0
+	0x0341E4C4 LDR W9, [X8 + 0xE4]
+	0x0341E4C8 CBNZ W9, 0x341E4D4
+	0x0341E4CC MOV X0, X8
+	0x0341E4D0 BL 0x1D77B94
+	0x0341E4D4 CBZ X19, 0x341E598
+	0x0341E4D8 LDR X8, [X20]
+	0x0341E4DC MOV X0, X19
+	0x0341E4E0 MOV X2, X31
+	0x0341E4E4 LDR X8, [X8 + 0xA0]
+	0x0341E4E8 LDR X1, [X8 + 0x100]
+	0x0341E4EC BL 0x3F3EEF4
+	0x0341E4F0 LDR X8, [X20]
+	0x0341E4F4 MOVI D0, 0x0
+	0x0341E4F8 MOVI D1, 0x0
+	0x0341E4FC MOVI D2, 0x0
+	0x0341E500 MOV X0, X19
+	0x0341E504 MOV X2, X31
+	0x0341E508 LDR X8, [X8 + 0xA0]
+	0x0341E50C LDR W1, [X8 + 0x2C]
+	0x0341E510 ADRP X8, 0xFFFFFFFFFD7EF000
+	0x0341E514 LDR S3, [X8 + 0x2B8]
+	0x0341E518 BL 0x3F3EA00
+	0x0341E51C LDR X8, [X20]
+	0x0341E520 MOVI D0, 0x0
+	0x0341E524 MOV X0, X19
+	0x0341E528 MOV X2, X31
+	0x0341E52C LDR X8, [X8 + 0xA0]
+	0x0341E530 LDR W1, [X8 + 0x30]
+	0x0341E534 BL 0x3F405DC
+	0x0341E538 LDR X8, [X20]
+	0x0341E53C MOVI D0, 0x0
+	0x0341E540 MOV X0, X19
+	0x0341E544 MOV X2, X31
+	0x0341E548 LDR X8, [X8 + 0xA0]
+	0x0341E54C LDR W1, [X8 + 0x34]
+	0x0341E550 BL 0x3F405DC
+	0x0341E554 LDR X8, [X20]
+	0x0341E558 MOV X0, X19
+	0x0341E55C MOV X2, X31
+	0x0341E560 LDR X8, [X8 + 0xA0]
+	0x0341E564 LDR W1, [X8 + 0x38]
+	0x0341E568 ADRP X8, 0xFFFFFFFFFD7EE000
+	0x0341E56C LDR S0, [X8 + 0xFA4]
+	0x0341E570 BL 0x3F405DC
+	0x0341E574 LDR X8, [X20]
+	0x0341E578 MOV X0, X19
+	0x0341E57C FMOV S0, 0.25
+	0x0341E580 LDP X20, X19, [X31 + 0x10]
+	0x0341E584 MOV X2, X31
+	0x0341E588 LDR X8, [X8 + 0xA0]
+	0x0341E58C LDR W1, [X8 + 0x3C]
+	0x0341E590 LDP X30, X21, [X31], #0x20
+	0x0341E594 B 0x3F405DC
+	0x0341E598 BL 0x1D77A54
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Jump @b39
+	14 Nop
+	15 Move v18 @ X0_v39, [44C3B60]
+	16 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v40, v18 @ X0_v39, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	17 Nop
+	18 Move v46 @ X0_v42, [44A8AC0]
+	19 Call "il2cpp_codegen_initialize_runtime_metadata", v47 @ X0_v43, v46 @ X0_v42, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	20 Nop
+	21 Move v53 @ X0_v45, [44B99F0]
+	22 Call "il2cpp_codegen_initialize_runtime_metadata", v54 @ X0_v46, v53 @ X0_v45, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	23 Nop
+	24 Move v61 @ X0_v48, [44BB1F8]
+	25 Call "il2cpp_codegen_initialize_runtime_metadata", v36 @ X0_v49, v61 @ X0_v48, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	26 Move v38 @ X8_v26, 1
+	27 Move [479B977], v38 @ X8_v26
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Jump @b9
+	35 Call "il2cpp_codegen_runtime_class_init", v48 @ X0_v37, v39 @ X0_v2, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	36 Nop
+	37 Call TMP_Settings.get_defaultFontAsset, v51 @ X0_v5 (TMPro.TMP_FontAsset)
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Nop
+	43 Jump @b12
+	44 Move v62 @ X0_v35, v55 @ X8_v4
+	45 Call "il2cpp_codegen_runtime_class_init", v63 @ X0_v36, v62 @ X0_v35, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	46 Nop
+	47 Nop
+	48 Nop
+	49 Call Object.op_Inequality, v68 @ X0_v8 (System.Boolean), v51 @ X0_v5 (TMPro.TMP_FontAsset), 0
+	50 Nop
+	51 CheckEqual v70 @ TEMP_v9 (System.Boolean), v68 @ X0_v8 (System.Boolean), 0
+	52 ConditionalJump @b26, v70 @ TEMP_v9 (System.Boolean)
+	53 Nop
+	54 Nop
+	55 Nop
+	56 Nop
+	57 Jump @b16
+	58 Call "il2cpp_codegen_runtime_class_init", v76 @ X0_v33, v71 @ X0_v23, v66 @ X1_v1 (UnityEngine.Object), v67 @ X2_v1, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	59 Nop
+	60 Call TMP_Settings.get_defaultFontAsset, v79 @ X0_v26 (TMPro.TMP_FontAsset)
+	61 Nop
+	62 Nop
+	63 Nop
+	64 Nop
+	65 Nop
+	66 CallVoid TMP_Text.set_font, t @ X0 (TMPro.TextMeshProUGUI), v79 @ X0_v26 (TMPro.TMP_FontAsset)
+	67 Nop
+	68 Call TMP_Settings.get_defaultFontAsset, v106 @ X0_v29 (TMPro.TMP_FontAsset)
+	69 Nop
+	70 Nop
+	71 Nop
+	72 Move v89 @ X8_v24, [44C3B60]
+	73 Nop
+	74 Nop
+	75 Newobj v164 @ X0_v31 (UnityEngine.Material), [v89 @ X8_v24]
+	76 Nop
+	77 Nop
+	78 Nop
+	79 CallVoid Material..ctor, v164 @ X0_v31 (UnityEngine.Material), v106.m_Material (UnityEngine.Material)
+	80 Nop
+	81 Nop
+	82 Nop
+	83 CallVoid TMP_Text.set_fontMaterial, t @ X0 (TMPro.TextMeshProUGUI), v164 @ X0_v31 (UnityEngine.Material)
+	84 Jump @b26
+	85 Nop
+	86 Nop
+	87 Nop
+	88 Nop
+	89 Nop
+	90 Move v97 @ X20_v8, [44B99F0]
+	91 Call TMP_Text.get_fontMaterial, v98 @ X0_v13 (UnityEngine.Material), t @ X0 (TMPro.TextMeshProUGUI)
+	92 Nop
+	93 Nop
+	94 Nop
+	95 Nop
+	96 Nop
+	97 Jump @b30
+	98 Move v121 @ X0_v21, v112 @ X8_v7
+	99 Call "il2cpp_codegen_runtime_class_init", v122 @ X0_v22, v121 @ X0_v21, v96 @ X1_v4, v80 @ X2_v3, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	100 Nop
+	101 Nop
+	102 Move v150 @ X8_v8, [v97 @ X20_v8]
+	103 Nop
+	104 Nop
+	105 Move v153 @ X8_v9, [v150 @ X8_v8+A0]
+	106 Nop
+	107 CallVoid Material.EnableKeyword, v98 @ X0_v13 (UnityEngine.Material), [v153 @ X8_v9+100]
+	108 Move v155 @ X8_v10, [v97 @ X20_v8]
+	109 Nop
+	110 Nop
+	111 Nop
+	112 Nop
+	113 Nop
+	114 Move v159 @ X8_v11, [v155 @ X8_v10+A0]
+	115 Nop
+	116 Nop
+	117 Nop
+	118 CallVoid Material.SetColor, v98 @ X0_v13 (UnityEngine.Material), [v159 @ X8_v11+2C], 0
+	119 Move v165 @ X8_v13, [v97 @ X20_v8]
+	120 Nop
+	121 Nop
+	122 Nop
+	123 Move v169 @ X8_v14, [v165 @ X8_v13+A0]
+	124 Nop
+	125 CallVoid Material.SetFloat, v98 @ X0_v13 (UnityEngine.Material), [v169 @ X8_v14+30], 0f
+	126 Move v173 @ X8_v15, [v97 @ X20_v8]
+	127 Nop
+	128 Nop
+	129 Nop
+	130 Move v177 @ X8_v16, [v173 @ X8_v15+A0]
+	131 Nop
+	132 CallVoid Material.SetFloat, v98 @ X0_v13 (UnityEngine.Material), [v177 @ X8_v16+34], 0f
+	133 Move v179 @ X8_v17, [v97 @ X20_v8]
+	134 Nop
+	135 Nop
+	136 Move v182 @ X8_v18, [v179 @ X8_v17+A0]
+	137 Nop
+	138 Nop
+	139 Nop
+	140 CallVoid Material.SetFloat, v98 @ X0_v13 (UnityEngine.Material), [v182 @ X8_v18+38], [C0CFA4]
+	141 Move v186 @ X8_v20, [v97 @ X20_v8]
+	142 Nop
+	143 Nop
+	144 Nop
+	145 Nop
+	146 Nop
+	147 Move v142 @ X8_v21, [v186 @ X8_v20+A0]
+	148 Nop
+	149 Nop
+	150 Nop
+	151 Nop
+	152 CallVoid Material.SetFloat, v98 @ X0_v13 (UnityEngine.Material), [v142 @ X8_v21+3C], 0.25d
+	153 Return
+	154 Throw typeof(System.NullReferenceException)
+	155 Return
+
+Method: System.Single BuildTitle(UnityEngine.Transform bar, System.String title, UnityEngine.Sprite icon, System.Single scale, System.Single gapBelow, System.Single padY, UnityEngine.Color titleColor, System.Boolean iconRaw)
+
+Disassembly:
+	0x0341E59C SUB X31, X31, 0xB0
+	0x0341E5A0 STP D15, D14, [X31 + 0x10]
+	0x0341E5A4 STP D13, D12, [X31 + 0x20]
+	0x0341E5A8 STP D11, D10, [X31 + 0x30]
+	0x0341E5AC STP D9, D8, [X31 + 0x40]
+	0x0341E5B0 STP X29, X30, [X31 + 0x50]
+	0x0341E5B4 STP X28, X27, [X31 + 0x60]
+	0x0341E5B8 STP X26, X25, [X31 + 0x70]
+	0x0341E5BC STP X24, X23, [X31 + 0x80]
+	0x0341E5C0 STP X22, X21, [X31 + 0x90]
+	0x0341E5C4 STP X20, X19, [X31 + 0xA0]
+	0x0341E5C8 FMOV S15, S6
+	0x0341E5CC FMOV S10, S5
+	0x0341E5D0 ADRP X22, 0x137D000
+	0x0341E5D4 FMOV S11, S4
+	0x0341E5D8 FMOV S12, S3
+	0x0341E5DC LDRB W8, [X22 + 0x978]
+	0x0341E5E0 FMOV S13, S2
+	0x0341E5E4 FMOV S9, S1
+	0x0341E5E8 MOV W19, W3
+	0x0341E5EC FMOV S14, S0
+	0x0341E5F0 MOV X20, X2
+	0x0341E5F4 MOV X23, X1
+	0x0341E5F8 MOV X21, X0
+	0x0341E5FC TBNZ W8, 0x0, 0x341E698
+	0x0341E600 ADRP X0, 0x109D000
+	0x0341E604 LDR X0, [X0 + 0x1F0]
+	0x0341E608 BL 0x1D77A60
+	0x0341E60C ADRP X0, 0x109C000
+	0x0341E610 LDR X0, [X0 + 0x328]
+	0x0341E614 BL 0x1D77A60
+	0x0341E618 ADRP X0, 0x108E000
+	0x0341E61C LDR X0, [X0 + 0x268]
+	0x0341E620 BL 0x1D77A60
+	0x0341E624 ADRP X0, 0x108A000
+	0x0341E628 LDR X0, [X0 + 0xAB8]
+	0x0341E62C BL 0x1D77A60
+	0x0341E630 ADRP X0, 0x109C000
+	0x0341E634 LDR X0, [X0 + 0x330]
+	0x0341E638 BL 0x1D77A60
+	0x0341E63C ADRP X0, 0x10A4000
+	0x0341E640 LDR X0, [X0 + 0x410]
+	0x0341E644 BL 0x1D77A60
+	0x0341E648 ADRP X0, 0x108A000
+	0x0341E64C LDR X0, [X0 + 0xAC0]
+	0x0341E650 BL 0x1D77A60
+	0x0341E654 ADRP X0, 0x109B000
+	0x0341E658 LDR X0, [X0 + 0xB00]
+	0x0341E65C BL 0x1D77A60
+	0x0341E660 ADRP X0, 0x108E000
+	0x0341E664 LDR X0, [X0 + 0x1C0]
+	0x0341E668 BL 0x1D77A60
+	0x0341E66C ADRP X0, 0x109B000
+	0x0341E670 LDR X0, [X0 + 0x740]
+	0x0341E674 BL 0x1D77A60
+	0x0341E678 ADRP X0, 0x108D000
+	0x0341E67C LDR X0, [X0 + 0xB18]
+	0x0341E680 BL 0x1D77A60
+	0x0341E684 ADRP X0, 0x109C000
+	0x0341E688 LDR X0, [X0 + 0xDD0]
+	0x0341E68C BL 0x1D77A60
+	0x0341E690 MOV W8, 0x1
+	0x0341E694 STRB W8, [X22 + 0x978]
+	0x0341E698 MOV X0, X23
+	0x0341E69C MOV X1, X31
+	0x0341E6A0 BL 0x349CDE0
+	0x0341E6A4 MOVI D0, 0x0
+	0x0341E6A8 TBNZ W0, 0x0, 0x341ED60
+	0x0341E6AC ADRP X8, 0xFFFFFFFFFD7EF000
+	0x0341E6B0 ADRP X28, 0x108E000
+	0x0341E6B4 ADRP X27, 0x109B000
+	0x0341E6B8 LDR S0, [X8 + 0x22C]
+	0x0341E6BC LDR X28, [X28 + 0x1C0]
+	0x0341E6C0 LDR X27, [X27 + 0xB00]
+	0x0341E6C4 MOV W1, 0x1
+	0x0341E6C8 FCMP S14, S0
+	0x0341E6CC LDR X0, [X28]
+	0x0341E6D0 FCSEL S8, S0, S14, MI
+	0x0341E6D4 BL 0x1D77B04
+	0x0341E6D8 ADRP X25, 0x108A000
+	0x0341E6DC MOV X22, X0
+	0x0341E6E0 LDR X25, [X25 + 0xAF8]
+	0x0341E6E4 LDR X24, [X27]
+	0x0341E6E8 LDR X8, [X25 + 0xE8]
+	0x0341E6EC LDR W9, [X8 + 0xE4]
+	0x0341E6F0 CBNZ W9, 0x341E6FC
+	0x0341E6F4 MOV X0, X8
+	0x0341E6F8 BL 0x1D77B94
+	0x0341E6FC MOV X0, X24
+	0x0341E700 MOV X1, X31
+	0x0341E704 BL 0x361C774
+	0x0341E708 CBZ X22, 0x341ED90
+	0x0341E70C MOV X24, X0
+	0x0341E710 CBZ X0, 0x341E728
+	0x0341E714 LDR X8, [X22]
+	0x0341E718 MOV X0, X24
+	0x0341E71C LDR X1, [X8 + 0x40]
+	0x0341E720 BL 0x1D77B98
+	0x0341E724 CBZ X0, 0x341ED98
+	0x0341E728 LDR W8, [X22 + 0x18]
+	0x0341E72C CBZ W8, 0x341ED94
+	0x0341E730 MOV X0, X22
+	0x0341E734 MOV X1, X24
+	0x0341E738 STR X24, [X0 + 0x20]!
+	0x0341E73C BL 0x1D77A14
+	0x0341E740 ADRP X26, 0x108A000
+	0x0341E744 LDR X26, [X26 + 0xAB8]
+	0x0341E748 LDR X0, [X26]
+	0x0341E74C BL 0x1D77EC4
+	0x0341E750 ADRP X8, 0x108D000
+	0x0341E754 MOV X2, X22
+	0x0341E758 MOV X3, X31
+	0x0341E75C LDR X8, [X8 + 0xB18]
+	0x0341E760 MOV X24, X0
+	0x0341E764 LDR X1, [X8]
+	0x0341E768 BL 0x3F62C84
+	0x0341E76C CBZ X24, 0x341ED90
+	0x0341E770 MOV X0, X24
+	0x0341E774 MOV X1, X31
+	0x0341E778 BL 0x3F62370
+	0x0341E77C CBZ X0, 0x341ED90
+	0x0341E780 MOV X1, X21
+	0x0341E784 MOV W2, W31
+	0x0341E788 MOV X3, X31
+	0x0341E78C BL 0x3F711E8
+	0x0341E790 ADRP X8, 0x108E000
+	0x0341E794 MOV X0, X24
+	0x0341E798 LDR X8, [X8 + 0x268]
+	0x0341E79C LDR X1, [X8]
+	0x0341E7A0 BL 0x222B49C
+	0x0341E7A4 CBZ X0, 0x341ED90
+	0x0341E7A8 FMOV S0, 0.5
+	0x0341E7AC FMOV S1, 1
+	0x0341E7B0 MOV X1, X31
+	0x0341E7B4 MOV X22, X0
+	0x0341E7B8 BL 0x3F6F694
+	0x0341E7BC FMOV S0, 0.5
+	0x0341E7C0 FMOV S1, 1
+	0x0341E7C4 MOV X0, X22
+	0x0341E7C8 MOV X1, X31
+	0x0341E7CC BL 0x3F6F510
+	0x0341E7D0 FMOV S0, 0.5
+	0x0341E7D4 FMOV S1, 1
+	0x0341E7D8 MOV X0, X22
+	0x0341E7DC MOV X1, X31
+	0x0341E7E0 BL 0x3F6FB20
+	0x0341E7E4 FNEG S1, S13
+	0x0341E7E8 MOVI D0, 0x0
+	0x0341E7EC MOV X0, X22
+	0x0341E7F0 MOV X1, X31
+	0x0341E7F4 BL 0x3F6F818
+	0x0341E7F8 LDR X0, [X28]
+	0x0341E7FC MOV W1, 0x1
+	0x0341E800 BL 0x1D77B04
+	0x0341E804 LDR X8, [X27]
+	0x0341E808 MOV X24, X0
+	0x0341E80C MOV X1, X31
+	0x0341E810 MOV X0, X8
+	0x0341E814 BL 0x361C774
+	0x0341E818 CBZ X24, 0x341ED90
+	0x0341E81C MOV X21, X0
+	0x0341E820 CBZ X0, 0x341E838
+	0x0341E824 LDR X8, [X24]
+	0x0341E828 MOV X0, X21
+	0x0341E82C LDR X1, [X8 + 0x40]
+	0x0341E830 BL 0x1D77B98
+	0x0341E834 CBZ X0, 0x341ED98
+	0x0341E838 LDR W8, [X24 + 0x18]
+	0x0341E83C CBZ W8, 0x341ED94
+	0x0341E840 MOV X0, X24
+	0x0341E844 MOV X1, X21
+	0x0341E848 STR X21, [X0 + 0x20]!
+	0x0341E84C BL 0x1D77A14
+	0x0341E850 LDR X0, [X26]
+	0x0341E854 BL 0x1D77EC4
+	0x0341E858 ADRP X8, 0x109B000
+	0x0341E85C MOV X2, X24
+	0x0341E860 MOV X3, X31
+	0x0341E864 LDR X8, [X8 + 0x740]
+	0x0341E868 MOV X21, X0
+	0x0341E86C LDR X1, [X8]
+	0x0341E870 BL 0x3F62C84
+	0x0341E874 CBZ X21, 0x341ED90
+	0x0341E878 MOV X0, X21
+	0x0341E87C MOV X1, X31
+	0x0341E880 BL 0x3F62370
+	0x0341E884 CBZ X0, 0x341ED90
+	0x0341E888 MOV X1, X22
+	0x0341E88C MOV W2, W31
+	0x0341E890 MOV X3, X31
+	0x0341E894 BL 0x3F711E8
+	0x0341E898 ADRP X8, 0x109D000
+	0x0341E89C MOV X0, X21
+	0x0341E8A0 LDR X8, [X8 + 0x1F0]
+	0x0341E8A4 LDR X1, [X8]
+	0x0341E8A8 BL 0x222B40C
+	0x0341E8AC CBZ X0, 0x341ED90
+	0x0341E8B0 MOV W8, 0x42600000
+	0x0341E8B4 MOV X1, X23
+	0x0341E8B8 MOV X24, X0
+	0x0341E8BC FMOV S0, W8
+	0x0341E8C0 LDR X8, [X0]
+	0x0341E8C4 LDR X9, [X8 + 0x558]
+	0x0341E8C8 LDR X2, [X8 + 0x560]
+	0x0341E8CC FMUL S13, S8, S0
+	0x0341E8D0 BLR X9
+	0x0341E8D4 FMOV S0, S13
+	0x0341E8D8 MOV X0, X24
+	0x0341E8DC MOV X1, X31
+	0x0341E8E0 BL 0x3EAEEF8
+	0x0341E8E4 MOV X0, X24
+	0x0341E8E8 MOV W1, W31
+	0x0341E8EC MOV X2, X31
+	0x0341E8F0 BL 0x3EAF0D0
+	0x0341E8F4 MOV X0, X24
+	0x0341E8F8 MOV W1, W31
+	0x0341E8FC MOV X2, X31
+	0x0341E900 BL 0x3EAF524
+	0x0341E904 MOV X0, X24
+	0x0341E908 MOV W1, 0x202
+	0x0341E90C MOV X2, X31
+	0x0341E910 BL 0x3EAF28C
+	0x0341E914 LDR X8, [X24]
+	0x0341E918 FMOV S0, S12
+	0x0341E91C FMOV S1, S11
+	0x0341E920 FMOV S2, S10
+	0x0341E924 FMOV S3, S15
+	0x0341E928 MOV X0, X24
+	0x0341E92C LDR X9, [X8 + 0x2A8]
+	0x0341E930 LDR X1, [X8 + 0x2B0]
+	0x0341E934 BLR X9
+	0x0341E938 LDR X8, [X24]
+	0x0341E93C MOV X0, X24
+	0x0341E940 MOV W1, W31
+	0x0341E944 LDR X9, [X8 + 0x2C8]
+	0x0341E948 LDR X2, [X8 + 0x2D0]
+	0x0341E94C BLR X9
+	0x0341E950 ADRP X8, 0x10A4000
+	0x0341E954 LDR X8, [X8 + 0x410]
+	0x0341E958 LDR X0, [X8]
+	0x0341E95C LDR W8, [X0 + 0xE4]
+	0x0341E960 CBNZ W8, 0x341E968
+	0x0341E964 BL 0x1D77B94
+	0x0341E968 MOV X0, X24
+	0x0341E96C STP S15, S9, [X31 + 0x8]
+	0x0341E970 BL 0x341E390
+	0x0341E974 MOVI D0, 0x0
+	0x0341E978 MOVI D1, 0x0
+	0x0341E97C MOV X0, X24
+	0x0341E980 MOV X1, X23
+	0x0341E984 MOV X2, X31
+	0x0341E988 MOVI D14, 0x0
+	0x0341E98C BL 0x3EB4C6C
+	0x0341E990 ADRP X23, 0x108A000
+	0x0341E994 FMOV S8, S0
+	0x0341E998 FMOV S9, S1
+	0x0341E99C LDR X23, [X23 + 0xAC0]
+	0x0341E9A0 LDR X0, [X23]
+	0x0341E9A4 LDR W8, [X0 + 0xE4]
+	0x0341E9A8 CBNZ W8, 0x341E9B0
+	0x0341E9AC BL 0x1D77B94
+	0x0341E9B0 MOV X0, X20
+	0x0341E9B4 MOV X1, X31
+	0x0341E9B8 MOV X2, X31
+	0x0341E9BC BL 0x3F6211C
+	0x0341E9C0 ADRP X8, 0xFFFFFFFFFD7EF000
+	0x0341E9C4 ANDS W31, W0, 0x1
+	0x0341E9C8 LDR X0, [X23]
+	0x0341E9CC LDR S0, [X8 + 0x3CC]
+	0x0341E9D0 LDR W8, [X0 + 0xE4]
+	0x0341E9D4 FMUL S0, S13, S0
+	0x0341E9D8 FCSEL S15, S0, S14, NE
+	0x0341E9DC CBNZ W8, 0x341E9E4
+	0x0341E9E0 BL 0x1D77B94
+	0x0341E9E4 MOV X0, X20
+	0x0341E9E8 MOV X1, X31
+	0x0341E9EC MOV X2, X31
+	0x0341E9F0 MOV X24, X25
+	0x0341E9F4 BL 0x3F6211C
+	0x0341E9F8 MOVI D0, 0x0
+	0x0341E9FC FMOV S1, 10
+	0x0341EA00 ANDS W31, W0, 0x1
+	0x0341EA04 MOV X0, X22
+	0x0341EA08 MOV X1, X31
+	0x0341EA0C FCSEL S0, S1, S0, NE
+	0x0341EA10 FCMP S9, S15
+	0x0341EA14 FCSEL S13, S9, S15, GT
+	0x0341EA18 FADD S14, S15, S0
+	0x0341EA1C FMOV S1, S13
+	0x0341EA20 FADD S0, S8, S14
+	0x0341EA24 BL 0x3F6F99C
+	0x0341EA28 LDR X0, [X23]
+	0x0341EA2C LDR W8, [X0 + 0xE4]
+	0x0341EA30 CBNZ W8, 0x341EA38
+	0x0341EA34 BL 0x1D77B94
+	0x0341EA38 MOV X0, X20
+	0x0341EA3C MOV X1, X31
+	0x0341EA40 MOV X2, X31
+	0x0341EA44 BL 0x3F6211C
+	0x0341EA48 ADRP X29, 0x108D000
+	0x0341EA4C ADRP X25, 0x137A000
+	0x0341EA50 LDR X29, [X29 + 0x288]
+	0x0341EA54 TBZ W0, 0x0, 0x341EC7C
+	0x0341EA58 LDR X0, [X28]
+	0x0341EA5C MOV W1, 0x2
+	0x0341EA60 BL 0x1D77B04
+	0x0341EA64 LDR X8, [X24 + 0xE8]
+	0x0341EA68 LDR X23, [X27]
+	0x0341EA6C MOV X24, X0
+	0x0341EA70 LDR W9, [X8 + 0xE4]
+	0x0341EA74 CBNZ W9, 0x341EA80
+	0x0341EA78 MOV X0, X8
+	0x0341EA7C BL 0x1D77B94
+	0x0341EA80 MOV X0, X23
+	0x0341EA84 MOV X1, X31
+	0x0341EA88 BL 0x361C774
+	0x0341EA8C CBZ X24, 0x341ED90
+	0x0341EA90 MOV X23, X0
+	0x0341EA94 CBZ X0, 0x341EAAC
+	0x0341EA98 LDR X8, [X24]
+	0x0341EA9C MOV X0, X23
+	0x0341EAA0 LDR X1, [X8 + 0x40]
+	0x0341EAA4 BL 0x1D77B98
+	0x0341EAA8 CBZ X0, 0x341ED98
+	0x0341EAAC LDR W8, [X24 + 0x18]
+	0x0341EAB0 CBZ W8, 0x341ED94
+	0x0341EAB4 MOV X0, X24
+	0x0341EAB8 MOV X1, X23
+	0x0341EABC STR X23, [X0 + 0x20]!
+	0x0341EAC0 BL 0x1D77A14
+	0x0341EAC4 ADRP X8, 0x109C000
+	0x0341EAC8 MOV X1, X31
+	0x0341EACC LDR X8, [X8 + 0x330]
+	0x0341EAD0 LDR X0, [X8]
+	0x0341EAD4 BL 0x361C774
+	0x0341EAD8 MOV X23, X0
+	0x0341EADC CBZ X0, 0x341EAF4
+	0x0341EAE0 LDR X8, [X24]
+	0x0341EAE4 MOV X0, X23
+	0x0341EAE8 LDR X1, [X8 + 0x40]
+	0x0341EAEC BL 0x1D77B98
+	0x0341EAF0 CBZ X0, 0x341ED98
+	0x0341EAF4 LDR W8, [X24 + 0x18]
+	0x0341EAF8 ANDS W31, W8, 0xFFFFFFFE
+	0x0341EAFC B.EQ 0x341ED94
+	0x0341EB00 MOV X0, X24
+	0x0341EB04 MOV X1, X23
+	0x0341EB08 STR X23, [X0 + 0x28]!
+	0x0341EB0C BL 0x1D77A14
+	0x0341EB10 LDR X0, [X26]
+	0x0341EB14 BL 0x1D77EC4
+	0x0341EB18 ADRP X8, 0x109C000
+	0x0341EB1C MOV X2, X24
+	0x0341EB20 MOV X3, X31
+	0x0341EB24 LDR X8, [X8 + 0xDD0]
+	0x0341EB28 MOV X23, X0
+	0x0341EB2C LDR X1, [X8]
+	0x0341EB30 BL 0x3F62C84
+	0x0341EB34 CBZ X23, 0x341ED90
+	0x0341EB38 MOV X0, X23
+	0x0341EB3C MOV X1, X31
+	0x0341EB40 BL 0x3F62370
+	0x0341EB44 CBZ X0, 0x341ED90
+	0x0341EB48 MOV X1, X22
+	0x0341EB4C MOV W2, W31
+	0x0341EB50 MOV X3, X31
+	0x0341EB54 BL 0x3F711E8
+	0x0341EB58 ADRP X8, 0x108E000
+	0x0341EB5C MOV X0, X23
+	0x0341EB60 LDR X8, [X8 + 0x268]
+	0x0341EB64 LDR X1, [X8]
+	0x0341EB68 BL 0x222B49C
+	0x0341EB6C CBZ X0, 0x341ED90
+	0x0341EB70 MOVI D0, 0x0
+	0x0341EB74 FMOV S1, 0.5
+	0x0341EB78 MOV X1, X31
+	0x0341EB7C MOV X22, X0
+	0x0341EB80 BL 0x3F6F510
+	0x0341EB84 MOVI D0, 0x0
+	0x0341EB88 FMOV S1, 0.5
+	0x0341EB8C MOV X0, X22
+	0x0341EB90 MOV X1, X31
+	0x0341EB94 BL 0x3F6F694
+	0x0341EB98 MOVI D0, 0x0
+	0x0341EB9C FMOV S1, 0.5
+	0x0341EBA0 MOV X0, X22
+	0x0341EBA4 MOV X1, X31
+	0x0341EBA8 BL 0x3F6FB20
+	0x0341EBAC LDRB W8, [X25 + 0xE80]
+	0x0341EBB0 CBNZ W8, 0x341EBC8
+	0x0341EBB4 ADRP X0, 0x108D000
+	0x0341EBB8 LDR X0, [X0 + 0x288]
+	0x0341EBBC BL 0x1D77A60
+	0x0341EBC0 MOV W8, 0x1
+	0x0341EBC4 STRB W8, [X25 + 0xE80]
+	0x0341EBC8 LDR X8, [X29]
+	0x0341EBCC MOV X0, X22
+	0x0341EBD0 MOV X1, X31
+	0x0341EBD4 LDR X8, [X8 + 0xA0]
+	0x0341EBD8 LDP S0, S1, [X8]
+	0x0341EBDC BL 0x3F6F818
+	0x0341EBE0 FMOV S0, S15
+	0x0341EBE4 FMOV S1, S15
+	0x0341EBE8 MOV X0, X22
+	0x0341EBEC MOV X1, X31
+	0x0341EBF0 BL 0x3F6F99C
+	0x0341EBF4 ADRP X8, 0x109C000
+	0x0341EBF8 MOV X0, X23
+	0x0341EBFC LDR X8, [X8 + 0x328]
+	0x0341EC00 LDR X1, [X8]
+	0x0341EC04 BL 0x222B49C
+	0x0341EC08 CBZ X0, 0x341ED90
+	0x0341EC0C MOV X1, X20
+	0x0341EC10 MOV X2, X31
+	0x0341EC14 MOV X22, X0
+	0x0341EC18 BL 0x4039764
+	0x0341EC1C LDR S3, [X31 + 0x8]
+	0x0341EC20 TBZ W19, 0x0, 0x341EC34
+	0x0341EC24 FMOV S3, 1
+	0x0341EC28 FMOV S10, 1
+	0x0341EC2C FMOV S11, 1
+	0x0341EC30 FMOV S12, 1
+	0x0341EC34 LDR X8, [X22]
+	0x0341EC38 FMOV S0, S12
+	0x0341EC3C FMOV S1, S11
+	0x0341EC40 FMOV S2, S10
+	0x0341EC44 MOV X0, X22
+	0x0341EC48 LDR X9, [X8 + 0x2A8]
+	0x0341EC4C LDR X1, [X8 + 0x2B0]
+	0x0341EC50 BLR X9
+	0x0341EC54 MOV X0, X22
+	0x0341EC58 MOV W1, 0x1
+	0x0341EC5C MOV X2, X31
+	0x0341EC60 BL 0x4046DA0
+	0x0341EC64 LDR X8, [X22]
+	0x0341EC68 MOV X0, X22
+	0x0341EC6C MOV W1, W31
+	0x0341EC70 LDR X9, [X8 + 0x2C8]
+	0x0341EC74 LDR X2, [X8 + 0x2D0]
+	0x0341EC78 BLR X9
+	0x0341EC7C ADRP X8, 0x108E000
+	0x0341EC80 MOV X0, X21
+	0x0341EC84 LDR X8, [X8 + 0x268]
+	0x0341EC88 LDR X1, [X8]
+	0x0341EC8C BL 0x222B49C
+	0x0341EC90 LDRB W8, [X25 + 0xE80]
+	0x0341EC94 MOV X19, X0
+	0x0341EC98 CBNZ W8, 0x341ECB0
+	0x0341EC9C ADRP X0, 0x108D000
+	0x0341ECA0 LDR X0, [X0 + 0x288]
+	0x0341ECA4 BL 0x1D77A60
+	0x0341ECA8 MOV W8, 0x1
+	0x0341ECAC STRB W8, [X25 + 0xE80]
+	0x0341ECB0 LDR S9, [X31 + 0xC]
+	0x0341ECB4 CBZ X19, 0x341ED90
+	0x0341ECB8 LDR X8, [X29]
+	0x0341ECBC MOV X0, X19
+	0x0341ECC0 MOV X1, X31
+	0x0341ECC4 LDR X8, [X8 + 0xA0]
+	0x0341ECC8 LDP S0, S1, [X8]
+	0x0341ECCC BL 0x3F6F510
+	0x0341ECD0 ADRP X20, 0x137C000
+	0x0341ECD4 LDRB W8, [X20 + 0xC4C]
+	0x0341ECD8 CBNZ W8, 0x341ECF0
+	0x0341ECDC ADRP X0, 0x108D000
+	0x0341ECE0 LDR X0, [X0 + 0x288]
+	0x0341ECE4 BL 0x1D77A60
+	0x0341ECE8 MOV W8, 0x1
+	0x0341ECEC STRB W8, [X20 + 0xC4C]
+	0x0341ECF0 LDR X8, [X29]
+	0x0341ECF4 MOV X0, X19
+	0x0341ECF8 MOV X1, X31
+	0x0341ECFC LDR X8, [X8 + 0xA0]
+	0x0341ED00 LDP S0, S1, [X8 + 0x8]
+	0x0341ED04 BL 0x3F6F694
+	0x0341ED08 MOVI D1, 0x0
+	0x0341ED0C FMOV S0, S14
+	0x0341ED10 MOV X0, X19
+	0x0341ED14 MOV X1, X31
+	0x0341ED18 MOVI D8, 0x0
+	0x0341ED1C BL 0x3F6FDB0
+	0x0341ED20 LDRB W8, [X25 + 0xE80]
+	0x0341ED24 CBNZ W8, 0x341ED3C
+	0x0341ED28 ADRP X0, 0x108D000
+	0x0341ED2C LDR X0, [X0 + 0x288]
+	0x0341ED30 BL 0x1D77A60
+	0x0341ED34 MOV W8, 0x1
+	0x0341ED38 STRB W8, [X25 + 0xE80]
+	0x0341ED3C LDR X8, [X29]
+	0x0341ED40 MOV X0, X19
+	0x0341ED44 MOV X1, X31
+	0x0341ED48 LDR X8, [X8 + 0xA0]
+	0x0341ED4C LDP S0, S1, [X8]
+	0x0341ED50 BL 0x3F6FF44
+	0x0341ED54 FCMP S9, 0x0
+	0x0341ED58 FCSEL S0, S8, S9, MI
+	0x0341ED5C FADD S0, S0, S13
+	0x0341ED60 LDP X20, X19, [X31 + 0xA0]
+	0x0341ED64 LDP X22, X21, [X31 + 0x90]
+	0x0341ED68 LDP X24, X23, [X31 + 0x80]
+	0x0341ED6C LDP X26, X25, [X31 + 0x70]
+	0x0341ED70 LDP X28, X27, [X31 + 0x60]
+	0x0341ED74 LDP X29, X30, [X31 + 0x50]
+	0x0341ED78 LDP D9, D8, [X31 + 0x40]
+	0x0341ED7C LDP D11, D10, [X31 + 0x30]
+	0x0341ED80 LDP D13, D12, [X31 + 0x20]
+	0x0341ED84 LDP D15, D14, [X31 + 0x10]
+	0x0341ED88 ADD X31, X31, 0xB0
+	0x0341ED8C RET
+	0x0341ED90 BL 0x1D77A54
+	0x0341ED94 BL 0x1D77ED4
+	0x0341ED98 BL 0x1D77F04
+	0x0341ED9C MOV X1, X31
+	0x0341EDA0 BL 0x1D77B84
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Nop
+	16 Nop
+	17 Nop
+	18 Nop
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Nop
+	30 Nop
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Nop
+	37 Jump @b138
+	38 Nop
+	39 Move v68 @ X0_v144, [44BB1F0]
+	40 Call "il2cpp_codegen_initialize_runtime_metadata", v69 @ X0_v145, v68 @ X0_v144, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	41 Nop
+	42 Move v83 @ X0_v147, [44BA328]
+	43 Call "il2cpp_codegen_initialize_runtime_metadata", v84 @ X0_v148, v83 @ X0_v147, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	44 Nop
+	45 Move v90 @ X0_v150, [44AC268]
+	46 Call "il2cpp_codegen_initialize_runtime_metadata", v91 @ X0_v151, v90 @ X0_v150, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	47 Nop
+	48 Move v229 @ X0_v153, [44A8AB8]
+	49 Call "il2cpp_codegen_initialize_runtime_metadata", v230 @ X0_v154, v229 @ X0_v153, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	50 Nop
+	51 Move v318 @ X0_v156, [44BA330]
+	52 Call "il2cpp_codegen_initialize_runtime_metadata", v319 @ X0_v157, v318 @ X0_v156, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	53 Nop
+	54 Move v323 @ X0_v159, [44C2410]
+	55 Call "il2cpp_codegen_initialize_runtime_metadata", v324 @ X0_v160, v323 @ X0_v159, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	56 Nop
+	57 Move v334 @ X0_v162, [44A8AC0]
+	58 Call "il2cpp_codegen_initialize_runtime_metadata", v335 @ X0_v163, v334 @ X0_v162, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	59 Nop
+	60 Move v343 @ X0_v165, [44B9B00]
+	61 Call "il2cpp_codegen_initialize_runtime_metadata", v344 @ X0_v166, v343 @ X0_v165, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	62 Nop
+	63 Move v347 @ X0_v168, [44AC1C0]
+	64 Call "il2cpp_codegen_initialize_runtime_metadata", v348 @ X0_v169, v347 @ X0_v168, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	65 Nop
+	66 Move v492 @ X0_v171, [44B9740]
+	67 Call "il2cpp_codegen_initialize_runtime_metadata", v493 @ X0_v172, v492 @ X0_v171, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	68 Nop
+	69 Move v562 @ X0_v174, [44ABB18]
+	70 Call "il2cpp_codegen_initialize_runtime_metadata", v563 @ X0_v175, v562 @ X0_v174, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	71 Nop
+	72 Move v584 @ X0_v177, [44BADD0]
+	73 Call "il2cpp_codegen_initialize_runtime_metadata", v76 @ X0_v178, v584 @ X0_v177, title @ X1 (System.String), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, scale @ V0 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	74 Move v78 @ X8_v76, 1
+	75 Move [479B978], v78 @ X8_v76
+	76 Nop
+	77 Nop
+	78 Call String.IsNullOrEmpty, v81 @ X0_v3 (System.Boolean), title @ X1 (System.String)
+	79 Nop
+	80 Nop
+	81 CheckEqual v87 @ TEMP_v5 (System.Boolean), v81 @ X0_v3 (System.Boolean), 0
+	82 Not v88 @ TEMP_v6, v87 @ TEMP_v5 (System.Boolean)
+	83 ConditionalJump @b139, v88 @ TEMP_v6
+	84 Nop
+	85 Nop
+	86 Nop
+	87 Move returnVal2 @ V0_v4 (System.Single), [C0D22C]
+	88 Move v96 @ X28_v4, [44AC1C0]
+	89 Move v97 @ X27_v4, [44B9B00]
+	90 Nop
+	91 Nop
+	92 Nop
+	93 Nop
+	94 Nop
+	95 Nop
+	96 Nop
+	97 Nop
+	98 Nop
+	99 Nop
+	100 Nop
+	101 CheckGreaterOrEqual v109 @ TEMPCSEL_v2 (System.Boolean), scale @ V0 (System.Single), [C0D22C]
+	102 ConditionalJump @b19, v109 @ TEMPCSEL_v2 (System.Boolean)
+	103 Nop
+	104 Jump @b140
+	105 Nop
+	106 Nop
+	107 Call "SzArrayNew", v321 @ X0_v6 (System.Type[]), [v96 @ X28_v4], 1, icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, returnVal2 @ V0_v4 (System.Single), gapBelow @ V1 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	108 Nop
+	109 Nop
+	110 Nop
+	111 Nop
+	112 Nop
+	113 Nop
+	114 Nop
+	115 Nop
+	116 Jump @b22
+	117 Move v336 @ X0_v140, v329 @ X8_v5
+	118 Call "il2cpp_codegen_runtime_class_init", v337 @ X0_v141, v336 @ X0_v140, v98 @ X1_v3, icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v95 @ V0_v3 (System.Single), gapBelow @ V1 (System.Single), padY @ V2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	119 Nop
+	120 Nop
+	121 Call Type.GetTypeFromHandle, v341 @ X0_v9 (System.Type), [v97 @ X27_v4]
+	122 CheckEqual v345 @ TEMP_v10 (System.Boolean), v321 @ X0_v6 (System.Type[]), 0
+	123 ConditionalJump @b133, v345 @ TEMP_v10 (System.Boolean)
+	124 Nop
+	125 CheckEqual v350 @ TEMP_v14 (System.Boolean), v341 @ X0_v9 (System.Type), 0
+	126 ConditionalJump @b27, v350 @ TEMP_v14 (System.Boolean)
+	127 Move v494 @ X8_v74 (Il2CppClass<System.Type[]>), [v321 @ X0_v6 (System.Type[])]
+	128 Nop
+	129 Move v529 @ X1_v7 (System.String), [v494 @ X8_v74 (Il2CppClass<System.Type[]>)+40]
+	130 Call 1D77B98, v572 @ X0_v10 (System.IndexOutOfRangeException), v341 @ X0_v9 (System.Type), [v494 @ X8_v74 (Il2CppClass<System.Type[]>)+40], icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, returnVal2 @ V0_v4 (System.Single), gapBelow @ V1 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	131 CheckEqual v501 @ TEMP_v67 (System.Boolean), v572 @ X0_v10 (System.IndexOutOfRangeException), 0
+	132 ConditionalJump @b135, v501 @ TEMP_v67 (System.Boolean)
+	133 Nop
+	134 CheckEqual v504 @ TEMP_v16 (System.Boolean), v321.Length, 0
+	135 ConditionalJump @b134, v504 @ TEMP_v16 (System.Boolean)
+	136 Nop
+	137 Nop
+	138 Add v566 @ X0_v19, v321 @ X0_v6 (System.Type[]), 32
+	139 Move [v566 @ X0_v19], v341 @ X0_v9 (System.Type)
+	140 Call 1D77A14, v567 @ X0_v20, v566 @ X0_v19, v341 @ X0_v9 (System.Type), icon @ X2 (UnityEngine.Sprite), titleColor @ X3 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, returnVal2 @ V0_v4 (System.Single), gapBelow @ V1 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	141 Nop
+	142 Move v135 @ X26_v7, [44A8AB8]
+	143 Nop
+	144 Newobj v436 @ X0_v22 (UnityEngine.GameObject), [v135 @ X26_v7]
+	145 Nop
+	146 Nop
+	147 Nop
+	148 Move v473 @ X8_v12, [44ABB18]
+	149 Nop
+	150 Move v529 @ X1_v7 (System.String), [v473 @ X8_v12]
+	151 CallVoid GameObject..ctor, v436 @ X0_v22 (UnityEngine.GameObject), [v473 @ X8_v12], v321 @ X0_v6 (System.Type[])
+	152 CheckEqual v450 @ TEMP_v17 (System.Boolean), v436 @ X0_v22 (UnityEngine.GameObject), 0
+	153 ConditionalJump @b133, v450 @ TEMP_v17 (System.Boolean)
+	154 Nop
+	155 Nop
+	156 Call GameObject.get_transform, v437 @ X0_v24 (UnityEngine.Transform), v436 @ X0_v22 (UnityEngine.GameObject)
+	157 CheckEqual v451 @ TEMP_v18 (System.Boolean), v437 @ X0_v24 (UnityEngine.Transform), 0
+	158 ConditionalJump @b133, v451 @ TEMP_v18 (System.Boolean)
+	159 Nop
+	160 Nop
+	161 Nop
+	162 CallVoid Transform.SetParent, v437 @ X0_v24 (UnityEngine.Transform), bar @ X0 (UnityEngine.Transform), 0
+	163 Nop
+	164 Nop
+	165 Move v474 @ X8_v14, [44AC268]
+	166 Move v529 @ X1_v7 (System.String), [v474 @ X8_v14]
+	167 Call 222B49C, v438 @ X0_v26 (UnityEngine.RectTransform), v436 @ X0_v22 (UnityEngine.GameObject), [v474 @ X8_v14]
+	168 CheckEqual v452 @ TEMP_v19 (System.Boolean), v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	169 ConditionalJump @b133, v452 @ TEMP_v19 (System.Boolean)
+	170 Nop
+	171 Nop
+	172 Nop
+	173 Nop
+	174 CallVoid RectTransform.set_anchorMax, v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	175 Nop
+	176 Nop
+	177 Nop
+	178 Nop
+	179 CallVoid RectTransform.set_anchorMin, v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	180 Nop
+	181 Nop
+	182 Nop
+	183 Nop
+	184 CallVoid RectTransform.set_pivot, v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	185 Negate v249 @ V1_v2 (System.Single), v247 @ V2_v2 (System.Single)
+	186 Nop
+	187 Nop
+	188 Nop
+	189 CallVoid RectTransform.set_anchoredPosition, v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	190 Nop
+	191 Nop
+	192 Call "SzArrayNew", v607 @ X0_v31 (System.Type[]), [v96 @ X28_v4], 1, 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, 0, v249 @ V1_v2 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	193 Nop
+	194 Nop
+	195 Nop
+	196 Nop
+	197 Call Type.GetTypeFromHandle, v439 @ X0_v33 (System.Type), [v97 @ X27_v4]
+	198 CheckEqual v453 @ TEMP_v20 (System.Boolean), v607 @ X0_v31 (System.Type[]), 0
+	199 ConditionalJump @b133, v453 @ TEMP_v20 (System.Boolean)
+	200 Nop
+	201 CheckEqual v609 @ TEMP_v21 (System.Boolean), v439 @ X0_v33 (System.Type), 0
+	202 ConditionalJump @b47, v609 @ TEMP_v21 (System.Boolean)
+	203 Move v579 @ X8_v73 (Il2CppClass<System.Type[]>), [v607 @ X0_v31 (System.Type[])]
+	204 Nop
+	205 Move v529 @ X1_v7 (System.String), [v579 @ X8_v73 (Il2CppClass<System.Type[]>)+40]
+	206 Call 1D77B98, v572 @ X0_v10 (System.IndexOutOfRangeException), v439 @ X0_v33 (System.Type), [v579 @ X8_v73 (Il2CppClass<System.Type[]>)+40], 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, 0, v249 @ V1_v2 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	207 CheckEqual v576 @ TEMP_v66 (System.Boolean), v572 @ X0_v10 (System.IndexOutOfRangeException), 0
+	208 ConditionalJump @b135, v576 @ TEMP_v66 (System.Boolean)
+	209 Nop
+	210 CheckEqual v539 @ TEMP_v23 (System.Boolean), v607.Length, 0
+	211 ConditionalJump @b134, v539 @ TEMP_v23 (System.Boolean)
+	212 Nop
+	213 Nop
+	214 Add v615 @ X0_v36, v607 @ X0_v31 (System.Type[]), 32
+	215 Move [v615 @ X0_v36], v439 @ X0_v33 (System.Type)
+	216 Call 1D77A14, v616 @ X0_v37, v615 @ X0_v36, v439 @ X0_v33 (System.Type), 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, 0, v249 @ V1_v2 (System.Single), v247 @ V2_v2 (System.Single), v48 @ V3 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	217 Nop
+	218 Newobj v440 @ X0_v39 (UnityEngine.GameObject), [v135 @ X26_v7]
+	219 Nop
+	220 Nop
+	221 Nop
+	222 Move v476 @ X8_v19, [44B9740]
+	223 Nop
+	224 Move v529 @ X1_v7 (System.String), [v476 @ X8_v19]
+	225 CallVoid GameObject..ctor, v440 @ X0_v39 (UnityEngine.GameObject), [v476 @ X8_v19], v607 @ X0_v31 (System.Type[])
+	226 CheckEqual v454 @ TEMP_v24 (System.Boolean), v440 @ X0_v39 (UnityEngine.GameObject), 0
+	227 ConditionalJump @b133, v454 @ TEMP_v24 (System.Boolean)
+	228 Nop
+	229 Nop
+	230 Call GameObject.get_transform, v441 @ X0_v41 (UnityEngine.Transform), v440 @ X0_v39 (UnityEngine.GameObject)
+	231 CheckEqual v455 @ TEMP_v25 (System.Boolean), v441 @ X0_v41 (UnityEngine.Transform), 0
+	232 ConditionalJump @b133, v455 @ TEMP_v25 (System.Boolean)
+	233 Nop
+	234 Nop
+	235 Nop
+	236 CallVoid Transform.SetParent, v441 @ X0_v41 (UnityEngine.Transform), v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	237 Nop
+	238 Nop
+	239 Move v477 @ X8_v21, [44BB1F0]
+	240 Move v529 @ X1_v7 (System.String), [v477 @ X8_v21]
+	241 Call 222B40C, v442 @ X0_v43 (TMPro.TMP_Text), v440 @ X0_v39 (UnityEngine.GameObject), [v477 @ X8_v21]
+	242 CheckEqual v456 @ TEMP_v26 (System.Boolean), v442 @ X0_v43 (TMPro.TMP_Text), 0
+	243 ConditionalJump @b133, v456 @ TEMP_v26 (System.Boolean)
+	244 Nop
+	245 Nop
+	246 Nop
+	247 Nop
+	248 Nop
+	249 Nop
+	250 Nop
+	251 Multiply v630 @ V13_v7 (System.Single), v320 @ V8_v3 (System.Single), 1113587712
+	252 Call TMP_Text.set_text, v631 @ X0_v44, v442 @ X0_v43 (TMPro.TMP_Text), title @ X1 (System.String)
+	253 Nop
+	254 Nop
+	255 Nop
+	256 CallVoid TMP_Text.set_fontSize, v442 @ X0_v43 (TMPro.TMP_Text), v630 @ V13_v7 (System.Single)
+	257 Nop
+	258 Nop
+	259 Nop
+	260 CallVoid TMP_Text.set_enableAutoSizing, v442 @ X0_v43 (TMPro.TMP_Text), 0
+	261 Nop
+	262 Nop
+	263 Nop
+	264 CallVoid TMP_Text.set_textWrappingMode, v442 @ X0_v43 (TMPro.TMP_Text), 0
+	265 Nop
+	266 Nop
+	267 Nop
+	268 CallVoid TMP_Text.set_alignment, v442 @ X0_v43 (TMPro.TMP_Text), 514
+	269 Nop
+	270 Nop
+	271 Nop
+	272 Nop
+	273 Nop
+	274 Nop
+	275 Nop
+	276 Nop
+	277 Call TMP_Text.set_color, v650 @ X0_v50, v442 @ X0_v43 (TMPro.TMP_Text), methodof(TMPro.TMP_Text::set_color)
+	278 Nop
+	279 Nop
+	280 Nop
+	281 Nop
+	282 Nop
+	283 Call Graphic.set_raycastTarget, v656 @ X0_v52, v442 @ X0_v43 (TMPro.TMP_Text), 0
+	284 Nop
+	285 Nop
+	286 Nop
+	287 Nop
+	288 Nop
+	289 Nop
+	290 Jump @b63
+	291 Call "il2cpp_codegen_runtime_class_init", v663 @ X0_v135, v659 @ X0_v53, v653 @ X1_v33 (System.Boolean), v655 @ X2_v13, v369 @ X3_v8 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v645 @ V0_v13 (System.Double), v646 @ V1_v9 (System.Double), v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	292 Nop
+	293 Nop
+	294 Nop
+	295 CallVoid MotivationBanner.ApplyFont, v442 @ X0_v43 (TMPro.TMP_Text)
+	296 Nop
+	297 Nop
+	298 Nop
+	299 Nop
+	300 Nop
+	301 Nop
+	302 Call TMP_Text.GetPreferredValues, v672 @ X0_v57 (UnityEngine.Vector2), v442 @ X0_v43 (TMPro.TMP_Text), title @ X1 (System.String), 0f, 0f
+	303 Nop
+	304 Nop
+	305 Nop
+	306 Nop
+	307 Nop
+	308 Nop
+	309 Nop
+	310 Nop
+	311 Jump @b67
+	312 Call "il2cpp_codegen_runtime_class_init", v679 @ X0_v134, v675 @ X0_v58, v669 @ X1_v34 (System.String), v670 @ X2_v14, v369 @ X3_v8 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v666 @ V0_v14 (System.Single), v667 @ V1_v10 (System.Single), v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	313 Nop
+	314 Nop
+	315 Nop
+	316 Call Object.op_Inequality, v684 @ X0_v61 (System.Boolean), icon @ X2 (UnityEngine.Sprite), 0
+	317 Nop
+	318 Nop
+	319 Nop
+	320 CheckEqual v688 @ Z_v6 (System.Boolean), v684 @ X0_v61 (System.Boolean), 0
+	321 Nop
+	322 Nop
+	323 Nop
+	324 Nop
+	325 Nop
+	326 Multiply v694 @ V0_v16 (System.Single), v630 @ V13_v7 (System.Single), [C0D3CC]
+	327 Not v695 @ TEMPCOND_v5, v688 @ Z_v6 (System.Boolean)
+	328 Not v696 @ TEMPCSEL_v6, v695 @ TEMPCOND_v5
+	329 ConditionalJump @b70, v696 @ TEMPCSEL_v6
+	330 Nop
+	331 Jump @b141
+	332 Nop
+	333 Nop
+	334 Nop
+	335 Nop
+	336 Jump @b72
+	337 Call "il2cpp_codegen_runtime_class_init", v701 @ X0_v133, v691 @ X0_v62, v682 @ X1_v35 (UnityEngine.Object), v683 @ X2_v15, v369 @ X3_v8 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v694 @ V0_v16 (System.Single), v667 @ V1_v10 (System.Single), v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	338 Nop
+	339 Nop
+	340 Nop
+	341 Nop
+	342 Call Object.op_Inequality, v707 @ X0_v65 (System.Boolean), icon @ X2 (UnityEngine.Sprite), 0
+	343 Nop
+	344 Nop
+	345 Nop
+	346 Nop
+	347 CheckEqual v712 @ Z_v7 (System.Boolean), v707 @ X0_v65 (System.Boolean), 0
+	348 Nop
+	349 Nop
+	350 Nop
+	351 Nop
+	352 Not v717 @ TEMPCOND_v6, v712 @ Z_v7 (System.Boolean)
+	353 Not v718 @ TEMPCSEL_v7, v717 @ TEMPCOND_v6
+	354 ConditionalJump @b75, v718 @ TEMPCSEL_v7
+	355 Nop
+	356 Jump @b142
+	357 Nop
+	358 Nop
+	359 Nop
+	360 Nop
+	361 Subtract v411 @ TEMP1_v6 (System.Single), 0, v207 @ V15_v7 (System.Single)
+	362 CheckLess v407 @ N_v8 (System.Boolean), v411 @ TEMP1_v6 (System.Single), 0
+	363 CheckEqual v403 @ Z_v8 (System.Boolean), v411 @ TEMP1_v6 (System.Single), 0
+	364 Nop
+	365 Nop
+	366 And v397 @ TEMP4_v6, v207 @ V15_v7 (System.Single), v411 @ TEMP1_v6 (System.Single)
+	367 CheckLess v393 @ V_v8 (System.Boolean), v397 @ TEMP4_v6, 0
+	368 CheckEqual v723 @ TEMPCOND_v7 (System.Boolean), v407 @ N_v8 (System.Boolean), v393 @ V_v8 (System.Boolean)
+	369 Not v111 @ TEMPCOND2_v5, v403 @ Z_v8 (System.Boolean)
+	370 And v116 @ TEMPCOND_v8, v723 @ TEMPCOND_v7 (System.Boolean), v111 @ TEMPCOND2_v5
+	371 Not v391 @ TEMPCSEL_v8, v116 @ TEMPCOND_v8
+	372 ConditionalJump @b77, v391 @ TEMPCSEL_v8
+	373 Nop
+	374 Jump @b143
+	375 Nop
+	376 Nop
+	377 Add v189 @ V14_v8 (System.Single), v207 @ V15_v7 (System.Single), v721 @ V0_v18 (System.Double)
+	378 Nop
+	379 Nop
+	380 CallVoid RectTransform.set_sizeDelta, v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	381 Nop
+	382 Nop
+	383 Nop
+	384 Nop
+	385 Jump @b80
+	386 Call "il2cpp_codegen_runtime_class_init", v730 @ X0_v132, v726 @ X0_v67, v716 @ X1_v37 (UnityEngine.Vector2), v705 @ X2_v16, v369 @ X3_v8 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v432 @ V0_v19 (System.Single), v362 @ V1_v12 (System.Single), v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	387 Nop
+	388 Nop
+	389 Nop
+	390 Call Object.op_Inequality, v734 @ X0_v70 (System.Boolean), icon @ X2 (UnityEngine.Sprite), 0
+	391 Nop
+	392 Nop
+	393 Nop
+	394 Nop
+	395 CheckEqual v737 @ TEMP_v38 (System.Boolean), v734 @ X0_v70 (System.Boolean), 0
+	396 ConditionalJump @b144, v737 @ TEMP_v38 (System.Boolean)
+	397 Nop
+	398 Nop
+	399 Call "SzArrayNew", v740 @ X0_v91 (System.Type[]), [v96 @ X28_v4], 2, 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v189 @ V14_v8 (System.Single), v195 @ V13_v8 (System.Single), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	400 Nop
+	401 Nop
+	402 Nop
+	403 Nop
+	404 Nop
+	405 Nop
+	406 Jump @b85
+	407 Move v768 @ X0_v130, v478 @ X8_v51
+	408 Call "il2cpp_codegen_runtime_class_init", v769 @ X0_v131, v768 @ X0_v130, v739 @ X1_v45, v377 @ X2_v17 (UnityEngine.Sprite), v369 @ X3_v8 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v432 @ V0_v19 (System.Single), v362 @ V1_v12 (System.Single), v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	409 Nop
+	410 Nop
+	411 Call Type.GetTypeFromHandle, v443 @ X0_v94 (System.Type), [v97 @ X27_v4]
+	412 CheckEqual v457 @ TEMP_v49 (System.Boolean), v740 @ X0_v91 (System.Type[]), 0
+	413 ConditionalJump @b133, v457 @ TEMP_v49 (System.Boolean)
+	414 Nop
+	415 CheckEqual v782 @ TEMP_v50 (System.Boolean), v443 @ X0_v94 (System.Type), 0
+	416 ConditionalJump @b90, v782 @ TEMP_v50 (System.Boolean)
+	417 Move v580 @ X8_v72 (Il2CppClass<System.Type[]>), [v740 @ X0_v91 (System.Type[])]
+	418 Nop
+	419 Move v529 @ X1_v7 (System.String), [v580 @ X8_v72 (Il2CppClass<System.Type[]>)+40]
+	420 Call 1D77B98, v572 @ X0_v10 (System.IndexOutOfRangeException), v443 @ X0_v94 (System.Type), [v580 @ X8_v72 (Il2CppClass<System.Type[]>)+40], 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v189 @ V14_v8 (System.Single), v195 @ V13_v8 (System.Single), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	421 CheckEqual v577 @ TEMP_v65 (System.Boolean), v572 @ X0_v10 (System.IndexOutOfRangeException), 0
+	422 ConditionalJump @b135, v577 @ TEMP_v65 (System.Boolean)
+	423 Nop
+	424 CheckEqual v540 @ TEMP_v52 (System.Boolean), v740.Length, 0
+	425 ConditionalJump @b134, v540 @ TEMP_v52 (System.Boolean)
+	426 Nop
+	427 Nop
+	428 Add v803 @ X0_v97, v740 @ X0_v91 (System.Type[]), 32
+	429 Move [v803 @ X0_v97], v443 @ X0_v94 (System.Type)
+	430 Call 1D77A14, v804 @ X0_v98, v803 @ X0_v97, v443 @ X0_v94 (System.Type), 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v189 @ V14_v8 (System.Single), v195 @ V13_v8 (System.Single), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	431 Nop
+	432 Nop
+	433 Move v811 @ X8_v55, [44BA330]
+	434 Nop
+	435 Call Type.GetTypeFromHandle, v813 @ X0_v100 (System.Type), [v811 @ X8_v55]
+	436 Nop
+	437 CheckEqual v816 @ TEMP_v53 (System.Boolean), v813 @ X0_v100 (System.Type), 0
+	438 ConditionalJump @b96, v816 @ TEMP_v53 (System.Boolean)
+	439 Move v581 @ X8_v71 (Il2CppClass<System.Type[]>), [v740 @ X0_v91 (System.Type[])]
+	440 Nop
+	441 Move v529 @ X1_v7 (System.String), [v581 @ X8_v71 (Il2CppClass<System.Type[]>)+40]
+	442 Call 1D77B98, v572 @ X0_v10 (System.IndexOutOfRangeException), v813 @ X0_v100 (System.Type), [v581 @ X8_v71 (Il2CppClass<System.Type[]>)+40], 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v189 @ V14_v8 (System.Single), v195 @ V13_v8 (System.Single), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	443 CheckEqual v578 @ TEMP_v64 (System.Boolean), v572 @ X0_v10 (System.IndexOutOfRangeException), 0
+	444 ConditionalJump @b135, v578 @ TEMP_v64 (System.Boolean)
+	445 Nop
+	446 And v541 @ TEMP_v55, v740.Length, 4294967294
+	447 Nop
+	448 CheckEqual v404 @ Z_v11 (System.Boolean), v541 @ TEMP_v55, 0
+	449 Nop
+	450 Nop
+	451 ConditionalJump @b134, v404 @ Z_v11 (System.Boolean)
+	452 Nop
+	453 Nop
+	454 Add v831 @ X0_v103, v740 @ X0_v91 (System.Type[]), 40
+	455 Move [v831 @ X0_v103], v813 @ X0_v100 (System.Type)
+	456 Call 1D77A14, v832 @ X0_v104, v831 @ X0_v103, v813 @ X0_v100 (System.Type), 0, 0, iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v189 @ V14_v8 (System.Single), v195 @ V13_v8 (System.Single), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	457 Nop
+	458 Newobj v444 @ X0_v106 (UnityEngine.GameObject), [v135 @ X26_v7]
+	459 Nop
+	460 Nop
+	461 Nop
+	462 Move v479 @ X8_v59, [44BADD0]
+	463 Nop
+	464 Move v529 @ X1_v7 (System.String), [v479 @ X8_v59]
+	465 CallVoid GameObject..ctor, v444 @ X0_v106 (UnityEngine.GameObject), [v479 @ X8_v59], v740 @ X0_v91 (System.Type[])
+	466 CheckEqual v458 @ TEMP_v56 (System.Boolean), v444 @ X0_v106 (UnityEngine.GameObject), 0
+	467 ConditionalJump @b133, v458 @ TEMP_v56 (System.Boolean)
+	468 Nop
+	469 Nop
+	470 Call GameObject.get_transform, v445 @ X0_v108 (UnityEngine.Transform), v444 @ X0_v106 (UnityEngine.GameObject)
+	471 CheckEqual v459 @ TEMP_v57 (System.Boolean), v445 @ X0_v108 (UnityEngine.Transform), 0
+	472 ConditionalJump @b133, v459 @ TEMP_v57 (System.Boolean)
+	473 Nop
+	474 Nop
+	475 Nop
+	476 CallVoid Transform.SetParent, v445 @ X0_v108 (UnityEngine.Transform), v438 @ X0_v26 (UnityEngine.RectTransform), 0
+	477 Nop
+	478 Nop
+	479 Move v480 @ X8_v61, [44AC268]
+	480 Move v529 @ X1_v7 (System.String), [v480 @ X8_v61]
+	481 Call 222B49C, v446 @ X0_v110 (UnityEngine.RectTransform), v444 @ X0_v106 (UnityEngine.GameObject), [v480 @ X8_v61]
+	482 CheckEqual v460 @ TEMP_v58 (System.Boolean), v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	483 ConditionalJump @b133, v460 @ TEMP_v58 (System.Boolean)
+	484 Nop
+	485 Nop
+	486 Nop
+	487 Nop
+	488 CallVoid RectTransform.set_anchorMin, v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	489 Nop
+	490 Nop
+	491 Nop
+	492 Nop
+	493 CallVoid RectTransform.set_anchorMax, v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	494 Nop
+	495 Nop
+	496 Nop
+	497 Nop
+	498 CallVoid RectTransform.set_pivot, v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	499 Nop
+	500 Nop
+	501 Nop
+	502 Jump @b145
+	503 Nop
+	504 Move v857 @ X0_v124, [44AB288]
+	505 Call "il2cpp_codegen_initialize_runtime_metadata", v858 @ X0_v125, v857 @ X0_v124, v852 @ X1_v58 (UnityEngine.Vector2), v379 @ X2_v20 (System.Boolean), v371 @ X3_v11 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v849 @ V0_v31, v850 @ V1_v20, v359 @ V2_v5 (System.Single), v357 @ V3_v5 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	506 Move v861 @ X8_v70, 1
+	507 Move [4798E80], v861 @ X8_v70
+	508 Nop
+	509 Nop
+	510 Nop
+	511 Nop
+	512 Nop
+	513 Nop
+	514 CallVoid RectTransform.set_anchoredPosition, v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	515 Nop
+	516 Nop
+	517 Nop
+	518 Nop
+	519 CallVoid RectTransform.set_sizeDelta, v446 @ X0_v110 (UnityEngine.RectTransform), 0
+	520 Nop
+	521 Nop
+	522 Move v481 @ X8_v67, [44BA328]
+	523 Move v529 @ X1_v7 (System.String), [v481 @ X8_v67]
+	524 Call 222B49C, v447 @ X0_v117 (UnityEngine.UI.Image), v444 @ X0_v106 (UnityEngine.GameObject), [v481 @ X8_v67]
+	525 CheckEqual v461 @ TEMP_v61 (System.Boolean), v447 @ X0_v117 (UnityEngine.UI.Image), 0
+	526 ConditionalJump @b133, v461 @ TEMP_v61 (System.Boolean)
+	527 Nop
+	528 Nop
+	529 Nop
+	530 CallVoid Image.set_sprite, v447 @ X0_v117 (UnityEngine.UI.Image), icon @ X2 (UnityEngine.Sprite)
+	531 Nop
+	532 And v875 @ TEMP_v62, titleColor @ X3 (UnityEngine.Color), 1
+	533 CheckEqual v752 @ TEMP_v63 (System.Boolean), v875 @ TEMP_v62, 0
+	534 ConditionalJump @b146, v752 @ TEMP_v63 (System.Boolean)
+	535 Nop
+	536 Nop
+	537 Nop
+	538 Nop
+	539 Nop
+	540 Nop
+	541 Nop
+	542 Nop
+	543 Nop
+	544 Nop
+	545 Nop
+	546 Call Graphic.set_color, v884 @ X0_v119, v447 @ X0_v117 (UnityEngine.UI.Image), methodof(UnityEngine.UI.Graphic::set_color)
+	547 Nop
+	548 Nop
+	549 Nop
+	550 CallVoid Image.set_preserveAspect, v447 @ X0_v117 (UnityEngine.UI.Image), 1
+	551 Move v754 @ X8_v69 (Il2CppClass<UnityEngine.UI.Image>), [v447 @ X0_v117 (UnityEngine.UI.Image)]
+	552 Nop
+	553 Nop
+	554 Nop
+	555 Move v253 @ X2_v2 (UnityEngine.Sprite), [v754 @ X8_v69 (Il2CppClass<UnityEngine.UI.Image>)+2D0]
+	556 Call Graphic.set_raycastTarget, v750 @ X0_v122, v447 @ X0_v117 (UnityEngine.UI.Image), 0
+	557 Nop
+	558 Nop
+	559 Move v761 @ X8_v35, [44AC268]
+	560 Move v529 @ X1_v7 (System.String), [v761 @ X8_v35]
+	561 Call 222B49C, v762 @ X0_v73 (UnityEngine.RectTransform), v440 @ X0_v39 (UnityEngine.GameObject), [v761 @ X8_v35]
+	562 Nop
+	563 Nop
+	564 Nop
+	565 Nop
+	566 Jump @b147
+	567 Nop
+	568 Move v773 @ X0_v88, [44AB288]
+	569 Call "il2cpp_codegen_initialize_runtime_metadata", v774 @ X0_v89, v773 @ X0_v88, v429 @ X1_v40 (System.String), v133 @ X2_v18 (UnityEngine.Sprite), v131 @ X3_v9 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v434 @ V0_v20 (System.Single), v364 @ V1_v13 (System.Single), v127 @ V2_v6 (System.Single), v125 @ V3_v6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	570 Move v775 @ X8_v50, 1
+	571 Move [4798E80], v775 @ X8_v50
+	572 Nop
+	573 CheckEqual v462 @ TEMP_v42 (System.Boolean), v762 @ X0_v73 (UnityEngine.RectTransform), 0
+	574 ConditionalJump @b133, v462 @ TEMP_v42 (System.Boolean)
+	575 Nop
+	576 Nop
+	577 Nop
+	578 Nop
+	579 Nop
+	580 Nop
+	581 CallVoid RectTransform.set_anchorMin, v762 @ X0_v73 (UnityEngine.RectTransform), 0
+	582 Nop
+	583 Nop
+	584 Nop
+	585 Nop
+	586 Jump @b148
+	587 Nop
+	588 Move v790 @ X0_v85, [44AB288]
+	589 Call "il2cpp_codegen_initialize_runtime_metadata", v791 @ X0_v86, v790 @ X0_v85, v778 @ X1_v41 (UnityEngine.Vector2), v133 @ X2_v18 (UnityEngine.Sprite), v131 @ X3_v9 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v780 @ V0_v21, v781 @ V1_v14, v127 @ V2_v6 (System.Single), v125 @ V3_v6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	590 Move v794 @ X8_v49, 1
+	591 Move [479AC4C], v794 @ X8_v49
+	592 Nop
+	593 Nop
+	594 Nop
+	595 Nop
+	596 Nop
+	597 Nop
+	598 CallVoid RectTransform.set_anchorMax, v762 @ X0_v73 (UnityEngine.RectTransform), 0
+	599 Nop
+	600 Nop
+	601 Nop
+	602 Nop
+	603 Nop
+	604 CallVoid RectTransform.set_offsetMin, v762 @ X0_v73 (UnityEngine.RectTransform), 0
+	605 Nop
+	606 Nop
+	607 Nop
+	608 Jump @b149
+	609 Nop
+	610 Move v818 @ X0_v82, [44AB288]
+	611 Call "il2cpp_codegen_initialize_runtime_metadata", v819 @ X0_v83, v818 @ X0_v82, v808 @ X1_v43 (UnityEngine.Vector2), v133 @ X2_v18 (UnityEngine.Sprite), v131 @ X3_v9 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, v806 @ V0_v23, v805 @ V1_v16, v127 @ V2_v6 (System.Single), v125 @ V3_v6 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	612 Move v822 @ X8_v48, 1
+	613 Move [4798E80], v822 @ X8_v48
+	614 Nop
+	615 Nop
+	616 Nop
+	617 Nop
+	618 Nop
+	619 Nop
+	620 CallVoid RectTransform.set_offsetMax, v762 @ X0_v73 (UnityEngine.RectTransform), 0
+	621 Nop
+	622 Nop
+	623 Nop
+	624 Nop
+	625 Nop
+	626 Nop
+	627 Nop
+	628 Nop
+	629 Nop
+	630 CheckGreaterOrEqual v146 @ TEMPCSEL_v9 (System.Boolean), gapBelow @ V1 (System.Single), 0
+	631 ConditionalJump @b132, v146 @ TEMPCSEL_v9 (System.Boolean)
+	632 Nop
+	633 Jump @b150
+	634 Nop
+	635 Nop
+	636 Add returnVal1 @ V0_v2 (System.Single), v836 @ V0_v25 (System.Single), v195 @ V13_v8 (System.Single)
+	637 Nop
+	638 Nop
+	639 Nop
+	640 Nop
+	641 Nop
+	642 Nop
+	643 Nop
+	644 Nop
+	645 Nop
+	646 Nop
+	647 Nop
+	648 Nop
+	649 Nop
+	650 Nop
+	651 Nop
+	652 Nop
+	653 Nop
+	654 Nop
+	655 Nop
+	656 Nop
+	657 Nop
+	658 Return returnVal1 @ V0_v2 (System.Single)
+	659 Newobj v490 @ X0_v16 (System.NullReferenceException), typeof(System.NullReferenceException)
+	660 Newobj v572 @ X0_v10 (System.IndexOutOfRangeException), typeof(System.IndexOutOfRangeException)
+	661 Call 1D77F04, v582 @ X0_v11, v572 @ X0_v10 (System.IndexOutOfRangeException), v568 @ X1_v5 (System.String), v253 @ X2_v2 (UnityEngine.Sprite), v251 @ X3_v2 (UnityEngine.Color), iconRaw @ X4 (System.Boolean), methodInfo @ X5 (Il2CppMethodInfo), v72 @ X6, v73 @ X7, returnVal2 @ V0_v4 (System.Single), v249 @ V1_v2 (System.Single), v247 @ V2_v2 (System.Single), v245 @ V3_v2 (System.Double), v46 @ V4 (System.Double), v43 @ V5 (System.Single), v41 @ V6 (System.Double), v74 @ V7
+	662 Nop
+	663 Throw typeof(System.ArgumentNullException)
+	664 Return returnVal2 @ V0_v4 (System.Single)
+
+Method: UnityEngine.Sprite EdgeFadeSprite(System.Single edge, System.Single edgeAlpha)
+
+Disassembly:
+	0x0341DF18 STP D11, D10, [X31 - 0x40]!
+	0x0341DF1C STP D9, D8, [X31 + 0x10]
+	0x0341DF20 STP X30, X21, [X31 + 0x20]
+	0x0341DF24 STP X20, X19, [X31 + 0x30]
+	0x0341DF28 FMOV S8, S1
+	0x0341DF2C FMOV S9, S0
+	0x0341DF30 ADRP X19, 0x137E000
+	0x0341DF34 LDRB W8, [X19 + 0x979]
+	0x0341DF38 TBNZ W8, 0x0, 0x341DF74
+	0x0341DF3C ADRP X0, 0x109E000
+	0x0341DF40 LDR X0, [X0 + 0x228]
+	0x0341DF44 BL 0x1D77A60
+	0x0341DF48 ADRP X0, 0x10A5000
+	0x0341DF4C LDR X0, [X0 + 0x410]
+	0x0341DF50 BL 0x1D77A60
+	0x0341DF54 ADRP X0, 0x108B000
+	0x0341DF58 LDR X0, [X0 + 0xAC0]
+	0x0341DF5C BL 0x1D77A60
+	0x0341DF60 ADRP X0, 0x108E000
+	0x0341DF64 LDR X0, [X0 + 0xD50]
+	0x0341DF68 BL 0x1D77A60
+	0x0341DF6C MOV W8, 0x1
+	0x0341DF70 STRB W8, [X19 + 0x979]
+	0x0341DF74 MOVI D10, 0x0
+	0x0341DF78 MOVI D11, 0x0
+	0x0341DF7C FCMP S9, 0x0
+	0x0341DF80 B.MI 0x341DF98
+	0x0341DF84 FMOV S0, 0.5
+	0x0341DF88 FMOV S11, S9
+	0x0341DF8C FCMP S9, S0
+	0x0341DF90 B.LE 0x341DF98
+	0x0341DF94 FMOV S11, 0.5
+	0x0341DF98 FCMP S8, 0x0
+	0x0341DF9C ADRP X20, 0x10A5000
+	0x0341DFA0 LDR X20, [X20 + 0x410]
+	0x0341DFA4 B.MI 0x341DFBC
+	0x0341DFA8 FMOV S0, 1
+	0x0341DFAC FMOV S10, S8
+	0x0341DFB0 FCMP S8, S0
+	0x0341DFB4 B.LE 0x341DFBC
+	0x0341DFB8 FMOV S10, 1
+	0x0341DFBC LDR X0, [X20]
+	0x0341DFC0 ADRP X21, 0x108B000
+	0x0341DFC4 LDR W8, [X0 + 0xE4]
+	0x0341DFC8 LDR X21, [X21 + 0xAC0]
+	0x0341DFCC CBNZ W8, 0x341DFD8
+	0x0341DFD0 BL 0x1D77B94
+	0x0341DFD4 LDR X0, [X20]
+	0x0341DFD8 LDR X8, [X21]
+	0x0341DFDC LDR X9, [X0 + 0xA0]
+	0x0341DFE0 LDR W10, [X8 + 0xE4]
+	0x0341DFE4 LDR X19, [X9 + 0x30]
+	0x0341DFE8 CBNZ W10, 0x341DFF4
+	0x0341DFEC MOV X0, X8
+	0x0341DFF0 BL 0x1D77B94
+	0x0341DFF4 MOV X0, X19
+	0x0341DFF8 MOV X1, X31
+	0x0341DFFC MOV X2, X31
+	0x0341E000 BL 0x3F6211C
+	0x0341E004 TBZ W0, 0x0, 0x341E170
+	0x0341E008 LDR X0, [X20]
+	0x0341E00C LDR W8, [X0 + 0xE4]
+	0x0341E010 CBNZ W8, 0x341E01C
+	0x0341E014 BL 0x1D77B94
+	0x0341E018 LDR X0, [X20]
+	0x0341E01C LDR X8, [X0 + 0xA0]
+	0x0341E020 LDR X0, [X8 + 0x30]
+	0x0341E024 CBZ X0, 0x341E388
+	0x0341E028 MOV X1, X31
+	0x0341E02C BL 0x3F2B490
+	0x0341E030 LDR X8, [X21]
+	0x0341E034 MOV X19, X0
+	0x0341E038 LDR W9, [X8 + 0xE4]
+	0x0341E03C CBNZ W9, 0x341E048
+	0x0341E040 MOV X0, X8
+	0x0341E044 BL 0x1D77B94
+	0x0341E048 MOV X0, X19
+	0x0341E04C MOV X1, X31
+	0x0341E050 MOV X2, X31
+	0x0341E054 BL 0x3F6211C
+	0x0341E058 TBZ W0, 0x0, 0x341E170
+	0x0341E05C LDR X0, [X20]
+	0x0341E060 LDR W8, [X0 + 0xE4]
+	0x0341E064 CBNZ W8, 0x341E070
+	0x0341E068 BL 0x1D77B94
+	0x0341E06C LDR X0, [X20]
+	0x0341E070 LDR X8, [X0 + 0xA0]
+	0x0341E074 ADRP X19, 0x1377000
+	0x0341E078 LDRB W9, [X19 + 0x871]
+	0x0341E07C LDR S9, [X8 + 0x38]
+	0x0341E080 CBNZ W9, 0x341E098
+	0x0341E084 ADRP X0, 0x108C000
+	0x0341E088 LDR X0, [X0 + 0xE50]
+	0x0341E08C BL 0x1D77A60
+	0x0341E090 MOV W8, 0x1
+	0x0341E094 STRB W8, [X19 + 0x871]
+	0x0341E098 FABS S0, S9
+	0x0341E09C FABS S1, S11
+	0x0341E0A0 ADRP X21, 0x108C000
+	0x0341E0A4 LDR X21, [X21 + 0xE50]
+	0x0341E0A8 ADRP X8, 0xFFFFFFFFFD7EF000
+	0x0341E0AC FABD S2, S11, S11
+	0x0341E0B0 LDR S8, [X8 + 0x2A8]
+	0x0341E0B4 LDR X9, [X21]
+	0x0341E0B8 FCMP S0, S1
+	0x0341E0BC LDR X8, [X9 + 0xA0]
+	0x0341E0C0 FCSEL S0, S0, S1, GT
+	0x0341E0C4 LDR S1, [X8 + 0x4]
+	0x0341E0C8 FMUL S0, S0, S8
+	0x0341E0CC FCMP S0, S1
+	0x0341E0D0 FCSEL S0, S0, S1, GT
+	0x0341E0D4 FCMP S2, S0
+	0x0341E0D8 B.PL 0x341E170
+	0x0341E0DC LDR X0, [X20]
+	0x0341E0E0 LDR W8, [X0 + 0xE4]
+	0x0341E0E4 CBZ W8, 0x341E0F4
+	0x0341E0E8 LDR X8, [X0 + 0xA0]
+	0x0341E0EC LDR S9, [X8 + 0x3C]
+	0x0341E0F0 B 0x341E120
+	0x0341E0F4 BL 0x1D77B94
+	0x0341E0F8 LDR X8, [X20]
+	0x0341E0FC LDRB W9, [X19 + 0x871]
+	0x0341E100 LDR X8, [X8 + 0xA0]
+	0x0341E104 LDR S9, [X8 + 0x3C]
+	0x0341E108 CBNZ W9, 0x341E120
+	0x0341E10C ADRP X0, 0x108C000
+	0x0341E110 LDR X0, [X0 + 0xE50]
+	0x0341E114 BL 0x1D77A60
+	0x0341E118 MOV W8, 0x1
+	0x0341E11C STRB W8, [X19 + 0x871]
+	0x0341E120 FABS S0, S9
+	0x0341E124 FABS S1, S10
+	0x0341E128 LDR X8, [X21]
+	0x0341E12C FABD S2, S10, S10
+	0x0341E130 LDR X8, [X8 + 0xA0]
+	0x0341E134 FCMP S0, S1
+	0x0341E138 FCSEL S0, S0, S1, GT
+	0x0341E13C LDR S1, [X8 + 0x4]
+	0x0341E140 FMUL S0, S0, S8
+	0x0341E144 FCMP S0, S1
+	0x0341E148 FCSEL S0, S0, S1, GT
+	0x0341E14C FCMP S2, S0
+	0x0341E150 B.PL 0x341E170
+	0x0341E154 LDR X0, [X20]
+	0x0341E158 LDR W8, [X0 + 0xE4]
+	0x0341E15C CBNZ W8, 0x341E168
+	0x0341E160 BL 0x1D77B94
+	0x0341E164 LDR X0, [X20]
+	0x0341E168 LDR X8, [X0 + 0xA0]
+	0x0341E16C B 0x341E370
+	0x0341E170 ADRP X8, 0x108D000
+	0x0341E174 LDR X8, [X8 + 0xD50]
+	0x0341E178 LDR X0, [X8]
+	0x0341E17C BL 0x1D77EC4
+	0x0341E180 MOV W1, 0x100
+	0x0341E184 MOV W2, 0x1
+	0x0341E188 MOV W3, 0x4
+	0x0341E18C MOV W4, W31
+	0x0341E190 MOV X5, X31
+	0x0341E194 MOV X19, X0
+	0x0341E198 BL 0x3F47110
+	0x0341E19C CBZ X19, 0x341E388
+	0x0341E1A0 ADRP X21, 0x109D000
+	0x0341E1A4 MOV X0, X19
+	0x0341E1A8 MOV W1, 0x1
+	0x0341E1AC LDR X21, [X21 + 0x228]
+	0x0341E1B0 MOV X2, X31
+	0x0341E1B4 BL 0x3F44FA8
+	0x0341E1B8 MOV X0, X19
+	0x0341E1BC MOV W1, 0x1
+	0x0341E1C0 MOV X2, X31
+	0x0341E1C4 BL 0x3F45170
+	0x0341E1C8 MOV X0, X19
+	0x0341E1CC MOV W1, 0x34
+	0x0341E1D0 MOV X2, X31
+	0x0341E1D4 BL 0x3F68224
+	0x0341E1D8 LDR X0, [X21]
+	0x0341E1DC MOV W1, 0x100
+	0x0341E1E0 BL 0x1D77B04
+	0x0341E1E4 FMOV S0, 1
+	0x0341E1E8 FMOV V2.2S, 0x0
+	0x0341E1EC MOV X1, X0
+	0x0341E1F0 FMOV S3, 0.5
+	0x0341E1F4 FMOV S4, 3
+	0x0341E1F8 MOV X8, X31
+	0x0341E1FC ADD X9, X0, 0x2C
+	0x0341E200 MOV W10, 0x3B800000
+	0x0341E204 MOV W11, 0x3F800000
+	0x0341E208 FSUB S1, S0, S10
+	0x0341E20C FCMP S11, 0x0
+	0x0341E210 FMOV S5, 1
+	0x0341E214 B.LS 0x341E294
+	0x0341E218 SCVTF S5, W8
+	0x0341E21C FMOV S6, W10
+	0x0341E220 FADD S5, S5, S3
+	0x0341E224 FMUL S5, S5, S6
+	0x0341E228 FSUB S6, S0, S5
+	0x0341E22C FCMP S5, S6
+	0x0341E230 FCSEL S5, S5, S6, MI
+	0x0341E234 MOVI D6, 0x0
+	0x0341E238 FDIV S7, S5, S11
+	0x0341E23C MOVI D5, 0x0
+	0x0341E240 FCMP S7, 0x0
+	0x0341E244 B.MI 0x341E258
+	0x0341E248 FMOV S6, 1
+	0x0341E24C FCMP S7, S6
+	0x0341E250 B.GT 0x341E258
+	0x0341E254 FMOV S6, S7
+	0x0341E258 FADD S7, S6, S6
+	0x0341E25C FMUL S16, S6, S4
+	0x0341E260 FMUL S7, S6, S7
+	0x0341E264 FMUL S7, S6, S7
+	0x0341E268 FMUL S6, S6, S16
+	0x0341E26C FSUB S6, S6, S7
+	0x0341E270 FSUB S7, S0, S6
+	0x0341E274 FMUL S7, S7, S5
+	0x0341E278 FADD S6, S6, S7
+	0x0341E27C FCMP S6, 0x0
+	0x0341E280 B.MI 0x341E294
+	0x0341E284 FMOV S5, S6
+	0x0341E288 FCMP S6, S0
+	0x0341E28C B.LE 0x341E294
+	0x0341E290 FMOV S5, 1
+	0x0341E294 CBZ X1, 0x341E388
+	0x0341E298 LDR W12, [X1 + 0x18]
+	0x0341E29C CMP X8, X12
+	0x0341E2A0 B.CS 0x341E38C
+	0x0341E2A4 FMUL S5, S1, S5
+	0x0341E2A8 ADD X8, X8, 0x1
+	0x0341E2AC STUR D2, [X9 - 0xC]
+	0x0341E2B0 CMP X8, 0x100
+	0x0341E2B4 STUR W11, [X9 - 0x4]
+	0x0341E2B8 FADD S5, S10, S5
+	0x0341E2BC STR S5, [X9], #0x10
+	0x0341E2C0 B.NE 0x341E20C
+	0x0341E2C4 MOV X0, X19
+	0x0341E2C8 MOV X2, X31
+	0x0341E2CC BL 0x3F47448
+	0x0341E2D0 MOV X0, X19
+	0x0341E2D4 MOV W1, W31
+	0x0341E2D8 MOV W2, 0x1
+	0x0341E2DC MOV X3, X31
+	0x0341E2E0 BL 0x3F4750C
+	0x0341E2E4 MOV W8, 0x43800000
+	0x0341E2E8 MOV W9, 0x42C80000
+	0x0341E2EC MOVI D0, 0x0
+	0x0341E2F0 MOVI D1, 0x0
+	0x0341E2F4 FMOV S2, W8
+	0x0341E2F8 FMOV S6, W9
+	0x0341E2FC FMOV S3, 1
+	0x0341E300 FMOV S4, 0.5
+	0x0341E304 MOV X0, X19
+	0x0341E308 FMOV S5, 0.5
+	0x0341E30C MOV W1, W31
+	0x0341E310 MOV W2, W31
+	0x0341E314 MOV X3, X31
+	0x0341E318 BL 0x3F2C0FC
+	0x0341E31C LDR X8, [X20]
+	0x0341E320 MOV X19, X0
+	0x0341E324 LDR W9, [X8 + 0xE4]
+	0x0341E328 CBNZ W9, 0x341E338
+	0x0341E32C MOV X0, X8
+	0x0341E330 BL 0x1D77B94
+	0x0341E334 LDR X8, [X20]
+	0x0341E338 LDR X0, [X8 + 0xA0]
+	0x0341E33C MOV X1, X19
+	0x0341E340 STR X19, [X0 + 0x30]!
+	0x0341E344 BL 0x1D77A14
+	0x0341E348 LDR X8, [X20]
+	0x0341E34C LDR X8, [X8 + 0xA0]
+	0x0341E350 LDR X0, [X8 + 0x30]
+	0x0341E354 CBZ X0, 0x341E388
+	0x0341E358 MOV W1, 0x34
+	0x0341E35C MOV X2, X31
+	0x0341E360 BL 0x3F68224
+	0x0341E364 LDR X8, [X20]
+	0x0341E368 LDR X8, [X8 + 0xA0]
+	0x0341E36C STP S11, S10, [X8 + 0x38]
+	0x0341E370 LDP X20, X19, [X31 + 0x30]
+	0x0341E374 LDR X0, [X8 + 0x30]
+	0x0341E378 LDP X30, X21, [X31 + 0x20]
+	0x0341E37C LDP D9, D8, [X31 + 0x10]
+	0x0341E380 LDP D11, D10, [X31], #0x40
+	0x0341E384 RET
+	0x0341E388 BL 0x1D77A54
+	0x0341E38C BL 0x1D77ED4
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Nop
+	16 Jump @b76
+	17 Nop
+	18 Move v26 @ X0_v67, [44BB228]
+	19 Call "il2cpp_codegen_initialize_runtime_metadata", v27 @ X0_v68, v26 @ X0_v67, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, edge @ V0 (System.Single), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	20 Nop
+	21 Move v58 @ X0_v70, [44C2410]
+	22 Call "il2cpp_codegen_initialize_runtime_metadata", v59 @ X0_v71, v58 @ X0_v70, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, edge @ V0 (System.Single), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	23 Nop
+	24 Move v99 @ X0_v73, [44A8AC0]
+	25 Call "il2cpp_codegen_initialize_runtime_metadata", v100 @ X0_v74, v99 @ X0_v73, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, edge @ V0 (System.Single), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	26 Nop
+	27 Move v134 @ X0_v76, [44ABD50]
+	28 Call "il2cpp_codegen_initialize_runtime_metadata", v42 @ X0_v77, v134 @ X0_v76, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, edge @ V0 (System.Single), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	29 Move v45 @ X8_v42, 1
+	30 Move [479B979], v45 @ X8_v42
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Nop
+	36 CheckLess v51 @ N_v1 (System.Boolean), edge @ V0 (System.Single), 0
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 ConditionalJump @b77, v51 @ N_v1 (System.Boolean)
+	43 Nop
+	44 Nop
+	45 Nop
+	46 Nop
+	47 Nop
+	48 Nop
+	49 Nop
+	50 Nop
+	51 Nop
+	52 Nop
+	53 Nop
+	54 Nop
+	55 Nop
+	56 CheckLessOrEqual v73 @ TEMPCOND_v34 (System.Boolean), edge @ V0 (System.Single), 0.5d
+	57 ConditionalJump @b77, v73 @ TEMPCOND_v34 (System.Boolean)
+	58 Nop
+	59 Nop
+	60 Nop
+	61 Nop
+	62 CheckLess v90 @ N_v3 (System.Boolean), v165 @ V1_v4 (System.Single), 0
+	63 Nop
+	64 Nop
+	65 Nop
+	66 Nop
+	67 Nop
+	68 Nop
+	69 Move v97 @ X20_v2, [44C2410]
+	70 ConditionalJump @b78, v90 @ N_v3 (System.Boolean)
+	71 Nop
+	72 Nop
+	73 Nop
+	74 Nop
+	75 Nop
+	76 Nop
+	77 Nop
+	78 Nop
+	79 Nop
+	80 Nop
+	81 Nop
+	82 Nop
+	83 Nop
+	84 CheckLessOrEqual v114 @ TEMPCOND_v31 (System.Boolean), v165 @ V1_v4 (System.Single), 1d
+	85 ConditionalJump @b78, v114 @ TEMPCOND_v31 (System.Boolean)
+	86 Nop
+	87 Move v136 @ X0_v3, [v97 @ X20_v2]
+	88 Nop
+	89 Nop
+	90 Nop
+	91 Nop
+	92 Nop
+	93 Jump @b92
+	94 Call "il2cpp_codegen_runtime_class_init", v135 @ X0_v64, v127 @ X0_v2, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	95 Move v137 @ X0_v65, [v97 @ X20_v2]
+	96 Nop
+	97 Move v139 @ X9_v1, [v136 @ X0_v3+A0]
+	98 Nop
+	99 Nop
+	100 Nop
+	101 Nop
+	102 Jump @b15
+	103 Move v144 @ X0_v62, v138 @ X8_v4
+	104 Call "il2cpp_codegen_runtime_class_init", v145 @ X0_v63, v144 @ X0_v62, v28 @ X1, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	105 Nop
+	106 Nop
+	107 Nop
+	108 Call Object.op_Inequality, v150 @ X0_v6 (System.Boolean), [v139 @ X9_v1+30], 0
+	109 Nop
+	110 CheckEqual v152 @ TEMP_v9 (System.Boolean), v150 @ X0_v6 (System.Boolean), 0
+	111 ConditionalJump @b47, v152 @ TEMP_v9 (System.Boolean)
+	112 Move v233 @ X0_v33, [v97 @ X20_v2]
+	113 Nop
+	114 Nop
+	115 Nop
+	116 Jump @b79
+	117 Call "il2cpp_codegen_runtime_class_init", v232 @ X0_v59, v153 @ X0_v32, v148 @ X1_v1 (UnityEngine.Object), v149 @ X2_v1, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	118 Move v234 @ X0_v60, [v97 @ X20_v2]
+	119 Move v235 @ X8_v23, [v233 @ X0_v33+A0]
+	120 Nop
+	121 CheckEqual v237 @ TEMP_v22 (System.Boolean), [v235 @ X8_v23+30], 0
+	122 ConditionalJump @b73, v237 @ TEMP_v22 (System.Boolean)
+	123 Nop
+	124 Call Sprite.get_texture, v245 @ X0_v35 (UnityEngine.Texture2D), [v235 @ X8_v23+30]
+	125 Nop
+	126 Nop
+	127 Nop
+	128 Nop
+	129 Nop
+	130 Jump @b23
+	131 Move v393 @ X0_v57, v217 @ X8_v24
+	132 Call "il2cpp_codegen_runtime_class_init", v394 @ X0_v58, v393 @ X0_v57, v244 @ X1_v16, v149 @ X2_v1, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	133 Nop
+	134 Nop
+	135 Nop
+	136 Call Object.op_Inequality, v209 @ X0_v38 (System.Boolean), v245 @ X0_v35 (UnityEngine.Texture2D), 0
+	137 Nop
+	138 CheckEqual v213 @ TEMP_v26 (System.Boolean), v209 @ X0_v38 (System.Boolean), 0
+	139 ConditionalJump @b47, v213 @ TEMP_v26 (System.Boolean)
+	140 Nop
+	141 Nop
+	142 Nop
+	143 Nop
+	144 Jump @b80
+	145 Call "il2cpp_codegen_runtime_class_init", v489 @ X0_v55, v483 @ X0_v39, v177 @ X1_v17 (UnityEngine.Object), v175 @ X2_v14, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	146 Nop
+	147 Nop
+	148 Nop
+	149 Nop
+	150 Nop
+	151 Nop
+	152 Nop
+	153 Jump @b93
+	154 Nop
+	155 Move v498 @ X0_v53, [44AAE50]
+	156 Call "il2cpp_codegen_initialize_runtime_metadata", v499 @ X0_v54, v498 @ X0_v53, v177 @ X1_v17 (UnityEngine.Object), v175 @ X2_v14, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v126 @ V0_v2 (System.Double), edgeAlpha @ V1 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	157 Move v501 @ X8_v40, 1
+	158 Move [4795871], v501 @ X8_v40
+	159 NotImplemented "Instruction FABS not yet implemented."
+	160 NotImplemented "Instruction FABS not yet implemented."
+	161 Nop
+	162 Move v169 @ X21_v11, [44AAE50]
+	163 Nop
+	164 NotImplemented "Instruction FABD not yet implemented."
+	165 Nop
+	166 Move v172 @ X9_v13, [v169 @ X21_v11]
+	167 Nop
+	168 Nop
+	169 Subtract v506 @ TEMP1_v20 (System.Double), v205 @ V0_v6 (System.Double), v165 @ V1_v4 (System.Single)
+	170 CheckLess v507 @ N_v20 (System.Boolean), v506 @ TEMP1_v20 (System.Double), 0
+	171 CheckEqual v508 @ Z_v20 (System.Boolean), v506 @ TEMP1_v20 (System.Double), 0
+	172 Xor v509 @ TEMP2_v20, v205 @ V0_v6 (System.Double), v165 @ V1_v4 (System.Single)
+	173 Xor v510 @ TEMP3_v20, v205 @ V0_v6 (System.Double), v506 @ TEMP1_v20 (System.Double)
+	174 And v511 @ TEMP4_v20, v509 @ TEMP2_v20, v510 @ TEMP3_v20
+	175 CheckLess v512 @ V_v20 (System.Boolean), v511 @ TEMP4_v20, 0
+	176 Move v218 @ X8_v29, [v172 @ X9_v13+A0]
+	177 CheckEqual v513 @ TEMPCOND_v18 (System.Boolean), v507 @ N_v20 (System.Boolean), v512 @ V_v20 (System.Boolean)
+	178 Not v514 @ TEMPCOND2_v9, v508 @ Z_v20 (System.Boolean)
+	179 And v515 @ TEMPCOND_v19, v513 @ TEMPCOND_v18 (System.Boolean), v514 @ TEMPCOND2_v9
+	180 Not v516 @ TEMPCSEL_v8, v515 @ TEMPCOND_v19
+	181 ConditionalJump @b31, v516 @ TEMPCSEL_v8
+	182 Nop
+	183 Jump @b81
+	184 Nop
+	185 Nop
+	186 Move v165 @ V1_v4 (System.Single), [v218 @ X8_v29+4]
+	187 Multiply v591 @ V0_v10 (System.Single), v590 @ V0_v9 (System.Single), [C0D2A8]
+	188 Nop
+	189 Nop
+	190 Subtract v594 @ TEMP1_v21 (System.Single), v591 @ V0_v10 (System.Single), [v218 @ X8_v29+4]
+	191 CheckLess v595 @ N_v21 (System.Boolean), v594 @ TEMP1_v21 (System.Single), 0
+	192 CheckEqual v596 @ Z_v21 (System.Boolean), v594 @ TEMP1_v21 (System.Single), 0
+	193 Xor v597 @ TEMP2_v21, v591 @ V0_v10 (System.Single), [v218 @ X8_v29+4]
+	194 Xor v598 @ TEMP3_v21, v591 @ V0_v10 (System.Single), v594 @ TEMP1_v21 (System.Single)
+	195 And v599 @ TEMP4_v21, v597 @ TEMP2_v21, v598 @ TEMP3_v21
+	196 CheckLess v600 @ V_v21 (System.Boolean), v599 @ TEMP4_v21, 0
+	197 CheckEqual v601 @ TEMPCOND_v20 (System.Boolean), v595 @ N_v21 (System.Boolean), v600 @ V_v21 (System.Boolean)
+	198 Not v567 @ TEMPCOND2_v7, v596 @ Z_v21 (System.Boolean)
+	199 And v602 @ TEMPCOND_v21, v601 @ TEMPCOND_v20 (System.Boolean), v567 @ TEMPCOND2_v7
+	200 Not v258 @ TEMPCSEL_v6 (System.Boolean), v602 @ TEMPCOND_v21
+	201 ConditionalJump @b33, v258 @ TEMPCSEL_v6 (System.Boolean)
+	202 Nop
+	203 Jump @b82
+	204 Nop
+	205 Nop
+	206 Nop
+	207 Nop
+	208 Nop
+	209 Nop
+	210 Nop
+	211 Nop
+	212 Nop
+	213 Nop
+	214 Nop
+	215 CheckGreaterOrEqual v179 @ TEMPCOND_v22 (System.Boolean), v35 @ V2, v205 @ V0_v6 (System.Double)
+	216 ConditionalJump @b47, v179 @ TEMPCOND_v22 (System.Boolean)
+	217 Move v655 @ X0_v42, [v97 @ X20_v2]
+	218 Nop
+	219 CheckEqual v657 @ TEMP_v31 (System.Boolean), [v655 @ X0_v42+E4], 0
+	220 ConditionalJump @b36, v657 @ TEMP_v31 (System.Boolean)
+	221 Nop
+	222 Nop
+	223 Jump @b83
+	224 Nop
+	225 Nop
+	226 Nop
+	227 Nop
+	228 Nop
+	229 Nop
+	230 Nop
+	231 Jump @b83
+	232 Nop
+	233 Move v702 @ X0_v50, [44AAE50]
+	234 Call "il2cpp_codegen_initialize_runtime_metadata", v674 @ X0_v51, v702 @ X0_v50, v177 @ X1_v17 (UnityEngine.Object), v175 @ X2_v14, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v206 @ V0_v11 (System.Double), v166 @ V1_v7 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	235 Move v677 @ X8_v38, 1
+	236 Move [4795871], v677 @ X8_v38
+	237 NotImplemented "Instruction FABS not yet implemented."
+	238 NotImplemented "Instruction FABS not yet implemented."
+	239 Move v680 @ X8_v32, [v169 @ X21_v11]
+	240 NotImplemented "Instruction FABD not yet implemented."
+	241 Move v219 @ X8_v33, [v680 @ X8_v32+A0]
+	242 Nop
+	243 Nop
+	244 Subtract v683 @ TEMP1_v23 (System.Double), v205 @ V0_v6 (System.Double), v165 @ V1_v4 (System.Single)
+	245 CheckLess v684 @ N_v23 (System.Boolean), v683 @ TEMP1_v23 (System.Double), 0
+	246 CheckEqual v685 @ Z_v23 (System.Boolean), v683 @ TEMP1_v23 (System.Double), 0
+	247 Xor v686 @ TEMP2_v23, v205 @ V0_v6 (System.Double), v165 @ V1_v4 (System.Single)
+	248 Xor v687 @ TEMP3_v23, v205 @ V0_v6 (System.Double), v683 @ TEMP1_v23 (System.Double)
+	249 And v688 @ TEMP4_v23, v686 @ TEMP2_v23, v687 @ TEMP3_v23
+	250 CheckLess v689 @ V_v23 (System.Boolean), v688 @ TEMP4_v23, 0
+	251 CheckEqual v690 @ TEMPCOND_v23 (System.Boolean), v684 @ N_v23 (System.Boolean), v689 @ V_v23 (System.Boolean)
+	252 Not v691 @ TEMPCOND2_v11, v685 @ Z_v23 (System.Boolean)
+	253 And v692 @ TEMPCOND_v24, v690 @ TEMPCOND_v23 (System.Boolean), v691 @ TEMPCOND2_v11
+	254 Not v693 @ TEMPCSEL_v10, v692 @ TEMPCOND_v24
+	255 ConditionalJump @b41, v693 @ TEMPCSEL_v10
+	256 Nop
+	257 Jump @b84
+	258 Nop
+	259 Nop
+	260 Move v165 @ V1_v4 (System.Single), [v219 @ X8_v33+4]
+	261 Multiply v712 @ V0_v13 (System.Single), v711 @ V0_v12 (System.Single), [C0D2A8]
+	262 Nop
+	263 Nop
+	264 Subtract v715 @ TEMP1_v24 (System.Single), v712 @ V0_v13 (System.Single), [v219 @ X8_v33+4]
+	265 CheckLess v716 @ N_v24 (System.Boolean), v715 @ TEMP1_v24 (System.Single), 0
+	266 CheckEqual v717 @ Z_v24 (System.Boolean), v715 @ TEMP1_v24 (System.Single), 0
+	267 Xor v718 @ TEMP2_v24, v712 @ V0_v13 (System.Single), [v219 @ X8_v33+4]
+	268 Xor v719 @ TEMP3_v24, v712 @ V0_v13 (System.Single), v715 @ TEMP1_v24 (System.Single)
+	269 And v720 @ TEMP4_v24, v718 @ TEMP2_v24, v719 @ TEMP3_v24
+	270 CheckLess v721 @ V_v24 (System.Boolean), v720 @ TEMP4_v24, 0
+	271 CheckEqual v722 @ TEMPCOND_v25 (System.Boolean), v716 @ N_v24 (System.Boolean), v721 @ V_v24 (System.Boolean)
+	272 Not v567 @ TEMPCOND2_v7, v717 @ Z_v24 (System.Boolean)
+	273 And v723 @ TEMPCOND_v26, v722 @ TEMPCOND_v25 (System.Boolean), v567 @ TEMPCOND2_v7
+	274 Not v258 @ TEMPCSEL_v6 (System.Boolean), v723 @ TEMPCOND_v26
+	275 ConditionalJump @b43, v258 @ TEMPCSEL_v6 (System.Boolean)
+	276 Nop
+	277 Jump @b85
+	278 Nop
+	279 Nop
+	280 Nop
+	281 Nop
+	282 Nop
+	283 Nop
+	284 Nop
+	285 Nop
+	286 Nop
+	287 Nop
+	288 Nop
+	289 CheckGreaterOrEqual v180 @ TEMPCOND_v27 (System.Boolean), v35 @ V2, v205 @ V0_v6 (System.Double)
+	290 ConditionalJump @b47, v180 @ TEMPCOND_v27 (System.Boolean)
+	291 Move v738 @ X0_v45, [v97 @ X20_v2]
+	292 Nop
+	293 Nop
+	294 Nop
+	295 Jump @b86
+	296 Call "il2cpp_codegen_runtime_class_init", v743 @ X0_v46, v732 @ X0_v44, v177 @ X1_v17 (UnityEngine.Object), v175 @ X2_v14, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v207 @ V0_v14 (System.Double), v167 @ V1_v8 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v39 @ V6 (System.Double), v40 @ V7 (System.Double)
+	297 Move v744 @ X0_v47, [v97 @ X20_v2]
+	298 Move v474 @ X8_v5, [v738 @ X0_v45+A0]
+	299 Jump @b94
+	300 Nop
+	301 Move v229 @ X8_v10, [44ABD50]
+	302 Nop
+	303 Newobj v231 @ X0_v15 (UnityEngine.Texture2D), [v229 @ X8_v10]
+	304 Nop
+	305 Nop
+	306 Nop
+	307 Nop
+	308 Nop
+	309 Nop
+	310 CallVoid Texture2D..ctor, v231 @ X0_v15 (UnityEngine.Texture2D), 256, 1, 4, 0
+	311 CheckEqual v331 @ TEMP_v14 (System.Boolean), v231 @ X0_v15 (UnityEngine.Texture2D), 0
+	312 ConditionalJump @b73, v331 @ TEMP_v14 (System.Boolean)
+	313 Nop
+	314 Nop
+	315 Nop
+	316 Move v283 @ X21_v9, [44BB228]
+	317 Nop
+	318 CallVoid Texture.set_wrapMode, v231 @ X0_v15 (UnityEngine.Texture2D), 1
+	319 Nop
+	320 Nop
+	321 Nop
+	322 CallVoid Texture.set_filterMode, v231 @ X0_v15 (UnityEngine.Texture2D), 1
+	323 Nop
+	324 Nop
+	325 Nop
+	326 CallVoid Object.set_hideFlags, v231 @ X0_v15 (UnityEngine.Texture2D), 52
+	327 Nop
+	328 Nop
+	329 Call "SzArrayNew", v329 @ X0_v20 (UnityEngine.Color[]), [v283 @ X21_v9], 256, 0, 4, 0, 0, v33 @ X6, v34 @ X7, v205 @ V0_v6 (System.Double), v165 @ V1_v4 (System.Single), v35 @ V2, v36 @ V3, v37 @ V4, v38 @ V5, v261 @ V6_v5 (System.Double), v250 @ V7_v5 (System.Double)
+	330 Nop
+	331 Nop
+	332 Nop
+	333 Nop
+	334 Nop
+	335 Nop
+	336 Add v290 @ X9_v7, v329 @ X0_v20 (UnityEngine.Color[]), 44
+	337 Nop
+	338 Nop
+	339 Subtract v267 @ V1_v5 (System.Double), 1d, v115 @ V10_v2 (System.Double)
+	340 CheckLess v536 @ C_v12 (System.Boolean), v84 @ V11_v2 (System.Double), 0
+	341 Not v537 @ C_v13, v536 @ C_v12 (System.Boolean)
+	342 Nop
+	343 Nop
+	344 CheckEqual v540 @ Z_v10 (System.Boolean), v84 @ V11_v2 (System.Double), 0
+	345 Nop
+	346 Nop
+	347 Nop
+	348 Nop
+	349 Nop
+	350 Not v546 @ TEMPCOND_v8, v537 @ C_v13
+	351 Or v547 @ TEMPCOND_v9, v546 @ TEMPCOND_v8, v540 @ Z_v10 (System.Boolean)
+	352 ConditionalJump @b87, v547 @ TEMPCOND_v9
+	353 Nop
+	354 Nop
+	355 Add v552 @ V5_v11 (System.Double), v336 @ X8_v12, 0.5d
+	356 Multiply v608 @ V5_v13 (System.Double), v552 @ V5_v11 (System.Double), 998244352
+	357 Subtract v554 @ V6_v8 (System.Double), 1d, v608 @ V5_v13 (System.Double)
+	358 Nop
+	359 Nop
+	360 Nop
+	361 Nop
+	362 Nop
+	363 Nop
+	364 Nop
+	365 Nop
+	366 Nop
+	367 CheckGreaterOrEqual v258 @ TEMPCSEL_v6 (System.Boolean), v608 @ V5_v13 (System.Double), v554 @ V6_v8 (System.Double)
+	368 ConditionalJump @b57, v258 @ TEMPCSEL_v6 (System.Boolean)
+	369 Nop
+	370 Jump @b88
+	371 Nop
+	372 Nop
+	373 Nop
+	374 Divide v610 @ V7_v6 (System.Double), v608 @ V5_v13 (System.Double), v84 @ V11_v2 (System.Double)
+	375 Nop
+	376 Nop
+	377 Nop
+	378 Nop
+	379 CheckLess v614 @ N_v15 (System.Boolean), v610 @ V7_v6 (System.Double), 0
+	380 Nop
+	381 Nop
+	382 Nop
+	383 Nop
+	384 Nop
+	385 ConditionalJump @b89, v614 @ N_v15 (System.Boolean)
+	386 Nop
+	387 Nop
+	388 Nop
+	389 Subtract v626 @ TEMP1_v19 (System.Double), v610 @ V7_v6 (System.Double), 1d
+	390 Nop
+	391 CheckEqual v628 @ Z_v19 (System.Boolean), v626 @ TEMP1_v19 (System.Double), 0
+	392 Nop
+	393 Nop
+	394 Nop
+	395 Nop
+	396 Nop
+	397 Not v567 @ TEMPCOND2_v7, v628 @ Z_v19 (System.Boolean)
+	398 CheckGreater v635 @ TEMPCOND_v17 (System.Boolean), v610 @ V7_v6 (System.Double), 1d
+	399 ConditionalJump @b89, v635 @ TEMPCOND_v17 (System.Boolean)
+	400 Nop
+	401 Add v646 @ V7_v7 (System.Double), v636 @ V6_v10 (System.Double), v636 @ V6_v10 (System.Double)
+	402 Multiply v248 @ V16_v5 (System.Double), v636 @ V6_v10 (System.Double), 3d
+	403 Multiply v647 @ V7_v8 (System.Double), v636 @ V6_v10 (System.Double), v646 @ V7_v7 (System.Double)
+	404 Multiply v648 @ V7_v9 (System.Double), v636 @ V6_v10 (System.Double), v647 @ V7_v8 (System.Double)
+	405 Multiply v649 @ V6_v11 (System.Double), v636 @ V6_v10 (System.Double), v248 @ V16_v5 (System.Double)
+	406 Subtract v650 @ V6_v12 (System.Double), v649 @ V6_v11 (System.Double), v648 @ V7_v9 (System.Double)
+	407 Subtract v651 @ V7_v10 (System.Double), 1d, v650 @ V6_v12 (System.Double)
+	408 Multiply v250 @ V7_v5 (System.Double), v651 @ V7_v10 (System.Double), 0
+	409 Add v261 @ V6_v5 (System.Double), v650 @ V6_v12 (System.Double), v250 @ V7_v5 (System.Double)
+	410 Nop
+	411 Nop
+	412 Nop
+	413 CheckLess v585 @ N_v17 (System.Boolean), v261 @ V6_v5 (System.Double), 0
+	414 Nop
+	415 Nop
+	416 Nop
+	417 Nop
+	418 Nop
+	419 ConditionalJump @b87, v585 @ N_v17 (System.Boolean)
+	420 Nop
+	421 Nop
+	422 Nop
+	423 Nop
+	424 Nop
+	425 Nop
+	426 Nop
+	427 Nop
+	428 Nop
+	429 Nop
+	430 Nop
+	431 Nop
+	432 CheckLessOrEqual v572 @ TEMPCOND_v15 (System.Boolean), v261 @ V6_v5 (System.Double), 1d
+	433 ConditionalJump @b87, v572 @ TEMPCOND_v15 (System.Boolean)
+	434 Nop
+	435 CheckEqual v333 @ TEMP_v16 (System.Boolean), v329 @ X0_v20 (UnityEngine.Color[]), 0
+	436 ConditionalJump @b73, v333 @ TEMP_v16 (System.Boolean)
+	437 Nop
+	438 CheckLess v605 @ C_v15 (System.Boolean), v336 @ X8_v12, v329.Length
+	439 Not v380 @ C_v16, v605 @ C_v15 (System.Boolean)
+	440 Nop
+	441 Nop
+	442 Nop
+	443 Nop
+	444 Nop
+	445 Nop
+	446 Nop
+	447 ConditionalJump @b74, v380 @ C_v16
+	448 Multiply v620 @ V5_v7 (System.Double), v267 @ V1_v5 (System.Double), v264 @ V5_v6 (System.Double)
+	449 Add v336 @ X8_v12, v336 @ X8_v12, 1
+	450 Move [v290 @ X9_v7-C], 0
+	451 Nop
+	452 Nop
+	453 Nop
+	454 Nop
+	455 Nop
+	456 Nop
+	457 Nop
+	458 Nop
+	459 Nop
+	460 Move [v290 @ X9_v7-4], 1065353216
+	461 Add v523 @ V5_v8 (System.Double), v115 @ V10_v2 (System.Double), v620 @ V5_v7 (System.Double)
+	462 Move [v290 @ X9_v7], v523 @ V5_v8 (System.Double)
+	463 Add v290 @ X9_v7, v290 @ X9_v7, 16
+	464 CheckNotEqual v298 @ TEMPCOND_v11 (System.Boolean), v336 @ X8_v12, 256
+	465 ConditionalJump @b90, v298 @ TEMPCOND_v11 (System.Boolean)
+	466 Nop
+	467 Nop
+	468 CallVoid Texture2D.SetPixels, v231 @ X0_v15 (UnityEngine.Texture2D), v329 @ X0_v20 (UnityEngine.Color[])
+	469 Nop
+	470 Nop
+	471 Nop
+	472 Nop
+	473 CallVoid Texture2D.Apply, v231 @ X0_v15 (UnityEngine.Texture2D), 0, 1
+	474 Nop
+	475 Nop
+	476 Nop
+	477 Nop
+	478 Nop
+	479 Nop
+	480 Nop
+	481 Nop
+	482 Nop
+	483 Nop
+	484 Nop
+	485 Nop
+	486 Nop
+	487 Call Sprite.Create, v672 @ X0_v24 (UnityEngine.Sprite), v231 @ X0_v15 (UnityEngine.Texture2D), 0, 0, 0f, 0, 0
+	488 Move v706 @ X8_v16, [v97 @ X20_v2]
+	489 Nop
+	490 Nop
+	491 Nop
+	492 Nop
+	493 Jump @b91
+	494 Move v703 @ X0_v30, v696 @ X8_v15
+	495 Call "il2cpp_codegen_runtime_class_init", v704 @ X0_v31, v703 @ X0_v30, v671 @ X1_v13 (UnityEngine.Rect), v292 @ X2_v12 (UnityEngine.Vector2), v287 @ X3_v6 (System.UInt32), v241 @ X4_v4 (System.Boolean), v242 @ X5_v4, v33 @ X6, v34 @ X7, v325 @ V0_v8 (System.Single), v266 @ V1_v6, v280 @ V2_v5, v277 @ V3_v5 (System.Double), v274 @ V4_v5 (System.Double), v263 @ V5_v9 (System.Double), v260 @ V6_v6, v250 @ V7_v5 (System.Double)
+	496 Move v707 @ X8_v21, [v97 @ X20_v2]
+	497 Nop
+	498 Nop
+	499 Add v709 @ X0_v27, [v706 @ X8_v16+A0], 48
+	500 Move [v709 @ X0_v27], v672 @ X0_v24 (UnityEngine.Sprite)
+	501 Call 1D77A14, v710 @ X0_v28, v709 @ X0_v27, v672 @ X0_v24 (UnityEngine.Sprite), 0, 0, 0, 0, v33 @ X6, v34 @ X7, 0, 0, 1132462080, 1d, 0.5d, 0.5d, 1120403456, v250 @ V7_v5 (System.Double)
+	502 Move v724 @ X8_v17, [v97 @ X20_v2]
+	503 Move v335 @ X8_v18, [v724 @ X8_v17+A0]
+	504 Nop
+	505 CheckEqual v332 @ TEMP_v19 (System.Boolean), [v335 @ X8_v18+30], 0
+	506 ConditionalJump @b73, v332 @ TEMP_v19 (System.Boolean)
+	507 Nop
+	508 Nop
+	509 CallVoid Object.set_hideFlags, [v335 @ X8_v18+30], 52
+	510 Move v730 @ X8_v19, [v97 @ X20_v2]
+	511 Move v474 @ X8_v5, [v730 @ X8_v19+A0]
+	512 Move [v474 @ X8_v5+38], v84 @ V11_v2 (System.Double)
+	513 Move [v474 @ X8_v5+3C], v115 @ V10_v2 (System.Double)
+	514 Nop
+	515 Nop
+	516 Nop
+	517 Nop
+	518 Nop
+	519 Nop
+	520 Nop
+	521 Nop
+	522 Nop
+	523 Nop
+	524 Return [v474 @ X8_v5+30]
+	525 Newobj v341 @ X0_v12 (System.NullReferenceException), typeof(System.NullReferenceException)
+	526 Newobj returnVal1 @ X0_v10 (System.IndexOutOfRangeException), typeof(System.IndexOutOfRangeException)
+	527 Return returnVal1 @ X0_v10 (System.IndexOutOfRangeException)
+
+Method: System.Void .cctor()
+
+Disassembly:
+	0x0341EDA4 STR X30, [X31 - 0x20]!
+	0x0341EDA8 STP X20, X19, [X31 + 0x10]
+	0x0341EDAC ADRP X19, 0x137D000
+	0x0341EDB0 ADRP X20, 0x10A4000
+	0x0341EDB4 LDRB W8, [X19 + 0x97A]
+	0x0341EDB8 LDR X20, [X20 + 0x410]
+	0x0341EDBC TBNZ W8, 0x0, 0x341EDD4
+	0x0341EDC0 ADRP X0, 0x10A4000
+	0x0341EDC4 LDR X0, [X0 + 0x410]
+	0x0341EDC8 BL 0x1D77A60
+	0x0341EDCC MOV W8, 0x1
+	0x0341EDD0 STRB W8, [X19 + 0x97A]
+	0x0341EDD4 LDR X8, [X20]
+	0x0341EDD8 ADRP X9, 0xFFFFFFFFFD826000
+	0x0341EDDC ADRP X11, 0xFFFFFFFFFD829000
+	0x0341EDE0 LDR V0, [X9 + 0x340]
+	0x0341EDE4 ADRP X12, 0xFFFFFFFFFD7EE000
+	0x0341EDE8 MOV W10, 0x7918
+	0x0341EDEC LDR X9, [X8 + 0xA0]
+	0x0341EDF0 LDR D1, [X12 + 0x340]
+	0x0341EDF4 LDP X20, X19, [X31 + 0x10]
+	0x0341EDF8 STR V0, [X9 + 0x20]
+	0x0341EDFC LDR V0, [X11 + 0x5B0]
+	0x0341EE00 LDR X11, [X8 + 0xA0]
+	0x0341EE04 STR W10, [X9]
+	0x0341EE08 STUR V0, [X11 + 0x38]
+	0x0341EE0C FMOV V0.4S, 0x0
+	0x0341EE10 STR D1, [X11 + 0x48]
+	0x0341EE14 LDR X9, [X8 + 0xA0]
+	0x0341EE18 STR V0, [X9 + 0x50]
+	0x0341EE1C ADRP X9, 0xFFFFFFFFFD826000
+	0x0341EE20 LDR X8, [X8 + 0xA0]
+	0x0341EE24 LDR V0, [X9 + 0x840]
+	0x0341EE28 STR V0, [X8 + 0x60]
+	0x0341EE2C LDR X30, [X31], #0x20
+	0x0341EE30 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Move v9 @ X20_v2, [44C2410]
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Jump @b5
+	12 Nop
+	13 Move v14 @ X0_v3, [44C2410]
+	14 Call "il2cpp_codegen_initialize_runtime_metadata", v15 @ X0_v4, v14 @ X0_v3, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	15 Move v34 @ X8_v5, 1
+	16 Move [479B97A], v34 @ X8_v5
+	17 Move v35 @ X8_v3, [v9 @ X20_v2]
+	18 Nop
+	19 Nop
+	20 Nop
+	21 Nop
+	22 Nop
+	23 Move v41 @ X9_v2, [v35 @ X8_v3+A0]
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Move [v41 @ X9_v2+20], [C44340]
+	28 Nop
+	29 Move v46 @ X11_v2, [v35 @ X8_v3+A0]
+	30 Move [v41 @ X9_v2], 31000
+	31 Move [v46 @ X11_v2+38], [C475B0]
+	32 Nop
+	33 Move [v46 @ X11_v2+48], [C0C340]
+	34 Move v48 @ X9_v3, [v35 @ X8_v3+A0]
+	35 Move [v48 @ X9_v3+50], 0
+	36 Nop
+	37 Move v50 @ X8_v4, [v35 @ X8_v3+A0]
+	38 Nop
+	39 Move [v50 @ X8_v4+60], [C44840]
+	40 Nop
+	41 Nop
+	42 Return
+

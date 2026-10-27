@@ -1,0 +1,140 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public ItemNudgeFxConfig() { }
+; token=0x600035C file_offset=0x340B5C8 tool_rva=0x340B5C8 length=0xC8
+000000000340f5c8: 0818a8d2 mov      x8, #0x40c00000
+000000000340f5cc: a9c1feb0 adrp     x9, #0xc44000
+000000000340f5d0: e1031faa mov      x1, xzr
+000000000340f5d4: 4800c0f2 movk     x8, #2, lsl #32
+000000000340f5d8: 200dc03d ldr      q0, [x9, #0x30]
+000000000340f5dc: a9c1feb0 adrp     x9, #0xc44000
+000000000340f5e0: 080c00f9 str      x8, [x0, #0x18]
+000000000340f5e4: 48008052 mov      w8, #2
+000000000340f5e8: 2181c33d ldr      q1, [x9, #0xe00]
+000000000340f5ec: 083000b9 str      w8, [x0, #0x30]
+000000000340f5f0: a8c1feb0 adrp     x8, #0xc44000
+000000000340f5f4: 69b89e52 mov      w9, #0xf5c3
+000000000340f5f8: 0008803d str      q0, [x0, #0x20]
+000000000340f5fc: 0001c23d ldr      q0, [x8, #0x800]
+000000000340f600: c8c1feb0 adrp     x8, #0xc48000
+000000000340f604: 0140833c stur     q1, [x0, #0x34]
+000000000340f608: 0181c13d ldr      q1, [x8, #0x600]
+000000000340f60c: a8c1feb0 adrp     x8, #0xc44000
+000000000340f610: 0040843c stur     q0, [x0, #0x44]
+000000000340f614: 0085c13d ldr      q0, [x8, #0x610]
+000000000340f618: e8bffeb0 adrp     x8, #0xc0c000
+000000000340f61c: 0140853c stur     q1, [x0, #0x54]
+000000000340f620: 01d940fd ldr      d1, [x8, #0x1b0]
+000000000340f624: e8bffeb0 adrp     x8, #0xc0c000
+000000000340f628: 0080863c stur     q0, [x0, #0x68]
+000000000340f62c: 00d943fd ldr      d0, [x8, #0x7b0]
+000000000340f630: a8478152 mov      w8, #0xa3d
+000000000340f634: e8daa772 movk     w8, #0x3ed7, lsl #16
+000000000340f638: 09e5a772 movk     w9, #0x3f28, lsl #16
+000000000340f63c: 088800b9 str      w8, [x0, #0x88]
+000000000340f640: c8c1feb0 adrp     x8, #0xc48000
+000000000340f644: 0180076d stp      d1, d0, [x0, #0x78]
+000000000340f648: 00b5c23d ldr      q0, [x8, #0xad0]
+000000000340f64c: e8bffeb0 adrp     x8, #0xc0c000
+000000000340f650: 01dd43fd ldr      d1, [x8, #0x7b8]
+000000000340f654: c8c1fe90 adrp     x8, #0xc47000
+000000000340f658: 096400b9 str      w9, [x0, #0x64]
+000000000340f65c: 0024803d str      q0, [x0, #0x90]
+000000000340f660: 009dc33d ldr      q0, [x8, #0xe70]
+000000000340f664: e8bffeb0 adrp     x8, #0xc0c000
+000000000340f668: 015000fd str      d1, [x0, #0xa0]
+000000000340f66c: 016543fd ldr      d1, [x8, #0x6c8]
+000000000340f670: e8bffe90 adrp     x8, #0xc0b000
+000000000340f674: 893d8a52 mov      w9, #0x51ec
+000000000340f678: 002c803d str      q0, [x0, #0xb0]
+000000000340f67c: 00dd45fd ldr      d0, [x8, #0xbb8]
+000000000340f680: 09b7a772 movk     w9, #0x3db8, lsl #16
+000000000340f684: 09a800b9 str      w9, [x0, #0xa8]
+000000000340f688: 01000c6d stp      d1, d0, [x0, #0xc0]
+000000000340f68c: 81562d14 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }
+
+; public static ItemNudgeFxConfig Load() { }
+; token=0x600035B file_offset=0x34089B8 tool_rva=0x34089B8 length=0x144
+000000000340c9b8: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000340c9bc: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000340c9c0: 739c00f0 adrp     x19, #0x479b000
+000000000340c9c4: d4850090 adrp     x20, #0x44c4000
+000000000340c9c8: f5840090 adrp     x21, #0x44a8000
+000000000340c9cc: 680e6439 ldrb     w8, [x19, #0x903]
+000000000340c9d0: 946a40f9 ldr      x20, [x20, #0xd0]
+000000000340c9d4: b56245f9 ldr      x21, [x21, #0xac0]
+000000000340c9d8: 48020037 tbnz     w8, #0, #0x340ca20
+000000000340c9dc: c0850090 adrp     x0, #0x44c4000
+000000000340c9e0: 006840f9 ldr      x0, [x0, #0xd0]
+000000000340c9e4: 1faca597 bl       #0x1d77a60
+000000000340c9e8: e0840090 adrp     x0, #0x44a8000
+000000000340c9ec: 006045f9 ldr      x0, [x0, #0xac0]
+000000000340c9f0: 1caca597 bl       #0x1d77a60
+000000000340c9f4: c0850090 adrp     x0, #0x44c4000
+000000000340c9f8: 006c40f9 ldr      x0, [x0, #0xd8]
+000000000340c9fc: 19aca597 bl       #0x1d77a60
+000000000340ca00: c0850090 adrp     x0, #0x44c4000
+000000000340ca04: 007040f9 ldr      x0, [x0, #0xe0]
+000000000340ca08: 16aca597 bl       #0x1d77a60
+000000000340ca0c: c0850090 adrp     x0, #0x44c4000
+000000000340ca10: 007440f9 ldr      x0, [x0, #0xe8]
+000000000340ca14: 13aca597 bl       #0x1d77a60
+000000000340ca18: 28008052 mov      w8, #1
+000000000340ca1c: 680e2439 strb     w8, [x19, #0x903]
+000000000340ca20: 880240f9 ldr      x8, [x20]
+000000000340ca24: a00240f9 ldr      x0, [x21]
+000000000340ca28: 085140f9 ldr      x8, [x8, #0xa0]
+000000000340ca2c: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000340ca30: 130140f9 ldr      x19, [x8]
+000000000340ca34: 49000035 cbnz     w9, #0x340ca3c
+000000000340ca38: 57aca597 bl       #0x1d77b94
+000000000340ca3c: e00313aa mov      x0, x19
+000000000340ca40: e1031faa mov      x1, xzr
+000000000340ca44: e2031faa mov      x2, xzr
+000000000340ca48: 9d5a2d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000340ca4c: e0010036 tbz      w0, #0, #0x340ca88
+000000000340ca50: c8850090 adrp     x8, #0x44c4000
+000000000340ca54: c9850090 adrp     x9, #0x44c4000
+000000000340ca58: 087540f9 ldr      x8, [x8, #0xe8]
+000000000340ca5c: 296d40f9 ldr      x9, [x9, #0xd8]
+000000000340ca60: 000140f9 ldr      x0, [x8]
+000000000340ca64: 210140f9 ldr      x1, [x9]
+000000000340ca68: 3eefbc97 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+000000000340ca6c: 880240f9 ldr      x8, [x20]
+000000000340ca70: e10300aa mov      x1, x0
+000000000340ca74: 085140f9 ldr      x8, [x8, #0xa0]
+000000000340ca78: 000100f9 str      x0, [x8]
+000000000340ca7c: 880240f9 ldr      x8, [x20]
+000000000340ca80: 005140f9 ldr      x0, [x8, #0xa0]
+000000000340ca84: e4aba597 bl       #0x1d77a14
+000000000340ca88: 880240f9 ldr      x8, [x20]
+000000000340ca8c: a00240f9 ldr      x0, [x21]
+000000000340ca90: 085140f9 ldr      x8, [x8, #0xa0]
+000000000340ca94: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000340ca98: 130140f9 ldr      x19, [x8]
+000000000340ca9c: 49000035 cbnz     w9, #0x340caa4
+000000000340caa0: 3daca597 bl       #0x1d77b94
+000000000340caa4: e00313aa mov      x0, x19
+000000000340caa8: e1031faa mov      x1, xzr
+000000000340caac: e2031faa mov      x2, xzr
+000000000340cab0: 835a2d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000340cab4: 80010036 tbz      w0, #0, #0x340cae4
+000000000340cab8: c8850090 adrp     x8, #0x44c4000
+000000000340cabc: 087140f9 ldr      x8, [x8, #0xe0]
+000000000340cac0: 000140f9 ldr      x0, [x8]
+000000000340cac4: 67fabc97 bl       #0x234b460 ; ScriptableObject :: public static T CreateInstance() { }
+000000000340cac8: 880240f9 ldr      x8, [x20]
+000000000340cacc: e10300aa mov      x1, x0
+000000000340cad0: 085140f9 ldr      x8, [x8, #0xa0]
+000000000340cad4: 000100f9 str      x0, [x8]
+000000000340cad8: 880240f9 ldr      x8, [x20]
+000000000340cadc: 005140f9 ldr      x0, [x8, #0xa0]
+000000000340cae0: cdaba597 bl       #0x1d77a14
+000000000340cae4: 880240f9 ldr      x8, [x20]
+000000000340cae8: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000340caec: 085140f9 ldr      x8, [x8, #0xa0]
+000000000340caf0: 000140f9 ldr      x0, [x8]
+000000000340caf4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000340caf8: c0035fd6 ret      

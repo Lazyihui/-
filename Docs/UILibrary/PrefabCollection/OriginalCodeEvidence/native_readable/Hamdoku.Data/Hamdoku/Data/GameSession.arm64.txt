@@ -1,0 +1,72 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public GameSession() { }
+; token=0x600004F file_offset=0x31E7424 tool_rva=0x31E7424 length=0x10
+00000000031eb424: 08008012 mov      w8, #-1
+00000000031eb428: e1031faa mov      x1, xzr
+00000000031eb42c: 082c00b9 str      w8, [x0, #0x2c]
+00000000031eb430: 18e73514 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }
+
+; private void OnEnable() { }
+; token=0x6000049 file_offset=0x31E7374 tool_rva=0x31E7374 length=0x58
+00000000031eb374: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000031eb378: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031eb37c: 74ad00f0 adrp     x20, #0x479a000
+00000000031eb380: f30300aa mov      x19, x0
+00000000031eb384: 88c66439 ldrb     w8, [x20, #0x931]
+00000000031eb388: c8000035 cbnz     w8, #0x31eb3a0
+00000000031eb38c: 60960090 adrp     x0, #0x44b7000
+00000000031eb390: 005442f9 ldr      x0, [x0, #0x4a8]
+00000000031eb394: b331ae97 bl       #0x1d77a60
+00000000031eb398: 28008052 mov      w8, #1
+00000000031eb39c: 88c62439 strb     w8, [x20, #0x931]
+00000000031eb3a0: 68960090 adrp     x8, #0x44b7000
+00000000031eb3a4: e10313aa mov      x1, x19
+00000000031eb3a8: 085542f9 ldr      x8, [x8, #0x4a8]
+00000000031eb3ac: 090140f9 ldr      x9, [x8]
+00000000031eb3b0: 295140f9 ldr      x9, [x9, #0xa0]
+00000000031eb3b4: 330100f9 str      x19, [x9]
+00000000031eb3b8: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031eb3bc: 080140f9 ldr      x8, [x8]
+00000000031eb3c0: 005140f9 ldr      x0, [x8, #0xa0]
+00000000031eb3c4: fe0742f8 ldr      x30, [sp], #0x20
+00000000031eb3c8: 9331ae17 b        #0x1d77a14
+
+; public void RequestCampaign(int index = -1) { }
+; token=0x600004A file_offset=0x31E73CC tool_rva=0x31E73CC length=0xC
+00000000031eb3cc: 1f040529 stp      wzr, w1, [x0, #0x28]
+00000000031eb3d0: 1fd40039 strb     wzr, [x0, #0x35]
+00000000031eb3d4: c0035fd6 ret      
+
+; public void RequestDaily(int seed, bool late = false) { }
+; token=0x600004C file_offset=0x31E73EC tool_rva=0x31E73EC length=0x18
+00000000031eb3ec: 28008052 mov      w8, #1
+00000000031eb3f0: 1fd40039 strb     wzr, [x0, #0x35]
+00000000031eb3f4: 082800b9 str      w8, [x0, #0x28]
+00000000031eb3f8: 013000b9 str      w1, [x0, #0x30]
+00000000031eb3fc: 02d00039 strb     w2, [x0, #0x34]
+00000000031eb400: c0035fd6 ret      
+
+; public void RequestEndless() { }
+; token=0x600004D file_offset=0x31E7404 tool_rva=0x31E7404 length=0x10
+00000000031eb404: 48008052 mov      w8, #2
+00000000031eb408: 1fd40039 strb     wzr, [x0, #0x35]
+00000000031eb40c: 082800b9 str      w8, [x0, #0x28]
+00000000031eb410: c0035fd6 ret      
+
+; public void RequestGolden() { }
+; token=0x600004B file_offset=0x31E73D8 tool_rva=0x31E73D8 length=0x14
+00000000031eb3d8: 00e6072f movi     d0, #0xffffffff00000000
+00000000031eb3dc: 28008052 mov      w8, #1
+00000000031eb3e0: 08d40039 strb     w8, [x0, #0x35]
+00000000031eb3e4: 001400fd str      d0, [x0, #0x28]
+00000000031eb3e8: c0035fd6 ret      
+
+; public void RequestTutorial() { }
+; token=0x600004E file_offset=0x31E7414 tool_rva=0x31E7414 length=0x10
+00000000031eb414: 68008052 mov      w8, #3
+00000000031eb418: 1fd40039 strb     wzr, [x0, #0x35]
+00000000031eb41c: 082800b9 str      w8, [x0, #0x28]
+00000000031eb420: c0035fd6 ret      

@@ -1,0 +1,348 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public ResultPopup() { }
+; token=0x60004B8 file_offset=0x34278E4 tool_rva=0x34278E4 length=0x8
+000000000342b8e4: e1031faa mov      x1, xzr
+000000000342b8e8: 94e52c14 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; private void Awake() { }
+; token=0x60004B4 file_offset=0x34273C4 tool_rva=0x34273C4 length=0x128
+000000000342b3c4: fe0f1df8 str      x30, [sp, #-0x30]!
+000000000342b3c8: f65701a9 stp      x22, x21, [sp, #0x10]
+000000000342b3cc: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000342b3d0: 949b0090 adrp     x20, #0x479b000
+000000000342b3d4: f68300b0 adrp     x22, #0x44a8000
+000000000342b3d8: f30300aa mov      x19, x0
+000000000342b3dc: 88226739 ldrb     w8, [x20, #0x9c8]
+000000000342b3e0: d66245f9 ldr      x22, [x22, #0xac0]
+000000000342b3e4: 88010037 tbnz     w8, #0, #0x342b414
+000000000342b3e8: e08300b0 adrp     x0, #0x44a8000
+000000000342b3ec: 006045f9 ldr      x0, [x0, #0xac0]
+000000000342b3f0: 9c31a597 bl       #0x1d77a60
+000000000342b3f4: c08400b0 adrp     x0, #0x44c4000
+000000000342b3f8: 00e044f9 ldr      x0, [x0, #0x9c0]
+000000000342b3fc: 9931a597 bl       #0x1d77a60
+000000000342b400: 608400d0 adrp     x0, #0x44b9000
+000000000342b404: 009c43f9 ldr      x0, [x0, #0x738]
+000000000342b408: 9631a597 bl       #0x1d77a60
+000000000342b40c: 28008052 mov      w8, #1
+000000000342b410: 88222739 strb     w8, [x20, #0x9c8]
+000000000342b414: e00313aa mov      x0, x19
+000000000342b418: 35000094 bl       #0x342b4ec ; ResultPopup :: private void EnsureOverlaySorting() { }
+000000000342b41c: c00240f9 ldr      x0, [x22]
+000000000342b420: 741e40f9 ldr      x20, [x19, #0x38]
+000000000342b424: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b428: 48000035 cbnz     w8, #0x342b430
+000000000342b42c: da31a597 bl       #0x1d77b94
+000000000342b430: e00314aa mov      x0, x20
+000000000342b434: e1031faa mov      x1, xzr
+000000000342b438: e2031faa mov      x2, xzr
+000000000342b43c: 38db2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b440: 80020036 tbz      w0, #0, #0x342b490
+000000000342b444: 681e40f9 ldr      x8, [x19, #0x38]
+000000000342b448: 080500b4 cbz      x8, #0x342b4e8
+000000000342b44c: 698400d0 adrp     x9, #0x44b9000
+000000000342b450: 299d43f9 ldr      x9, [x9, #0x738]
+000000000342b454: 148140f9 ldr      x20, [x8, #0x100]
+000000000342b458: 200140f9 ldr      x0, [x9]
+000000000342b45c: 9a32a597 bl       #0x1d77ec4
+000000000342b460: c88400b0 adrp     x8, #0x44c4000
+000000000342b464: e10313aa mov      x1, x19
+000000000342b468: e3031faa mov      x3, xzr
+000000000342b46c: 08e144f9 ldr      x8, [x8, #0x9c0]
+000000000342b470: f50300aa mov      x21, x0
+000000000342b474: 020140f9 ldr      x2, [x8]
+000000000342b478: e5272d94 bl       #0x3f7540c ; UnityAction :: public UnityAction(object object, nint method) { }
+000000000342b47c: 740300b4 cbz      x20, #0x342b4e8
+000000000342b480: e00314aa mov      x0, x20
+000000000342b484: e10315aa mov      x1, x21
+000000000342b488: e2031faa mov      x2, xzr
+000000000342b48c: 0d282d94 bl       #0x3f754c0 ; UnityEvent :: public void AddListener(UnityAction call) { }
+000000000342b490: c00240f9 ldr      x0, [x22]
+000000000342b494: 741240f9 ldr      x20, [x19, #0x20]
+000000000342b498: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b49c: 48000035 cbnz     w8, #0x342b4a4
+000000000342b4a0: bd31a597 bl       #0x1d77b94
+000000000342b4a4: e00314aa mov      x0, x20
+000000000342b4a8: e1031faa mov      x1, xzr
+000000000342b4ac: e2031faa mov      x2, xzr
+000000000342b4b0: 1bdb2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b4b4: 20010036 tbz      w0, #0, #0x342b4d8
+000000000342b4b8: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b4bc: 600100b4 cbz      x0, #0x342b4e8
+000000000342b4c0: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000342b4c4: e1031f2a mov      w1, wzr
+000000000342b4c8: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000342b4cc: e2031faa mov      x2, xzr
+000000000342b4d0: fe0743f8 ldr      x30, [sp], #0x30
+000000000342b4d4: 33dc2c14 b        #0x3f625a0
+000000000342b4d8: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000342b4dc: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000342b4e0: fe0743f8 ldr      x30, [sp], #0x30
+000000000342b4e4: c0035fd6 ret      
+000000000342b4e8: 5b31a597 bl       #0x1d77a54
+
+; private void EnsureOverlaySorting() { }
+; token=0x60004B5 file_offset=0x34274EC tool_rva=0x34274EC length=0x184
+000000000342b4ec: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000342b4f0: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000342b4f4: 949b0090 adrp     x20, #0x479b000
+000000000342b4f8: f58300b0 adrp     x21, #0x44a8000
+000000000342b4fc: f30300aa mov      x19, x0
+000000000342b500: 88266739 ldrb     w8, [x20, #0x9c9]
+000000000342b504: b56245f9 ldr      x21, [x21, #0xac0]
+000000000342b508: 48020037 tbnz     w8, #0, #0x342b550
+000000000342b50c: 608400d0 adrp     x0, #0x44b9000
+000000000342b510: 006846f9 ldr      x0, [x0, #0xcd0]
+000000000342b514: 5331a597 bl       #0x1d77a60
+000000000342b518: 608400d0 adrp     x0, #0x44b9000
+000000000342b51c: 007445f9 ldr      x0, [x0, #0xae8]
+000000000342b520: 5031a597 bl       #0x1d77a60
+000000000342b524: 608400d0 adrp     x0, #0x44b9000
+000000000342b528: 007845f9 ldr      x0, [x0, #0xaf0]
+000000000342b52c: 4d31a597 bl       #0x1d77a60
+000000000342b530: a08400b0 adrp     x0, #0x44c0000
+000000000342b534: 00c043f9 ldr      x0, [x0, #0x780]
+000000000342b538: 4a31a597 bl       #0x1d77a60
+000000000342b53c: e08300b0 adrp     x0, #0x44a8000
+000000000342b540: 006045f9 ldr      x0, [x0, #0xac0]
+000000000342b544: 4731a597 bl       #0x1d77a60
+000000000342b548: 28008052 mov      w8, #1
+000000000342b54c: 88262739 strb     w8, [x20, #0x9c9]
+000000000342b550: a00240f9 ldr      x0, [x21]
+000000000342b554: 741240f9 ldr      x20, [x19, #0x20]
+000000000342b558: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b55c: 48000035 cbnz     w8, #0x342b564
+000000000342b560: 8d31a597 bl       #0x1d77b94
+000000000342b564: e00314aa mov      x0, x20
+000000000342b568: e1031faa mov      x1, xzr
+000000000342b56c: e2031faa mov      x2, xzr
+000000000342b570: d3df2c94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000342b574: 60070037 tbnz     w0, #0, #0x342b660
+000000000342b578: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b57c: 800700b4 cbz      x0, #0x342b66c
+000000000342b580: 688400d0 adrp     x8, #0x44b9000
+000000000342b584: 087945f9 ldr      x8, [x8, #0xaf0]
+000000000342b588: 010140f9 ldr      x1, [x8]
+000000000342b58c: c4ffb797 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+000000000342b590: a80240f9 ldr      x8, [x21]
+000000000342b594: f40300aa mov      x20, x0
+000000000342b598: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000342b59c: 69000035 cbnz     w9, #0x342b5a8
+000000000342b5a0: e00308aa mov      x0, x8
+000000000342b5a4: 7c31a597 bl       #0x1d77b94
+000000000342b5a8: e00314aa mov      x0, x20
+000000000342b5ac: e1031faa mov      x1, xzr
+000000000342b5b0: e2031faa mov      x2, xzr
+000000000342b5b4: c2df2c94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000342b5b8: 00010036 tbz      w0, #0, #0x342b5d8
+000000000342b5bc: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b5c0: 600500b4 cbz      x0, #0x342b66c
+000000000342b5c4: 688400d0 adrp     x8, #0x44b9000
+000000000342b5c8: 086946f9 ldr      x8, [x8, #0xcd0]
+000000000342b5cc: 010140f9 ldr      x1, [x8]
+000000000342b5d0: 8fffb797 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+000000000342b5d4: f40300aa mov      x20, x0
+000000000342b5d8: b40400b4 cbz      x20, #0x342b66c
+000000000342b5dc: e00314aa mov      x0, x20
+000000000342b5e0: 21008052 mov      w1, #1
+000000000342b5e4: e2031faa mov      x2, xzr
+000000000342b5e8: c1f73694 bl       #0x41e94ec ; Canvas :: public void set_overrideSorting(bool value) { }
+000000000342b5ec: e00314aa mov      x0, x20
+000000000342b5f0: c1768052 mov      w1, #0x3b6
+000000000342b5f4: e2031faa mov      x2, xzr
+000000000342b5f8: 1bf83694 bl       #0x41e9664 ; Canvas :: public void set_sortingOrder(int value) { }
+000000000342b5fc: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b600: 600300b4 cbz      x0, #0x342b66c
+000000000342b604: a88400b0 adrp     x8, #0x44c0000
+000000000342b608: 08c143f9 ldr      x8, [x8, #0x780]
+000000000342b60c: 010140f9 ldr      x1, [x8]
+000000000342b610: a3ffb797 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+000000000342b614: a80240f9 ldr      x8, [x21]
+000000000342b618: f40300aa mov      x20, x0
+000000000342b61c: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000342b620: 69000035 cbnz     w9, #0x342b62c
+000000000342b624: e00308aa mov      x0, x8
+000000000342b628: 5b31a597 bl       #0x1d77b94
+000000000342b62c: e00314aa mov      x0, x20
+000000000342b630: e1031faa mov      x1, xzr
+000000000342b634: e2031faa mov      x2, xzr
+000000000342b638: a1df2c94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000342b63c: 20010036 tbz      w0, #0, #0x342b660
+000000000342b640: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b644: 400100b4 cbz      x0, #0x342b66c
+000000000342b648: 688400d0 adrp     x8, #0x44b9000
+000000000342b64c: 087545f9 ldr      x8, [x8, #0xae8]
+000000000342b650: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000342b654: 010140f9 ldr      x1, [x8]
+000000000342b658: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000342b65c: 6cffb717 b        #0x222b40c ; GameObject :: public T AddComponent() { }
+000000000342b660: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000342b664: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000342b668: c0035fd6 ret      
+000000000342b66c: fa30a597 bl       #0x1d77a54
+
+; public void Hide() { }
+; token=0x60004B7 file_offset=0x342785C tool_rva=0x342785C length=0x88
+000000000342b85c: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000342b860: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000342b864: 959b0090 adrp     x21, #0x479b000
+000000000342b868: f48300b0 adrp     x20, #0x44a8000
+000000000342b86c: f30300aa mov      x19, x0
+000000000342b870: a82e6739 ldrb     w8, [x21, #0x9cb]
+000000000342b874: 946245f9 ldr      x20, [x20, #0xac0]
+000000000342b878: c8000037 tbnz     w8, #0, #0x342b890
+000000000342b87c: e08300b0 adrp     x0, #0x44a8000
+000000000342b880: 006045f9 ldr      x0, [x0, #0xac0]
+000000000342b884: 7730a597 bl       #0x1d77a60
+000000000342b888: 28008052 mov      w8, #1
+000000000342b88c: a82e2739 strb     w8, [x21, #0x9cb]
+000000000342b890: 800240f9 ldr      x0, [x20]
+000000000342b894: 741240f9 ldr      x20, [x19, #0x20]
+000000000342b898: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b89c: 48000035 cbnz     w8, #0x342b8a4
+000000000342b8a0: bd30a597 bl       #0x1d77b94
+000000000342b8a4: e00314aa mov      x0, x20
+000000000342b8a8: e1031faa mov      x1, xzr
+000000000342b8ac: e2031faa mov      x2, xzr
+000000000342b8b0: 1bda2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b8b4: 00010036 tbz      w0, #0, #0x342b8d4
+000000000342b8b8: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b8bc: 200100b4 cbz      x0, #0x342b8e0
+000000000342b8c0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000342b8c4: e1031f2a mov      w1, wzr
+000000000342b8c8: e2031faa mov      x2, xzr
+000000000342b8cc: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000342b8d0: 34db2c14 b        #0x3f625a0
+000000000342b8d4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000342b8d8: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000342b8dc: c0035fd6 ret      
+000000000342b8e0: 5d30a597 bl       #0x1d77a54
+
+; public void Show(string title, string buttonLabel, Action onAction) { }
+; token=0x60004B6 file_offset=0x3427670 tool_rva=0x3427670 length=0x1EC
+000000000342b670: fe0f1cf8 str      x30, [sp, #-0x40]!
+000000000342b674: f85f01a9 stp      x24, x23, [sp, #0x10]
+000000000342b678: f65702a9 stp      x22, x21, [sp, #0x20]
+000000000342b67c: f44f03a9 stp      x20, x19, [sp, #0x30]
+000000000342b680: 979b0090 adrp     x23, #0x479b000
+000000000342b684: f88300b0 adrp     x24, #0x44a8000
+000000000342b688: f60303aa mov      x22, x3
+000000000342b68c: e82a6739 ldrb     w8, [x23, #0x9ca]
+000000000342b690: 186345f9 ldr      x24, [x24, #0xac0]
+000000000342b694: f40302aa mov      x20, x2
+000000000342b698: f50301aa mov      x21, x1
+000000000342b69c: f30300aa mov      x19, x0
+000000000342b6a0: 28010037 tbnz     w8, #0, #0x342b6c4
+000000000342b6a4: e08300b0 adrp     x0, #0x44a8000
+000000000342b6a8: 006045f9 ldr      x0, [x0, #0xac0]
+000000000342b6ac: ed30a597 bl       #0x1d77a60
+000000000342b6b0: 608400d0 adrp     x0, #0x44b9000
+000000000342b6b4: 004843f9 ldr      x0, [x0, #0x690]
+000000000342b6b8: ea30a597 bl       #0x1d77a60
+000000000342b6bc: 28008052 mov      w8, #1
+000000000342b6c0: e82a2739 strb     w8, [x23, #0x9ca]
+000000000342b6c4: f70313aa mov      x23, x19
+000000000342b6c8: e10316aa mov      x1, x22
+000000000342b6cc: f68e04f8 str      x22, [x23, #0x48]!
+000000000342b6d0: e00317aa mov      x0, x23
+000000000342b6d4: d030a597 bl       #0x1d77a14
+000000000342b6d8: 000340f9 ldr      x0, [x24]
+000000000342b6dc: f6825ef8 ldur     x22, [x23, #-0x18]
+000000000342b6e0: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b6e4: 48000035 cbnz     w8, #0x342b6ec
+000000000342b6e8: 2b31a597 bl       #0x1d77b94
+000000000342b6ec: e00316aa mov      x0, x22
+000000000342b6f0: e1031faa mov      x1, xzr
+000000000342b6f4: e2031faa mov      x2, xzr
+000000000342b6f8: 89da2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b6fc: 00010036 tbz      w0, #0, #0x342b71c
+000000000342b700: 601a40f9 ldr      x0, [x19, #0x30]
+000000000342b704: a00a00b4 cbz      x0, #0x342b858
+000000000342b708: 080040f9 ldr      x8, [x0]
+000000000342b70c: e10315aa mov      x1, x21
+000000000342b710: 09ad42f9 ldr      x9, [x8, #0x558]
+000000000342b714: 02b142f9 ldr      x2, [x8, #0x560]
+000000000342b718: 20013fd6 blr      x9
+000000000342b71c: 000340f9 ldr      x0, [x24]
+000000000342b720: 752240f9 ldr      x21, [x19, #0x40]
+000000000342b724: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b728: 48000035 cbnz     w8, #0x342b730
+000000000342b72c: 1a31a597 bl       #0x1d77b94
+000000000342b730: e00315aa mov      x0, x21
+000000000342b734: e1031faa mov      x1, xzr
+000000000342b738: e2031faa mov      x2, xzr
+000000000342b73c: 78da2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b740: 00010036 tbz      w0, #0, #0x342b760
+000000000342b744: 602240f9 ldr      x0, [x19, #0x40]
+000000000342b748: 800800b4 cbz      x0, #0x342b858
+000000000342b74c: 080040f9 ldr      x8, [x0]
+000000000342b750: e10314aa mov      x1, x20
+000000000342b754: 09ad42f9 ldr      x9, [x8, #0x558]
+000000000342b758: 02b142f9 ldr      x2, [x8, #0x560]
+000000000342b75c: 20013fd6 blr      x9
+000000000342b760: 000340f9 ldr      x0, [x24]
+000000000342b764: 741240f9 ldr      x20, [x19, #0x20]
+000000000342b768: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b76c: 48000035 cbnz     w8, #0x342b774
+000000000342b770: 0931a597 bl       #0x1d77b94
+000000000342b774: e00314aa mov      x0, x20
+000000000342b778: e1031faa mov      x1, xzr
+000000000342b77c: e2031faa mov      x2, xzr
+000000000342b780: 67da2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b784: c0010036 tbz      w0, #0, #0x342b7bc
+000000000342b788: 601240f9 ldr      x0, [x19, #0x20]
+000000000342b78c: 600600b4 cbz      x0, #0x342b858
+000000000342b790: 21008052 mov      w1, #1
+000000000342b794: e2031faa mov      x2, xzr
+000000000342b798: 82db2c94 bl       #0x3f625a0
+000000000342b79c: e00313aa mov      x0, x19
+000000000342b7a0: 53ffff97 bl       #0x342b4ec ; ResultPopup :: private void EnsureOverlaySorting() { }
+000000000342b7a4: 600642a9 ldp      x0, x1, [x19, #0x20]
+000000000342b7a8: 08bffeb0 adrp     x8, #0xc0c000
+000000000342b7ac: 09bffed0 adrp     x9, #0xc0d000
+000000000342b7b0: 00294ebd ldr      s0, [x8, #0xe28]
+000000000342b7b4: 218541bd ldr      s1, [x9, #0x184]
+000000000342b7b8: bcfaff97 bl       #0x342a2a8 ; ResponsiveUI :: public static float Fit(GameObject popupRoot, RectTransform content, float wideScale = 0.8, float margin = 0.94) { }
+000000000342b7bc: e00313aa mov      x0, x19
+000000000342b7c0: e1031faa mov      x1, xzr
+000000000342b7c4: f6d22c94 bl       #0x3f6039c
+000000000342b7c8: e0030036 tbz      w0, #0, #0x342b844
+000000000342b7cc: 000340f9 ldr      x0, [x24]
+000000000342b7d0: 741640f9 ldr      x20, [x19, #0x28]
+000000000342b7d4: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b7d8: 48000035 cbnz     w8, #0x342b7e0
+000000000342b7dc: ee30a597 bl       #0x1d77b94
+000000000342b7e0: e00314aa mov      x0, x20
+000000000342b7e4: e1031faa mov      x1, xzr
+000000000342b7e8: e2031faa mov      x2, xzr
+000000000342b7ec: 4cda2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000342b7f0: a0020036 tbz      w0, #0, #0x342b844
+000000000342b7f4: 688400d0 adrp     x8, #0x44b9000
+000000000342b7f8: 084943f9 ldr      x8, [x8, #0x690]
+000000000342b7fc: 741640f9 ldr      x20, [x19, #0x28]
+000000000342b800: 000140f9 ldr      x0, [x8]
+000000000342b804: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000342b808: 48000035 cbnz     w8, #0x342b810
+000000000342b80c: e230a597 bl       #0x1d77b94
+000000000342b810: 08bffed0 adrp     x8, #0xc0d000
+000000000342b814: e00314aa mov      x0, x20
+000000000342b818: e1031faa mov      x1, xzr
+000000000342b81c: 00bd43bd ldr      s0, [x8, #0x3bc]
+000000000342b820: 4a570094 bl       #0x3441548
+000000000342b824: e10300aa mov      x1, x0
+000000000342b828: e00313aa mov      x0, x19
+000000000342b82c: e2031faa mov      x2, xzr
+000000000342b830: f44f43a9 ldp      x20, x19, [sp, #0x30]
+000000000342b834: f65742a9 ldp      x22, x21, [sp, #0x20]
+000000000342b838: f85f41a9 ldp      x24, x23, [sp, #0x10]
+000000000342b83c: fe0744f8 ldr      x30, [sp], #0x40
+000000000342b840: 48e22c14 b        #0x3f64160 ; MonoBehaviour :: public Coroutine StartCoroutine(IEnumerator routine) { }
+000000000342b844: f44f43a9 ldp      x20, x19, [sp, #0x30]
+000000000342b848: f65742a9 ldp      x22, x21, [sp, #0x20]
+000000000342b84c: f85f41a9 ldp      x24, x23, [sp, #0x10]
+000000000342b850: fe0744f8 ldr      x30, [sp], #0x40
+000000000342b854: c0035fd6 ret      
+000000000342b858: 7f30a597 bl       #0x1d77a54

@@ -1,0 +1,183 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public CloudAccountRunner() { }
+; token=0x6000189 file_offset=0x3208F84 tool_rva=0x3208F84 length=0x8
+000000000320cf84: e1031faa mov      x1, xzr
+000000000320cf88: ec5f3514 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; internal static void Ensure() { }
+; token=0x6000185 file_offset=0x31FCA70 tool_rva=0x31FCA70 length=0x128
+0000000003200a70: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+0000000003200a74: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003200a78: d3ac00d0 adrp     x19, #0x479a000
+0000000003200a7c: b49500f0 adrp     x20, #0x44b7000
+0000000003200a80: 55950090 adrp     x21, #0x44a8000
+0000000003200a84: 68166939 ldrb     w8, [x19, #0xa45]
+0000000003200a88: 94c647f9 ldr      x20, [x20, #0xf88]
+0000000003200a8c: b56245f9 ldr      x21, [x21, #0xac0]
+0000000003200a90: 48020037 tbnz     w8, #0, #0x3200ad8
+0000000003200a94: a09500f0 adrp     x0, #0x44b7000
+0000000003200a98: 00c447f9 ldr      x0, [x0, #0xf88]
+0000000003200a9c: f1dbad97 bl       #0x1d77a60
+0000000003200aa0: c0950090 adrp     x0, #0x44b8000
+0000000003200aa4: 00e840f9 ldr      x0, [x0, #0x1d0]
+0000000003200aa8: eedbad97 bl       #0x1d77a60
+0000000003200aac: 40950090 adrp     x0, #0x44a8000
+0000000003200ab0: 005c45f9 ldr      x0, [x0, #0xab8]
+0000000003200ab4: ebdbad97 bl       #0x1d77a60
+0000000003200ab8: 40950090 adrp     x0, #0x44a8000
+0000000003200abc: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003200ac0: e8dbad97 bl       #0x1d77a60
+0000000003200ac4: c0950090 adrp     x0, #0x44b8000
+0000000003200ac8: 00ec40f9 ldr      x0, [x0, #0x1d8]
+0000000003200acc: e5dbad97 bl       #0x1d77a60
+0000000003200ad0: 28008052 mov      w8, #1
+0000000003200ad4: 68162939 strb     w8, [x19, #0xa45]
+0000000003200ad8: 880240f9 ldr      x8, [x20]
+0000000003200adc: a00240f9 ldr      x0, [x21]
+0000000003200ae0: 085140f9 ldr      x8, [x8, #0xa0]
+0000000003200ae4: 09e440b9 ldr      w9, [x0, #0xe4]
+0000000003200ae8: 130140f9 ldr      x19, [x8]
+0000000003200aec: 49000035 cbnz     w9, #0x3200af4
+0000000003200af0: 29dcad97 bl       #0x1d77b94
+0000000003200af4: e00313aa mov      x0, x19
+0000000003200af8: e1031faa mov      x1, xzr
+0000000003200afc: e2031faa mov      x2, xzr
+0000000003200b00: 87853594 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+0000000003200b04: 80000036 tbz      w0, #0, #0x3200b14
+0000000003200b08: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003200b0c: fe57c2a8 ldp      x30, x21, [sp], #0x20
+0000000003200b10: c0035fd6 ret      
+0000000003200b14: 48950090 adrp     x8, #0x44a8000
+0000000003200b18: d3950090 adrp     x19, #0x44b8000
+0000000003200b1c: 085d45f9 ldr      x8, [x8, #0xab8]
+0000000003200b20: 73ee40f9 ldr      x19, [x19, #0x1d8]
+0000000003200b24: 000140f9 ldr      x0, [x8]
+0000000003200b28: e7dcad97 bl       #0x1d77ec4
+0000000003200b2c: 610240f9 ldr      x1, [x19]
+0000000003200b30: e2031faa mov      x2, xzr
+0000000003200b34: f30300aa mov      x19, x0
+0000000003200b38: b2873594 bl       #0x3f62a00 ; GameObject :: public GameObject(string name) { }
+0000000003200b3c: a00240f9 ldr      x0, [x21]
+0000000003200b40: 08e440b9 ldr      w8, [x0, #0xe4]
+0000000003200b44: 48000035 cbnz     w8, #0x3200b4c
+0000000003200b48: 13dcad97 bl       #0x1d77b94
+0000000003200b4c: e00313aa mov      x0, x19
+0000000003200b50: e1031faa mov      x1, xzr
+0000000003200b54: 479d3594 bl       #0x3f68070
+0000000003200b58: f30100b4 cbz      x19, #0x3200b94
+0000000003200b5c: c8950090 adrp     x8, #0x44b8000
+0000000003200b60: e00313aa mov      x0, x19
+0000000003200b64: 08e940f9 ldr      x8, [x8, #0x1d0]
+0000000003200b68: 010140f9 ldr      x1, [x8]
+0000000003200b6c: 28aac097 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+0000000003200b70: 880240f9 ldr      x8, [x20]
+0000000003200b74: e10300aa mov      x1, x0
+0000000003200b78: 085140f9 ldr      x8, [x8, #0xa0]
+0000000003200b7c: 000100f9 str      x0, [x8]
+0000000003200b80: 880240f9 ldr      x8, [x20]
+0000000003200b84: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003200b88: 005140f9 ldr      x0, [x8, #0xa0]
+0000000003200b8c: fe57c2a8 ldp      x30, x21, [sp], #0x20
+0000000003200b90: a1dbad17 b        #0x1d77a14
+0000000003200b94: b0dbad97 bl       #0x1d77a54
+
+; private void OnDestroy() { }
+; token=0x6000188 file_offset=0x3208ED0 tool_rva=0x3208ED0 length=0xB4
+000000000320ced0: fe0f1df8 str      x30, [sp, #-0x30]!
+000000000320ced4: f65701a9 stp      x22, x21, [sp, #0x10]
+000000000320ced8: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000320cedc: 76ac00d0 adrp     x22, #0x479a000
+000000000320cee0: 559500f0 adrp     x21, #0x44b7000
+000000000320cee4: f4940090 adrp     x20, #0x44a8000
+000000000320cee8: c8226939 ldrb     w8, [x22, #0xa48]
+000000000320ceec: b5c647f9 ldr      x21, [x21, #0xf88]
+000000000320cef0: 946245f9 ldr      x20, [x20, #0xac0]
+000000000320cef4: f30300aa mov      x19, x0
+000000000320cef8: 28010037 tbnz     w8, #0, #0x320cf1c
+000000000320cefc: 409500f0 adrp     x0, #0x44b7000
+000000000320cf00: 00c447f9 ldr      x0, [x0, #0xf88]
+000000000320cf04: d7aaad97 bl       #0x1d77a60
+000000000320cf08: e0940090 adrp     x0, #0x44a8000
+000000000320cf0c: 006045f9 ldr      x0, [x0, #0xac0]
+000000000320cf10: d4aaad97 bl       #0x1d77a60
+000000000320cf14: 28008052 mov      w8, #1
+000000000320cf18: c8222939 strb     w8, [x22, #0xa48]
+000000000320cf1c: a80240f9 ldr      x8, [x21]
+000000000320cf20: 800240f9 ldr      x0, [x20]
+000000000320cf24: 085140f9 ldr      x8, [x8, #0xa0]
+000000000320cf28: 09e440b9 ldr      w9, [x0, #0xe4]
+000000000320cf2c: 140140f9 ldr      x20, [x8]
+000000000320cf30: 49000035 cbnz     w9, #0x320cf38
+000000000320cf34: 18abad97 bl       #0x1d77b94
+000000000320cf38: e00314aa mov      x0, x20
+000000000320cf3c: e10313aa mov      x1, x19
+000000000320cf40: e2031faa mov      x2, xzr
+000000000320cf44: 5e593594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000320cf48: 60010036 tbz      w0, #0, #0x320cf74
+000000000320cf4c: a80240f9 ldr      x8, [x21]
+000000000320cf50: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000320cf54: e1031faa mov      x1, xzr
+000000000320cf58: 085140f9 ldr      x8, [x8, #0xa0]
+000000000320cf5c: 1f0100f9 str      xzr, [x8]
+000000000320cf60: a80240f9 ldr      x8, [x21]
+000000000320cf64: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000320cf68: 005140f9 ldr      x0, [x8, #0xa0]
+000000000320cf6c: fe0743f8 ldr      x30, [sp], #0x30
+000000000320cf70: a9aaad17 b        #0x1d77a14
+000000000320cf74: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000320cf78: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000320cf7c: fe0743f8 ldr      x30, [sp], #0x30
+000000000320cf80: c0035fd6 ret      
+
+; internal static Coroutine Run(IEnumerator routine) { }
+; token=0x6000186 file_offset=0x31F8324 tool_rva=0x31F8324 length=0x60
+00000000031fc324: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fc328: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fc32c: f5ac00d0 adrp     x21, #0x479a000
+00000000031fc330: d49500f0 adrp     x20, #0x44b7000
+00000000031fc334: f30300aa mov      x19, x0
+00000000031fc338: a81a6939 ldrb     w8, [x21, #0xa46]
+00000000031fc33c: 94c647f9 ldr      x20, [x20, #0xf88]
+00000000031fc340: c8000037 tbnz     w8, #0, #0x31fc358
+00000000031fc344: c09500f0 adrp     x0, #0x44b7000
+00000000031fc348: 00c447f9 ldr      x0, [x0, #0xf88]
+00000000031fc34c: c5edad97 bl       #0x1d77a60
+00000000031fc350: 28008052 mov      w8, #1
+00000000031fc354: a81a2939 strb     w8, [x21, #0xa46]
+00000000031fc358: c6110094 bl       #0x3200a70 ; CloudAccountRunner :: internal static void Ensure() { }
+00000000031fc35c: 880240f9 ldr      x8, [x20]
+00000000031fc360: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fc364: 000140f9 ldr      x0, [x8]
+00000000031fc368: c00000b4 cbz      x0, #0x31fc380
+00000000031fc36c: e10313aa mov      x1, x19
+00000000031fc370: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fc374: e2031faa mov      x2, xzr
+00000000031fc378: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fc37c: 799f3514 b        #0x3f64160 ; MonoBehaviour :: public Coroutine StartCoroutine(IEnumerator routine) { }
+00000000031fc380: b5edad97 bl       #0x1d77a54
+
+; private void Update() { }
+; token=0x6000187 file_offset=0x3208E80 tool_rva=0x3208E80 length=0x50
+000000000320ce80: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000320ce84: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000320ce88: 73ac00d0 adrp     x19, #0x479a000
+000000000320ce8c: 74950090 adrp     x20, #0x44b8000
+000000000320ce90: 681e6939 ldrb     w8, [x19, #0xa47]
+000000000320ce94: 942640f9 ldr      x20, [x20, #0x48]
+000000000320ce98: c8000037 tbnz     w8, #0, #0x320ceb0
+000000000320ce9c: 60950090 adrp     x0, #0x44b8000
+000000000320cea0: 002440f9 ldr      x0, [x0, #0x48]
+000000000320cea4: efaaad97 bl       #0x1d77a60
+000000000320cea8: 28008052 mov      w8, #1
+000000000320ceac: 681e2939 strb     w8, [x19, #0xa47]
+000000000320ceb0: 800240f9 ldr      x0, [x20]
+000000000320ceb4: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000320ceb8: 48000035 cbnz     w8, #0x320cec0
+000000000320cebc: 36abad97 bl       #0x1d77b94
+000000000320cec0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000320cec4: e0031faa mov      x0, xzr
+000000000320cec8: fe0742f8 ldr      x30, [sp], #0x20
+000000000320cecc: be0a0014 b        #0x320f9c4 ; GoogleCredentialBridge :: public static void Pump() { }

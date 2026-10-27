@@ -1,0 +1,194 @@
+Type: Hamdoku.Puzzle.Generator.DemoPuzzles
+
+Method: Hamdoku.Puzzle.Model.Board Create5x5()
+
+Disassembly:
+	0x033D1658 STR X30, [X31 - 0x20]!
+	0x033D165C STP X20, X19, [X31 + 0x10]
+	0x033D1660 ADRP X20, 0x13CA000
+	0x033D1664 ADRP X19, 0x10F1000
+	0x033D1668 LDRB W8, [X20 + 0x741]
+	0x033D166C LDR X19, [X19 + 0x338]
+	0x033D1670 TBNZ W8, 0x0, 0x33D1694
+	0x033D1674 ADRP X0, 0x10E6000
+	0x033D1678 LDR X0, [X0 + 0x460]
+	0x033D167C BL 0x1D77A60
+	0x033D1680 ADRP X0, 0x10F1000
+	0x033D1684 LDR X0, [X0 + 0x338]
+	0x033D1688 BL 0x1D77A60
+	0x033D168C MOV W8, 0x1
+	0x033D1690 STRB W8, [X20 + 0x741]
+	0x033D1694 LDR X0, [X19]
+	0x033D1698 ADRP X20, 0x10E6000
+	0x033D169C LDR W8, [X0 + 0xE4]
+	0x033D16A0 LDR X20, [X20 + 0x460]
+	0x033D16A4 CBNZ W8, 0x33D16B0
+	0x033D16A8 BL 0x1D77B94
+	0x033D16AC LDR X0, [X19]
+	0x033D16B0 LDR X8, [X0 + 0xA0]
+	0x033D16B4 LDR X0, [X20]
+	0x033D16B8 LDR X19, [X8]
+	0x033D16BC BL 0x1D77EC4
+	0x033D16C0 MOV W1, 0x5
+	0x033D16C4 MOV X2, X19
+	0x033D16C8 MOV X20, X0
+	0x033D16CC BL 0x33D05F8
+	0x033D16D0 MOV X0, X20
+	0x033D16D4 LDP X20, X19, [X31 + 0x10]
+	0x033D16D8 LDR X30, [X31], #0x20
+	0x033D16DC RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Move v9 @ X19_v2, [44C2338]
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Jump @b10
+	12 Nop
+	13 Move v14 @ X0_v10, [44B7460]
+	14 Call "il2cpp_codegen_initialize_runtime_metadata", v15 @ X0_v11, v14 @ X0_v10, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	15 Nop
+	16 Move v43 @ X0_v13, [44C2338]
+	17 Call "il2cpp_codegen_initialize_runtime_metadata", v32 @ X0_v14, v43 @ X0_v13, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	18 Move v35 @ X8_v5, 1
+	19 Move [479B741], v35 @ X8_v5
+	20 Move v45 @ X0_v3, [v9 @ X19_v2]
+	21 Nop
+	22 Nop
+	23 Move v39 @ X20_v3, [44B7460]
+	24 Nop
+	25 Nop
+	26 Jump @b11
+	27 Call "il2cpp_codegen_runtime_class_init", v44 @ X0_v7, v36 @ X0_v2, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	28 Move v46 @ X0_v8, [v9 @ X19_v2]
+	29 Move v47 @ X8_v4, [v45 @ X0_v3+A0]
+	30 Nop
+	31 Nop
+	32 Newobj v50 @ X0_v5 (Hamdoku.Puzzle.Model.Board), [v39 @ X20_v3]
+	33 Nop
+	34 Nop
+	35 Nop
+	36 CallVoid Board..ctor, v50 @ X0_v5 (Hamdoku.Puzzle.Model.Board), 5, [v47 @ X8_v4]
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Return v50 @ X0_v5 (Hamdoku.Puzzle.Model.Board)
+
+Method: System.Void .cctor()
+
+Disassembly:
+	0x033D16E0 SUB X31, X31, 0x40
+	0x033D16E4 STR X30, [X31 + 0x10]
+	0x033D16E8 STP X22, X21, [X31 + 0x20]
+	0x033D16EC STP X20, X19, [X31 + 0x30]
+	0x033D16F0 ADRP X22, 0x13CA000
+	0x033D16F4 ADRP X21, 0x10E6000
+	0x033D16F8 ADRP X19, 0x10F2000
+	0x033D16FC ADRP X20, 0x10F1000
+	0x033D1700 LDR X21, [X21 + 0x458]
+	0x033D1704 LDRB W8, [X22 + 0x742]
+	0x033D1708 LDR X19, [X19 + 0x308]
+	0x033D170C LDR X20, [X20 + 0x338]
+	0x033D1710 TBNZ W8, 0x0, 0x33D1740
+	0x033D1714 ADRP X0, 0x10F1000
+	0x033D1718 LDR X0, [X0 + 0x338]
+	0x033D171C BL 0x1D77A60
+	0x033D1720 ADRP X0, 0x10E6000
+	0x033D1724 LDR X0, [X0 + 0x458]
+	0x033D1728 BL 0x1D77A60
+	0x033D172C ADRP X0, 0x10F2000
+	0x033D1730 LDR X0, [X0 + 0x308]
+	0x033D1734 BL 0x1D77A60
+	0x033D1738 MOV W8, 0x1
+	0x033D173C STRB W8, [X22 + 0x742]
+	0x033D1740 ADRP X8, 0xFFFFFFFFFD872000
+	0x033D1744 ADD X8, X8, 0x3E0
+	0x033D1748 LDR X0, [X21]
+	0x033D174C LDR V0, [X8]
+	0x033D1750 ADD X1, X31, 0x0
+	0x033D1754 STR V0, [X31]
+	0x033D1758 BL 0x1D77B0C
+	0x033D175C LDR X1, [X19]
+	0x033D1760 MOV X19, X0
+	0x033D1764 ADD X0, X0, 0x20
+	0x033D1768 MOV W2, 0x64
+	0x033D176C BL 0x422EAA0
+	0x033D1770 LDR X8, [X20]
+	0x033D1774 MOV X1, X19
+	0x033D1778 LDR X8, [X8 + 0xA0]
+	0x033D177C STR X19, [X8]
+	0x033D1780 LDR X8, [X20]
+	0x033D1784 LDR X0, [X8 + 0xA0]
+	0x033D1788 BL 0x1D77A14
+	0x033D178C LDP X20, X19, [X31 + 0x30]
+	0x033D1790 LDR X30, [X31 + 0x10]
+	0x033D1794 LDP X22, X21, [X31 + 0x20]
+	0x033D1798 ADD X31, X31, 0x40
+	0x033D179C RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Move v14 @ X21_v2, [44B7458]
+	11 Nop
+	12 Move v16 @ X19_v2, [44C3308]
+	13 Move v17 @ X20_v2, [44C2338]
+	14 Nop
+	15 Nop
+	16 Nop
+	17 Jump @b10
+	18 Nop
+	19 Move v22 @ X0_v9, [44C2338]
+	20 Call "il2cpp_codegen_initialize_runtime_metadata", v23 @ X0_v10, v22 @ X0_v9, v24 @ X1, v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	21 Nop
+	22 Move v53 @ X0_v12, [44B7458]
+	23 Call "il2cpp_codegen_initialize_runtime_metadata", v54 @ X0_v13, v53 @ X0_v12, v24 @ X1, v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	24 Nop
+	25 Move v61 @ X0_v15, [44C3308]
+	26 Call "il2cpp_codegen_initialize_runtime_metadata", v40 @ X0_v16, v61 @ X0_v15, v24 @ X1, v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	27 Move v43 @ X8_v8, 1
+	28 Move [479B742], v43 @ X8_v8
+	29 Nop
+	30 Add v45 @ X8_v4, 12857344, 992
+	31 Nop
+	32 Nop
+	33 Nop
+	34 Nop
+	35 Call 1D77B0C, v51 @ X0_v3, [v14 @ X21_v2], &v49 @ stack_-40, v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, [v45 @ X8_v4], v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	36 Nop
+	37 Nop
+	38 Add v57 @ X0_v4, v51 @ X0_v3, 32
+	39 Nop
+	40 Call 422EAA0, v59 @ X0_v5, v57 @ X0_v4, [v16 @ X19_v2], 100, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, [v45 @ X8_v4], v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	41 Move v62 @ X8_v5, [v17 @ X20_v2]
+	42 Nop
+	43 Move v64 @ X8_v6, [v62 @ X8_v5+A0]
+	44 Move [v64 @ X8_v6], v51 @ X0_v3
+	45 Move v65 @ X8_v7, [v17 @ X20_v2]
+	46 Nop
+	47 Call 1D77A14, v67 @ X0_v7, [v65 @ X8_v7+A0], v51 @ X0_v3, 100, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, [v45 @ X8_v4], v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	48 Nop
+	49 Nop
+	50 Nop
+	51 Nop
+	52 Nop
+	53 Nop
+	54 Return
+

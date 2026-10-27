@@ -1,0 +1,994 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; get { } //Length: 60
+; token=0x6000CB4 file_offset=0x323C214 tool_rva=0x323C214 length=0x3C
+0000000003240214: fe0f1ff8 str      x30, [sp, #-0x10]!
+0000000003240218: 12ffff97 bl       #0x323fe60 ; LevelRewardService :: public static bool get_Enabled() { }
+000000000324021c: c0000036 tbz      w0, #0, #0x3240234
+0000000003240220: a3ffff97 bl       #0x32400ac ; LevelRewardService :: public static int get_Bulb() { }
+0000000003240224: 1f000071 cmp      w0, #0
+0000000003240228: ad000054 b.le     #0x324023c
+000000000324022c: 20008052 mov      w0, #1
+0000000003240230: 06000014 b        #0x3240248
+0000000003240234: e0031f2a mov      w0, wzr
+0000000003240238: 04000014 b        #0x3240248
+000000000324023c: c0ffff97 bl       #0x324013c ; LevelRewardService :: public static int get_Glass() { }
+0000000003240240: 1f000071 cmp      w0, #0
+0000000003240244: e0d79f1a cset     w0, gt
+0000000003240248: fe0741f8 ldr      x30, [sp], #0x10
+000000000324024c: c0035fd6 ret      
+
+; get { } //Length: 144
+; token=0x6000CB1 file_offset=0x323C0AC tool_rva=0x323C0AC length=0x90
+00000000032400ac: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032400b0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032400b4: d4aa00d0 adrp     x20, #0x479a000
+00000000032400b8: 53930090 adrp     x19, #0x44a8000
+00000000032400bc: 88e27039 ldrb     w8, [x20, #0xc38]
+00000000032400c0: 736245f9 ldr      x19, [x19, #0xac0]
+00000000032400c4: c8000037 tbnz     w8, #0, #0x32400dc
+00000000032400c8: 40930090 adrp     x0, #0x44a8000
+00000000032400cc: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032400d0: 64deac97 bl       #0x1d77a60
+00000000032400d4: 28008052 mov      w8, #1
+00000000032400d8: 88e23039 strb     w8, [x20, #0xc38]
+00000000032400dc: e0031faa mov      x0, xzr
+00000000032400e0: af9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+00000000032400e4: 680240f9 ldr      x8, [x19]
+00000000032400e8: f30300aa mov      x19, x0
+00000000032400ec: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032400f0: 69000035 cbnz     w9, #0x32400fc
+00000000032400f4: e00308aa mov      x0, x8
+00000000032400f8: a7deac97 bl       #0x1d77b94
+00000000032400fc: e00313aa mov      x0, x19
+0000000003240100: e1031faa mov      x1, xzr
+0000000003240104: e2031faa mov      x2, xzr
+0000000003240108: 05883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324010c: c0000036 tbz      w0, #0, #0x3240124
+0000000003240110: e0031faa mov      x0, xzr
+0000000003240114: a29afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240118: 000100b4 cbz      x0, #0x3240138
+000000000324011c: 088c40b9 ldr      w8, [x0, #0x8c]
+0000000003240120: 02000014 b        #0x3240128
+0000000003240124: 28008052 mov      w8, #1
+0000000003240128: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000324012c: 007da80a bic      w0, w8, w8, asr #31
+0000000003240130: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240134: c0035fd6 ret      
+0000000003240138: 47deac97 bl       #0x1d77a54
+
+; get { } //Length: 8
+; token=0x6000CAC file_offset=0x323BE58 tool_rva=0x323BE58 length=0x8
+000000000323fe58: e0031faa mov      x0, xzr
+000000000323fe5c: 509bfe17 b        #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+
+; get { } //Length: 72
+; token=0x6000CB3 file_offset=0x323C1CC tool_rva=0x323C1CC length=0x48
+00000000032401cc: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032401d0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032401d4: d3aa00d0 adrp     x19, #0x479a000
+00000000032401d8: d49300d0 adrp     x20, #0x44ba000
+00000000032401dc: 68ea7039 ldrb     w8, [x19, #0xc3a]
+00000000032401e0: 941240f9 ldr      x20, [x20, #0x20]
+00000000032401e4: c8000037 tbnz     w8, #0, #0x32401fc
+00000000032401e8: c09300d0 adrp     x0, #0x44ba000
+00000000032401ec: 001040f9 ldr      x0, [x0, #0x20]
+00000000032401f0: 1cdeac97 bl       #0x1d77a60
+00000000032401f4: 28008052 mov      w8, #1
+00000000032401f8: 68ea3039 strb     w8, [x19, #0xc3a]
+00000000032401fc: 800240f9 ldr      x0, [x20]
+0000000003240200: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240204: e1031f2a mov      w1, wzr
+0000000003240208: e2031faa mov      x2, xzr
+000000000324020c: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240210: d96b3414 b        #0x3f5b174 ; PlayerPrefs :: public static int GetInt(string key, int defaultValue) { }
+
+; get { } //Length: 148
+; token=0x6000CAD file_offset=0x323BE60 tool_rva=0x323BE60 length=0x94
+000000000323fe60: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323fe64: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323fe68: d4aa00f0 adrp     x20, #0x479a000
+000000000323fe6c: 539300b0 adrp     x19, #0x44a8000
+000000000323fe70: 88d27039 ldrb     w8, [x20, #0xc34]
+000000000323fe74: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323fe78: c8000037 tbnz     w8, #0, #0x323fe90
+000000000323fe7c: 409300b0 adrp     x0, #0x44a8000
+000000000323fe80: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323fe84: f7deac97 bl       #0x1d77a60
+000000000323fe88: 28008052 mov      w8, #1
+000000000323fe8c: 88d23039 strb     w8, [x20, #0xc34]
+000000000323fe90: e0031faa mov      x0, xzr
+000000000323fe94: 429bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fe98: 680240f9 ldr      x8, [x19]
+000000000323fe9c: f30300aa mov      x19, x0
+000000000323fea0: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323fea4: 69000035 cbnz     w9, #0x323feb0
+000000000323fea8: e00308aa mov      x0, x8
+000000000323feac: 3adfac97 bl       #0x1d77b94
+000000000323feb0: e00313aa mov      x0, x19
+000000000323feb4: e1031faa mov      x1, xzr
+000000000323feb8: e2031faa mov      x2, xzr
+000000000323febc: 808d3494 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000323fec0: 60000036 tbz      w0, #0, #0x323fecc
+000000000323fec4: 20008052 mov      w0, #1
+000000000323fec8: 07000014 b        #0x323fee4
+000000000323fecc: e0031faa mov      x0, xzr
+000000000323fed0: 339bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fed4: e00000b4 cbz      x0, #0x323fef0
+000000000323fed8: 087c40b9 ldr      w8, [x0, #0x7c]
+000000000323fedc: 1f010071 cmp      w8, #0
+000000000323fee0: e0079f1a cset     w0, ne
+000000000323fee4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323fee8: fe0742f8 ldr      x30, [sp], #0x20
+000000000323feec: c0035fd6 ret      
+000000000323fef0: d9deac97 bl       #0x1d77a54
+
+; get { } //Length: 144
+; token=0x6000CB2 file_offset=0x323C13C tool_rva=0x323C13C length=0x90
+000000000324013c: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240140: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240144: d4aa00d0 adrp     x20, #0x479a000
+0000000003240148: 53930090 adrp     x19, #0x44a8000
+000000000324014c: 88e67039 ldrb     w8, [x20, #0xc39]
+0000000003240150: 736245f9 ldr      x19, [x19, #0xac0]
+0000000003240154: c8000037 tbnz     w8, #0, #0x324016c
+0000000003240158: 40930090 adrp     x0, #0x44a8000
+000000000324015c: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003240160: 40deac97 bl       #0x1d77a60
+0000000003240164: 28008052 mov      w8, #1
+0000000003240168: 88e63039 strb     w8, [x20, #0xc39]
+000000000324016c: e0031faa mov      x0, xzr
+0000000003240170: 8b9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240174: 680240f9 ldr      x8, [x19]
+0000000003240178: f30300aa mov      x19, x0
+000000000324017c: 09e540b9 ldr      w9, [x8, #0xe4]
+0000000003240180: 69000035 cbnz     w9, #0x324018c
+0000000003240184: e00308aa mov      x0, x8
+0000000003240188: 83deac97 bl       #0x1d77b94
+000000000324018c: e00313aa mov      x0, x19
+0000000003240190: e1031faa mov      x1, xzr
+0000000003240194: e2031faa mov      x2, xzr
+0000000003240198: e1873494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324019c: c0000036 tbz      w0, #0, #0x32401b4
+00000000032401a0: e0031faa mov      x0, xzr
+00000000032401a4: 7e9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+00000000032401a8: 000100b4 cbz      x0, #0x32401c8
+00000000032401ac: 089040b9 ldr      w8, [x0, #0x90]
+00000000032401b0: 02000014 b        #0x32401b8
+00000000032401b4: e8031f2a mov      w8, wzr
+00000000032401b8: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032401bc: 007da80a bic      w0, w8, w8, asr #31
+00000000032401c0: fe0742f8 ldr      x30, [sp], #0x20
+00000000032401c4: c0035fd6 ret      
+00000000032401c8: 23deac97 bl       #0x1d77a54
+
+; get { } //Length: 148
+; token=0x6000CAE file_offset=0x323BEF4 tool_rva=0x323BEF4 length=0x94
+000000000323fef4: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323fef8: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323fefc: d4aa00f0 adrp     x20, #0x479a000
+000000000323ff00: 539300b0 adrp     x19, #0x44a8000
+000000000323ff04: 88d67039 ldrb     w8, [x20, #0xc35]
+000000000323ff08: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323ff0c: c8000037 tbnz     w8, #0, #0x323ff24
+000000000323ff10: 409300b0 adrp     x0, #0x44a8000
+000000000323ff14: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323ff18: d2deac97 bl       #0x1d77a60
+000000000323ff1c: 28008052 mov      w8, #1
+000000000323ff20: 88d63039 strb     w8, [x20, #0xc35]
+000000000323ff24: e0031faa mov      x0, xzr
+000000000323ff28: 1d9bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ff2c: 680240f9 ldr      x8, [x19]
+000000000323ff30: f30300aa mov      x19, x0
+000000000323ff34: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323ff38: 69000035 cbnz     w9, #0x323ff44
+000000000323ff3c: e00308aa mov      x0, x8
+000000000323ff40: 15dfac97 bl       #0x1d77b94
+000000000323ff44: e00313aa mov      x0, x19
+000000000323ff48: e1031faa mov      x1, xzr
+000000000323ff4c: e2031faa mov      x2, xzr
+000000000323ff50: 73883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000323ff54: c0000036 tbz      w0, #0, #0x323ff6c
+000000000323ff58: e0031faa mov      x0, xzr
+000000000323ff5c: 109bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ff60: 200100b4 cbz      x0, #0x323ff84
+000000000323ff64: 088040b9 ldr      w8, [x0, #0x80]
+000000000323ff68: 02000014 b        #0x323ff70
+000000000323ff6c: a8008052 mov      w8, #5
+000000000323ff70: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323ff74: 1f050071 cmp      w8, #1
+000000000323ff78: 00c59f1a csinc    w0, w8, wzr, gt
+000000000323ff7c: fe0742f8 ldr      x30, [sp], #0x20
+000000000323ff80: c0035fd6 ret      
+000000000323ff84: b4deac97 bl       #0x1d77a54
+
+; get { } //Length: 144
+; token=0x6000CB0 file_offset=0x323C01C tool_rva=0x323C01C length=0x90
+000000000324001c: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240020: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240024: d4aa00d0 adrp     x20, #0x479a000
+0000000003240028: 53930090 adrp     x19, #0x44a8000
+000000000324002c: 88de7039 ldrb     w8, [x20, #0xc37]
+0000000003240030: 736245f9 ldr      x19, [x19, #0xac0]
+0000000003240034: c8000037 tbnz     w8, #0, #0x324004c
+0000000003240038: 40930090 adrp     x0, #0x44a8000
+000000000324003c: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003240040: 88deac97 bl       #0x1d77a60
+0000000003240044: 28008052 mov      w8, #1
+0000000003240048: 88de3039 strb     w8, [x20, #0xc37]
+000000000324004c: e0031faa mov      x0, xzr
+0000000003240050: d39afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240054: 680240f9 ldr      x8, [x19]
+0000000003240058: f30300aa mov      x19, x0
+000000000324005c: 09e540b9 ldr      w9, [x8, #0xe4]
+0000000003240060: 69000035 cbnz     w9, #0x324006c
+0000000003240064: e00308aa mov      x0, x8
+0000000003240068: cbdeac97 bl       #0x1d77b94
+000000000324006c: e00313aa mov      x0, x19
+0000000003240070: e1031faa mov      x1, xzr
+0000000003240074: e2031faa mov      x2, xzr
+0000000003240078: 29883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324007c: c0000036 tbz      w0, #0, #0x3240094
+0000000003240080: e0031faa mov      x0, xzr
+0000000003240084: c69afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240088: 000100b4 cbz      x0, #0x32400a8
+000000000324008c: 088440b9 ldr      w8, [x0, #0x84]
+0000000003240090: 02000014 b        #0x3240098
+0000000003240094: 88028052 mov      w8, #0x14
+0000000003240098: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000324009c: 007da80a bic      w0, w8, w8, asr #31
+00000000032400a0: fe0742f8 ldr      x30, [sp], #0x20
+00000000032400a4: c0035fd6 ret      
+00000000032400a8: 6bdeac97 bl       #0x1d77a54
+
+; get { } //Length: 148
+; token=0x6000CAF file_offset=0x323BF88 tool_rva=0x323BF88 length=0x94
+000000000323ff88: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323ff8c: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323ff90: d4aa00f0 adrp     x20, #0x479a000
+000000000323ff94: 539300b0 adrp     x19, #0x44a8000
+000000000323ff98: 88da7039 ldrb     w8, [x20, #0xc36]
+000000000323ff9c: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323ffa0: c8000037 tbnz     w8, #0, #0x323ffb8
+000000000323ffa4: 409300b0 adrp     x0, #0x44a8000
+000000000323ffa8: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323ffac: addeac97 bl       #0x1d77a60
+000000000323ffb0: 28008052 mov      w8, #1
+000000000323ffb4: 88da3039 strb     w8, [x20, #0xc36]
+000000000323ffb8: e0031faa mov      x0, xzr
+000000000323ffbc: f89afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ffc0: 680240f9 ldr      x8, [x19]
+000000000323ffc4: f30300aa mov      x19, x0
+000000000323ffc8: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323ffcc: 69000035 cbnz     w9, #0x323ffd8
+000000000323ffd0: e00308aa mov      x0, x8
+000000000323ffd4: f0deac97 bl       #0x1d77b94
+000000000323ffd8: e00313aa mov      x0, x19
+000000000323ffdc: e1031faa mov      x1, xzr
+000000000323ffe0: e2031faa mov      x2, xzr
+000000000323ffe4: 4e883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000323ffe8: c0000036 tbz      w0, #0, #0x3240000
+000000000323ffec: e0031faa mov      x0, xzr
+000000000323fff0: eb9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fff4: 200100b4 cbz      x0, #0x3240018
+000000000323fff8: 088840b9 ldr      w8, [x0, #0x88]
+000000000323fffc: 02000014 b        #0x3240004
+0000000003240000: 48018052 mov      w8, #0xa
+0000000003240004: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240008: 1f050071 cmp      w8, #1
+000000000324000c: 00c59f1a csinc    w0, w8, wzr, gt
+0000000003240010: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240014: c0035fd6 ret      
+0000000003240018: 8fdeac97 bl       #0x1d77a54
+
+; public static void EnsureBaseline(int reachedLevel) { }
+; token=0x6000CB8 file_offset=0x323C3FC tool_rva=0x323C3FC length=0xC4
+00000000032403fc: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240400: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240404: d4aa00d0 adrp     x20, #0x479a000
+0000000003240408: f303002a mov      w19, w0
+000000000324040c: 88ee7039 ldrb     w8, [x20, #0xc3b]
+0000000003240410: 28010037 tbnz     w8, #0, #0x3240434
+0000000003240414: c09300d0 adrp     x0, #0x44ba000
+0000000003240418: 001440f9 ldr      x0, [x0, #0x28]
+000000000324041c: 91ddac97 bl       #0x1d77a60
+0000000003240420: c09300d0 adrp     x0, #0x44ba000
+0000000003240424: 001040f9 ldr      x0, [x0, #0x20]
+0000000003240428: 8eddac97 bl       #0x1d77a60
+000000000324042c: 28008052 mov      w8, #1
+0000000003240430: 88ee3039 strb     w8, [x20, #0xc3b]
+0000000003240434: 78ffff97 bl       #0x3240214 ; LevelRewardService :: public static bool get_Active() { }
+0000000003240438: 20010036 tbz      w0, #0, #0x324045c
+000000000324043c: d49300d0 adrp     x20, #0x44ba000
+0000000003240440: e1031f2a mov      w1, wzr
+0000000003240444: e2031faa mov      x2, xzr
+0000000003240448: 941640f9 ldr      x20, [x20, #0x28]
+000000000324044c: 800240f9 ldr      x0, [x20]
+0000000003240450: 496b3494 bl       #0x3f5b174 ; PlayerPrefs :: public static int GetInt(string key, int defaultValue) { }
+0000000003240454: 1f040071 cmp      w0, #1
+0000000003240458: 81000054 b.ne     #0x3240468
+000000000324045c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240460: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240464: c0035fd6 ret      
+0000000003240468: 68060051 sub      w8, w19, #1
+000000000324046c: 007da80a bic      w0, w8, w8, asr #31
+0000000003240470: c3ffff97 bl       #0x324037c ; LevelRewardService :: public static int HighestMilestoneAtOrBefore(int level) { }
+0000000003240474: 880240f9 ldr      x8, [x20]
+0000000003240478: f303002a mov      w19, w0
+000000000324047c: 21008052 mov      w1, #1
+0000000003240480: e2031faa mov      x2, xzr
+0000000003240484: e00308aa mov      x0, x8
+0000000003240488: 256b3494 bl       #0x3f5b11c ; PlayerPrefs :: public static void SetInt(string key, int value) { }
+000000000324048c: 50ffff97 bl       #0x32401cc ; LevelRewardService :: public static int get_ClaimedUpTo() { }
+0000000003240490: 7f02006b cmp      w19, w0
+0000000003240494: ed000054 b.le     #0x32404b0
+0000000003240498: c89300d0 adrp     x8, #0x44ba000
+000000000324049c: e103132a mov      w1, w19
+00000000032404a0: e2031faa mov      x2, xzr
+00000000032404a4: 081140f9 ldr      x8, [x8, #0x20]
+00000000032404a8: 000140f9 ldr      x0, [x8]
+00000000032404ac: 1c6b3494 bl       #0x3f5b11c ; PlayerPrefs :: public static void SetInt(string key, int value) { }
+00000000032404b0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032404b4: e0031faa mov      x0, xzr
+00000000032404b8: fe0742f8 ldr      x30, [sp], #0x20
+00000000032404bc: 266e3414 b        #0x3f5bd54
+
+; public static bool get_Active() { }
+; token=0x6000CB4 file_offset=0x323C214 tool_rva=0x323C214 length=0x3C
+0000000003240214: fe0f1ff8 str      x30, [sp, #-0x10]!
+0000000003240218: 12ffff97 bl       #0x323fe60 ; LevelRewardService :: public static bool get_Enabled() { }
+000000000324021c: c0000036 tbz      w0, #0, #0x3240234
+0000000003240220: a3ffff97 bl       #0x32400ac ; LevelRewardService :: public static int get_Bulb() { }
+0000000003240224: 1f000071 cmp      w0, #0
+0000000003240228: ad000054 b.le     #0x324023c
+000000000324022c: 20008052 mov      w0, #1
+0000000003240230: 06000014 b        #0x3240248
+0000000003240234: e0031f2a mov      w0, wzr
+0000000003240238: 04000014 b        #0x3240248
+000000000324023c: c0ffff97 bl       #0x324013c ; LevelRewardService :: public static int get_Glass() { }
+0000000003240240: 1f000071 cmp      w0, #0
+0000000003240244: e0d79f1a cset     w0, gt
+0000000003240248: fe0741f8 ldr      x30, [sp], #0x10
+000000000324024c: c0035fd6 ret      
+
+; public static int get_Bulb() { }
+; token=0x6000CB1 file_offset=0x323C0AC tool_rva=0x323C0AC length=0x90
+00000000032400ac: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032400b0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032400b4: d4aa00d0 adrp     x20, #0x479a000
+00000000032400b8: 53930090 adrp     x19, #0x44a8000
+00000000032400bc: 88e27039 ldrb     w8, [x20, #0xc38]
+00000000032400c0: 736245f9 ldr      x19, [x19, #0xac0]
+00000000032400c4: c8000037 tbnz     w8, #0, #0x32400dc
+00000000032400c8: 40930090 adrp     x0, #0x44a8000
+00000000032400cc: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032400d0: 64deac97 bl       #0x1d77a60
+00000000032400d4: 28008052 mov      w8, #1
+00000000032400d8: 88e23039 strb     w8, [x20, #0xc38]
+00000000032400dc: e0031faa mov      x0, xzr
+00000000032400e0: af9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+00000000032400e4: 680240f9 ldr      x8, [x19]
+00000000032400e8: f30300aa mov      x19, x0
+00000000032400ec: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032400f0: 69000035 cbnz     w9, #0x32400fc
+00000000032400f4: e00308aa mov      x0, x8
+00000000032400f8: a7deac97 bl       #0x1d77b94
+00000000032400fc: e00313aa mov      x0, x19
+0000000003240100: e1031faa mov      x1, xzr
+0000000003240104: e2031faa mov      x2, xzr
+0000000003240108: 05883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324010c: c0000036 tbz      w0, #0, #0x3240124
+0000000003240110: e0031faa mov      x0, xzr
+0000000003240114: a29afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240118: 000100b4 cbz      x0, #0x3240138
+000000000324011c: 088c40b9 ldr      w8, [x0, #0x8c]
+0000000003240120: 02000014 b        #0x3240128
+0000000003240124: 28008052 mov      w8, #1
+0000000003240128: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000324012c: 007da80a bic      w0, w8, w8, asr #31
+0000000003240130: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240134: c0035fd6 ret      
+0000000003240138: 47deac97 bl       #0x1d77a54
+
+; private static GameConfig get_Cfg() { }
+; token=0x6000CAC file_offset=0x323BE58 tool_rva=0x323BE58 length=0x8
+000000000323fe58: e0031faa mov      x0, xzr
+000000000323fe5c: 509bfe17 b        #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+
+; public static int get_ClaimedUpTo() { }
+; token=0x6000CB3 file_offset=0x323C1CC tool_rva=0x323C1CC length=0x48
+00000000032401cc: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032401d0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032401d4: d3aa00d0 adrp     x19, #0x479a000
+00000000032401d8: d49300d0 adrp     x20, #0x44ba000
+00000000032401dc: 68ea7039 ldrb     w8, [x19, #0xc3a]
+00000000032401e0: 941240f9 ldr      x20, [x20, #0x20]
+00000000032401e4: c8000037 tbnz     w8, #0, #0x32401fc
+00000000032401e8: c09300d0 adrp     x0, #0x44ba000
+00000000032401ec: 001040f9 ldr      x0, [x0, #0x20]
+00000000032401f0: 1cdeac97 bl       #0x1d77a60
+00000000032401f4: 28008052 mov      w8, #1
+00000000032401f8: 68ea3039 strb     w8, [x19, #0xc3a]
+00000000032401fc: 800240f9 ldr      x0, [x20]
+0000000003240200: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240204: e1031f2a mov      w1, wzr
+0000000003240208: e2031faa mov      x2, xzr
+000000000324020c: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240210: d96b3414 b        #0x3f5b174 ; PlayerPrefs :: public static int GetInt(string key, int defaultValue) { }
+
+; public static bool get_Enabled() { }
+; token=0x6000CAD file_offset=0x323BE60 tool_rva=0x323BE60 length=0x94
+000000000323fe60: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323fe64: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323fe68: d4aa00f0 adrp     x20, #0x479a000
+000000000323fe6c: 539300b0 adrp     x19, #0x44a8000
+000000000323fe70: 88d27039 ldrb     w8, [x20, #0xc34]
+000000000323fe74: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323fe78: c8000037 tbnz     w8, #0, #0x323fe90
+000000000323fe7c: 409300b0 adrp     x0, #0x44a8000
+000000000323fe80: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323fe84: f7deac97 bl       #0x1d77a60
+000000000323fe88: 28008052 mov      w8, #1
+000000000323fe8c: 88d23039 strb     w8, [x20, #0xc34]
+000000000323fe90: e0031faa mov      x0, xzr
+000000000323fe94: 429bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fe98: 680240f9 ldr      x8, [x19]
+000000000323fe9c: f30300aa mov      x19, x0
+000000000323fea0: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323fea4: 69000035 cbnz     w9, #0x323feb0
+000000000323fea8: e00308aa mov      x0, x8
+000000000323feac: 3adfac97 bl       #0x1d77b94
+000000000323feb0: e00313aa mov      x0, x19
+000000000323feb4: e1031faa mov      x1, xzr
+000000000323feb8: e2031faa mov      x2, xzr
+000000000323febc: 808d3494 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000323fec0: 60000036 tbz      w0, #0, #0x323fecc
+000000000323fec4: 20008052 mov      w0, #1
+000000000323fec8: 07000014 b        #0x323fee4
+000000000323fecc: e0031faa mov      x0, xzr
+000000000323fed0: 339bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fed4: e00000b4 cbz      x0, #0x323fef0
+000000000323fed8: 087c40b9 ldr      w8, [x0, #0x7c]
+000000000323fedc: 1f010071 cmp      w8, #0
+000000000323fee0: e0079f1a cset     w0, ne
+000000000323fee4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323fee8: fe0742f8 ldr      x30, [sp], #0x20
+000000000323feec: c0035fd6 ret      
+000000000323fef0: d9deac97 bl       #0x1d77a54
+
+; public static int get_Glass() { }
+; token=0x6000CB2 file_offset=0x323C13C tool_rva=0x323C13C length=0x90
+000000000324013c: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240140: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240144: d4aa00d0 adrp     x20, #0x479a000
+0000000003240148: 53930090 adrp     x19, #0x44a8000
+000000000324014c: 88e67039 ldrb     w8, [x20, #0xc39]
+0000000003240150: 736245f9 ldr      x19, [x19, #0xac0]
+0000000003240154: c8000037 tbnz     w8, #0, #0x324016c
+0000000003240158: 40930090 adrp     x0, #0x44a8000
+000000000324015c: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003240160: 40deac97 bl       #0x1d77a60
+0000000003240164: 28008052 mov      w8, #1
+0000000003240168: 88e63039 strb     w8, [x20, #0xc39]
+000000000324016c: e0031faa mov      x0, xzr
+0000000003240170: 8b9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240174: 680240f9 ldr      x8, [x19]
+0000000003240178: f30300aa mov      x19, x0
+000000000324017c: 09e540b9 ldr      w9, [x8, #0xe4]
+0000000003240180: 69000035 cbnz     w9, #0x324018c
+0000000003240184: e00308aa mov      x0, x8
+0000000003240188: 83deac97 bl       #0x1d77b94
+000000000324018c: e00313aa mov      x0, x19
+0000000003240190: e1031faa mov      x1, xzr
+0000000003240194: e2031faa mov      x2, xzr
+0000000003240198: e1873494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324019c: c0000036 tbz      w0, #0, #0x32401b4
+00000000032401a0: e0031faa mov      x0, xzr
+00000000032401a4: 7e9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+00000000032401a8: 000100b4 cbz      x0, #0x32401c8
+00000000032401ac: 089040b9 ldr      w8, [x0, #0x90]
+00000000032401b0: 02000014 b        #0x32401b8
+00000000032401b4: e8031f2a mov      w8, wzr
+00000000032401b8: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032401bc: 007da80a bic      w0, w8, w8, asr #31
+00000000032401c0: fe0742f8 ldr      x30, [sp], #0x20
+00000000032401c4: c0035fd6 ret      
+00000000032401c8: 23deac97 bl       #0x1d77a54
+
+; public static int get_StepEarly() { }
+; token=0x6000CAE file_offset=0x323BEF4 tool_rva=0x323BEF4 length=0x94
+000000000323fef4: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323fef8: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323fefc: d4aa00f0 adrp     x20, #0x479a000
+000000000323ff00: 539300b0 adrp     x19, #0x44a8000
+000000000323ff04: 88d67039 ldrb     w8, [x20, #0xc35]
+000000000323ff08: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323ff0c: c8000037 tbnz     w8, #0, #0x323ff24
+000000000323ff10: 409300b0 adrp     x0, #0x44a8000
+000000000323ff14: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323ff18: d2deac97 bl       #0x1d77a60
+000000000323ff1c: 28008052 mov      w8, #1
+000000000323ff20: 88d63039 strb     w8, [x20, #0xc35]
+000000000323ff24: e0031faa mov      x0, xzr
+000000000323ff28: 1d9bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ff2c: 680240f9 ldr      x8, [x19]
+000000000323ff30: f30300aa mov      x19, x0
+000000000323ff34: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323ff38: 69000035 cbnz     w9, #0x323ff44
+000000000323ff3c: e00308aa mov      x0, x8
+000000000323ff40: 15dfac97 bl       #0x1d77b94
+000000000323ff44: e00313aa mov      x0, x19
+000000000323ff48: e1031faa mov      x1, xzr
+000000000323ff4c: e2031faa mov      x2, xzr
+000000000323ff50: 73883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000323ff54: c0000036 tbz      w0, #0, #0x323ff6c
+000000000323ff58: e0031faa mov      x0, xzr
+000000000323ff5c: 109bfe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ff60: 200100b4 cbz      x0, #0x323ff84
+000000000323ff64: 088040b9 ldr      w8, [x0, #0x80]
+000000000323ff68: 02000014 b        #0x323ff70
+000000000323ff6c: a8008052 mov      w8, #5
+000000000323ff70: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000323ff74: 1f050071 cmp      w8, #1
+000000000323ff78: 00c59f1a csinc    w0, w8, wzr, gt
+000000000323ff7c: fe0742f8 ldr      x30, [sp], #0x20
+000000000323ff80: c0035fd6 ret      
+000000000323ff84: b4deac97 bl       #0x1d77a54
+
+; public static int get_StepFrom() { }
+; token=0x6000CB0 file_offset=0x323C01C tool_rva=0x323C01C length=0x90
+000000000324001c: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240020: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240024: d4aa00d0 adrp     x20, #0x479a000
+0000000003240028: 53930090 adrp     x19, #0x44a8000
+000000000324002c: 88de7039 ldrb     w8, [x20, #0xc37]
+0000000003240030: 736245f9 ldr      x19, [x19, #0xac0]
+0000000003240034: c8000037 tbnz     w8, #0, #0x324004c
+0000000003240038: 40930090 adrp     x0, #0x44a8000
+000000000324003c: 006045f9 ldr      x0, [x0, #0xac0]
+0000000003240040: 88deac97 bl       #0x1d77a60
+0000000003240044: 28008052 mov      w8, #1
+0000000003240048: 88de3039 strb     w8, [x20, #0xc37]
+000000000324004c: e0031faa mov      x0, xzr
+0000000003240050: d39afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240054: 680240f9 ldr      x8, [x19]
+0000000003240058: f30300aa mov      x19, x0
+000000000324005c: 09e540b9 ldr      w9, [x8, #0xe4]
+0000000003240060: 69000035 cbnz     w9, #0x324006c
+0000000003240064: e00308aa mov      x0, x8
+0000000003240068: cbdeac97 bl       #0x1d77b94
+000000000324006c: e00313aa mov      x0, x19
+0000000003240070: e1031faa mov      x1, xzr
+0000000003240074: e2031faa mov      x2, xzr
+0000000003240078: 29883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000324007c: c0000036 tbz      w0, #0, #0x3240094
+0000000003240080: e0031faa mov      x0, xzr
+0000000003240084: c69afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+0000000003240088: 000100b4 cbz      x0, #0x32400a8
+000000000324008c: 088440b9 ldr      w8, [x0, #0x84]
+0000000003240090: 02000014 b        #0x3240098
+0000000003240094: 88028052 mov      w8, #0x14
+0000000003240098: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000324009c: 007da80a bic      w0, w8, w8, asr #31
+00000000032400a0: fe0742f8 ldr      x30, [sp], #0x20
+00000000032400a4: c0035fd6 ret      
+00000000032400a8: 6bdeac97 bl       #0x1d77a54
+
+; public static int get_StepLate() { }
+; token=0x6000CAF file_offset=0x323BF88 tool_rva=0x323BF88 length=0x94
+000000000323ff88: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000323ff8c: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000323ff90: d4aa00f0 adrp     x20, #0x479a000
+000000000323ff94: 539300b0 adrp     x19, #0x44a8000
+000000000323ff98: 88da7039 ldrb     w8, [x20, #0xc36]
+000000000323ff9c: 736245f9 ldr      x19, [x19, #0xac0]
+000000000323ffa0: c8000037 tbnz     w8, #0, #0x323ffb8
+000000000323ffa4: 409300b0 adrp     x0, #0x44a8000
+000000000323ffa8: 006045f9 ldr      x0, [x0, #0xac0]
+000000000323ffac: addeac97 bl       #0x1d77a60
+000000000323ffb0: 28008052 mov      w8, #1
+000000000323ffb4: 88da3039 strb     w8, [x20, #0xc36]
+000000000323ffb8: e0031faa mov      x0, xzr
+000000000323ffbc: f89afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323ffc0: 680240f9 ldr      x8, [x19]
+000000000323ffc4: f30300aa mov      x19, x0
+000000000323ffc8: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000323ffcc: 69000035 cbnz     w9, #0x323ffd8
+000000000323ffd0: e00308aa mov      x0, x8
+000000000323ffd4: f0deac97 bl       #0x1d77b94
+000000000323ffd8: e00313aa mov      x0, x19
+000000000323ffdc: e1031faa mov      x1, xzr
+000000000323ffe0: e2031faa mov      x2, xzr
+000000000323ffe4: 4e883494 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000323ffe8: c0000036 tbz      w0, #0, #0x3240000
+000000000323ffec: e0031faa mov      x0, xzr
+000000000323fff0: eb9afe97 bl       #0x31e6b9c ; GameConfig :: public static GameConfig get_Instance() { }
+000000000323fff4: 200100b4 cbz      x0, #0x3240018
+000000000323fff8: 088840b9 ldr      w8, [x0, #0x88]
+000000000323fffc: 02000014 b        #0x3240004
+0000000003240000: 48018052 mov      w8, #0xa
+0000000003240004: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240008: 1f050071 cmp      w8, #1
+000000000324000c: 00c59f1a csinc    w0, w8, wzr, gt
+0000000003240010: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240014: c0035fd6 ret      
+0000000003240018: 8fdeac97 bl       #0x1d77a54
+
+; public static bool Grant(int level, int bulb, int glass, bool doubled) { }
+; token=0x6000CBD file_offset=0x323C5E4 tool_rva=0x323C5E4 length=0x25C
+00000000032405e4: ff4301d1 sub      sp, sp, #0x50
+00000000032405e8: fe5f02a9 stp      x30, x23, [sp, #0x20]
+00000000032405ec: f65703a9 stp      x22, x21, [sp, #0x30]
+00000000032405f0: f44f04a9 stp      x20, x19, [sp, #0x40]
+00000000032405f4: d7aa00d0 adrp     x23, #0x479a000
+00000000032405f8: f503032a mov      w21, w3
+00000000032405fc: f303022a mov      w19, w2
+0000000003240600: e8f27039 ldrb     w8, [x23, #0xc3c]
+0000000003240604: f403012a mov      w20, w1
+0000000003240608: f603002a mov      w22, w0
+000000000324060c: 28040037 tbnz     w8, #0, #0x3240690
+0000000003240610: a09300f0 adrp     x0, #0x44b7000
+0000000003240614: 00fc45f9 ldr      x0, [x0, #0xbf8]
+0000000003240618: 12ddac97 bl       #0x1d77a60
+000000000324061c: a09300f0 adrp     x0, #0x44b7000
+0000000003240620: 000046f9 ldr      x0, [x0, #0xc00]
+0000000003240624: 0fddac97 bl       #0x1d77a60
+0000000003240628: c09300d0 adrp     x0, #0x44ba000
+000000000324062c: 001840f9 ldr      x0, [x0, #0x30]
+0000000003240630: 0cddac97 bl       #0x1d77a60
+0000000003240634: c09300d0 adrp     x0, #0x44ba000
+0000000003240638: 001c40f9 ldr      x0, [x0, #0x38]
+000000000324063c: 09ddac97 bl       #0x1d77a60
+0000000003240640: c09300d0 adrp     x0, #0x44ba000
+0000000003240644: 002040f9 ldr      x0, [x0, #0x40]
+0000000003240648: 06ddac97 bl       #0x1d77a60
+000000000324064c: c09300d0 adrp     x0, #0x44ba000
+0000000003240650: 002440f9 ldr      x0, [x0, #0x48]
+0000000003240654: 03ddac97 bl       #0x1d77a60
+0000000003240658: c09300d0 adrp     x0, #0x44ba000
+000000000324065c: 001040f9 ldr      x0, [x0, #0x20]
+0000000003240660: 00ddac97 bl       #0x1d77a60
+0000000003240664: c09300d0 adrp     x0, #0x44ba000
+0000000003240668: 002840f9 ldr      x0, [x0, #0x50]
+000000000324066c: fddcac97 bl       #0x1d77a60
+0000000003240670: c09300d0 adrp     x0, #0x44ba000
+0000000003240674: 002c40f9 ldr      x0, [x0, #0x58]
+0000000003240678: fadcac97 bl       #0x1d77a60
+000000000324067c: c09300d0 adrp     x0, #0x44ba000
+0000000003240680: 003040f9 ldr      x0, [x0, #0x60]
+0000000003240684: f7dcac97 bl       #0x1d77a60
+0000000003240688: 28008052 mov      w8, #1
+000000000324068c: e8f23039 strb     w8, [x23, #0xc3c]
+0000000003240690: df060071 cmp      w22, #1
+0000000003240694: ff0f00f9 str      xzr, [sp, #0x18]
+0000000003240698: 6b040054 b.lt     #0x3240724
+000000000324069c: ccfeff97 bl       #0x32401cc ; LevelRewardService :: public static int get_ClaimedUpTo() { }
+00000000032406a0: 1f00166b cmp      w0, w22
+00000000032406a4: 0a040054 b.ge     #0x3240724
+00000000032406a8: c89300d0 adrp     x8, #0x44ba000
+00000000032406ac: e103162a mov      w1, w22
+00000000032406b0: e2031faa mov      x2, xzr
+00000000032406b4: 081140f9 ldr      x8, [x8, #0x20]
+00000000032406b8: 000140f9 ldr      x0, [x8]
+00000000032406bc: 986a3494 bl       #0x3f5b11c ; PlayerPrefs :: public static void SetInt(string key, int value) { }
+00000000032406c0: e2730091 add      x2, sp, #0x1c
+00000000032406c4: e3630091 add      x3, sp, #0x18
+00000000032406c8: e003142a mov      w0, w20
+00000000032406cc: e103132a mov      w1, w19
+00000000032406d0: e4031faa mov      x4, xzr
+00000000032406d4: f2070694 bl       #0x33c269c ; GameProgress :: public static void AddItemsDeferred(int bulb, int glass, out int guideAfter, out int hintAfter) { }
+00000000032406d8: e0031faa mov      x0, xzr
+00000000032406dc: 9e6d3494 bl       #0x3f5bd54
+00000000032406e0: c89300d0 adrp     x8, #0x44ba000
+00000000032406e4: d79300d0 adrp     x23, #0x44ba000
+00000000032406e8: a9020072 ands     w9, w21, #1
+00000000032406ec: 082d40f9 ldr      x8, [x8, #0x58]
+00000000032406f0: f71a40f9 ldr      x23, [x23, #0x30]
+00000000032406f4: 0811979a csel     x8, x8, x23, ne
+00000000032406f8: 150140f9 ldr      x21, [x8]
+00000000032406fc: 48930090 adrp     x8, #0x44a8000
+0000000003240700: 087d45f9 ldr      x8, [x8, #0xaf8]
+0000000003240704: 49010034 cbz      w9, #0x324072c
+0000000003240708: 002940f9 ldr      x0, [x8, #0x50]
+000000000324070c: e1530091 add      x1, sp, #0x14
+0000000003240710: f61700b9 str      w22, [sp, #0x14]
+0000000003240714: 22ddac97 bl       #0x1d77b9c
+0000000003240718: c89300d0 adrp     x8, #0x44ba000
+000000000324071c: 081d40f9 ldr      x8, [x8, #0x38]
+0000000003240720: 09000014 b        #0x3240744
+0000000003240724: e0031f2a mov      w0, wzr
+0000000003240728: 40000014 b        #0x3240828
+000000000324072c: 002940f9 ldr      x0, [x8, #0x50]
+0000000003240730: e1530091 add      x1, sp, #0x14
+0000000003240734: f61700b9 str      w22, [sp, #0x14]
+0000000003240738: 19ddac97 bl       #0x1d77b9c
+000000000324073c: c89300d0 adrp     x8, #0x44ba000
+0000000003240740: 082140f9 ldr      x8, [x8, #0x40]
+0000000003240744: 080140f9 ldr      x8, [x8]
+0000000003240748: e10300aa mov      x1, x0
+000000000324074c: e2031faa mov      x2, xzr
+0000000003240750: e00308aa mov      x0, x8
+0000000003240754: 294d0994 bl       #0x3493bf8 ; String :: public static string Format(string format, object arg0) { }
+0000000003240758: f60300aa mov      x22, x0
+000000000324075c: 9f060071 cmp      w20, #1
+0000000003240760: 0b030054 b.lt     #0x32407c0
+0000000003240764: a89300f0 adrp     x8, #0x44b7000
+0000000003240768: 08fd45f9 ldr      x8, [x8, #0xbf8]
+000000000324076c: 000140f9 ldr      x0, [x8]
+0000000003240770: 5461ce97 bl       #0x25d8cc0 ; Singleton`1 :: public static bool get_HasInstance() { }
+0000000003240774: 60020036 tbz      w0, #0, #0x32407c0
+0000000003240778: a89300f0 adrp     x8, #0x44b7000
+000000000324077c: 080146f9 ldr      x8, [x8, #0xc00]
+0000000003240780: 000140f9 ldr      x0, [x8]
+0000000003240784: 9560ce97 bl       #0x25d89d8 ; Singleton`1 :: public static T get_Instance() { }
+0000000003240788: a00500b4 cbz      x0, #0x324083c
+000000000324078c: c89300d0 adrp     x8, #0x44ba000
+0000000003240790: c99300d0 adrp     x9, #0x44ba000
+0000000003240794: e303142a mov      w3, w20
+0000000003240798: 083140f9 ldr      x8, [x8, #0x60]
+000000000324079c: 292940f9 ldr      x9, [x9, #0x50]
+00000000032407a0: e41f40b9 ldr      w4, [sp, #0x1c]
+00000000032407a4: e60240f9 ldr      x6, [x23]
+00000000032407a8: e50315aa mov      x5, x21
+00000000032407ac: e70316aa mov      x7, x22
+00000000032407b0: 010140f9 ldr      x1, [x8]
+00000000032407b4: 220140f9 ldr      x2, [x9]
+00000000032407b8: ff0300f9 str      xzr, [sp]
+00000000032407bc: 8647ff97 bl       #0x32125d4 ; AnalyticsManager :: public void LogResource(string tag, string category, int delta, int hold, string reasonCategory, string reason, string reasonDetail = null) { }
+00000000032407c0: 7f060071 cmp      w19, #1
+00000000032407c4: 0b030054 b.lt     #0x3240824
+00000000032407c8: a89300f0 adrp     x8, #0x44b7000
+00000000032407cc: 08fd45f9 ldr      x8, [x8, #0xbf8]
+00000000032407d0: 000140f9 ldr      x0, [x8]
+00000000032407d4: 3b61ce97 bl       #0x25d8cc0 ; Singleton`1 :: public static bool get_HasInstance() { }
+00000000032407d8: 60020036 tbz      w0, #0, #0x3240824
+00000000032407dc: a89300f0 adrp     x8, #0x44b7000
+00000000032407e0: 080146f9 ldr      x8, [x8, #0xc00]
+00000000032407e4: 000140f9 ldr      x0, [x8]
+00000000032407e8: 7c60ce97 bl       #0x25d89d8 ; Singleton`1 :: public static T get_Instance() { }
+00000000032407ec: 800200b4 cbz      x0, #0x324083c
+00000000032407f0: c89300d0 adrp     x8, #0x44ba000
+00000000032407f4: c99300d0 adrp     x9, #0x44ba000
+00000000032407f8: e303132a mov      w3, w19
+00000000032407fc: 083140f9 ldr      x8, [x8, #0x60]
+0000000003240800: 292540f9 ldr      x9, [x9, #0x48]
+0000000003240804: e41b40b9 ldr      w4, [sp, #0x18]
+0000000003240808: e60240f9 ldr      x6, [x23]
+000000000324080c: e50315aa mov      x5, x21
+0000000003240810: e70316aa mov      x7, x22
+0000000003240814: 010140f9 ldr      x1, [x8]
+0000000003240818: 220140f9 ldr      x2, [x9]
+000000000324081c: ff0300f9 str      xzr, [sp]
+0000000003240820: 6d47ff97 bl       #0x32125d4 ; AnalyticsManager :: public void LogResource(string tag, string category, int delta, int hold, string reasonCategory, string reason, string reasonDetail = null) { }
+0000000003240824: 20008052 mov      w0, #1
+0000000003240828: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000324082c: f65743a9 ldp      x22, x21, [sp, #0x30]
+0000000003240830: fe5f42a9 ldp      x30, x23, [sp, #0x20]
+0000000003240834: ff430191 add      sp, sp, #0x50
+0000000003240838: c0035fd6 ret      
+000000000324083c: 86dcac97 bl       #0x1d77a54
+
+; public static int HighestMilestoneAtOrBefore(int level) { }
+; token=0x6000CB7 file_offset=0x323C37C tool_rva=0x323C37C length=0x34
+000000000324037c: fe4fbfa9 stp      x30, x19, [sp, #-0x10]!
+0000000003240380: 1f040071 cmp      w0, #1
+0000000003240384: eb000054 b.lt     #0x32403a0
+0000000003240388: f303002a mov      w19, w0
+000000000324038c: b1ffff97 bl       #0x3240250 ; LevelRewardService :: public static int NextMilestoneAtOrAfter(int level) { }
+0000000003240390: 1f00136b cmp      w0, w19
+0000000003240394: 80000054 b.eq     #0x32403a4
+0000000003240398: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+000000000324039c: 05000014 b        #0x32403b0 ; LevelRewardService :: public static int SegmentStart(int milestone) { }
+00000000032403a0: f3031f2a mov      w19, wzr
+00000000032403a4: e003132a mov      w0, w19
+00000000032403a8: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+00000000032403ac: c0035fd6 ret      
+
+; public static bool IsMilestone(int level) { }
+; token=0x6000CB6 file_offset=0x323C350 tool_rva=0x323C350 length=0x2C
+0000000003240350: 1f040071 cmp      w0, #1
+0000000003240354: 0b010054 b.lt     #0x3240374
+0000000003240358: fe4fbfa9 stp      x30, x19, [sp, #-0x10]!
+000000000324035c: f303002a mov      w19, w0
+0000000003240360: bcffff97 bl       #0x3240250 ; LevelRewardService :: public static int NextMilestoneAtOrAfter(int level) { }
+0000000003240364: 1f00136b cmp      w0, w19
+0000000003240368: e0179f1a cset     w0, eq
+000000000324036c: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+0000000003240370: c0035fd6 ret      
+0000000003240374: e0031f2a mov      w0, wzr
+0000000003240378: c0035fd6 ret      
+
+; public static int NextMilestoneAtOrAfter(int level) { }
+; token=0x6000CB5 file_offset=0x323C250 tool_rva=0x323C250 length=0x100
+0000000003240250: e923bb6d stp      d9, d8, [sp, #-0x50]!
+0000000003240254: fe6701a9 stp      x30, x25, [sp, #0x10]
+0000000003240258: f85f02a9 stp      x24, x23, [sp, #0x20]
+000000000324025c: f65703a9 stp      x22, x21, [sp, #0x30]
+0000000003240260: f44f04a9 stp      x20, x19, [sp, #0x40]
+0000000003240264: 1f040071 cmp      w0, #1
+0000000003240268: 19c49f1a csinc    w25, w0, wzr, gt
+000000000324026c: 22ffff97 bl       #0x323fef4 ; LevelRewardService :: public static int get_StepEarly() { }
+0000000003240270: f503002a mov      w21, w0
+0000000003240274: 45ffff97 bl       #0x323ff88 ; LevelRewardService :: public static int get_StepLate() { }
+0000000003240278: f303002a mov      w19, w0
+000000000324027c: 68ffff97 bl       #0x324001c ; LevelRewardService :: public static int get_StepFrom() { }
+0000000003240280: b6aa00b0 adrp     x22, #0x4795000
+0000000003240284: 579300b0 adrp     x23, #0x44a9000
+0000000003240288: f403002a mov      w20, w0
+000000000324028c: c8da6239 ldrb     w8, [x22, #0x8b6]
+0000000003240290: f72245f9 ldr      x23, [x23, #0xa40]
+0000000003240294: 3803006b subs     w24, w25, w0
+0000000003240298: ac020054 b.gt     #0x32402ec
+000000000324029c: 2803221e scvtf    s8, w25
+00000000032402a0: a902221e scvtf    s9, w21
+00000000032402a4: c8000035 cbnz     w8, #0x32402bc
+00000000032402a8: 409300b0 adrp     x0, #0x44a9000
+00000000032402ac: 002045f9 ldr      x0, [x0, #0xa40]
+00000000032402b0: ecddac97 bl       #0x1d77a60
+00000000032402b4: 28008052 mov      w8, #1
+00000000032402b8: c8da2239 strb     w8, [x22, #0x8b6]
+00000000032402bc: 0819291e fdiv     s8, s8, s9
+00000000032402c0: e00240f9 ldr      x0, [x23]
+00000000032402c4: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032402c8: 48000035 cbnz     w8, #0x32402d0
+00000000032402cc: 32deac97 bl       #0x1d77b94
+00000000032402d0: 00c1241e frintp   s0, s8
+00000000032402d4: 00c0221e fcvt     d0, s0
+00000000032402d8: 0800781e fcvtzs   w8, d0
+00000000032402dc: 007d151b mul      w0, w8, w21
+00000000032402e0: 1f00146b cmp      w0, w20
+00000000032402e4: ad020054 b.le     #0x3240338
+00000000032402e8: c8da6239 ldrb     w8, [x22, #0x8b6]
+00000000032402ec: 0803221e scvtf    s8, w24
+00000000032402f0: 6902221e scvtf    s9, w19
+00000000032402f4: c8000035 cbnz     w8, #0x324030c
+00000000032402f8: 409300b0 adrp     x0, #0x44a9000
+00000000032402fc: 002045f9 ldr      x0, [x0, #0xa40]
+0000000003240300: d8ddac97 bl       #0x1d77a60
+0000000003240304: 28008052 mov      w8, #1
+0000000003240308: c8da2239 strb     w8, [x22, #0x8b6]
+000000000324030c: 0819291e fdiv     s8, s8, s9
+0000000003240310: e00240f9 ldr      x0, [x23]
+0000000003240314: 08e440b9 ldr      w8, [x0, #0xe4]
+0000000003240318: 48000035 cbnz     w8, #0x3240320
+000000000324031c: 1edeac97 bl       #0x1d77b94
+0000000003240320: 00c1241e frintp   s0, s8
+0000000003240324: 00c0221e fcvt     d0, s0
+0000000003240328: 0800781e fcvtzs   w8, d0
+000000000324032c: 1f050071 cmp      w8, #1
+0000000003240330: 08c59f1a csinc    w8, w8, wzr, gt
+0000000003240334: 0051131b madd     w0, w8, w19, w20
+0000000003240338: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000324033c: f65743a9 ldp      x22, x21, [sp, #0x30]
+0000000003240340: f85f42a9 ldp      x24, x23, [sp, #0x20]
+0000000003240344: fe6741a9 ldp      x30, x25, [sp, #0x10]
+0000000003240348: e923c56c ldp      d9, d8, [sp], #0x50
+000000000324034c: c0035fd6 ret      
+
+; public static int PendingMilestone(int reachedLevel) { }
+; token=0x6000CBB file_offset=0x323C4C4 tool_rva=0x323C4C4 length=0x60
+00000000032404c4: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032404c8: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032404cc: f303002a mov      w19, w0
+00000000032404d0: 51ffff97 bl       #0x3240214 ; LevelRewardService :: public static bool get_Active() { }
+00000000032404d4: 7f060071 cmp      w19, #1
+00000000032404d8: eb010054 b.lt     #0x3240514
+00000000032404dc: c0010036 tbz      w0, #0, #0x3240514
+00000000032404e0: 3bffff97 bl       #0x32401cc ; LevelRewardService :: public static int get_ClaimedUpTo() { }
+00000000032404e4: 00040011 add      w0, w0, #1
+00000000032404e8: 5affff97 bl       #0x3240250 ; LevelRewardService :: public static int NextMilestoneAtOrAfter(int level) { }
+00000000032404ec: 1f040071 cmp      w0, #1
+00000000032404f0: 2b010054 b.lt     #0x3240514
+00000000032404f4: f403002a mov      w20, w0
+00000000032404f8: 1f00136b cmp      w0, w19
+00000000032404fc: cc000054 b.gt     #0x3240514
+0000000003240500: e003132a mov      w0, w19
+0000000003240504: 9effff97 bl       #0x324037c ; LevelRewardService :: public static int HighestMilestoneAtOrBefore(int level) { }
+0000000003240508: 1f00146b cmp      w0, w20
+000000000324050c: 00c0941a csel     w0, w0, w20, gt
+0000000003240510: 02000014 b        #0x3240518
+0000000003240514: e0031f2a mov      w0, wzr
+0000000003240518: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000324051c: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240520: c0035fd6 ret      
+
+; public static void ResetForCheat() { }
+; token=0x6000CBE file_offset=0x323C840 tool_rva=0x323C840 length=0x4C
+0000000003240840: fe0f1ef8 str      x30, [sp, #-0x20]!
+0000000003240844: f44f01a9 stp      x20, x19, [sp, #0x10]
+0000000003240848: d3aa00d0 adrp     x19, #0x479a000
+000000000324084c: d49300d0 adrp     x20, #0x44ba000
+0000000003240850: 68f67039 ldrb     w8, [x19, #0xc3d]
+0000000003240854: 941240f9 ldr      x20, [x20, #0x20]
+0000000003240858: c8000037 tbnz     w8, #0, #0x3240870
+000000000324085c: c09300d0 adrp     x0, #0x44ba000
+0000000003240860: 001040f9 ldr      x0, [x0, #0x20]
+0000000003240864: 7fdcac97 bl       #0x1d77a60
+0000000003240868: 28008052 mov      w8, #1
+000000000324086c: 68f63039 strb     w8, [x19, #0xc3d]
+0000000003240870: 800240f9 ldr      x0, [x20]
+0000000003240874: e1031faa mov      x1, xzr
+0000000003240878: b46c3494 bl       #0x3f5bb48 ; PlayerPrefs :: public static void DeleteKey(string key) { }
+000000000324087c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+0000000003240880: e0031faa mov      x0, xzr
+0000000003240884: fe0742f8 ldr      x30, [sp], #0x20
+0000000003240888: 336d3414 b        #0x3f5bd54
+
+; public static void RewindIfAheadForDev(int reachedLevel) { }
+; token=0x6000CB9 file_offset=0x323C4C0 tool_rva=0x323C4C0 length=0x4
+00000000032404c0: c0035fd6 ret      
+
+; public static int SegmentStart(int milestone) { }
+; token=0x6000CBA file_offset=0x323C3B0 tool_rva=0x323C3B0 length=0x4C
+00000000032403b0: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032403b4: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032403b8: f303002a mov      w19, w0
+00000000032403bc: 18ffff97 bl       #0x324001c ; LevelRewardService :: public static int get_StepFrom() { }
+00000000032403c0: 1f00136b cmp      w0, w19
+00000000032403c4: ca000054 b.ge     #0x32403dc
+00000000032403c8: 15ffff97 bl       #0x324001c ; LevelRewardService :: public static int get_StepFrom() { }
+00000000032403cc: f403002a mov      w20, w0
+00000000032403d0: eefeff97 bl       #0x323ff88 ; LevelRewardService :: public static int get_StepLate() { }
+00000000032403d4: 6802004b sub      w8, w19, w0
+00000000032403d8: 04000014 b        #0x32403e8
+00000000032403dc: c6feff97 bl       #0x323fef4 ; LevelRewardService :: public static int get_StepEarly() { }
+00000000032403e0: e8031f2a mov      w8, wzr
+00000000032403e4: 7402004b sub      w20, w19, w0
+00000000032403e8: 9f02086b cmp      w20, w8
+00000000032403ec: 80c2881a csel     w0, w20, w8, gt
+00000000032403f0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032403f4: fe0742f8 ldr      x30, [sp], #0x20
+00000000032403f8: c0035fd6 ret      
+
+; public static bool TryGetProgress(int reachedLevel, out int filled, out int total, out int remaining) { }
+; token=0x6000CBC file_offset=0x323C524 tool_rva=0x323C524 length=0xC0
+0000000003240524: fe67bca9 stp      x30, x25, [sp, #-0x40]!
+0000000003240528: f85f01a9 stp      x24, x23, [sp, #0x10]
+000000000324052c: f65702a9 stp      x22, x21, [sp, #0x20]
+0000000003240530: f44f03a9 stp      x20, x19, [sp, #0x30]
+0000000003240534: f30303aa mov      x19, x3
+0000000003240538: f50302aa mov      x21, x2
+000000000324053c: f40301aa mov      x20, x1
+0000000003240540: f703002a mov      w23, w0
+0000000003240544: 7f0000b9 str      wzr, [x3]
+0000000003240548: 5f0000b9 str      wzr, [x2]
+000000000324054c: 3f0000b9 str      wzr, [x1]
+0000000003240550: 31ffff97 bl       #0x3240214 ; LevelRewardService :: public static bool get_Active() { }
+0000000003240554: ff020071 cmp      w23, #0
+0000000003240558: e8d79f1a cset     w8, gt
+000000000324055c: 1601000a and      w22, w8, w0
+0000000003240560: df060071 cmp      w22, #1
+0000000003240564: 41030054 b.ne     #0x32405cc
+0000000003240568: e003172a mov      w0, w23
+000000000324056c: d6ffff97 bl       #0x32404c4 ; LevelRewardService :: public static int PendingMilestone(int reachedLevel) { }
+0000000003240570: f803002a mov      w24, w0
+0000000003240574: 1f000071 cmp      w0, #0
+0000000003240578: f903002a mov      w25, w0
+000000000324057c: ac000054 b.gt     #0x3240590
+0000000003240580: e0060011 add      w0, w23, #1
+0000000003240584: 33ffff97 bl       #0x3240250 ; LevelRewardService :: public static int NextMilestoneAtOrAfter(int level) { }
+0000000003240588: f903002a mov      w25, w0
+000000000324058c: f803172a mov      w24, w23
+0000000003240590: e003192a mov      w0, w25
+0000000003240594: 87ffff97 bl       #0x32403b0 ; LevelRewardService :: public static int SegmentStart(int milestone) { }
+0000000003240598: 2903004b sub      w9, w25, w0
+000000000324059c: 0a03004b sub      w10, w24, w0
+00000000032405a0: 2803184b sub      w8, w25, w24
+00000000032405a4: 3f050071 cmp      w9, #1
+00000000032405a8: 087da80a bic      w8, w8, w8, asr #31
+00000000032405ac: 29c59f1a csinc    w9, w9, wzr, gt
+00000000032405b0: 5f01096b cmp      w10, w9
+00000000032405b4: a90200b9 str      w9, [x21]
+00000000032405b8: 4bb1891a csel     w11, w10, w9, lt
+00000000032405bc: 5f010071 cmp      w10, #0
+00000000032405c0: e9b38b1a csel     w9, wzr, w11, lt
+00000000032405c4: 890200b9 str      w9, [x20]
+00000000032405c8: 680200b9 str      w8, [x19]
+00000000032405cc: e003162a mov      w0, w22
+00000000032405d0: f44f43a9 ldp      x20, x19, [sp, #0x30]
+00000000032405d4: f65742a9 ldp      x22, x21, [sp, #0x20]
+00000000032405d8: f85f41a9 ldp      x24, x23, [sp, #0x10]
+00000000032405dc: fe67c4a8 ldp      x30, x25, [sp], #0x40
+00000000032405e0: c0035fd6 ret      

@@ -1,0 +1,306 @@
+Type: Hamdoku.UI.LobbyLayoutConfig
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x034142B4 SUB X31, X31, 0x40
+	0x034142B8 STR D8, [X31 + 0x10]
+	0x034142BC STP X30, X21, [X31 + 0x20]
+	0x034142C0 STP X20, X19, [X31 + 0x30]
+	0x034142C4 ADRP X8, 0xFFFFFFFFFD831000
+	0x034142C8 MOV W9, 0x41B00000
+	0x034142CC ADRP X10, 0xFFFFFFFFFD82F000
+	0x034142D0 LDR V0, [X8 + 0x3A0]
+	0x034142D4 STR W9, [X0 + 0x28]
+	0x034142D8 ADRP X9, 0xFFFFFFFFFD7F7000
+	0x034142DC ADRP X8, 0xFFFFFFFFFD82F000
+	0x034142E0 LDR V1, [X10 + 0xCD0]
+	0x034142E4 ADD X20, X0, 0x104
+	0x034142E8 STUR V0, [X0 + 0x18]
+	0x034142EC LDR D0, [X9 + 0xCA8]
+	0x034142F0 LDR V2, [X8 + 0x7A0]
+	0x034142F4 ADRP X8, 0xFFFFFFFFFD832000
+	0x034142F8 STUR V1, [X0 + 0x2C]
+	0x034142FC MOV W9, 0x42500000
+	0x03414300 STUR D0, [X0 + 0x4C]
+	0x03414304 LDR V0, [X8 + 0x8E0]
+	0x03414308 ADRP X8, 0xFFFFFFFFFD834000
+	0x0341430C LDR V1, [X8 + 0x7E0]
+	0x03414310 ADRP X8, 0xFFFFFFFFFD834000
+	0x03414314 STR W9, [X0 + 0x54]
+	0x03414318 STUR V0, [X0 + 0x58]
+	0x0341431C LDR V0, [X8 + 0x2D0]
+	0x03414320 ADRP X8, 0xFFFFFFFFFD7F8000
+	0x03414324 STUR V1, [X0 + 0x68]
+	0x03414328 LDR D1, [X8 + 0x840]
+	0x0341432C ADRP X8, 0xFFFFFFFFFD832000
+	0x03414330 STUR V0, [X0 + 0x78]
+	0x03414334 LDR V0, [X8 + 0x8F0]
+	0x03414338 ADRP X8, 0xFFFFFFFFFD832000
+	0x0341433C STR D1, [X0 + 0x88]
+	0x03414340 LDR V1, [X8 + 0x900]
+	0x03414344 ADRP X8, 0xFFFFFFFFFD7F7000
+	0x03414348 STUR V0, [X0 + 0x94]
+	0x0341434C LDR D0, [X8 + 0xEB0]
+	0x03414350 ADRP X8, 0xFFFFFFFFFD833000
+	0x03414354 STUR V1, [X0 + 0xA4]
+	0x03414358 ADRP X21, 0x1384000
+	0x0341435C MOV X19, X0
+	0x03414360 STUR D0, [X0 + 0xB4]
+	0x03414364 LDR V0, [X8 + 0x720]
+	0x03414368 ADRP X8, 0xFFFFFFFFFD7F7000
+	0x0341436C LDR D1, [X8 + 0x9D0]
+	0x03414370 ADRP X8, 0xFFFFFFFFFD830000
+	0x03414374 STR W9, [X0 + 0x90]
+	0x03414378 STUR V0, [X0 + 0xC4]
+	0x0341437C LDR V0, [X8 + 0x40]
+	0x03414380 ADRP X8, 0xFFFFFFFFFD7F8000
+	0x03414384 STUR D1, [X0 + 0xD4]
+	0x03414388 LDR D1, [X8 + 0x578]
+	0x0341438C ADRP X8, 0xFFFFFFFFFD7F8000
+	0x03414390 MOV X9, 0x42800000
+	0x03414394 LDR D8, [X8 + 0x248]
+	0x03414398 ADRP X8, 0xFFFFFFFFFD834000
+	0x0341439C MOVK X9, 0x300000000
+	0x034143A0 STUR V0, [X0 + 0xDC]
+	0x034143A4 LDR V0, [X8 + 0x7F0]
+	0x034143A8 STUR X9, [X0 + 0xBC]
+	0x034143AC MOV W9, 0x999A
+	0x034143B0 ADRP X8, 0xFFFFFFFFFD82F000
+	0x034143B4 MOVK W9, 0x3F190000
+	0x034143B8 STR V0, [X20]
+	0x034143BC LDR V0, [X8 + 0x480]
+	0x034143C0 MOV X8, 0x436B0000
+	0x034143C4 STR W9, [X0 + 0xFC]
+	0x034143C8 ADD X9, X0, 0x114
+	0x034143CC MOVK X8, 0x42EA000000000000
+	0x034143D0 STUR V0, [X20 + 0x18]
+	0x034143D4 STR X8, [X9]
+	0x034143D8 MOV X9, 0x999A
+	0x034143DC ADD X8, X0, 0x12C
+	0x034143E0 MOVK X9, 0x3F590000
+	0x034143E4 STUR D1, [X0 + 0xEC]
+	0x034143E8 MOVK X9, 0xC00000000
+	0x034143EC STUR V2, [X0 + 0x3C]
+	0x034143F0 FMOV V2.4S, 0x0
+	0x034143F4 STR X9, [X8]
+	0x034143F8 ADRP X8, 0xFFFFFFFFFD830000
+	0x034143FC MOV W9, 0x41600000
+	0x03414400 LDR V0, [X8 + 0x810]
+	0x03414404 ADRP X8, 0xFFFFFFFFFD830000
+	0x03414408 STR W9, [X0 + 0x134]
+	0x0341440C LDR V1, [X8 + 0x820]
+	0x03414410 MOV W8, 0x42800000
+	0x03414414 ADRP X9, 0xFFFFFFFFFD831000
+	0x03414418 STUR V0, [X20 + 0x34]
+	0x0341441C LDR V0, [X9 + 0xD70]
+	0x03414420 STR W8, [X0 + 0x158]
+	0x03414424 MOV W8, 0x42180000
+	0x03414428 STR W8, [X0 + 0x16C]
+	0x0341442C ADRP X8, 0xFFFFFFFFFD7F8000
+	0x03414430 STUR V0, [X20 + 0x58]
+	0x03414434 LDR D0, [X8 + 0x278]
+	0x03414438 LDRB W8, [X21 + 0xE80]
+	0x0341443C STUR D8, [X0 + 0xF4]
+	0x03414440 STUR V1, [X20 + 0x44]
+	0x03414444 STR V2, [X0 + 0x170]
+	0x03414448 STR D0, [X0 + 0x180]
+	0x0341444C CBNZ W8, 0x341446C
+	0x03414450 ADRP X0, 0x1097000
+	0x03414454 LDR X0, [X0 + 0x288]
+	0x03414458 STR V2, [X31]
+	0x0341445C BL 0x1D77A60
+	0x03414460 LDR V2, [X31]
+	0x03414464 MOV W8, 0x1
+	0x03414468 STRB W8, [X21 + 0xE80]
+	0x0341446C ADRP X8, 0x1097000
+	0x03414470 MOV X11, 0x42800000
+	0x03414474 ADD X10, X19, 0x194
+	0x03414478 LDR X8, [X8 + 0x288]
+	0x0341447C MOVK X11, 0x4000000000000000
+	0x03414480 MOV X0, X19
+	0x03414484 LDP X30, X21, [X31 + 0x20]
+	0x03414488 MOV X1, X31
+	0x0341448C LDR X8, [X8]
+	0x03414490 LDR X9, [X8 + 0xA0]
+	0x03414494 LDR D0, [X9]
+	0x03414498 STR X11, [X10]
+	0x0341449C MOV X10, 0x43200000
+	0x034144A0 ADD X9, X19, 0x1BC
+	0x034144A4 MOVK X10, 0x4250000000000000
+	0x034144A8 STR D8, [X19 + 0x1A0]
+	0x034144AC STP X31, X31, [X19 + 0x1A8]
+	0x034144B0 LDR D8, [X31 + 0x10]
+	0x034144B4 STR X10, [X9]
+	0x034144B8 MOV W9, 0x3333
+	0x034144BC MOV W10, 0x42600000
+	0x034144C0 STR D0, [X19 + 0x188]
+	0x034144C4 MOVK W9, 0x3F930000
+	0x034144C8 LDR X8, [X8 + 0xA0]
+	0x034144CC STR W9, [X19 + 0x190]
+	0x034144D0 ADRP X9, 0xFFFFFFFFFD831000
+	0x034144D4 STR W10, [X19 + 0x19C]
+	0x034144D8 LDR V0, [X9 + 0xA50]
+	0x034144DC LDR D1, [X8]
+	0x034144E0 STUR V2, [X20 + 0xD8]
+	0x034144E4 STUR V0, [X20 + 0xC8]
+	0x034144E8 STR D1, [X20 + 0xC0]
+	0x034144EC LDP X20, X19, [X31 + 0x30]
+	0x034144F0 ADD X31, X31, 0x40
+	0x034144F4 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Move this.cardGap (System.Single), 22f
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Add v18 @ X20_v1, this @ X0 (Hamdoku.UI.LobbyLayoutConfig), 260
+	15 Move this.groupBottomY (System.Single), [C453A0]
+	16 Nop
+	17 Nop
+	18 Nop
+	19 Move this.dailySize (UnityEngine.Vector2), [C43CD0]
+	20 Nop
+	21 Move this.dailyTitleBox (UnityEngine.Vector2), [C0BCA8]
+	22 Nop
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Move this.dailyTitleFontMax (System.Single), 52f
+	27 Move this.dailyDatePos (UnityEngine.Vector2), [C468E0]
+	28 Nop
+	29 Nop
+	30 Move this.dailyCapsulePos (UnityEngine.Vector2), [C487E0]
+	31 Nop
+	32 Nop
+	33 Move this.dailyPillPos (UnityEngine.Vector2), [C482D0]
+	34 Nop
+	35 Nop
+	36 Move this.dailyPillLabelBox (UnityEngine.Vector2), [C0C840]
+	37 Nop
+	38 Nop
+	39 Move this.streakSize (UnityEngine.Vector2), [C468F0]
+	40 Nop
+	41 Nop
+	42 Move this.streakIconSize (UnityEngine.Vector2), [C46900]
+	43 Nop
+	44 Nop
+	45 Move this.streakValueBox (UnityEngine.Vector2), [C0BEB0]
+	46 Nop
+	47 Nop
+	48 Nop
+	49 Nop
+	50 Move this.dailyPillFontMax (System.Single), 52f
+	51 Move this.streakSparkleColor (UnityEngine.Color), [C47720]
+	52 Nop
+	53 Nop
+	54 Move this.streakSparkleSize (UnityEngine.Vector2), [C0B9D0]
+	55 Nop
+	56 Nop
+	57 Nop
+	58 Nop
+	59 Nop
+	60 Nop
+	61 Move this.streakSwayDegrees (System.Single), [C44040]
+	62 Nop
+	63 Move this.streakFontMax (System.Single), 64f
+	64 Nop
+	65 Nop
+	66 Nop
+	67 Move [v18 @ X20_v1], [C487F0]
+	68 Nop
+	69 Nop
+	70 Move this.streakCheckMinScale (System.Single), 0.6f
+	71 Add v57 @ X9_v8, this @ X0 (Hamdoku.UI.LobbyLayoutConfig), 276
+	72 Nop
+	73 Move [v18 @ X20_v1+18], [C43480]
+	74 Move [v57 @ X9_v8], 4821666352184623104
+	75 Nop
+	76 Add v60 @ X8_v19, this @ X0 (Hamdoku.UI.LobbyLayoutConfig), 300
+	77 Nop
+	78 Move this.streakCheckGap (System.Single), [C0C578]
+	79 Nop
+	80 Move this.dailyIconSize (UnityEngine.Vector2), [C437A0]
+	81 Nop
+	82 Move [v60 @ X8_v19], 52602444186
+	83 Nop
+	84 Nop
+	85 Nop
+	86 Nop
+	87 Move this.rankGlowSpinSeconds (System.Single), 14f
+	88 Nop
+	89 Nop
+	90 Nop
+	91 Move [v18 @ X20_v1+34], [C44810]
+	92 Nop
+	93 Move this.levelFontMax (System.Single), 64f
+	94 Nop
+	95 Move [this @ X0 (Hamdoku.UI.LobbyLayoutConfig)+16C], 1108869120
+	96 Nop
+	97 Move [v18 @ X20_v1+58], [C45D70]
+	98 Nop
+	99 Nop
+	100 Move this.streakCheckOffset (UnityEngine.Vector2), [C0C248]
+	101 Move [v18 @ X20_v1+44], [C44820]
+	102 Move this.dailyTwinkleColor (UnityEngine.Color), 0
+	103 Move this.dailyTwinkleRest (UnityEngine.Vector2), [C0C278]
+	104 Nop
+	105 Nop
+	106 Jump @b6
+	107 Nop
+	108 Move v79 @ X0_v4, [44AB288]
+	109 Move v80 @ stack_-40_v2, v63 @ V2_v2 (UnityEngine.Color)
+	110 Call "il2cpp_codegen_initialize_runtime_metadata", v81 @ X0_v5, v79 @ X0_v4, methodInfo @ X1 (Il2CppMethodInfo), v83 @ X2, v84 @ X3, v85 @ X4, v86 @ X5, v87 @ X6, v88 @ X7, v74 @ V0_v13 (UnityEngine.Vector2), v68 @ V1_v7, v63 @ V2_v2 (UnityEngine.Color), v89 @ V3, v90 @ V4, v91 @ V5, v92 @ V6, v93 @ V7
+	111 Move v98 @ V2_v4, v80 @ stack_-40_v2
+	112 Move v100 @ X8_v31, 1
+	113 Move [4798E80], v100 @ X8_v31
+	114 Nop
+	115 Nop
+	116 Add v103 @ X10_v2, this @ X0 (Hamdoku.UI.LobbyLayoutConfig), 404
+	117 Move v104 @ X8_v28, [44AB288]
+	118 Nop
+	119 Nop
+	120 Nop
+	121 Nop
+	122 Nop
+	123 Move v110 @ X8_v29, [v104 @ X8_v28]
+	124 Move v111 @ X9_v14, [v110 @ X8_v29+A0]
+	125 Nop
+	126 Move [v103 @ X10_v2], 4611686019543072768
+	127 Nop
+	128 Add v114 @ X9_v15, this @ X0 (Hamdoku.UI.LobbyLayoutConfig), 444
+	129 Nop
+	130 Move this.dailyRecordLabelOffset (UnityEngine.Vector2), [C0C248]
+	131 Move this.dailyRecordLabelColor (UnityEngine.Color), 0
+	132 Move [this @ X0 (Hamdoku.UI.LobbyLayoutConfig)+1B0], 0
+	133 Nop
+	134 Move [v114 @ X9_v15], 4778319205766266880
+	135 Nop
+	136 Nop
+	137 Move this.dailyRecordPillSize (UnityEngine.Vector2), [v111 @ X9_v14]
+	138 Nop
+	139 Move v120 @ X8_v30, [v110 @ X8_v29+A0]
+	140 Move this.dailyRecordBadgeScale (System.Single), 1.15f
+	141 Nop
+	142 Move this.dailyRecordLabelInset (System.Single), 56f
+	143 Nop
+	144 Nop
+	145 Move [v18 @ X20_v1+D8], 0
+	146 Move [v18 @ X20_v1+C8], [C45A50]
+	147 Move [v18 @ X20_v1+C0], [v120 @ X8_v30]
+	148 Nop
+	149 Nop
+	150 Nop
+	151 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.UI.LobbyLayoutConfig)
+	152 Return
+

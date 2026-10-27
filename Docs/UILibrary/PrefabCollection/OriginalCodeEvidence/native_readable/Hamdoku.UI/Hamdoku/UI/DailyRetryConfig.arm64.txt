@@ -1,0 +1,194 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public DailyRetryConfig() { }
+; token=0x60001AD file_offset=0x33EBAA4 tool_rva=0x33EBAA4 length=0x1A0
+00000000033efaa4: fe0f1df8 str      x30, [sp, #-0x30]!
+00000000033efaa8: f65701a9 stp      x22, x21, [sp, #0x10]
+00000000033efaac: f44f02a9 stp      x20, x19, [sp, #0x20]
+00000000033efab0: 769d0090 adrp     x22, #0x479b000
+00000000033efab4: b5860090 adrp     x21, #0x44c3000
+00000000033efab8: f30300aa mov      x19, x0
+00000000033efabc: c89a6039 ldrb     w8, [x22, #0x826]
+00000000033efac0: b59a44f9 ldr      x21, [x21, #0x930]
+00000000033efac4: 14200491 add      x20, x0, #0x108
+00000000033efac8: c8000037 tbnz     w8, #0, #0x33efae0
+00000000033efacc: a0860090 adrp     x0, #0x44c3000
+00000000033efad0: 009844f9 ldr      x0, [x0, #0x930]
+00000000033efad4: e31fa697 bl       #0x1d77a60
+00000000033efad8: 28008052 mov      w8, #1
+00000000033efadc: c89a2039 strb     w8, [x22, #0x826]
+00000000033efae0: e8c0fe90 adrp     x8, #0xc0b000
+00000000033efae4: a9c2fed0 adrp     x9, #0xc45000
+00000000033efae8: a10240f9 ldr      x1, [x21]
+00000000033efaec: 009547fd ldr      d0, [x8, #0xf28]
+00000000033efaf0: c8c2feb0 adrp     x8, #0xc48000
+00000000033efaf4: 2101c23d ldr      q1, [x9, #0x800]
+00000000033efaf8: 0225c13d ldr      q2, [x8, #0x490]
+00000000033efafc: e00313aa mov      x0, x19
+00000000033efb00: 600e00fd str      d0, [x19, #0x18]
+00000000033efb04: 610a01ad stp      q1, q2, [x19, #0x20]
+00000000033efb08: 010c04f8 str      x1, [x0, #0x40]!
+00000000033efb0c: c21fa697 bl       #0x1d77a14
+00000000033efb10: e8c0feb0 adrp     x8, #0xc0c000
+00000000033efb14: 6a920591 add      x10, x19, #0x164
+00000000033efb18: a9c2fed0 adrp     x9, #0xc45000
+00000000033efb1c: 005d43fd ldr      d0, [x8, #0x6b8]
+00000000033efb20: 0844a8d2 mov      x8, #0x42200000
+00000000033efb24: 216dc13d ldr      q1, [x9, #0x5b0]
+00000000033efb28: 0830e8f2 movk     x8, #0x4180, lsl #48
+00000000033efb2c: c9c2fe90 adrp     x9, #0xc47000
+00000000033efb30: 7f7600b9 str      wzr, [x19, #0x74]
+00000000033efb34: 480100f9 str      x8, [x10]
+00000000033efb38: e8c0feb0 adrp     x8, #0xc0c000
+00000000033efb3c: e00313aa mov      x0, x19
+00000000033efb40: 020542fd ldr      d2, [x8, #0x408]
+00000000033efb44: e8c0fe90 adrp     x8, #0xc0b000
+00000000033efb48: 60c204fc stur     d0, [x19, #0x4c]
+00000000033efb4c: 00e543fd ldr      d0, [x8, #0x7c8]
+00000000033efb50: a8c2fed0 adrp     x8, #0xc45000
+00000000033efb54: 6142853c stur     q1, [x19, #0x54]
+00000000033efb58: 01f5c33d ldr      q1, [x8, #0xfd0]
+00000000033efb5c: a8c2fef0 adrp     x8, #0xc46000
+00000000033efb60: 624206fc stur     d2, [x19, #0x64]
+00000000033efb64: 603e00fd str      d0, [x19, #0x78]
+00000000033efb68: 00b9c33d ldr      q0, [x8, #0xee0]
+00000000033efb6c: a8c2fe90 adrp     x8, #0xc43000
+00000000033efb70: 6142883c stur     q1, [x19, #0x84]
+00000000033efb74: 0101c13d ldr      q1, [x8, #0x400]
+00000000033efb78: a8c2fed0 adrp     x8, #0xc45000
+00000000033efb7c: 6042893c stur     q0, [x19, #0x94]
+00000000033efb80: 0005c03d ldr      q0, [x8, #0x10]
+00000000033efb84: e8c0feb0 adrp     x8, #0xc0c000
+00000000033efb88: 61428a3c stur     q1, [x19, #0xa4]
+00000000033efb8c: 017545fd ldr      d1, [x8, #0xae8]
+00000000033efb90: e8c0fe90 adrp     x8, #0xc0b000
+00000000033efb94: 60428b3c stur     q0, [x19, #0xb4]
+00000000033efb98: 00cd45fd ldr      d0, [x8, #0xb98]
+00000000033efb9c: c8c2feb0 adrp     x8, #0xc48000
+00000000033efba0: 61420cfc stur     d1, [x19, #0xc4]
+00000000033efba4: 01e9c13d ldr      q1, [x8, #0x7a0]
+00000000033efba8: c8c2feb0 adrp     x8, #0xc48000
+00000000033efbac: 60c20cfc stur     d0, [x19, #0xcc]
+00000000033efbb0: 0051c13d ldr      q0, [x8, #0x540]
+00000000033efbb4: a8c2fe90 adrp     x8, #0xc43000
+00000000033efbb8: 61428d3c stur     q1, [x19, #0xd4]
+00000000033efbbc: 0121c33d ldr      q1, [x8, #0xc80]
+00000000033efbc0: a8c2fef0 adrp     x8, #0xc46000
+00000000033efbc4: 60828e3c stur     q0, [x19, #0xe8]
+00000000033efbc8: 00e1c13d ldr      q0, [x8, #0x780]
+00000000033efbcc: a8c2fef0 adrp     x8, #0xc46000
+00000000033efbd0: 0201c33d ldr      q2, [x8, #0xc00]
+00000000033efbd4: a8c2feb0 adrp     x8, #0xc44000
+00000000033efbd8: e1031faa mov      x1, xzr
+00000000033efbdc: 810200ad stp      q1, q0, [x20]
+00000000033efbe0: 0035c33d ldr      q0, [x8, #0xcd0]
+00000000033efbe4: 887ba852 mov      w8, #0x43dc0000
+00000000033efbe8: 68fe0d29 stp      w8, wzr, [x19, #0x6c]
+00000000033efbec: e8c0feb0 adrp     x8, #0xc0c000
+00000000033efbf0: 820201ad stp      q2, q0, [x20, #0x20]
+00000000033efbf4: 2089c33d ldr      q0, [x9, #0xe20]
+00000000033efbf8: f65741a9 ldp      x22, x21, [sp, #0x10]
+00000000033efbfc: 60828f3c stur     q0, [x19, #0xf8]
+00000000033efc00: 002945fd ldr      d0, [x8, #0xa50]
+00000000033efc04: 68008052 mov      w8, #3
+00000000033efc08: 688200b9 str      w8, [x19, #0x80]
+00000000033efc0c: c8c2fe90 adrp     x8, #0xc47000
+00000000033efc10: 60a600fd str      d0, [x19, #0x148]
+00000000033efc14: 0015c23d ldr      q0, [x8, #0x850]
+00000000033efc18: 08f0a752 mov      w8, #0x3f800000
+00000000033efc1c: 68e600b9 str      w8, [x19, #0xe4]
+00000000033efc20: a8c2fed0 adrp     x8, #0xc45000
+00000000033efc24: 6056803d str      q0, [x19, #0x150]
+00000000033efc28: 00f9c33d ldr      q0, [x8, #0xfe0]
+00000000033efc2c: 084fa852 mov      w8, #0x42780000
+00000000033efc30: 686201b9 str      w8, [x19, #0x160]
+00000000033efc34: 605e803d str      q0, [x19, #0x170]
+00000000033efc38: f44f42a9 ldp      x20, x19, [sp, #0x20]
+00000000033efc3c: fe0743f8 ldr      x30, [sp], #0x30
+00000000033efc40: 14d52d14 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }
+
+; public static DailyRetryConfig Load() { }
+; token=0x60001AC file_offset=0x33EB960 tool_rva=0x33EB960 length=0x144
+00000000033ef960: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000033ef964: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000033ef968: 739d0090 adrp     x19, #0x479b000
+00000000033ef96c: b4860090 adrp     x20, #0x44c3000
+00000000033ef970: d58500b0 adrp     x21, #0x44a8000
+00000000033ef974: 68966039 ldrb     w8, [x19, #0x825]
+00000000033ef978: 948a44f9 ldr      x20, [x20, #0x910]
+00000000033ef97c: b56245f9 ldr      x21, [x21, #0xac0]
+00000000033ef980: 48020037 tbnz     w8, #0, #0x33ef9c8
+00000000033ef984: a0860090 adrp     x0, #0x44c3000
+00000000033ef988: 008844f9 ldr      x0, [x0, #0x910]
+00000000033ef98c: 3520a697 bl       #0x1d77a60
+00000000033ef990: c08500b0 adrp     x0, #0x44a8000
+00000000033ef994: 006045f9 ldr      x0, [x0, #0xac0]
+00000000033ef998: 3220a697 bl       #0x1d77a60
+00000000033ef99c: a0860090 adrp     x0, #0x44c3000
+00000000033ef9a0: 008c44f9 ldr      x0, [x0, #0x918]
+00000000033ef9a4: 2f20a697 bl       #0x1d77a60
+00000000033ef9a8: a0860090 adrp     x0, #0x44c3000
+00000000033ef9ac: 009044f9 ldr      x0, [x0, #0x920]
+00000000033ef9b0: 2c20a697 bl       #0x1d77a60
+00000000033ef9b4: a0860090 adrp     x0, #0x44c3000
+00000000033ef9b8: 009444f9 ldr      x0, [x0, #0x928]
+00000000033ef9bc: 2920a697 bl       #0x1d77a60
+00000000033ef9c0: 28008052 mov      w8, #1
+00000000033ef9c4: 68962039 strb     w8, [x19, #0x825]
+00000000033ef9c8: 880240f9 ldr      x8, [x20]
+00000000033ef9cc: a00240f9 ldr      x0, [x21]
+00000000033ef9d0: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033ef9d4: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000033ef9d8: 130140f9 ldr      x19, [x8]
+00000000033ef9dc: 49000035 cbnz     w9, #0x33ef9e4
+00000000033ef9e0: 6d20a697 bl       #0x1d77b94
+00000000033ef9e4: e00313aa mov      x0, x19
+00000000033ef9e8: e1031faa mov      x1, xzr
+00000000033ef9ec: e2031faa mov      x2, xzr
+00000000033ef9f0: b3ce2d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000033ef9f4: e0010036 tbz      w0, #0, #0x33efa30
+00000000033ef9f8: a8860090 adrp     x8, #0x44c3000
+00000000033ef9fc: a9860090 adrp     x9, #0x44c3000
+00000000033efa00: 089544f9 ldr      x8, [x8, #0x928]
+00000000033efa04: 298d44f9 ldr      x9, [x9, #0x918]
+00000000033efa08: 000140f9 ldr      x0, [x8]
+00000000033efa0c: 210140f9 ldr      x1, [x9]
+00000000033efa10: 5463bd97 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+00000000033efa14: 880240f9 ldr      x8, [x20]
+00000000033efa18: e10300aa mov      x1, x0
+00000000033efa1c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033efa20: 000100f9 str      x0, [x8]
+00000000033efa24: 880240f9 ldr      x8, [x20]
+00000000033efa28: 005140f9 ldr      x0, [x8, #0xa0]
+00000000033efa2c: fa1fa697 bl       #0x1d77a14
+00000000033efa30: 880240f9 ldr      x8, [x20]
+00000000033efa34: a00240f9 ldr      x0, [x21]
+00000000033efa38: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033efa3c: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000033efa40: 130140f9 ldr      x19, [x8]
+00000000033efa44: 49000035 cbnz     w9, #0x33efa4c
+00000000033efa48: 5320a697 bl       #0x1d77b94
+00000000033efa4c: e00313aa mov      x0, x19
+00000000033efa50: e1031faa mov      x1, xzr
+00000000033efa54: e2031faa mov      x2, xzr
+00000000033efa58: 99ce2d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000033efa5c: 80010036 tbz      w0, #0, #0x33efa8c
+00000000033efa60: a8860090 adrp     x8, #0x44c3000
+00000000033efa64: 089144f9 ldr      x8, [x8, #0x920]
+00000000033efa68: 000140f9 ldr      x0, [x8]
+00000000033efa6c: 7d6ebd97 bl       #0x234b460 ; ScriptableObject :: public static T CreateInstance() { }
+00000000033efa70: 880240f9 ldr      x8, [x20]
+00000000033efa74: e10300aa mov      x1, x0
+00000000033efa78: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033efa7c: 000100f9 str      x0, [x8]
+00000000033efa80: 880240f9 ldr      x8, [x20]
+00000000033efa84: 005140f9 ldr      x0, [x8, #0xa0]
+00000000033efa88: e31fa697 bl       #0x1d77a14
+00000000033efa8c: 880240f9 ldr      x8, [x20]
+00000000033efa90: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000033efa94: 085140f9 ldr      x8, [x8, #0xa0]
+00000000033efa98: 000140f9 ldr      x0, [x8]
+00000000033efa9c: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000033efaa0: c0035fd6 ret      

@@ -1,0 +1,114 @@
+Type: Hamdoku.Managers.WeeklyView
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x03316184 STP X30, X23, [X31 - 0x30]!
+	0x03316188 STP X22, X21, [X31 + 0x10]
+	0x0331618C STP X20, X19, [X31 + 0x20]
+	0x03316190 ADRP X22, 0x1485000
+	0x03316194 ADRP X23, 0x11A5000
+	0x03316198 ADRP X21, 0x11A5000
+	0x0331619C ADRP X20, 0x11A5000
+	0x033161A0 LDR X23, [X23 + 0x278]
+	0x033161A4 LDRB W8, [X22 + 0x192]
+	0x033161A8 LDR X21, [X21 + 0x170]
+	0x033161AC LDR X20, [X20 + 0x178]
+	0x033161B0 MOV X19, X0
+	0x033161B4 TBNZ W8, 0x0, 0x33161E4
+	0x033161B8 ADRP X0, 0x11A5000
+	0x033161BC LDR X0, [X0 + 0x178]
+	0x033161C0 BL 0x1D77A60
+	0x033161C4 ADRP X0, 0x11A5000
+	0x033161C8 LDR X0, [X0 + 0x170]
+	0x033161CC BL 0x1D77A60
+	0x033161D0 ADRP X0, 0x11A5000
+	0x033161D4 LDR X0, [X0 + 0x278]
+	0x033161D8 BL 0x1D77A60
+	0x033161DC MOV W8, 0x1
+	0x033161E0 STRB W8, [X22 + 0x192]
+	0x033161E4 LDR X0, [X23]
+	0x033161E8 MOV W1, 0x3
+	0x033161EC BL 0x1D77B04
+	0x033161F0 MOV X1, X0
+	0x033161F4 MOV X0, X19
+	0x033161F8 STR X1, [X0 + 0x10]!
+	0x033161FC BL 0x1D77A14
+	0x03316200 LDR X0, [X21]
+	0x03316204 BL 0x1D77EC4
+	0x03316208 LDR X1, [X20]
+	0x0331620C MOV X20, X0
+	0x03316210 BL 0x2F66554
+	0x03316214 MOV X0, X19
+	0x03316218 MOV X1, X20
+	0x0331621C STR X20, [X0 + 0x18]!
+	0x03316220 BL 0x1D77A14
+	0x03316224 MOV X0, X19
+	0x03316228 LDP X20, X19, [X31 + 0x20]
+	0x0331622C LDP X22, X21, [X31 + 0x10]
+	0x03316230 MOV X1, X31
+	0x03316234 LDP X30, X23, [X31], #0x30
+	0x03316238 B 0x364F544
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Move v16 @ X23_v2, [44BB278]
+	12 Nop
+	13 Move v18 @ X21_v2, [44BB170]
+	14 Nop
+	15 Nop
+	16 Nop
+	17 Nop
+	18 Nop
+	19 Jump @b13
+	20 Nop
+	21 Move v26 @ X0_v14, [44BB178]
+	22 Call "il2cpp_codegen_initialize_runtime_metadata", v27 @ X0_v15, v26 @ X0_v14, methodInfo @ X1 (Il2CppMethodInfo), v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	23 Nop
+	24 Move v51 @ X0_v17, [44BB170]
+	25 Call "il2cpp_codegen_initialize_runtime_metadata", v52 @ X0_v18, v51 @ X0_v17, methodInfo @ X1 (Il2CppMethodInfo), v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	26 Nop
+	27 Move v58 @ X0_v20, [44BB278]
+	28 Call "il2cpp_codegen_initialize_runtime_metadata", v44 @ X0_v21, v58 @ X0_v20, methodInfo @ X1 (Il2CppMethodInfo), v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	29 Move v46 @ X8_v3, 1
+	30 Move [479B192], v46 @ X8_v3
+	31 Nop
+	32 Nop
+	33 Call "SzArrayNew", v49 @ X0_v3, [v16 @ X23_v2], 3, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	34 Nop
+	35 Nop
+	36 Add v55 @ X0_v5, this @ X0 (Hamdoku.Managers.WeeklyView), 16
+	37 Move [v55 @ X0_v5], v49 @ X0_v3
+	38 Call 1D77A14, v56 @ X0_v6, v55 @ X0_v5, v49 @ X0_v3, v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	39 Nop
+	40 Newobj v60 @ X0_v8 (System.Collections.Generic.List`1<System.__Canon>), [v18 @ X21_v2]
+	41 Nop
+	42 Nop
+	43 CallVoid List`1<System.__Canon>..ctor, v60 @ X0_v8 (System.Collections.Generic.List`1<System.__Canon>)
+	44 Nop
+	45 Nop
+	46 Add v65 @ X0_v10, this @ X0 (Hamdoku.Managers.WeeklyView), 24
+	47 Move [v65 @ X0_v10], v60 @ X0_v8 (System.Collections.Generic.List`1<System.__Canon>)
+	48 Call 1D77A14, v66 @ X0_v11, v65 @ X0_v10, v60 @ X0_v8 (System.Collections.Generic.List`1<System.__Canon>), v29 @ X2, v30 @ X3, v31 @ X4, v32 @ X5, v33 @ X6, v34 @ X7, v35 @ V0, v36 @ V1, v37 @ V2, v38 @ V3, v39 @ V4, v40 @ V5, v41 @ V6, v42 @ V7
+	49 Nop
+	50 Nop
+	51 Nop
+	52 Nop
+	53 Nop
+	54 Nop
+	55 Nop
+	56 Nop
+	57 Nop
+	58 CallVoid Object..ctor, this @ X0 (Hamdoku.Managers.WeeklyView)
+	59 Return
+

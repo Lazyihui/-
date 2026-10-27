@@ -1,0 +1,289 @@
+Type: Hamdoku.Managers.SettingsPopupLayout
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x032CE4A0 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE4A4 FMOV V0.2S, 0x0
+	0x032CE4A8 ADRP X9, 0xFFFFFFFFFD978000
+	0x032CE4AC LDR V1, [X8 + 0x200]
+	0x032CE4B0 ADRP X8, 0xFFFFFFFFFD975000
+	0x032CE4B4 LDR V2, [X9 + 0x7D0]
+	0x032CE4B8 ADRP X9, 0xFFFFFFFFFD978000
+	0x032CE4BC MOV W10, 0x5
+	0x032CE4C0 MOV X1, X31
+	0x032CE4C4 STUR V1, [X0 + 0x18]
+	0x032CE4C8 LDR V1, [X8 + 0x330]
+	0x032CE4CC ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE4D0 STR D0, [X0 + 0x38]
+	0x032CE4D4 LDR V0, [X8 + 0xAC0]
+	0x032CE4D8 ADRP X8, 0xFFFFFFFFFD93E000
+	0x032CE4DC STUR V2, [X0 + 0x28]
+	0x032CE4E0 LDR V2, [X9 + 0x4A0]
+	0x032CE4E4 MOV W9, 0x999A
+	0x032CE4E8 STR V0, [X0 + 0x60]
+	0x032CE4EC LDR D0, [X8 + 0x3D8]
+	0x032CE4F0 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE4F4 STP V1, V2, [X0 + 0x40]
+	0x032CE4F8 LDR V1, [X8 + 0xB50]
+	0x032CE4FC ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE500 LDR V2, [X8 + 0xB60]
+	0x032CE504 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE508 MOVK W9, 0x3E190000
+	0x032CE50C STUR V1, [X0 + 0x7C]
+	0x032CE510 LDR V1, [X8 + 0x770]
+	0x032CE514 ADRP X8, 0xFFFFFFFFFD93E000
+	0x032CE518 STUR V2, [X0 + 0x8C]
+	0x032CE51C STUR V1, [X0 + 0x9C]
+	0x032CE520 LDR D1, [X8 + 0x5F0]
+	0x032CE524 ADRP X8, 0xFFFFFFFFFD977000
+	0x032CE528 LDR V2, [X8 + 0x270]
+	0x032CE52C ADRP X8, 0xFFFFFFFFFD977000
+	0x032CE530 STR W9, [X0 + 0x70]
+	0x032CE534 STR D1, [X0 + 0xC0]
+	0x032CE538 LDR V1, [X8 + 0x280]
+	0x032CE53C ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE540 STUR V2, [X0 + 0xC8]
+	0x032CE544 LDR V2, [X8 + 0xE40]
+	0x032CE548 ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE54C STUR V1, [X0 + 0xD8]
+	0x032CE550 LDR V1, [X8 + 0xA60]
+	0x032CE554 ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE558 MOV W9, 0x3F800000
+	0x032CE55C STUR V2, [X0 + 0xE8]
+	0x032CE560 LDR V2, [X8 + 0x230]
+	0x032CE564 STR W9, [X0 + 0xBC]
+	0x032CE568 ADD X9, X0, 0x108
+	0x032CE56C ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE570 STP V1, V2, [X9]
+	0x032CE574 LDR V1, [X8 + 0x750]
+	0x032CE578 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE57C STUR D0, [X0 + 0x74]
+	0x032CE580 FMOV V0.4S, 0x0
+	0x032CE584 STUR V1, [X9 + 0x24]
+	0x032CE588 LDR V1, [X8 + 0x4B0]
+	0x032CE58C ADRP X8, 0xFFFFFFFFFD977000
+	0x032CE590 LDR V2, [X8 + 0xA80]
+	0x032CE594 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE598 STR W10, [X0 + 0x128]
+	0x032CE59C STUR V1, [X9 + 0x34]
+	0x032CE5A0 LDR V1, [X8 + 0x170]
+	0x032CE5A4 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE5A8 LDR V3, [X8 + 0x180]
+	0x032CE5AC ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE5B0 STUR V0, [X0 + 0xAC]
+	0x032CE5B4 STUR V2, [X9 + 0x44]
+	0x032CE5B8 MOV W10, 0x42100000
+	0x032CE5BC STP V1, V3, [X9 + 0x60]
+	0x032CE5C0 LDR V1, [X8 + 0x780]
+	0x032CE5C4 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE5C8 LDR V3, [X8 + 0xB70]
+	0x032CE5CC ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE5D0 STR W10, [X0 + 0x15C]
+	0x032CE5D4 STP V0, V1, [X9 + 0x80]
+	0x032CE5D8 LDR V0, [X8 + 0xFA0]
+	0x032CE5DC ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE5E0 LDR V1, [X8 + 0x790]
+	0x032CE5E4 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE5E8 STP V3, V0, [X9 + 0xA0]
+	0x032CE5EC LDR V0, [X8 + 0xE50]
+	0x032CE5F0 ADRP X8, 0xFFFFFFFFFD97A000
+	0x032CE5F4 STP V1, V2, [X9 + 0xC0]
+	0x032CE5F8 LDR V1, [X8 + 0x740]
+	0x032CE5FC MOV W8, 0x41D00000
+	0x032CE600 STR V0, [X9 + 0xE0]
+	0x032CE604 ADRP X9, 0xFFFFFFFFFD93E000
+	0x032CE608 STR W8, [X0 + 0x1F8]
+	0x032CE60C MOV W8, 0x1
+	0x032CE610 LDR D0, [X9 + 0xB78]
+	0x032CE614 STRB W8, [X0 + 0x1FC]
+	0x032CE618 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE61C STUR V1, [X0 + 0xF8]
+	0x032CE620 LDR V1, [X8 + 0x210]
+	0x032CE624 ADRP X8, 0xFFFFFFFFFD975000
+	0x032CE628 STR D0, [X0 + 0x160]
+	0x032CE62C LDR V0, [X8 + 0xF30]
+	0x032CE630 ADRP X8, 0xFFFFFFFFFD978000
+	0x032CE634 LDR V2, [X8 + 0xE60]
+	0x032CE638 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE63C STP V1, V0, [X0 + 0x200]
+	0x032CE640 LDR V0, [X8 + 0xAD0]
+	0x032CE644 ADRP X8, 0xFFFFFFFFFD977000
+	0x032CE648 LDR V1, [X8 + 0xCE0]
+	0x032CE64C ADRP X8, 0xFFFFFFFFFD977000
+	0x032CE650 STP V2, V0, [X0 + 0x220]
+	0x032CE654 LDR V0, [X8 + 0x540]
+	0x032CE658 ADRP X8, 0xFFFFFFFFFD97A000
+	0x032CE65C LDR V2, [X8 + 0xA20]
+	0x032CE660 ADRP X8, 0xFFFFFFFFFD975000
+	0x032CE664 STP V1, V0, [X0 + 0x240]
+	0x032CE668 LDR V0, [X8 + 0x670]
+	0x032CE66C ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE670 LDR V1, [X8 + 0x7A0]
+	0x032CE674 ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE678 STP V2, V0, [X0 + 0x260]
+	0x032CE67C LDR V0, [X8 + 0x240]
+	0x032CE680 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE684 LDR V2, [X8 + 0x7B0]
+	0x032CE688 ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE68C STP V1, V0, [X0 + 0x280]
+	0x032CE690 LDR V0, [X8 + 0x520]
+	0x032CE694 ADRP X8, 0xFFFFFFFFFD979000
+	0x032CE698 LDR V1, [X8 + 0xFB0]
+	0x032CE69C ADRP X8, 0xFFFFFFFFFD976000
+	0x032CE6A0 STP V2, V0, [X0 + 0x2A0]
+	0x032CE6A4 LDR V0, [X8 + 0x250]
+	0x032CE6A8 ADD X8, X0, 0x2D4
+	0x032CE6AC STR V1, [X0 + 0x2C0]
+	0x032CE6B0 STR V0, [X8]
+	0x032CE6B4 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Move this.panelWidth (System.Single), [C46200]
+	10 Nop
+	11 Nop
+	12 Move this.closeOffset (UnityEngine.Vector2), 0
+	13 Nop
+	14 Nop
+	15 Move this.padSide (System.Single), [C467D0]
+	16 Nop
+	17 Nop
+	18 Move this.sepInset (System.Single), [C47AC0]
+	19 Nop
+	20 Nop
+	21 Move this.groupPpum (System.Single), [C43330]
+	22 Move this.rowIconX (System.Single), [C464A0]
+	23 Nop
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Move this.toggleRightPad (System.Single), [C46B50]
+	29 Nop
+	30 Nop
+	31 Move this.toggleTextX (System.Single), [C46B60]
+	32 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+9C], [C47770]
+	33 Nop
+	34 Nop
+	35 Nop
+	36 Nop
+	37 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+70], 1041865114
+	38 Move this.voicePillSize (UnityEngine.Vector2), [C0C5F0]
+	39 Nop
+	40 Nop
+	41 Move this.voiceArrowSize (System.Single), [C45270]
+	42 Nop
+	43 Nop
+	44 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+D8], [C45280]
+	45 Nop
+	46 Nop
+	47 Nop
+	48 Move this.chevronRightPad (System.Single), [C46E40]
+	49 Nop
+	50 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+BC], 1065353216
+	51 Add v37 @ X9_v6, this @ X0 (Hamdoku.Managers.SettingsPopupLayout), 264
+	52 Nop
+	53 Move [v37 @ X9_v6], [C44A60]
+	54 Move [v37 @ X9_v6+10], [C44230]
+	55 Nop
+	56 Nop
+	57 Move this.toggleSize (UnityEngine.Vector2), [C0C3D8]
+	58 Nop
+	59 Move [v37 @ X9_v6+24], [C44750]
+	60 Nop
+	61 Nop
+	62 Nop
+	63 Nop
+	64 Move this.langListVisibleRows (System.Int32), 5
+	65 Move [v37 @ X9_v6+34], [C464B0]
+	66 Nop
+	67 Nop
+	68 Nop
+	69 Nop
+	70 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+AC], 0
+	71 Move [v37 @ X9_v6+44], [C45A80]
+	72 Nop
+	73 Move [v37 @ X9_v6+60], [C47170]
+	74 Move [v37 @ X9_v6+70], [C47180]
+	75 Nop
+	76 Nop
+	77 Nop
+	78 Nop
+	79 Move this.saveGapMsgBtns (System.Single), 36f
+	80 Move [v37 @ X9_v6+80], 0
+	81 Move [v37 @ X9_v6+90], [C47780]
+	82 Nop
+	83 Nop
+	84 Nop
+	85 Nop
+	86 Move [v37 @ X9_v6+A0], [C46B70]
+	87 Move [v37 @ X9_v6+B0], [C44FA0]
+	88 Nop
+	89 Nop
+	90 Move [v37 @ X9_v6+C0], [C47790]
+	91 Move [v37 @ X9_v6+D0], [C45A80]
+	92 Nop
+	93 Nop
+	94 Move [v37 @ X9_v6+E0], [C46E50]
+	95 Nop
+	96 Move this.saveStatusLineSpacing (System.Single), 26f
+	97 Nop
+	98 Nop
+	99 Move this.saveShowEmail (System.Boolean), 1
+	100 Nop
+	101 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+F8], [C48740]
+	102 Nop
+	103 Nop
+	104 Move this.saveBtnSize (UnityEngine.Vector2), [C0CB78]
+	105 Nop
+	106 Nop
+	107 Nop
+	108 Nop
+	109 Move this.saveGapBoxBtn (System.Single), [C46210]
+	110 Move this.saveDeleteFs (System.Single), [C43F30]
+	111 Nop
+	112 Nop
+	113 Nop
+	114 Nop
+	115 Move this.saveNoticeBoxH (System.Single), [C46E60]
+	116 Move this.saveResultIconTop (System.Single), [C47AD0]
+	117 Nop
+	118 Nop
+	119 Nop
+	120 Nop
+	121 Move this.saveResultOkColor (UnityEngine.Color), [C45CE0]
+	122 Move this.saveResultFailColor (UnityEngine.Color), [C45540]
+	123 Nop
+	124 Nop
+	125 Nop
+	126 Nop
+	127 Move this.gapTitleGroup (System.Single), [C48A20]
+	128 Move this.gapBtnLinks (System.Single), [C43670]
+	129 Nop
+	130 Nop
+	131 Nop
+	132 Nop
+	133 Move this.dashThickness (System.Single), [C477A0]
+	134 Move [this @ X0 (Hamdoku.Managers.SettingsPopupLayout)+290], [C44240]
+	135 Nop
+	136 Nop
+	137 Nop
+	138 Nop
+	139 Move this.btnIconSize (System.Single), [C477B0]
+	140 Move this.linkIconTextGap (System.Single), [C44520]
+	141 Nop
+	142 Add v94 @ X8_v41, this @ X0 (Hamdoku.Managers.SettingsPopupLayout), 724
+	143 Move this.uidH (System.Single), [C47FB0]
+	144 Move [v94 @ X8_v41], [C44250]
+	145 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.Managers.SettingsPopupLayout)
+	146 Return
+

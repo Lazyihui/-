@@ -1,0 +1,71 @@
+Type: Hamdoku.Managers.BuildQaIsolation
+
+Method: System.Boolean ComputeQaRunner()
+
+Disassembly:
+	0x032165E0 MOV W0, W31
+	0x032165E4 RET
+
+ISIL:
+	0 Nop
+	1 Return 0
+
+Method: System.Boolean ComputeActive()
+
+Disassembly:
+	0x032165E8 MOV W0, W31
+	0x032165EC RET
+
+ISIL:
+	0 Nop
+	1 Return 0
+
+Method: System.Void .cctor()
+
+Disassembly:
+	0x032165F0 STR X30, [X31 - 0x20]!
+	0x032165F4 STP X20, X19, [X31 + 0x10]
+	0x032165F8 ADRP X19, 0x1584000
+	0x032165FC ADRP X20, 0x12A1000
+	0x03216600 LDRB W8, [X19 + 0xACA]
+	0x03216604 LDR X20, [X20 + 0xF40]
+	0x03216608 TBNZ W8, 0x0, 0x3216620
+	0x0321660C ADRP X0, 0x12A1000
+	0x03216610 LDR X0, [X0 + 0xF40]
+	0x03216614 BL 0x1D77A60
+	0x03216618 MOV W8, 0x1
+	0x0321661C STRB W8, [X19 + 0xACA]
+	0x03216620 LDR X8, [X20]
+	0x03216624 LDP X20, X19, [X31 + 0x10]
+	0x03216628 LDR X8, [X8 + 0xA0]
+	0x0321662C STRH W31, [X8]
+	0x03216630 LDR X30, [X31], #0x20
+	0x03216634 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Move v9 @ X20_v2, [44B7F40]
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Jump @b5
+	12 Nop
+	13 Move v14 @ X0_v3, [44B7F40]
+	14 Call "il2cpp_codegen_initialize_runtime_metadata", v15 @ X0_v4, v14 @ X0_v3, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	15 Move v34 @ X8_v5, 1
+	16 Move [479AACA], v34 @ X8_v5
+	17 Move v35 @ X8_v3, [v9 @ X20_v2]
+	18 Nop
+	19 Nop
+	20 Move v38 @ X8_v4, [v35 @ X8_v3+A0]
+	21 Move [v38 @ X8_v4], 0
+	22 Nop
+	23 Nop
+	24 Return
+

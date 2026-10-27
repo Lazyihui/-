@@ -1,0 +1,198 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; private static void EnsureEventSystem() { }
+; token=0x60011FE file_offset=0x32CA824 tool_rva=0x32CA824 length=0x230
+00000000032ce824: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000032ce828: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032ce82c: 73a60090 adrp     x19, #0x479a000
+00000000032ce830: d58e00d0 adrp     x21, #0x44a8000
+00000000032ce834: 68927e39 ldrb     w8, [x19, #0xfa4]
+00000000032ce838: b56245f9 ldr      x21, [x21, #0xac0]
+00000000032ce83c: 28040037 tbnz     w8, #0, #0x32ce8c0
+00000000032ce840: c08e00d0 adrp     x0, #0x44a8000
+00000000032ce844: 00c045f9 ldr      x0, [x0, #0xb80]
+00000000032ce848: 86a4aa97 bl       #0x1d77a60
+00000000032ce84c: 608f00d0 adrp     x0, #0x44bc000
+00000000032ce850: 00ec47f9 ldr      x0, [x0, #0xfd8]
+00000000032ce854: 83a4aa97 bl       #0x1d77a60
+00000000032ce858: c08e00d0 adrp     x0, #0x44a8000
+00000000032ce85c: 005c45f9 ldr      x0, [x0, #0xab8]
+00000000032ce860: 80a4aa97 bl       #0x1d77a60
+00000000032ce864: 608f00d0 adrp     x0, #0x44bc000
+00000000032ce868: 00f047f9 ldr      x0, [x0, #0xfe0]
+00000000032ce86c: 7da4aa97 bl       #0x1d77a60
+00000000032ce870: c08e00d0 adrp     x0, #0x44a8000
+00000000032ce874: 006045f9 ldr      x0, [x0, #0xac0]
+00000000032ce878: 7aa4aa97 bl       #0x1d77a60
+00000000032ce87c: 608f00d0 adrp     x0, #0x44bc000
+00000000032ce880: 00f447f9 ldr      x0, [x0, #0xfe8]
+00000000032ce884: 77a4aa97 bl       #0x1d77a60
+00000000032ce888: e08e00d0 adrp     x0, #0x44ac000
+00000000032ce88c: 00e040f9 ldr      x0, [x0, #0x1c0]
+00000000032ce890: 74a4aa97 bl       #0x1d77a60
+00000000032ce894: 608f00d0 adrp     x0, #0x44bc000
+00000000032ce898: 00f847f9 ldr      x0, [x0, #0xff0]
+00000000032ce89c: 71a4aa97 bl       #0x1d77a60
+00000000032ce8a0: 608f00d0 adrp     x0, #0x44bc000
+00000000032ce8a4: 00fc47f9 ldr      x0, [x0, #0xff8]
+00000000032ce8a8: 6ea4aa97 bl       #0x1d77a60
+00000000032ce8ac: 608f00f0 adrp     x0, #0x44bd000
+00000000032ce8b0: 000040f9 ldr      x0, [x0]
+00000000032ce8b4: 6ba4aa97 bl       #0x1d77a60
+00000000032ce8b8: 28008052 mov      w8, #1
+00000000032ce8bc: 68923e39 strb     w8, [x19, #0xfa4]
+00000000032ce8c0: a00240f9 ldr      x0, [x21]
+00000000032ce8c4: 738f00d0 adrp     x19, #0x44bc000
+00000000032ce8c8: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032ce8cc: 73f247f9 ldr      x19, [x19, #0xfe0]
+00000000032ce8d0: 48000035 cbnz     w8, #0x32ce8d8
+00000000032ce8d4: b0a4aa97 bl       #0x1d77b94
+00000000032ce8d8: 600240f9 ldr      x0, [x19]
+00000000032ce8dc: 6061bf97 bl       #0x22a6e5c
+00000000032ce8e0: e1031faa mov      x1, xzr
+00000000032ce8e4: e2031faa mov      x2, xzr
+00000000032ce8e8: 0d4e3294 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+00000000032ce8ec: 80000036 tbz      w0, #0, #0x32ce8fc
+00000000032ce8f0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032ce8f4: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032ce8f8: c0035fd6 ret      
+00000000032ce8fc: e88e00d0 adrp     x8, #0x44ac000
+00000000032ce900: 738f00d0 adrp     x19, #0x44bc000
+00000000032ce904: 21008052 mov      w1, #1
+00000000032ce908: 08e140f9 ldr      x8, [x8, #0x1c0]
+00000000032ce90c: 73ee47f9 ldr      x19, [x19, #0xfd8]
+00000000032ce910: 000140f9 ldr      x0, [x8]
+00000000032ce914: 7ca4aa97 bl       #0x1d77b04
+00000000032ce918: c88e00d0 adrp     x8, #0x44a8000
+00000000032ce91c: 087d45f9 ldr      x8, [x8, #0xaf8]
+00000000032ce920: 740240f9 ldr      x20, [x19]
+00000000032ce924: f30300aa mov      x19, x0
+00000000032ce928: 087540f9 ldr      x8, [x8, #0xe8]
+00000000032ce92c: 09e540b9 ldr      w9, [x8, #0xe4]
+00000000032ce930: 69000035 cbnz     w9, #0x32ce93c
+00000000032ce934: e00308aa mov      x0, x8
+00000000032ce938: 97a4aa97 bl       #0x1d77b94
+00000000032ce93c: e00314aa mov      x0, x20
+00000000032ce940: e1031faa mov      x1, xzr
+00000000032ce944: 8c370d94 bl       #0x361c774 ; Type :: public static Type GetTypeFromHandle(RuntimeTypeHandle handle) { }
+00000000032ce948: d30700b4 cbz      x19, #0x32cea40
+00000000032ce94c: f40300aa mov      x20, x0
+00000000032ce950: c00000b4 cbz      x0, #0x32ce968
+00000000032ce954: 680240f9 ldr      x8, [x19]
+00000000032ce958: e00314aa mov      x0, x20
+00000000032ce95c: 012140f9 ldr      x1, [x8, #0x40]
+00000000032ce960: 8ea4aa97 bl       #0x1d77b98
+00000000032ce964: 200700b4 cbz      x0, #0x32cea48
+00000000032ce968: 681a40b9 ldr      w8, [x19, #0x18]
+00000000032ce96c: c8060034 cbz      w8, #0x32cea44
+00000000032ce970: e00313aa mov      x0, x19
+00000000032ce974: e10314aa mov      x1, x20
+00000000032ce978: 140c02f8 str      x20, [x0, #0x20]!
+00000000032ce97c: 26a4aa97 bl       #0x1d77a14
+00000000032ce980: c88e00d0 adrp     x8, #0x44a8000
+00000000032ce984: 085d45f9 ldr      x8, [x8, #0xab8]
+00000000032ce988: 000140f9 ldr      x0, [x8]
+00000000032ce98c: 4ea5aa97 bl       #0x1d77ec4
+00000000032ce990: 688f00d0 adrp     x8, #0x44bc000
+00000000032ce994: e20313aa mov      x2, x19
+00000000032ce998: e3031faa mov      x3, xzr
+00000000032ce99c: 08f947f9 ldr      x8, [x8, #0xff0]
+00000000032ce9a0: f40300aa mov      x20, x0
+00000000032ce9a4: 010140f9 ldr      x1, [x8]
+00000000032ce9a8: b7503294 bl       #0x3f62c84 ; GameObject :: public GameObject(string name, Type[] components) { }
+00000000032ce9ac: 688f00f0 adrp     x8, #0x44bd000
+00000000032ce9b0: 698f00d0 adrp     x9, #0x44bc000
+00000000032ce9b4: 080140f9 ldr      x8, [x8]
+00000000032ce9b8: 29f547f9 ldr      x9, [x9, #0xfe8]
+00000000032ce9bc: 000140f9 ldr      x0, [x8]
+00000000032ce9c0: 210140f9 ldr      x1, [x9]
+00000000032ce9c4: bfa3aa97 bl       #0x1d778c0
+00000000032ce9c8: e1031faa mov      x1, xzr
+00000000032ce9cc: e2031faa mov      x2, xzr
+00000000032ce9d0: f30300aa mov      x19, x0
+00000000032ce9d4: e95f0d94 bl       #0x3626978 ; Type :: public static bool op_Inequality(Type left, Type right) { }
+00000000032ce9d8: c0000036 tbz      w0, #0, #0x32ce9f0
+00000000032ce9dc: 340300b4 cbz      x20, #0x32cea40
+00000000032ce9e0: e00314aa mov      x0, x20
+00000000032ce9e4: e10313aa mov      x1, x19
+00000000032ce9e8: e2031faa mov      x2, xzr
+00000000032ce9ec: 604e3294 bl       #0x3f6236c ; GameObject :: public Component AddComponent(Type componentType) { }
+00000000032ce9f0: a00240f9 ldr      x0, [x21]
+00000000032ce9f4: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032ce9f8: 48000035 cbnz     w8, #0x32cea00
+00000000032ce9fc: 66a4aa97 bl       #0x1d77b94
+00000000032cea00: e00314aa mov      x0, x20
+00000000032cea04: e1031faa mov      x1, xzr
+00000000032cea08: 9a653294 bl       #0x3f68070
+00000000032cea0c: c88e00d0 adrp     x8, #0x44a8000
+00000000032cea10: 08c145f9 ldr      x8, [x8, #0xb80]
+00000000032cea14: 000140f9 ldr      x0, [x8]
+00000000032cea18: 08e440b9 ldr      w8, [x0, #0xe4]
+00000000032cea1c: 48000035 cbnz     w8, #0x32cea24
+00000000032cea20: 5da4aa97 bl       #0x1d77b94
+00000000032cea24: 688f00d0 adrp     x8, #0x44bc000
+00000000032cea28: e1031faa mov      x1, xzr
+00000000032cea2c: 08fd47f9 ldr      x8, [x8, #0xff8]
+00000000032cea30: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032cea34: 000140f9 ldr      x0, [x8]
+00000000032cea38: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000032cea3c: 83903114 b        #0x3f32c48 ; Debug :: public static void LogWarning(object message) { }
+00000000032cea40: 05a4aa97 bl       #0x1d77a54
+00000000032cea44: 24a5aa97 bl       #0x1d77ed4
+00000000032cea48: 2fa5aa97 bl       #0x1d77f04
+00000000032cea4c: e1031faa mov      x1, xzr
+00000000032cea50: 4da4aa97 bl       #0x1d77b84
+
+; public static void Hide() { }
+; token=0x60011FD file_offset=0x32CAAB0 tool_rva=0x32CAAB0 length=0x5C
+00000000032ceab0: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032ceab4: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032ceab8: 73a60090 adrp     x19, #0x479a000
+00000000032ceabc: 748f00d0 adrp     x20, #0x44bc000
+00000000032ceac0: 688e7e39 ldrb     w8, [x19, #0xfa3]
+00000000032ceac4: 94e247f9 ldr      x20, [x20, #0xfc0]
+00000000032ceac8: c8000037 tbnz     w8, #0, #0x32ceae0
+00000000032ceacc: 608f00d0 adrp     x0, #0x44bc000
+00000000032cead0: 00e047f9 ldr      x0, [x0, #0xfc0]
+00000000032cead4: e3a3aa97 bl       #0x1d77a60
+00000000032cead8: 28008052 mov      w8, #1
+00000000032ceadc: 688e3e39 strb     w8, [x19, #0xfa3]
+00000000032ceae0: 880240f9 ldr      x8, [x20]
+00000000032ceae4: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032ceae8: 000140f9 ldr      x0, [x8]
+00000000032ceaec: a00000b4 cbz      x0, #0x32ceb00
+00000000032ceaf0: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032ceaf4: e1031faa mov      x1, xzr
+00000000032ceaf8: fe0742f8 ldr      x30, [sp], #0x20
+00000000032ceafc: efd4ff17 b        #0x32c3eb8 ; SettingsPopup :: public void Hide() { }
+00000000032ceb00: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032ceb04: fe0742f8 ldr      x30, [sp], #0x20
+00000000032ceb08: c0035fd6 ret      
+
+; public static void Toggle() { }
+; token=0x60011FC file_offset=0x32CAA54 tool_rva=0x32CAA54 length=0x5C
+00000000032cea54: fe0f1ef8 str      x30, [sp, #-0x20]!
+00000000032cea58: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000032cea5c: 73a60090 adrp     x19, #0x479a000
+00000000032cea60: 748f00d0 adrp     x20, #0x44bc000
+00000000032cea64: 688a7e39 ldrb     w8, [x19, #0xfa2]
+00000000032cea68: 94e247f9 ldr      x20, [x20, #0xfc0]
+00000000032cea6c: c8000037 tbnz     w8, #0, #0x32cea84
+00000000032cea70: 608f00d0 adrp     x0, #0x44bc000
+00000000032cea74: 00e047f9 ldr      x0, [x0, #0xfc0]
+00000000032cea78: faa3aa97 bl       #0x1d77a60
+00000000032cea7c: 28008052 mov      w8, #1
+00000000032cea80: 688a3e39 strb     w8, [x19, #0xfa2]
+00000000032cea84: 880240f9 ldr      x8, [x20]
+00000000032cea88: 085140f9 ldr      x8, [x8, #0xa0]
+00000000032cea8c: 000140f9 ldr      x0, [x8]
+00000000032cea90: a00000b4 cbz      x0, #0x32ceaa4
+00000000032cea94: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032cea98: e1031faa mov      x1, xzr
+00000000032cea9c: fe0742f8 ldr      x30, [sp], #0x20
+00000000032ceaa0: b3d9ff17 b        #0x32c516c ; SettingsPopup :: public void Toggle() { }
+00000000032ceaa4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000032ceaa8: fe0742f8 ldr      x30, [sp], #0x20
+00000000032ceaac: c0035fd6 ret      

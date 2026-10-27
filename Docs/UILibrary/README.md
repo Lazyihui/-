@@ -1,7 +1,9 @@
 - A1 Hamdoku2 UI Library · 第二版
 	- B1 入口：[UI Library.html](<UI Library.html>)。Chrome / Edge 直接打开即可，支持 file:// 离线浏览，无需服务器。页面保留组件目录，另有 8 个可切换的页面组合与截图并排对照。
 
-	- B2 本版按用户确认顺序补齐按钮规格与视觉居中、九宫格和间距、标签页与列表、Hamdoku 专属组件及截图对照。只修改参考库与记录；Unity 业务实现、Prefab、场景、SO 和存档未在本轮修改。
+	- B2 [Prefab 与原作层级资料](PrefabCollection/index.html)：集中整理当前工程的10个Prefab快照、原作86个对象层级（10个根对象）、191份配置和118类代码证据。原资料未发现独立.prefab或.unity文件；原作层级JSON与当前工程Prefab明确区分，均为2026-10-27资料快照。
+
+	- B3 本版按用户确认顺序补齐按钮规格与视觉居中、九宫格和间距、标签页与列表、Hamdoku 专属组件及截图对照。只修改参考库与记录；Unity 业务实现、Prefab、场景、SO 和存档未在本轮修改。
 
 - A2 来源与数据
 	- B1 目标工程为 D:/UnityProject/Hamdoku2；原作只读资料为 D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2。结构参考麻将项目 UI Library，视觉与业务组件从 Hamdoku 资料整理。

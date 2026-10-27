@@ -1,0 +1,229 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; public PopupFitWatcher() { }
+; token=0x600042B file_offset=0x341B42C tool_rva=0x341B42C length=0x14
+000000000341f42c: 68bffe90 adrp     x8, #0xc0b000
+000000000341f430: e1031faa mov      x1, xzr
+000000000341f434: 007145fd ldr      d0, [x8, #0xae0]
+000000000341f438: 001800fd str      d0, [x0, #0x30]
+000000000341f43c: bf162d14 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; public static void Attach(GameObject root, RectTransform content, Vector2 contentSize, float wideScale, float margin) { }
+; token=0x6000427 file_offset=0x341B0F4 tool_rva=0x341B0F4 length=0x164
+000000000341f0f4: eb2bbb6d stp      d11, d10, [sp, #-0x50]!
+000000000341f0f8: e923016d stp      d9, d8, [sp, #0x10]
+000000000341f0fc: fe1300f9 str      x30, [sp, #0x20]
+000000000341f100: f65703a9 stp      x22, x21, [sp, #0x30]
+000000000341f104: f44f04a9 stp      x20, x19, [sp, #0x40]
+000000000341f108: 6840201e fmov     s8, s3
+000000000341f10c: 4940201e fmov     s9, s2
+000000000341f110: f69b0090 adrp     x22, #0x479b000
+000000000341f114: 2a40201e fmov     s10, s1
+000000000341f118: 0b40201e fmov     s11, s0
+000000000341f11c: 558400b0 adrp     x21, #0x44a8000
+000000000341f120: c8fa6539 ldrb     w8, [x22, #0x97e]
+000000000341f124: b56245f9 ldr      x21, [x21, #0xac0]
+000000000341f128: f30301aa mov      x19, x1
+000000000341f12c: f40300aa mov      x20, x0
+000000000341f130: 88010037 tbnz     w8, #0, #0x341f160
+000000000341f134: 208500b0 adrp     x0, #0x44c4000
+000000000341f138: 007c43f9 ldr      x0, [x0, #0x6f8]
+000000000341f13c: 4962a597 bl       #0x1d77a60
+000000000341f140: 208500b0 adrp     x0, #0x44c4000
+000000000341f144: 008043f9 ldr      x0, [x0, #0x700]
+000000000341f148: 4662a597 bl       #0x1d77a60
+000000000341f14c: 408400b0 adrp     x0, #0x44a8000
+000000000341f150: 006045f9 ldr      x0, [x0, #0xac0]
+000000000341f154: 4362a597 bl       #0x1d77a60
+000000000341f158: 28008052 mov      w8, #1
+000000000341f15c: c8fa2539 strb     w8, [x22, #0x97e]
+000000000341f160: a00240f9 ldr      x0, [x21]
+000000000341f164: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000341f168: 48000035 cbnz     w8, #0x341f170
+000000000341f16c: 8a62a597 bl       #0x1d77b94
+000000000341f170: e00314aa mov      x0, x20
+000000000341f174: e1031faa mov      x1, xzr
+000000000341f178: e2031faa mov      x2, xzr
+000000000341f17c: d0102d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000341f180: 40010037 tbnz     w0, #0, #0x341f1a8
+000000000341f184: a00240f9 ldr      x0, [x21]
+000000000341f188: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000341f18c: 48000035 cbnz     w8, #0x341f194
+000000000341f190: 8162a597 bl       #0x1d77b94
+000000000341f194: e00313aa mov      x0, x19
+000000000341f198: e1031faa mov      x1, xzr
+000000000341f19c: e2031faa mov      x2, xzr
+000000000341f1a0: c7102d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000341f1a4: e0000036 tbz      w0, #0, #0x341f1c0
+000000000341f1a8: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000341f1ac: fe1340f9 ldr      x30, [sp, #0x20]
+000000000341f1b0: f65743a9 ldp      x22, x21, [sp, #0x30]
+000000000341f1b4: e923416d ldp      d9, d8, [sp, #0x10]
+000000000341f1b8: eb2bc56c ldp      d11, d10, [sp], #0x50
+000000000341f1bc: c0035fd6 ret      
+000000000341f1c0: b40400b4 cbz      x20, #0x341f254
+000000000341f1c4: 288500b0 adrp     x8, #0x44c4000
+000000000341f1c8: e00314aa mov      x0, x20
+000000000341f1cc: 088143f9 ldr      x8, [x8, #0x700]
+000000000341f1d0: 010140f9 ldr      x1, [x8]
+000000000341f1d4: b230b897 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+000000000341f1d8: a80240f9 ldr      x8, [x21]
+000000000341f1dc: f50300aa mov      x21, x0
+000000000341f1e0: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000341f1e4: 69000035 cbnz     w9, #0x341f1f0
+000000000341f1e8: e00308aa mov      x0, x8
+000000000341f1ec: 6a62a597 bl       #0x1d77b94
+000000000341f1f0: e00315aa mov      x0, x21
+000000000341f1f4: e1031faa mov      x1, xzr
+000000000341f1f8: e2031faa mov      x2, xzr
+000000000341f1fc: b0102d94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000341f200: e0000036 tbz      w0, #0, #0x341f21c
+000000000341f204: 288500b0 adrp     x8, #0x44c4000
+000000000341f208: e00314aa mov      x0, x20
+000000000341f20c: 087d43f9 ldr      x8, [x8, #0x6f8]
+000000000341f210: 010140f9 ldr      x1, [x8]
+000000000341f214: 7e30b897 bl       #0x222b40c ; GameObject :: public T AddComponent() { }
+000000000341f218: f50300aa mov      x21, x0
+000000000341f21c: d50100b4 cbz      x21, #0x341f254
+000000000341f220: e00315aa mov      x0, x21
+000000000341f224: e10313aa mov      x1, x19
+000000000341f228: 130c02f8 str      x19, [x0, #0x20]!
+000000000341f22c: fa61a597 bl       #0x1d77a14
+000000000341f230: ab2a052d stp      s11, s10, [x21, #0x28]
+000000000341f234: e00315aa mov      x0, x21
+000000000341f238: fe1340f9 ldr      x30, [sp, #0x20]
+000000000341f23c: a922062d stp      s9, s8, [x21, #0x30]
+000000000341f240: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000341f244: f65743a9 ldp      x22, x21, [sp, #0x30]
+000000000341f248: e923416d ldp      d9, d8, [sp, #0x10]
+000000000341f24c: eb2bc56c ldp      d11, d10, [sp], #0x50
+000000000341f250: 02000014 b        #0x341f258 ; PopupFitWatcher :: private void Snapshot() { }
+000000000341f254: 0062a597 bl       #0x1d77a54
+
+; private void OnEnable() { }
+; token=0x6000428 file_offset=0x341B2A4 tool_rva=0x341B2A4 length=0x4
+000000000341f2a4: edffff17 b        #0x341f258 ; PopupFitWatcher :: private void Snapshot() { }
+
+; private void Snapshot() { }
+; token=0x6000429 file_offset=0x341B258 tool_rva=0x341B258 length=0x4C
+000000000341f258: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000341f25c: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000341f260: f30300aa mov      x19, x0
+000000000341f264: e0031faa mov      x0, xzr
+000000000341f268: d26b2c94 bl       #0x3f3a1b0
+000000000341f26c: f403002a mov      w20, w0
+000000000341f270: e0031faa mov      x0, xzr
+000000000341f274: d96b2c94 bl       #0x3f3a1d8
+000000000341f278: e803142a mov      w8, w20
+000000000341f27c: 088100aa orr      x8, x8, x0, lsl #32
+000000000341f280: e0031faa mov      x0, xzr
+000000000341f284: 681e00f9 str      x8, [x19, #0x38]
+000000000341f288: 3f6c2c94 bl       #0x3f3a384 ; Screen :: public static Rect get_safeArea() { }
+000000000341f28c: 6006082d stp      s0, s1, [x19, #0x40]
+000000000341f290: 620e092d stp      s2, s3, [x19, #0x48]
+000000000341f294: 7f5200b9 str      wzr, [x19, #0x50]
+000000000341f298: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000341f29c: fe0742f8 ldr      x30, [sp], #0x20
+000000000341f2a0: c0035fd6 ret      
+
+; private void Update() { }
+; token=0x600042A file_offset=0x341B2A8 tool_rva=0x341B2A8 length=0x184
+000000000341f2a8: ffc301d1 sub      sp, sp, #0x70
+000000000341f2ac: fe2b00f9 str      x30, [sp, #0x50]
+000000000341f2b0: f44f06a9 stp      x20, x19, [sp, #0x60]
+000000000341f2b4: f49b0090 adrp     x20, #0x479b000
+000000000341f2b8: f30300aa mov      x19, x0
+000000000341f2bc: 88fe6539 ldrb     w8, [x20, #0x97f]
+000000000341f2c0: 28010037 tbnz     w8, #0, #0x341f2e4
+000000000341f2c4: 408400b0 adrp     x0, #0x44a8000
+000000000341f2c8: 006045f9 ldr      x0, [x0, #0xac0]
+000000000341f2cc: e561a597 bl       #0x1d77a60
+000000000341f2d0: 408400f0 adrp     x0, #0x44aa000
+000000000341f2d4: 005046f9 ldr      x0, [x0, #0xca0]
+000000000341f2d8: e261a597 bl       #0x1d77a60
+000000000341f2dc: 28008052 mov      w8, #1
+000000000341f2e0: 88fe2539 strb     w8, [x20, #0x97f]
+000000000341f2e4: e0031faa mov      x0, xzr
+000000000341f2e8: b26b2c94 bl       #0x3f3a1b0
+000000000341f2ec: 683a40b9 ldr      w8, [x19, #0x38]
+000000000341f2f0: 1f00086b cmp      w0, w8
+000000000341f2f4: 01040054 b.ne     #0x341f374
+000000000341f2f8: e0031faa mov      x0, xzr
+000000000341f2fc: b76b2c94 bl       #0x3f3a1d8
+000000000341f300: 683e40b9 ldr      w8, [x19, #0x3c]
+000000000341f304: 1f00086b cmp      w0, w8
+000000000341f308: 61030054 b.ne     #0x341f374
+000000000341f30c: e0031faa mov      x0, xzr
+000000000341f310: 1d6c2c94 bl       #0x3f3a384 ; Screen :: public static Rect get_safeArea() { }
+000000000341f314: 488400f0 adrp     x8, #0x44aa000
+000000000341f318: 085146f9 ldr      x8, [x8, #0xca0]
+000000000341f31c: 6412c03d ldr      q4, [x19, #0x40]
+000000000341f320: 000140f9 ldr      x0, [x8]
+000000000341f324: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000341f328: 08010035 cbnz     w8, #0x341f348
+000000000341f32c: e19300ad stp      q1, q4, [sp, #0x10]
+000000000341f330: e28301ad stp      q2, q0, [sp, #0x30]
+000000000341f334: e303803d str      q3, [sp]
+000000000341f338: 1762a597 bl       #0x1d77b94
+000000000341f33c: e30740ad ldp      q3, q1, [sp]
+000000000341f340: e013c03d ldr      q0, [sp, #0x40]
+000000000341f344: e40b41ad ldp      q4, q2, [sp, #0x20]
+000000000341f348: 20040c6e mov      v0.s[1], v1.s[0]
+000000000341f34c: 4004146e mov      v0.s[2], v2.s[0]
+000000000341f350: 60041c6e mov      v0.s[3], v3.s[0]
+000000000341f354: 00e4244e fcmeq    v0.4s, v0.4s, v4.4s
+000000000341f358: 0058206e mvn      v0.16b, v0.16b
+000000000341f35c: 0028610e xtn      v0.4h, v0.4s
+000000000341f360: 00541f0f shl      v0.4h, v0.4h, #0xf
+000000000341f364: 00a8600e cmlt     v0.4h, v0.4h, #0
+000000000341f368: 00a8702e umaxv    h0, v0.4h
+000000000341f36c: 0800261e fmov     w8, s0
+000000000341f370: 68020036 tbz      w8, #0, #0x341f3bc
+000000000341f374: e0031faa mov      x0, xzr
+000000000341f378: 8e6b2c94 bl       #0x3f3a1b0
+000000000341f37c: f403002a mov      w20, w0
+000000000341f380: e0031faa mov      x0, xzr
+000000000341f384: 956b2c94 bl       #0x3f3a1d8
+000000000341f388: e803142a mov      w8, w20
+000000000341f38c: 088100aa orr      x8, x8, x0, lsl #32
+000000000341f390: e0031faa mov      x0, xzr
+000000000341f394: 681e00f9 str      x8, [x19, #0x38]
+000000000341f398: fb6b2c94 bl       #0x3f3a384 ; Screen :: public static Rect get_safeArea() { }
+000000000341f39c: 48008052 mov      w8, #2
+000000000341f3a0: 6006082d stp      s0, s1, [x19, #0x40]
+000000000341f3a4: 620e092d stp      s2, s3, [x19, #0x48]
+000000000341f3a8: 685200b9 str      w8, [x19, #0x50]
+000000000341f3ac: f44f46a9 ldp      x20, x19, [sp, #0x60]
+000000000341f3b0: fe2b40f9 ldr      x30, [sp, #0x50]
+000000000341f3b4: ffc30191 add      sp, sp, #0x70
+000000000341f3b8: c0035fd6 ret      
+000000000341f3bc: 685240b9 ldr      w8, [x19, #0x50]
+000000000341f3c0: 08050071 subs     w8, w8, #1
+000000000341f3c4: 4bffff54 b.lt     #0x341f3ac
+000000000341f3c8: 685200b9 str      w8, [x19, #0x50]
+000000000341f3cc: 01ffff54 b.ne     #0x341f3ac
+000000000341f3d0: 488400b0 adrp     x8, #0x44a8000
+000000000341f3d4: 086145f9 ldr      x8, [x8, #0xac0]
+000000000341f3d8: 741240f9 ldr      x20, [x19, #0x20]
+000000000341f3dc: 000140f9 ldr      x0, [x8]
+000000000341f3e0: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000341f3e4: 48000035 cbnz     w8, #0x341f3ec
+000000000341f3e8: eb61a597 bl       #0x1d77b94
+000000000341f3ec: e00314aa mov      x0, x20
+000000000341f3f0: e1031faa mov      x1, xzr
+000000000341f3f4: e2031faa mov      x2, xzr
+000000000341f3f8: 490b2d94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000341f3fc: 80fd0736 tbz      w0, #0, #0x341f3ac
+000000000341f400: e00313aa mov      x0, x19
+000000000341f404: e1031faa mov      x1, xzr
+000000000341f408: e2052d94 bl       #0x3f60b90
+000000000341f40c: 611240f9 ldr      x1, [x19, #0x20]
+000000000341f410: 6006452d ldp      s0, s1, [x19, #0x28]
+000000000341f414: 620e462d ldp      s2, s3, [x19, #0x30]
+000000000341f418: e2031faa mov      x2, xzr
+000000000341f41c: f44f46a9 ldp      x20, x19, [sp, #0x60]
+000000000341f420: fe2b40f9 ldr      x30, [sp, #0x50]
+000000000341f424: ffc30191 add      sp, sp, #0x70
+000000000341f428: 202c0014 b        #0x342a4a8 ; ResponsiveUI :: public static float Fit(GameObject popupRoot, RectTransform content, Vector2 contentSize, float wideScale, float margin) { }

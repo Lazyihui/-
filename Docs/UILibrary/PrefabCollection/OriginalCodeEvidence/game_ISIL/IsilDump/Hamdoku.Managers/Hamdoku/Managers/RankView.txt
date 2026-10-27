@@ -1,0 +1,87 @@
+Type: Hamdoku.Managers.RankView
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x033160FC STR X30, [X31 - 0x30]!
+	0x03316100 STP X22, X21, [X31 + 0x10]
+	0x03316104 STP X20, X19, [X31 + 0x20]
+	0x03316108 ADRP X21, 0x1485000
+	0x0331610C ADRP X22, 0x11A5000
+	0x03316110 ADRP X20, 0x11A5000
+	0x03316114 LDRB W8, [X21 + 0x191]
+	0x03316118 LDR X22, [X22 + 0x170]
+	0x0331611C LDR X20, [X20 + 0x178]
+	0x03316120 MOV X19, X0
+	0x03316124 TBNZ W8, 0x0, 0x3316148
+	0x03316128 ADRP X0, 0x11A5000
+	0x0331612C LDR X0, [X0 + 0x178]
+	0x03316130 BL 0x1D77A60
+	0x03316134 ADRP X0, 0x11A5000
+	0x03316138 LDR X0, [X0 + 0x170]
+	0x0331613C BL 0x1D77A60
+	0x03316140 MOV W8, 0x1
+	0x03316144 STRB W8, [X21 + 0x191]
+	0x03316148 LDR X0, [X22]
+	0x0331614C BL 0x1D77EC4
+	0x03316150 LDR X1, [X20]
+	0x03316154 MOV X20, X0
+	0x03316158 BL 0x2F66554
+	0x0331615C MOV X0, X19
+	0x03316160 MOV X1, X20
+	0x03316164 STR X20, [X0 + 0x18]!
+	0x03316168 BL 0x1D77A14
+	0x0331616C MOV X0, X19
+	0x03316170 LDP X20, X19, [X31 + 0x20]
+	0x03316174 LDP X22, X21, [X31 + 0x10]
+	0x03316178 MOV X1, X31
+	0x0331617C LDR X30, [X31], #0x30
+	0x03316180 B 0x364F544
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Nop
+	10 Move v14 @ X22_v2, [44BB170]
+	11 Nop
+	12 Nop
+	13 Nop
+	14 Nop
+	15 Nop
+	16 Jump @b10
+	17 Nop
+	18 Move v22 @ X0_v9, [44BB178]
+	19 Call "il2cpp_codegen_initialize_runtime_metadata", v23 @ X0_v10, v22 @ X0_v9, methodInfo @ X1 (Il2CppMethodInfo), v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	20 Nop
+	21 Move v46 @ X0_v12, [44BB170]
+	22 Call "il2cpp_codegen_initialize_runtime_metadata", v40 @ X0_v13, v46 @ X0_v12, methodInfo @ X1 (Il2CppMethodInfo), v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	23 Move v42 @ X8_v3, 1
+	24 Move [479B191], v42 @ X8_v3
+	25 Nop
+	26 Newobj v44 @ X0_v3 (System.Collections.Generic.List`1<System.__Canon>), [v14 @ X22_v2]
+	27 Nop
+	28 Nop
+	29 CallVoid List`1<System.__Canon>..ctor, v44 @ X0_v3 (System.Collections.Generic.List`1<System.__Canon>)
+	30 Nop
+	31 Nop
+	32 Add v51 @ X0_v5, this @ X0 (Hamdoku.Managers.RankView), 24
+	33 Move [v51 @ X0_v5], v44 @ X0_v3 (System.Collections.Generic.List`1<System.__Canon>)
+	34 Call 1D77A14, v52 @ X0_v6, v51 @ X0_v5, v44 @ X0_v3 (System.Collections.Generic.List`1<System.__Canon>), v25 @ X2, v26 @ X3, v27 @ X4, v28 @ X5, v29 @ X6, v30 @ X7, v31 @ V0, v32 @ V1, v33 @ V2, v34 @ V3, v35 @ V4, v36 @ V5, v37 @ V6, v38 @ V7
+	35 Nop
+	36 Nop
+	37 Nop
+	38 Nop
+	39 Nop
+	40 Nop
+	41 Nop
+	42 Nop
+	43 CallVoid Object..ctor, this @ X0 (Hamdoku.Managers.RankView)
+	44 Return
+

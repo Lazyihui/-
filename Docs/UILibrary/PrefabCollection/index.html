@@ -1,0 +1,417 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><title>Prefab 与原作层级资料</title>
+<style>body{font:16px/1.7 system-ui;max-width:1100px;margin:40px auto;padding:0 20px;background:#faf8f2;color:#303030}a{color:#256982}li{margin:6px 0}input{padding:12px;width:95%;font:inherit}small{color:#666}section{background:white;padding:20px;margin:20px 0;border-radius:12px}</style>
+<h1>Prefab 与原作序列化层级</h1>
+<p>当前工程 10 个 Prefab；原作 86 个对象层级、10 个根对象；原资料独立 .prefab / .unity 文件均为 0。</p>
+<p>原作层级保存对象名、父子顺序、Transform 布局和组件数据来源。JSON 是拆解资料，不是可直接导入的 Prefab。当前工程副本保留 .meta，依赖仍指向当前 Assets；请勿把副本直接放回 Assets 造成重复 GUID。</p>
+<p>设置：找到 SettingsPopupLayout 配置及 SettingsPopup 的 Build / BuildGroup / BuildLangList 等结构和反汇编资料，未找到设置弹窗静态序列化对象。动态创建是静态证据推断，尚未在原 APK 运行核实。</p>
+<input placeholder="输入名称筛选，例如 Settings、Canvas、Cell" oninput="for(const e of document.querySelectorAll('li'))e.hidden=!e.textContent.toLowerCase().includes(this.value.toLowerCase())">
+<section><h2>当前工程全部 Prefab 副本</h2><ul>
+<li><a href="CurrentProjectPrefabs/Panel_Game.prefab">Panel_Game.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Game\Panel_Game.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_GameDialog.prefab">Panel_GameDialog.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Game\Panel_GameDialog.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Widget_BoardCell.prefab">Widget_BoardCell.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Game\Widget_BoardCell.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_Home.prefab">Panel_Home.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Home\Panel_Home.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_Profile.prefab">Panel_Profile.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Profile\Panel_Profile.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_Ranking.prefab">Panel_Ranking.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Ranking\Panel_Ranking.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_RankingDialog.prefab">Panel_RankingDialog.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Ranking\Panel_RankingDialog.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Widget_RankingEntry.prefab">Widget_RankingEntry.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Ranking\Widget_RankingEntry.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Panel_Streak.prefab">Panel_Streak.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Streak\Panel_Streak.prefab</small></li>
+<li><a href="CurrentProjectPrefabs/Widget_StreakDay.prefab">Widget_StreakDay.prefab</a> <small>D:\UnityProject\Hamdoku2\Assets\Res_Runtime\UI\Streak\Widget_StreakDay.prefab</small></li>
+</ul></section><section><h2>原作全部对象层级</h2><ul>
+<li><a href="OriginalHierarchies/level0__1__LoadingScreen.json">LoadingScreen</a> — level0 / 1 （根对象）</li>
+<li><a href="OriginalHierarchies/level0__2__EventSystem.json">EventSystem</a> — level0 / 2 （根对象）</li>
+<li><a href="OriginalHierarchies/level0__3__Main Camera.json">Main Camera</a> — level0 / 3 （根对象）</li>
+<li><a href="OriginalHierarchies/level1__3__Label.json">Label</a> — level1 / 3 </li>
+<li><a href="OriginalHierarchies/level1__4__RankCard.json">RankCard</a> — level1 / 4 </li>
+<li><a href="OriginalHierarchies/level1__5__Icon.json">Icon</a> — level1 / 5 </li>
+<li><a href="OriginalHierarchies/level1__6__Background.json">Background</a> — level1 / 6 </li>
+<li><a href="OriginalHierarchies/level1__7__DailyButton.json">DailyButton</a> — level1 / 7 </li>
+<li><a href="OriginalHierarchies/level1__8__Logo.json">Logo</a> — level1 / 8 </li>
+<li><a href="OriginalHierarchies/level1__9__SafeArea.json">SafeArea</a> — level1 / 9 </li>
+<li><a href="OriginalHierarchies/level1__10__Value.json">Value</a> — level1 / 10 </li>
+<li><a href="OriginalHierarchies/level1__11__PlayPill.json">PlayPill</a> — level1 / 11 </li>
+<li><a href="OriginalHierarchies/level1__12__Label.json">Label</a> — level1 / 12 </li>
+<li><a href="OriginalHierarchies/level1__13__Text.json">Text</a> — level1 / 13 </li>
+<li><a href="OriginalHierarchies/level1__14__EndlessButton.json">EndlessButton</a> — level1 / 14 </li>
+<li><a href="OriginalHierarchies/level1__15__SettingsButton.json">SettingsButton</a> — level1 / 15 </li>
+<li><a href="OriginalHierarchies/level1__16__ShopButton.json">ShopButton</a> — level1 / 16 </li>
+<li><a href="OriginalHierarchies/level1__17__TimeCapsule.json">TimeCapsule</a> — level1 / 17 </li>
+<li><a href="OriginalHierarchies/level1__18__EventSystem.json">EventSystem</a> — level1 / 18 （根对象）</li>
+<li><a href="OriginalHierarchies/level1__19__Label.json">Label</a> — level1 / 19 </li>
+<li><a href="OriginalHierarchies/level1__20__Date.json">Date</a> — level1 / 20 </li>
+<li><a href="OriginalHierarchies/level1__21__Icon.json">Icon</a> — level1 / 21 </li>
+<li><a href="OriginalHierarchies/level1__22__Canvas.json">Canvas</a> — level1 / 22 （根对象）</li>
+<li><a href="OriginalHierarchies/level1__23__Icon.json">Icon</a> — level1 / 23 </li>
+<li><a href="OriginalHierarchies/level1__24__Icon.json">Icon</a> — level1 / 24 </li>
+<li><a href="OriginalHierarchies/level1__25__StreakCard.json">StreakCard</a> — level1 / 25 </li>
+<li><a href="OriginalHierarchies/level1__26__CardsGroup.json">CardsGroup</a> — level1 / 26 </li>
+<li><a href="OriginalHierarchies/level1__27__TimeCapsule.json">TimeCapsule</a> — level1 / 27 </li>
+<li><a href="OriginalHierarchies/level1__28__Icon.json">Icon</a> — level1 / 28 </li>
+<li><a href="OriginalHierarchies/level1__29__IconGlow.json">IconGlow</a> — level1 / 29 </li>
+<li><a href="OriginalHierarchies/level1__30__Label.json">Label</a> — level1 / 30 </li>
+<li><a href="OriginalHierarchies/level1__31__Title.json">Title</a> — level1 / 31 </li>
+<li><a href="OriginalHierarchies/level1__32__Icon.json">Icon</a> — level1 / 32 </li>
+<li><a href="OriginalHierarchies/level1__33__MainMenu.json">MainMenu</a> — level1 / 33 （根对象）</li>
+<li><a href="OriginalHierarchies/level1__34__Text.json">Text</a> — level1 / 34 </li>
+<li><a href="OriginalHierarchies/level1__35__LevelButton.json">LevelButton</a> — level1 / 35 </li>
+<li><a href="OriginalHierarchies/level1__36__Icon.json">Icon</a> — level1 / 36 </li>
+<li><a href="OriginalHierarchies/level2__2__EventSystem.json">EventSystem</a> — level2 / 2 （根对象）</li>
+<li><a href="OriginalHierarchies/level2__3__Root.json">Root</a> — level2 / 3 </li>
+<li><a href="OriginalHierarchies/level2__4__AdBannerSlot.json">AdBannerSlot</a> — level2 / 4 </li>
+<li><a href="OriginalHierarchies/level2__5__Header.json">Header</a> — level2 / 5 </li>
+<li><a href="OriginalHierarchies/level2__6__SafeArea.json">SafeArea</a> — level2 / 6 </li>
+<li><a href="OriginalHierarchies/level2__7__ResultPopup.json">ResultPopup</a> — level2 / 7 </li>
+<li><a href="OriginalHierarchies/level2__8__ItemButton_B.json">ItemButton_B</a> — level2 / 8 </li>
+<li><a href="OriginalHierarchies/level2__9__Icon.json">Icon</a> — level2 / 9 </li>
+<li><a href="OriginalHierarchies/level2__10__RuleBanner.json">RuleBanner</a> — level2 / 10 </li>
+<li><a href="OriginalHierarchies/level2__11__Canvas.json">Canvas</a> — level2 / 11 （根对象）</li>
+<li><a href="OriginalHierarchies/level2__12__Badge.json">Badge</a> — level2 / 12 </li>
+<li><a href="OriginalHierarchies/level2__13__GameController.json">GameController</a> — level2 / 13 （根对象）</li>
+<li><a href="OriginalHierarchies/level2__14__BoardFrame.json">BoardFrame</a> — level2 / 14 </li>
+<li><a href="OriginalHierarchies/level2__15__Life1.json">Life1</a> — level2 / 15 </li>
+<li><a href="OriginalHierarchies/level2__16__PauseButton.json">PauseButton</a> — level2 / 16 </li>
+<li><a href="OriginalHierarchies/level2__17__HamsterCounter.json">HamsterCounter</a> — level2 / 17 </li>
+<li><a href="OriginalHierarchies/level2__18__t.json">t</a> — level2 / 18 </li>
+<li><a href="OriginalHierarchies/level2__19__SettingsButton.json">SettingsButton</a> — level2 / 19 </li>
+<li><a href="OriginalHierarchies/level2__20__ShopButton.json">ShopButton</a> — level2 / 20 </li>
+<li><a href="OriginalHierarchies/level2__21__Count.json">Count</a> — level2 / 21 </li>
+<li><a href="OriginalHierarchies/level2__22__BottomBar.json">BottomBar</a> — level2 / 22 </li>
+<li><a href="OriginalHierarchies/level2__23__LifeCounter.json">LifeCounter</a> — level2 / 23 </li>
+<li><a href="OriginalHierarchies/level2__24__t.json">t</a> — level2 / 24 </li>
+<li><a href="OriginalHierarchies/level2__25__CellsGrid.json">CellsGrid</a> — level2 / 25 </li>
+<li><a href="OriginalHierarchies/level2__26__Icon.json">Icon</a> — level2 / 26 </li>
+<li><a href="OriginalHierarchies/level2__27__Overlay.json">Overlay</a> — level2 / 27 </li>
+<li><a href="OriginalHierarchies/level2__28__Badge.json">Badge</a> — level2 / 28 </li>
+<li><a href="OriginalHierarchies/level2__29__TipButton.json">TipButton</a> — level2 / 29 </li>
+<li><a href="OriginalHierarchies/level2__30__t.json">t</a> — level2 / 30 </li>
+<li><a href="OriginalHierarchies/level2__31__StatusRow.json">StatusRow</a> — level2 / 31 </li>
+<li><a href="OriginalHierarchies/level2__32__Icon.json">Icon</a> — level2 / 32 </li>
+<li><a href="OriginalHierarchies/level2__33__Life2.json">Life2</a> — level2 / 33 </li>
+<li><a href="OriginalHierarchies/level2__34__t.json">t</a> — level2 / 34 </li>
+<li><a href="OriginalHierarchies/level2__35__Panel.json">Panel</a> — level2 / 35 </li>
+<li><a href="OriginalHierarchies/level2__36__Title.json">Title</a> — level2 / 36 </li>
+<li><a href="OriginalHierarchies/level2__37__Label.json">Label</a> — level2 / 37 </li>
+<li><a href="OriginalHierarchies/level2__38__Background.json">Background</a> — level2 / 38 </li>
+<li><a href="OriginalHierarchies/level2__39__ItemButton_A.json">ItemButton_A</a> — level2 / 39 </li>
+<li><a href="OriginalHierarchies/level2__40__TopBar.json">TopBar</a> — level2 / 40 </li>
+<li><a href="OriginalHierarchies/level2__41__Button.json">Button</a> — level2 / 41 </li>
+<li><a href="OriginalHierarchies/level2__42__BoardArea.json">BoardArea</a> — level2 / 42 </li>
+<li><a href="OriginalHierarchies/level2__43__Life0.json">Life0</a> — level2 / 43 </li>
+<li><a href="OriginalHierarchies/level2__44__LevelText.json">LevelText</a> — level2 / 44 </li>
+<li><a href="OriginalHierarchies/level2__45__t.json">t</a> — level2 / 45 </li>
+<li><a href="OriginalHierarchies/sharedassets2.assets__10__Hamster.json">Hamster</a> — sharedassets2.assets / 10 </li>
+<li><a href="OriginalHierarchies/sharedassets2.assets__11__StrokeA.json">StrokeA</a> — sharedassets2.assets / 11 </li>
+<li><a href="OriginalHierarchies/sharedassets2.assets__12__Label.json">Label</a> — sharedassets2.assets / 12 </li>
+<li><a href="OriginalHierarchies/sharedassets2.assets__13__Cell.json">Cell</a> — sharedassets2.assets / 13 （根对象）</li>
+<li><a href="OriginalHierarchies/sharedassets2.assets__14__StrokeB.json">StrokeB</a> — sharedassets2.assets / 14 </li>
+</ul></section><section><h2>设置及其他动态 UI 代码证据</h2><p>结构文件的方法体为空；实现线索需结合 ARM64 / ISIL 查看，不能将结构文件作为恢复源码使用。</p><ul>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/AdConfig.cs">AdConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/AdConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/AdConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/AdjustTrackingConfig.cs">AdjustTrackingConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/AdjustTrackingConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/AdjustTrackingConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/CampaignDatabase.cs">CampaignDatabase</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/CampaignDatabase.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/CampaignDatabase.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/ClearStatsCalc.cs">ClearStatsCalc</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/ClearStatsCalc.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/ClearStatsCalc.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/DailyDatabase.cs">DailyDatabase</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/DailyDatabase.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/DailyDatabase.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/GameConfig.cs">GameConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/GameConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/GameConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/GameSession.cs">GameSession</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/GameSession.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/GameSession.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/LevelData.cs">LevelData</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/LevelData.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/LevelData.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/LevelPack.cs">LevelPack</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/LevelPack.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/LevelPack.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Data/Hamdoku/Data/ShopCatalog.cs">ShopCatalog</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Data/Hamdoku/Data/ShopCatalog.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Data/Hamdoku/Data/ShopCatalog.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/AnalyticsUserProperty.cs">AnalyticsUserProperty</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/AnalyticsUserProperty.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/AnalyticsUserProperty.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/AutoXDemoPopup.cs">AutoXDemoPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/AutoXDemoPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/AutoXDemoPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/BuildQaIsolation.cs">BuildQaIsolation</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/BuildQaIsolation.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/BuildQaIsolation.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/CheatPanel.cs">CheatPanel</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/CheatPanel.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/CheatPanel.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/CheatService.cs">CheatService</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/CheatService.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/CheatService.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/CloudAccountConfig.cs">CloudAccountConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/CloudAccountConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/CloudAccountConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/CloudAccountRunner.cs">CloudAccountRunner</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/CloudAccountRunner.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/CloudAccountRunner.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/CloudSaveRunner.cs">CloudSaveRunner</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/CloudSaveRunner.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/CloudSaveRunner.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ClubBonusPopup.cs">ClubBonusPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ClubBonusPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ClubBonusPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ClubCardView.cs">ClubCardView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ClubCardView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ClubCardView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ClubPage.cs">ClubPage</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ClubPage.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ClubPage.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ClubPurchasePopup.cs">ClubPurchasePopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ClubPurchasePopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ClubPurchasePopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/DailyRetryPopup.cs">DailyRetryPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/DailyRetryPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/DailyRetryPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/DailySeasonPage.cs">DailySeasonPage</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/DailySeasonPage.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/DailySeasonPage.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/DailyStreakPopup.cs">DailyStreakPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/DailyStreakPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/DailyStreakPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/FirebaseBootstrap.cs">FirebaseBootstrap</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/FirebaseBootstrap.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/FirebaseBootstrap.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ForceUpdateGate.cs">ForceUpdateGate</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ForceUpdateGate.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ForceUpdateGate.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/GameCenterConfig.cs">GameCenterConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/GameCenterConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/GameCenterConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/GameCenterManager.cs">GameCenterManager</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/GameCenterManager.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/GameCenterManager.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/GameController.cs">GameController</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/GameController.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/GameController.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/GoldenChallenge.cs">GoldenChallenge</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/GoldenChallenge.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/GoldenChallenge.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/GoldenIntroPopup.cs">GoldenIntroPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/GoldenIntroPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/GoldenIntroPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/HamsterPopup.cs">HamsterPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/HamsterPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/HamsterPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/HintPreview.cs">HintPreview</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/HintPreview.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/HintPreview.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/HomeShortcutRunner.cs">HomeShortcutRunner</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/HomeShortcutRunner.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/HomeShortcutRunner.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/KoreanTermsConsent.cs">KoreanTermsConsent</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/KoreanTermsConsent.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/KoreanTermsConsent.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/LevelRewardService.cs">LevelRewardService</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/LevelRewardService.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/LevelRewardService.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/LoadingScreen.cs">LoadingScreen</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/LoadingScreen.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/LoadingScreen.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/MainMenu.cs">MainMenu</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/MainMenu.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/MainMenu.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/PearlSkinDemo.cs">PearlSkinDemo</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/PearlSkinDemo.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/PearlSkinDemo.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ProfileGridView.cs">ProfileGridView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ProfileGridView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ProfileGridView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ProgressSavePopup.cs">ProgressSavePopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ProgressSavePopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ProgressSavePopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/PurchaseResultPopup.cs">PurchaseResultPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/PurchaseResultPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/PurchaseResultPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankingManager.cs">RankingManager</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankingManager.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankingManager.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankingPage.cs">RankingPage</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankingPage.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankingPage.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankOverlay.cs">RankOverlay</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankOverlay.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankOverlay.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankRewardPopup.cs">RankRewardPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankRewardPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankRewardPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankRollSchedule.cs">RankRollSchedule</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankRollSchedule.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankRollSchedule.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/RankView.cs">RankView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/RankView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/RankView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ReceiptVerifier.cs">ReceiptVerifier</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ReceiptVerifier.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ReceiptVerifier.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ResultScreen.cs">ResultScreen</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ResultScreen.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ResultScreen.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ReviewPromptPopup.cs">ReviewPromptPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ReviewPromptPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ReviewPromptPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SeasonStartPopup.cs">SeasonStartPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SeasonStartPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SeasonStartPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SeedGiftIcon.cs">SeedGiftIcon</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SeedGiftIcon.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SeedGiftIcon.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SeedGiftPopup.cs">SeedGiftPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SeedGiftPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SeedGiftPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ServerTime.cs">ServerTime</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ServerTime.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ServerTime.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SettingsPopup.cs">SettingsPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SettingsPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SettingsPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SettingsPopupLayout.cs">SettingsPopupLayout</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SettingsPopupLayout.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SettingsPopupLayout.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/SettingsService.cs">SettingsService</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/SettingsService.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/SettingsService.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ShopPopup.cs">ShopPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ShopPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ShopPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ShopPopupLayout.cs">ShopPopupLayout</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ShopPopupLayout.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ShopPopupLayout.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/ShopService.cs">ShopService</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/ShopService.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/ShopService.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/StageSelect.cs">StageSelect</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/StageSelect.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/StageSelect.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/StreakGardenView.cs">StreakGardenView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/StreakGardenView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/StreakGardenView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/StreakRecoverPopup.cs">StreakRecoverPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/StreakRecoverPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/StreakRecoverPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/TipPopup.cs">TipPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/TipPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/TipPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/TutorialController.cs">TutorialController</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/TutorialController.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/TutorialController.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Managers/Hamdoku/Managers/WeeklyView.cs">WeeklyView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Managers/Hamdoku/Managers/WeeklyView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Managers/Hamdoku/Managers/WeeklyView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.Puzzle/Hamdoku/Puzzle/Generator/DemoPuzzles.cs">DemoPuzzles</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.Puzzle/Hamdoku/Puzzle/Generator/DemoPuzzles.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.Puzzle/Hamdoku/Puzzle/Generator/DemoPuzzles.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/AdBannerPlaceholder.cs">AdBannerPlaceholder</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/AdBannerPlaceholder.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/AdBannerPlaceholder.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/BoardView.cs">BoardView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/BoardView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/BoardView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/CellView.cs">CellView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/CellView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/CellView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ColorAssistSprites.cs">ColorAssistSprites</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ColorAssistSprites.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ColorAssistSprites.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/CostumeOverlay.cs">CostumeOverlay</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/CostumeOverlay.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/CostumeOverlay.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/DailyRetryConfig.cs">DailyRetryConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/DailyRetryConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/DailyRetryConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/DailySeasonConfig.cs">DailySeasonConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/DailySeasonConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/DailySeasonConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/DragSparkleTrail.cs">DragSparkleTrail</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/DragSparkleTrail.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/DragSparkleTrail.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ForceUpdateGateConfig.cs">ForceUpdateGateConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ForceUpdateGateConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ForceUpdateGateConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/FrameFx.cs">FrameFx</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/FrameFx.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/FrameFx.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/FrameFxDef.cs">FrameFxDef</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/FrameFxDef.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/FrameFxDef.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/GainPopup.cs">GainPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/GainPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/GainPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/GameHUD.cs">GameHUD</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/GameHUD.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/GameHUD.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/GoldenSparkleFx.cs">GoldenSparkleFx</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/GoldenSparkleFx.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/GoldenSparkleFx.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/GoldenSplitFx.cs">GoldenSplitFx</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/GoldenSplitFx.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/GoldenSplitFx.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/HamsterSkin.cs">HamsterSkin</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/HamsterSkin.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/HamsterSkin.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/HudScoreFxConfig.cs">HudScoreFxConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/HudScoreFxConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/HudScoreFxConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ItemNudgeFx.cs">ItemNudgeFx</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ItemNudgeFx.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ItemNudgeFx.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ItemNudgeFxConfig.cs">ItemNudgeFxConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ItemNudgeFxConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ItemNudgeFxConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ItemNudgeMascot.cs">ItemNudgeMascot</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ItemNudgeMascot.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ItemNudgeMascot.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LabelGlow.cs">LabelGlow</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LabelGlow.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LabelGlow.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LabelGlowFollower.cs">LabelGlowFollower</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LabelGlowFollower.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LabelGlowFollower.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LoadingScreenConfig.cs">LoadingScreenConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LoadingScreenConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LoadingScreenConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LobbyLayout.cs">LobbyLayout</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LobbyLayout.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LobbyLayout.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LobbyLayoutConfig.cs">LobbyLayoutConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LobbyLayoutConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LobbyLayoutConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/Loc.cs">Loc</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/Loc.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/Loc.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LocalizationData.cs">LocalizationData</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LocalizationData.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LocalizationData.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/LogoIntroConfig.cs">LogoIntroConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/LogoIntroConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/LogoIntroConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/MotivationBanner.cs">MotivationBanner</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/MotivationBanner.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/MotivationBanner.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/PopupFitWatcher.cs">PopupFitWatcher</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/PopupFitWatcher.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/PopupFitWatcher.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ProfileConfig.cs">ProfileConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ProfileConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ProfileConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/RankFxConfig.cs">RankFxConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/RankFxConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/RankFxConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/RankPageConfig.cs">RankPageConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/RankPageConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/RankPageConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/RankSeedBadge.cs">RankSeedBadge</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/RankSeedBadge.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/RankSeedBadge.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/RegionColorAssigner.cs">RegionColorAssigner</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/RegionColorAssigner.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/RegionColorAssigner.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ResponsiveUI.cs">ResponsiveUI</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ResponsiveUI.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ResponsiveUI.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ResultLayoutConfig.cs">ResultLayoutConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ResultLayoutConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ResultLayoutConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ResultPopup.cs">ResultPopup</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ResultPopup.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ResultPopup.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/ReviewPromptConfig.cs">ReviewPromptConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/ReviewPromptConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/ReviewPromptConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/RuleBannerView.cs">RuleBannerView</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/RuleBannerView.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/RuleBannerView.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/SceneTransitionConfig.cs">SceneTransitionConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/SceneTransitionConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/SceneTransitionConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/SeedGiftConfig.cs">SeedGiftConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/SeedGiftConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/SeedGiftConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/SoftShadow.cs">SoftShadow</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/SoftShadow.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/SoftShadow.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/StarBurst.cs">StarBurst</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/StarBurst.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/StarBurst.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/StreakPageConfig.cs">StreakPageConfig</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/StreakPageConfig.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/StreakPageConfig.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/TutorialFinger.cs">TutorialFinger</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/TutorialFinger.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/TutorialFinger.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/UIButtonPress.cs">UIButtonPress</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/UIButtonPress.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/UIButtonPress.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/UIButtonShadow.cs">UIButtonShadow</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/UIButtonShadow.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/UIButtonShadow.txt">ISIL</a></li>
+<li><a href="OriginalCodeEvidence/Structure/Hamdoku.UI/Hamdoku/UI/UiFactory.cs">UiFactory</a> <a href="OriginalCodeEvidence/native_readable/Hamdoku.UI/Hamdoku/UI/UiFactory.arm64.txt">ARM64</a> · <a href="OriginalCodeEvidence/game_ISIL/IsilDump/Hamdoku.UI/Hamdoku/UI/UiFactory.txt">ISIL</a></li>
+</ul></section><section><h2>配置与来源</h2><ul>
+<li><a href="OriginalConfigs/AdConfig__resources.assets__1462.json">AdConfig__resources.assets__1462.json</a></li>
+<li><a href="OriginalConfigs/AdjustTrackingConfig__resources.assets__1463.json">AdjustTrackingConfig__resources.assets__1463.json</a></li>
+<li><a href="OriginalConfigs/AspectRatioFitter__level1__119.json">AspectRatioFitter__level1__119.json</a></li>
+<li><a href="OriginalConfigs/AspectRatioFitter__level2__151.json">AspectRatioFitter__level2__151.json</a></li>
+<li><a href="OriginalConfigs/AspectRatioFitter__level2__177.json">AspectRatioFitter__level2__177.json</a></li>
+<li><a href="OriginalConfigs/BackgroundSway__level1__120.json">BackgroundSway__level1__120.json</a></li>
+<li><a href="OriginalConfigs/BMJua SDF__resources.assets__1460.json">BMJua SDF__resources.assets__1460.json</a></li>
+<li><a href="OriginalConfigs/BoardView__level2__167.json">BoardView__level2__167.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__115.json">Button__level1__115.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__122.json">Button__level1__122.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__132.json">Button__level1__132.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__136.json">Button__level1__136.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__139.json">Button__level1__139.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__148.json">Button__level1__148.json</a></li>
+<li><a href="OriginalConfigs/Button__level1__158.json">Button__level1__158.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__141.json">Button__level2__141.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__155.json">Button__level2__155.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__159.json">Button__level2__159.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__162.json">Button__level2__162.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__172.json">Button__level2__172.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__178.json">Button__level2__178.json</a></li>
+<li><a href="OriginalConfigs/Button__level2__182.json">Button__level2__182.json</a></li>
+<li><a href="OriginalConfigs/ButtonPressEffect__level1__124.json">ButtonPressEffect__level1__124.json</a></li>
+<li><a href="OriginalConfigs/ButtonPressEffect__level1__134.json">ButtonPressEffect__level1__134.json</a></li>
+<li><a href="OriginalConfigs/ButtonPressEffect__level1__137.json">ButtonPressEffect__level1__137.json</a></li>
+<li><a href="OriginalConfigs/ButtonPressEffect__level1__160.json">ButtonPressEffect__level1__160.json</a></li>
+<li><a href="OriginalConfigs/Campaign__sharedassets1.assets__9.json">Campaign__sharedassets1.assets__9.json</a></li>
+<li><a href="OriginalConfigs/CampaignDatabase__sharedassets1.assets__10.json">CampaignDatabase__sharedassets1.assets__10.json</a></li>
+<li><a href="OriginalConfigs/CanvasScaler__level1__145.json">CanvasScaler__level1__145.json</a></li>
+<li><a href="OriginalConfigs/CanvasScaler__level2__147.json">CanvasScaler__level2__147.json</a></li>
+<li><a href="OriginalConfigs/CellView__sharedassets2.assets__27.json">CellView__sharedassets2.assets__27.json</a></li>
+<li><a href="OriginalConfigs/CloudAccountConfig__resources.assets__1464.json">CloudAccountConfig__resources.assets__1464.json</a></li>
+<li><a href="OriginalConfigs/DailyDatabase__resources.assets__1465.json">DailyDatabase__resources.assets__1465.json</a></li>
+<li><a href="OriginalConfigs/DailySeasonConfig__resources.assets__1466.json">DailySeasonConfig__resources.assets__1466.json</a></li>
+<li><a href="OriginalConfigs/Default Style Sheet__resources.assets__1458.json">Default Style Sheet__resources.assets__1458.json</a></li>
+<li><a href="OriginalConfigs/DefaultInputActions__sharedassets0.assets__11.json">DefaultInputActions__sharedassets0.assets__11.json</a></li>
+<li><a href="OriginalConfigs/DOTweenSettings__resources.assets__1455.json">DOTweenSettings__resources.assets__1455.json</a></li>
+<li><a href="OriginalConfigs/EventSystem__level0__11.json">EventSystem__level0__11.json</a></li>
+<li><a href="OriginalConfigs/EventSystem__level1__104.json">EventSystem__level1__104.json</a></li>
+<li><a href="OriginalConfigs/EventSystem__level2__125.json">EventSystem__level2__125.json</a></li>
+<li><a href="OriginalConfigs/FacebookSettings__resources.assets__1453.json">FacebookSettings__resources.assets__1453.json</a></li>
+<li><a href="OriginalConfigs/ForceUpdateGateConfig__resources.assets__1473.json">ForceUpdateGateConfig__resources.assets__1473.json</a></li>
+<li><a href="OriginalConfigs/frame_20__resources.assets__1474.json">frame_20__resources.assets__1474.json</a></li>
+<li><a href="OriginalConfigs/Fredoka SDF__resources.assets__1467.json">Fredoka SDF__resources.assets__1467.json</a></li>
+<li><a href="OriginalConfigs/GameCenterConfig__resources.assets__1475.json">GameCenterConfig__resources.assets__1475.json</a></li>
+<li><a href="OriginalConfigs/GameConfig__resources.assets__1476.json">GameConfig__resources.assets__1476.json</a></li>
+<li><a href="OriginalConfigs/GameController__level2__150.json">GameController__level2__150.json</a></li>
+<li><a href="OriginalConfigs/GameHUD__level2__138.json">GameHUD__level2__138.json</a></li>
+<li><a href="OriginalConfigs/GameSession__sharedassets1.assets__8.json">GameSession__sharedassets1.assets__8.json</a></li>
+<li><a href="OriginalConfigs/GooglePlayWordmark__resources.assets__1495.json">GooglePlayWordmark__resources.assets__1495.json</a></li>
+<li><a href="OriginalConfigs/GooglePlayWordmarkWhite__resources.assets__1496.json">GooglePlayWordmarkWhite__resources.assets__1496.json</a></li>
+<li><a href="OriginalConfigs/GraphicRaycaster__level1__144.json">GraphicRaycaster__level1__144.json</a></li>
+<li><a href="OriginalConfigs/GraphicRaycaster__level2__146.json">GraphicRaycaster__level2__146.json</a></li>
+<li><a href="OriginalConfigs/GridLayoutGroup__level2__168.json">GridLayoutGroup__level2__168.json</a></li>
+<li><a href="OriginalConfigs/HachiMaruPop-Regular SDF__resources.assets__1468.json">HachiMaruPop-Regular SDF__resources.assets__1468.json</a></li>
+<li><a href="OriginalConfigs/HamsterAnimator__sharedassets2.assets__32.json">HamsterAnimator__sharedassets2.assets__32.json</a></li>
+<li><a href="OriginalConfigs/HudScoreFxConfig__resources.assets__1478.json">HudScoreFxConfig__resources.assets__1478.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__116.json">Image__level1__116.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__117.json">Image__level1__117.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__118.json">Image__level1__118.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__121.json">Image__level1__121.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__126.json">Image__level1__126.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__129.json">Image__level1__129.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__131.json">Image__level1__131.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__135.json">Image__level1__135.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__138.json">Image__level1__138.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__141.json">Image__level1__141.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__143.json">Image__level1__143.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__146.json">Image__level1__146.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__147.json">Image__level1__147.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__149.json">Image__level1__149.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__150.json">Image__level1__150.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__151.json">Image__level1__151.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__152.json">Image__level1__152.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__155.json">Image__level1__155.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__157.json">Image__level1__157.json</a></li>
+<li><a href="OriginalConfigs/Image__level1__161.json">Image__level1__161.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__142.json">Image__level2__142.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__149.json">Image__level2__149.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__152.json">Image__level2__152.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__154.json">Image__level2__154.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__156.json">Image__level2__156.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__157.json">Image__level2__157.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__160.json">Image__level2__160.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__163.json">Image__level2__163.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__165.json">Image__level2__165.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__169.json">Image__level2__169.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__170.json">Image__level2__170.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__171.json">Image__level2__171.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__173.json">Image__level2__173.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__174.json">Image__level2__174.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__175.json">Image__level2__175.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__176.json">Image__level2__176.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__179.json">Image__level2__179.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__181.json">Image__level2__181.json</a></li>
+<li><a href="OriginalConfigs/Image__level2__183.json">Image__level2__183.json</a></li>
+<li><a href="OriginalConfigs/Image__sharedassets2.assets__29.json">Image__sharedassets2.assets__29.json</a></li>
+<li><a href="OriginalConfigs/Image__sharedassets2.assets__30.json">Image__sharedassets2.assets__30.json</a></li>
+<li><a href="OriginalConfigs/Image__sharedassets2.assets__31.json">Image__sharedassets2.assets__31.json</a></li>
+<li><a href="OriginalConfigs/Image__sharedassets2.assets__33.json">Image__sharedassets2.assets__33.json</a></li>
+<li><a href="OriginalConfigs/InputSystem_Actions__globalgamemanagers.assets__2653.json">InputSystem_Actions__globalgamemanagers.assets__2653.json</a></li>
+<li><a href="OriginalConfigs/InputSystemUIInputModule__level0__13.json">InputSystemUIInputModule__level0__13.json</a></li>
+<li><a href="OriginalConfigs/InputSystemUIInputModule__level1__142.json">InputSystemUIInputModule__level1__142.json</a></li>
+<li><a href="OriginalConfigs/InputSystemUIInputModule__level2__137.json">InputSystemUIInputModule__level2__137.json</a></li>
+<li><a href="OriginalConfigs/ItemNudgeFxConfig__resources.assets__1479.json">ItemNudgeFxConfig__resources.assets__1479.json</a></li>
+<li><a href="OriginalConfigs/jf-openhuninn-2.1 SDF__resources.assets__1472.json">jf-openhuninn-2.1 SDF__resources.assets__1472.json</a></li>
+<li><a href="OriginalConfigs/Level_001_5x5__sharedassets2.assets__26.json">Level_001_5x5__sharedassets2.assets__26.json</a></li>
+<li><a href="OriginalConfigs/LiberationSans SDF - Fallback__resources.assets__1456.json">LiberationSans SDF - Fallback__resources.assets__1456.json</a></li>
+<li><a href="OriginalConfigs/LiberationSans SDF__resources.assets__1457.json">LiberationSans SDF__resources.assets__1457.json</a></li>
+<li><a href="OriginalConfigs/LINESeedKR SDF__sharedassets1.assets__7.json">LINESeedKR SDF__sharedassets1.assets__7.json</a></li>
+<li><a href="OriginalConfigs/LoadingScreen__level0__12.json">LoadingScreen__level0__12.json</a></li>
+<li><a href="OriginalConfigs/LoadingScreenConfig__resources.assets__1480.json">LoadingScreenConfig__resources.assets__1480.json</a></li>
+<li><a href="OriginalConfigs/LobbyLayout__level1__128.json">LobbyLayout__level1__128.json</a></li>
+<li><a href="OriginalConfigs/LobbyLayoutConfig__resources.assets__1481.json">LobbyLayoutConfig__resources.assets__1481.json</a></li>
+<li><a href="OriginalConfigs/Localization__resources.assets__1482.json">Localization__resources.assets__1482.json</a></li>
+<li><a href="OriginalConfigs/LocalizedText__level1__114.json">LocalizedText__level1__114.json</a></li>
+<li><a href="OriginalConfigs/LocalizedText__level1__130.json">LocalizedText__level1__130.json</a></li>
+<li><a href="OriginalConfigs/LocalizedText__level1__154.json">LocalizedText__level1__154.json</a></li>
+<li><a href="OriginalConfigs/LogoAnimator__level1__125.json">LogoAnimator__level1__125.json</a></li>
+<li><a href="OriginalConfigs/LogoIntroConfig__resources.assets__1483.json">LogoIntroConfig__resources.assets__1483.json</a></li>
+<li><a href="OriginalConfigs/MainMenu__level1__156.json">MainMenu__level1__156.json</a></li>
+<li><a href="OriginalConfigs/NanumSquareRound SDF__resources.assets__1461.json">NanumSquareRound SDF__resources.assets__1461.json</a></li>
+<li><a href="OriginalConfigs/Nunito SDF__resources.assets__1469.json">Nunito SDF__resources.assets__1469.json</a></li>
+<li><a href="OriginalConfigs/PaymentOptionProviderModal__resources.assets__1497.json">PaymentOptionProviderModal__resources.assets__1497.json</a></li>
+<li><a href="OriginalConfigs/Price SDF__resources.assets__1470.json">Price SDF__resources.assets__1470.json</a></li>
+<li><a href="OriginalConfigs/ProfileConfig__resources.assets__1484.json">ProfileConfig__resources.assets__1484.json</a></li>
+<li><a href="OriginalConfigs/RankFxConfig__resources.assets__1485.json">RankFxConfig__resources.assets__1485.json</a></li>
+<li><a href="OriginalConfigs/RankPageConfig__resources.assets__1486.json">RankPageConfig__resources.assets__1486.json</a></li>
+<li><a href="OriginalConfigs/ResultLayoutConfig__resources.assets__1487.json">ResultLayoutConfig__resources.assets__1487.json</a></li>
+<li><a href="OriginalConfigs/ResultPopup__level2__140.json">ResultPopup__level2__140.json</a></li>
+<li><a href="OriginalConfigs/ReviewPromptConfig__resources.assets__1488.json">ReviewPromptConfig__resources.assets__1488.json</a></li>
+<li><a href="OriginalConfigs/RuleBannerView__level2__144.json">RuleBannerView__level2__144.json</a></li>
+<li><a href="OriginalConfigs/SafeAreaFitter__level1__127.json">SafeAreaFitter__level1__127.json</a></li>
+<li><a href="OriginalConfigs/SafeAreaFitter__level2__139.json">SafeAreaFitter__level2__139.json</a></li>
+<li><a href="OriginalConfigs/SceneTransitionConfig__resources.assets__1489.json">SceneTransitionConfig__resources.assets__1489.json</a></li>
+<li><a href="OriginalConfigs/SeedGiftConfig__resources.assets__1490.json">SeedGiftConfig__resources.assets__1490.json</a></li>
+<li><a href="OriginalConfigs/SettingsButtonHook__level2__161.json">SettingsButtonHook__level2__161.json</a></li>
+<li><a href="OriginalConfigs/SettingsPopupLayout__resources.assets__1491.json">SettingsPopupLayout__resources.assets__1491.json</a></li>
+<li><a href="OriginalConfigs/Shadow__level1__123.json">Shadow__level1__123.json</a></li>
+<li><a href="OriginalConfigs/Shadow__level1__133.json">Shadow__level1__133.json</a></li>
+<li><a href="OriginalConfigs/Shadow__level1__159.json">Shadow__level1__159.json</a></li>
+<li><a href="OriginalConfigs/ShopButtonHook__level1__140.json">ShopButtonHook__level1__140.json</a></li>
+<li><a href="OriginalConfigs/ShopButtonHook__level2__164.json">ShopButtonHook__level2__164.json</a></li>
+<li><a href="OriginalConfigs/ShopCatalog__resources.assets__1492.json">ShopCatalog__resources.assets__1492.json</a></li>
+<li><a href="OriginalConfigs/ShopPopupLayout__resources.assets__1493.json">ShopPopupLayout__resources.assets__1493.json</a></li>
+<li><a href="OriginalConfigs/skin_1__resources.assets__1477.json">skin_1__resources.assets__1477.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__143.json">SoftShadow__level2__143.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__145.json">SoftShadow__level2__145.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__153.json">SoftShadow__level2__153.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__158.json">SoftShadow__level2__158.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__166.json">SoftShadow__level2__166.json</a></li>
+<li><a href="OriginalConfigs/SoftShadow__level2__180.json">SoftShadow__level2__180.json</a></li>
+<li><a href="OriginalConfigs/SoftShadowController__level2__148.json">SoftShadowController__level2__148.json</a></li>
+<li><a href="OriginalConfigs/StreakPageConfig__resources.assets__1494.json">StreakPageConfig__resources.assets__1494.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__105.json">TextMeshProUGUI__level1__105.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__106.json">TextMeshProUGUI__level1__106.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__107.json">TextMeshProUGUI__level1__107.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__108.json">TextMeshProUGUI__level1__108.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__109.json">TextMeshProUGUI__level1__109.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__110.json">TextMeshProUGUI__level1__110.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__111.json">TextMeshProUGUI__level1__111.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__112.json">TextMeshProUGUI__level1__112.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level1__113.json">TextMeshProUGUI__level1__113.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__126.json">TextMeshProUGUI__level2__126.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__127.json">TextMeshProUGUI__level2__127.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__128.json">TextMeshProUGUI__level2__128.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__129.json">TextMeshProUGUI__level2__129.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__130.json">TextMeshProUGUI__level2__130.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__131.json">TextMeshProUGUI__level2__131.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__132.json">TextMeshProUGUI__level2__132.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__133.json">TextMeshProUGUI__level2__133.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__134.json">TextMeshProUGUI__level2__134.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__135.json">TextMeshProUGUI__level2__135.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__level2__136.json">TextMeshProUGUI__level2__136.json</a></li>
+<li><a href="OriginalConfigs/TextMeshProUGUI__sharedassets2.assets__28.json">TextMeshProUGUI__sharedassets2.assets__28.json</a></li>
+<li><a href="OriginalConfigs/TMP Settings__resources.assets__1459.json">TMP Settings__resources.assets__1459.json</a></li>
+<li><a href="OriginalConfigs/Tutorial_4x4__sharedassets1.assets__11.json">Tutorial_4x4__sharedassets1.assets__11.json</a></li>
+<li><a href="OriginalConfigs/UI_Cancel__sharedassets0.assets__16.json">UI_Cancel__sharedassets0.assets__16.json</a></li>
+<li><a href="OriginalConfigs/UI_Click__sharedassets0.assets__13.json">UI_Click__sharedassets0.assets__13.json</a></li>
+<li><a href="OriginalConfigs/UI_MiddleClick__sharedassets0.assets__9.json">UI_MiddleClick__sharedassets0.assets__9.json</a></li>
+<li><a href="OriginalConfigs/UI_Navigate__sharedassets0.assets__7.json">UI_Navigate__sharedassets0.assets__7.json</a></li>
+<li><a href="OriginalConfigs/UI_Point__sharedassets0.assets__10.json">UI_Point__sharedassets0.assets__10.json</a></li>
+<li><a href="OriginalConfigs/UI_RightClick__sharedassets0.assets__8.json">UI_RightClick__sharedassets0.assets__8.json</a></li>
+<li><a href="OriginalConfigs/UI_ScrollWheel__sharedassets0.assets__14.json">UI_ScrollWheel__sharedassets0.assets__14.json</a></li>
+<li><a href="OriginalConfigs/UI_Submit__sharedassets0.assets__12.json">UI_Submit__sharedassets0.assets__12.json</a></li>
+<li><a href="OriginalConfigs/UI_TrackedDeviceOrientation__sharedassets0.assets__17.json">UI_TrackedDeviceOrientation__sharedassets0.assets__17.json</a></li>
+<li><a href="OriginalConfigs/UI_TrackedDevicePosition__sharedassets0.assets__15.json">UI_TrackedDevicePosition__sharedassets0.assets__15.json</a></li>
+<li><a href="OriginalConfigs/UiSparkles__level1__162.json">UiSparkles__level1__162.json</a></li>
+<li><a href="OriginalConfigs/UiSpin__level1__153.json">UiSpin__level1__153.json</a></li>
+<li><a href="OriginalConfigs/UiSway__level1__163.json">UiSway__level1__163.json</a></li>
+<li><a href="OriginalConfigs/ZCOOLKuaiLe-Regular SDF__resources.assets__1471.json">ZCOOLKuaiLe-Regular SDF__resources.assets__1471.json</a></li>
+</ul><p><a href="manifest.json">完整清单与SHA-256</a> · <a href="original-asset-map.json">原作全部资源引用索引</a></p></section></html>

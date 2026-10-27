@@ -1,0 +1,669 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; private bool MoveNext() { }
+; token=0x60005B7 file_offset=0x343AFFC tool_rva=0x343AFFC length=0x24C
+000000000343effc: e923bd6d stp      d9, d8, [sp, #-0x30]!
+000000000343f000: fe5701a9 stp      x30, x21, [sp, #0x10]
+000000000343f004: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000343f008: 081040b9 ldr      w8, [x0, #0x10]
+000000000343f00c: 141040f9 ldr      x20, [x0, #0x20]
+000000000343f010: f30300aa mov      x19, x0
+000000000343f014: 1f050071 cmp      w8, #1
+000000000343f018: a0070054 b.eq     #0x343f10c
+000000000343f01c: 080e0035 cbnz     w8, #0x343f1dc
+000000000343f020: 08008012 mov      w8, #-1
+000000000343f024: 681200b9 str      w8, [x19, #0x10]
+000000000343f028: f41000b4 cbz      x20, #0x343f244
+000000000343f02c: b59a00d0 adrp     x21, #0x4795000
+000000000343f030: 884240bd ldr      s8, [x20, #0x40]
+000000000343f034: a8c66139 ldrb     w8, [x21, #0x871]
+000000000343f038: c8000035 cbnz     w8, #0x343f050
+000000000343f03c: 408300f0 adrp     x0, #0x44aa000
+000000000343f040: 002847f9 ldr      x0, [x0, #0xe50]
+000000000343f044: 87e2a497 bl       #0x1d77a60
+000000000343f048: 28008052 mov      w8, #1
+000000000343f04c: a8c62139 strb     w8, [x21, #0x871]
+000000000343f050: 00e4002f movi     d0, #0000000000000000
+000000000343f054: 01c1201e fabs     s1, s8
+000000000343f058: 488300f0 adrp     x8, #0x44aa000
+000000000343f05c: 082947f9 ldr      x8, [x8, #0xe50]
+000000000343f060: 69befed0 adrp     x9, #0xc0d000
+000000000343f064: 09102e1e fmov     s9, #1.00000000
+000000000343f068: 080140f9 ldr      x8, [x8]
+000000000343f06c: 2268201e fmaxnm   s2, s1, s0
+000000000343f070: 21a942bd ldr      s1, [x9, #0x2a8]
+000000000343f074: 04d4a87e fabd     s4, s0, s8
+000000000343f078: 085140f9 ldr      x8, [x8, #0xa0]
+000000000343f07c: 4308211e fmul     s3, s2, s1
+000000000343f080: 020540bd ldr      s2, [x8, #4]
+000000000343f084: 6020221e fcmp     s3, s2
+000000000343f088: 63cc221e fcsel    s3, s3, s2, gt
+000000000343f08c: 8020231e fcmp     s4, s3
+000000000343f090: 03102e1e fmov     s3, #1.00000000
+000000000343f094: 44000054 b.mi     #0x343f09c
+000000000343f098: 894240bd ldr      s9, [x20, #0x40]
+000000000343f09c: 844640bd ldr      s4, [x20, #0x44]
+000000000343f0a0: e00314aa mov      x0, x20
+000000000343f0a4: e1031faa mov      x1, xzr
+000000000343f0a8: 85c0201e fabs     s5, s4
+000000000343f0ac: a568201e fmaxnm   s5, s5, s0
+000000000343f0b0: 00d4a47e fabd     s0, s0, s4
+000000000343f0b4: a108211e fmul     s1, s5, s1
+000000000343f0b8: 2020221e fcmp     s1, s2
+000000000343f0bc: 21cc221e fcsel    s1, s1, s2, gt
+000000000343f0c0: 0020211e fcmp     s0, s1
+000000000343f0c4: 684c241e fcsel    s8, s3, s4, mi
+000000000343f0c8: 80862c94 bl       #0x3f60ac8
+000000000343f0cc: c00b00b4 cbz      x0, #0x343f244
+000000000343f0d0: e1031faa mov      x1, xzr
+000000000343f0d4: 7bc72c94 bl       #0x3f70ec0 ; Transform :: public Vector3 get_localScale() { }
+000000000343f0d8: 0018291e fdiv     s0, s0, s9
+000000000343f0dc: e00314aa mov      x0, x20
+000000000343f0e0: e1031faa mov      x1, xzr
+000000000343f0e4: 603a00bd str      s0, [x19, #0x38]
+000000000343f0e8: 78862c94 bl       #0x3f60ac8
+000000000343f0ec: c00a00b4 cbz      x0, #0x343f244
+000000000343f0f0: e1031faa mov      x1, xzr
+000000000343f0f4: 73c72c94 bl       #0x3f70ec0 ; Transform :: public Vector3 get_localScale() { }
+000000000343f0f8: 2018281e fdiv     s0, s1, s8
+000000000343f0fc: 08e4002f movi     d8, #0000000000000000
+000000000343f100: 7f4200b9 str      wzr, [x19, #0x40]
+000000000343f104: 603e00bd str      s0, [x19, #0x3c]
+000000000343f108: 04000014 b        #0x343f118
+000000000343f10c: 684240bd ldr      s8, [x19, #0x40]
+000000000343f110: 08008012 mov      w8, #-1
+000000000343f114: 681200b9 str      w8, [x19, #0x10]
+000000000343f118: 602a40bd ldr      s0, [x19, #0x28]
+000000000343f11c: 0021201e fcmp     s8, s0
+000000000343f120: e5040054 b.pl     #0x343f1bc
+000000000343f124: e0031faa mov      x0, xzr
+000000000343f128: 95b12c94 bl       #0x3f6b77c ; Time :: public static float get_unscaledDeltaTime() { }
+000000000343f12c: 0229201e fadd     s2, s8, s0
+000000000343f130: 602a40bd ldr      s0, [x19, #0x28]
+000000000343f134: 01e4002f movi     d1, #0000000000000000
+000000000343f138: 4018201e fdiv     s0, s2, s0
+000000000343f13c: 624200bd str      s2, [x19, #0x40]
+000000000343f140: 0820201e fcmp     s0, #0.0
+000000000343f144: c4000054 b.mi     #0x343f15c
+000000000343f148: 01102e1e fmov     s1, #1.00000000
+000000000343f14c: 0020211e fcmp     s0, s1
+000000000343f150: 0140201e fmov     s1, s0
+000000000343f154: 4d000054 b.le     #0x343f15c
+000000000343f158: 01102e1e fmov     s1, #1.00000000
+000000000343f15c: 68b24039 ldrb     w8, [x19, #0x2c]
+000000000343f160: e8010034 cbz      w8, #0x343f19c
+000000000343f164: 00103e1e fmov     s0, #-1.00000000
+000000000343f168: 68befed0 adrp     x8, #0xc0d000
+000000000343f16c: 03102e1e fmov     s3, #1.00000000
+000000000343f170: 2028201e fadd     s0, s1, s0
+000000000343f174: 016943bd ldr      s1, [x8, #0x368]
+000000000343f178: 68befeb0 adrp     x8, #0xc0c000
+000000000343f17c: 02e54dbd ldr      s2, [x8, #0xde4]
+000000000343f180: 0108211e fmul     s1, s0, s1
+000000000343f184: 0208221e fmul     s2, s0, s2
+000000000343f188: 0108211e fmul     s1, s0, s1
+000000000343f18c: 0108211e fmul     s1, s0, s1
+000000000343f190: 0008221e fmul     s0, s0, s2
+000000000343f194: 2128231e fadd     s1, s1, s3
+000000000343f198: 0128211e fadd     s1, s0, s1
+000000000343f19c: 2820201e fcmp     s1, #0.0
+000000000343f1a0: 603a40bd ldr      s0, [x19, #0x38]
+000000000343f1a4: 623240bd ldr      s2, [x19, #0x30]
+000000000343f1a8: e5010054 b.pl     #0x343f1e4
+000000000343f1ac: 4238201e fsub     s2, s2, s0
+000000000343f1b0: 01e4002f movi     d1, #0000000000000000
+000000000343f1b4: 4208211e fmul     s2, s2, s1
+000000000343f1b8: 10000014 b        #0x343f1f8
+000000000343f1bc: 540400b4 cbz      x20, #0x343f244
+000000000343f1c0: 6006462d ldp      s0, s1, [x19, #0x30]
+000000000343f1c4: e00314aa mov      x0, x20
+000000000343f1c8: fdfeff97 bl       #0x343edbc ; UIButtonPress :: private void ApplyPose(float sx, float sy) { }
+000000000343f1cc: 9f0e06f8 str      xzr, [x20, #0x60]!
+000000000343f1d0: e00314aa mov      x0, x20
+000000000343f1d4: e1031faa mov      x1, xzr
+000000000343f1d8: 0fe2a497 bl       #0x1d77a14
+000000000343f1dc: e0031f2a mov      w0, wzr
+000000000343f1e0: 15000014 b        #0x343f234
+000000000343f1e4: 03102e1e fmov     s3, #1.00000000
+000000000343f1e8: 4238201e fsub     s2, s2, s0
+000000000343f1ec: 2020231e fcmp     s1, s3
+000000000343f1f0: 61cc211e fcsel    s1, s3, s1, gt
+000000000343f1f4: 2208221e fmul     s2, s1, s2
+000000000343f1f8: 633e40bd ldr      s3, [x19, #0x3c]
+000000000343f1fc: 643640bd ldr      s4, [x19, #0x34]
+000000000343f200: 340200b4 cbz      x20, #0x343f244
+000000000343f204: 8438231e fsub     s4, s4, s3
+000000000343f208: 0028221e fadd     s0, s0, s2
+000000000343f20c: e00314aa mov      x0, x20
+000000000343f210: 8108211e fmul     s1, s4, s1
+000000000343f214: 6128211e fadd     s1, s3, s1
+000000000343f218: e9feff97 bl       #0x343edbc ; UIButtonPress :: private void ApplyPose(float sx, float sy) { }
+000000000343f21c: 7f8e01f8 str      xzr, [x19, #0x18]!
+000000000343f220: e00313aa mov      x0, x19
+000000000343f224: e1031faa mov      x1, xzr
+000000000343f228: fbe1a497 bl       #0x1d77a14
+000000000343f22c: 20008052 mov      w0, #1
+000000000343f230: 60821fb8 stur     w0, [x19, #-8]
+000000000343f234: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000343f238: fe5741a9 ldp      x30, x21, [sp, #0x10]
+000000000343f23c: e923c36c ldp      d9, d8, [sp], #0x30
+000000000343f240: c0035fd6 ret      
+000000000343f244: 04e2a497 bl       #0x1d77a54
+
+; public UIButtonPress() { }
+; token=0x60005B4 file_offset=0x343AF74 tool_rva=0x343AF74 length=0x84
+000000000343ef74: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000343ef78: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343ef7c: 68befeb0 adrp     x8, #0xc0b000
+000000000343ef80: 6abefeb0 adrp     x10, #0xc0b000
+000000000343ef84: f49a0090 adrp     x20, #0x479a000
+000000000343ef88: 09d78352 mov      w9, #0x1eb8
+000000000343ef8c: 009944fd ldr      d0, [x8, #0x930]
+000000000343ef90: 416546fd ldr      d1, [x10, #0xcc8]
+000000000343ef94: 882e7139 ldrb     w8, [x20, #0xc4b]
+000000000343ef98: f30300aa mov      x19, x0
+000000000343ef9c: a9d0a772 movk     w9, #0x3e85, lsl #16
+000000000343efa0: 092800b9 str      w9, [x0, #0x28]
+000000000343efa4: 001000fd str      d0, [x0, #0x20]
+000000000343efa8: 011800fd str      d1, [x0, #0x30]
+000000000343efac: c8000035 cbnz     w8, #0x343efc4
+000000000343efb0: 408300f0 adrp     x0, #0x44a9000
+000000000343efb4: 002445f9 ldr      x0, [x0, #0xa48]
+000000000343efb8: aae2a497 bl       #0x1d77a60
+000000000343efbc: 28008052 mov      w8, #1
+000000000343efc0: 882e3139 strb     w8, [x20, #0xc4b]
+000000000343efc4: 488300f0 adrp     x8, #0x44a9000
+000000000343efc8: e00313aa mov      x0, x19
+000000000343efcc: e1031faa mov      x1, xzr
+000000000343efd0: 082545f9 ldr      x8, [x8, #0xa48]
+000000000343efd4: 080140f9 ldr      x8, [x8]
+000000000343efd8: 085140f9 ldr      x8, [x8, #0xa0]
+000000000343efdc: 00c140fc ldur     d0, [x8, #0xc]
+000000000343efe0: 011540bd ldr      s1, [x8, #0x14]
+000000000343efe4: 602200fd str      d0, [x19, #0x40]
+000000000343efe8: 614a00bd str      s1, [x19, #0x48]
+000000000343efec: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343eff0: fe0742f8 ldr      x30, [sp], #0x20
+000000000343eff4: d1972c14 b        #0x3f64f38 ; MonoBehaviour :: public MonoBehaviour() { }
+
+; private void ApplyPose(float sx, float sy) { }
+; token=0x60005B2 file_offset=0x343ADBC tool_rva=0x343ADBC length=0x17C
+000000000343edbc: ed33bb6d stp      d13, d12, [sp, #-0x50]!
+000000000343edc0: eb2b016d stp      d11, d10, [sp, #0x10]
+000000000343edc4: e923026d stp      d9, d8, [sp, #0x20]
+000000000343edc8: fe1b00f9 str      x30, [sp, #0x30]
+000000000343edcc: f44f04a9 stp      x20, x19, [sp, #0x40]
+000000000343edd0: 2940201e fmov     s9, s1
+000000000343edd4: 0840201e fmov     s8, s0
+000000000343edd8: f49a00b0 adrp     x20, #0x479b000
+000000000343eddc: 88366939 ldrb     w8, [x20, #0xa4d]
+000000000343ede0: f30300aa mov      x19, x0
+000000000343ede4: 28010037 tbnz     w8, #0, #0x343ee08
+000000000343ede8: 408300d0 adrp     x0, #0x44a8000
+000000000343edec: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343edf0: 1ce3a497 bl       #0x1d77a60
+000000000343edf4: 60830090 adrp     x0, #0x44aa000
+000000000343edf8: 005046f9 ldr      x0, [x0, #0xca0]
+000000000343edfc: 19e3a497 bl       #0x1d77a60
+000000000343ee00: 28008052 mov      w8, #1
+000000000343ee04: 88362939 strb     w8, [x20, #0xa4d]
+000000000343ee08: e00313aa mov      x0, x19
+000000000343ee0c: e1031faa mov      x1, xzr
+000000000343ee10: 2e872c94 bl       #0x3f60ac8
+000000000343ee14: 000900b4 cbz      x0, #0x343ef34
+000000000343ee18: 6202482d ldp      s2, s0, [x19, #0x40]
+000000000343ee1c: 548300d0 adrp     x20, #0x44a8000
+000000000343ee20: 946245f9 ldr      x20, [x20, #0xac0]
+000000000343ee24: e1031faa mov      x1, xzr
+000000000343ee28: 0108291e fmul     s1, s0, s9
+000000000343ee2c: 4008281e fmul     s0, s2, s8
+000000000343ee30: 624a40bd ldr      s2, [x19, #0x48]
+000000000343ee34: 58c82c94 bl       #0x3f70f94 ; Transform :: public void set_localScale(Vector3 value) { }
+000000000343ee38: 800240f9 ldr      x0, [x20]
+000000000343ee3c: 742a40f9 ldr      x20, [x19, #0x50]
+000000000343ee40: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343ee44: 48000035 cbnz     w8, #0x343ee4c
+000000000343ee48: 53e3a497 bl       #0x1d77b94
+000000000343ee4c: e00314aa mov      x0, x20
+000000000343ee50: e1031faa mov      x1, xzr
+000000000343ee54: e2031faa mov      x2, xzr
+000000000343ee58: 99912c94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000343ee5c: e0000036 tbz      w0, #0, #0x343ee78
+000000000343ee60: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000343ee64: fe1b40f9 ldr      x30, [sp, #0x30]
+000000000343ee68: e923426d ldp      d9, d8, [sp, #0x20]
+000000000343ee6c: eb2b416d ldp      d11, d10, [sp, #0x10]
+000000000343ee70: ed33c56c ldp      d13, d12, [sp], #0x50
+000000000343ee74: c0035fd6 ret      
+000000000343ee78: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343ee7c: c00500b4 cbz      x0, #0x343ef34
+000000000343ee80: e1031faa mov      x1, xzr
+000000000343ee84: 3ec12c94 bl       #0x3f6f37c ; RectTransform :: public Rect get_rect() { }
+000000000343ee88: 68830090 adrp     x8, #0x44aa000
+000000000343ee8c: 4a40201e fmov     s10, s2
+000000000343ee90: 6b40201e fmov     s11, s3
+000000000343ee94: 085146f9 ldr      x8, [x8, #0xca0]
+000000000343ee98: 000140f9 ldr      x0, [x8]
+000000000343ee9c: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343eea0: 48000035 cbnz     w8, #0x343eea8
+000000000343eea4: 3ce3a497 bl       #0x1d77b94
+000000000343eea8: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343eeac: 400400b4 cbz      x0, #0x343ef34
+000000000343eeb0: e1031faa mov      x1, xzr
+000000000343eeb4: eac22c94 bl       #0x3f6fa5c ; RectTransform :: public Vector2 get_pivot() { }
+000000000343eeb8: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343eebc: c00300b4 cbz      x0, #0x343ef34
+000000000343eec0: 6d4240bd ldr      s13, [x19, #0x40]
+000000000343eec4: e1031faa mov      x1, xzr
+000000000343eec8: 0c40201e fmov     s12, s0
+000000000343eecc: e4c22c94 bl       #0x3f6fa5c ; RectTransform :: public Vector2 get_pivot() { }
+000000000343eed0: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343eed4: 000300b4 cbz      x0, #0x343ef34
+000000000343eed8: 00102c1e fmov     s0, #0.50000000
+000000000343eedc: 03102e1e fmov     s3, #1.00000000
+000000000343eee0: 624640bd ldr      s2, [x19, #0x44]
+000000000343eee4: fe1b40f9 ldr      x30, [sp, #0x30]
+000000000343eee8: e1031faa mov      x1, xzr
+000000000343eeec: 0138211e fsub     s1, s0, s1
+000000000343eef0: 00382c1e fsub     s0, s0, s12
+000000000343eef4: 6109211e fmul     s1, s11, s1
+000000000343eef8: 4009201e fmul     s0, s10, s0
+000000000343eefc: eb2b416d ldp      d11, d10, [sp, #0x10]
+000000000343ef00: 2108221e fmul     s1, s1, s2
+000000000343ef04: 6238291e fsub     s2, s3, s9
+000000000343ef08: 00082d1e fmul     s0, s0, s13
+000000000343ef0c: 6338281e fsub     s3, s3, s8
+000000000343ef10: e923426d ldp      d9, d8, [sp, #0x20]
+000000000343ef14: 4108211e fmul     s1, s2, s1
+000000000343ef18: 6008201e fmul     s0, s3, s0
+000000000343ef1c: 630a4b2d ldp      s3, s2, [x19, #0x58]
+000000000343ef20: f44f44a9 ldp      x20, x19, [sp, #0x40]
+000000000343ef24: 4128211e fadd     s1, s2, s1
+000000000343ef28: 0028231e fadd     s0, s0, s3
+000000000343ef2c: ed33c56c ldp      d13, d12, [sp], #0x50
+000000000343ef30: 3ac22c14 b        #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+000000000343ef34: c8e2a497 bl       #0x1d77a54
+
+; private void Awake() { }
+; token=0x60005A9 file_offset=0x343A934 tool_rva=0x343A934 length=0xC8
+000000000343e934: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000343e938: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343e93c: f49a00b0 adrp     x20, #0x479b000
+000000000343e940: f30300aa mov      x19, x0
+000000000343e944: 88226939 ldrb     w8, [x20, #0xa48]
+000000000343e948: c8000037 tbnz     w8, #0, #0x343e960
+000000000343e94c: c08300f0 adrp     x0, #0x44b9000
+000000000343e950: 005843f9 ldr      x0, [x0, #0x6b0]
+000000000343e954: 43e4a497 bl       #0x1d77a60
+000000000343e958: 28008052 mov      w8, #1
+000000000343e95c: 88222939 strb     w8, [x20, #0xa48]
+000000000343e960: e00313aa mov      x0, x19
+000000000343e964: e1031faa mov      x1, xzr
+000000000343e968: 58882c94 bl       #0x3f60ac8
+000000000343e96c: e80300aa mov      x8, x0
+000000000343e970: c00100b4 cbz      x0, #0x343e9a8
+000000000343e974: c98300f0 adrp     x9, #0x44b9000
+000000000343e978: 295943f9 ldr      x9, [x9, #0x6b0]
+000000000343e97c: 210140f9 ldr      x1, [x9]
+000000000343e980: 090140f9 ldr      x9, [x8]
+000000000343e984: 3f0101eb cmp      x9, x1
+000000000343e988: c1000054 b.ne     #0x343e9a0
+000000000343e98c: e00313aa mov      x0, x19
+000000000343e990: 080c05f8 str      x8, [x0, #0x50]!
+000000000343e994: 090140f9 ldr      x9, [x8]
+000000000343e998: 3f0101eb cmp      x9, x1
+000000000343e99c: a0000054 b.eq     #0x343e9b0
+000000000343e9a0: e00308aa mov      x0, x8
+000000000343e9a4: dce5a497 bl       #0x1d78114
+000000000343e9a8: e00313aa mov      x0, x19
+000000000343e9ac: 1f0c05f8 str      xzr, [x0, #0x50]!
+000000000343e9b0: e10308aa mov      x1, x8
+000000000343e9b4: 18e4a497 bl       #0x1d77a14
+000000000343e9b8: e00313aa mov      x0, x19
+000000000343e9bc: e1031faa mov      x1, xzr
+000000000343e9c0: 42882c94 bl       #0x3f60ac8
+000000000343e9c4: a00100b4 cbz      x0, #0x343e9f8
+000000000343e9c8: e1031faa mov      x1, xzr
+000000000343e9cc: 3dc92c94 bl       #0x3f70ec0 ; Transform :: public Vector3 get_localScale() { }
+000000000343e9d0: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343e9d4: 6006082d stp      s0, s1, [x19, #0x40]
+000000000343e9d8: 624a00bd str      s2, [x19, #0x48]
+000000000343e9dc: e00000b4 cbz      x0, #0x343e9f8
+000000000343e9e0: e1031faa mov      x1, xzr
+000000000343e9e4: 5cc32c94 bl       #0x3f6f754 ; RectTransform :: public Vector2 get_anchoredPosition() { }
+000000000343e9e8: 60060b2d stp      s0, s1, [x19, #0x58]
+000000000343e9ec: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343e9f0: fe0742f8 ldr      x30, [sp], #0x20
+000000000343e9f4: c0035fd6 ret      
+000000000343e9f8: 17e4a497 bl       #0x1d77a54
+
+; private static float EaseOutBack(float p) { }
+; token=0x60005B3 file_offset=0x343AF38 tool_rva=0x343AF38 length=0x3C
+000000000343ef38: 01103e1e fmov     s1, #-1.00000000
+000000000343ef3c: 68befef0 adrp     x8, #0xc0d000
+000000000343ef40: 03102e1e fmov     s3, #1.00000000
+000000000343ef44: 0028211e fadd     s0, s0, s1
+000000000343ef48: 016943bd ldr      s1, [x8, #0x368]
+000000000343ef4c: 68befed0 adrp     x8, #0xc0c000
+000000000343ef50: 02e54dbd ldr      s2, [x8, #0xde4]
+000000000343ef54: 0108211e fmul     s1, s0, s1
+000000000343ef58: 0208221e fmul     s2, s0, s2
+000000000343ef5c: 0108211e fmul     s1, s0, s1
+000000000343ef60: 0108211e fmul     s1, s0, s1
+000000000343ef64: 0008221e fmul     s0, s0, s2
+000000000343ef68: 2128231e fadd     s1, s1, s3
+000000000343ef6c: 0028211e fadd     s0, s0, s1
+000000000343ef70: c0035fd6 ret      
+
+; public static UIButtonPress Ensure(GameObject go) { }
+; token=0x60005A7 file_offset=0x343A7B8 tool_rva=0x343A7B8 length=0xE8
+000000000343e7b8: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000343e7bc: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343e7c0: f49a00b0 adrp     x20, #0x479b000
+000000000343e7c4: 558300d0 adrp     x21, #0x44a8000
+000000000343e7c8: f30300aa mov      x19, x0
+000000000343e7cc: 881a6939 ldrb     w8, [x20, #0xa46]
+000000000343e7d0: b56245f9 ldr      x21, [x21, #0xac0]
+000000000343e7d4: 88010037 tbnz     w8, #0, #0x343e804
+000000000343e7d8: 20840090 adrp     x0, #0x44c2000
+000000000343e7dc: 000843f9 ldr      x0, [x0, #0x610]
+000000000343e7e0: a0e4a497 bl       #0x1d77a60
+000000000343e7e4: 208400d0 adrp     x0, #0x44c4000
+000000000343e7e8: 00bc46f9 ldr      x0, [x0, #0xd78]
+000000000343e7ec: 9de4a497 bl       #0x1d77a60
+000000000343e7f0: 408300d0 adrp     x0, #0x44a8000
+000000000343e7f4: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343e7f8: 9ae4a497 bl       #0x1d77a60
+000000000343e7fc: 28008052 mov      w8, #1
+000000000343e800: 881a2939 strb     w8, [x20, #0xa46]
+000000000343e804: a00240f9 ldr      x0, [x21]
+000000000343e808: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343e80c: 48000035 cbnz     w8, #0x343e814
+000000000343e810: e1e4a497 bl       #0x1d77b94
+000000000343e814: e00313aa mov      x0, x19
+000000000343e818: e1031faa mov      x1, xzr
+000000000343e81c: e2031faa mov      x2, xzr
+000000000343e820: 27932c94 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+000000000343e824: f4031faa mov      x20, xzr
+000000000343e828: 40020037 tbnz     w0, #0, #0x343e870
+000000000343e82c: 930300b4 cbz      x19, #0x343e89c
+000000000343e830: 288400d0 adrp     x8, #0x44c4000
+000000000343e834: e00313aa mov      x0, x19
+000000000343e838: 08bd46f9 ldr      x8, [x8, #0xd78]
+000000000343e83c: 010140f9 ldr      x1, [x8]
+000000000343e840: 17b3b797 bl       #0x222b49c ; GameObject :: public T GetComponent() { }
+000000000343e844: a80240f9 ldr      x8, [x21]
+000000000343e848: f40300aa mov      x20, x0
+000000000343e84c: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000343e850: 69000035 cbnz     w9, #0x343e85c
+000000000343e854: e00308aa mov      x0, x8
+000000000343e858: cfe4a497 bl       #0x1d77b94
+000000000343e85c: e00314aa mov      x0, x20
+000000000343e860: e1031faa mov      x1, xzr
+000000000343e864: e2031faa mov      x2, xzr
+000000000343e868: 2d8e2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000343e86c: a0000036 tbz      w0, #0, #0x343e880
+000000000343e870: e00314aa mov      x0, x20
+000000000343e874: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343e878: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000343e87c: c0035fd6 ret      
+000000000343e880: 28840090 adrp     x8, #0x44c2000
+000000000343e884: e00313aa mov      x0, x19
+000000000343e888: 080943f9 ldr      x8, [x8, #0x610]
+000000000343e88c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343e890: 010140f9 ldr      x1, [x8]
+000000000343e894: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000343e898: ddb2b717 b        #0x222b40c ; GameObject :: public T AddComponent() { }
+000000000343e89c: 6ee4a497 bl       #0x1d77a54
+
+; public static UIButtonPress Ensure(GameObject go, bool squashMode) { }
+; token=0x60005A8 file_offset=0x343A8A0 tool_rva=0x343A8A0 length=0x94
+000000000343e8a0: fe0f1df8 str      x30, [sp, #-0x30]!
+000000000343e8a4: f65701a9 stp      x22, x21, [sp, #0x10]
+000000000343e8a8: f44f02a9 stp      x20, x19, [sp, #0x20]
+000000000343e8ac: f69a00b0 adrp     x22, #0x479b000
+000000000343e8b0: 558300d0 adrp     x21, #0x44a8000
+000000000343e8b4: f303012a mov      w19, w1
+000000000343e8b8: c81e6939 ldrb     w8, [x22, #0xa47]
+000000000343e8bc: b56245f9 ldr      x21, [x21, #0xac0]
+000000000343e8c0: f40300aa mov      x20, x0
+000000000343e8c4: c8000037 tbnz     w8, #0, #0x343e8dc
+000000000343e8c8: 408300d0 adrp     x0, #0x44a8000
+000000000343e8cc: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343e8d0: 64e4a497 bl       #0x1d77a60
+000000000343e8d4: 28008052 mov      w8, #1
+000000000343e8d8: c81e2939 strb     w8, [x22, #0xa47]
+000000000343e8dc: e00314aa mov      x0, x20
+000000000343e8e0: b6ffff97 bl       #0x343e7b8 ; UIButtonPress :: public static UIButtonPress Ensure(GameObject go) { }
+000000000343e8e4: a80240f9 ldr      x8, [x21]
+000000000343e8e8: f40300aa mov      x20, x0
+000000000343e8ec: 09e540b9 ldr      w9, [x8, #0xe4]
+000000000343e8f0: 69000035 cbnz     w9, #0x343e8fc
+000000000343e8f4: e00308aa mov      x0, x8
+000000000343e8f8: a7e4a497 bl       #0x1d77b94
+000000000343e8fc: e00314aa mov      x0, x20
+000000000343e900: e1031faa mov      x1, xzr
+000000000343e904: e2031faa mov      x2, xzr
+000000000343e908: 058e2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000343e90c: 80000036 tbz      w0, #0, #0x343e91c
+000000000343e910: 140100b4 cbz      x20, #0x343e930
+000000000343e914: 68020012 and      w8, w19, #1
+000000000343e918: 88b20039 strb     w8, [x20, #0x2c]
+000000000343e91c: e00314aa mov      x0, x20
+000000000343e920: f44f42a9 ldp      x20, x19, [sp, #0x20]
+000000000343e924: f65741a9 ldp      x22, x21, [sp, #0x10]
+000000000343e928: fe0743f8 ldr      x30, [sp], #0x30
+000000000343e92c: c0035fd6 ret      
+000000000343e930: 49e4a497 bl       #0x1d77a54
+
+; private void OnDisable() { }
+; token=0x60005AB file_offset=0x343AA9C tool_rva=0x343AA9C length=0xCC
+000000000343ea9c: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000343eaa0: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343eaa4: f49a00b0 adrp     x20, #0x479b000
+000000000343eaa8: f30300aa mov      x19, x0
+000000000343eaac: 882a6939 ldrb     w8, [x20, #0xa4a]
+000000000343eab0: c8000037 tbnz     w8, #0, #0x343eac8
+000000000343eab4: 408300d0 adrp     x0, #0x44a8000
+000000000343eab8: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343eabc: e9e3a497 bl       #0x1d77a60
+000000000343eac0: 28008052 mov      w8, #1
+000000000343eac4: 882a2939 strb     w8, [x20, #0xa4a]
+000000000343eac8: f40313aa mov      x20, x19
+000000000343eacc: 810e46f8 ldr      x1, [x20, #0x60]!
+000000000343ead0: 010100b4 cbz      x1, #0x343eaf0
+000000000343ead4: e00313aa mov      x0, x19
+000000000343ead8: e2031faa mov      x2, xzr
+000000000343eadc: 34962c94 bl       #0x3f643ac ; MonoBehaviour :: public void StopCoroutine(Coroutine routine) { }
+000000000343eae0: e00314aa mov      x0, x20
+000000000343eae4: e1031faa mov      x1, xzr
+000000000343eae8: 7f3200f9 str      xzr, [x19, #0x60]
+000000000343eaec: cae3a497 bl       #0x1d77a14
+000000000343eaf0: e00313aa mov      x0, x19
+000000000343eaf4: e1031faa mov      x1, xzr
+000000000343eaf8: f4872c94 bl       #0x3f60ac8
+000000000343eafc: 400300b4 cbz      x0, #0x343eb64
+000000000343eb00: 548300d0 adrp     x20, #0x44a8000
+000000000343eb04: e1031faa mov      x1, xzr
+000000000343eb08: 946245f9 ldr      x20, [x20, #0xac0]
+000000000343eb0c: 618a482d ldp      s1, s2, [x19, #0x44]
+000000000343eb10: 604240bd ldr      s0, [x19, #0x40]
+000000000343eb14: 20c92c94 bl       #0x3f70f94 ; Transform :: public void set_localScale(Vector3 value) { }
+000000000343eb18: 800240f9 ldr      x0, [x20]
+000000000343eb1c: 742a40f9 ldr      x20, [x19, #0x50]
+000000000343eb20: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343eb24: 48000035 cbnz     w8, #0x343eb2c
+000000000343eb28: 1be4a497 bl       #0x1d77b94
+000000000343eb2c: e00314aa mov      x0, x20
+000000000343eb30: e1031faa mov      x1, xzr
+000000000343eb34: e2031faa mov      x2, xzr
+000000000343eb38: 798d2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000343eb3c: c0000036 tbz      w0, #0, #0x343eb54
+000000000343eb40: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343eb44: 000100b4 cbz      x0, #0x343eb64
+000000000343eb48: 60064b2d ldp      s0, s1, [x19, #0x58]
+000000000343eb4c: e1031faa mov      x1, xzr
+000000000343eb50: 32c32c94 bl       #0x3f6f818 ; RectTransform :: public void set_anchoredPosition(Vector2 value) { }
+000000000343eb54: 7fa20139 strb     wzr, [x19, #0x68]
+000000000343eb58: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343eb5c: fe0742f8 ldr      x30, [sp], #0x20
+000000000343eb60: c0035fd6 ret      
+000000000343eb64: bce3a497 bl       #0x1d77a54
+
+; public void OnPointerDown(PointerEventData e) { }
+; token=0x60005AC file_offset=0x343AB68 tool_rva=0x343AB68 length=0xDC
+000000000343eb68: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000343eb6c: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343eb70: f49a00b0 adrp     x20, #0x479b000
+000000000343eb74: f30300aa mov      x19, x0
+000000000343eb78: 882e6939 ldrb     w8, [x20, #0xa4b]
+000000000343eb7c: c8000037 tbnz     w8, #0, #0x343eb94
+000000000343eb80: 408300d0 adrp     x0, #0x44a8000
+000000000343eb84: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343eb88: b6e3a497 bl       #0x1d77a60
+000000000343eb8c: 28008052 mov      w8, #1
+000000000343eb90: 882e2939 strb     w8, [x20, #0xa4b]
+000000000343eb94: 683240f9 ldr      x8, [x19, #0x60]
+000000000343eb98: 480200b5 cbnz     x8, #0x343ebe0
+000000000343eb9c: 488300d0 adrp     x8, #0x44a8000
+000000000343eba0: 086145f9 ldr      x8, [x8, #0xac0]
+000000000343eba4: 742a40f9 ldr      x20, [x19, #0x50]
+000000000343eba8: 000140f9 ldr      x0, [x8]
+000000000343ebac: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343ebb0: 48000035 cbnz     w8, #0x343ebb8
+000000000343ebb4: f8e3a497 bl       #0x1d77b94
+000000000343ebb8: e00314aa mov      x0, x20
+000000000343ebbc: e1031faa mov      x1, xzr
+000000000343ebc0: e2031faa mov      x2, xzr
+000000000343ebc4: 568d2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000343ebc8: c0000036 tbz      w0, #0, #0x343ebe0
+000000000343ebcc: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343ebd0: 800300b4 cbz      x0, #0x343ec40
+000000000343ebd4: e1031faa mov      x1, xzr
+000000000343ebd8: dfc22c94 bl       #0x3f6f754 ; RectTransform :: public Vector2 get_anchoredPosition() { }
+000000000343ebdc: 60060b2d stp      s0, s1, [x19, #0x58]
+000000000343ebe0: 681e40f9 ldr      x8, [x19, #0x38]
+000000000343ebe4: 29008052 mov      w9, #1
+000000000343ebe8: 69a20139 strb     w9, [x19, #0x68]
+000000000343ebec: a80000b4 cbz      x8, #0x343ec00
+000000000343ebf0: 090d40f9 ldr      x9, [x8, #0x18]
+000000000343ebf4: 002140f9 ldr      x0, [x8, #0x40]
+000000000343ebf8: 011540f9 ldr      x1, [x8, #0x28]
+000000000343ebfc: 20013fd6 blr      x9
+000000000343ec00: 68b24039 ldrb     w8, [x19, #0x2c]
+000000000343ec04: a8000034 cbz      w8, #0x343ec18
+000000000343ec08: 6102462d ldp      s1, s0, [x19, #0x30]
+000000000343ec0c: e00313aa mov      x0, x19
+000000000343ec10: 622640bd ldr      s2, [x19, #0x24]
+000000000343ec14: 04000014 b        #0x343ec24
+000000000343ec18: 600a442d ldp      s0, s2, [x19, #0x20]
+000000000343ec1c: e00313aa mov      x0, x19
+000000000343ec20: 0140201e fmov     s1, s0
+000000000343ec24: e1031f2a mov      w1, wzr
+000000000343ec28: 07000094 bl       #0x343ec44
+000000000343ec2c: e10300aa mov      x1, x0
+000000000343ec30: e00313aa mov      x0, x19
+000000000343ec34: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343ec38: fe0742f8 ldr      x30, [sp], #0x20
+000000000343ec3c: 2b000014 b        #0x343ece8 ; UIButtonPress :: private void Run(IEnumerator r) { }
+000000000343ec40: 85e3a497 bl       #0x1d77a54
+
+; public void OnPointerExit(PointerEventData e) { }
+; token=0x60005AE file_offset=0x343AD90 tool_rva=0x343AD90 length=0x4
+000000000343ed90: f1ffff17 b        #0x343ed54 ; UIButtonPress :: private void Release() { }
+
+; public void OnPointerUp(PointerEventData e) { }
+; token=0x60005AD file_offset=0x343AD50 tool_rva=0x343AD50 length=0x4
+000000000343ed50: 01000014 b        #0x343ed54 ; UIButtonPress :: private void Release() { }
+
+; public void Rebase() { }
+; token=0x60005AA file_offset=0x343A9FC tool_rva=0x343A9FC length=0xA0
+000000000343e9fc: fe0f1ef8 str      x30, [sp, #-0x20]!
+000000000343ea00: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343ea04: f49a00b0 adrp     x20, #0x479b000
+000000000343ea08: f30300aa mov      x19, x0
+000000000343ea0c: 88266939 ldrb     w8, [x20, #0xa49]
+000000000343ea10: c8000037 tbnz     w8, #0, #0x343ea28
+000000000343ea14: 408300d0 adrp     x0, #0x44a8000
+000000000343ea18: 006045f9 ldr      x0, [x0, #0xac0]
+000000000343ea1c: 11e4a497 bl       #0x1d77a60
+000000000343ea20: 28008052 mov      w8, #1
+000000000343ea24: 88262939 strb     w8, [x20, #0xa49]
+000000000343ea28: e00313aa mov      x0, x19
+000000000343ea2c: e1031faa mov      x1, xzr
+000000000343ea30: 26882c94 bl       #0x3f60ac8
+000000000343ea34: 200300b4 cbz      x0, #0x343ea98
+000000000343ea38: 548300d0 adrp     x20, #0x44a8000
+000000000343ea3c: e1031faa mov      x1, xzr
+000000000343ea40: 946245f9 ldr      x20, [x20, #0xac0]
+000000000343ea44: 1fc92c94 bl       #0x3f70ec0 ; Transform :: public Vector3 get_localScale() { }
+000000000343ea48: 800240f9 ldr      x0, [x20]
+000000000343ea4c: 6006082d stp      s0, s1, [x19, #0x40]
+000000000343ea50: 742a40f9 ldr      x20, [x19, #0x50]
+000000000343ea54: 624a00bd str      s2, [x19, #0x48]
+000000000343ea58: 08e440b9 ldr      w8, [x0, #0xe4]
+000000000343ea5c: 48000035 cbnz     w8, #0x343ea64
+000000000343ea60: 4de4a497 bl       #0x1d77b94
+000000000343ea64: e00314aa mov      x0, x20
+000000000343ea68: e1031faa mov      x1, xzr
+000000000343ea6c: e2031faa mov      x2, xzr
+000000000343ea70: ab8d2c94 bl       #0x3f6211c ; Object :: public static bool op_Inequality(Object x, Object y) { }
+000000000343ea74: c0000036 tbz      w0, #0, #0x343ea8c
+000000000343ea78: 602a40f9 ldr      x0, [x19, #0x50]
+000000000343ea7c: e00000b4 cbz      x0, #0x343ea98
+000000000343ea80: e1031faa mov      x1, xzr
+000000000343ea84: 34c32c94 bl       #0x3f6f754 ; RectTransform :: public Vector2 get_anchoredPosition() { }
+000000000343ea88: 60060b2d stp      s0, s1, [x19, #0x58]
+000000000343ea8c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343ea90: fe0742f8 ldr      x30, [sp], #0x20
+000000000343ea94: c0035fd6 ret      
+000000000343ea98: efe3a497 bl       #0x1d77a54
+
+; private void Release() { }
+; token=0x60005AF file_offset=0x343AD54 tool_rva=0x343AD54 length=0x3C
+000000000343ed54: 08a04139 ldrb     w8, [x0, #0x68]
+000000000343ed58: a8010034 cbz      w8, #0x343ed8c
+000000000343ed5c: fe4fbfa9 stp      x30, x19, [sp, #-0x10]!
+000000000343ed60: 00102e1e fmov     s0, #1.00000000
+000000000343ed64: 01102e1e fmov     s1, #1.00000000
+000000000343ed68: 022840bd ldr      s2, [x0, #0x28]
+000000000343ed6c: 21008052 mov      w1, #1
+000000000343ed70: f30300aa mov      x19, x0
+000000000343ed74: 1fa00139 strb     wzr, [x0, #0x68]
+000000000343ed78: b3ffff97 bl       #0x343ec44
+000000000343ed7c: e10300aa mov      x1, x0
+000000000343ed80: e00313aa mov      x0, x19
+000000000343ed84: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+000000000343ed88: d8ffff17 b        #0x343ece8 ; UIButtonPress :: private void Run(IEnumerator r) { }
+000000000343ed8c: c0035fd6 ret      
+
+; private void Run(IEnumerator r) { }
+; token=0x60005B0 file_offset=0x343ACE8 tool_rva=0x343ACE8 length=0x68
+000000000343ece8: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+000000000343ecec: f44f01a9 stp      x20, x19, [sp, #0x10]
+000000000343ecf0: f40301aa mov      x20, x1
+000000000343ecf4: e1031faa mov      x1, xzr
+000000000343ecf8: f30300aa mov      x19, x0
+000000000343ecfc: a8852c94 bl       #0x3f6039c
+000000000343ed00: 20020036 tbz      w0, #0, #0x343ed44
+000000000343ed04: f50313aa mov      x21, x19
+000000000343ed08: a10e46f8 ldr      x1, [x21, #0x60]!
+000000000343ed0c: 810000b4 cbz      x1, #0x343ed1c
+000000000343ed10: e00313aa mov      x0, x19
+000000000343ed14: e2031faa mov      x2, xzr
+000000000343ed18: a5952c94 bl       #0x3f643ac ; MonoBehaviour :: public void StopCoroutine(Coroutine routine) { }
+000000000343ed1c: e00313aa mov      x0, x19
+000000000343ed20: e10314aa mov      x1, x20
+000000000343ed24: e2031faa mov      x2, xzr
+000000000343ed28: 0e952c94 bl       #0x3f64160 ; MonoBehaviour :: public Coroutine StartCoroutine(IEnumerator routine) { }
+000000000343ed2c: e10300aa mov      x1, x0
+000000000343ed30: e00315aa mov      x0, x21
+000000000343ed34: 613200f9 str      x1, [x19, #0x60]
+000000000343ed38: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343ed3c: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000343ed40: 35e3a417 b        #0x1d77a14
+000000000343ed44: f44f41a9 ldp      x20, x19, [sp, #0x10]
+000000000343ed48: fe57c2a8 ldp      x30, x21, [sp], #0x20
+000000000343ed4c: c0035fd6 ret      

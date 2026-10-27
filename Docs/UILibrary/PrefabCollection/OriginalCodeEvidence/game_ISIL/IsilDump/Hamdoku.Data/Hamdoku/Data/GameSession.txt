@@ -1,0 +1,258 @@
+Type: Hamdoku.Data.GameSession
+
+Method: Hamdoku.Data.GameSession get_Active()
+
+Disassembly:
+	0x031EB2D4 STR X30, [X31 - 0x20]!
+	0x031EB2D8 STP X20, X19, [X31 + 0x10]
+	0x031EB2DC ADRP X19, 0x15AF000
+	0x031EB2E0 ADRP X20, 0x12CC000
+	0x031EB2E4 LDRB W8, [X19 + 0x8EF]
+	0x031EB2E8 LDR X20, [X20 + 0x4A8]
+	0x031EB2EC TBNZ W8, 0x0, 0x31EB304
+	0x031EB2F0 ADRP X0, 0x12CC000
+	0x031EB2F4 LDR X0, [X0 + 0x4A8]
+	0x031EB2F8 BL 0x1D77A60
+	0x031EB2FC MOV W8, 0x1
+	0x031EB300 STRB W8, [X19 + 0x8EF]
+	0x031EB304 LDR X8, [X20]
+	0x031EB308 LDP X20, X19, [X31 + 0x10]
+	0x031EB30C LDR X8, [X8 + 0xA0]
+	0x031EB310 LDR X0, [X8]
+	0x031EB314 LDR X30, [X31], #0x20
+	0x031EB318 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Move v9 @ X20_v2, [44B74A8]
+	8 Nop
+	9 Nop
+	10 Nop
+	11 Jump @b5
+	12 Nop
+	13 Move v14 @ X0_v4, [44B74A8]
+	14 Call "il2cpp_codegen_initialize_runtime_metadata", v15 @ X0_v5, v14 @ X0_v4, v16 @ X1, v17 @ X2, v18 @ X3, v19 @ X4, v20 @ X5, v21 @ X6, v22 @ X7, v23 @ V0, v24 @ V1, v25 @ V2, v26 @ V3, v27 @ V4, v28 @ V5, v29 @ V6, v30 @ V7
+	15 Move v34 @ X8_v5, 1
+	16 Move [479A8EF], v34 @ X8_v5
+	17 Move v35 @ X8_v3, [v9 @ X20_v2]
+	18 Nop
+	19 Nop
+	20 Move v38 @ X8_v4, [v35 @ X8_v3+A0]
+	21 Nop
+	22 Nop
+	23 Nop
+	24 Return [v38 @ X8_v4]
+
+Method: System.Void set_Active(Hamdoku.Data.GameSession value)
+
+Disassembly:
+	0x031EB31C STP X30, X21, [X31 - 0x20]!
+	0x031EB320 STP X20, X19, [X31 + 0x10]
+	0x031EB324 ADRP X21, 0x15AF000
+	0x031EB328 ADRP X20, 0x12CC000
+	0x031EB32C MOV X19, X0
+	0x031EB330 LDRB W8, [X21 + 0x8F0]
+	0x031EB334 LDR X20, [X20 + 0x4A8]
+	0x031EB338 TBNZ W8, 0x0, 0x31EB350
+	0x031EB33C ADRP X0, 0x12CC000
+	0x031EB340 LDR X0, [X0 + 0x4A8]
+	0x031EB344 BL 0x1D77A60
+	0x031EB348 MOV W8, 0x1
+	0x031EB34C STRB W8, [X21 + 0x8F0]
+	0x031EB350 LDR X8, [X20]
+	0x031EB354 MOV X1, X19
+	0x031EB358 LDR X8, [X8 + 0xA0]
+	0x031EB35C STR X19, [X8]
+	0x031EB360 LDR X8, [X20]
+	0x031EB364 LDP X20, X19, [X31 + 0x10]
+	0x031EB368 LDR X0, [X8 + 0xA0]
+	0x031EB36C LDP X30, X21, [X31], #0x20
+	0x031EB370 B 0x1D77A14
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Move v13 @ X20_v2, [44B74A8]
+	10 Nop
+	11 Nop
+	12 Nop
+	13 Jump @b6
+	14 Nop
+	15 Move v18 @ X0_v5, [44B74A8]
+	16 Call "il2cpp_codegen_initialize_runtime_metadata", v19 @ X0_v6, v18 @ X0_v5, methodInfo @ X1 (Il2CppMethodInfo), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	17 Move v37 @ X8_v6, 1
+	18 Move [479A8F0], v37 @ X8_v6
+	19 Move v38 @ X8_v3, [v13 @ X20_v2]
+	20 Nop
+	21 Move v40 @ X8_v4, [v38 @ X8_v3+A0]
+	22 Move [v40 @ X8_v4], value @ X0 (Hamdoku.Data.GameSession)
+	23 Move v41 @ X8_v5, [v13 @ X20_v2]
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Nop
+	28 Nop
+	29 Nop
+	30 Call 1D77A14, v47 @ X0_v3, [v41 @ X8_v5+A0], value @ X0 (Hamdoku.Data.GameSession), v21 @ X2, v22 @ X3, v23 @ X4, v24 @ X5, v25 @ X6, v26 @ X7, v27 @ V0, v28 @ V1, v29 @ V2, v30 @ V3, v31 @ V4, v32 @ V5, v33 @ V6, v34 @ V7
+	31 Return
+
+Method: System.Void OnEnable()
+
+Disassembly:
+	0x031EB374 STR X30, [X31 - 0x20]!
+	0x031EB378 STP X20, X19, [X31 + 0x10]
+	0x031EB37C ADRP X20, 0x15AF000
+	0x031EB380 MOV X19, X0
+	0x031EB384 LDRB W8, [X20 + 0x931]
+	0x031EB388 CBNZ W8, 0x31EB3A0
+	0x031EB38C ADRP X0, 0x12CC000
+	0x031EB390 LDR X0, [X0 + 0x4A8]
+	0x031EB394 BL 0x1D77A60
+	0x031EB398 MOV W8, 0x1
+	0x031EB39C STRB W8, [X20 + 0x931]
+	0x031EB3A0 ADRP X8, 0x12CC000
+	0x031EB3A4 MOV X1, X19
+	0x031EB3A8 LDR X8, [X8 + 0x4A8]
+	0x031EB3AC LDR X9, [X8]
+	0x031EB3B0 LDR X9, [X9 + 0xA0]
+	0x031EB3B4 STR X19, [X9]
+	0x031EB3B8 LDP X20, X19, [X31 + 0x10]
+	0x031EB3BC LDR X8, [X8]
+	0x031EB3C0 LDR X0, [X8 + 0xA0]
+	0x031EB3C4 LDR X30, [X31], #0x20
+	0x031EB3C8 B 0x1D77A14
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Nop
+	3 Nop
+	4 Nop
+	5 Nop
+	6 Nop
+	7 Nop
+	8 Nop
+	9 Jump @b6
+	10 Nop
+	11 Move v13 @ X0_v5, [44B74A8]
+	12 Call "il2cpp_codegen_initialize_runtime_metadata", v14 @ X0_v6, v13 @ X0_v5, methodInfo @ X1 (Il2CppMethodInfo), v16 @ X2, v17 @ X3, v18 @ X4, v19 @ X5, v20 @ X6, v21 @ X7, v22 @ V0, v23 @ V1, v24 @ V2, v25 @ V3, v26 @ V4, v27 @ V5, v28 @ V6, v29 @ V7
+	13 Move v32 @ X8_v6, 1
+	14 Move [479A931], v32 @ X8_v6
+	15 Nop
+	16 Nop
+	17 Move v35 @ X8_v4, [44B74A8]
+	18 Move v36 @ X9_v1, [v35 @ X8_v4]
+	19 Move v37 @ X9_v2, [v36 @ X9_v1+A0]
+	20 Move [v37 @ X9_v2], this @ X0 (Hamdoku.Data.GameSession)
+	21 Nop
+	22 Nop
+	23 Move v40 @ X8_v5, [v35 @ X8_v4]
+	24 Nop
+	25 Nop
+	26 Nop
+	27 Call 1D77A14, v43 @ X0_v3, [v40 @ X8_v5+A0], this @ X0 (Hamdoku.Data.GameSession), v16 @ X2, v17 @ X3, v18 @ X4, v19 @ X5, v20 @ X6, v21 @ X7, v22 @ V0, v23 @ V1, v24 @ V2, v25 @ V3, v26 @ V4, v27 @ V5, v28 @ V6, v29 @ V7
+	28 Return
+
+Method: System.Void RequestCampaign(System.Int32 index = -1)
+
+Disassembly:
+	0x031EB3CC STP W31, W1, [X0 + 0x28]
+	0x031EB3D0 STRB W31, [X0 + 0x35]
+	0x031EB3D4 RET
+
+ISIL:
+	0 Move this.mode (Hamdoku.Data.PlayMode), 0
+	1 Move this.levelIndex (System.Int32), index @ X1 (System.Int32)
+	2 Move this.golden (System.Boolean), 0
+	3 Return
+
+Method: System.Void RequestGolden()
+
+Disassembly:
+	0x031EB3D8 MOVI D0, 0xFFFFFFFF00000000
+	0x031EB3DC MOV W8, 0x1
+	0x031EB3E0 STRB W8, [X0 + 0x35]
+	0x031EB3E4 STR D0, [X0 + 0x28]
+	0x031EB3E8 RET
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Move this.golden (System.Boolean), 1
+	3 Move this.mode (Hamdoku.Data.PlayMode), -4294967296
+	4 Return
+
+Method: System.Void RequestDaily(System.Int32 seed, System.Boolean late = False)
+
+Disassembly:
+	0x031EB3EC MOV W8, 0x1
+	0x031EB3F0 STRB W31, [X0 + 0x35]
+	0x031EB3F4 STR W8, [X0 + 0x28]
+	0x031EB3F8 STR W1, [X0 + 0x30]
+	0x031EB3FC STRB W2, [X0 + 0x34]
+	0x031EB400 RET
+
+ISIL:
+	0 Nop
+	1 Move this.golden (System.Boolean), 0
+	2 Move this.mode (Hamdoku.Data.PlayMode), 1
+	3 Move this.dailySeed (System.Int32), seed @ X1 (System.Int32)
+	4 Move this.dailyLate (System.Boolean), late @ X2 (System.Boolean)
+	5 Return
+
+Method: System.Void RequestEndless()
+
+Disassembly:
+	0x031EB404 MOV W8, 0x2
+	0x031EB408 STRB W31, [X0 + 0x35]
+	0x031EB40C STR W8, [X0 + 0x28]
+	0x031EB410 RET
+
+ISIL:
+	0 Nop
+	1 Move this.golden (System.Boolean), 0
+	2 Move this.mode (Hamdoku.Data.PlayMode), 2
+	3 Return
+
+Method: System.Void RequestTutorial()
+
+Disassembly:
+	0x031EB414 MOV W8, 0x3
+	0x031EB418 STRB W31, [X0 + 0x35]
+	0x031EB41C STR W8, [X0 + 0x28]
+	0x031EB420 RET
+
+ISIL:
+	0 Nop
+	1 Move this.golden (System.Boolean), 0
+	2 Move this.mode (Hamdoku.Data.PlayMode), 3
+	3 Return
+
+Method: System.Void .ctor()
+
+Disassembly:
+	0x031EB424 MOV W8, 0xFFFFFFFF
+	0x031EB428 MOV X1, X31
+	0x031EB42C STR W8, [X0 + 0x2C]
+	0x031EB430 B 0x3F65090
+
+ISIL:
+	0 Nop
+	1 Nop
+	2 Move this.levelIndex (System.Int32), 4294967295
+	3 CallVoid ScriptableObject..ctor, this @ X0 (Hamdoku.Data.GameSession)
+	4 Return
+

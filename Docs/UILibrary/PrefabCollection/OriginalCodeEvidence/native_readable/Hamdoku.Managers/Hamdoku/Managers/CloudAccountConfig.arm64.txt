@@ -1,0 +1,510 @@
+; ARM64 native instructions. C# files contain structure/signatures only.
+; Addresses below are ELF virtual addresses mapped from file offsets.
+; Direct-call annotations resolve known method starts; indirect calls require further analysis.
+
+; get { } //Length: 132
+; token=0x60000C7 file_offset=0x31FA7AC tool_rva=0x31FA7AC length=0x84
+00000000031fe7ac: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fe7b0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fe7b4: f4ac0090 adrp     x20, #0x479a000
+00000000031fe7b8: d59500b0 adrp     x21, #0x44b7000
+00000000031fe7bc: f30300aa mov      x19, x0
+00000000031fe7c0: 88fe6639 ldrb     w8, [x20, #0x9bf]
+00000000031fe7c4: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fe7c8: 88010037 tbnz     w8, #0, #0x31fe7f8
+00000000031fe7cc: c09500b0 adrp     x0, #0x44b7000
+00000000031fe7d0: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fe7d4: a3e4ad97 bl       #0x1d77a60
+00000000031fe7d8: 409500d0 adrp     x0, #0x44a8000
+00000000031fe7dc: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fe7e0: a0e4ad97 bl       #0x1d77a60
+00000000031fe7e4: 409500d0 adrp     x0, #0x44a8000
+00000000031fe7e8: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fe7ec: 9de4ad97 bl       #0x1d77a60
+00000000031fe7f0: 28008052 mov      w8, #1
+00000000031fe7f4: 88fe2639 strb     w8, [x20, #0x9bf]
+00000000031fe7f8: a80240f9 ldr      x8, [x21]
+00000000031fe7fc: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe800: 08094079 ldrh     w8, [x8, #4]
+00000000031fe804: 1f1d0072 tst      w8, #0xff
+00000000031fe808: 80000054 b.eq     #0x31fe818
+00000000031fe80c: 1ffd0371 cmp      w8, #0xff
+00000000031fe810: e0979f1a cset     w0, hi
+00000000031fe814: 04000014 b        #0x31fe824
+00000000031fe818: 68964039 ldrb     w8, [x19, #0x25]
+00000000031fe81c: 1f010071 cmp      w8, #0
+00000000031fe820: e0079f1a cset     w0, ne
+00000000031fe824: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fe828: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fe82c: c0035fd6 ret      
+
+; get { } //Length: 132
+; token=0x60000C6 file_offset=0x31F7864 tool_rva=0x31F7864 length=0x84
+00000000031fb864: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb868: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb86c: f4ac00f0 adrp     x20, #0x479a000
+00000000031fb870: f5950090 adrp     x21, #0x44b7000
+00000000031fb874: f30300aa mov      x19, x0
+00000000031fb878: 88fa6639 ldrb     w8, [x20, #0x9be]
+00000000031fb87c: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fb880: 88010037 tbnz     w8, #0, #0x31fb8b0
+00000000031fb884: e0950090 adrp     x0, #0x44b7000
+00000000031fb888: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb88c: 75f0ad97 bl       #0x1d77a60
+00000000031fb890: 609500b0 adrp     x0, #0x44a8000
+00000000031fb894: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fb898: 72f0ad97 bl       #0x1d77a60
+00000000031fb89c: 609500b0 adrp     x0, #0x44a8000
+00000000031fb8a0: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fb8a4: 6ff0ad97 bl       #0x1d77a60
+00000000031fb8a8: 28008052 mov      w8, #1
+00000000031fb8ac: 88fa2639 strb     w8, [x20, #0x9be]
+00000000031fb8b0: a80240f9 ldr      x8, [x21]
+00000000031fb8b4: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb8b8: 08054079 ldrh     w8, [x8, #2]
+00000000031fb8bc: 1f1d0072 tst      w8, #0xff
+00000000031fb8c0: 80000054 b.eq     #0x31fb8d0
+00000000031fb8c4: 1ffd0371 cmp      w8, #0xff
+00000000031fb8c8: e0979f1a cset     w0, hi
+00000000031fb8cc: 04000014 b        #0x31fb8dc
+00000000031fb8d0: 68924039 ldrb     w8, [x19, #0x24]
+00000000031fb8d4: 1f010071 cmp      w8, #0
+00000000031fb8d8: e0079f1a cset     w0, ne
+00000000031fb8dc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb8e0: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb8e4: c0035fd6 ret      
+
+; get { } //Length: 132
+; token=0x60000C5 file_offset=0x31F78E8 tool_rva=0x31F78E8 length=0x84
+00000000031fb8e8: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb8ec: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb8f0: f4ac00f0 adrp     x20, #0x479a000
+00000000031fb8f4: f5950090 adrp     x21, #0x44b7000
+00000000031fb8f8: f30300aa mov      x19, x0
+00000000031fb8fc: 88f66639 ldrb     w8, [x20, #0x9bd]
+00000000031fb900: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fb904: 88010037 tbnz     w8, #0, #0x31fb934
+00000000031fb908: e0950090 adrp     x0, #0x44b7000
+00000000031fb90c: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb910: 54f0ad97 bl       #0x1d77a60
+00000000031fb914: 609500b0 adrp     x0, #0x44a8000
+00000000031fb918: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fb91c: 51f0ad97 bl       #0x1d77a60
+00000000031fb920: 609500b0 adrp     x0, #0x44a8000
+00000000031fb924: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fb928: 4ef0ad97 bl       #0x1d77a60
+00000000031fb92c: 28008052 mov      w8, #1
+00000000031fb930: 88f62639 strb     w8, [x20, #0x9bd]
+00000000031fb934: a80240f9 ldr      x8, [x21]
+00000000031fb938: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb93c: 08014079 ldrh     w8, [x8]
+00000000031fb940: 1f1d0072 tst      w8, #0xff
+00000000031fb944: 80000054 b.eq     #0x31fb954
+00000000031fb948: 1ffd0371 cmp      w8, #0xff
+00000000031fb94c: e0979f1a cset     w0, hi
+00000000031fb950: 04000014 b        #0x31fb960
+00000000031fb954: 689a4039 ldrb     w8, [x19, #0x26]
+00000000031fb958: 1f010071 cmp      w8, #0
+00000000031fb95c: e0079f1a cset     w0, ne
+00000000031fb960: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb964: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb968: c0035fd6 ret      
+
+; get { } //Length: 316
+; token=0x60000C9 file_offset=0x31F769C tool_rva=0x31F769C length=0x13C
+00000000031fb69c: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb6a0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb6a4: f3ac00f0 adrp     x19, #0x479a000
+00000000031fb6a8: f4950090 adrp     x20, #0x44b7000
+00000000031fb6ac: 759500b0 adrp     x21, #0x44a8000
+00000000031fb6b0: 68066739 ldrb     w8, [x19, #0x9c1]
+00000000031fb6b4: 94aa47f9 ldr      x20, [x20, #0xf50]
+00000000031fb6b8: b56245f9 ldr      x21, [x21, #0xac0]
+00000000031fb6bc: 48020037 tbnz     w8, #0, #0x31fb704
+00000000031fb6c0: e0950090 adrp     x0, #0x44b7000
+00000000031fb6c4: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb6c8: e6f0ad97 bl       #0x1d77a60
+00000000031fb6cc: 609500b0 adrp     x0, #0x44a8000
+00000000031fb6d0: 006045f9 ldr      x0, [x0, #0xac0]
+00000000031fb6d4: e3f0ad97 bl       #0x1d77a60
+00000000031fb6d8: e0950090 adrp     x0, #0x44b7000
+00000000031fb6dc: 00ac47f9 ldr      x0, [x0, #0xf58]
+00000000031fb6e0: e0f0ad97 bl       #0x1d77a60
+00000000031fb6e4: e0950090 adrp     x0, #0x44b7000
+00000000031fb6e8: 00b047f9 ldr      x0, [x0, #0xf60]
+00000000031fb6ec: ddf0ad97 bl       #0x1d77a60
+00000000031fb6f0: e0950090 adrp     x0, #0x44b7000
+00000000031fb6f4: 00b447f9 ldr      x0, [x0, #0xf68]
+00000000031fb6f8: daf0ad97 bl       #0x1d77a60
+00000000031fb6fc: 28008052 mov      w8, #1
+00000000031fb700: 68062739 strb     w8, [x19, #0x9c1]
+00000000031fb704: 880240f9 ldr      x8, [x20]
+00000000031fb708: a00240f9 ldr      x0, [x21]
+00000000031fb70c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb710: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000031fb714: 130540f9 ldr      x19, [x8, #8]
+00000000031fb718: 49000035 cbnz     w9, #0x31fb720
+00000000031fb71c: 1ef1ad97 bl       #0x1d77b94
+00000000031fb720: e00313aa mov      x0, x19
+00000000031fb724: e1031faa mov      x1, xzr
+00000000031fb728: e2031faa mov      x2, xzr
+00000000031fb72c: 649f3594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000031fb730: c0010036 tbz      w0, #0, #0x31fb768
+00000000031fb734: e8950090 adrp     x8, #0x44b7000
+00000000031fb738: e9950090 adrp     x9, #0x44b7000
+00000000031fb73c: 08b547f9 ldr      x8, [x8, #0xf68]
+00000000031fb740: 29ad47f9 ldr      x9, [x9, #0xf58]
+00000000031fb744: 000140f9 ldr      x0, [x8]
+00000000031fb748: 210140f9 ldr      x1, [x9]
+00000000031fb74c: 0534c597 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+00000000031fb750: 880240f9 ldr      x8, [x20]
+00000000031fb754: e10300aa mov      x1, x0
+00000000031fb758: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb75c: 008d00f8 str      x0, [x8, #8]!
+00000000031fb760: e00308aa mov      x0, x8
+00000000031fb764: acf0ad97 bl       #0x1d77a14
+00000000031fb768: 880240f9 ldr      x8, [x20]
+00000000031fb76c: a00240f9 ldr      x0, [x21]
+00000000031fb770: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb774: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000031fb778: 130540f9 ldr      x19, [x8, #8]
+00000000031fb77c: 49000035 cbnz     w9, #0x31fb784
+00000000031fb780: 05f1ad97 bl       #0x1d77b94
+00000000031fb784: e00313aa mov      x0, x19
+00000000031fb788: e1031faa mov      x1, xzr
+00000000031fb78c: e2031faa mov      x2, xzr
+00000000031fb790: 4b9f3594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000031fb794: 60010036 tbz      w0, #0, #0x31fb7c0
+00000000031fb798: e8950090 adrp     x8, #0x44b7000
+00000000031fb79c: 08b147f9 ldr      x8, [x8, #0xf60]
+00000000031fb7a0: 000140f9 ldr      x0, [x8]
+00000000031fb7a4: 2f3fc597 bl       #0x234b460 ; ScriptableObject :: public static T CreateInstance() { }
+00000000031fb7a8: 880240f9 ldr      x8, [x20]
+00000000031fb7ac: e10300aa mov      x1, x0
+00000000031fb7b0: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb7b4: 008d00f8 str      x0, [x8, #8]!
+00000000031fb7b8: e00308aa mov      x0, x8
+00000000031fb7bc: 96f0ad97 bl       #0x1d77a14
+00000000031fb7c0: 880240f9 ldr      x8, [x20]
+00000000031fb7c4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb7c8: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb7cc: 000540f9 ldr      x0, [x8, #8]
+00000000031fb7d0: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb7d4: c0035fd6 ret      
+
+; public CloudAccountConfig() { }
+; token=0x60000CA file_offset=0x31FA8C4 tool_rva=0x31FA8C4 length=0x84
+00000000031fe8c4: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fe8c8: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fe8cc: f4ac0090 adrp     x20, #0x479a000
+00000000031fe8d0: 559500f0 adrp     x21, #0x44a9000
+00000000031fe8d4: f30300aa mov      x19, x0
+00000000031fe8d8: 880a6739 ldrb     w8, [x20, #0x9c2]
+00000000031fe8dc: b51642f9 ldr      x21, [x21, #0x428]
+00000000031fe8e0: c8000037 tbnz     w8, #0, #0x31fe8f8
+00000000031fe8e4: 409500f0 adrp     x0, #0x44a9000
+00000000031fe8e8: 001442f9 ldr      x0, [x0, #0x428]
+00000000031fe8ec: 5de4ad97 bl       #0x1d77a60
+00000000031fe8f0: 28008052 mov      w8, #1
+00000000031fe8f4: 880a2739 strb     w8, [x20, #0x9c2]
+00000000031fe8f8: a10240f9 ldr      x1, [x21]
+00000000031fe8fc: e00313aa mov      x0, x19
+00000000031fe900: 018c01f8 str      x1, [x0, #0x18]!
+00000000031fe904: 44e4ad97 bl       #0x1d77a14
+00000000031fe908: e8c30032 mov      w8, #0x1010101
+00000000031fe90c: 69d0fed0 adrp     x9, #0xc0c000
+00000000031fe910: 2a008052 mov      w10, #1
+00000000031fe914: 682200b9 str      w8, [x19, #0x20]
+00000000031fe918: 202141fd ldr      d0, [x9, #0x240]
+00000000031fe91c: 680080d2 mov      x8, #3
+00000000031fe920: 0808e8f2 movk     x8, #0x4040, lsl #48
+00000000031fe924: 6ac20039 strb     w10, [x19, #0x30]
+00000000031fe928: e00313aa mov      x0, x19
+00000000031fe92c: 684203f8 stur     x8, [x19, #0x34]
+00000000031fe930: e1031faa mov      x1, xzr
+00000000031fe934: 601600fd str      d0, [x19, #0x28]
+00000000031fe938: 6a4200b9 str      w10, [x19, #0x40]
+00000000031fe93c: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fe940: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fe944: d3993514 b        #0x3f65090 ; ScriptableObject :: public ScriptableObject() { }
+
+; public static void ApplyRemote(bool googleAutoRecover, bool deviceRecovery, bool deviceHashUpload) { }
+; token=0x60000C3 file_offset=0x31FA658 tool_rva=0x31FA658 length=0x110
+00000000031fe658: ff4301d1 sub      sp, sp, #0x50
+00000000031fe65c: fe0b00f9 str      x30, [sp, #0x10]
+00000000031fe660: f85f02a9 stp      x24, x23, [sp, #0x20]
+00000000031fe664: f65703a9 stp      x22, x21, [sp, #0x30]
+00000000031fe668: f44f04a9 stp      x20, x19, [sp, #0x40]
+00000000031fe66c: f8ac0090 adrp     x24, #0x479a000
+00000000031fe670: 579500d0 adrp     x23, #0x44a8000
+00000000031fe674: d69500b0 adrp     x22, #0x44b7000
+00000000031fe678: 08f36639 ldrb     w8, [x24, #0x9bc]
+00000000031fe67c: f7aa45f9 ldr      x23, [x23, #0xb50]
+00000000031fe680: d6aa47f9 ldr      x22, [x22, #0xf50]
+00000000031fe684: f303022a mov      w19, w2
+00000000031fe688: f403012a mov      w20, w1
+00000000031fe68c: f503002a mov      w21, w0
+00000000031fe690: 28010037 tbnz     w8, #0, #0x31fe6b4
+00000000031fe694: c09500b0 adrp     x0, #0x44b7000
+00000000031fe698: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fe69c: f1e4ad97 bl       #0x1d77a60
+00000000031fe6a0: 409500d0 adrp     x0, #0x44a8000
+00000000031fe6a4: 00a845f9 ldr      x0, [x0, #0xb50]
+00000000031fe6a8: eee4ad97 bl       #0x1d77a60
+00000000031fe6ac: 28008052 mov      w8, #1
+00000000031fe6b0: 08f32639 strb     w8, [x24, #0x9bc]
+00000000031fe6b4: e20240f9 ldr      x2, [x23]
+00000000031fe6b8: e0730091 add      x0, sp, #0x1c
+00000000031fe6bc: a1020012 and      w1, w21, #1
+00000000031fe6c0: ff3b0079 strh     wzr, [sp, #0x1c]
+00000000031fe6c4: 3c44fb97 bl       #0x30cf7b4
+00000000031fe6c8: c80240f9 ldr      x8, [x22]
+00000000031fe6cc: e93b4079 ldrh     w9, [sp, #0x1c]
+00000000031fe6d0: e0630091 add      x0, sp, #0x18
+00000000031fe6d4: 81020012 and      w1, w20, #1
+00000000031fe6d8: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe6dc: 09010079 strh     w9, [x8]
+00000000031fe6e0: e20240f9 ldr      x2, [x23]
+00000000031fe6e4: ff330079 strh     wzr, [sp, #0x18]
+00000000031fe6e8: 3344fb97 bl       #0x30cf7b4
+00000000031fe6ec: c80240f9 ldr      x8, [x22]
+00000000031fe6f0: e9334079 ldrh     w9, [sp, #0x18]
+00000000031fe6f4: e0330091 add      x0, sp, #0xc
+00000000031fe6f8: 61020012 and      w1, w19, #1
+00000000031fe6fc: ff1b0079 strh     wzr, [sp, #0xc]
+00000000031fe700: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe704: 09050079 strh     w9, [x8, #2]
+00000000031fe708: e20240f9 ldr      x2, [x23]
+00000000031fe70c: 2a44fb97 bl       #0x30cf7b4
+00000000031fe710: c80240f9 ldr      x8, [x22]
+00000000031fe714: f3ac0090 adrp     x19, #0x479a000
+00000000031fe718: e91b4079 ldrh     w9, [sp, #0xc]
+00000000031fe71c: 6a6e6939 ldrb     w10, [x19, #0xa5b]
+00000000031fe720: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe724: 09090079 strh     w9, [x8, #4]
+00000000031fe728: ca000035 cbnz     w10, #0x31fe740
+00000000031fe72c: c09500b0 adrp     x0, #0x44b7000
+00000000031fe730: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fe734: cbe4ad97 bl       #0x1d77a60
+00000000031fe738: 28008052 mov      w8, #1
+00000000031fe73c: 686e2939 strb     w8, [x19, #0xa5b]
+00000000031fe740: c80240f9 ldr      x8, [x22]
+00000000031fe744: f44f44a9 ldp      x20, x19, [sp, #0x40]
+00000000031fe748: f65743a9 ldp      x22, x21, [sp, #0x30]
+00000000031fe74c: 29008052 mov      w9, #1
+00000000031fe750: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe754: fe0b40f9 ldr      x30, [sp, #0x10]
+00000000031fe758: f85f42a9 ldp      x24, x23, [sp, #0x20]
+00000000031fe75c: 09190039 strb     w9, [x8, #6]
+00000000031fe760: ff430191 add      sp, sp, #0x50
+00000000031fe764: c0035fd6 ret      
+
+; public bool get_DeviceHashUploadEffective() { }
+; token=0x60000C7 file_offset=0x31FA7AC tool_rva=0x31FA7AC length=0x84
+00000000031fe7ac: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fe7b0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fe7b4: f4ac0090 adrp     x20, #0x479a000
+00000000031fe7b8: d59500b0 adrp     x21, #0x44b7000
+00000000031fe7bc: f30300aa mov      x19, x0
+00000000031fe7c0: 88fe6639 ldrb     w8, [x20, #0x9bf]
+00000000031fe7c4: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fe7c8: 88010037 tbnz     w8, #0, #0x31fe7f8
+00000000031fe7cc: c09500b0 adrp     x0, #0x44b7000
+00000000031fe7d0: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fe7d4: a3e4ad97 bl       #0x1d77a60
+00000000031fe7d8: 409500d0 adrp     x0, #0x44a8000
+00000000031fe7dc: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fe7e0: a0e4ad97 bl       #0x1d77a60
+00000000031fe7e4: 409500d0 adrp     x0, #0x44a8000
+00000000031fe7e8: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fe7ec: 9de4ad97 bl       #0x1d77a60
+00000000031fe7f0: 28008052 mov      w8, #1
+00000000031fe7f4: 88fe2639 strb     w8, [x20, #0x9bf]
+00000000031fe7f8: a80240f9 ldr      x8, [x21]
+00000000031fe7fc: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe800: 08094079 ldrh     w8, [x8, #4]
+00000000031fe804: 1f1d0072 tst      w8, #0xff
+00000000031fe808: 80000054 b.eq     #0x31fe818
+00000000031fe80c: 1ffd0371 cmp      w8, #0xff
+00000000031fe810: e0979f1a cset     w0, hi
+00000000031fe814: 04000014 b        #0x31fe824
+00000000031fe818: 68964039 ldrb     w8, [x19, #0x25]
+00000000031fe81c: 1f010071 cmp      w8, #0
+00000000031fe820: e0079f1a cset     w0, ne
+00000000031fe824: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fe828: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fe82c: c0035fd6 ret      
+
+; public bool get_DeviceRecoveryEffective() { }
+; token=0x60000C6 file_offset=0x31F7864 tool_rva=0x31F7864 length=0x84
+00000000031fb864: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb868: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb86c: f4ac00f0 adrp     x20, #0x479a000
+00000000031fb870: f5950090 adrp     x21, #0x44b7000
+00000000031fb874: f30300aa mov      x19, x0
+00000000031fb878: 88fa6639 ldrb     w8, [x20, #0x9be]
+00000000031fb87c: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fb880: 88010037 tbnz     w8, #0, #0x31fb8b0
+00000000031fb884: e0950090 adrp     x0, #0x44b7000
+00000000031fb888: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb88c: 75f0ad97 bl       #0x1d77a60
+00000000031fb890: 609500b0 adrp     x0, #0x44a8000
+00000000031fb894: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fb898: 72f0ad97 bl       #0x1d77a60
+00000000031fb89c: 609500b0 adrp     x0, #0x44a8000
+00000000031fb8a0: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fb8a4: 6ff0ad97 bl       #0x1d77a60
+00000000031fb8a8: 28008052 mov      w8, #1
+00000000031fb8ac: 88fa2639 strb     w8, [x20, #0x9be]
+00000000031fb8b0: a80240f9 ldr      x8, [x21]
+00000000031fb8b4: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb8b8: 08054079 ldrh     w8, [x8, #2]
+00000000031fb8bc: 1f1d0072 tst      w8, #0xff
+00000000031fb8c0: 80000054 b.eq     #0x31fb8d0
+00000000031fb8c4: 1ffd0371 cmp      w8, #0xff
+00000000031fb8c8: e0979f1a cset     w0, hi
+00000000031fb8cc: 04000014 b        #0x31fb8dc
+00000000031fb8d0: 68924039 ldrb     w8, [x19, #0x24]
+00000000031fb8d4: 1f010071 cmp      w8, #0
+00000000031fb8d8: e0079f1a cset     w0, ne
+00000000031fb8dc: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb8e0: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb8e4: c0035fd6 ret      
+
+; public bool get_GoogleAutoRecoverEffective() { }
+; token=0x60000C5 file_offset=0x31F78E8 tool_rva=0x31F78E8 length=0x84
+00000000031fb8e8: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb8ec: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb8f0: f4ac00f0 adrp     x20, #0x479a000
+00000000031fb8f4: f5950090 adrp     x21, #0x44b7000
+00000000031fb8f8: f30300aa mov      x19, x0
+00000000031fb8fc: 88f66639 ldrb     w8, [x20, #0x9bd]
+00000000031fb900: b5aa47f9 ldr      x21, [x21, #0xf50]
+00000000031fb904: 88010037 tbnz     w8, #0, #0x31fb934
+00000000031fb908: e0950090 adrp     x0, #0x44b7000
+00000000031fb90c: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb910: 54f0ad97 bl       #0x1d77a60
+00000000031fb914: 609500b0 adrp     x0, #0x44a8000
+00000000031fb918: 000046f9 ldr      x0, [x0, #0xc00]
+00000000031fb91c: 51f0ad97 bl       #0x1d77a60
+00000000031fb920: 609500b0 adrp     x0, #0x44a8000
+00000000031fb924: 000446f9 ldr      x0, [x0, #0xc08]
+00000000031fb928: 4ef0ad97 bl       #0x1d77a60
+00000000031fb92c: 28008052 mov      w8, #1
+00000000031fb930: 88f62639 strb     w8, [x20, #0x9bd]
+00000000031fb934: a80240f9 ldr      x8, [x21]
+00000000031fb938: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb93c: 08014079 ldrh     w8, [x8]
+00000000031fb940: 1f1d0072 tst      w8, #0xff
+00000000031fb944: 80000054 b.eq     #0x31fb954
+00000000031fb948: 1ffd0371 cmp      w8, #0xff
+00000000031fb94c: e0979f1a cset     w0, hi
+00000000031fb950: 04000014 b        #0x31fb960
+00000000031fb954: 689a4039 ldrb     w8, [x19, #0x26]
+00000000031fb958: 1f010071 cmp      w8, #0
+00000000031fb95c: e0079f1a cset     w0, ne
+00000000031fb960: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb964: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb968: c0035fd6 ret      
+
+; public static CloudAccountConfig get_Instance() { }
+; token=0x60000C9 file_offset=0x31F769C tool_rva=0x31F769C length=0x13C
+00000000031fb69c: fe57bea9 stp      x30, x21, [sp, #-0x20]!
+00000000031fb6a0: f44f01a9 stp      x20, x19, [sp, #0x10]
+00000000031fb6a4: f3ac00f0 adrp     x19, #0x479a000
+00000000031fb6a8: f4950090 adrp     x20, #0x44b7000
+00000000031fb6ac: 759500b0 adrp     x21, #0x44a8000
+00000000031fb6b0: 68066739 ldrb     w8, [x19, #0x9c1]
+00000000031fb6b4: 94aa47f9 ldr      x20, [x20, #0xf50]
+00000000031fb6b8: b56245f9 ldr      x21, [x21, #0xac0]
+00000000031fb6bc: 48020037 tbnz     w8, #0, #0x31fb704
+00000000031fb6c0: e0950090 adrp     x0, #0x44b7000
+00000000031fb6c4: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fb6c8: e6f0ad97 bl       #0x1d77a60
+00000000031fb6cc: 609500b0 adrp     x0, #0x44a8000
+00000000031fb6d0: 006045f9 ldr      x0, [x0, #0xac0]
+00000000031fb6d4: e3f0ad97 bl       #0x1d77a60
+00000000031fb6d8: e0950090 adrp     x0, #0x44b7000
+00000000031fb6dc: 00ac47f9 ldr      x0, [x0, #0xf58]
+00000000031fb6e0: e0f0ad97 bl       #0x1d77a60
+00000000031fb6e4: e0950090 adrp     x0, #0x44b7000
+00000000031fb6e8: 00b047f9 ldr      x0, [x0, #0xf60]
+00000000031fb6ec: ddf0ad97 bl       #0x1d77a60
+00000000031fb6f0: e0950090 adrp     x0, #0x44b7000
+00000000031fb6f4: 00b447f9 ldr      x0, [x0, #0xf68]
+00000000031fb6f8: daf0ad97 bl       #0x1d77a60
+00000000031fb6fc: 28008052 mov      w8, #1
+00000000031fb700: 68062739 strb     w8, [x19, #0x9c1]
+00000000031fb704: 880240f9 ldr      x8, [x20]
+00000000031fb708: a00240f9 ldr      x0, [x21]
+00000000031fb70c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb710: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000031fb714: 130540f9 ldr      x19, [x8, #8]
+00000000031fb718: 49000035 cbnz     w9, #0x31fb720
+00000000031fb71c: 1ef1ad97 bl       #0x1d77b94
+00000000031fb720: e00313aa mov      x0, x19
+00000000031fb724: e1031faa mov      x1, xzr
+00000000031fb728: e2031faa mov      x2, xzr
+00000000031fb72c: 649f3594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000031fb730: c0010036 tbz      w0, #0, #0x31fb768
+00000000031fb734: e8950090 adrp     x8, #0x44b7000
+00000000031fb738: e9950090 adrp     x9, #0x44b7000
+00000000031fb73c: 08b547f9 ldr      x8, [x8, #0xf68]
+00000000031fb740: 29ad47f9 ldr      x9, [x9, #0xf58]
+00000000031fb744: 000140f9 ldr      x0, [x8]
+00000000031fb748: 210140f9 ldr      x1, [x9]
+00000000031fb74c: 0534c597 bl       #0x2348760 ; Resources :: public static T Load(string path) { }
+00000000031fb750: 880240f9 ldr      x8, [x20]
+00000000031fb754: e10300aa mov      x1, x0
+00000000031fb758: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb75c: 008d00f8 str      x0, [x8, #8]!
+00000000031fb760: e00308aa mov      x0, x8
+00000000031fb764: acf0ad97 bl       #0x1d77a14
+00000000031fb768: 880240f9 ldr      x8, [x20]
+00000000031fb76c: a00240f9 ldr      x0, [x21]
+00000000031fb770: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb774: 09e440b9 ldr      w9, [x0, #0xe4]
+00000000031fb778: 130540f9 ldr      x19, [x8, #8]
+00000000031fb77c: 49000035 cbnz     w9, #0x31fb784
+00000000031fb780: 05f1ad97 bl       #0x1d77b94
+00000000031fb784: e00313aa mov      x0, x19
+00000000031fb788: e1031faa mov      x1, xzr
+00000000031fb78c: e2031faa mov      x2, xzr
+00000000031fb790: 4b9f3594 bl       #0x3f634bc ; Object :: public static bool op_Equality(Object x, Object y) { }
+00000000031fb794: 60010036 tbz      w0, #0, #0x31fb7c0
+00000000031fb798: e8950090 adrp     x8, #0x44b7000
+00000000031fb79c: 08b147f9 ldr      x8, [x8, #0xf60]
+00000000031fb7a0: 000140f9 ldr      x0, [x8]
+00000000031fb7a4: 2f3fc597 bl       #0x234b460 ; ScriptableObject :: public static T CreateInstance() { }
+00000000031fb7a8: 880240f9 ldr      x8, [x20]
+00000000031fb7ac: e10300aa mov      x1, x0
+00000000031fb7b0: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb7b4: 008d00f8 str      x0, [x8, #8]!
+00000000031fb7b8: e00308aa mov      x0, x8
+00000000031fb7bc: 96f0ad97 bl       #0x1d77a14
+00000000031fb7c0: 880240f9 ldr      x8, [x20]
+00000000031fb7c4: f44f41a9 ldp      x20, x19, [sp, #0x10]
+00000000031fb7c8: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fb7cc: 000540f9 ldr      x0, [x8, #8]
+00000000031fb7d0: fe57c2a8 ldp      x30, x21, [sp], #0x20
+00000000031fb7d4: c0035fd6 ret      
+
+; public static void MarkRemoteReady() { }
+; token=0x60000C4 file_offset=0x31FA768 tool_rva=0x31FA768 length=0x44
+00000000031fe768: fe4fbfa9 stp      x30, x19, [sp, #-0x10]!
+00000000031fe76c: f3ac0090 adrp     x19, #0x479a000
+00000000031fe770: 686e6939 ldrb     w8, [x19, #0xa5b]
+00000000031fe774: c8000035 cbnz     w8, #0x31fe78c
+00000000031fe778: c09500b0 adrp     x0, #0x44b7000
+00000000031fe77c: 00a847f9 ldr      x0, [x0, #0xf50]
+00000000031fe780: b8e4ad97 bl       #0x1d77a60
+00000000031fe784: 28008052 mov      w8, #1
+00000000031fe788: 686e2939 strb     w8, [x19, #0xa5b]
+00000000031fe78c: c89500b0 adrp     x8, #0x44b7000
+00000000031fe790: 29008052 mov      w9, #1
+00000000031fe794: 08a947f9 ldr      x8, [x8, #0xf50]
+00000000031fe798: 080140f9 ldr      x8, [x8]
+00000000031fe79c: 085140f9 ldr      x8, [x8, #0xa0]
+00000000031fe7a0: 09190039 strb     w9, [x8, #6]
+00000000031fe7a4: fe4fc1a8 ldp      x30, x19, [sp], #0x10
+00000000031fe7a8: c0035fd6 ret      
