@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,6 +40,16 @@ namespace Hamdoku.Editor {
             RegisterAssets(new[] { gamePath, dialogPath, "Assets/Res_Runtime/Config/GameConfig.asset" }.Concat(texts.Select(text => AssetDatabase.GetAssetPath(text))));
             AssetDatabase.SaveAssets();
             Debug.Log("[GameSetup] Gameplay assets, fonts and default registrations ready.");
+        }
+        [MenuItem("Hamdoku/Setup/Update Original Tutorial")]
+        public static void SetupTutorial() {
+            ImportSprites();
+            var texts = AssetDatabase.FindAssets("t:L10NSO", new[] { "Assets/Res_Runtime/Localization" })
+                .Select(guid => AssetDatabase.LoadAssetAtPath<L10NSO>(AssetDatabase.GUIDToAssetPath(guid))).ToList();
+            BakeFonts(texts);
+            GameOriginalUIEM.Adapt();
+            RegisterAssets(texts.Where(text => text.id >= UINameType.Game_TutorialRegion && text.id <= UINameType.Game_TutorialStart).Select(text => AssetDatabase.GetAssetPath(text)));
+            AssetDatabase.SaveAssets();
         }
         static void ImportSprites() {
             foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Game", "*.png")) {
@@ -88,16 +98,19 @@ namespace Hamdoku.Editor {
             // First five sizes from the native BoardSize table candidate, cross-checked against the extracted data.
             // This batch deliberately excludes later adaptive skill progression and map transforms.
             config.campaignSizes = new[] { 4, 5, 6, 6, 8 };
+            config.tutorialPlaceIndices = new[] { 2, 13, 4 };
+            config.tutorialLineIndices = new[] { 0, 1, 3, 6, 10, 14 };
+            config.tutorialColors = new[] { new Color(0.31f, 0.72f, 0.69f), new Color(0.87f, 0.46f, 0.73f), new Color(0.94f, 0.66f, 0.32f), new Color(0.67f, 0.50f, 0.85f) };
             config.tutorialPlaceIndex = 13;
             config.tutorialTapIndex = 14;
-            config.tutorialDragIndices = new[] { 12, 14, 15 };
+            config.tutorialDragIndices = new[] { 8, 9, 12 };
             config.maxHearts = 3;
             config.hintsPerLevel = 3;
             config.guidesPerLevel = 3;
             config.scoreBase = 576;
             config.scoreStep = 96;
             config.doubleTapSeconds = 0.3f;
-            config.dragThreshold = 12;
+            config.dragThreshold = 0.45f;
             config.soundVolume = 0.6f;
             // Original BoardView palette, first eight entries used by the shipped map pools.
             config.regionColors = new[] {

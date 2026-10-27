@@ -1,0 +1,186 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 266f0e7b668f46d086b1d352b86197fc, type: 3}
+  m_Name: SettingsConfig
+  m_EditorClassIdentifier: Hamdoku::Hamdoku.SettingsConfigSO
+  defaultEffects: 1
+  defaultMusic: 1
+  defaultVibration: 1
+  defaultBorder: 0
+  defaultPattern: 0
+  defaultVoice: 1
+  backgroundMusic: {fileID: 8300000, guid: 235b004462b75e74f949244fedd16f34, type: 3}
+  cuteVoices:
+  - {fileID: 8300000, guid: 64eb9e40fcaa5bc4192ae364c5ea5384, type: 3}
+  - {fileID: 8300000, guid: 43a02a29fed362245b679b8dac54df4d, type: 3}
+  - {fileID: 8300000, guid: 53abc0f3c4644c242afffc22406fb892, type: 3}
+  - {fileID: 8300000, guid: faa1933eedfb7ce4bb121cc45f09a72f, type: 3}
+  - {fileID: 8300000, guid: e5e066a9dbbc71142bc6fb8e7f6001e6, type: 3}
+  - {fileID: 8300000, guid: 9cdd7407b25ccec42b4fe5b0de0c1341, type: 3}
+  - {fileID: 8300000, guid: b1306282cc0106d4ca0a6d77bdc3afdb, type: 3}
+  - {fileID: 8300000, guid: aff80075b0746404ea6b7941c3c1b89a, type: 3}
+  - {fileID: 8300000, guid: 79862687a486f454fb67932406b632c9, type: 3}
+  - {fileID: 8300000, guid: 65306479bfd73e444bfd411b9cf8276c, type: 3}
+  femaleVoices:
+  - {fileID: 8300000, guid: 89eb8e453cf724041aed660223ff4141, type: 3}
+  - {fileID: 8300000, guid: c27960478fae3fa40a5166f085c53886, type: 3}
+  - {fileID: 8300000, guid: b4e39d276bb958e48bcc878f37713a6d, type: 3}
+  - {fileID: 8300000, guid: e15b6b0bfdd125741bfe0d85eab722f9, type: 3}
+  - {fileID: 8300000, guid: 764eba16ba4bad349b8b276f2ca823b0, type: 3}
+  - {fileID: 8300000, guid: 33652c38bec9daf4fa0f3b0f312e6d6a, type: 3}
+  - {fileID: 8300000, guid: 810a25567c7ac2c45aad2504931278cc, type: 3}
+  - {fileID: 8300000, guid: eec36aede6f5cfa42a5869ee5bad193f, type: 3}
+  - {fileID: 8300000, guid: 19e5fa4b40e793d46ba0bd4af0b9db3e, type: 3}
+  - {fileID: 8300000, guid: 05dc6e1044e6caa49bee6681a5d87a10, type: 3}
+  maleVoices:
+  - {fileID: 8300000, guid: 050fa2cd968dae148bca54c0f45ab955, type: 3}
+  - {fileID: 8300000, guid: dc71d36b4dba3384480238962959a3e3, type: 3}
+  - {fileID: 8300000, guid: d038da1d206e79f4e8ff4d8f63432baa, type: 3}
+  - {fileID: 8300000, guid: 4a2f0edc20631fd4c805160c32394eee, type: 3}
+  - {fileID: 8300000, guid: 2f77cefc679a7f142a7c4deb74790bb6, type: 3}
+  - {fileID: 8300000, guid: bca67c0cae3005b40b3b9b5c47ba7c78, type: 3}
+  - {fileID: 8300000, guid: 5d2163a2132ae814a840cece04532d5a, type: 3}
+  - {fileID: 8300000, guid: a873ae31e13932642a0855c60a0202d5, type: 3}
+  - {fileID: 8300000, guid: 9413d29fdfb90a34ebdd7d26fcd6ebcf, type: 3}
+  - {fileID: 8300000, guid: 356698fc900329146b6c9b7b34aa5745, type: 3}
+  musicVolume: 0.3
+  voiceVolume: 0.8
+  sampleTier: 3
+  borderColor: {r: 0.39, g: 0.29, b: 0.2, a: 0.85}
+  borderWidth: 4
+  supportUrl: 
+  privacyUrl: 
+  termsUrl: 
+  panelWidth: 820
+  panelPpum: 0.6
+  padTop: 56
+  padBottom: 44
+  padSide: 44
+  titleFs: 62
+  titleH: 90
+  closeSize: 116
+  closeOffset: {x: -24, y: -24}
+  groupPpum: 0.7
+  rowH: 120
+  groupPadV: 18
+  rowIconSize: 80
+  rowIconX: 95
+  rowLabelX: 175
+  rowLabelFs: 38
+  sepThickness: 2
+  sepInset: 34
+  sepColor: {r: 0.55, g: 0.45, b: 0.35, a: 0.15}
+  toggleSize: {x: 180, y: 64}
+  toggleRightPad: 40
+  knobSize: 52
+  knobInset: 8
+  toggleTextFs: 30
+  toggleTextX: 34
+  trackOnColor: {r: 0.24705882, g: 0.67058825, b: 0.64705884, a: 1}
+  trackOffColor: {r: 0.629272, g: 0.745283, b: 0.7355154, a: 1}
+  toggleTextColor: {r: 1, g: 1, b: 1, a: 1}
+  voicePillSize: {x: 268, y: 72}
+  voiceArrowSize: 60
+  voiceArrowInset: 4
+  voiceValueFs: 34
+  voicePillColor: {r: 0.94, g: 0.91, b: 0.86, a: 1}
+  langValueFs: 36
+  chevronRightPad: 70
+  chevronSize: 36
+  langValueGap: 34
+  listBgColor: {r: 1, g: 1, b: 1, a: 1}
+  listSelColor: {r: 0.9433962, g: 0.88126516, b: 0.743147, a: 0.8509804}
+  langListW: 360
+  langListYOffset: 44
+  langListItemH: 96
+  langListFs: 36
+  langListPad: 12
+  langListVisibleRows: 5
+  langListPeek: 0.5
+  accountBlockH: 135
+  gapGroupAccount: 26
+  accountIconSize: 64
+  accountIconGap: 14
+  saveGapTitleBody: 30
+  saveMsgFs: 38
+  saveMsgH: 130
+  saveMsgColor: {r: 0.55, g: 0.33, b: 0.33, a: 1}
+  saveGapMsgBtns: 36
+  saveBtnSize: {x: 700, y: 124}
+  saveBtnGap: 30
+  saveBtnFs: 42
+  saveBtnIconSize: 64
+  saveBtnIconX: 66
+  saveBorderW: 3
+  saveFacebookColor: {r: 0.031, g: 0.4, b: 1, a: 1}
+  saveGoogleColor: {r: 1, g: 1, b: 1, a: 1}
+  saveGoogleBorderColor: {r: 0.55, g: 0.55, b: 0.55, a: 1}
+  saveGoogleTextColor: {r: 0.12, g: 0.12, b: 0.12, a: 1}
+  saveAppleColor: {r: 0, g: 0, b: 0, a: 1}
+  saveGapBtnsLink: 44
+  saveLinkFs: 34
+  saveLinkH: 60
+  saveLinkColor: {r: 0.55, g: 0.33, b: 0.33, a: 1}
+  savePadBottom: 60
+  saveStatusBoxH: 300
+  saveStatusPad: 40
+  saveStatusFs: 38
+  saveStatusLineSpacing: 26
+  saveShowEmail: 1
+  saveGapBoxBtn: 40
+  saveDeleteBoxH: 500
+  saveDeleteGapTitleBox: 16
+  saveDeleteGapBoxBtn: 34
+  saveDeleteFs: 35
+  saveDeleteLineSpacing: 40
+  saveDeleteParagraphSpacing: 40
+  saveDeletePad: 36
+  saveNoticeBoxH: 330
+  saveNoticeMaxBoxH: 1000
+  saveResultBoxH: 440
+  saveResultIconSize: 170
+  saveResultIconTop: 44
+  saveResultTextGap: 40
+  saveResultFs: 40
+  saveResultLineSpacing: 26
+  saveResultOkColor: {r: 0.3, g: 0.69, b: 0.31, a: 1}
+  saveResultFailColor: {r: 0.91, g: 0.3, b: 0.3, a: 1}
+  gapTitleGroup: 34
+  gapGroupDash: 42
+  gapDashBtn: 42
+  gapBtnBtn: 10
+  gapBtnLinks: 60
+  gapLinksVersion: 50
+  dashLen: 10
+  dashGap: 10
+  dashThickness: 2
+  dashColor: {r: 0.8301887, g: 0.65909576, b: 0.4816661, a: 0.7294118}
+  btnH: 120
+  btnPpum: 1.125
+  btnFs: 38
+  btnIconSize: 70
+  btnIconX: 130
+  linkIconSize: 70
+  linkFs: 30
+  linkIconTextGap: 10
+  linkItemGap: 250
+  linkRowH: 52
+  uidFs: 26
+  uidH: 46
+  uidCopyIconSize: 42
+  uidCopyGap: 14
+  uidVersionGap: 28
+  uidDisplayChars: 0
+  versionFs: 28
+  versionH: 42
+  wideScale: 0.8
+  fitMargin: 0.94

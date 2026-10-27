@@ -22,12 +22,23 @@ namespace Hamdoku {
             if (data == null || (data.version != config.saveVersion &&
                 !(config.saveVersion == 2 && data.version == 1) &&
                 !(config.saveVersion == 3 && (data.version == 1 || data.version == 2)) &&
-                !(config.saveVersion == 4 && data.version >= 1 && data.version <= 3)) ||
+                !(config.saveVersion == 4 && data.version >= 1 && data.version <= 3) &&
+                !(config.saveVersion == 5 && data.version >= 1 && data.version <= 4) &&
+                !(config.saveVersion == 6 && data.version >= 1 && data.version <= 5)) ||
                 data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid or unsupported Hamdoku progress: " + path);
             }
             if (data.version >= 3) {
                 ValidateStreak(data.streak);
+            }
+            if (data.version >= 6) {
+                ValidateSettings(data.settings);
+            }
+            if (data.version >= 5) {
+                ValidateProfile(data.profile);
+                if (data.profile.trackedThroughLevel != data.campaignClears || data.profile.retriedLevel > data.campaignClears + 1) {
+                    throw new InvalidDataException("Profile and campaign progress disagree.");
+                }
             }
             if (data.version >= 4) {
                 ValidateRanking(data.ranking, data.campaignClears);
@@ -43,6 +54,15 @@ namespace Hamdoku {
             if (data.version >= 3) {
                 ValidateStreak(data.streak);
             }
+            if (data.version >= 6) {
+                ValidateSettings(data.settings);
+            }
+            if (data.version >= 5) {
+                ValidateProfile(data.profile);
+                if (data.profile.trackedThroughLevel != data.campaignClears || data.profile.retriedLevel > data.campaignClears + 1) {
+                    throw new InvalidDataException("Profile and campaign progress disagree.");
+                }
+            }
             if (data.version >= 4) {
                 ValidateRanking(data.ranking, data.campaignClears);
             }
@@ -56,6 +76,23 @@ namespace Hamdoku {
                 File.Replace(temporary, path, null);
             } else {
                 File.Move(temporary, path);
+            }
+        }
+
+        public static void ValidateSettings(SettingsSaveModel data) {
+            if (data == null || data.voice < ComboVoiceType.None || data.voice > ComboVoiceType.Male) {
+                throw new InvalidDataException("Invalid settings progress.");
+            }
+        }
+        public static void ValidateProfile(ProfileSaveModel data) {
+            if (data == null || string.IsNullOrWhiteSpace(data.nickname) || data.avatarId < 0 || data.frameId < 0 ||
+                data.costumeId != -1 || data.mottoId < 0 || data.firstRecordedDay < 1 || data.firstRecordedDay > 3652059 ||
+                data.consecutiveClears < 0 || data.bestConsecutiveClears < data.consecutiveClears ||
+                data.firstTryClears < 0 || data.threeSeedClears < 0 || data.trackedThroughLevel < 0 ||
+                data.firstTryClears > data.trackedThroughLevel || data.threeSeedClears > data.trackedThroughLevel ||
+                data.retriedLevel < 0 || data.lastLoginDay < 0 || data.lastLoginDay > 3652059 ||
+                data.loginStreak < 0 || data.bestLoginStreak < data.loginStreak) {
+                throw new InvalidDataException("Invalid profile progress.");
             }
         }
 

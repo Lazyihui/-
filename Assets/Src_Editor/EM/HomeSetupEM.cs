@@ -154,7 +154,7 @@ namespace Hamdoku.Editor {
             config.buttonClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/button.wav");
             config.levelNormal = Sprite("btn_Home_Level");
             config.levelHard = Sprite("btn_Home_Level_Hard");
-            config.logoNormal = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/Img_Common_Logo.png");
+            config.logoNormal = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/new/Img_Common_Logo.png");
             config.logoHard = Sprite("Img_Home_Logo_Hard");
             config.lockedTint = new Color(0.78f, 0.78f, 0.78f, 1);
             config.idleBreatheAmount = 0.015f;
@@ -170,7 +170,7 @@ namespace Hamdoku.Editor {
             var root = Rect("Panel_Home", null, Vector2.zero, Vector2.zero);
             Stretch(root);
             var panel = root.gameObject.AddComponent<Panel_Home>();
-            var background = Image("Background", root, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/bg_Common_Menu.png"), Vector2.zero, Vector2.zero);
+            var background = Image("Background", root, AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/new/bg_Common_Menu.png"), Vector2.zero, Vector2.zero);
             Stretch(background.rectTransform);
             var fitter = background.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>();
             fitter.aspectMode = UnityEngine.UI.AspectRatioFitter.AspectMode.EnvelopeParent;

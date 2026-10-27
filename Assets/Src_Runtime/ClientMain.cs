@@ -19,16 +19,40 @@ namespace Hamdoku.Main {
         }
 
         void Awake() {
+            CreateContext();
+        }
+
+        void OnEnable() {
+            // Script reload does not call Awake/Start again on a surviving component.
+            if (ctx == null) {
+                CreateContext();
+                Initialize();
+            }
+        }
+
+        void CreateContext() {
             if (canvas_Screen == null || panel_Logo == null || logoConfig == null || logoEffects == null) {
                 throw new InvalidOperationException("Scene_Main must bind its Canvas, Panel_Logo, LogoConfigSO and AudioSource.");
             }
+            isTornDown = false;
             ctx = new GameContext();
+            ctx.state_Settings = new SettingsState();
+            ctx.vibrationModule = new VibrationModule();
+            ctx.state_Shop = new ShopState();
+            ctx.shopModule = new ShopModule();
+            ctx.state_Profile = new ProfileState();
             ctx.state_Ranking = new RankingState();
             ctx.rankingModule = new RankingModule();
             ctx.state_Loading = new LoadingState();
             ctx.events_Loading = new LoadingSystemEvents();
             ctx.canvasRepository = new CanvasRepository();
-            ctx.audioModule = new AudioModule(logoEffects);
+            var music = new GameObject("BackgroundMusic").AddComponent<AudioSource>();
+            music.transform.SetParent(transform, false);
+            music.playOnAwake = false;
+            var voice = new GameObject("ComboVoice").AddComponent<AudioSource>();
+            voice.transform.SetParent(transform, false);
+            voice.playOnAwake = false;
+            ctx.audioModule = new AudioModule(logoEffects, music, voice);
             ctx.panel_Logo = panel_Logo;
             ctx.logoConfig = logoConfig;
             ctx.assetModule = new AssetModule();
@@ -51,6 +75,15 @@ namespace Hamdoku.Main {
                 }
                 if (request == HomeRequestType.Ranking) {
                     RankingSystem.Open(ctx);
+                }
+                if (request == HomeRequestType.Profile) {
+                    ProfileSystem.Open(ctx);
+                }
+                if (request == HomeRequestType.Shop) {
+                    ShopSystem.Open(ctx);
+                }
+                if (request == HomeRequestType.Settings) {
+                    SettingsSystem.Open(ctx);
                 }
                 homeRequestHandle?.Invoke(request);
             };
@@ -82,6 +115,14 @@ namespace Hamdoku.Main {
             GameSystem.Tick(ctx, Time.unscaledDeltaTime);
             RankingSystem.Tick(ctx, Time.unscaledDeltaTime);
             StreakSystem.Tick(ctx, Time.unscaledDeltaTime);
+            ProfileSystem.Tick(ctx, Time.unscaledDeltaTime);
+            SettingsSystem.Tick(ctx);
+            ShopSystem.Tick(ctx, Time.unscaledDeltaTime);
+        }
+
+        void OnDisable() {
+            TearDown();
+            ctx = null;
         }
 
         void OnDestroy() {
@@ -111,11 +152,16 @@ namespace Hamdoku.Main {
                 return;
             }
             isTornDown = true;
+            ShopSystem.Exit(ctx);
+            SettingsSystem.Exit(ctx);
+            ProfileSystem.Exit(ctx);
             StreakSystem.Exit(ctx);
             RankingSystem.Exit(ctx);
             GameSystem.Exit(ctx);
             HomeSystem.Exit(ctx);
             LoadingController.Dispose(ctx);
+            var audio = ctx.audioModule;
+            audio.Release();
             readyHandle = null;
             errorHandle = null;
             homeRequestHandle = null;

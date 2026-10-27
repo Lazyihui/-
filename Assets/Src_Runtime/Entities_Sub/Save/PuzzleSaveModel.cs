@@ -27,6 +27,8 @@ namespace Hamdoku {
         [DataMember]
         public int tutorialStep;
         [DataMember]
+        public int tutorialFlowVersion;
+        [DataMember]
         public GameStatus status;
     }
 }

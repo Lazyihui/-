@@ -21,6 +21,21 @@ namespace Hamdoku {
                 config.regionColors == null || config.patterns == null || config.regionColors.Length < config.tutorial.size || config.patterns.Length < config.tutorial.size) {
                 throw new InvalidDataException("Invalid tutorial or palette configuration.");
             }
+            if (config.tutorialPlaceIndices == null || config.tutorialPlaceIndices.Length != 3 ||
+                config.tutorialLineIndices == null || config.tutorialLineIndices.Length == 0 ||
+                config.tutorialColors == null || config.tutorialColors.Length < config.tutorial.size) {
+                throw new InvalidDataException("Missing original tutorial flow configuration.");
+            }
+            foreach (int index in config.tutorialPlaceIndices) {
+                if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] != index % config.tutorial.size) {
+                    throw new InvalidDataException("Invalid tutorial placement target.");
+                }
+            }
+            foreach (int index in config.tutorialLineIndices) {
+                if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] == index % config.tutorial.size) {
+                    throw new InvalidDataException("Invalid tutorial line target.");
+                }
+            }
             foreach (int index in config.tutorialDragIndices) {
                 if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] == index % config.tutorial.size) {
                     throw new InvalidDataException("Invalid tutorial drag target.");
@@ -134,7 +149,7 @@ namespace Hamdoku {
             if (save.isTutorial != (puzzle == config.tutorial) || save.cells == null || save.cells.Length != puzzle.size * puzzle.size ||
                 save.hearts < 0 || save.hearts > config.maxHearts || save.mistakes < 0 || save.hints < 0 || save.hints > config.hintsPerLevel ||
                 save.guides < 0 || save.guides > config.guidesPerLevel || save.score < 0 || float.IsNaN(save.elapsed) || float.IsInfinity(save.elapsed) || save.elapsed < 0 ||
-                save.tutorialStep < 0 || save.tutorialStep > 3 || save.status < GameStatus.Playing || save.status > GameStatus.Failed) {
+                save.tutorialStep < 0 || save.tutorialStep > 7 || save.tutorialFlowVersion < 0 || save.tutorialFlowVersion > 1 || save.status < GameStatus.Playing || save.status > GameStatus.Failed) {
                 throw new InvalidDataException("Invalid active puzzle progress.");
             }
             if (save.isTutorial) {

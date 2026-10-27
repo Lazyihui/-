@@ -17,8 +17,10 @@ namespace Hamdoku {
         public bool oncePerSession;
         public float startDelay;
         public Sprite baseLogo;
+        public Vector2 baseLogoSize;
+        public Vector2 baseLogoCenter;
         public Vector2 canvasSize;
-        [Header("Original logo pieces: sprite, size and center")]
+        [Header("Logo pieces: sprite, size and center")]
         public Sprite hamsterMask;
         public Vector2 hamsterMaskSize;
         public Vector2 hamsterMaskCenter;
@@ -77,6 +79,9 @@ namespace Hamdoku {
         public float xLandBounceSeconds;
         public float xSfxLeadSeconds;
         public float xSfxDelaySeconds;
+        [Header("Paw idle pulse")]
+        public float xIdlePulseAmount;
+        public float xIdlePulseSpeed;
         [Header("Blink and settle")]
         public bool useBlink;
         public float blinkSeconds;

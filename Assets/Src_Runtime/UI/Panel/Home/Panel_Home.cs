@@ -5,6 +5,8 @@ using UnityEngine;
 
 namespace Hamdoku {
     public sealed class Panel_Home : MonoBehaviour, IPanelAsset {
+        public UnityEngine.UI.Image profileAvatar;
+        public UnityEngine.UI.Image profileFrame;
         public RectTransform safeRoot;
         public RectTransform contentRoot;
         public RectTransform logoRoot;

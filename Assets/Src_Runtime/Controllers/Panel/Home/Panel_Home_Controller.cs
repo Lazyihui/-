@@ -50,6 +50,10 @@ namespace Hamdoku.Controllers {
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
             var config = assets.GetHomeConfig();
+            var profileConfig = assets.GetProfileConfig();
+            var profile = save.profile;
+            panel.profileAvatar.sprite = profileConfig.avatars[profile.avatarId];
+            panel.profileFrame.sprite = profileConfig.frames[profile.frameId];
             int level = save.campaignClears + 1;
             bool hard = level >= config.hardLevelStart && level % config.hardLevelInterval == 0;
             panel.logo.sprite = hard ? config.logoHard : config.logoNormal;

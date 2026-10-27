@@ -9,6 +9,8 @@ namespace Hamdoku.Controllers {
             var saves = ctx.saveModule;
             var startupConfig = config.startupHomeConfig;
             var loaded = saves.Load(startupConfig, Application.persistentDataPath);
+            var audio = ctx.audioModule;
+            audio.SetEffectsEnabled(loaded == null || loaded.version < 6 || loaded.settings.effects);
             localization.AddAll(config.startupTexts, config.startupFonts);
             localization.Language_Set(loaded == null ? startupConfig.defaultLanguage : loaded.language);
             panel.Ctor(localization);
@@ -16,13 +18,13 @@ namespace Hamdoku.Controllers {
                 LoadingController.CompleteLogo(ctx);
             };
             panel.audioHandle = (clip, volume) => {
-                var audio = ctx.audioModule;
-                audio.PlayOneShot(clip, volume);
+                var effects = ctx.audioModule;
+                effects.PlayOneShot(clip, volume);
             };
+            RefreshText(ctx);
             panel.gameObject.SetActive(true);
             RefreshSafeArea(ctx);
             panel.Init(config);
-            RefreshText(ctx);
         }
 
         public static void RefreshText(GameContext ctx) {

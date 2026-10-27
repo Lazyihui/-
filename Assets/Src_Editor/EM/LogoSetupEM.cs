@@ -277,7 +277,7 @@ namespace Hamdoku.Editor {
             var widget = motion.gameObject.AddComponent<Widget_LogoIntro>();
             panel.logoIntro = widget;
             widget.motionRoot = motion;
-            widget.baseLogo = NewImage("Logo", motion, config.baseLogo, config.baseLogo.rect.size, Vector2.zero);
+            widget.baseLogo = NewImage("Logo", motion, config.baseLogo, config.baseLogoSize, config.baseLogoCenter);
             widget.baseLogo.preserveAspect = true;
 
             var parts = NewRect("IntroParts", motion);
@@ -298,8 +298,8 @@ namespace Hamdoku.Editor {
             board.sizeDelta = config.canvasSize;
             widget.boardRoot = board;
             NewImage("BoardBack", board, config.boardBack, config.boardBackSize, config.boardBackCenter);
-            widget.belly = NewImage("BellyOverlay", board, config.bellyOverlay, config.bellyOverlaySize, config.bellyOverlayCenter);
             NewImage("BoardFront", board, config.boardFront, config.boardFrontSize, config.boardFrontCenter);
+            widget.belly = NewImage("BellyOverlay", board, config.bellyOverlay, config.bellyOverlaySize, config.bellyOverlayCenter);
             widget.xMark = NewImage("XMark", board, config.xMark, config.xMarkSize, config.xMarkCenter).rectTransform;
             parts.gameObject.SetActive(false);
 
@@ -310,7 +310,7 @@ namespace Hamdoku.Editor {
         }
 
         static void ImportSprites() {
-            foreach (string assetGuid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Res_Runtime/UI/Logo" })) {
+            foreach (string assetGuid in AssetDatabase.FindAssets("t:Texture2D", new[] { "Assets/Res_Runtime/UI/Logo/new" })) {
                 string path = AssetDatabase.GUIDToAssetPath(assetGuid);
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 importer.textureType = TextureImporterType.Sprite;
@@ -363,7 +363,7 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite Sprite(string name) {
-            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/" + name + ".png");
+            var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Logo/new/" + name + ".png");
             if (sprite == null) {
                 throw new InvalidOperationException("Missing imported Logo sprite: " + name);
             }

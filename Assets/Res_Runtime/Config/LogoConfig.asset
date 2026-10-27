@@ -29,67 +29,71 @@ MonoBehaviour:
   oncePerSession: 0
   startDelay: 0.05
   baseLogo: {fileID: 21300000, guid: c4b96dfb9d534b308dab6d6b3da8b777, type: 3}
+  baseLogoSize: {x: 1146.1786, y: 825.09066}
+  baseLogoCenter: {x: 0.65796703, y: -2.2293956}
   canvasSize: {x: 1080, y: 1080}
   hamsterMask: {fileID: 21300000, guid: 4412fc4fb4fb42aaa27783a4b51932ff, type: 3}
-  hamsterMaskSize: {x: 648, y: 459}
-  hamsterMaskCenter: {x: -1, y: 162.5}
+  hamsterMaskSize: {x: 1000, y: 530}
+  hamsterMaskCenter: {x: 0, y: 280}
   hamsterBody: {fileID: 21300000, guid: c3c9e4686e674de4aca5be951e93bf5c, type: 3}
-  hamsterBodySize: {x: 588, y: 407}
-  hamsterBodyCenter: {x: -1, y: 108.5}
+  hamsterBodySize: {x: 742.5256, y: 513.95904}
+  hamsterBodyCenter: {x: -2, y: 216.42321}
   eyesOpen: {fileID: 21300000, guid: 830c038793ac4734aba563577665d23a, type: 3}
-  eyesOpenSize: {x: 249, y: 36}
-  eyesOpenCenter: {x: 0.5, y: 70}
+  eyesOpenSize: {x: 388.76129, y: 56.206452}
+  eyesOpenCenter: {x: -1, y: 161.45806}
   eyesBlink: {fileID: 21300000, guid: e388bff63ba243419cbaa0507cd780df, type: 3}
-  eyesBlinkSize: {x: 236, y: 57}
-  eyesBlinkCenter: {x: 0, y: 77.5}
+  eyesBlinkSize: {x: 388.76129, y: 93.895735}
+  eyesBlinkCenter: {x: -1, y: 161.45806}
   boardBack: {fileID: 21300000, guid: 2c4e3ae3209b410baab8e94291062b8e, type: 3}
-  boardBackSize: {x: 867, y: 273}
-  boardBackCenter: {x: 0.5, y: -174.5}
+  boardBackSize: {x: 1452.5654, y: 463.39483}
+  boardBackCenter: {x: 0, y: -185}
   bellyOverlay: {fileID: 21300000, guid: 2ab761f942294b1bb4a062ad3e8e7653, type: 3}
-  bellyOverlaySize: {x: 641, y: 162}
-  bellyOverlayCenter: {x: -0.5, y: -119}
+  bellyOverlaySize: {x: 459.43349, y: 116.11268}
+  bellyOverlayCenter: {x: -2, y: 25.27856}
   boardFront: {fileID: 21300000, guid: b3c63e6c107a4a9c871feb80790b6686, type: 3}
-  boardFrontSize: {x: 729, y: 177}
-  boardFrontCenter: {x: 0.5, y: -170.5}
+  boardFrontSize: {x: 1409.1675, y: 342.14354}
+  boardFrontCenter: {x: -2.0334928, y: -189.13876}
   xMark: {fileID: 21300000, guid: de0e5b3e2b6746839de2733d96cee87d, type: 3}
-  xMarkSize: {x: 52, y: 52.6}
-  xMarkCenter: {x: 147, y: -182}
-  hideOffset: 376
-  earPeek: 60
+  xMarkSize: {x: 74.697674, y: 75.546512}
+  xMarkCenter: {x: 91.5, y: -126.68023}
+  hideOffset: 410
+  earPeek: 48
   earPeekHoldSeconds: 0.1
-  earDip: 14
+  earDip: 8
   earDipSeconds: 0.09
-  overshoot: 34
-  riseStretch: 0.1
+  overshoot: 14
+  riseStretch: 0.04
   boardPopSeconds: 0.15
   boardPopFrom: 0.95
   boardPopTo: 1.03
   earPeekSeconds: 0.15
-  riseSeconds: 0.28
-  landSeconds: 0.15
+  riseSeconds: 0.38
+  landSeconds: 0.18
   impactSeconds: 0.08
-  landSquash: 0.06
+  landSquash: 0.025
   squashStretchRatio: 0.9
   bellyFadeSeconds: 0
-  bounceSeconds: 0.6
+  bounceSeconds: 0.35
   bounceAmplitude: 1
   bouncePeriod: 0.26
-  hamsterWobble: 0.1
+  hamsterWobble: 0.025
   hamsterWobbleLag: 0.06
-  hamsterWobbleSeconds: 0.75
+  hamsterWobbleSeconds: 0.42
   hamsterWobblePeriod: 0.3
   xPunchAtImpact: 0
   xStampDelay: 0.06
-  xPunchDelayAfterLand: 0.45
-  xPunchSeconds: 0.28
-  xPunchScale: 1.8
-  xLandSquash: 0.14
-  xLandBounceSeconds: 0.17
+  xPunchDelayAfterLand: 0.24
+  xPunchSeconds: 0.24
+  xPunchScale: 1.45
+  xLandSquash: 0.06
+  xLandBounceSeconds: 0.18
   xSfxLeadSeconds: 0
   xSfxDelaySeconds: 0
+  xIdlePulseAmount: 0.08
+  xIdlePulseSpeed: 2.8
   useBlink: 0
   blinkSeconds: 0.45
-  settleSeconds: 0.15
+  settleSeconds: 0.18
   sfxRise: 1
   sfxRiseVolume: 0.55
   riseSfxLeadSeconds: 0.007

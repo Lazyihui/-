@@ -44,7 +44,9 @@ namespace Hamdoku.Editor {
                 cell.focus = EnsureImage("TutorialFocus", root.transform, Sprite("bg_Common_Rounded"));
                 Stretch(cell.focus.rectTransform);
                 cell.focus.type = UnityEngine.UI.Image.Type.Sliced;
-                cell.focus.color = new Color(1, 1, 1, 0.55f);
+                cell.focus.fillCenter = false;
+                cell.focus.color = Color.white;
+                cell.focus.pixelsPerUnitMultiplier = 8;
                 cell.focus.rectTransform.SetSiblingIndex(0);
                 cell.given = EnsureImage("Given", root.transform, Sprite("bg_Common_Rounded"));
                 Center(cell.given.rectTransform, Vector2.one * 12, Vector2.zero);
@@ -53,6 +55,13 @@ namespace Hamdoku.Editor {
                 foreach (var image in root.GetComponentsInChildren<UnityEngine.UI.Image>(true)) {
                     image.raycastTarget = false;
                 }
+                cell.tutorialDim = EnsureImage("TutorialDim", root.transform, cell.background.sprite);
+                cell.tutorialDim.type = cell.background.type;
+                cell.tutorialDim.pixelsPerUnitMultiplier = cell.background.pixelsPerUnitMultiplier;
+                Stretch(cell.tutorialDim.rectTransform);
+                cell.tutorialDim.color = new Color(0, 0, 0, 0.9f);
+                cell.tutorialDim.enabled = false;
+                cell.tutorialDim.rectTransform.SetAsLastSibling();
                 PrefabUtility.SaveAsPrefabAsset(root, path);
             } finally {
                 PrefabUtility.UnloadPrefabContents(root);
@@ -197,17 +206,86 @@ namespace Hamdoku.Editor {
                 foreach (var image in root.GetComponentsInChildren<UnityEngine.UI.Image>(true)) {
                     image.raycastTarget = image == gridImage || image.GetComponent<UnityEngine.UI.Button>() != null;
                 }
+                BuildTutorial(panel, layout, boardArea, font);
                 PrefabUtility.SaveAsPrefabAsset(root, path);
             } finally {
                 PrefabUtility.UnloadPrefabContents(root);
             }
             foreach (string name in new[] { "Level", "Score" }) {
                 var text = AssetDatabase.LoadAssetAtPath<L10NSO>("Assets/Res_Runtime/Localization/Game_" + name + ".asset");
-                text.chinese = (name == "Level" ? "关卡" : "分数") + "\n<size=55>{0}</size>";
+                text.chinese = (name == "Level" ? "鍏冲崱" : "鍒嗘暟") + "\n<size=55>{0}</size>";
                 text.english = name + "\n<size=55>{0}</size>";
                 EditorUtility.SetDirty(text);
             }
             AssetDatabase.SaveAssets();
+        }
+        static void BuildTutorial(Panel_Game panel, RectTransform layout, RectTransform boardArea, TMP_FontAsset font) {
+            // Original TutorialController builds these cards and mask over the level2 hierarchy.
+            panel.tutorialDim = EnsureImage("TutorialDim", layout, null);
+            Stretch(panel.tutorialDim.rectTransform);
+            panel.tutorialDim.color = new Color(0, 0, 0, 0.9f);
+            panel.tutorialDim.rectTransform.SetAsLastSibling();
+            boardArea.SetAsLastSibling();
+            var overlay = layout.Find("Tutorial") as RectTransform;
+            if (overlay == null) {
+                overlay = Rect("Tutorial", layout);
+            }
+            Stretch(overlay);
+            overlay.SetAsLastSibling();
+            panel.tutorialRoot = overlay.gameObject;
+            var rule = EnsureImage("RuleCard", overlay, Sprite("bg_Common_Rounded"));
+            Center(rule.rectTransform, new Vector2(976, 210), new Vector2(0, 575));
+            rule.color = new Color(1, 0.98f, 0.95f, 1);
+            panel.tutorialRule = EnsureText("Text", rule.transform, font);
+            Center(panel.tutorialRule.rectTransform, new Vector2(900, 180), Vector2.zero);
+            TutorialText(panel.tutorialRule);
+            var action = EnsureImage("ActionCard", overlay, Sprite("bg_Common_Rounded"));
+            Center(action.rectTransform, new Vector2(976, 210), new Vector2(0, -665));
+            action.color = rule.color;
+            panel.tutorialActionButton = action.GetComponent<UnityEngine.UI.Button>();
+            if (panel.tutorialActionButton == null) {
+                panel.tutorialActionButton = action.gameObject.AddComponent<UnityEngine.UI.Button>();
+            }
+            action.raycastTarget = true;
+            panel.tutorialActionButton.targetGraphic = action;
+            var colors = panel.tutorialActionButton.colors;
+            colors.disabledColor = Color.white;
+            panel.tutorialActionButton.colors = colors;
+            panel.tutorialHintIcon = EnsureImage("Hint", action.transform, Sprite("Img_Game_Guide"));
+            Center(panel.tutorialHintIcon.rectTransform, Vector2.one * 105, new Vector2(415, 0));
+            panel.tutorialHintIcon.preserveAspect = true;
+            panel.tutorialAction = EnsureText("Text", action.transform, font);
+            Center(panel.tutorialAction.rectTransform, new Vector2(900, 180), Vector2.zero);
+            TutorialText(panel.tutorialAction);
+            var confirm = EnsureImage("Confirm", overlay, Sprite("btn_Common_Rounded_Yellow"));
+            Center(confirm.rectTransform, new Vector2(680, 158), new Vector2(0, -665));
+            panel.tutorialConfirm = confirm.GetComponent<UnityEngine.UI.Button>();
+            if (panel.tutorialConfirm == null) {
+                panel.tutorialConfirm = confirm.gameObject.AddComponent<UnityEngine.UI.Button>();
+            }
+            confirm.raycastTarget = true;
+            panel.tutorialConfirm.targetGraphic = confirm;
+            panel.tutorialConfirmLabel = EnsureText("Text", confirm.transform, font);
+            Center(panel.tutorialConfirmLabel.rectTransform, new Vector2(630, 135), Vector2.zero);
+            TutorialText(panel.tutorialConfirmLabel);
+            panel.tutorialConfirmLabel.color = Color.white;
+            panel.tutorialRipple = EnsureImage("Ripple", overlay, Sprite("bg_Game_Circle"));
+            Center(panel.tutorialRipple.rectTransform, Vector2.one * 210, Vector2.zero);
+            panel.tutorialFinger = EnsureImage("Finger", overlay, Sprite("Img_Game_TutorialFinger"));
+            Center(panel.tutorialFinger.rectTransform, Vector2.one * 260, Vector2.zero);
+            panel.tutorialFinger.rectTransform.pivot = new Vector2(0.25f, 0.86f);
+            panel.tutorialFinger.preserveAspect = true;
+            overlay.gameObject.SetActive(false);
+            panel.tutorialDim.gameObject.SetActive(false);
+        }
+        static void TutorialText(TMP_Text text) {
+            text.fontSize = 46;
+            text.fontSizeMin = 32;
+            text.fontSizeMax = 46;
+            text.enableAutoSizing = true;
+            text.alignment = TextAlignmentOptions.Center;
+            text.textWrappingMode = TextWrappingModes.Normal;
+            text.color = new Color(0.35f, 0.26f, 0.16f, 1);
         }
         static void HeaderButton(UnityEngine.UI.Button button, string iconName, float x) {
             var rect = (RectTransform)button.transform;

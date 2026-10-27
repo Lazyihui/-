@@ -82,10 +82,7 @@ namespace Hamdoku {
             }
             if (!completed && elapsed >= endAt) {
                 completed = true;
-                // Switch to the original combined sprite for the stable final pose.
-                // This avoids subpixel seams between the extracted pieces while idling.
-                partsRoot.gameObject.SetActive(false);
-                baseLogo.enabled = true;
+                // Keep the settled layers so the entrance and idle poses share identical geometry.
                 completedHandle?.Invoke();
             }
         }
@@ -95,6 +92,10 @@ namespace Hamdoku {
                 float idle = time - endAt;
                 motionRoot.anchoredPosition = basePosition + Vector2.up * Mathf.Sin(idle * config.bobSpeed) * config.bobHeight;
                 motionRoot.localScale = baseScale * (1 + Mathf.Sin(idle * config.breatheSpeed) * config.breatheAmount);
+                if (introEnabled) {
+                    float pawScale = 1 + Mathf.Sin(idle * config.xIdlePulseSpeed) * config.xIdlePulseAmount;
+                    xMark.localScale = Vector3.one * pawScale;
+                }
                 return;
             }
             if (!introEnabled) {

@@ -14,6 +14,9 @@ namespace Hamdoku {
         GameConfigSO gameConfig;
         RankingConfigSO rankingConfig;
         StreakConfigSO streakConfig;
+        ProfileConfigSO profileConfig;
+        SettingsConfigSO settingsConfig;
+        ShopConfigSO shopConfig;
         bool registered;
 
         public void BeginLoadAll() {
@@ -67,6 +70,21 @@ namespace Hamdoku {
                         throw new InvalidOperationException("Duplicate RankingConfigSO.");
                     }
                     rankingConfig = ranking;
+                } else if (asset is ProfileConfigSO profile) {
+                    if (profileConfig != null) {
+                        throw new InvalidOperationException("Duplicate ProfileConfigSO.");
+                    }
+                    profileConfig = profile;
+                } else if (asset is ShopConfigSO shop) {
+                    if (shopConfig != null) {
+                        throw new InvalidOperationException("Duplicate ShopConfigSO.");
+                    }
+                    shopConfig = shop;
+                } else if (asset is SettingsConfigSO settings) {
+                    if (settingsConfig != null) {
+                        throw new InvalidOperationException("Duplicate SettingsConfigSO.");
+                    }
+                    settingsConfig = settings;
                 } else if (asset is L10NSO text) {
                     texts.Add(text);
                 } else if (asset is L10NFontSO font) {
@@ -108,6 +126,26 @@ namespace Hamdoku {
             return rankingConfig;
         }
 
+        public ProfileConfigSO GetProfileConfig() {
+            if (profileConfig == null) {
+                throw new InvalidOperationException("ProfileConfigSO is missing from default assets.");
+            }
+            return profileConfig;
+        }
+
+        public ShopConfigSO GetShopConfig() {
+            if (shopConfig == null) {
+                throw new InvalidOperationException("ShopConfigSO is missing from default assets.");
+            }
+            return shopConfig;
+        }
+
+        public SettingsConfigSO GetSettingsConfig() {
+            if (settingsConfig == null) {
+                throw new InvalidOperationException("SettingsConfigSO is missing from default assets.");
+            }
+            return settingsConfig;
+        }
         public IReadOnlyList<L10NSO> L10N_GetAll() {
             return texts;
         }
@@ -124,6 +162,9 @@ namespace Hamdoku {
             gameConfig = null;
             rankingConfig = null;
             streakConfig = null;
+            profileConfig = null;
+            settingsConfig = null;
+            shopConfig = null;
             registered = false;
             if (defaultHandle.IsValid()) {
                 Addressables.Release(defaultHandle);

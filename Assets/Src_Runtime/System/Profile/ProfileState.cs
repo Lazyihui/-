@@ -1,0 +1,10 @@
+namespace Hamdoku {
+    public sealed class ProfileState {
+        public bool isOpen;
+        public ProfileTabType tab;
+        public ProfileDialogType dialog;
+        public UINameType notice;
+        public int noticeArgument;
+        public float noticeRemaining;
+    }
+}

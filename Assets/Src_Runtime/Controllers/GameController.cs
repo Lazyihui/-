@@ -33,6 +33,13 @@ namespace Hamdoku.Controllers {
                 state.elapsed = active.elapsed;
                 state.tutorialStep = active.tutorialStep;
                 state.status = active.status;
+                state.tutorialHintVisible = false;
+                if (active.isTutorial && active.status == GameStatus.Won) {
+                    state.tutorialStep = 7;
+                }
+                if (active.isTutorial && active.tutorialFlowVersion == 0 && active.status == GameStatus.Playing) {
+                    ResetBoard(ctx);
+                }
             } else {
                 state.isTutorial = tutorial;
                 state.level = tutorial ? 0 : save.campaignClears + 1;
@@ -50,7 +57,9 @@ namespace Hamdoku.Controllers {
             state.isOpen = true;
             Panel_Game_Controller.Open(ctx);
             if (state.status == GameStatus.Won) {
-                ShowDialog(ctx, GameDialogType.Result);
+                if (!state.isTutorial) {
+                    ShowDialog(ctx, GameDialogType.Result);
+                }
             } else if (state.status == GameStatus.Failed) {
                 ShowDialog(ctx, GameDialogType.Failed);
             }
@@ -72,13 +81,15 @@ namespace Hamdoku.Controllers {
             state.elapsed = 0;
             state.score = 0;
             state.tutorialStep = 0;
+            state.tutorialHintVisible = false;
             state.status = GameStatus.Playing;
             state.dialog = GameDialogType.None;
             state.notice = UINameType.None;
         }
-        public static void Input(GameContext ctx, int index, bool twice, bool drag) {
+        public static void Input(GameContext ctx, int index, bool twice, bool drag, bool erase = false) {
             var state = ctx.state_Game;
-            if (!state.isOpen || state.status != GameStatus.Playing || state.dialog != GameDialogType.None || index < 0 || index >= state.cells.Length) {
+            var settings = ctx.state_Settings;
+            if (settings.isOpen || !state.isOpen || state.status != GameStatus.Playing || state.dialog != GameDialogType.None || index < 0 || index >= state.cells.Length) {
                 return;
             }
             var puzzle = state.puzzle;
@@ -88,16 +99,8 @@ namespace Hamdoku.Controllers {
             if (module.IsGiven(puzzle, index)) {
                 return;
             }
-            if (state.isTutorial) {
-                if (state.tutorialStep == 0 && (index != config.tutorialPlaceIndex || !twice)) {
-                    return;
-                }
-                if (state.tutorialStep == 1 && (index != config.tutorialTapIndex || twice || drag)) {
-                    return;
-                }
-                if (state.tutorialStep == 2 && (!drag || Array.IndexOf(config.tutorialDragIndices, index) < 0)) {
-                    return;
-                }
+            if (state.isTutorial && !TutorialAllows(ctx, index, twice, drag)) {
+                return;
             }
             state.notice = UINameType.None;
             if (twice) {
@@ -112,6 +115,7 @@ namespace Hamdoku.Controllers {
                     Play(ctx, false, true);
                     if (state.hearts == 0) {
                         state.status = GameStatus.Failed;
+                        ProfileController.RecordRetry(ctx);
                         ShowDialog(ctx, GameDialogType.Failed);
                     }
                 } else {
@@ -120,7 +124,7 @@ namespace Hamdoku.Controllers {
                     Play(ctx, true, false);
                 }
             } else if (state.cells[index] != CellStatus.Hamster) {
-                state.cells[index] = drag || state.cells[index] == CellStatus.None ? CellStatus.Cross : CellStatus.None;
+                state.cells[index] = drag ? (erase && !state.isTutorial ? CellStatus.None : CellStatus.Cross) : (state.cells[index] == CellStatus.None ? CellStatus.Cross : CellStatus.None);
                 Play(ctx, false, false);
             }
             AdvanceTutorial(ctx);
@@ -141,7 +145,58 @@ namespace Hamdoku.Controllers {
                     count++;
                 }
             }
+            if (state.isTutorial) {
+                return;
+            }
             state.score += config.scoreBase + config.scoreStep * Mathf.Max(0, count - 1);
+        }
+        public static bool TutorialFocus(GameContext ctx, int index) {
+            var state = ctx.state_Game;
+            var assets = ctx.assetModule;
+            var config = assets.GetGameConfig();
+            switch (state.tutorialStep) {
+                case 0: return index == config.tutorialPlaceIndices[0];
+                case 2: return Array.IndexOf(config.tutorialLineIndices, index) >= 0 || index == config.tutorialPlaceIndices[0];
+                case 3: return index == config.tutorialPlaceIndices[1];
+                case 4: return Array.IndexOf(config.tutorialDragIndices, index) >= 0 || index == config.tutorialPlaceIndices[0] || index == config.tutorialPlaceIndices[1];
+                case 5: return index == config.tutorialPlaceIndices[2];
+                default: return true;
+            }
+        }
+        static bool TutorialAllows(GameContext ctx, int index, bool twice, bool drag) {
+            var state = ctx.state_Game;
+            var assets = ctx.assetModule;
+            var config = assets.GetGameConfig();
+            switch (state.tutorialStep) {
+                case 0: return twice && index == config.tutorialPlaceIndices[0];
+                case 2: return !twice && !drag && state.cells[index] == CellStatus.None && Array.IndexOf(config.tutorialLineIndices, index) >= 0;
+                case 3: return twice && index == config.tutorialPlaceIndices[1];
+                case 4: return !twice && drag && state.cells[index] == CellStatus.None && Array.IndexOf(config.tutorialDragIndices, index) >= 0;
+                case 5: return twice && index == config.tutorialPlaceIndices[2];
+                case 6: return true;
+                default: return false;
+            }
+        }
+        public static void PreviewTutorialHint(GameContext ctx) {
+            var state = ctx.state_Game;
+            if (!state.isOpen || !state.isTutorial || state.tutorialStep != 6 || state.dialog != GameDialogType.None) {
+                return;
+            }
+            state.tutorialHintVisible = !state.tutorialHintVisible;
+            Panel_Game_Controller.Refresh(ctx);
+        }
+        public static void ConfirmTutorial(GameContext ctx) {
+            var state = ctx.state_Game;
+            if (!state.isOpen || !state.isTutorial || state.dialog != GameDialogType.None) {
+                return;
+            }
+            if (state.tutorialStep == 1) {
+                state.tutorialStep = 2;
+                Panel_Game_Controller.Refresh(ctx);
+                Persist(ctx);
+            } else if (state.tutorialStep == 7) {
+                Next(ctx);
+            }
         }
         static void AdvanceTutorial(GameContext ctx) {
             var state = ctx.state_Game;
@@ -150,12 +205,16 @@ namespace Hamdoku.Controllers {
             }
             var assets = ctx.assetModule;
             var config = assets.GetGameConfig();
-            if (state.tutorialStep == 0 && state.cells[config.tutorialPlaceIndex] == CellStatus.Hamster) {
+            if (state.tutorialStep == 0 && state.cells[config.tutorialPlaceIndices[0]] == CellStatus.Hamster) {
                 state.tutorialStep = 1;
-            } else if (state.tutorialStep == 1 && state.cells[config.tutorialTapIndex] == CellStatus.Cross) {
-                state.tutorialStep = 2;
-            } else if (state.tutorialStep == 2 && Array.TrueForAll(config.tutorialDragIndices, index => state.cells[index] == CellStatus.Cross)) {
+            } else if (state.tutorialStep == 2 && Array.TrueForAll(config.tutorialLineIndices, index => state.cells[index] == CellStatus.Cross)) {
                 state.tutorialStep = 3;
+            } else if (state.tutorialStep == 3 && state.cells[config.tutorialPlaceIndices[1]] == CellStatus.Hamster) {
+                state.tutorialStep = 4;
+            } else if (state.tutorialStep == 4 && Array.TrueForAll(config.tutorialDragIndices, index => state.cells[index] == CellStatus.Cross)) {
+                state.tutorialStep = 5;
+            } else if (state.tutorialStep == 5 && state.cells[config.tutorialPlaceIndices[2]] == CellStatus.Hamster) {
+                state.tutorialStep = 6;
             }
         }
         static void FinishIfComplete(GameContext ctx) {
@@ -167,13 +226,17 @@ namespace Hamdoku.Controllers {
             state.status = GameStatus.Won;
             var save = ctx.playerSave;
             if (state.isTutorial) {
-                save.tutorialCompleted = true;
+                var settings = ctx.state_Settings;
+                if (!settings.tutorialReview) {
+                    save.tutorialCompleted = true;
+                }
             } else {
                 if (state.level != save.campaignClears + 1) {
                     throw new InvalidOperationException("Campaign cannot award the same level twice.");
                 }
                 save.campaignClears = state.level;
                 save.previousPuzzleId = state.puzzle.id;
+                ProfileController.RecordClear(ctx);
                 RankingController.RecordClear(ctx);
                 StreakController.RecordWin(ctx, DateTime.Today);
             }
@@ -181,7 +244,16 @@ namespace Hamdoku.Controllers {
             var config = assets.GetGameConfig();
             var audio = ctx.audioModule;
             audio.PlayOneShot(config.clearClip, config.soundVolume);
-            ShowDialog(ctx, GameDialogType.Result);
+            if (state.isTutorial) {
+                state.tutorialStep = 7;
+                for (int i = 0; i < state.cells.Length; i++) {
+                    if (state.cells[i] == CellStatus.None) {
+                        state.cells[i] = CellStatus.Cross;
+                    }
+                }
+            } else {
+                ShowDialog(ctx, GameDialogType.Result);
+            }
         }
         public static void Hint(GameContext ctx) {
             var state = ctx.state_Game;
@@ -264,6 +336,22 @@ namespace Hamdoku.Controllers {
             var config = assets.GetGameConfig();
             var audio = ctx.audioModule;
             audio.PlayOneShot(mistake ? config.mistakeClip : placed ? config.placeClip : config.markClip, config.soundVolume);
+            var save = ctx.playerSave;
+            var settings = save.settings;
+            if (settings.vibration && (placed || mistake)) {
+                var vibration = ctx.vibrationModule;
+                vibration.Pulse();
+            }
+            if (placed) {
+                var state = ctx.state_Game;
+                int count = 0;
+                foreach (var cell in state.cells) {
+                    if (cell == CellStatus.Hamster) {
+                        count++;
+                    }
+                }
+                SettingsController.PlayVoice(ctx, count);
+            }
         }
         public static void RequestFeature(GameContext ctx, HomeRequestType type) {
             var state = ctx.state_Game;
@@ -273,10 +361,16 @@ namespace Hamdoku.Controllers {
             if (type != HomeRequestType.Shop && type != HomeRequestType.Settings) {
                 throw new ArgumentOutOfRangeException(nameof(type));
             }
+            if (type == HomeRequestType.Shop) {
+                var featureEvents = ctx.events_Home;
+                state.notice = UINameType.None;
+                featureEvents.requestHandle?.Invoke(type);
+                return;
+            }
             var home = ctx.state_Home;
             var events = ctx.events_Home;
             home.pendingRequest = type;
-            state.notice = UINameType.Home_Preparing;
+            state.notice = type == HomeRequestType.Settings ? UINameType.None : UINameType.Home_Preparing;
             Panel_Game_Controller.Refresh(ctx);
             events.requestHandle?.Invoke(type);
         }
@@ -306,6 +400,7 @@ namespace Hamdoku.Controllers {
             if (dialog == GameDialogType.Exit) {
                 ReturnHome(ctx);
             } else if (dialog == GameDialogType.Restart || dialog == GameDialogType.Failed) {
+                ProfileController.RecordRetry(ctx);
                 ResetBoard(ctx);
                 Panel_Game_Controller.Open(ctx);
                 Persist(ctx);
@@ -334,6 +429,11 @@ namespace Hamdoku.Controllers {
             Panel_GameDialog_Controller.Refresh(ctx);
         }
         static void Next(GameContext ctx) {
+            var settings = ctx.state_Settings;
+            if (settings.tutorialReview) {
+                SettingsController.EndTutorial(ctx);
+                return;
+            }
             var state = ctx.state_Game;
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
@@ -353,6 +453,11 @@ namespace Hamdoku.Controllers {
             }
         }
         public static void ReturnHome(GameContext ctx) {
+            var settings = ctx.state_Settings;
+            if (settings.tutorialReview) {
+                SettingsController.EndTutorial(ctx);
+                return;
+            }
             var state = ctx.state_Game;
             if (!state.isOpen) {
                 return;
@@ -369,7 +474,20 @@ namespace Hamdoku.Controllers {
             Panel_Game_Controller.Close(ctx);
             HomeSystem.Open(ctx);
         }
+        public static void PauseForShop(GameContext ctx) {
+            var state = ctx.state_Game;
+            if (!CanUseItem(state)) {
+                throw new InvalidOperationException("Shop requires an active campaign board without a dialog.");
+            }
+            Persist(ctx);
+            state.isOpen = false;
+            Panel_Game_Controller.Close(ctx);
+        }
         public static void Persist(GameContext ctx) {
+            var settings = ctx.state_Settings;
+            if (settings.tutorialReview) {
+                return;
+            }
             var state = ctx.state_Game;
             if (!state.isOpen) {
                 return;
@@ -379,13 +497,14 @@ namespace Hamdoku.Controllers {
                 puzzleId = state.puzzle.id, level = state.level, isTutorial = state.isTutorial,
                 cells = (CellStatus[])state.cells.Clone(), hearts = state.hearts, mistakes = state.mistakes,
                 hints = state.hints, guides = state.guides, score = state.score, elapsed = state.elapsed,
-                tutorialStep = state.tutorialStep, status = state.status
+                tutorialStep = state.tutorialStep, tutorialFlowVersion = 1, status = state.status
             };
             HomeController.SaveProgress(ctx);
         }
         public static void Tick(GameContext ctx, float deltaTime) {
             var state = ctx.state_Game;
-            if (state.status == GameStatus.Playing && state.dialog == GameDialogType.None) {
+            var settings = ctx.state_Settings;
+            if (!settings.isOpen && state.status == GameStatus.Playing && state.dialog == GameDialogType.None) {
                 state.elapsed += deltaTime;
                 Panel_Game_Controller.RefreshTime(ctx);
             }

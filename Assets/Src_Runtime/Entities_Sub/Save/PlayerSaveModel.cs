@@ -6,6 +6,8 @@ namespace Hamdoku {
     [Serializable]
     [DataContract]
     public sealed class PlayerSaveModel {
+        [DataMember] public SettingsSaveModel settings;
+        [DataMember] public ProfileSaveModel profile;
         [DataMember]
         public RankingSaveModel ranking;
         [DataMember]

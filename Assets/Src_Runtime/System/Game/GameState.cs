@@ -16,6 +16,7 @@ namespace Hamdoku {
         public int score;
         public float elapsed;
         public int tutorialStep;
+        public bool tutorialHintVisible;
         public GameStatus status;
         public GameDialogType dialog;
         public UINameType notice;

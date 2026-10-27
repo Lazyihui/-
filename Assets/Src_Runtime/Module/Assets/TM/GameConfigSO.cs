@@ -5,6 +5,9 @@ namespace Hamdoku {
         public PuzzleSO tutorial;
         public PuzzleSO[] puzzles;
         public int[] campaignSizes;
+        public int[] tutorialPlaceIndices;
+        public int[] tutorialLineIndices;
+        public Color[] tutorialColors;
         public int tutorialPlaceIndex;
         public int tutorialTapIndex;
         public int[] tutorialDragIndices;
