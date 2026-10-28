@@ -710,6 +710,13 @@
 - 本批候选待用户审图，未安装正式运行资源，未修改代码、Prefab、SO、Addressables或存档。前爪为AI分离后按原画布等比适配，服装遮挡、Sprite轴心与精确叠放仍待验证。未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。
 
 
+## 2026-10-28 个人资料页签遮挡修复
+
+- 用户截图反馈未选中页签盖在内容背景上。检查Panel_Profile正式Prefab发现Tab0／Grid0、Tab1／Grid1、Tab2／Grid2交错排列，当前激活Grid之前的页签和之后的页签绘制顺序不一致。仅调整contentRoot的6个既有子节点顺序，保留全部对象、GUID、尺寸和引用。
+- Panel_Profile新增局部视觉方法RefreshTabLayering，由Panel_Profile_Controller每次刷新时调用：未选中的两个页签位于全部Grid之前，选中的页签位于Grid之后，提示和弹窗仍在更上层。ProfileCompletionEM沿用同一方法保存默认头像页签层级，不修改权威业务状态、存档或资源管理。
+- Windows／Unity 6000.5.2f1，隔离目录D:/UnityProject/HamdokuProfileInfoValidation-20261028中编译与正式Prefab加载通过；12次重复选择验证实际Transform层级、全部未选中页签后置、选中页签前置、提示与弹窗上层、按钮Graphic和interactable状态通过。正式Prefab差异仅3行移除与3行添加，全部子引用保留，git diff --check通过。脚本、顺序核验及Unity日志位于Logs/ProfileTabLayering。
+- 未进行本次Play Mode、实际渲染、人工编辑器点击、Addressables重打包、应用构建、安装和真机验证；未访问正式存档。迁移验收文档A4-B5补充截图问题、修复与待用户复验步骤。保留用户已有3份Home按钮meta修改。
+
 ## 2026-10-28 主线通关／失败结果页与本局成绩迁移
 
 - 用户确认后，只读查找原ResultPopup场景层级和配置，并核对ResultScreen的Build、BuildClear、BuildFail、MakeStatRow、MakeHero、RevealClearStages及ResultLayoutConfig／ClearStats。原基础Popup不代表动态完整结果页；恢复代码含诊断，结合索引、诊断、ARM64和静态配置采用可核实部分。源配置、方法索引、诊断、SHA256及实施前文件快照保存在Logs/ResultPageMigration/，没有向原项目写入。
@@ -721,3 +728,197 @@
 - 已查看1080×1920中文／英文、1080×2340模拟安全区英文、旧局未知统计及第20关边界截图；1080×1600短屏后台图与字体字符亦检查。结果图、测试脚本、初次失败与后续日志均保留；程序化PointerClick／Raycaster和后台渲染不代替人工编辑器点击、手机触摸或实际扬声器验收。
 - Windows Addressables内容打包通过；正式HomeConfig保存v10与正式文件名。74份交付／依赖文件逐项核对通过，其中73份逐字节一致，AddressableAssetSettings组列表仅序列化顺序不同，按引用内容核对一致；包含新Prefab及SO、图片与meta、文案、字体、代码与程序集、既有按钮／背景依赖、DefaultObject、EditorBuildSettings及包版本。共享资源组只合并本批10个入口，保留每日挑战、商店、按钮、头像等其他批次内容；同步字体前检查当前字符集合未丢失。
 - Docs/MigrationAcceptance.md追加本批13项用户验收、兼容策略、已知边界与验证状态，未代勾选；Docs/GameplayMigrationTODO.md补充本批与剩余范围，AGENTS.md现有逐批验收规则和入口保留有效。未执行Android APK构建、安装、真机、原APK动态对照；百分位／超过多少玩家、关卡奖励库存、真实广告及第21关以后不在本批完成范围。
+
+
+## 2026-10-28 个人资料头像正式替换：蓝耳小狗与雪纳瑞
+
+- 用户确认普通头像用蓝耳小狗、会员头像用雪纳瑞，只替换头像。安装此前已确认的普通头像16张（ID 0—5、7—16）、雪纳瑞12张（ID 17—28）及对应20张前爪图层；前爪属于头像的服装遮挡叠层，不改动服装图片。隐藏ID 6保持原状，奶油卷毛犬及未采用的蓝耳会员候选保留。
+- 正式目标Assets/Res_Runtime/UI/Profile/，48张PNG按现有路径覆盖，48份meta、GUID、导入设置逐字节保留；头像框、服装、Prefab、脚本、SO、场景、存档及解锁规则未在本批修改。保留工作区已有个人资料页面等其他改动。
+- Windows／Python／Pillow／SHA256文件检查通过：确认稿哈希、原画布尺寸、RGBA、透明通道、28个头像配置槽位、meta／GUID与备份完整；158份其他Profile文件及ProfileConfig保持安装前内容。首轮脚本预检发现清单将前爪单独存于hands键，尚未写入正式资源；修正读取后安装检查通过。脚本、原图与meta备份、逐项结果见Logs/ProfileAvatarInstall/。更新两套清单及主题汇总，迁移验收追加本批。
+- 尚未执行Unity实际导入验收、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证；头像缩放、边框裁剪及前爪／服装精确叠放待运行检查。文件替换通过不代表整页视觉验收通过，用户验收未代勾选。
+
+## 2026-10-28 个人资料头像尺寸与选中样式修复
+
+- 根据用户提供的原作与当前页面截图，定点修复头像网格。只读查阅原作恢复边界、ProfileGridView.MakeCell及ProfileConfig；MakeCell索引为recovered_with_diagnostics、43条诊断，动态UI的等比图片与圆角结构可辅助理解，精确视觉取用户截图，不把恢复零值当作尺寸或运行依据。
+- 现有头像格使用176尺寸Portrait、0.8脸部缩放并重复显示底板。28个头像格改为复用Art以220×220等比显示并隐藏冗余Portrait；Controller刷新时绑定对应头像及可用性透明度，保留资料卡、边框和服装组合逻辑。54个选项引用新增几何UI资源profile_selection.png，修正为圆角橙色描边，保留勾选与交互。ProfileCompletionEM同步制作设置，正式Panel_Profile.prefab已保存，保留其他既有工作区修改。
+- Windows／Unity 6000.5.2f1隔离目录D:/UnityProject/HamdokuProfileInfoValidation-20261028中编译与导入通过，54项绑定、点击委托身份、选中／锁定显示及TearDown监听清理检查通过，28个头像尺寸及单层显示检查通过。查看1080×820后台头像网格渲染，头像占比接近参考，圆角框与右下角勾选正常，无明显裁切。脚本、Prefab修复前备份、修改清单、截图及Unity日志保存在Logs/ProfileVisualCorrection/。授权客户端启动握手／令牌日志未阻止验证，最终退出码0；未访问正式存档。
+- 头像及前爪源图、存档与解锁规则未修改。Docs/MigrationAcceptance.md在A15-B5追加用户问题、修复与待复验步骤。尚未做本次Play Mode人工点击、整页多比例渲染、内容打包、应用构建、安装或真机验证；未宣称原作按下／松开动画一致，未代勾选用户验收。
+
+## 2026-10-28 个人资料选中页签同样后置
+
+- 用户明确选中项也应显示在内容背景后方，撤掉首轮选中页签前置处理。Panel_Profile.RefreshTabLayering改为无参数，统一将三个页签排在全部Grid之前；同步Controller、ProfileCompletionEM及正式Panel_Profile.prefab既有节点顺序，保留样式切换和按钮回调。
+- Windows／Unity 6000.5.2f1隔离工程HamdokuProfileInfoValidation-20261028编译与Prefab加载通过，12次重复选择检查全部页签（含选中项）均被内容区压住、提示／弹窗前置和按钮可交互状态通过，退出码0。本次修改范围git diff --check通过；未改动其他正在安装的头像、前爪及主题清单。
+- 验证证据位于Logs/ProfileTabLayering/Unity-all-behind.log和result-all-behind.txt；MigrationAcceptance的A4-B5补充更正及待用户复验步骤，首轮记录保留。本次仅Edit Mode检查，未进行Play Mode、实际画面渲染、人工点击、Addressables内容打包、应用构建、安装或真机验收。
+
+
+## 2026-10-28 个人资料服饰替换：首批六套小狗服装
+
+- 用户要求个人资料服饰使用此前生成的前几套，其余暂不接入。沿用现有六个槽位ID 0—5，依次安装小面包师、可颂兜帽、草莓奶油帽、蓝白睡帽、南瓜帽、格纹头巾；独立服饰来自Costumes/v01，原候选和07—22全部保留。六张正式PNG保留原路径及meta／GUID，适配为透明正方形画布，避免既有preserveAspect按不同原图比例改变叠放。
+- ProfileConfig的174项穿戴参数改为适合新图的无偏移、无旋转、单位缩放，ProfileCompletionEM同步制作设置；仅调整本批服饰参数，保留工作区已有页签等修改。六份Profile_Costume文案同步中英文名称，现有Chinese SDF离线补字符并保留全部既有字符、静态图集与meta，不增加语言或字体Fallback。每日奖励与资料共用该配置，因此预览图片及名称同步变化；发奖、解锁、价格、赛季、存档编号和已选状态不变。
+- Windows／Unity 6000.5.2f1，隔离副本D:/UnityProject/HamdokuProfileInfoValidation-20261028编译及正式Prefab导入通过；遍历29头像×6服饰共174项绑定通过。人工查看Unity实际渲染的蓝耳小狗与雪纳瑞六套叠放图，六款名称可显示；开发渲染与文件检查不替代用户整页验收。图片、meta、字体字符超集及同步哈希检查通过，原图和原配置备份见Logs/ProfileCostumeInstall/before，脚本、渲染及Unity日志保留。
+- 初轮渲染测试脚本释放active RenderTexture产生清理警告，修正释放顺序后复验；隔离导入发现既有Shop/new与Streak/new副本GUID冲突，由隔离Unity重分配，不将这些无关meta复制回正式工程。启动授权握手日志与最终成功退出分别保留。未执行本批Play Mode、完整页面人工点击、Addressables内容打包、应用构建、安装或真机验证；未访问正式存档。
+- 复验启动记录：Unity-final.log一次在打开工程阶段以退出码1结束，未输出项目方法诊断；随后Unity-retry.log重新编译与执行成功，退出码0，未再出现RenderTexture清理警告或缺字警告。最终补入8个中文字，保留已有字体字符；按CRLF规则的本批git diff --check通过。
+
+
+## 2026-10-28 商店新手礼包与特别优惠插画候选
+
+- 用户确认先生成红框内两张礼包图审图，通过后再替换正式资源。以已确认蓝耳小狗头像为身份和画风参考，分别使用内置image_gen生成珊瑚粉新手礼包与金色特别优惠礼包；小狗替换仓鼠，保留放大镜、灯泡与去广告图示。
+- 两张透明PNG保存在Docs/UILibrary/themes/PuppyBakery/assets/UI/Shop/Offers/v01/，分别为384×384与384×376；仅对AI底稿执行透明边距裁切、等比缩小和居中。底稿、完整提示词、制作脚本、总览和检查记录位于previews/Shop_Offers_v01/，STYLE.md新增A19入口。
+- Windows离线检查尺寸、RGBA、透明通道、四角透明与非空内容通过，人工查看生成图及整理后总览。6份商店正式图片／meta／Prefab／SO基准哈希不变；未替换运行资源，未执行Unity导入、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。候选美术待用户确认。
+
+## 2026-10-28 商店两张礼包插画安装
+
+- 用户确认候选美术可用并要求替换。将PuppyBakery/assets/UI/Shop/Offers/v01中的offer_art_starter_pack.png与offer_art_special_offer.png原样复制至Assets/Res_Runtime/UI/Shop/new；分别384×384和384×376，均为RGBA透明PNG。
+- 沿用原路径及meta／GUID，保留单Sprite导入和Panel_Shop的21300000引用；未调整布局、脚本、商品配置或存档。旧图与meta备份于Logs/ShopOfferInstall/before，old目录不变。更新候选manifest安装状态、STYLE A19及MigrationAcceptance A17，用户运行验收未代勾选。
+- Windows／Pillow检查正式图与确认候选哈希一致、尺寸／透明通道正确、两份meta不变，70份受保护资源／meta／Prefab／SO保持。证据见Logs/ShopOfferInstall/verification.json。本批未执行Unity实际导入验收、编译、Play Mode、Addressables打包、应用构建、安装或真机验证，未访问正式存档。
+
+
+## 2026-10-28 UI参考库增加小狗面包房原图对比
+
+- 用户确认后更新Docs/UILibrary/UI Library.html及同名CSS、JS；新增导航与14类234组并排对比，覆盖页面效果、Logo、设置、棋盘、商店、通用按钮、头像／前爪、犬种候选、边框和全部22套服饰。支持分类、名称／文件名筛选、空结果提示及点击放大。保留原有组件演示和工作区其他修改。
+- 优先采用设置v02＋边框v03、Buttons/v01及商店当前选用按钮；原作整页、单项素材、离线重组和接入状态分别说明，无可靠对应的原图明确显示缺口。9个改名按钮补以原图RGBA像素一致性匹配，服饰前六套按已确认槽位对应，其余候选不伪造原槽位。未修改素材图、主题清单或Unity资源。
+- Windows／Chrome后台浏览器file://验证通过：440张图无破损，669个链接文件存在，1440／768／375宽度无横向溢出，分类、搜索、空结果与新窗口原图正常，无脚本错误或资源失败；查看桌面与移动宽度截图。证据Logs/UILibraryComparison/，同步README.md、Verification.md。未执行Unity编译、Play Mode、内容打包、应用构建、安装、真机或用户验收；网页对比不代表运行效果一致。
+
+
+## 2026-10-28 棋盘角色动画与连击庆祝迁移
+
+- 用户确认迁移范围后，核查原作HamsterAnimator、CellView、GameController、ComboTextFx、ComboCelebrateFx、方法索引／恢复诊断、原Cell层级与HamsterAnimator配置。将10张角色帧及10张clap／cheer／dance／rainbow／sprout／sunflower庆祝图片独立接入Assets/Res_Runtime/UI/Game/Animation，保留资料页小狗头像及其他并行修改。原作资源目录只读，来源与SHA256见Logs/BoardAnimation/resource-manifest.json。
+- Widget_BoardCell接入8帧待机、出现／放置、呼吸浮动、错误姿态和通关三次跳跃；Widget_Board和Panel_Game_Controller沿用现有Controller触发／UI播放分工。Panel_Game沿用原连击浮字，接入3次起文字弹出与星光／落点庆祝、8次起彩屑、12档封顶及失误／重开／释放清理；新增GameAnimationSetupEM用于维护正式绑定，正式场景无需先执行菜单。参数保存在GameConfigSO，结果延迟1.65秒避免截断庆祝，不改变计分／存档结构。
+- 原作帧绑定、基础角色时序和连击门槛有静态证据；连击配色／曲线／彩屑轨迹和按次数轮换六类庆祝属于当前工程实现，未宣称原APK逐帧还原。正式Panel_Game原有节点未删除，新增37个非交互图片；保留现有层级布局，差异记录见prefab-semantic-diff.json。
+- Unity 6000.5.2f1隔离工程首轮编译、资源导入及正式Scene_Main的Play Mode验证通过：真实教程进入主线、放置／待机换帧与浮动、错误反馈结束、关闭恢复、重开、真实3连击、完整庆祝后弹出结算。7—13档为合成表现预览，独立注明；查看中文／英文、1080×1920、1080×2340安全区及1080×1600后台截图。初轮验证脚本入口和庆祝阶段等待假设错误，修正后通过，日志保留；Unity编辑器Search索引异常和外部TLS日志另记，不冒充项目异常或隐藏。
+- 最终彩屑发射位置分散到文字上方、关闭纸片图片等比约束；1—13档及8×8棋盘三种竖屏合成预览、门槛／到期清理和37处Raycast关闭检查通过。Windows Addressables内容打包通过（84.14秒），本批60项交付／依赖与隔离副本逐字节一致，20张帧与原作来源SHA256一致。MigrationAcceptance追加本批操作和未勾选用户验收。未执行Android应用构建、安装、真机触摸或原APK动态对照。
+- 并行结算任务接入期间，新增rewardHero配置未就绪曾导致本轮结算入口报错，保留Unity-play-final.log及play-final-parallel-result-failure.txt；并行任务补齐正式资源后，重新同步，Unity-play-current-retry.log／play-result.txt完整Play Mode复验通过。短时放大阶段因后台帧间隔被跳过，验证脚本改为显式视觉时刻探测并恢复原时钟，真实结算等待流程继续验证，不改业务逻辑。 最终完整资源Windows Addressables内容打包再次通过（Unity-content-delivery.log，88.03秒、退出码0）。
+
+
+## 2026-10-28 商店暖棕柔和投影
+
+- 按用户确认的原作效果，为商店五张主卡、商品／权益卡、购买与恢复按钮及四张主要插画添加51个装饰阴影Image。只读核对原ui_soft_shadow、ShopPopupLayout参数、恢复方法／诊断及ISIL，原柔边图160×160、九宫格60边距原样复制；暖棕颜色和偏移／扩散取静态配置，六层轮廓投影归一化累计透明度属于本工程实现选择。
+- 新增Assets/Src_Editor/EM/ShopShadowEM.cs，既有ShopConfigSO及正式SO增加四组阴影参数；ShopSetupEM保留正式制作逻辑并同步阴影导入与应用。正式Panel_Shop定点加入五个原尺寸布局容器及阴影，全部关闭Raycast Target；保留六个滚动槽位、11商品绑定、价格、图片、旧组件引用和玩家进度。正式打开Scene_Main运行无需先执行菜单。
+- Windows／Unity 6000.5.2f1隔离副本编译／导入通过；51层排序、非交互属性、商品绑定、滚动槽、重复制作／Init通过，人工查看三种竖屏比例的上中下位置Unity后台渲染。首轮重复制作排序检查失败，修复同级已有节点移动时的索引偏移后复验退出码0；失败与复验分别保留Unity.log和Unity-retry.log。
+- 同步核对正式Prefab哈希与验证副本一致，642个原对象保持；原组件仅两处1.77777778到1.7777778的Unity浮点格式变化，原SO配置前缀完整、确认礼包图片哈希不变，Prefab GUID及Addressables既有登记保持。旧Prefab与SO、来源与验证记录、对照图见Logs/ShopShadow；MigrationAcceptance追加本批用户验收。
+- 本批未执行Play Mode交互、Addressables内容打包、应用构建、安装或真机验证，未访问正式存档，未同步Library或验证脚本至正式Assets。后台渲染与装饰层检查不代替用户点击验收。
+
+- 编辑器诊断另记Logs/ShopShadow/editor-diagnostics.txt：启动时旧授权客户端握手／令牌提示后回退6000.5.2客户端并成功解析授权，最终验证成功退出码0；与已修复的首轮阴影排序断言分开记录。
+
+
+## 2026-10-28 主线第21—50关与阶段奖励迁移
+
+- 用户确认后建立Docs/Campaign50MigrationTODO.md，并在AGENTS增加入口。只读核对原作DynamicDifficulty／CampaignMapBank／CampaignDifficulty／LevelRewardService／ResultScreen／RankRewardPopup、索引诊断、ARM64／ISIL与正式配置；全部10498条DDA二进制记录交叉检查。增量加入2923张地图子资产，主线共6359张；既有地图ID、GUID、身份映射、池内顺序和游标保持。30／40／50固定题grade4／3／4优先覆盖普通池。
+- GameConfigSO／正式GameConfig扩展至50关及阶段奖励参数；PuzzleModule扩展地图、配置与存档校验；CampaignController接入技能3抽样、首局抽样后减级、连续重试与延后降级历史。CampaignSaveModel新增领取标记和难度历史，SaveModule接入v11及旧版升级。保留旧棋盘、每日、资料和连胜数据；旧首页进度不追发历史奖励，旧已通关里程碑结果保留本次待领。
+- GameController、Panel_GameResult及其Controller、ResultConfigSO、ResultSetupEM复用现有结果Prefab承接进度与领奖。每10关基础奖励1灯泡、0放大镜，点击领取后与标记一起原子保存；失败回滚内存余额／标记。广告翻倍明确未接入。新增6份双语L10NSO、正式字库烘焙和Addressables登记；定点修复原结果两个按钮失效GUID，不重建页面或新增资源管理架构。
+- Windows／Unity6000.5.2f1／Addressables2.10.3隔离工程编译及正式场景Play Mode，355项程序化断言通过，包含教程、1—50关、固定题、失败重开、续局恢复、选图与难度、领奖防重、中断和写盘失败回滚、v1—v10升级、v11恢复。人工查看中英文1080×1920与1080×2400模拟安全区后台截图；Windows内容打包及正式存档配置复打包通过。54份本批文件／meta哈希与验证副本一致，无资产GUID冲突，相关引用、DefaultObject注册和正式存档名通过核对。
+- 首轮截图发现按钮白块后修复并复验。复用旧隔离目录存在迁移前资源残留引发GUID冲突，仅删除隔离副本独有文件并恢复源meta后通过；源工程资源未清理。UnityEditor.Search自身索引异常单列。证据、首轮和复验日志、制作／审计脚本、截图、result.txt、content-result.txt及delivery-audit.json在Logs/Campaign50Migration/。未复制测试脚本、存档、Library或验证存档配置回正式工程，保留同期商店和棋盘等其他修改。
+- 黄金挑战已确认使用FirebaseCallables会话／云函数及排行榜上报关联，存在恢复诊断，仅完成依赖分析。第51关地图变换、黄金挑战玩法、无限模式及真实服务留待后续批次；未做原APK动态对照、APK／应用构建、安装、真机触摸、扬声器试听或性能验收。迁移验收文档追加A20，用户项目未代勾。
+
+
+## 2026-10-28 商店阴影后续Play Mode与内容打包验证
+
+- 按用户“继续”，复用阴影隔离工程，从正式Scene_Main执行现有商店回归并增加阴影层／GraphicRaycaster命中检查。Play Mode共51项程序化断言通过，覆盖11商品请求、恢复／说明／AUTO、存档不被服务占位修改、重复打开初始化、关闭销毁、游戏商店暂停计时和返回原棋盘／道具／生命／计时、无运行错误或缺字。
+- 前两轮测试分别缺少渲染后UI深度、直接标记教程完成导致残留教程棋盘与当前校验冲突；只修改隔离验证准备，使用既有v5完成教程fixture升级，最终通过。失败与最终日志保留于Logs/ShopShadow，检查列表见PlayMode/result.txt，审计见play-verification.json。
+- Windows Addressables内容打包通过；验证的是阴影安装时的隔离快照，其他任务同期后续修改不回滚、不覆盖。正式商店7份关键文件与隔离快照哈希一致，未复制验证脚本、测试进度、Library或内容缓存回正式工程；MigrationAcceptance A19-B5追加结果，用户验收不代勾。
+- 本轮未修改运行脚本／Prefab／资源，未做应用／APK构建、安装或真机验证。程序化onClick和EventSystem命中不等同人工触摸；内容打包退出时临时分配器清理提示与授权／Search诊断单独记录，不隐瞒或混作项目运行错误。
+
+## 2026-10-28 主线无难度历史存档启动校验修复
+
+- 用户反馈启动时报Campaign selection state conflicts with its configuration。只读核对当前正式v11存档：previousLevel=0、previousRecordedSkill=0、previousRetried=false，没有上一条难度历史；原校验无条件要求previousRecordedSkill至少1，误拒绝未建立历史的状态。未推断该存档的具体生成过程。
+- 定点修改Assets/Src_Runtime/Module/Puzzle/PuzzleModule.cs：仅在无上一关记录且无重试记录时允许技能未设值0；有历史时仍要求有效技能，负值、超上限、奖励越界及游标校验保持。没有迁移或重置进度，没有改动配置、资源、Controller职责和其他已有修改。
+- Windows／Unity6000.5.2f1隔离副本编译和Scene_Main的Play Mode通过，38项程序化断言包括实际存档完整校验、无历史／正常历史、六类非法数据、启动Ready、第2关原题／25格／分数／生命／道具恢复、保存再加载及重复初始化。使用单独测试存档名，正式存档读取前后SHA256一致；验证期间工作区另有配置拆分修改，正式脚本整体哈希因此不同；已核对本次修复条件仍完整保留。本轮编译与Play Mode验证针对修改前配置结构的隔离快照，不覆盖并行配置拆分后的完整工程。证据Logs/CampaignSelectionFix/。
+- 同步更新MigrationAcceptance A20-B5用户反馈与复验步骤，用户验收未代勾。本次未重做Addressables打包、应用／APK构建、安装或真机验收；隔离运行不代表用户当前编辑器已重新进入Play Mode。
+
+
+## 2026-10-28 按麻将参考项目整理独立地图SO与配置职责
+
+- 用户确认完整方案后实施。保存当时运行／编辑器代码、配置、Addressables与ProjectSettings基线，不覆盖同期个人资料、商店和棋盘改动。将主线6359、每日1820、教程1共8180张地图整理到Assets/Res_Runtime/Puzzle的Campaign/Grade1、Grade2、Grade3、Fixed、Daily、Tutorial；1967份既有独立SO保留GUID，6213个GameConfig子资产提取成独立SO，地图ID、区域／答案、等级、固定关与身份字段逐项保持。
+- 新增PuzzleRulesSO、CampaignConfigSO、PuzzlePresentationSO与正式资产；规则、主线选图／奖励、视觉表现分开，ResultConfig独立加载。GameConfig只维护默认语言、存档版本及文件名，原HomeConfig通用字段移入并删除旧字段；LogoConfig与启动Controller改绑同一GameConfig，存档版本仍为11。DailyConfig删除地图引用数组，日期表先按原数组解析再存整数地图ID，赛季配置保持。
+- AssetModule沿用default标签，增加地图ID字典／有序列表和独立配置查询，重复ID与配置抛错；PuzzleModule继续负责校验与选图能力，Controller读取相应SO并修改状态，Panel／Widget仅接收表现配置与必要数据。同步更新Game／Home／Daily／Campaign／Profile／结果页Controller、SaveModule、Logo读取、棋盘Widget和配置制作工具；新增PuzzleConfigSetupEM用于正式资源登记，不新增启动／Context／UI管理架构。
+- Windows／Unity6000.5.2f1／Addressables2.10.3，隔离工程编译、8180独立地图注册及正式场景Play Mode通过；覆盖教程、1—50关、固定题、难度、失败重开、同题恢复、阶段奖励防重／写盘失败回滚、v1—v10兼容和v11恢复、每日进入／续局／读盘恢复／通关返回、资料和商店。共18597项断言，大部分为逐地图及日期映射检查，不表示同等数量独立业务场景。查看中英文与两种竖屏安全区后台截图，Windows Addressables内容打包通过。
+- 交付审计证明地图业务内容、拆分字段值和每日日期映射与基线一致，1967个既有GUID保持，无GUID冲突和旧子资产引用。运行／编辑器源码、地图与正式配置和验证副本一致；同步Gameplay组及设置，DefaultObject／EditorBuildSettings及正式hamdoku-progress.json文件名已核对。未复制测试脚本、存档、Library或隔离测试文件名。验收文档追加A21，既有迁移TODO追加本批完成记录。
+- 初次提取遇到教程缺少普通地图grade字段，已按独立教程类别修正后从原基线恢复执行；一次HomeConfig写入与编辑器导入冲突通过限次重试完成。完整基线、映射、逐字段审计、制作／验证脚本、编译／Play／内容日志与截图在Logs/ConfigRestructure/，UnityEditor.Search索引异常单列。未做APK／应用构建、安装、真机触摸、扬声器试听、性能或原APK动态验收；开发通过不代替用户验收，未扩展50关以外内容或服务。
+
+
+## 2026-10-28 棋盘12种图案与新配色候选制作
+
+- 用户确认烘焙主题12种图案及12色方案后，使用内置image_gen逐张制作12张独立透明剪影；打蛋器首稿在原窄画布中偏小，重新生成为竖向粗线条版本。候选保存至Docs/UILibrary/themes/PuppyBakery/assets/UI/Game/Patterns/v01，沿用12张正式文件名与原画布尺寸，白色图案用于运行染色。
+- 新配色、索引、原作资源来源、原正式图片及meta哈希、生成来源与完整提示词均已记录。图案／配色总览、棋盘离线搭配预览、底稿及整理脚本位于previews/Game_Patterns_v01；更新既有STYLE与主题manifest入口，不替换正式图片或配置。
+- Windows／Pillow检查12张RGBA、原尺寸、非空alpha、透明范围0至255及四角透明通过；人工查看总览与棋盘预览并复查打蛋器调整。正式12张图案及meta、PuzzlePresentation.asset共25份SHA256保持。棋盘示意不是可解关卡或Unity运行截图；较深审图染色与现有运行淡纹样参数在预览中明确区分。
+- 交付状态为美术候选待用户确认。未执行Unity导入验收、编译、Play Mode、Addressables打包、应用／APK构建、安装或真机验证；未访问存档。当前运行展示配置只有前10种绑定，12种素材交付不代表运行全覆盖；接入时再核对绑定、教程颜色提示、图案开关和实际辨识度，并维护迁移验收批次。
+
+
+## 2026-10-28 区域图案正式接入及网页对比
+
+- 用户追加要求网页对比并明确“接入”。12张烘焙图案复制到Assets/Res_Runtime/UI/Game，保留原meta／GUID、原画布尺寸及Sprite导入设置；PuzzlePresentation.asset仅更新regionColors与patterns，均完整12项。教程配色、教程文案、默认图案开关、规则、关卡、脚本、Prefab与存档格式保持。旧PNG／meta／SO备份与安装哈希见Logs/PatternInstall/before、installation.json。
+- UI Library新增独立“区域图案 · 新配色”分类，将原棋盘分类中的12项原地对应更新并移动，棋盘分类剩22项；新增导航、逐项原作／新图案底色与色值、总览与离线棋盘链接。网页标注正式安装和隔离运行状态，制作阶段预览图保留历史用途。同步主题manifest、STYLE、网页Verification及MigrationAcceptance A22，用户验收未代勾。
+- Windows／Chrome file://检查12组、24张图片、39个本地链接，筛选、名称搜索、无结果及原尺寸弹窗通过；1440、768、375宽度无横向溢出，已查看桌面／窄屏截图。证据Logs/PatternInstall/web-verification.json与web-*.png。
+- Windows／Unity6000.5.2f1／Addressables2.10.3隔离副本完成资源导入、编译与Scene_Main Play Mode，256项断言通过：12Sprite导入及绑定顺序、default加载展示SO、自动教程原配色与无纹样、教程完成到主线、新区域颜色、图案开关、设置及棋盘重开、全部12种纹样在实际Widget上的绑定。1080×1920真实Canvas后台渲染人工查看，证据unity-result.txt、unity-game.png及unity.log；不是手机或编辑器鼠标验收。
+- 首轮验证误将自动教程当主线比较颜色失败，调整验证流程后通过，首轮结果保留。batchmode ScreenCapture未产出PNG，改用RenderTexture后台渲染并确认生成。UnityEditor.Search索引异常单列editor-diagnostics.txt；本批项目验证无未解决错误。隔离测试使用随机唯一存档名，未访问正式存档。
+- 25份正式图案PNG／meta／展示SO与隔离快照一致，运行脚本一致；验证期间并行新增／修改6份PuzzleImport编辑器工具，未覆盖其修改，其编译不在本次快照覆盖范围，详见synchronization.json。没有同步Library、验证脚本、临时配置或测试进度。未执行Addressables内容打包、应用／APK构建、安装或真机验收。
+
+## 2026-10-28 原作地图全量导入工具及12319份独立地图
+
+- 用户明确确认预览／执行／验证、全量10498条DDA、教程／每日增量、旧50000条数据库核对与GUID／资源登记维护后实施。新增Assets/Src_Editor/EM/PuzzleImportEM、Const及六份单类型Model，沿用PuzzleSO、CampaignConfig／DailyConfig／PuzzleRules及PuzzleConfigSetupEM登记，不新增运行架构或加载入口。
+- 菜单Hamdoku → Puzzle Import提供1 Preview Migration、2 Execute Migration、3 Validate Migration。直接读取原作HDDA二进制与教程／每日JSON，逐条校验区域／答案／固定关／重复ID，按当前配置维护活动池；50000条旧CampaignDatabase校验后不生成逐关重复SO。来源SHA256、差异及执行回执写Logs/PuzzleImport，执行前备份地图／配置／Addressables；源文件在规划后变化会停止执行。
+- 正式地图共12319份：原作DDA10498、每日1820、教程1；新增4139份资产及meta和3份目录meta，共8281份新文件，原有8180份地图与meta及目录文件共16367份哈希保持。同步AddressableAssetSettings.asset与Gameplay.asset两份必要登记；未回退并行接入的新图案／配色，不同步测试配置、存档、Library或验证脚本。
+- 增量执行保留既有GUID、相同内容不重写，注册标签缺失单独修复；预览只写Logs。重复ID、源缺失、非法答案、目标占用、未保存地图／正式配置／登记编辑明确报错阻止写入。首轮在64条fixedLevel=-1原作记录处拦截且未写入，核对二进制后修正为原样保留标记；首轮日志保留tool-first.log／result-first.txt。
+- Windows／Unity6000.5.2f1／Addressables2.10.3隔离副本完成编译与真实4139份批量创建、预览字节不变、异常不写入、重复执行零新增／零更新、旧资产与GUID保持、来源哈希变化、登记修复、脏编辑保护及12319份最终验证。Scene_Main Play Mode通过26875项检查，涵盖全部资源注册与索引、教程和1—50关、每日、阶段奖励／防重、旧存档及中途恢复、资料／商店相邻接入；专用测试存档未访问正式进度。中英文奖励后台渲染人工查看，UnityEditor.Search索引异常单列，未发现未解决的项目运行错误。
+- Windows Addressables内容打包通过；正式交付审计核对12319唯一ID／GUID与default标签／地址、原地图和四份生产配置哈希不变、八份工具源码与meta和验证副本一致、DefaultObject／EditorBuildSettings及四份原作来源哈希。主线仍50关、活动池6359张、存档v11及hamdoku-progress.json；未实现第51关以后流程、无限模式或外部服务。证据Logs/PuzzleImportValidation/，验收文档追加A23，既有Campaign50MigrationTODO追加A6；用户验收未代勾。
+- 内容构建快照先于另一批次的新图案接入，显示验证按A22独立记录，本批未覆盖或回退其资源。未做应用／APK构建、安装、手机触摸、真机性能、扬声器试听或原APK动态对照；后台渲染与程序化检查不代替用户实际验收。
+
+
+## 2026-10-28
+
+### 空格临时解锁测试
+
+- 在 `ClientMain` 接入空格键，存档初始化后通过 Controller 临时开放首页模式及资料页已有头像、头像框和服装；文本输入时不触发。
+- 测试解锁不修改通关数或持久化解锁状态；测试外观选择保存时保留正常可用的外观，重启恢复正常条件。相关文件：`ClientMain.cs`、`HomeController.cs`、`ProfileController.cs`、`Panel_Profile_Controller.cs`、`HomeState.cs`、`ProfileState.cs`。
+- 已静态检查输入和保存调用路径；正式工程已被 Unity 6000.5.2f1 打开，未执行独立 Unity 编译、Play Mode、内容打包、应用构建或真机验证。每日拼图与奖励进度及未接入服务未由此快捷键授予。
+
+
+## 2026-10-28
+
+### F 键直接通关
+
+- `ClientMain` 在非文本输入状态下将 F 键交给 `GameController`；仅在正在进行且没有弹窗或设置页遮挡的棋盘中生效。填入关卡答案后复用正常胜利、结算与存档流程，适用于教程、主线及每日棋盘。主线与每日进度会真实保存。
+- 静态检查了胜利及存档调用路径；未执行 Unity 编译、Play Mode、构建或真机验证。
+
+## 2026-10-28 第51—100关只读迁移分析
+
+- 用户要求继续下一步分析。按原作README边界查阅DynamicDifficulty、CampaignMapBank、CampaignDifficulty与当前CampaignController／PuzzleModule／存档／棋盘渲染入口，核对方法索引与诊断、ARM64和Transform ISIL。未修改原作资料、正式玩法代码、SO、场景或Prefab。
+- 静态证据确认51—100关技能／选图上限4，51关起干净通关晋级阈值从2降为1；固定关55／60／62／70／75／80／90／100，固定62为7阶，100为10阶。普通地图51关起按池cursor.cycle模8选择镜像／旋转，池走完一轮再推进变换；固定题独立分支保留原方向，不能用每局随机旋转代替。
+- 当前实现仍限制50关及普通grade3，缺少池cycle和局内transform存档，直接扩数组无法保持原规则及续局一致。提出复用现有SO、活动池6359→9610、独立运行棋盘数据、配置后期门槛与变换参数及v12存档兼容方案；100关后无限模式保持现有准备边界，完整无限模式／黄金挑战另批确认。
+- 原作二进制与11个方法索引、6份方法诊断及关键native地址记录至Logs/Campaign100Analysis/evidence.json；已有Campaign50MigrationTODO追加A7待确认范围。仅静态分析，未执行本批Unity编译、Play、内容打包、应用／APK构建、安装或真机；未宣称原APK动态核实或迁移完成。
+
+## 2026-10-28 主线第51—100关、地图变换与v12存档
+
+- 用户确认具体范围并要求开始后实施。CampaignConfig扩至100关，活动池6359→9610，保留前50关数组及原池顺序；固定55／60／62／70／75／80／90／100接入，62关7阶、100关10阶。全部12319份地图SO及meta保持，不生成旋转副本或重复资源。
+- 新增纯数据PuzzleBoardModel；PuzzleModule按原作镜像列后旋转的0—7变换生成独立区域／答案／预置位置数组，GameState／GameController使用运行棋盘，既有GameFlow与棋盘Panel读取同一数据。CampaignSelectionModel携带本局变换与下一轮次；Controller写入cursorCycles。51关前不变换，51关起使用当前cycle，选中池尾后推进下一轮；固定题不变换，历史避重保持原顺序。
+- CampaignConfigSO新增后期晋级起点／门槛及变换起点，51关起一次干净通关即可升至上限4。保留首局减级、道具与失败清零、延期降级、10关阶段奖励、防重复领取和100关完成边界。缩短Game_BatchComplete中英文为“前100关已完成！”／“First 100 levels complete!”，复查后不再换行；不在产品文案中显示迁移实现细节。
+- SaveModule、CampaignSaveModel、PuzzleSaveModel升级v12，保存池轮次与本局transform，兼容v1—11；旧轮次补0、旧棋盘保持原方向，保留游标、历史、奖品、资料、每日及局内状态。v12非法／缺失轮次和非法变换明确错误，不静默重置。正式存档名保持hamdoku-progress.json，开发未访问该文件。
+- Windows／Unity6000.5.2f1／Addressables2.10.3隔离工程编译和Play通过27296项检查，教程连续推进100关，覆盖难度／固定题／50→51／99→100、提示／失败／续局／奖励防重、v1—11恢复、每日及资料／商店回归。12319×8共98552种组合对照独立坐标公式检查区域、答案、预置位置和数组隔离。
+- 补测60项通过：以旧批次实际保留且缺少新字段的v11测试存档验证50关升级，模拟旧50关结算结构继续51无重复奖；8种变换逐一验证提示／标记／分数账本、重开、返回和磁盘恢复。结果页另50项通过，中英文结束文案单行、100关返回、原无限解锁条件和现有准备边界已检查。51关、62关、镜像旋转7和最终中英文竖屏后台截图人工查看；修正前长文案截图保留。各组UnityEditor.Search自身索引异常单列，未发现未解决的项目错误。
+- 最终Windows Addressables内容打包及导入工具validate通过，识别100关与9610活动池。正式14份修改／新增文件和验证副本一致，12319份地图及meta／目录共24648份文件哈希保持，原6359张活动池顺序、四份原作来源SHA256、包版本、DefaultObject／EditorBuildSettings和既有登记核对通过。未回同步Library、测试脚本／文件名或玩家进度。完整证据Logs/Campaign100Migration/，分析证据Logs/Campaign100Analysis/。
+- 更新既有Campaign50MigrationTODO的后续队列及A7确认状态，新增A8开发完成记录；MigrationAcceptance追加A24，用户验收保持未勾选。完整无限模式、黄金挑战、101关以后与真实服务不在本批；未执行原APK动态对照、应用／APK构建、安装、手机触摸、真机性能或扬声器试听，开发后台验证不代替用户验收。
+
+## 2026-10-28 棋盘仓鼠放大遮挡修复
+
+- 用户反馈仓鼠放大时被相邻格子遮挡。核对Panel_Game的CellsGrid、正式Widget_BoardCell.prefab及角色动画后，调整Widget_BoardCell的兄弟节点顺序：显示仓鼠或误放表情时置前，消失时回到后层，仅在前后层状态变化时调整。保留格内装饰与遮罩关系，未改动画参数、布局、存档或资源引用。
+- 棋盘仍以cells数组和坐标处理点击／拖动，不通过节点顺序索引。当前工程dotnet build Hamdoku.csproj --no-restore通过（0警告、0错误）；未执行Unity编辑器编译确认、Play Mode视觉复验、内容打包、应用构建或真机。MigrationAcceptance的A18-B6记录反馈及复验步骤，用户验收未代勾。
+
+### 2026-10-28 通关大图首张风格修订候选
+- 用户要求首张举爪庆祝优先修订：犬前爪、星形烤饼干、雾灰蓝软布带、较细浅描边及较小底部装饰。使用内置image_gen，参考已确认蓝耳小狗头像和首轮图生成；其余图暂不按旧风格继续定稿。
+- 修订图保存Docs/UILibrary/themes/PuppyBakery/assets/UI/GameResult/v02/clear.png，990×951 RGBA；底稿、提示词及verification.json保存previews/GameResult_v02。红绶带clear初稿保存在previews/GameResult_v01/raw/clear.png，未覆盖。
+- Windows离线尺寸、RGBA与alpha范围检查通过；生成边缘存在极低alpha像素，保留未抹除。人工查看生成图。STYLE追加A21，候选待用户确认；未修改正式运行资源，未进行Unity、打包、构建或真机验证。
+
+## 2026-10-28 批量提交与推送整理
+
+- 按用户要求整理当前工程代码、图片、配套Unity资源和既有文档，按工程实现、UI参考库、项目记录分批提交；原项目参考资料ZIP仅保留本地，不纳入提交。
+- 提交前核对master与origin/master一致、变更范围及新增文件；不改写已有功能实现或历史验收结论。差异检查包含Unity序列化文件的行末空白，本轮不批量格式化资源。
+- 本轮仅进行Git提交及远端同步检查，未重新执行Unity编译、Play Mode、Addressables内容打包、应用构建或真机验证；各功能验证范围以此前记录为准。
+
+
+## 2026-10-28 七种通关大图与配置选图接入
+
+- 用户确认资源、图池、Controller选图、正式配置及验证范围后实施。保留clear／fail与现有Prefab，补入clear_a—clear_f六张原作Sprite及独立GUID；ResultConfigSO／ResultConfig.asset配置1—7图片ID、完美／高难首过／重试／高／中／低／通用池和模型参数。ResultSetupEM同步维护配置，正式场景无需先执行菜单。
+- 原作ResultCopy恢复C#带诊断，回查方法索引／ARM64／ELF重定位／字符串表后核实图池、PickKey哈希与避重、RankKey离线模型参数。源码不直接复制。当前按题目ID／关卡号提供种子／轮次，Controller使用现有失误、道具、重试、分数及用时选择；不接入在线统计或完整Percentile抖动，不伪造排名。旧计分账本走配置通用池，原作静态证据不等同APK动态核实。
+- Panel_GameResult_Controller管理选择与本局缓存；GameState仅新增整数选图数据，GameController重开清理当前选择。Panel_GameResult保持原比例，增加原作14像素图文间距，避免皇冠等高图压住说明文字。相同结算刷新／重开稳定，下一局多图池避重；单图重试池允许重复，跨应用重启不保存选图／避重历史。未修改存档格式、版本或正式文件名，失败图、奖励图及结算业务沿用。
+- Windows／Unity6000.5.2f1／Addressables2.10.3专用副本Unity编译与Scene_Main Play Mode通过2836项检查，覆盖全部图片／图池、独立哈希向量、避重、缺图错误、选图分支、教程至主线、保存读回、失败重开和第10关奖励防重。七张中文1080×1920及英文1080×2400安全区后台渲染人工查看，七图间距边界检查通过。首轮未处理已有首次连胜弹窗导致测试断言失败，补齐测试流程后通过；首轮及间距修正前证据保留。
+- 当前工程dotnet build通过（0警告、0错误）；19份本批文件及7份关联资源／注册／包配置与副本一致，GUID唯一、原作来源哈希未变，审计Logs/ResultHeroMigration/delivery-audit.json。使用随机唯一测试存档，未访问正式进度；未回同步测试代码、测试配置或Library。验收文档追加A25，用户条目未代勾。Addressables内容打包结果待补充；未做应用／APK构建、安装、手机触摸或真机验证。UnityEditor.Search自身异常单列，启动日志UnityTls证书错误保留；业务验证无未解决的项目错误。
