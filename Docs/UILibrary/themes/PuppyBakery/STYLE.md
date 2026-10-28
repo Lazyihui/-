@@ -195,7 +195,7 @@
 
 	- B9 文件级尺寸、RGBA、确认稿哈希、旧图归档、meta／GUID保留、重复GUID及20个Prefab引用检查通过，详见Logs/ShopImageInstall/verification.json。shop_btn_magnifier的候选源哈希与实际保留按钮的installedHash分别记录。背景、分组面板和标签等8张图仅安装未绑定；布局、PPU倍率及粉色图标染色仍待后续接入。未执行Unity实际导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
 
-- A17 芝麻雪纳瑞第二套头像（图片待确认，未安装）
+- A17 芝麻雪纳瑞第二套头像（美术已确认，未安装）
 	- B1 用户于2026-10-28选定[5号芝麻雪纳瑞](assets/UI/Profile/DogVariants/v01/05_sesame_schnauzer.png)，授权制作第二套12款头像及8张前爪，覆盖原会员头像17至28；既有蓝耳小狗整套保留，奶油卷毛犬与黑糖奶牛犬基础图也保留。
 
 	- B2 [20张图片清单](assets/UI/Profile/Schnauzer/v01/manifest.json)沿用对应正式文件名和原图画布尺寸。17号自然微笑逐像素复用确认基础图，其余11张表情以该图为身份和画风参考分别通过内置image_gen生成，保持芝麻灰折耳、奶白眉毛、脸颊胡子与短胡子的造型及绘本笔触。
@@ -203,3 +203,14 @@
 	- B3 [12款头像总览](previews/Profile_Schnauzer_v01/contact_sheet_v01.png)、[8张前爪总览](previews/Profile_Schnauzer_v01/hands_contact_sheet_v01.png)、底稿、完整提示词与[离线检查](previews/Profile_Schnauzer_v01/verification.json)位于同一预览目录。前爪使用灰色毛与奶白脚趾；AI分离后按原画布等比归一化，不是无损逐像素提取，服装遮挡、轴心与运行精确叠放尚未验证。
 
 	- B4 Windows离线检查20张RGBA、非空内容、对应原画布尺寸及透明通道0至255范围通过，人工查看头像与前爪总览。本批未修改运行资源、脚本、Prefab、SO、Addressables或存档；未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。基准哈希记录制作期间其他工作更新的Panel_Profile及19张边框，与本批制作区分，不回滚这些修改。
+
+	- B5 用户于2026-10-28回复“可以的”，确认本套12款头像与8张前爪美术可用并保留；状态更新为美术已确认，正式接入仍未实施。
+
+- A18 奶油卷毛犬表情套装（图片待确认，未安装）
+	- B1 用户于2026-10-28选用[2号奶油卷毛犬](assets/UI/Profile/DogVariants/v01/02_cream_curly_puppy.png)，要求按上一套范围制作12款头像及8张前爪；蓝耳小狗与雪纳瑞两套保留，不替换正式资源。
+
+	- B2 [20张图片清单](assets/UI/Profile/CreamCurly/v01/manifest.json)对应原会员槽位17至28，沿用对应文件名和原画布尺寸。17号逐像素复用所选基础图，其余11款表情以奶油卷毛犬为身份与画风参考，使用内置image_gen分别生成；奶油白脸、浅饼干色卷耳和额头卷毛保持一致。前爪同为奶油色，无雪纳瑞灰色毛。
+
+	- B3 [12款头像总览](previews/Profile_CreamCurly_v01/contact_sheet_v01.png)、[8张前爪总览](previews/Profile_CreamCurly_v01/hands_contact_sheet_v01.png)、底稿、完整提示词和[离线检查](previews/Profile_CreamCurly_v01/verification.json)保存在同一目录。前爪AI分离后等比适配原画布，不是无损逐像素提取；服装遮挡、Sprite轴心和精确叠放仍待接入验证。
+
+	- B4 Windows离线20张RGBA、非空内容、原画布尺寸、透明通道0至255范围及基础图复用像素检查通过，人工查看完整头像与前爪总览。制作完成时正式Profile目录、蓝耳小狗、雪纳瑞及三款基础PNG基准哈希无变化；之后仅同步雪纳瑞美术确认与选型记录。未修改正式运行资源、脚本、Prefab、SO、Addressables或存档，未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。

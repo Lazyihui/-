@@ -702,3 +702,22 @@
 - 按用户要求，将本批已有改动按设置边框、头像边框、蓝耳小狗、基础造型、三批服装、雪纳瑞、奶油卷毛犬制作快照、商店素材、统一按钮、俱乐部说明、主线选关、连击收尾、结算页制作快照及每日挑战拆分提交；共用存档、生命周期和资源注册随每日挑战集成提交，公共规范、验收文档及主题汇总记录另行提交。
 - 奶油卷毛犬和独立结算页使用wip提交描述，不宣称功能或资源已完成。整理期间观察到奶油卷毛犬文件继续生成；首次快照之后的新增及变化保留在工作区，不追逐并发写入内容。
 - 本次检查Git差异、提交范围、单文件大小及远端分支，未重新运行Unity编译、Play Mode、Addressables打包、应用构建或真机验证；历史开发验证以各批记录为准。空白检查发现Unity生成meta的空字段行尾空格，未为提交批量改写序列化文件。推送及远端一致性结果以本次聊天交付为准。
+## 2026-10-28 奶油卷毛犬12头像与8前爪候选
+
+- 用户确认雪纳瑞整套可用，并要求给2号奶油卷毛犬也制作一套。同步记录雪纳瑞12头像与8前爪美术确认，保留既有蓝耳小狗、雪纳瑞及三种基础头像。按相同范围完成奶油卷毛犬12款头像（17号逐像素复用已选基础图、11张新表情）及8张前爪。
+- 使用内置image_gen逐张制作，最后一张前爪输出被工具拦截，普通卡通前爪提取请求重试后成功；完整提示词及重试说明均保存。候选位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/CreamCurly/v01；底稿、提示词、脚本、来源基准、头像与前爪总览及verification.json位于previews/Profile_CreamCurly_v01。
+- Windows离线检查20张原文件名、画布尺寸、RGBA、非空内容和透明通道范围0至255通过，基础图逐像素复用检查通过，人工查看12头像和8前爪总览。图片制作完成时，正式Profile与既有各套图片的基准哈希未变；其后仅更新雪纳瑞确认和选型manifest元数据，不改变旧图片。
+- 本批候选待用户审图，未安装正式运行资源，未修改代码、Prefab、SO、Addressables或存档。前爪为AI分离后按原画布等比适配，服装遮挡、Sprite轴心与精确叠放仍待验证。未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+
+## 2026-10-28 主线通关／失败结果页与本局成绩迁移
+
+- 用户确认后，只读查找原ResultPopup场景层级和配置，并核对ResultScreen的Build、BuildClear、BuildFail、MakeStatRow、MakeHero、RevealClearStages及ResultLayoutConfig／ClearStats。原基础Popup不代表动态完整结果页；恢复代码含诊断，结合索引、诊断、ARM64和静态配置采用可核实部分。源配置、方法索引、诊断、SHA256及实施前文件快照保存在Logs/ResultPageMigration/，没有向原项目写入。
+- 新增Panel_GameResult、Panel_GameResult_Controller、ResultConfigSO及ResultSetupEM，正式Prefab位于Assets/Res_Runtime/UI/GameResult/，clear.png／fail.png从原项目Sprite逐字节导入。GameConfig引用正式ResultConfig，原Canvas、PanelFactory、PanelRepository及default标签管理继续使用；没有新增Context依赖、启动流程、接口或并行UI系统。新增9份Result_* L10NSO（1000—1008），烘焙缺失中文字到现有静态字体，保留当前语言字体映射及既有字符，不增加Fallback。
+- GameController仅将主线通关／失败接到新页面；退出／手动重开确认仍为Panel_GameDialog，每日挑战保留其原结果路径。成功页显示实际得分、最高连击、冻结用时，按原配置0.3／1.15／1.9秒分阶段显示、0.7秒统计递增和0.25秒淡入；按钮显示完成前阻止操作。失败页显示剩余仓鼠、重开、返回与明确未接入的广告入口，重复点击不加生命、不发奖励。第20关只显示一个返回主按钮，继续原连胜和主线边界衔接。
+- 存档结构未改，沿用其他批次现有v10和正式hamdoku-progress.json；已有score、bestCombo、elapsed作为显示来源。承接旧分且无法确定完整连击历史时显示“—”并说明，未推算历史。关闭、恢复、重复打开、下一关及失败重开均沿用Controller管理和释放。失败插画纵坐标、失败按钮时机与返回入口为本工程适配，使用现有背景和已安装统一按钮，不把未复刻的光效／纸屑／分档插画记为完整原作效果。
+- 本轮发现原连击飘字淡出后仍留原文案，语言切换会在新语言字体中触发缺字。Panel_Game增加ClearFeedback及过期文字清理，HomeController在切换字体前清理视觉内容；不清零业务连击或分数。首次专项验证因该问题失败，修复后重新检查中英文及缺字警告通过。失败数量英文改为Hamsters left以覆盖单复数，成功说明避免与标题重复。
+- Windows Unity 6000.5.2f1、D3D11，复用隔离工程D:/UnityProject/HamdokuCampaign20Validation-20261028。编译通过，最终45项结果页检查与158项20关回归断言通过（203项检查／断言，不代表203个独立场景），覆盖渐显前禁点、5个GraphicRaycaster命中、实际成绩、失败广告不恢复、失败重开、返回、旧v8承接统计、v1—v8兼容回归、结果磁盘恢复、不重复通关、连胜、每日挑战和第20关边界。运行错误及最终缺字警告为0；UnityEditor.Search索引异常单独记录editor-diagnostics.txt。验证分别使用result-validation-only.json与result-campaign-validation-only.json，没有把测试通关数据同步回正式项目。
+- 已查看1080×1920中文／英文、1080×2340模拟安全区英文、旧局未知统计及第20关边界截图；1080×1600短屏后台图与字体字符亦检查。结果图、测试脚本、初次失败与后续日志均保留；程序化PointerClick／Raycaster和后台渲染不代替人工编辑器点击、手机触摸或实际扬声器验收。
+- Windows Addressables内容打包通过；正式HomeConfig保存v10与正式文件名。74份交付／依赖文件逐项核对通过，其中73份逐字节一致，AddressableAssetSettings组列表仅序列化顺序不同，按引用内容核对一致；包含新Prefab及SO、图片与meta、文案、字体、代码与程序集、既有按钮／背景依赖、DefaultObject、EditorBuildSettings及包版本。共享资源组只合并本批10个入口，保留每日挑战、商店、按钮、头像等其他批次内容；同步字体前检查当前字符集合未丢失。
+- Docs/MigrationAcceptance.md追加本批13项用户验收、兼容策略、已知边界与验证状态，未代勾选；Docs/GameplayMigrationTODO.md补充本批与剩余范围，AGENTS.md现有逐批验收规则和入口保留有效。未执行Android APK构建、安装、真机、原APK动态对照；百分位／超过多少玩家、关卡奖励库存、真实广告及第21关以后不在本批完成范围。

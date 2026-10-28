@@ -71,6 +71,15 @@
 
 	- B3 存档v9保存揭示索引、逐格得分、当前／最高连击及待收尾状态；v1—v8原棋盘、分数和进度保留，未知旧计分作为承接分，新增连击从0开始。重开后使用完整新规则。
 
-	- B4 Unity编译、135项程序化Play Mode检查、三种竖屏后台渲染及Windows Addressables内容打包通过。54份关键文件同步核对通过；注册列表排序差异已按内容核实。原APK、Android应用构建、安装与真机验证未执行，完整ResultScreen、百分位、奖励和后期主线尚未迁移。
+	- B4 Unity编译、135项程序化Play Mode检查、三种竖屏后台渲染及Windows Addressables内容打包通过。54份关键文件同步核对通过；注册列表排序差异已按内容核实。原APK、Android应用构建、安装与真机验证未执行；本批当时未包含结果页，后续主线结果页及统计见 A8，百分位、奖励和后期主线尚未迁移。
 
 	- B5 用户操作与未勾选验收项见[迁移验收文档](MigrationAcceptance.md)“主线开局揭示、连击计分与通关收尾”；开发证据位于Logs/GameFlowMigration/，不代替用户验收。
+
+- A8 第四批：主线通关／失败结果页与本局成绩（2026-10-28）
+	- B1 根据原ResultScreen动态构建、ResultLayoutConfig、ClearStats和已导出ResultPopup场景资料，接入正式Panel_GameResult、对应Controller、ResultConfigSO及原作clear／fail插画。以GameConfig持有正式结果配置，沿用现有面板、Addressables及字体体系；退出／重开确认和每日挑战结果继续原流程。
+
+	- B2 通关显示实际得分、最高连击与冻结用时，插画、统计递增与按钮分阶段显示，出现前不能操作；失败显示实际剩余仓鼠、重开、返回与明确未接入的广告按钮。支持结果恢复、释放、重复打开及连胜／下一关衔接，第20关保留边界并只显示一个返回主按钮。
+
+	- B3 本批不改存档结构，保留现有v10；旧局无法确定完整连击历史时显示“—”，不推算或补造。修复换语言时过期／未结束连击飘字保留旧文案而报缺字的问题，清理视觉内容不改变业务计分与连击。
+
+	- B4 Unity编译、45项结果专项检查、158项前20关回归断言、GraphicRaycaster检查、多竖屏中英文后台渲染及Windows Addressables内容打包通过。用户验收见[迁移验收文档](MigrationAcceptance.md)本批13项，开发证据在Logs/ResultPageMigration/；APK、安装、真机及原APK动态对照未执行。百分位、奖励库存、真实广告和后期主线继续待迁移。

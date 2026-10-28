@@ -68,6 +68,7 @@ namespace Hamdoku.Controllers {
             panel.remainingLabel.text = string.Format(Panel_Game_Controller.Text(ctx, UINameType.Result_Remaining), state.puzzle.size - count);
             panel.primaryLabel.text = Panel_Game_Controller.Text(ctx, won ? state.level == config.campaignSizes.Length ? UINameType.Game_Home : UINameType.Game_Next : UINameType.Game_Restart);
             panel.secondaryLabel.text = Panel_Game_Controller.Text(ctx, UINameType.Game_Home);
+            panel.secondaryButton.gameObject.SetActive(!won || state.level < config.campaignSizes.Length);
             panel.adLabel.text = Panel_Game_Controller.Text(ctx, UINameType.Result_Ad);
             panel.statusLabel.text = Panel_Game_Controller.Text(ctx, state.notice == UINameType.Game_AdUnavailable ? UINameType.Game_AdUnavailable : UINameType.Result_AdStatus);
             if (won && state.level == config.campaignSizes.Length) {
