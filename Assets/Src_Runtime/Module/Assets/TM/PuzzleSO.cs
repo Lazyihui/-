@@ -4,6 +4,9 @@ namespace Hamdoku {
     public sealed class PuzzleSO : ScriptableObject {
         public int id;
         public int size;
+        public int grade;
+        public int fixedLevel;
+        public int identityId;
         public int[] regions;
         public int[] solutionColumns;
         public int[] preplacedRows;
