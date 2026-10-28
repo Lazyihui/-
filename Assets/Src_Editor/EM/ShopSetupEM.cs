@@ -33,7 +33,7 @@ namespace Hamdoku.Editor {
         }
 
         static void ImportSprites() {
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Shop", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Shop/new", "*.png")) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 var settings = new TextureImporterSettings();
                 importer.ReadTextureSettings(settings);
@@ -47,6 +47,18 @@ namespace Hamdoku.Editor {
                 importer.SetTextureSettings(settings);
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.maxTextureSize = 2048;
+                switch (Path.GetFileNameWithoutExtension(path))
+                {
+                    case "shop_btn_magnifier":
+                        importer.spriteBorder = new Vector4(104f, 80f, 104f, 79f);
+                        break;
+                    case "shop_btn_pink":
+                        importer.spriteBorder = new Vector4(104f, 80f, 104f, 79f);
+                        break;
+                    case "shop_btn_special_offer":
+                        importer.spriteBorder = new Vector4(104f, 80f, 104f, 79f);
+                        break;
+                }
                 importer.SaveAndReimport();
             }
         }
@@ -62,6 +74,10 @@ namespace Hamdoku.Editor {
                 case "shop_pad_magnifier": return new Vector4(52, 52, 52, 119);
                 case "shop_pad_hint": return new Vector4(52, 52, 52, 119);
                 case "shop_timer_badge_special_offer": return new Vector4(80, 16, 80, 16);
+                case "shop_btn_hint": return Vector4.one * 58;
+                case "shop_tab_magnifier": return new Vector4(48, 45, 48, 45);
+                case "shop_tab_hint": return new Vector4(48, 45, 48, 45);
+                case "shop_section_panel": return Vector4.one * 44;
                 default: return Vector4.zero;
             }
         }
@@ -331,7 +347,16 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite Sprite(string name) {
-            foreach (string folder in new[] { "Shop", "Game", "Home", "Profile", "Streak" }) {
+            switch (name)
+            {
+                case "shop_btn_magnifier":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Shop/new/shop_btn_magnifier.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Shop/new/shop_btn_magnifier.png");
+                case "shop_btn_pink":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Shop/new/shop_btn_pink.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Shop/new/shop_btn_pink.png");
+                case "shop_btn_special_offer":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Shop/new/shop_btn_special_offer.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Shop/new/shop_btn_special_offer.png");
+            }
+            foreach (string folder in new[] { "Shop/new", "Game", "Home", "Profile", "Streak" }) {
                 var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/" + folder + "/" + name + ".png");
                 if (sprite != null) {
                     return sprite;
@@ -367,6 +392,14 @@ namespace Hamdoku.Editor {
             if (sprite != null && sprite.border != Vector4.zero) {
                 image.type = UnityEngine.UI.Image.Type.Sliced;
             }
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "shop_btn_magnifier" || sprite.name == "shop_btn_pink" || sprite.name == "shop_btn_special_offer"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
         static UnityEngine.UI.Button Hit(UnityEngine.UI.Image image) {
@@ -386,6 +419,13 @@ namespace Hamdoku.Editor {
             text.color = new Color(.32f, .22f, .12f);
             text.raycastTarget = false;
             text.richText = false;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "shop_btn_magnifier" || buttonImage.sprite.name == "shop_btn_pink" || buttonImage.sprite.name == "shop_btn_special_offer"))
+            {
+                text.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return text;
         }
         static TMP_Text Localized(string name, Transform parent, TMP_FontAsset font, Vector2 size, Vector2 position,

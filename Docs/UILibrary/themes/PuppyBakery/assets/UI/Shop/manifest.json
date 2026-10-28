@@ -1,0 +1,708 @@
+{
+  "page": "Panel_Shop",
+  "date": "2026-10-28",
+  "status": "images-installed-layout-not-integrated",
+  "approvedPage": "Panel_Shop_Style_v02_1080x1920.png",
+  "designSize": [
+    1080,
+    1920
+  ],
+  "generationTool": "built-in image_gen; Pillow/NumPy for user-authorized slicing, alpha isolation and assembly",
+  "note": "10 same-name shop images replaced; 7 images relocated unchanged; 3 preinstalled unified buttons retained by user choice; 8 new images installed unbound. All 20 active original GUIDs retained; old contains original images with independent GUIDs. Layout/tint/PPU and added-layer bindings remain pending. For shop_btn_magnifier.png source sha256 and installedHash differ intentionally.",
+  "excludedProductionImages": [
+    "icon_autox.png",
+    "offer_art_special_offer.png",
+    "offer_art_starter_pack.png",
+    "shop_btn_pink.png",
+    "shop_btn_special_offer.png",
+    "shop_card_pink.png",
+    "shop_card_yellow.png",
+    "shop_timer_badge_special_offer.png",
+    "shop_timer_icon.png"
+  ],
+  "previewBorderDisplayScale": {
+    "shop_pad_*": 0.35,
+    "shop_btn_*": 0.35,
+    "shop_section_panel.png": 1.0
+  },
+  "integrationNotes": [
+    "Current production Prefab layout differs from approved mockup. New tabs, small magnifier and separate price buttons require explicit binding in a later authorized integration.",
+    "Calendar/infinity artwork is already blue; existing pink image tint must be neutralized during integration.",
+    "Tile and price-button offline nine-slice borders displayed at 0.35 source pixels; runtime PPU multiplier/layout must be calibrated in Unity, not assumed compatible from dimensions alone.",
+    "New background and section panel are page-local candidates; do not overwrite shared Game backgrounds."
+  ],
+  "assets": [
+    {
+      "file": "shop_title_banner.png",
+      "size": [
+        1024,
+        415
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        109,
+        43,
+        833,
+        342
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_title_banner__resources.assets__1026.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_title_banner.png",
+      "sha256": "5873a2fc8e97231fe1f82baae2d3bc4b8475e71a6340c60204034e096bc042ef",
+      "alphaBBox": [
+        16,
+        2,
+        1007,
+        413
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_title_banner.png",
+      "installedGuid": "adfbae3d86b7abb4f9e723213e66219c",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "5873a2fc8e97231fe1f82baae2d3bc4b8475e71a6340c60204034e096bc042ef"
+    },
+    {
+      "file": "shop_remove_ads.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        106,
+        395,
+        262,
+        550
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_remove_ads__resources.assets__804.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_remove_ads.png",
+      "sha256": "4761a7309d717388dfbfd52fecb2a907c372f6de28caa7d6fb2cfb4576d99374",
+      "alphaBBox": [
+        2,
+        4,
+        254,
+        251
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_remove_ads.png",
+      "installedGuid": "a1b6a3a073baade4b91a60cf401ca03a",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "4761a7309d717388dfbfd52fecb2a907c372f6de28caa7d6fb2cfb4576d99374"
+    },
+    {
+      "file": "shop_magnifier.png",
+      "size": [
+        317,
+        320
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        90,
+        936,
+        291,
+        1140
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_magnifier__resources.assets__1124.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_magnifier.png",
+      "sha256": "c58565d1900671209517c3f0a538f9072e597037f3a80e15e16f89b9a7b2b980",
+      "alphaBBox": [
+        3,
+        2,
+        314,
+        318
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_magnifier.png",
+      "installedGuid": "543e8eb57b5b3354e9e256d4d1a0e3dd",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "c58565d1900671209517c3f0a538f9072e597037f3a80e15e16f89b9a7b2b980"
+    },
+    {
+      "file": "shop_hint.png",
+      "size": [
+        216,
+        320
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        124,
+        1327,
+        263,
+        1510
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_hint__resources.assets__1139.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_hint.png",
+      "sha256": "c2e05a48e61a1e1117e522519439ce8174d418e817cbcfea78d67365a6ffe33e",
+      "alphaBBox": [
+        2,
+        20,
+        214,
+        300
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_hint.png",
+      "installedGuid": "5ba26505a4cd73c4b874908d04fc730f",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "c2e05a48e61a1e1117e522519439ce8174d418e817cbcfea78d67365a6ffe33e"
+    },
+    {
+      "file": "icon_close.png",
+      "size": [
+        249,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "complete circular crop with ellipse alpha",
+      "sourceRect": [
+        819,
+        27,
+        914,
+        125
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\icon_close__resources.assets__1149.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/icon_close.png",
+      "sha256": "5b44f00997a87aa9d06825afeff34a4c66a0ae79a51a8955ea3d0ba72927af47",
+      "alphaBBox": [
+        2,
+        2,
+        246,
+        254
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/icon_close.png",
+      "installedGuid": "29f6225ca0952874bbb4a4d0a2d15db8",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "5b44f00997a87aa9d06825afeff34a4c66a0ae79a51a8955ea3d0ba72927af47"
+    },
+    {
+      "file": "icon_calendar.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        181,
+        621,
+        254,
+        693
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\icon_calendar__resources.assets__1100.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/icon_calendar.png",
+      "sha256": "387313799c9df19d30033eed0aa65940d8ace0792144d7e573e18d725a5949a0",
+      "alphaBBox": [
+        2,
+        2,
+        126,
+        126
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/icon_calendar.png",
+      "installedGuid": "a4064c1ac949c2743bb93858971d723e",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "387313799c9df19d30033eed0aa65940d8ace0792144d7e573e18d725a5949a0"
+    },
+    {
+      "file": "icon_infinity.png",
+      "size": [
+        128,
+        64
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        680,
+        631,
+        780,
+        686
+      ],
+      "borderLTRB": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\icon_infinity__resources.assets__1393.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/icon_infinity.png",
+      "sha256": "9c24e31ab431b135824869da9d0ca9fa06951bfad4bca4191ee9d8cd13b66a63",
+      "alphaBBox": [
+        4,
+        2,
+        123,
+        62
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/icon_infinity.png",
+      "installedGuid": "709331f1ae7f37a449205c7ffb4bed27",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "9c24e31ab431b135824869da9d0ca9fa06951bfad4bca4191ee9d8cd13b66a63"
+    },
+    {
+      "file": "shop_magnifier_small.png",
+      "size": [
+        128,
+        128
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "crop + silhouette alpha from new artwork + proportional fit",
+      "sourceRect": [
+        335,
+        1001,
+        407,
+        1072
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_magnifier_small.png",
+      "sha256": "4baad75c06d0d3d91447620e5bb99115e700997447adb9693c04a14dcd38670e",
+      "alphaBBox": [
+        4,
+        2,
+        124,
+        126
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_magnifier_small.png",
+      "installedGuid": "7fa2585fbf034147a49047f9e0d483d3",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "4baad75c06d0d3d91447620e5bb99115e700997447adb9693c04a14dcd38670e"
+    },
+    {
+      "file": "shop_pad_ads.png",
+      "size": [
+        698,
+        439
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "clean header/body strip assembly; lower price button delivered separately",
+      "sourceRect": [
+        104,
+        560,
+        337,
+        764
+      ],
+      "borderLTRB": [
+        52.0,
+        119.0,
+        52.0,
+        52.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_pad_ads__resources.assets__1348.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_pad_ads.png",
+      "sha256": "ba84990abdb4a735253ed313071bab47a41884caa226df8c88b9819624b72b68",
+      "alphaBBox": [
+        0,
+        0,
+        698,
+        439
+      ],
+      "note": "Original L/T/R/B 52/119/52/52 retained. Header occupies top 119 source pixels. No price/text/icon baked into tile.",
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_pad_ads.png",
+      "installedGuid": "9513f5eb7f7a5384db65a14f9a214e0a",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "ba84990abdb4a735253ed313071bab47a41884caa226df8c88b9819624b72b68"
+    },
+    {
+      "file": "shop_pad_magnifier.png",
+      "size": [
+        698,
+        439
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "clean header/body strip assembly; lower price button delivered separately",
+      "sourceRect": [
+        309,
+        940,
+        476,
+        1141
+      ],
+      "borderLTRB": [
+        52.0,
+        119.0,
+        52.0,
+        52.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_pad_magnifier__resources.assets__1116.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_pad_magnifier.png",
+      "sha256": "56b4f826d821956dfb8382302478eb6ffeda40dae265133378d175a7b75ba9c3",
+      "alphaBBox": [
+        0,
+        0,
+        698,
+        439
+      ],
+      "note": "Original L/T/R/B 52/119/52/52 retained. Header occupies top 119 source pixels. No price/text/icon baked into tile.",
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_pad_magnifier.png",
+      "installedGuid": "1b09e0e409598d942a6c7bf8128f04af",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "56b4f826d821956dfb8382302478eb6ffeda40dae265133378d175a7b75ba9c3"
+    },
+    {
+      "file": "shop_pad_hint.png",
+      "size": [
+        697,
+        439
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "clean header/body strip assembly; lower price button delivered separately",
+      "sourceRect": [
+        309,
+        1309,
+        477,
+        1518
+      ],
+      "borderLTRB": [
+        52.0,
+        119.0,
+        52.0,
+        52.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_pad_hint__resources.assets__1066.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_pad_hint.png",
+      "sha256": "b91c97a6a5749a01732de1c4d942b4ac2f0a58b0ab2be4fa8cf83c633f7bb756",
+      "alphaBBox": [
+        0,
+        0,
+        697,
+        439
+      ],
+      "note": "Original L/T/R/B 52/119/52/52 retained. Header occupies top 119 source pixels. No price/text/icon baked into tile.",
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_pad_hint.png",
+      "installedGuid": "3d43680539c67ef4a83e29531a6b2d1a",
+      "bindingStatus": "original-guid-retained",
+      "installedHash": "b91c97a6a5749a01732de1c4d942b4ac2f0a58b0ab2be4fa8cf83c633f7bb756"
+    },
+    {
+      "file": "shop_btn_magnifier.png",
+      "size": [
+        408,
+        160
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "blank blue price button crop; corner-normalized",
+      "sourceRect": [
+        118,
+        700,
+        325,
+        755
+      ],
+      "borderLTRB": [
+        58.0,
+        58.0,
+        58.0,
+        58.0
+      ],
+      "originalSprite": "D:\\0000001apkUnbag\\01_逆向工程项目\\Hamdoku2\\04_assets\\Sprite\\shop_btn_magnifier__resources.assets__1045.png",
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_btn_magnifier.png",
+      "sha256": "cb2ac8158730bc6a66c5784a041dae4913b140499caa520a1573ca1c85076339",
+      "alphaBBox": [
+        0,
+        0,
+        408,
+        160
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_btn_magnifier.png",
+      "installedGuid": "617e5bd3146868145a724cf31a12b7b3",
+      "bindingStatus": "confirmed-existing-unified-button-retained",
+      "installedHash": "13117bd5cfb90df9bdd92d5f8e6d260b1be7fad7c92aaf1073813ce44a2f5368",
+      "installationNote": "User chose the preinstalled unified long button. Candidate sha256 is the unused shop draft; installedHash is the active unified button."
+    },
+    {
+      "file": "shop_btn_hint.png",
+      "size": [
+        408,
+        160
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "blank gold price button crop; corner-normalized",
+      "sourceRect": [
+        318,
+        1452,
+        467,
+        1506
+      ],
+      "borderLTRB": [
+        58,
+        58,
+        58,
+        58
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_btn_hint.png",
+      "sha256": "58601c3847f021ecfecaa505bab4d72736c70e6ba3496211f043d79508876601",
+      "alphaBBox": [
+        0,
+        0,
+        408,
+        160
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_btn_hint.png",
+      "installedGuid": "08acd81d9c18495082b1ffc1a1da9759",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "58601c3847f021ecfecaa505bab4d72736c70e6ba3496211f043d79508876601"
+    },
+    {
+      "file": "shop_tab_magnifier.png",
+      "size": [
+        320,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "blank category tab crop",
+      "sourceRect": [
+        85,
+        810,
+        325,
+        880
+      ],
+      "borderLTRB": [
+        48,
+        45,
+        48,
+        45
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_tab_magnifier.png",
+      "sha256": "ef6d04632c7fe180b4947ce220e6407acb0f850c6729760168b0f619d083abc5",
+      "alphaBBox": [
+        0,
+        0,
+        320,
+        96
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_tab_magnifier.png",
+      "installedGuid": "d5f5b910b9ea4021bf085abbdf4aec9a",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "ef6d04632c7fe180b4947ce220e6407acb0f850c6729760168b0f619d083abc5"
+    },
+    {
+      "file": "shop_tab_hint.png",
+      "size": [
+        288,
+        96
+      ],
+      "mode": "RGBA",
+      "source": "clean_master.png",
+      "method": "blank category tab crop",
+      "sourceRect": [
+        85,
+        1178,
+        297,
+        1248
+      ],
+      "borderLTRB": [
+        48,
+        45,
+        48,
+        45
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_tab_hint.png",
+      "sha256": "c37421b2b21eb726c5788afcf130ff26dc0e4ec66935aaa6d37a470914d1d3e4",
+      "alphaBBox": [
+        0,
+        0,
+        288,
+        96
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_tab_hint.png",
+      "installedGuid": "f93e9f1b5df645849c44123a681112a5",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "c37421b2b21eb726c5788afcf130ff26dc0e4ec66935aaa6d37a470914d1d3e4"
+    },
+    {
+      "file": "shop_section_panel.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "panel_master.png",
+      "method": "image_gen blank panel reconstruction; isolated generated alpha, no legacy mask",
+      "sourceRect": null,
+      "borderLTRB": [
+        44,
+        44,
+        44,
+        44
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_section_panel.png",
+      "sha256": "99dd629e768b113bbb294756bc00e97ffd5e526be0c912f95714af5cecc5c164",
+      "alphaBBox": [
+        2,
+        8,
+        254,
+        248
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_section_panel.png",
+      "installedGuid": "e5336247be3540e0a64db04a24cb5681",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "99dd629e768b113bbb294756bc00e97ffd5e526be0c912f95714af5cecc5c164"
+    },
+    {
+      "file": "shop_background.png",
+      "size": [
+        1080,
+        1920
+      ],
+      "mode": "RGBA",
+      "source": "background_master.png",
+      "method": "image_gen background reconstruction; no top-edge canopy",
+      "sourceRect": null,
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_background.png",
+      "sha256": "7273b22ab67f0b6816eae5d11abb9165a89defe07eaa436880fd05575f2b8b56",
+      "alphaBBox": [
+        0,
+        0,
+        1080,
+        1920
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_background.png",
+      "installedGuid": "f7e22eada6624000a074401ccf68ac45",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "7273b22ab67f0b6816eae5d11abb9165a89defe07eaa436880fd05575f2b8b56"
+    },
+    {
+      "file": "shop_tab_paw.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "isolated white category glyph alpha",
+      "sourceRect": [
+        108,
+        829,
+        156,
+        865
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_tab_paw.png",
+      "sha256": "3353376065a4a6ac630ac29538de51dca06be403c22d0fa8853d1077c21f1ffe",
+      "alphaBBox": [
+        4,
+        9,
+        59,
+        54
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_tab_paw.png",
+      "installedGuid": "f14cea85e02a43dbb6e85933accdbf79",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "3353376065a4a6ac630ac29538de51dca06be403c22d0fa8853d1077c21f1ffe"
+    },
+    {
+      "file": "shop_tab_bulb.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "source": "approved-v02",
+      "method": "isolated white category glyph alpha",
+      "sourceRect": [
+        109,
+        1190,
+        154,
+        1235
+      ],
+      "borderLTRB": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "originalSprite": null,
+      "productionTarget": "Assets/Res_Runtime/UI/Shop/new/shop_tab_bulb.png",
+      "sha256": "f61b780112efdf9f57dae3af66181ea9f52f58f3f4d6434339a539c0903e31f7",
+      "alphaBBox": [
+        8,
+        3,
+        62,
+        62
+      ],
+      "installedPath": "Assets/Res_Runtime/UI/Shop/new/shop_tab_bulb.png",
+      "installedGuid": "c4d3bb0014ec4f94b8bdeaf56f716412",
+      "bindingStatus": "installed-unbound",
+      "installedHash": "f61b780112efdf9f57dae3af66181ea9f52f58f3f4d6434339a539c0903e31f7"
+    }
+  ],
+  "installation": {
+    "date": "2026-10-28",
+    "activeDirectory": "Assets/Res_Runtime/UI/Shop/new",
+    "archiveDirectory": "Assets/Res_Runtime/UI/Shop/old",
+    "replacedExisting": 10,
+    "unchangedExisting": 7,
+    "preservedUnifiedButtons": 3,
+    "addedUnbound": 8,
+    "prefabUnchanged": true,
+    "unityImportVerified": false,
+    "note": "Reused old/new directories and preserved 3 preexisting unified buttons, their meta, archive and latest Prefab. Active meta/GUID preserved; archive GUID independent. Added images unbound. No layout, PPU/tint, TMP or shared-background bindings changed. Existing button import overrides preserved; new border cases added.",
+    "buttonChoice": "User confirmed retaining preinstalled unified shop_btn_magnifier.png on 2026-10-28."
+  }
+}
