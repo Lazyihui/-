@@ -140,8 +140,8 @@ namespace Hamdoku.Controllers {
             Close(ctx);
             if (continueCampaign) {
                 var assets = ctx.assetModule;
-                var config = assets.GetGameConfig();
-                if (save.campaignClears < config.campaignSizes.Length) {
+                var campaignConfig = assets.GetCampaignConfig();
+                if (save.campaignClears < campaignConfig.campaignSizes.Length) {
                     HomeController.RequestCampaign(ctx);
                 } else {
                     HomeController.ShowNotice(ctx, UINameType.Game_BatchComplete, 0);

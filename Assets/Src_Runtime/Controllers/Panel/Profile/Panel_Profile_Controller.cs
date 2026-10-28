@@ -79,18 +79,26 @@ namespace Hamdoku.Controllers {
                 panel.tabLabels[i].color = selected ? config.tabOnText : config.tabOffText;
                 panel.tabDots[i].SetActive((state.visitedTabs & (1 << i)) == 0 && newMasks[i] != 0);
             }
+            panel.RefreshTabLayering();
             foreach (var item in panel.items) {
                 int selection = item.tab == ProfileTabType.Avatar ? profile.avatarId : item.tab == ProfileTabType.Frame ? profile.frameId : profile.costumeId;
-                item.Show(item.itemId == selection, ProfileController.Available(config, save, item.tab, item.itemId), config.lockedAlpha);
-                bool available = ProfileController.Available(config, save, item.tab, item.itemId);
+                item.Show(item.itemId == selection, ProfileController.AvailableForSession(ctx, config, save, item.tab, item.itemId), config.lockedAlpha);
+                bool available = ProfileController.AvailableForSession(ctx, config, save, item.tab, item.itemId);
                 bool club = (item.tab == ProfileTabType.Avatar && item.itemId >= config.clubAvatarStart) ||
                     (item.tab == ProfileTabType.Frame && item.itemId == config.clubFrameId);
                 item.clubTag.SetActive(club);
                 item.clubLabel.text = Text(ctx, UINameType.Profile_ClubTag);
                 item.newDot.SetActive(item.itemId >= 0 && (newMasks[(int)item.tab - 1] & (1u << item.itemId)) != 0);
-                item.portrait.Show(config, item.tab == ProfileTabType.Avatar ? item.itemId : profile.avatarId,
-                    item.tab == ProfileTabType.Frame ? item.itemId : -1,
-                    item.tab == ProfileTabType.Costume ? item.itemId : -1, available ? 1 : config.lockedAlpha, -1);
+                bool avatarCell = item.tab == ProfileTabType.Avatar;
+                item.art.gameObject.SetActive(avatarCell);
+                item.portrait.gameObject.SetActive(!avatarCell);
+                if (avatarCell) {
+                    item.art.sprite = config.avatars[item.itemId];
+                } else {
+                    item.portrait.Show(config, profile.avatarId,
+                        item.tab == ProfileTabType.Frame ? item.itemId : -1,
+                        item.tab == ProfileTabType.Costume ? item.itemId : -1, available ? 1 : config.lockedAlpha, -1);
+                }
                 item.requirementLabel.gameObject.SetActive(item.tab == ProfileTabType.Costume && item.itemId >= 0);
                 if (item.tab == ProfileTabType.Costume && item.itemId >= 0) {
                     int season = config.costumeSeasons[item.itemId];

@@ -4,7 +4,7 @@ namespace Hamdoku {
     [CreateAssetMenu(fileName = "LogoConfig", menuName = "Hamdoku/Logo Config")]
     public sealed class LogoConfigSO : ScriptableObject {
         [Header("Loading screen")]
-        public HomeConfigSO startupHomeConfig;
+        public GameConfigSO startupGameConfig;
         public L10NSO[] startupTexts;
         public L10NFontSO[] startupFonts;
         public int seedCount;

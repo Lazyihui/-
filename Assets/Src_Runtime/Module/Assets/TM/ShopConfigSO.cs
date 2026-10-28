@@ -28,5 +28,18 @@ namespace Hamdoku {
         public float dialogHeight = 1100;
         public float demoStepSeconds = 0.6f;
         public float minimumLayoutHeight = 960;
+        public Color cardShadowColor = new Color(.42f, .30f, .16f, .19607843f);
+        public Vector2 cardShadowOffset = new Vector2(0, -5);
+        public float cardShadowSpread = 20;
+        public Color tileShadowColor = new Color(.42f, .30f, .16f, .39215687f);
+        public Vector2 tileShadowOffset = new Vector2(0, -3);
+        public float tileShadowSpread = 14;
+        public Color adsButtonShadowColor = new Color(.42f, .30f, .16f, .34f);
+        public Vector2 adsButtonShadowOffset = new Vector2(0, -16);
+        public float adsButtonShadowSpread = 13;
+        public Color artShadowColor = new Color(.42f, .30f, .16f, .34f);
+        public Vector2 artShadowOffset = new Vector2(0, -10);
+        public float artShadowSpread = 7;
+        public int artShadowSteps = 6;
     }
 }

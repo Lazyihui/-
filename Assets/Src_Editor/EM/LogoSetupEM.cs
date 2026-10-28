@@ -85,7 +85,7 @@ namespace Hamdoku.Editor {
                 throw new InvalidOperationException("Loading screen requires authored SafeRoot/Content/LogoMotion.");
             }
             panel.contentRoot = content;
-            config.startupHomeConfig = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
+            config.startupGameConfig = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
             config.seedCount = 5;
             config.seedPopScale = 1.18f;
             config.seedPopSeconds = 0.34f;

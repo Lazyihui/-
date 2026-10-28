@@ -62,7 +62,7 @@ namespace Hamdoku.Editor {
             Refine(row, panel);
             RegisterAssets(new[] { panel, dialog, "Assets/Res_Runtime/Config/RankingConfig.asset" }
                 .Concat(texts.Where(text => text.id.ToString().StartsWith("Ranking_", StringComparison.Ordinal)).Select(text => AssetDatabase.GetAssetPath(text))));
-            var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
+            var home = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
             home.saveVersion = Math.Max(home.saveVersion, 4);
             EditorUtility.SetDirty(home);
             AssetDatabase.SaveAssets();

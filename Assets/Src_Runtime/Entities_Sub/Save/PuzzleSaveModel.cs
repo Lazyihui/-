@@ -7,6 +7,7 @@ namespace Hamdoku {
         [DataMember] public int dailyDay;
         [DataMember] public int campaignSelectionVersion;
         [DataMember] public int campaignGrade;
+        [DataMember] public int campaignTransform;
         [DataMember] public bool campaignFirstGame;
         [DataMember] public bool campaignTouched;
         [DataMember] public bool campaignUsedItem;

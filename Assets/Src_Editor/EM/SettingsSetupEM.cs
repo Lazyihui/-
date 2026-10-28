@@ -34,7 +34,7 @@ namespace Hamdoku.Editor {
             }
             ConfigureContextLayout();
             BindRegionEdges();
-            var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
+            var home = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
             home.saveVersion = Math.Max(home.saveVersion, 6);
             EditorUtility.SetDirty(home);
             var settings = AddressableAssetSettingsDefaultObject.Settings;

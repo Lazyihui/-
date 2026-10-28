@@ -9,7 +9,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             var assets = ctx.assetModule;
-            var config = assets.GetHomeConfig();
+            var config = assets.GetGameConfig();
             var saves = ctx.saveModule;
             var save = ctx.playerSave;
             var localization = ctx.l10NModule;
@@ -26,8 +26,10 @@ namespace Hamdoku.Controllers {
             StreakController.ValidateConfig(assets.GetStreakConfig());
             StreakController.Initialize(ctx, loaded);
             var puzzles = ctx.puzzleModule;
-            var gameConfig = assets.GetGameConfig();
-            puzzles.Initialize(gameConfig);
+            var rules = assets.GetPuzzleRules();
+            var campaignConfig = assets.GetCampaignConfig();
+            var presentation = assets.GetPuzzlePresentation();
+            puzzles.Initialize(rules, campaignConfig, presentation, assets.Puzzle_GetAll());
             DailyController.Initialize(ctx, loaded);
             ProfileController.InitializeSave(ctx, loaded);
             SettingsController.InitializeSave(ctx, loaded);
@@ -37,7 +39,7 @@ namespace Hamdoku.Controllers {
                 if (save.activePuzzle.dailyDay != 0) {
                     throw new InvalidOperationException("The campaign save slot cannot contain a daily board.");
                 }
-                puzzles.ValidateSave(save.activePuzzle, gameConfig, save.campaignClears, save.tutorialCompleted);
+                puzzles.ValidateSave(save.activePuzzle, rules, campaignConfig, save.campaignClears, save.tutorialCompleted);
             }
             localization.ReplaceAll(assets.L10N_GetAll(), assets.L10NFont_GetAll());
             localization.Language_Set(save.language);
@@ -50,7 +52,42 @@ namespace Hamdoku.Controllers {
             var assets = ctx.assetModule;
             var saves = ctx.saveModule;
             var save = ctx.playerSave;
-            saves.Save(assets.GetHomeConfig(), Application.persistentDataPath, save);
+            var state = ctx.state_Home;
+            var profileState = ctx.state_Profile;
+            var profile = save.profile;
+            if (!state.testUnlockAll || profile == null) {
+                saves.Save(assets.GetGameConfig(), Application.persistentDataPath, save);
+                return;
+            }
+            int avatar = profile.avatarId;
+            int frame = profile.frameId;
+            int costume = profile.costumeId;
+            try {
+                profile.avatarId = profileState.savedAvatarId;
+                profile.frameId = profileState.savedFrameId;
+                profile.costumeId = profileState.savedCostumeId;
+                saves.Save(assets.GetGameConfig(), Application.persistentDataPath, save);
+            } finally {
+                profile.avatarId = avatar;
+                profile.frameId = frame;
+                profile.costumeId = costume;
+            }
+        }
+
+        public static void UnlockForTesting(GameContext ctx) {
+            var state = ctx.state_Home;
+            if (!state.saveInitialized || state.testUnlockAll) {
+                return;
+            }
+            var save = ctx.playerSave;
+            var profile = save.profile;
+            var profileState = ctx.state_Profile;
+            profileState.savedAvatarId = profile.avatarId;
+            profileState.savedFrameId = profile.frameId;
+            profileState.savedCostumeId = profile.costumeId;
+            state.testUnlockAll = true;
+            Refresh(ctx);
+            Panel_Profile_Controller.Refresh(ctx);
         }
 
         public static void SetTutorialCompleted(GameContext ctx) {
@@ -117,9 +154,9 @@ namespace Hamdoku.Controllers {
             if (ProfileController.RecordLogin(ctx)) {
                 SaveProgress(ctx);
             }
-            state.dailyUnlocked = save.campaignClears >= config.dailyUnlockClears;
-            state.rankingUnlocked = save.campaignClears >= config.rankingUnlockClears;
-            state.endlessUnlocked = save.campaignClears >= config.endlessUnlockClears;
+            state.dailyUnlocked = state.testUnlockAll || save.campaignClears >= config.dailyUnlockClears;
+            state.rankingUnlocked = state.testUnlockAll || save.campaignClears >= config.rankingUnlockClears;
+            state.endlessUnlocked = state.testUnlockAll || save.campaignClears >= config.endlessUnlockClears;
             state.displayedDate = DateTime.Today.DayOfYear;
             Panel_Home_Controller.Refresh(ctx);
         }

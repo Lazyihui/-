@@ -17,6 +17,7 @@ namespace Hamdoku {
         bool focusHighlighted;
         bool animateTutorial;
         bool initialized;
+        bool characterForeground;
         CellStatus displayedStatus;
         float changedAt;
         float markSeconds;
@@ -29,6 +30,41 @@ namespace Hamdoku {
         float dimAlpha;
         float celebrateStarted;
         float celebrateSeconds;
+        PuzzlePresentationSO animationConfig;
+        Vector2 hamsterOrigin;
+        float idlePhase;
+        float wrongStarted = float.NegativeInfinity;
+        public void ConfigureAnimation(PuzzlePresentationSO config, int index) {
+            if (config.hamsterIdleFrames == null || config.hamsterIdleFrames.Length != 8 ||
+                config.hamsterAppearFrame == null || config.hamsterWrongFrame == null ||
+                config.hamsterIdleFrameSeconds <= 0 || config.hamsterAppearSeconds <= 0 ||
+                config.hamsterWrongSeconds <= 0 || config.hamsterClearHopSeconds <= 0 ||
+                config.hamsterClearGrowSeconds <= 0 || config.hamsterClearShrinkSeconds <= 0) {
+                throw new System.InvalidOperationException("Invalid board character animation configuration.");
+            }
+            foreach (var frame in config.hamsterIdleFrames) {
+                if (frame == null) {
+                    throw new System.InvalidOperationException("Missing board character idle frame.");
+                }
+            }
+            if (animationConfig == null) {
+                hamsterOrigin = hamster.rectTransform.anchoredPosition;
+            }
+            animationConfig = config;
+            idlePhase = index * 0.73f;
+            initialized = false;
+            changedAt = float.NegativeInfinity;
+            wrongStarted = float.NegativeInfinity;
+            celebrateSeconds = 0;
+            sweepStarted = float.NegativeInfinity;
+            hamster.rectTransform.anchoredPosition = hamsterOrigin;
+            hamster.rectTransform.localScale = Vector3.one;
+            hamster.rectTransform.localRotation = Quaternion.identity;
+        }
+        public void PlayWrong() {
+            wrongStarted = Time.unscaledTime;
+            Update();
+        }
         public void ConfigureTutorial(float markSeconds, float placeSeconds, float dimSeconds, bool animated) {
             if (tutorialStars == null || tutorialStars.Length != 6) {
                 throw new System.InvalidOperationException("Board cell requires six bound tutorial sparkle images.");
@@ -79,6 +115,8 @@ namespace Hamdoku {
         public void Show(Color color, Sprite motif, CellStatus status, bool highlighted, bool fixedHamster) {
             if (initialized && displayedStatus != status && animateTutorial) {
                 changedAt = Time.unscaledTime;
+                wrongStarted = float.NegativeInfinity;
+                celebrateSeconds = 0;
             } else if (!initialized) {
                 changedAt = float.NegativeInfinity;
             }
@@ -89,6 +127,7 @@ namespace Hamdoku {
             pattern.color = new Color(color.r * 0.65f, color.g * 0.65f, color.b * 0.65f, 0.26f);
             pattern.enabled = status == CellStatus.None && motif != null;
             hamster.enabled = status == CellStatus.Hamster;
+            SetCharacterForeground(hamster.enabled);
             cross.enabled = status == CellStatus.Cross;
             cross.gameObject.SetActive(status == CellStatus.Cross);
             crossSecond.enabled = status == CellStatus.Cross;
@@ -106,11 +145,76 @@ namespace Hamdoku {
             sweepSeconds = seconds;
             sweepColor = color;
         }
-        public void Celebrate(float seconds) {
+        void SetCharacterForeground(bool foreground) {
+            if (characterForeground == foreground) {
+                return;
+            }
+            characterForeground = foreground;
+            // Keep the whole cell above empty / crossed neighbours so its character
+            // can grow beyond the cell without changing board coordinates or input indices.
+            if (foreground) {
+                transform.SetAsLastSibling();
+            } else {
+                transform.SetAsFirstSibling();
+            }
+        }
+        public void Celebrate() {
             if (displayedStatus == CellStatus.Hamster) {
                 celebrateStarted = Time.unscaledTime;
-                celebrateSeconds = seconds;
+                var config = animationConfig;
+                celebrateSeconds = config.hamsterClearGrowSeconds + config.hamsterClearHoldSeconds +
+                    config.hamsterClearShrinkSeconds + config.hamsterClearHops * config.hamsterClearHopSeconds;
             }
+        }
+        void AnimateCharacter(float elapsed) {
+            var config = animationConfig;
+            var rect = hamster.rectTransform;
+            float unit = ((RectTransform)transform).rect.width / 100;
+            float wrongElapsed = Time.unscaledTime - wrongStarted;
+            bool wrong = wrongElapsed < config.hamsterWrongSeconds;
+            bool visible = displayedStatus == CellStatus.Hamster;
+            hamster.enabled = visible || wrong;
+            SetCharacterForeground(hamster.enabled);
+            cross.enabled = displayedStatus == CellStatus.Cross && !wrong;
+            crossSecond.enabled = cross.enabled;
+            Vector2 position = hamsterOrigin;
+            Vector3 scale = Vector3.one;
+            float rotation = 0;
+            if (wrong) {
+                hamster.sprite = config.hamsterWrongFrame;
+                float progress = wrongElapsed / config.hamsterWrongSeconds;
+                position.x += Mathf.Sin(progress * Mathf.PI * 12) * config.hamsterWrongShake * unit * (1 - progress);
+            } else if (visible) {
+                float phase = Time.unscaledTime * config.hamsterBobSpeed + idlePhase;
+                int frame = Mathf.FloorToInt((Time.unscaledTime + idlePhase) / config.hamsterIdleFrameSeconds) % config.hamsterIdleFrames.Length;
+                hamster.sprite = elapsed < config.hamsterAppearSeconds ? config.hamsterAppearFrame : config.hamsterIdleFrames[frame];
+                position.y += Mathf.Sin(phase) * config.hamsterBobHeight * unit;
+                float breathe = Mathf.Sin(phase) * config.hamsterBreathe;
+                scale = new Vector3(1 - breathe * 0.5f, 1 + breathe, 1);
+                float progress = Mathf.Clamp01(elapsed / placeSeconds);
+                float pop = progress < 0.6f ? Mathf.Lerp(0.45f, 1.2f, Mathf.SmoothStep(0, 1, progress / 0.6f)) :
+                    Mathf.Lerp(1.2f, 1, Mathf.SmoothStep(0, 1, (progress - 0.6f) / 0.4f));
+                scale *= pop;
+                float celebration = Time.unscaledTime - celebrateStarted;
+                if (celebrateSeconds > 0 && celebration < celebrateSeconds) {
+                    float grow = config.hamsterClearGrowSeconds;
+                    float hold = grow + config.hamsterClearHoldSeconds;
+                    float shrink = hold + config.hamsterClearShrinkSeconds;
+                    float peak = config.hamsterClearPeakScale;
+                    float size = celebration < grow ? Mathf.Lerp(1, peak, Mathf.SmoothStep(0, 1, celebration / grow)) :
+                        celebration < hold ? peak : Mathf.Lerp(peak, 1, Mathf.SmoothStep(0, 1, (celebration - hold) / config.hamsterClearShrinkSeconds));
+                    scale = Vector3.one * size;
+                    position = hamsterOrigin;
+                    if (celebration >= shrink) {
+                        float hop = Mathf.Repeat((celebration - shrink) / config.hamsterClearHopSeconds, 1);
+                        position.y += Mathf.Sin(hop * Mathf.PI) * config.hamsterClearHopHeight * unit;
+                        rotation = Mathf.Sin(hop * Mathf.PI * 2) * 8;
+                    }
+                }
+            }
+            rect.anchoredPosition = position;
+            rect.localScale = scale;
+            rect.localRotation = Quaternion.Euler(0, 0, rotation);
         }
         void Update() {
             float sweepElapsed = Time.unscaledTime - sweepStarted;
@@ -131,14 +235,7 @@ namespace Hamdoku {
                 cross.rectTransform.localScale = new Vector3(Mathf.Clamp01(progress * 2), 1, 1);
                 crossSecond.rectTransform.localScale = new Vector3(Mathf.Clamp01(progress * 2 - 1), 1, 1);
             }
-            if (displayedStatus == CellStatus.Hamster) {
-                float progress = Mathf.Clamp01(elapsed / placeSeconds);
-                float pop = progress < 0.6f ? Mathf.Lerp(0.45f, 1.2f, Mathf.SmoothStep(0, 1, progress / 0.6f)) : Mathf.Lerp(1.2f, 1, Mathf.SmoothStep(0, 1, (progress - 0.6f) / 0.4f));
-                float celebration = celebrateSeconds > 0 ? Mathf.Clamp01((Time.unscaledTime - celebrateStarted) / celebrateSeconds) : 1;
-                float wave = Mathf.Sin(celebration * Mathf.PI * 6) * (1 - celebration);
-                hamster.rectTransform.localScale = Vector3.one * (pop + Mathf.Abs(wave) * 0.12f);
-                hamster.rectTransform.localRotation = Quaternion.Euler(0, 0, wave * 12);
-            }
+            AnimateCharacter(elapsed);
             float burst = Mathf.Clamp01(elapsed / placeSeconds);
             bool sparkle = displayedStatus == CellStatus.Hamster && burst < 1;
             for (int i = 0; i < tutorialStars.Length; i++) {

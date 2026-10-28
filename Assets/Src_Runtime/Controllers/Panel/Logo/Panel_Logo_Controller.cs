@@ -7,7 +7,7 @@ namespace Hamdoku.Controllers {
             var config = ctx.logoConfig;
             var localization = ctx.l10NModule;
             var saves = ctx.saveModule;
-            var startupConfig = config.startupHomeConfig;
+            var startupConfig = config.startupGameConfig;
             var loaded = saves.Load(startupConfig, Application.persistentDataPath);
             var audio = ctx.audioModule;
             audio.SetEffectsEnabled(loaded == null || loaded.version < 6 || loaded.settings.effects);

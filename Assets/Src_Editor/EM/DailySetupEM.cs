@@ -42,6 +42,7 @@ namespace Hamdoku.Editor {
                 CreatePanel(panelPath);
             }
             Register(panelPath);
+            PuzzleConfigSetupEM.Register();
             AssetDatabase.SaveAssets();
             Debug.Log("[DailySetup] Formal daily prefab, original sprites, SO database and localization registered.");
         }

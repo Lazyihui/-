@@ -336,6 +336,12 @@ namespace Hamdoku {
         Result_FailBody = 1005,
         Result_Legacy = 1006,
         Result_Ad = 1007,
-        Result_AdStatus = 1008
+        Result_AdStatus = 1008,
+        Result_RewardProgress = 1009,
+        Result_RewardTitle = 1010,
+        Result_RewardBody = 1011,
+        Result_RewardClaim = 1012,
+        Result_RewardAd = 1013,
+        Result_RewardUnavailable = 1014
     }
 }

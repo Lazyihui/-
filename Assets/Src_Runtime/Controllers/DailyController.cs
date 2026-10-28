@@ -48,7 +48,7 @@ namespace Hamdoku.Controllers {
             var data = save.daily;
             SaveModule.ValidateDaily(data);
             foreach (var record in data.records) {
-                Puzzle(config, record.day);
+                Puzzle(config, module, record.day);
             }
             var profile = assets.GetProfileConfig();
             foreach (int id in data.claimedCostumes) {
@@ -68,25 +68,25 @@ namespace Hamdoku.Controllers {
             if (data.activePuzzle != null) {
                 var active = data.activePuzzle;
                 var record = Record(data, active.dailyDay);
-                if (active.dailyDay <= 0 || Puzzle(config, active.dailyDay).id != active.puzzleId || record == null ||
+                if (active.dailyDay <= 0 || Puzzle(config, module, active.dailyDay).id != active.puzzleId || record == null ||
                     (active.status == GameStatus.Won && !record.cleared)) {
                     throw new InvalidDataException("Daily board and dated entry disagree.");
                 }
-                module.ValidateSave(active, assets.GetGameConfig(), save.campaignClears, save.tutorialCompleted);
+                module.ValidateSave(active, assets.GetPuzzleRules(), assets.GetCampaignConfig(), save.campaignClears, save.tutorialCompleted);
             }
         }
 
-        public static PuzzleSO Puzzle(DailyConfigSO config, int day) {
+        public static PuzzleSO Puzzle(DailyConfigSO config, PuzzleModule module, int day) {
             int index = day - config.firstDay;
             if (index < 0) {
                 throw new InvalidDataException("Daily date is outside the original local database.");
             }
-            return config.puzzles[config.dayToPuzzle[index % config.dayToPuzzle.Length] - 1];
+            return module.Get(config.dayToPuzzle[index % config.dayToPuzzle.Length]);
         }
 
         public static void ValidateConfig(DailyConfigSO config, ProfileConfigSO profile) {
             if (config == null || config.firstDay <= 0 || config.dayToPuzzle == null || config.dayToPuzzle.Length == 0 ||
-                config.puzzles == null || config.puzzles.Length == 0 || config.seasons == null || config.seasons.Length == 0 ||
+                config.seasons == null || config.seasons.Length == 0 ||
                 config.revealSeconds <= 0 || config.noticeSeconds <= 0 || config.revealScale <= 0 ||
                 config.availableDayColor.a <= 0 || config.futureDayColor.a <= 0 || config.selectedDayColor.a <= 0 ||
                 config.availableNumberColor.a <= 0 || config.futureNumberColor.a <= 0 || config.background == null || config.card == null ||

@@ -73,7 +73,7 @@ namespace Hamdoku.Controllers {
             profile.consecutiveClears++;
             profile.bestConsecutiveClears = Math.Max(profile.bestConsecutiveClears, profile.consecutiveClears);
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             if (game.hearts == config.maxHearts) {
                 profile.threeSeedClears++;
             }
@@ -106,6 +106,20 @@ namespace Hamdoku.Controllers {
             return tab == ProfileTabType.Costume && (id == -1 ||
                 (id >= 0 && id < config.costumes.Length && config.costumes[id] != null &&
                 save.daily != null && save.daily.claimedCostumes.BinarySearch(id) >= 0));
+        }
+
+        public static bool AvailableForSession(GameContext ctx, ProfileConfigSO config, PlayerSaveModel save, ProfileTabType tab, int id) {
+            var home = ctx.state_Home;
+            if (!home.testUnlockAll) {
+                return Available(config, save, tab, id);
+            }
+            if (tab == ProfileTabType.Avatar) {
+                return id >= 0 && id < config.avatars.Length && config.avatars[id] != null && id != config.hiddenAvatarId;
+            }
+            if (tab == ProfileTabType.Frame) {
+                return id >= 0 && id < config.frames.Length && config.frames[id] != null;
+            }
+            return tab == ProfileTabType.Costume && (id == -1 || (id >= 0 && id < config.costumes.Length && config.costumes[id] != null));
         }
 
         public static void ValidateVisualConfig(ProfileConfigSO config) {
@@ -227,7 +241,7 @@ namespace Hamdoku.Controllers {
             var config = assets.GetProfileConfig();
             var save = ctx.playerSave;
             var profile = save.profile;
-            if (!Available(config, save, tab, id)) {
+            if (!AvailableForSession(ctx, config, save, tab, id)) {
                 UINameType message = UINameType.Profile_RewardLocked;
                 int requirement = 0;
                 if ((tab == ProfileTabType.Avatar && id >= config.clubAvatarStart) || (tab == ProfileTabType.Frame && id == config.clubFrameId)) {
@@ -257,6 +271,15 @@ namespace Hamdoku.Controllers {
                 profile.frameId = id;
             } else {
                 profile.costumeId = id;
+            }
+            if (Available(config, save, tab, id)) {
+                if (tab == ProfileTabType.Avatar) {
+                    state.savedAvatarId = id;
+                } else if (tab == ProfileTabType.Frame) {
+                    state.savedFrameId = id;
+                } else {
+                    state.savedCostumeId = id;
+                }
             }
             state.notice = UINameType.None;
             HomeController.SaveProgress(ctx);

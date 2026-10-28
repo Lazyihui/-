@@ -10,6 +10,12 @@ namespace Hamdoku {
         public TMP_Text scoreLabel;
         public TMP_Text gainLabel;
         public TMP_Text comboLabel;
+        public UnityEngine.UI.Image[] comboSparkles;
+        public UnityEngine.UI.Image[] comboConfetti;
+        public UnityEngine.UI.Image comboCelebration;
+        int feedbackCombo;
+        int celebrationTheme;
+        Vector3 celebrationFrom;
         float feedbackStarted = float.NegativeInfinity;
         Vector3 gainFrom;
         Vector3 comboFrom;
@@ -54,7 +60,7 @@ namespace Hamdoku {
         float tutorialDimAlpha;
         float tutorialDimFrom;
         float tutorialDimTarget;
-        GameConfigSO tutorialConfig;
+        PuzzlePresentationSO tutorialConfig;
         Vector3 tutorialRuleScale;
         Vector3 tutorialActionScale;
         Vector3 tutorialConfirmScale;
@@ -114,12 +120,48 @@ namespace Hamdoku {
             var authored = contentRoot.sizeDelta;
             contentRoot.localScale = Vector3.one * Mathf.Min(available.x / authored.x, available.y / authored.y);
         }
-        public void ConfigureTutorial(GameConfigSO config, bool animated) {
+        public void ConfigureTutorial(PuzzlePresentationSO config, bool animated, int tutorialSize) {
+            if (comboSparkles == null || comboSparkles.Length != 4 || comboConfetti == null || comboConfetti.Length != 32 ||
+                comboCelebration == null || config.comboStart < 1 || config.comboMaxTier < config.comboStart ||
+                config.comboColors == null || config.comboColors.Length != config.comboMaxTier - config.comboStart + 1 ||
+                config.comboConfettiStart < config.comboStart || config.comboPopSeconds <= 0 || config.comboSeconds <= 0 ||
+                config.comboConfettiSeconds <= 0 || config.comboHoldRatio <= 0 || config.comboHoldRatio >= 1 ||
+                config.comboCelebrationSeconds <= 0 || config.comboCelebrationFrameSeconds <= 0 ||
+                config.comboCelebrationFrameCounts == null || config.comboCelebrationFrameCounts.Length != 6 ||
+                config.comboCelebrationFrames == null) {
+                throw new InvalidOperationException("Missing or invalid game feedback configuration / prefab bindings.");
+            }
+            int frames = 0;
+            foreach (int count in config.comboCelebrationFrameCounts) {
+                if (count < 1) {
+                    throw new InvalidOperationException("Invalid combo celebration frame count.");
+                }
+                frames += count;
+            }
+            if (frames != config.comboCelebrationFrames.Length) {
+                throw new InvalidOperationException("Combo celebration frame counts do not match the bound sprites.");
+            }
+            foreach (var sprite in config.comboCelebrationFrames) {
+                if (sprite == null) {
+                    throw new InvalidOperationException("Missing combo celebration sprite.");
+                }
+            }
+            foreach (var image in comboSparkles) {
+                ValidateEffectImage(image);
+            }
+            foreach (var image in comboConfetti) {
+                ValidateEffectImage(image);
+            }
             tutorialConfig = config;
             board.ConfigureTutorial(config, animated);
-            float cellSize = board.gridRoot.rect.width / config.tutorial.size;
+            float cellSize = board.gridRoot.rect.width / tutorialSize;
             tutorialFinger.rectTransform.sizeDelta = Vector2.one * cellSize * config.tutorialHandScale;
             tutorialRipple.rectTransform.sizeDelta = Vector2.one * cellSize;
+        }
+        static void ValidateEffectImage(UnityEngine.UI.Image image) {
+            if (image == null || image.sprite == null || image.raycastTarget) {
+                throw new InvalidOperationException("Missing combo effect image or decoration intercepts input.");
+            }
         }
         public void ShowTutorial(bool visible, int step, int target, int[] path, bool settling = false, bool nudge = false) {
             tutorialRoot.SetActive(visible);
@@ -143,7 +185,7 @@ namespace Hamdoku {
                 tutorialDimFrom = tutorialStep < 0 ? 0 : tutorialDim.color.a;
                 tutorialDimTarget = step != 1 && step < 6 ? tutorialDimAlpha : 0;
                 if (step == 7) {
-                    board.CelebrateTutorial(tutorialConfig.tutorialCelebrateSeconds);
+                    board.CelebrateCharacters();
                 }
             }
             if (tutorialStep != step || tutorialTarget != target || tutorialNudge != nudge || tutorialSettling != settling) {
@@ -172,8 +214,25 @@ namespace Hamdoku {
             comboLabel.text = string.Empty;
             gainLabel.alpha = 0;
             comboLabel.alpha = 0;
+            feedbackCombo = 0;
+            comboLabel.rectTransform.localScale = Vector3.one;
+            if (comboCelebration != null) {
+                comboCelebration.enabled = false;
+            }
+            if (comboSparkles != null) {
+                foreach (var image in comboSparkles) {
+                    image.enabled = false;
+                }
+            }
+            if (comboConfetti != null) {
+                foreach (var image in comboConfetti) {
+                    image.enabled = false;
+                }
+            }
         }
-        public void ShowGain(int index, string gain, string combo) {
+        public void ShowGain(int index, string gain, string combo, int comboCount) {
+            ClearFeedback();
+            feedbackCombo = comboCount;
             gainLabel.text = gain;
             gainLabel.alpha = 1;
             comboLabel.alpha = 1;
@@ -183,25 +242,92 @@ namespace Hamdoku {
             gainLabel.rectTransform.localPosition = gainFrom;
             comboLabel.rectTransform.localPosition = comboFrom;
             comboLabel.fontSize = tutorialConfig.comboFontSize;
+            if (comboCount >= tutorialConfig.comboStart) {
+                int tier = Mathf.Min(comboCount, tutorialConfig.comboMaxTier);
+                comboLabel.color = tutorialConfig.comboColors[tier - tutorialConfig.comboStart];
+                celebrationTheme = (comboCount - tutorialConfig.comboStart) % tutorialConfig.comboCelebrationFrameCounts.Length;
+                celebrationFrom = gainFrom;
+            }
             feedbackStarted = Time.unscaledTime;
+            UpdateFeedback();
         }
         void UpdateFeedback() {
-            if (tutorialConfig == null) {
+            if (tutorialConfig == null || float.IsNegativeInfinity(feedbackStarted)) {
                 return;
             }
             float elapsed = Time.unscaledTime - feedbackStarted;
+            float lifetime = Mathf.Max(tutorialConfig.gainSeconds, tutorialConfig.comboSeconds,
+                tutorialConfig.comboConfettiSeconds, tutorialConfig.comboCelebrationSeconds);
+            if (elapsed >= lifetime) {
+                ClearFeedback();
+                return;
+            }
             float gainProgress = Mathf.Clamp01(elapsed / tutorialConfig.gainSeconds);
             Vector3 target = contentRoot.InverseTransformPoint(scoreLabel.transform.position);
             gainLabel.rectTransform.localPosition = Vector3.Lerp(gainFrom, target, Mathf.SmoothStep(0, 1, gainProgress));
             gainLabel.alpha = 1 - gainProgress;
             float comboProgress = Mathf.Clamp01(elapsed / tutorialConfig.comboSeconds);
             comboLabel.rectTransform.localPosition = comboFrom + Vector3.up * (comboProgress * tutorialConfig.comboRiseRatio * board.gridRoot.rect.height / board.Size);
-            comboLabel.alpha = 1 - comboProgress;
+            float fade = Mathf.Clamp01((comboProgress - tutorialConfig.comboHoldRatio) / (1 - tutorialConfig.comboHoldRatio));
+            comboLabel.alpha = feedbackCombo >= tutorialConfig.comboStart ? 1 - fade : 0;
+            float pop = Mathf.Clamp01(elapsed / tutorialConfig.comboPopSeconds);
+            float scale = pop < 0.6f ? Mathf.Lerp(0.35f, tutorialConfig.comboPeakScale, Mathf.Sin(pop / 0.6f * Mathf.PI * 0.5f)) :
+                Mathf.Lerp(tutorialConfig.comboPeakScale, 1, Mathf.SmoothStep(0, 1, (pop - 0.6f) / 0.4f));
+            comboLabel.rectTransform.localScale = Vector3.one * scale;
+            AnimateCombo(elapsed, comboProgress, fade);
             if (gainProgress >= 1) {
                 gainLabel.text = string.Empty;
             }
             if (comboProgress >= 1) {
                 comboLabel.text = string.Empty;
+            }
+        }
+        void AnimateCombo(float elapsed, float progress, float fade) {
+            var config = tutorialConfig;
+            bool active = feedbackCombo >= config.comboStart && progress < 1;
+            int tier = Mathf.Min(feedbackCombo, config.comboMaxTier);
+            float width = Mathf.Max(comboLabel.preferredWidth, config.comboFontSize * 3);
+            Vector3 center = comboLabel.rectTransform.localPosition;
+            for (int i = 0; i < comboSparkles.Length; i++) {
+                var image = comboSparkles[i];
+                float phase = Mathf.Clamp01(progress * 1.6f - i * 0.12f);
+                image.enabled = active && phase > 0 && phase < 1;
+                image.rectTransform.localPosition = center + new Vector3((i % 2 == 0 ? -1 : 1) * width * 0.52f,
+                    (i < 2 ? 1 : -1) * config.comboFontSize * 0.48f, 0);
+                image.rectTransform.localScale = Vector3.one * Mathf.Sin(phase * Mathf.PI);
+                image.rectTransform.localRotation = Quaternion.Euler(0, 0, phase * 100 + i * 30);
+                image.rectTransform.sizeDelta = Vector2.one * config.comboSparkleSize;
+                image.color = new Color(1, 0.92f, 0.6f, 1 - fade);
+            }
+            float life = elapsed / config.comboConfettiSeconds;
+            int count = feedbackCombo >= config.comboConfettiStart ? Mathf.Min(comboConfetti.Length, 16 + (tier - config.comboConfettiStart) * 4) : 0;
+            for (int i = 0; i < comboConfetti.Length; i++) {
+                var image = comboConfetti[i];
+                image.enabled = i < count && life >= 0 && life < 1;
+                float angle = (25 + i * 137.508f % 130) * Mathf.Deg2Rad;
+                float speed = config.comboConfettiSpeed * (0.65f + (i % 5) * 0.1f);
+                image.rectTransform.localPosition = comboFrom + new Vector3((i % 8 / 7f - 0.5f) * width + Mathf.Cos(angle) * speed * elapsed,
+                    config.comboFontSize * 0.65f + Mathf.Sin(angle) * speed * elapsed - config.comboConfettiGravity * elapsed * elapsed * 0.5f, 0);
+                image.rectTransform.localRotation = Quaternion.Euler(0, 0, i * 37 + elapsed * config.comboConfettiSpin * (i % 2 == 0 ? 1 : -1));
+                image.rectTransform.localScale = new Vector3(Mathf.Cos(elapsed * 9 + i), 1, 1);
+                Color color = config.comboColors[i % config.comboColors.Length];
+                color.a = 1 - Mathf.Clamp01((life - 0.55f) / 0.45f);
+                image.color = color;
+            }
+            float celebration = elapsed / config.comboCelebrationSeconds;
+            comboCelebration.enabled = feedbackCombo >= config.comboStart && celebration >= 0 && celebration < 1;
+            if (comboCelebration.enabled) {
+                int offset = 0;
+                for (int i = 0; i < celebrationTheme; i++) {
+                    offset += config.comboCelebrationFrameCounts[i];
+                }
+                int frame = Mathf.FloorToInt(elapsed / config.comboCelebrationFrameSeconds) % config.comboCelebrationFrameCounts[celebrationTheme];
+                comboCelebration.sprite = config.comboCelebrationFrames[offset + frame];
+                float size = board.gridRoot.rect.width / board.Size * config.comboCelebrationSize;
+                comboCelebration.rectTransform.sizeDelta = Vector2.one * size;
+                comboCelebration.rectTransform.localPosition = celebrationFrom + Vector3.up * size * config.comboCelebrationRise * celebration;
+                comboCelebration.rectTransform.localScale = Vector3.one * Mathf.Sin(Mathf.Clamp01(celebration * 3) * Mathf.PI * 0.5f);
+                comboCelebration.color = new Color(1, 1, 1, 1 - Mathf.Clamp01((celebration - 0.7f) / 0.3f));
             }
         }
         void Update() {
@@ -286,6 +412,7 @@ namespace Hamdoku {
             guideHandle?.Invoke();
         }
         public void TearDown() {
+            ClearFeedback();
             board.TearDown();
             tutorialActionButton.onClick.RemoveListener(ReportTutorialHint);
             tutorialHintHandle = null;

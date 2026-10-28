@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hamdoku {
     public sealed class SaveModule {
-        public PlayerSaveModel Load(HomeConfigSO config, string directory) {
+        public PlayerSaveModel Load(GameConfigSO config, string directory) {
             string path = GetPath(config, directory);
             if (!File.Exists(path)) {
                 return null; // A first installation has no progress yet.
@@ -28,7 +28,9 @@ namespace Hamdoku {
                 !(config.saveVersion == 7 && data.version >= 1 && data.version <= 6) &&
                 !(config.saveVersion == 8 && data.version >= 1 && data.version <= 7) &&
                 !(config.saveVersion == 9 && data.version >= 1 && data.version <= 8) &&
-                !(config.saveVersion == 10 && data.version >= 1 && data.version <= 9)) ||
+                !(config.saveVersion == 10 && data.version >= 1 && data.version <= 9) &&
+                !(config.saveVersion == 11 && data.version >= 1 && data.version <= 10) &&
+                !(config.saveVersion == 12 && data.version >= 1 && data.version <= 11)) ||
                 data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid or unsupported Hamdoku progress: " + path);
             }
@@ -40,6 +42,12 @@ namespace Hamdoku {
             }
             if (data.version >= 8) {
                 ValidateCampaign(data.campaign);
+                if (data.version >= 12) {
+                    ValidateCampaignCycles(data.campaign);
+                }
+                if (data.campaign.claimedRewardLevel > data.campaignClears || data.campaign.previousLevel > data.campaignClears) {
+                    throw new InvalidDataException("Campaign reward or difficulty history exceeds completed progress.");
+                }
             }
             if (data.version >= 6) {
                 ValidateSettings(data.settings);
@@ -56,13 +64,19 @@ namespace Hamdoku {
             return data;
         }
 
-        public void Save(HomeConfigSO config, string directory, PlayerSaveModel data) {
+        public void Save(GameConfigSO config, string directory, PlayerSaveModel data) {
             string path = GetPath(config, directory);
             if (data.version != config.saveVersion || data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid Hamdoku progress.");
             }
             if (data.version >= 8) {
                 ValidateCampaign(data.campaign);
+                if (data.version >= 12) {
+                    ValidateCampaignCycles(data.campaign);
+                }
+                if (data.campaign.claimedRewardLevel > data.campaignClears || data.campaign.previousLevel > data.campaignClears) {
+                    throw new InvalidDataException("Campaign reward or difficulty history exceeds completed progress.");
+                }
             }
             if (data.version >= 10) {
                 ValidateDaily(data.daily);
@@ -96,9 +110,20 @@ namespace Hamdoku {
         }
 
         public static void ValidateCampaign(CampaignSaveModel data) {
-            if (data == null || data.skill < 1 || data.cleanStreak < 0 || data.sessionDay < 0 || data.sessionDay > 3652059 ||
+            if (data == null || data.skill < 1 || data.claimedRewardLevel < 0 || data.cleanStreak < 0 || data.sessionDay < 0 || data.sessionDay > 3652059 ||
                 data.cursorPositions == null || data.recentPuzzleIds == null) {
                 throw new InvalidDataException("Invalid campaign selection progress.");
+            }
+        }
+
+        public static void ValidateCampaignCycles(CampaignSaveModel data) {
+            if (data.cursorCycles == null || data.cursorCycles.Length != data.cursorPositions.Length) {
+                throw new InvalidDataException("Missing campaign transform cycles.");
+            }
+            foreach (int cycle in data.cursorCycles) {
+                if (cycle < 0 || cycle > 7) {
+                    throw new InvalidDataException("Invalid campaign transform cycle.");
+                }
             }
         }
 
@@ -190,7 +215,7 @@ namespace Hamdoku {
             }
         }
 
-        string GetPath(HomeConfigSO config, string directory) {
+        string GetPath(GameConfigSO config, string directory) {
             if (config.saveVersion <= 0 || string.IsNullOrWhiteSpace(config.saveFileName) ||
                 Path.GetFileName(config.saveFileName) != config.saveFileName) {
                 throw new InvalidDataException("Invalid save configuration.");

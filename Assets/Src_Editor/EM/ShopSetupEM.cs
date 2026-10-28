@@ -19,6 +19,7 @@ namespace Hamdoku.Editor {
             if (AssetDatabase.LoadAssetAtPath<GameObject>(path) == null) {
                 CreatePanel(path, config);
             }
+            ShopShadowEM.Apply();
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             var paths = new[] { path, "Assets/Res_Runtime/Config/ShopConfig.asset" }.Concat(
                 AssetDatabase.FindAssets("t:L10NSO", new[] { "Assets/Res_Runtime/Localization" }).Select(AssetDatabase.GUIDToAssetPath)
@@ -65,6 +66,7 @@ namespace Hamdoku.Editor {
 
         static Vector4 OriginalBorder(string name) {
             switch (name) {
+                case "ui_soft_shadow": return Vector4.one * 60;
                 case "shop_card_pink": return new Vector4(337, 34, 34, 60);
                 case "shop_card_yellow": return new Vector4(331, 34, 34, 60);
                 case "shop_btn_pink": return Vector4.one * 67;

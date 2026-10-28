@@ -13,7 +13,39 @@ MonoBehaviour:
   m_Name: ResultConfig
   m_EditorClassIdentifier: Hamdoku::Hamdoku.ResultConfigSO
   clearHero: {fileID: 21300000, guid: a18e6803c2c0c344cbad87e950d2180d, type: 3}
+  clearHeroes:
+  - {fileID: 21300000, guid: a18e6803c2c0c344cbad87e950d2180d, type: 3}
+  - {fileID: 21300000, guid: 76fd86652e8e45b58a28e678d53402e7, type: 3}
+  - {fileID: 21300000, guid: a65d8eef04fd4007b64064ca7d9488ca, type: 3}
+  - {fileID: 21300000, guid: b5541e5560b040eca5c474cd0e3b7a7c, type: 3}
+  - {fileID: 21300000, guid: dae58de60a004cd7885d8cc1aa42fec5, type: 3}
+  - {fileID: 21300000, guid: 3779b7fd09184bcfb2a3822a79ea513d, type: 3}
+  - {fileID: 21300000, guid: bfb45fb793fb48728480be6dd93b2b18, type: 3}
+  perfectHeroIds: 0600000004000000
+  hardFirstHeroIds: 0300000006000000
+  retryHeroIds: 07000000
+  highHeroIds: 0300000002000000
+  midHeroIds: 010000000200000005000000
+  lowHeroIds: 0400000005000000
+  allHeroIds: 020000000300000004000000050000000600000007000000
+  heroBandHigh: 90
+  heroBandMid: 70
+  heroRankMid: 0.834
+  heroRankSharp: 17.5
+  heroTimePower: 1.103
+  heroTimeScale: 6.14
+  heroScoreWeight: 0.7
+  heroTimeWeight: 0.3
+  heroPickSalt: 67
+  clearHeroTextGap: 14
   failHero: {fileID: 21300000, guid: fc58e4af3b70fc14b9e913cd587d867d, type: 3}
+  rewardHero: {fileID: 21300000, guid: 7d808c74bb09d494f91c95cd8dabd987, type: 3}
+  rewardHeroSize: 240
+  rewardHeroAnchorY: 0.61
+  rewardMessageAnchorY: 0.43
+  rewardContentLiftY: 0.04
+  rewardTickColor: {r: 0.2, g: 0.11, b: 0.05, a: 1}
+  rewardTickColorEmpty: {r: 0.45, g: 0.33, b: 0.22, a: 0.55}
   titleAnchorY: 0.85
   clearHeroAnchorY: 0.58
   clearHeroSize: 720

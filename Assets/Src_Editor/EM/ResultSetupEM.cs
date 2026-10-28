@@ -48,12 +48,32 @@ namespace Hamdoku.Editor {
                 AssetDatabase.CreateAsset(config, configPath);
             }
             config.clearHero = Sprite("Assets/Res_Runtime/UI/GameResult/clear.png");
+            config.clearHeroes = new[] { config.clearHero, Sprite("Assets/Res_Runtime/UI/GameResult/clear_a.png"),
+                Sprite("Assets/Res_Runtime/UI/GameResult/clear_b.png"), Sprite("Assets/Res_Runtime/UI/GameResult/clear_c.png"),
+                Sprite("Assets/Res_Runtime/UI/GameResult/clear_d.png"), Sprite("Assets/Res_Runtime/UI/GameResult/clear_e.png"),
+                Sprite("Assets/Res_Runtime/UI/GameResult/clear_f.png") };
+            config.perfectHeroIds = new[] { 6, 4 };
+            config.hardFirstHeroIds = new[] { 3, 6 };
+            config.retryHeroIds = new[] { 7 };
+            config.highHeroIds = new[] { 3, 2 };
+            config.midHeroIds = new[] { 1, 2, 5 };
+            config.lowHeroIds = new[] { 4, 5 };
+            config.allHeroIds = new[] { 2, 3, 4, 5, 6, 7 };
+            config.heroBandHigh = 90;
+            config.heroBandMid = 70;
+            config.heroRankMid = .834f;
+            config.heroRankSharp = 17.5f;
+            config.heroTimePower = 1.103f;
+            config.heroTimeScale = 6.14f;
+            config.heroScoreWeight = .7f;
+            config.heroTimeWeight = .3f;
+            config.heroPickSalt = 67;
+            config.clearHeroTextGap = 14;
             config.failHero = Sprite("Assets/Res_Runtime/UI/GameResult/fail.png");
+            ConfigureReward(config);
             Controllers.Panel_GameResult_Controller.ValidateConfig(config);
             EditorUtility.SetDirty(config);
-            var game = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
-            game.resultConfig = config;
-            EditorUtility.SetDirty(game);
+
             BakeFonts();
             string prefabPath = "Assets/Res_Runtime/UI/GameResult/Panel_GameResult.prefab";
             bool existing = File.Exists(prefabPath);
@@ -121,6 +141,61 @@ namespace Hamdoku.Editor {
             panel.statusLabel = Text("ServiceStatus", buttons, new Vector2(940, 64), new Vector2(0, -653), 26);
             panel.secondaryButton = Button("Home", buttons, null, new Vector2(700, 80), new Vector2(0, -900));
             panel.secondaryLabel = Text("Label", panel.secondaryButton.transform, new Vector2(680, 80), Vector2.zero, 40);
+            BuildRewardRow(panel);
+        }
+        [MenuItem("Hamdoku/Setup/Configure Campaign Reward")]
+        public static void SetupCampaignReward() {
+            var config = AssetDatabase.LoadAssetAtPath<ResultConfigSO>("Assets/Res_Runtime/Config/ResultConfig.asset");
+            ConfigureReward(config);
+            Controllers.Panel_GameResult_Controller.ValidateConfig(config);
+            EditorUtility.SetDirty(config);
+            BakeFonts();
+            string path = "Assets/Res_Runtime/UI/GameResult/Panel_GameResult.prefab";
+            var root = PrefabUtility.LoadPrefabContents(path);
+            try {
+                var panel = root.GetComponent<Panel_GameResult>();
+                BuildRewardRow(panel);
+                var primaryImage = panel.primaryButton.GetComponent<UnityEngine.UI.Image>();
+                primaryImage.sprite = Sprite("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                primaryImage.pixelsPerUnitMultiplier = primaryImage.sprite.rect.height / primaryImage.rectTransform.rect.height;
+                var adImage = panel.adButton.GetComponent<UnityEngine.UI.Image>();
+                adImage.sprite = Sprite("Assets/Res_Runtime/UI/Game/new/btn_Game_Rounded_Blue.png");
+                adImage.pixelsPerUnitMultiplier = adImage.sprite.rect.height / adImage.rectTransform.rect.height;
+                PrefabUtility.SaveAsPrefabAsset(root, path);
+            } finally {
+                PrefabUtility.UnloadPrefabContents(root);
+            }
+            var settings = AddressableAssetSettingsDefaultObject.Settings;
+            foreach (string text in Directory.GetFiles("Assets/Res_Runtime/Localization", "Result_Reward*.asset")) {
+                var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(text), settings.DefaultGroup);
+                entry.SetLabel(AAConst.LABEL_DEFAULT, true, true);
+            }
+            EditorUtility.SetDirty(settings);
+            AssetDatabase.SaveAssets();
+        }
+        static void ConfigureReward(ResultConfigSO config) {
+            if (config == null) {
+                throw new InvalidOperationException("Missing formal ResultConfig.");
+            }
+            config.rewardHero = Sprite("Assets/Res_Runtime/UI/Game/Img_Game_Guide.png");
+            config.rewardHeroSize = 240;
+            config.rewardHeroAnchorY = .61f;
+            config.rewardMessageAnchorY = .43f;
+            config.rewardContentLiftY = .04f;
+            config.rewardTickColor = new Color(.2f, .11f, .05f, 1);
+            config.rewardTickColorEmpty = new Color(.45f, .33f, .22f, .55f);
+        }
+        static void BuildRewardRow(Panel_GameResult panel) {
+            // Original ResultScreen.MakeRewardRow: 640x50, gap46, inset9, cell gap3.
+            var game = AssetDatabase.LoadAssetAtPath<CampaignConfigSO>("Assets/Res_Runtime/Config/CampaignConfig.asset");
+            int total = game.campaignRewardStep;
+            panel.rewardProgressRoot = Rect("RewardProgress", panel.contentRoot, new Vector2(640, 100), new Vector2(0, -523.5f));
+            panel.rewardProgressLabel = Text("Caption", panel.rewardProgressRoot, new Vector2(940, 46), new Vector2(0, -48), 32);
+            panel.rewardTicks = new UnityEngine.UI.Image[total];
+            float width = (640 - 18 - (total - 1) * 3) / total;
+            for (int i = 0; i < total; i++) {
+                panel.rewardTicks[i] = Image("Tick" + i, panel.rewardProgressRoot, null, new Vector2(width, 32), new Vector2(-311 + width * .5f + i * (width + 3), 0));
+            }
         }
         static Sprite Sprite(string path) {
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(path);

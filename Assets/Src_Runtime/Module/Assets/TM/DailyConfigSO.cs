@@ -5,7 +5,6 @@ namespace Hamdoku {
     public sealed class DailyConfigSO : ScriptableObject {
         public int firstDay;
         public int[] dayToPuzzle;
-        public PuzzleSO[] puzzles;
         public DailySeasonSO[] seasons;
         public Sprite background;
         public Sprite card;

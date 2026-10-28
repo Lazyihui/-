@@ -15,7 +15,7 @@ namespace Hamdoku.Editor {
         [MenuItem("Hamdoku/Setup/Configure Gameplay")]
         public static void Setup() {
             ImportSprites();
-            Directory.CreateDirectory("Assets/Res_Runtime/Config/Puzzles");
+            Directory.CreateDirectory("Assets/Res_Runtime/Puzzle");
             AssetDatabase.Refresh();
             var config = CreateConfig();
             var texts = ImportTexts();
@@ -34,10 +34,11 @@ namespace Hamdoku.Editor {
                 CreateDialog(dialogPath, font);
             }
             Refine();
-            var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
+            var home = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
             home.saveVersion = Math.Max(home.saveVersion, 2);
             EditorUtility.SetDirty(home);
             RegisterAssets(new[] { gamePath, dialogPath, "Assets/Res_Runtime/Config/GameConfig.asset" }.Concat(texts.Select(text => AssetDatabase.GetAssetPath(text))));
+            PuzzleConfigSetupEM.Register();
             AssetDatabase.SaveAssets();
             Debug.Log("[GameSetup] Gameplay assets, fonts and default registrations ready.");
         }
@@ -82,76 +83,11 @@ namespace Hamdoku.Editor {
                 importer.SaveAndReimport();
             }
         }
-        static GameConfigSO CreateConfig() {
-            string path = "Assets/Res_Runtime/Config/GameConfig.asset";
-            var config = AssetDatabase.LoadAssetAtPath<GameConfigSO>(path);
-            if (config != null) {
-                return config;
+        static PuzzleRulesSO CreateConfig() {
+            var config = AssetDatabase.LoadAssetAtPath<PuzzleRulesSO>("Assets/Res_Runtime/Config/PuzzleRules.asset");
+            if (config == null) {
+                throw new InvalidOperationException("Missing formal PuzzleRules asset. Restore the delivered configuration before setup.");
             }
-            config = ScriptableObject.CreateInstance<GameConfigSO>();
-            var puzzles = new List<PuzzleSO>();
-            foreach (string source in Directory.GetFiles("Logs/GameplayMigration/PuzzleImport", "*.json").OrderBy(sourcePath => int.Parse(Path.GetFileNameWithoutExtension(sourcePath)))) {
-                string puzzlePath = "Assets/Res_Runtime/Config/Puzzles/Puzzle_" + Path.GetFileNameWithoutExtension(source) + ".asset";
-                var puzzle = AssetDatabase.LoadAssetAtPath<PuzzleSO>(puzzlePath);
-                if (puzzle == null) {
-                    puzzle = ScriptableObject.CreateInstance<PuzzleSO>();
-                    JsonUtility.FromJsonOverwrite(File.ReadAllText(source), puzzle);
-                    AssetDatabase.CreateAsset(puzzle, puzzlePath);
-                }
-                if (puzzle.id == 1) {
-                    config.tutorial = puzzle;
-                } else {
-                    puzzles.Add(puzzle);
-                }
-            }
-            config.puzzles = puzzles.ToArray();
-            // First five sizes from the native BoardSize table candidate, cross-checked against the extracted data.
-            // This batch deliberately excludes later adaptive skill progression and map transforms.
-            config.campaignSizes = new[] { 4, 5, 6, 6, 8 };
-            config.tutorialPlaceIndices = new[] { 2, 13, 4 };
-            config.tutorialPlaceTextTypes = new[] { UINameType.Game_Place, UINameType.Game_TutorialOnlyOrange, UINameType.Game_TutorialOnlyPurple };
-            config.tutorialLineIndices = new[] { 0, 1, 3, 6, 10, 14 };
-            config.tutorialColors = new[] { new Color(0.31f, 0.72f, 0.69f), new Color(0.87f, 0.46f, 0.73f), new Color(0.94f, 0.66f, 0.32f), new Color(0.67f, 0.50f, 0.85f) };
-            config.tutorialPlaceIndex = 13;
-            config.tutorialTapIndex = 14;
-            config.tutorialDragIndices = new[] { 8, 9, 12 };
-            config.tutorialCrossSettleSeconds = 0.5f;
-            config.tutorialIdleHintSeconds = 8f;
-            config.tutorialCardFadeSeconds = 0.38f;
-            config.tutorialDimFadeSeconds = 0.45f;
-            config.tutorialFingerPressSeconds = 0.13f;
-            config.tutorialFingerReleaseSeconds = 0.12f;
-            config.tutorialFingerRestSeconds = 1f;
-            config.tutorialFingerDragSeconds = 1.2f;
-            config.tutorialRippleSeconds = 0.42f;
-            config.tutorialRippleFrom = 0.44f;
-            config.tutorialRippleTo = 1.62f;
-            config.tutorialRippleAlpha = 0.9f;
-            config.tutorialHandScale = 1.75f;
-            config.tutorialMarkSeconds = 0.24f;
-            config.tutorialPlaceSeconds = 0.42f;
-            config.tutorialCelebrateSeconds = 1.2f;
-            config.maxHearts = 3;
-            config.hintsPerLevel = 3;
-            config.guidesPerLevel = 3;
-            config.scoreBase = 576;
-            config.scoreStep = 96;
-            config.doubleTapSeconds = 0.3f;
-            config.dragThreshold = 0.45f;
-            config.soundVolume = 0.6f;
-            // Original BoardView palette, first eight entries used by the shipped map pools.
-            config.regionColors = new[] {
-                new Color(0.95098f, 0.60178f, 0.54358f, 1), new Color(0.318388f, 0.764588f, 0.719322f, 1),
-                new Color(0.939569f, 0.790835f, 0.373735f, 1), new Color(0.446771f, 0.517904f, 0.844471f, 1),
-                new Color(0.432506f, 0.749373f, 0.461606f, 1), new Color(0.897725f, 0.493559f, 0.768392f, 1),
-                new Color(0.528175f, 0.783608f, 0.912941f, 1), new Color(0.954784f, 0.667018f, 0.343684f, 1)
-            };
-            config.patterns = new[] { "Img_Game_PatternPaw", "Img_Game_PatternHeart", "Img_Game_PatternFlower", "Img_Game_PatternSparkle", "Img_Game_PatternSeed", "Img_Game_PatternAcorn", "Img_Game_PatternClover", "Img_Game_PatternDots" }.Select(Sprite).ToArray();
-            config.placeClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/Game/place.wav");
-            config.markClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/Game/mark.wav");
-            config.mistakeClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/Game/crack.wav");
-            config.clearClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/Game/clear.wav");
-            AssetDatabase.CreateAsset(config, path);
             return config;
         }
         static List<L10NSO> ImportTexts() {

@@ -142,6 +142,18 @@ namespace Hamdoku {
             }
         }
 
+        public void RefreshTabLayering() {
+            // Every tab tucks under the content plate, including the selected tab.
+            for (int i = 0; i < tabButtons.Length; i++) {
+                var tab = tabButtons[i].transform;
+                int firstGrid = grids[0].transform.GetSiblingIndex();
+                for (int j = 1; j < grids.Length; j++) {
+                    firstGrid = Mathf.Min(firstGrid, grids[j].transform.GetSiblingIndex());
+                }
+                tab.SetSiblingIndex(firstGrid - (tab.GetSiblingIndex() < firstGrid ? 1 : 0));
+            }
+        }
+
         public void BeginName(string value, int maxLength) {
             nameInput.characterLimit = maxLength;
             nameInput.SetTextWithoutNotify(value);

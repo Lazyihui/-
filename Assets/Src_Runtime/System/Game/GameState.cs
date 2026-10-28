@@ -1,5 +1,10 @@
 namespace Hamdoku {
     public sealed class GameState {
+        public int resultHeroId;
+        public int resultHeroPuzzleId;
+        public int resultHeroLevel;
+        public int lastResultHeroId;
+        public bool rewardReturnHome;
         public int dailyDay;
         public bool firstGameAvailable;
         public int campaignSelectionVersion;
@@ -15,7 +20,7 @@ namespace Hamdoku {
         public bool disposed;
         public bool isTutorial;
         public int level;
-        public PuzzleSO puzzle;
+        public PuzzleBoardModel puzzle;
         public CellStatus[] cells;
         public int hearts;
         public int mistakes;

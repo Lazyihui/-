@@ -162,9 +162,6 @@ namespace Hamdoku.Editor {
             config.endlessUnlockClears = 100;
             config.hardLevelStart = 21;
             config.hardLevelInterval = 10;
-            config.saveVersion = 1;
-            config.saveFileName = "hamdoku-progress.json";
-            config.defaultLanguage = SystemLanguage.ChineseSimplified;
             config.noticeSeconds = 2.5f;
             config.buttonVolume = 0.6f;
             config.buttonClip = AssetDatabase.LoadAssetAtPath<AudioClip>("Assets/Res_Runtime/Audio/button.wav");

@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 namespace Hamdoku {
     public sealed class Panel_GameResult : MonoBehaviour, IPanelAsset {
+        public RectTransform rewardProgressRoot;
+        public TMP_Text rewardProgressLabel;
+        public UnityEngine.UI.Image[] rewardTicks;
         public RectTransform safeRoot;
         public RectTransform contentRoot;
         public TMP_Text titleLabel;
@@ -41,7 +44,8 @@ namespace Hamdoku {
             if (safeRoot == null || contentRoot == null || titleLabel == null || hero == null || messageLabel == null ||
                 remainingLabel == null || statusLabel == null || primaryLabel == null || secondaryLabel == null || adLabel == null ||
                 primaryButton == null || secondaryButton == null || adButton == null || heroGroup == null || statsGroup == null || buttonsGroup == null ||
-                statLabels == null || statValues == null || statLabels.Length != 3 || statValues.Length != 3) {
+                statLabels == null || statValues == null || statLabels.Length != 3 || statValues.Length != 3 ||
+                rewardProgressRoot == null || rewardProgressLabel == null || rewardTicks == null || rewardTicks.Length == 0 || Array.Exists(rewardTicks, tick => tick == null)) {
                 throw new InvalidOperationException("Panel_GameResult has missing serialized bindings.");
             }
             this.localization = localization;
@@ -52,28 +56,57 @@ namespace Hamdoku {
             secondaryButton.onClick.AddListener(ReportSecondary);
             adButton.onClick.AddListener(ReportAd);
         }
-        public void Init(ResultConfigSO config, bool won, int score, int bestCombo, bool comboKnown) {
+        public void Init(ResultConfigSO config, bool won, int score, int bestCombo, bool comboKnown, bool rewardMode = false, Sprite clearSprite = null) {
             this.config = config;
             this.won = won;
             this.score = score;
             this.bestCombo = bestCombo;
             this.comboKnown = comboKnown;
             started = Time.unscaledTime;
-            hero.sprite = won ? config.clearHero : config.failHero;
-            Position(hero.rectTransform, won ? config.clearHeroAnchorY : config.failHeroAnchorY);
-            hero.rectTransform.sizeDelta = Vector2.one * (won ? config.clearHeroSize : config.failHeroSize);
+            if (won && !rewardMode && clearSprite == null) {
+                throw new InvalidOperationException("A selected clear illustration is required.");
+            }
+            hero.sprite = rewardMode ? config.rewardHero : won ? clearSprite : config.failHero;
+            hero.preserveAspect = true;
+            Position(hero.rectTransform, rewardMode ? config.rewardHeroAnchorY : won ? config.clearHeroAnchorY : config.failHeroAnchorY);
+            hero.rectTransform.sizeDelta = Vector2.one * (rewardMode ? config.rewardHeroSize : won ? config.clearHeroSize : config.failHeroSize);
             Position(titleLabel.rectTransform, config.titleAnchorY);
-            Position(messageLabel.rectTransform, won ? config.messageAnchorY : config.failMessageAnchorY);
-            Position((RectTransform)statsGroup.transform, config.statRowAnchorY);
+            Position(messageLabel.rectTransform, rewardMode ? config.rewardMessageAnchorY : won ? config.messageAnchorY + config.rewardContentLiftY : config.failMessageAnchorY);
+            if (won && !rewardMode) {
+                // Preserve the authored size and move tall variants above the caption's full bounds.
+                var heroRect = hero.rectTransform;
+                var messageRect = messageLabel.rectTransform;
+                var spriteRect = hero.sprite.rect;
+                float imageHeight = heroRect.sizeDelta.y * Mathf.Min(1, spriteRect.height / spriteRect.width);
+                float imageBottom = heroRect.anchoredPosition.y - imageHeight * .5f;
+                float messageTop = messageRect.anchoredPosition.y + messageRect.rect.height * .5f;
+                float lift = Mathf.Max(0, messageTop + config.clearHeroTextGap - imageBottom);
+                heroRect.anchoredPosition += new Vector2(0, lift);
+            }
+            Position((RectTransform)statsGroup.transform, config.statRowAnchorY + (won ? config.rewardContentLiftY : 0));
             Position(remainingLabel.rectTransform, config.failRemainingAnchorY);
             Position(primaryButton.GetComponent<RectTransform>(), won ? config.clearButtonAnchorY : config.failRestartAnchorY);
-            Position(adButton.GetComponent<RectTransform>(), config.failContinueAnchorY);
-            statsGroup.gameObject.SetActive(won);
-            remainingLabel.gameObject.SetActive(!won);
-            adButton.gameObject.SetActive(!won);
-            statusLabel.gameObject.SetActive(!won);
+            Position(adButton.GetComponent<RectTransform>(), rewardMode ? config.failContinueAnchorY + .08f : config.failContinueAnchorY);
+            statsGroup.gameObject.SetActive(won && !rewardMode);
+            remainingLabel.gameObject.SetActive(!won && !rewardMode);
+            adButton.gameObject.SetActive(!won || rewardMode);
+            statusLabel.gameObject.SetActive(!won || rewardMode);
+            if (rewardMode) {
+                Position(statusLabel.rectTransform, config.failContinueAnchorY + .015f);
+            } else {
+                statusLabel.rectTransform.anchoredPosition = new Vector2(0, -653);
+            }
+            rewardProgressRoot.gameObject.SetActive(won && !rewardMode);
             ApplySafeArea(Screen.safeArea, Screen.width, Screen.height);
             Update();
+        }
+        public void ShowRewardProgress(int filled, int total) {
+            if (total != rewardTicks.Length || filled < 0 || filled > total) {
+                throw new InvalidOperationException("Reward progress does not match authored ticks.");
+            }
+            for (int i = 0; i < rewardTicks.Length; i++) {
+                rewardTicks[i].color = i < filled ? config.rewardTickColor : config.rewardTickColorEmpty;
+            }
         }
         void Position(RectTransform rect, float anchorY) {
             rect.anchoredPosition = new Vector2(0, (anchorY - .5f) * contentRoot.sizeDelta.y);

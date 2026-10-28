@@ -61,7 +61,7 @@ namespace Hamdoku {
                 return size;
             }
         }
-        public void SweepClear(GameConfigSO config, int[] indices) {
+        public void SweepClear(PuzzlePresentationSO config, int[] indices) {
             foreach (int i in indices) {
                 float delay = config.clearAutoCrossSweepStep * (size - 1 - i / size + i % size);
                 cells[i].PlayClearSweep(delay, config.clearGlowSeconds, config.clearGlowColor);
@@ -70,14 +70,19 @@ namespace Hamdoku {
         public void ShowCell(int index, Color color, Sprite pattern, CellStatus status, bool highlighted, bool given) {
             cells[index].Show(color, pattern, status, highlighted, given);
         }
-        public void ConfigureTutorial(GameConfigSO config, bool animated) {
-            foreach (var cell in cells) {
+        public void ConfigureTutorial(PuzzlePresentationSO config, bool animated) {
+            for (int i = 0; i < cells.Length; i++) {
+                var cell = cells[i];
                 cell.ConfigureTutorial(config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialDimFadeSeconds, true);
+                cell.ConfigureAnimation(config, i);
             }
         }
-        public void CelebrateTutorial(float seconds) {
+        public void PlayWrong(int index) {
+            cells[index].PlayWrong();
+        }
+        public void CelebrateCharacters() {
             foreach (var cell in cells) {
-                cell.Celebrate(seconds);
+                cell.Celebrate();
             }
         }
         public void ShowRegionBorder(int index, bool visible, int[] regions, int boardSize, Color color, float width) {

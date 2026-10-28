@@ -114,6 +114,17 @@ namespace Hamdoku.Main {
         }
 
         void Update() {
+            var keyboard = UnityEngine.InputSystem.Keyboard.current;
+            var selected = UnityEngine.EventSystems.EventSystem.current == null ? null : UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+            bool typing = selected != null && selected.GetComponent<TMPro.TMP_InputField>() != null;
+            if (keyboard != null && !typing) {
+                if (keyboard.spaceKey.wasPressedThisFrame) {
+                    HomeController.UnlockForTesting(ctx);
+                }
+                if (keyboard.fKey.wasPressedThisFrame) {
+                    GameController.CompleteForTesting(ctx);
+                }
+            }
             LoadingSystem.Tick(ctx, Time.unscaledDeltaTime);
             HomeSystem.Tick(ctx, Time.unscaledDeltaTime);
             GameSystem.Tick(ctx, Time.unscaledDeltaTime);

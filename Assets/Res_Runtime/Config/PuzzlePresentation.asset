@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01da2ad571d54740a9230be8507fb29e, type: 3}
+  m_Name: PuzzlePresentation
+  m_EditorClassIdentifier: Hamdoku::Hamdoku.PuzzlePresentationSO
+  hamsterIdleFrames:
+  - {fileID: 21300000, guid: cf234055a531454bba2e26e08251b95b, type: 3}
+  - {fileID: 21300000, guid: 6f05947852f54d59a3605f63d1cdd01b, type: 3}
+  - {fileID: 21300000, guid: fac4e56ec49d45e69e66f5a5824d170e, type: 3}
+  - {fileID: 21300000, guid: 504f27527330466e89f6746f4409993c, type: 3}
+  - {fileID: 21300000, guid: 4f6e4d9e601148bca1bb83e445c9e725, type: 3}
+  - {fileID: 21300000, guid: 8b6841762d884f30ba7113ff2a5a0754, type: 3}
+  - {fileID: 21300000, guid: 25bde6207c9a495d8eea28e4863ef4ee, type: 3}
+  - {fileID: 21300000, guid: ad77e2dff7b24103bf6a67738a1a48ad, type: 3}
+  hamsterAppearFrame: {fileID: 21300000, guid: 9a90d34f67bd4aa9a51228e3dfd9c2e0, type: 3}
+  hamsterWrongFrame: {fileID: 21300000, guid: 6882ea0883cf4bdf8a12e8eaff96e33c, type: 3}
+  hamsterIdleFrameSeconds: 0.35
+  hamsterAppearSeconds: 0.4
+  hamsterWrongSeconds: 1
+  hamsterWrongShake: 8
+  hamsterBobSpeed: 2.6
+  hamsterBobHeight: 7
+  hamsterBreathe: 0.045
+  hamsterClearPeakScale: 1.45
+  hamsterClearGrowSeconds: 0.22
+  hamsterClearHoldSeconds: 0.19
+  hamsterClearShrinkSeconds: 0.16
+  hamsterClearHops: 3
+  hamsterClearHopSeconds: 0.32
+  hamsterClearHopHeight: 28
+  comboStart: 3
+  comboMaxTier: 12
+  comboConfettiStart: 8
+  comboColors:
+  - {r: 1, g: 0.64, b: 0.18, a: 1}
+  - {r: 1, g: 0.5, b: 0.27, a: 1}
+  - {r: 1, g: 0.4, b: 0.38, a: 1}
+  - {r: 1, g: 0.35, b: 0.58, a: 1}
+  - {r: 0.82, g: 0.4, b: 0.9, a: 1}
+  - {r: 0.62, g: 0.45, b: 1, a: 1}
+  - {r: 0.3, g: 0.68, b: 1, a: 1}
+  - {r: 0.2, g: 0.8, b: 0.7, a: 1}
+  - {r: 1, g: 0.66, b: 0.22, a: 1}
+  - {r: 1, g: 0.35, b: 0.5, a: 1}
+  comboPopSeconds: 0.22
+  comboPeakScale: 1.18
+  comboHoldRatio: 0.62
+  comboConfettiSeconds: 1.2
+  comboConfettiSpeed: 330
+  comboConfettiGravity: 520
+  comboConfettiSpin: 300
+  comboSparkleSize: 42
+  comboCelebrationFrames:
+  - {fileID: 21300000, guid: 0aec21b269654faeb3a09ff89d2b9837, type: 3}
+  - {fileID: 21300000, guid: 1bc5980039cc43238f50f64cc04f3175, type: 3}
+  - {fileID: 21300000, guid: c92cf8e41e9446c7861bfcb732dd90e2, type: 3}
+  - {fileID: 21300000, guid: 587eefdcfd4944eba38afbd713dbfed5, type: 3}
+  - {fileID: 21300000, guid: bcfb77959a2142bcbc0b854916836c78, type: 3}
+  - {fileID: 21300000, guid: 245df0b341de49a7b2545b3b29fefdf3, type: 3}
+  - {fileID: 21300000, guid: efcd4730b8784c8f9b5aabfda16f51af, type: 3}
+  - {fileID: 21300000, guid: 23a162d472a54e45a24ddce5280d3297, type: 3}
+  - {fileID: 21300000, guid: 550a59bccabc4b78af1f8db2011da54a, type: 3}
+  - {fileID: 21300000, guid: a42b4f70686448699aaa8a8950bfc575, type: 3}
+  comboCelebrationFrameCounts: 020000000200000003000000010000000100000001000000
+  comboCelebrationFrameSeconds: 0.16
+  comboCelebrationSeconds: 1.2
+  comboCelebrationSize: 1
+  comboCelebrationRise: 1.5
+  tutorialPlaceTextTypes: 29000000a8010000a9010000
+  tutorialColors:
+  - {r: 0.31, g: 0.72, b: 0.69, a: 1}
+  - {r: 0.87, g: 0.46, b: 0.73, a: 1}
+  - {r: 0.94, g: 0.66, b: 0.32, a: 1}
+  - {r: 0.67, g: 0.5, b: 0.85, a: 1}
+  tutorialCardFadeSeconds: 0.38
+  tutorialDimFadeSeconds: 0.45
+  tutorialFingerPressSeconds: 0.13
+  tutorialFingerReleaseSeconds: 0.12
+  tutorialFingerRestSeconds: 1
+  tutorialFingerDragSeconds: 1.2
+  tutorialRippleSeconds: 0.42
+  tutorialRippleFrom: 0.44
+  tutorialRippleTo: 1.62
+  tutorialRippleAlpha: 0.9
+  tutorialHandScale: 1.75
+  tutorialMarkSeconds: 0.24
+  tutorialPlaceSeconds: 0.42
+  tutorialCelebrateSeconds: 1.2
+  clearAutoCrossDelay: 0.45
+  clearAutoCrossSweepStep: 0.09
+  clearAutoCrossHold: 0.25
+  clearCelebrationDelay: 0.7
+  resultDelay: 1.65
+  clearGlowSeconds: 0.35
+  clearGlowColor: {r: 1, g: 0.9462788, b: 0.8066038, a: 0.3921569}
+  gainSeconds: 0.7
+  comboSeconds: 1.2
+  comboFontSize: 85
+  comboRiseRatio: 0.7
+  soundVolume: 0.6
+  regionColors:
+  - {r: 0.909803922, g: 0.741176471, b: 0.513725490, a: 1}
+  - {r: 0.568627451, g: 0.717647059, b: 0.811764706, a: 1}
+  - {r: 0.847058824, g: 0.615686275, b: 0.666666667, a: 1}
+  - {r: 0.647058824, g: 0.733333333, b: 0.568627451, a: 1}
+  - {r: 0.717647059, g: 0.635294118, b: 0.807843137, a: 1}
+  - {r: 0.909803922, g: 0.835294118, b: 0.556862745, a: 1}
+  - {r: 0.517647059, g: 0.741176471, b: 0.709803922, a: 1}
+  - {r: 0.850980392, g: 0.615686275, b: 0.501960784, a: 1}
+  - {r: 0.576470588, g: 0.623529412, b: 0.796078431, a: 1}
+  - {r: 0.850980392, g: 0.615686275, b: 0.749019608, a: 1}
+  - {r: 0.733333333, g: 0.796078431, b: 0.509803922, a: 1}
+  - {r: 0.705882353, g: 0.631372549, b: 0.584313725, a: 1}
+  patterns:
+  - {fileID: 21300000, guid: bc57b40152c86b845a843a17d319cc76, type: 3}
+  - {fileID: 21300000, guid: 25d209c25c983b0418ef6ffcb04d60d7, type: 3}
+  - {fileID: 21300000, guid: 396bb779d1f991742ae72183ed2dfa36, type: 3}
+  - {fileID: 21300000, guid: 15328198acd658f468dcb1762847018c, type: 3}
+  - {fileID: 21300000, guid: e048c0f2d2373804dbe042d38b371a07, type: 3}
+  - {fileID: 21300000, guid: 7f3f99a7008c10d4490589348c2affc7, type: 3}
+  - {fileID: 21300000, guid: 848eb8a381594354da12936529a66935, type: 3}
+  - {fileID: 21300000, guid: aabe5d7fa6dc1c64181b4d42f1200d8a, type: 3}
+  - {fileID: 21300000, guid: 816712fcd60a7c94fb9c2ef958d882ae, type: 3}
+  - {fileID: 21300000, guid: 8bbacdec25339fb4e997f106665eb2b9, type: 3}
+  - {fileID: 21300000, guid: a4d419f29ef6fb74eb675a41eca235ad, type: 3}
+  - {fileID: 21300000, guid: b89156ee21af8bb49bf28ec71c43ef01, type: 3}
+  placeClip: {fileID: 8300000, guid: 0191d72692f30154d8d07439ce288931, type: 3}
+  markClip: {fileID: 8300000, guid: f959d7766d4c7c644bd4b14e6e36238f, type: 3}
+  mistakeClip: {fileID: 8300000, guid: 94b3ddbdc59c9c246b7c0f3d6c9299cf, type: 3}
+  clearClip: {fileID: 8300000, guid: 220924349d8543d4b91c0929dbb08203, type: 3}

@@ -12,18 +12,20 @@ namespace Hamdoku.Controllers {
             }
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
+            var campaignConfig = assets.GetCampaignConfig();
             var module = ctx.puzzleModule;
             state.dailyDay = dailyDay;
+            state.rewardReturnHome = false;
             var savedPuzzle = dailyDay > 0 ? save.daily.activePuzzle : save.activePuzzle;
-            if (dailyDay == 0 && savedPuzzle == null && !tutorial && save.campaignClears >= config.campaignSizes.Length) {
+            if (dailyDay == 0 && savedPuzzle == null && !tutorial && save.campaignClears >= campaignConfig.campaignSizes.Length) {
                 HomeController.ShowNotice(ctx, UINameType.Game_BatchComplete, 0);
                 return;
             }
             if (savedPuzzle != null) {
                 var active = savedPuzzle;
-                module.ValidateSave(active, config, save.campaignClears, save.tutorialCompleted);
-                state.puzzle = module.Get(active.puzzleId);
+                module.ValidateSave(active, config, campaignConfig, save.campaignClears, save.tutorialCompleted);
+                state.puzzle = module.Materialize(active.puzzleId, active.campaignTransform);
                 state.campaignSelectionVersion = active.campaignSelectionVersion;
                 state.campaignGrade = active.campaignGrade;
                 state.campaignFirstGame = active.campaignFirstGame;
@@ -65,7 +67,7 @@ namespace Hamdoku.Controllers {
                 state.isTutorial = tutorial;
                 state.level = tutorial ? 0 : save.campaignClears + 1;
                 if (dailyDay > 0) {
-                    state.puzzle = DailyController.Puzzle(assets.GetDailyConfig(), dailyDay);
+                    state.puzzle = module.Materialize(DailyController.Puzzle(assets.GetDailyConfig(), module, dailyDay).id, 0);
                     state.level = DailyController.Date(dailyDay).Day;
                     state.campaignSelectionVersion = 0;
                     state.campaignGrade = 0;
@@ -74,7 +76,7 @@ namespace Hamdoku.Controllers {
                     state.campaignUsedItem = false;
                     state.campaignFailures = 0;
                 } else if (tutorial) {
-                    state.puzzle = config.tutorial;
+                    state.puzzle = module.Materialize(config.tutorialPuzzleId, 0);
                     state.campaignSelectionVersion = 0;
                     state.campaignGrade = 0;
                     state.campaignFirstGame = false;
@@ -114,8 +116,9 @@ namespace Hamdoku.Controllers {
         }
         static void ResetBoard(GameContext ctx) {
             var state = ctx.state_Game;
+            state.resultHeroId = 0;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             var puzzle = state.puzzle;
             state.cells = new CellStatus[puzzle.size * puzzle.size];
             foreach (int row in puzzle.preplacedRows) {
@@ -146,7 +149,6 @@ namespace Hamdoku.Controllers {
             }
             var puzzle = state.puzzle;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
             var module = ctx.puzzleModule;
             if (module.IsGiven(puzzle, index)) {
                 return;
@@ -166,6 +168,7 @@ namespace Hamdoku.Controllers {
                     state.mistakes++;
                     state.hearts--;
                     state.notice = conflict == UINameType.None ? UINameType.Game_WrongCell : conflict;
+                    Panel_Game_Controller.ShowWrong(ctx, index);
                     Play(ctx, false, true);
                     if (state.hearts == 0) {
                         CampaignController.Fail(ctx);
@@ -202,7 +205,7 @@ namespace Hamdoku.Controllers {
         public static bool TutorialFocus(GameContext ctx, int index) {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             switch (state.tutorialStep) {
                 case 0: return index == config.tutorialPlaceIndices[0];
                 case 2: return Array.IndexOf(config.tutorialLineIndices, index) >= 0 || index == config.tutorialPlaceIndices[0];
@@ -215,7 +218,7 @@ namespace Hamdoku.Controllers {
         static bool TutorialAllows(GameContext ctx, int index, bool twice, bool drag) {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             if (state.tutorialTransitionPending) {
                 return false;
             }
@@ -258,7 +261,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             if (state.tutorialStep == 0 && state.cells[config.tutorialPlaceIndices[0]] == CellStatus.Hamster) {
                 state.tutorialStep = 1;
             } else if (state.tutorialStep == 2 && Array.TrueForAll(config.tutorialLineIndices, index => state.cells[index] == CellStatus.Cross)) {
@@ -274,10 +277,38 @@ namespace Hamdoku.Controllers {
         static void BeginTutorialSettle(GameContext ctx) {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             if (!state.tutorialTransitionPending) {
                 state.tutorialTransitionPending = true;
                 state.tutorialTransitionRemaining = config.tutorialCrossSettleSeconds;
+            }
+        }
+        public static void CompleteForTesting(GameContext ctx) {
+            var state = ctx.state_Game;
+            var settings = ctx.state_Settings;
+            if (!state.isOpen || settings.isOpen || state.status != GameStatus.Playing || state.dialog != GameDialogType.None) {
+                return;
+            }
+            var puzzle = state.puzzle;
+            for (int i = 0; i < state.cells.Length; i++) {
+                int row = i / puzzle.size;
+                int column = i % puzzle.size;
+                if (column == puzzle.solutionColumns[row]) {
+                    if (state.cells[i] != CellStatus.Hamster) {
+                        state.cells[i] = CellStatus.Hamster;
+                        GameFlowController.AddScore(ctx, i);
+                    }
+                } else if (state.cells[i] == CellStatus.Hamster) {
+                    state.cells[i] = CellStatus.None;
+                }
+            }
+            state.tutorialTransitionPending = false;
+            CampaignController.Touch(ctx);
+            FinishIfComplete(ctx);
+            Panel_Game_Controller.Refresh(ctx);
+            Persist(ctx);
+            if (state.status == GameStatus.Won && !state.isTutorial) {
+                RankingController.SubmitPending(ctx);
             }
         }
         static void FinishIfComplete(GameContext ctx) {
@@ -307,10 +338,10 @@ namespace Hamdoku.Controllers {
                 StreakController.RecordWin(ctx, DateTime.Today);
             }
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var presentation = assets.GetPuzzlePresentation();
             var audio = ctx.audioModule;
             if (state.isTutorial) {
-                audio.PlayOneShot(config.clearClip, config.soundVolume);
+                audio.PlayOneShot(presentation.clearClip, presentation.soundVolume);
             }
             if (state.isTutorial) {
                 state.tutorialStep = 7;
@@ -403,9 +434,9 @@ namespace Hamdoku.Controllers {
         }
         static void Play(GameContext ctx, bool placed, bool mistake) {
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var presentation = assets.GetPuzzlePresentation();
             var audio = ctx.audioModule;
-            audio.PlayOneShot(mistake ? config.mistakeClip : placed ? config.placeClip : config.markClip, config.soundVolume);
+            audio.PlayOneShot(mistake ? presentation.mistakeClip : placed ? presentation.placeClip : presentation.markClip, presentation.soundVolume);
             var save = ctx.playerSave;
             var settings = save.settings;
             if (settings.vibration && (placed || mistake)) {
@@ -457,7 +488,7 @@ namespace Hamdoku.Controllers {
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
                 panel.board.CancelGesture();
             }
-            if (!state.isTutorial && state.dailyDay == 0 && (type == GameDialogType.Result || type == GameDialogType.Failed)) {
+            if (!state.isTutorial && state.dailyDay == 0 && (type == GameDialogType.Result || type == GameDialogType.Failed || type == GameDialogType.Reward)) {
                 Panel_GameResult_Controller.Open(ctx);
             } else {
                 Panel_GameDialog_Controller.Open(ctx);
@@ -467,6 +498,23 @@ namespace Hamdoku.Controllers {
             var state = ctx.state_Game;
             var dialog = state.dialog;
             if (!state.isOpen || dialog == GameDialogType.None) {
+                return;
+            }
+            if (dialog == GameDialogType.Result && !state.isTutorial && state.dailyDay == 0 && CampaignController.PendingReward(ctx) > 0) {
+                OpenReward(ctx, false);
+                return;
+            }
+            if (dialog == GameDialogType.Reward) {
+                if (!CampaignController.ClaimReward(ctx)) {
+                    return;
+                }
+                Panel_GameResult_Controller.Close(ctx);
+                state.dialog = GameDialogType.None;
+                if (state.rewardReturnHome) {
+                    ReturnHome(ctx);
+                } else {
+                    Next(ctx);
+                }
                 return;
             }
             Panel_GameDialog_Controller.Close(ctx);
@@ -505,6 +553,13 @@ namespace Hamdoku.Controllers {
                 return;
             }
             var dialog = state.dialog;
+            if (dialog == GameDialogType.Reward) {
+                return;
+            }
+            if (dialog == GameDialogType.Result && !state.isTutorial && state.dailyDay == 0 && CampaignController.PendingReward(ctx) > 0) {
+                OpenReward(ctx, true);
+                return;
+            }
             Panel_GameDialog_Controller.Close(ctx);
             Panel_GameResult_Controller.Close(ctx);
             state.dialog = GameDialogType.None;
@@ -514,12 +569,20 @@ namespace Hamdoku.Controllers {
         }
         public static void AdUnavailable(GameContext ctx) {
             var state = ctx.state_Game;
-            if (state.dialog != GameDialogType.Failed) {
+            if (state.dialog != GameDialogType.Failed && state.dialog != GameDialogType.Reward) {
                 return;
             }
             state.notice = UINameType.Game_AdUnavailable;
             Panel_GameDialog_Controller.Refresh(ctx);
             Panel_GameResult_Controller.Refresh(ctx);
+        }
+        static void OpenReward(GameContext ctx, bool returnHome) {
+            var state = ctx.state_Game;
+            state.rewardReturnHome = returnHome;
+            Panel_GameResult_Controller.Close(ctx);
+            state.dialog = GameDialogType.Reward;
+            state.notice = UINameType.None;
+            Panel_GameResult_Controller.Open(ctx);
         }
         static void Next(GameContext ctx) {
             var settings = ctx.state_Settings;
@@ -534,7 +597,7 @@ namespace Hamdoku.Controllers {
             }
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var campaignConfig = assets.GetCampaignConfig();
             save.activePuzzle = null;
             state.isOpen = false;
             Panel_Game_Controller.Close(ctx);
@@ -542,7 +605,7 @@ namespace Hamdoku.Controllers {
             if (StreakController.OpenAfterGame(ctx)) {
                 return;
             }
-            if (save.campaignClears >= config.campaignSizes.Length) {
+            if (save.campaignClears >= campaignConfig.campaignSizes.Length) {
                 HomeSystem.Open(ctx);
                 HomeController.ShowNotice(ctx, UINameType.Game_BatchComplete, 0);
             } else {
@@ -604,6 +667,7 @@ namespace Hamdoku.Controllers {
             var active = new PuzzleSaveModel {
                 dailyDay = state.dailyDay,
                 campaignSelectionVersion = state.campaignSelectionVersion, campaignGrade = state.campaignGrade,
+                campaignTransform = state.puzzle.transform,
                 campaignFirstGame = state.campaignFirstGame, campaignTouched = state.campaignTouched,
                 campaignUsedItem = state.campaignUsedItem, campaignFailures = state.campaignFailures,
                 puzzleId = state.puzzle.id, level = state.level, isTutorial = state.isTutorial,
@@ -630,7 +694,7 @@ namespace Hamdoku.Controllers {
                 state.elapsed += deltaTime;
                 if (state.isTutorial) {
                     var assets = ctx.assetModule;
-                    var config = assets.GetGameConfig();
+                    var config = assets.GetPuzzleRules();
                     if (state.tutorialTransitionPending) {
                         state.tutorialTransitionRemaining -= deltaTime;
                         if (state.tutorialTransitionRemaining <= 0) {

@@ -13,6 +13,12 @@ namespace Hamdoku {
         DailyConfigSO dailyConfig;
         HomeConfigSO homeConfig;
         GameConfigSO gameConfig;
+        PuzzleRulesSO puzzleRules;
+        CampaignConfigSO campaignConfig;
+        PuzzlePresentationSO puzzlePresentation;
+        ResultConfigSO resultConfig;
+        readonly Dictionary<int, PuzzleSO> puzzleById = new Dictionary<int, PuzzleSO>();
+        readonly List<PuzzleSO> puzzleList = new List<PuzzleSO>();
         RankingConfigSO rankingConfig;
         StreakConfigSO streakConfig;
         ProfileConfigSO profileConfig;
@@ -51,6 +57,29 @@ namespace Hamdoku {
                     if (panel != null) {
                         panels.Add(panel.Type, prefab);
                     }
+                } else if (asset is PuzzleSO puzzle) {
+                    puzzleById.Add(puzzle.id, puzzle);
+                    puzzleList.Add(puzzle);
+                } else if (asset is PuzzleRulesSO rules) {
+                    if (puzzleRules != null) {
+                        throw new InvalidOperationException("Duplicate PuzzleRulesSO.");
+                    }
+                    puzzleRules = rules;
+                } else if (asset is CampaignConfigSO campaign) {
+                    if (campaignConfig != null) {
+                        throw new InvalidOperationException("Duplicate CampaignConfigSO.");
+                    }
+                    campaignConfig = campaign;
+                } else if (asset is PuzzlePresentationSO presentation) {
+                    if (puzzlePresentation != null) {
+                        throw new InvalidOperationException("Duplicate PuzzlePresentationSO.");
+                    }
+                    puzzlePresentation = presentation;
+                } else if (asset is ResultConfigSO result) {
+                    if (resultConfig != null) {
+                        throw new InvalidOperationException("Duplicate ResultConfigSO.");
+                    }
+                    resultConfig = result;
                 } else if (asset is DailyConfigSO daily) {
                     if (dailyConfig != null) {
                         throw new InvalidOperationException("Duplicate DailyConfigSO.");
@@ -97,7 +126,44 @@ namespace Hamdoku {
                     fonts.Add(font);
                 }
             }
+            puzzleList.Sort((left, right) => left.id.CompareTo(right.id));
             registered = true;
+        }
+
+        public PuzzleSO Puzzle_Get(int id) {
+            return puzzleById[id];
+        }
+
+        public IReadOnlyList<PuzzleSO> Puzzle_GetAll() {
+            return puzzleList;
+        }
+
+        public PuzzleRulesSO GetPuzzleRules() {
+            if (puzzleRules == null) {
+                throw new InvalidOperationException("PuzzleRulesSO is missing from default assets.");
+            }
+            return puzzleRules;
+        }
+
+        public CampaignConfigSO GetCampaignConfig() {
+            if (campaignConfig == null) {
+                throw new InvalidOperationException("CampaignConfigSO is missing from default assets.");
+            }
+            return campaignConfig;
+        }
+
+        public PuzzlePresentationSO GetPuzzlePresentation() {
+            if (puzzlePresentation == null) {
+                throw new InvalidOperationException("PuzzlePresentationSO is missing from default assets.");
+            }
+            return puzzlePresentation;
+        }
+
+        public ResultConfigSO GetResultConfig() {
+            if (resultConfig == null) {
+                throw new InvalidOperationException("ResultConfigSO is missing from default assets.");
+            }
+            return resultConfig;
         }
 
         public bool Panel_TryGet(PanelType type, out GameObject prefab) {
@@ -174,6 +240,12 @@ namespace Hamdoku {
             dailyConfig = null;
             homeConfig = null;
             gameConfig = null;
+            puzzleRules = null;
+            campaignConfig = null;
+            puzzlePresentation = null;
+            resultConfig = null;
+            puzzleById.Clear();
+            puzzleList.Clear();
             rankingConfig = null;
             streakConfig = null;
             profileConfig = null;

@@ -7,7 +7,8 @@ namespace Hamdoku.Controllers {
         public static void Initialize(GameContext ctx, PlayerSaveModel loaded) {
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
+            var campaignConfig = assets.GetCampaignConfig();
             var module = ctx.puzzleModule;
             var state = ctx.state_Game;
             int today = (int)(DateTime.Today.Ticks / TimeSpan.TicksPerDay);
@@ -16,8 +17,8 @@ namespace Hamdoku.Controllers {
             } else {
                 // The old save has no skill/history. Keep its board and progress; start new tracking.
                 save.campaign = new CampaignSaveModel {
-                    skill = config.campaignInitialSkill,
-                    cursorPositions = new int[config.campaignCursorSlots],
+                    skill = campaignConfig.campaignInitialSkill,
+                    cursorPositions = new int[campaignConfig.campaignCursorSlots],
                     recentPuzzleIds = new List<int>()
                 };
                 var history = save.campaign.recentPuzzleIds;
@@ -38,7 +39,27 @@ namespace Hamdoku.Controllers {
                 }
             }
             var campaign = save.campaign;
-            module.ValidateCampaign(campaign, config, save.campaignClears);
+            if (loaded == null || loaded.version < 11) {
+                // Keep only a currently displayed won milestone pending. Do not invent past grants.
+                var active = save.activePuzzle;
+                int baseline = save.campaignClears;
+                if (active != null && !active.isTutorial && active.status == GameStatus.Won) {
+                    baseline = Math.Max(0, active.level - 1);
+                }
+                campaign.claimedRewardLevel = baseline / campaignConfig.campaignRewardStep * campaignConfig.campaignRewardStep;
+                campaign.previousRecordedSkill = campaign.skill;
+                campaign.previousLevel = 0;
+                campaign.previousRetried = false;
+                campaign.pendingDemotion = false;
+            }
+            if (loaded == null || loaded.version < 12) {
+                campaign.cursorCycles = new int[campaignConfig.campaignCursorSlots];
+                var active = save.activePuzzle;
+                if (active != null) {
+                    active.campaignTransform = 0;
+                }
+            }
+            module.ValidateCampaign(campaign, campaignConfig, config.tutorialPuzzleId, save.campaignClears);
             state.firstGameAvailable = today > campaign.sessionDay;
             if (state.firstGameAvailable) {
                 var active = save.activePuzzle;
@@ -55,17 +76,20 @@ namespace Hamdoku.Controllers {
             var campaign = save.campaign;
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var campaignConfig = assets.GetCampaignConfig();
             var module = ctx.puzzleModule;
             int level = state.level;
-            int grade = Math.Min(campaign.skill, config.campaignGradeCeilings[level - 1]);
+            int grade = Math.Min(campaign.skill, campaignConfig.campaignGradeCeilings[level - 1]);
+            if (grade >= 3) {
+                grade = UnityEngine.Random.Range(2, grade + 1);
+            }
             bool firstGame = state.firstGameAvailable;
             if (firstGame) {
-                grade = Math.Max(config.campaignInitialSkill, grade - 1);
+                grade = Math.Max(campaignConfig.campaignInitialSkill, grade - 1);
             }
-            var selection = module.SelectCampaign(config, campaign, level, grade);
+            var selection = module.SelectCampaign(campaignConfig, campaign, level, grade);
             var puzzle = selection.puzzle;
-            state.puzzle = puzzle;
+            state.puzzle = module.Materialize(puzzle.id, selection.transform);
             state.campaignSelectionVersion = 1;
             state.campaignGrade = puzzle.grade;
             state.campaignFirstGame = firstGame;
@@ -75,11 +99,12 @@ namespace Hamdoku.Controllers {
             state.firstGameAvailable = false;
             if (selection.poolKey > 0) {
                 campaign.cursorPositions[selection.poolKey] = selection.nextPosition;
+                campaign.cursorCycles[selection.poolKey] = selection.nextCycle;
             }
             var history = campaign.recentPuzzleIds;
             history.Add(puzzle.id);
-            if (history.Count > config.campaignHistoryLimit) {
-                history.RemoveRange(0, history.Count - config.campaignHistoryLimit);
+            if (history.Count > campaignConfig.campaignHistoryLimit) {
+                history.RemoveRange(0, history.Count - campaignConfig.campaignHistoryLimit);
             }
         }
 
@@ -88,6 +113,48 @@ namespace Hamdoku.Controllers {
             if (state.dailyDay == 0 && !state.isTutorial && state.status == GameStatus.Playing) {
                 state.campaignTouched = true;
             }
+        }
+
+        public static int PendingReward(GameContext ctx) {
+            var save = ctx.playerSave;
+            var campaign = save.campaign;
+            var assets = ctx.assetModule;
+            var campaignConfig = assets.GetCampaignConfig();
+            int milestone = save.campaignClears / campaignConfig.campaignRewardStep * campaignConfig.campaignRewardStep;
+            return milestone > campaign.claimedRewardLevel ? milestone : 0;
+        }
+
+        public static bool ClaimReward(GameContext ctx) {
+            var state = ctx.state_Game;
+            if (!state.isOpen || state.isTutorial || state.dailyDay > 0 || state.status != GameStatus.Won || state.dialog != GameDialogType.Reward) {
+                return false;
+            }
+            int milestone = PendingReward(ctx);
+            if (milestone == 0) {
+                return false;
+            }
+            var save = ctx.playerSave;
+            var campaign = save.campaign;
+            var bonus = save.streak;
+            var assets = ctx.assetModule;
+            var campaignConfig = assets.GetCampaignConfig();
+            int hints = checked(bonus.bonusHints + campaignConfig.campaignRewardHints);
+            int guides = checked(bonus.bonusGuides + campaignConfig.campaignRewardGuides);
+            int previous = campaign.claimedRewardLevel;
+            int oldHints = bonus.bonusHints;
+            int oldGuides = bonus.bonusGuides;
+            campaign.claimedRewardLevel = milestone;
+            bonus.bonusHints = hints;
+            bonus.bonusGuides = guides;
+            try {
+                HomeController.SaveProgress(ctx);
+            } catch {
+                campaign.claimedRewardLevel = previous;
+                bonus.bonusHints = oldHints;
+                bonus.bonusGuides = oldGuides;
+                throw;
+            }
+            return true;
         }
 
         public static void Fail(GameContext ctx) {
@@ -124,23 +191,56 @@ namespace Hamdoku.Controllers {
                 throw new InvalidDataException("Campaign difficulty can only record the next clear once.");
             }
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var campaignConfig = assets.GetCampaignConfig();
             var campaign = save.campaign;
-            if (state.level < config.campaignAdaptiveStartLevel) {
+            if (state.level < campaignConfig.campaignAdaptiveStartLevel) {
                 return;
             }
             if (state.campaignFailures == 0 && !state.campaignUsedItem) {
-                campaign.cleanStreak++;
-                if (campaign.cleanStreak >= config.campaignCleanClearsToPromote) {
-                    campaign.skill = Math.Min(config.campaignSkillCeilings[state.level - 1], campaign.skill + 1);
+                if (campaign.cleanStreak < int.MaxValue) {
+                    campaign.cleanStreak++;
+                }
+                int promotionThreshold = state.level >= campaignConfig.campaignLaterPromotionStartLevel ?
+                    campaignConfig.campaignLaterCleanClearsToPromote : campaignConfig.campaignCleanClearsToPromote;
+                if (campaign.cleanStreak >= promotionThreshold && campaign.skill < campaignConfig.campaignSkillCeilings[state.level - 1]) {
+                    campaign.skill++;
                     campaign.cleanStreak = 0;
                 }
             } else {
                 campaign.cleanStreak = 0;
             }
-            if (state.campaignFailures >= config.campaignFailureThreshold) {
-                campaign.skill = Math.Max(config.campaignInitialSkill, campaign.skill - 1);
+            int threshold = state.level >= campaignConfig.campaignReliefStartLevel ? campaignConfig.campaignLaterFailureThreshold : campaignConfig.campaignFailureThreshold;
+            if (state.campaignFailures >= threshold) {
+                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                RecordPrevious(campaign, state);
+                return;
             }
+            if (state.level >= campaignConfig.campaignReliefStartLevel && state.campaignFailures > 0 && campaign.previousRetried &&
+                campaign.previousLevel == state.level - 1 && campaign.previousRecordedSkill == campaign.skill) {
+                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+            }
+            RecordPrevious(campaign, state);
+            if (state.campaignFirstGame) {
+                return;
+            }
+            if (campaign.pendingDemotion) {
+                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                campaign.pendingDemotion = false;
+            } else if (state.campaignFailures > 0) {
+                int nextLevel = state.level + 1;
+                var home = assets.GetHomeConfig();
+                bool hard = nextLevel >= home.hardLevelStart && nextLevel % home.hardLevelInterval == 0;
+                if (hard || Array.IndexOf(campaignConfig.campaignFixedLevels, nextLevel) >= 0) {
+                    campaign.pendingDemotion = true;
+                } else {
+                    campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                }
+            }
+        }
+        static void RecordPrevious(CampaignSaveModel campaign, GameState state) {
+            campaign.previousLevel = state.level;
+            campaign.previousRetried = state.campaignFailures > 0;
+            campaign.previousRecordedSkill = campaign.skill;
         }
     }
 }

@@ -9,10 +9,6 @@ namespace Hamdoku {
         public int endlessUnlockClears;
         public int hardLevelStart;
         public int hardLevelInterval;
-        [Header("Local progress")]
-        public string saveFileName;
-        public int saveVersion;
-        public SystemLanguage defaultLanguage;
         [Header("Presentation")]
         public float noticeSeconds;
         public AudioClip buttonClip;

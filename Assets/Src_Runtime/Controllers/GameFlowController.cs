@@ -22,7 +22,7 @@ namespace Hamdoku.Controllers {
         public static void Reset(GameContext ctx) {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             var puzzle = state.puzzle;
             state.flowVersion = 1;
             state.cellGains = new int[state.cells.Length];
@@ -60,7 +60,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             int gain = checked(config.scoreBase + config.scoreStep * state.combo);
             state.cellGains[index] = gain;
             state.score = checked(state.score + gain);
@@ -71,7 +71,7 @@ namespace Hamdoku.Controllers {
         public static void BeginClear(GameContext ctx) {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
             state.clearSweepNeeded = state.dailyDay == 0 && state.level <= config.clearAutoCrossLevels && Array.IndexOf(state.cells, CellStatus.None) >= 0;
             state.clearPending = true;
             state.clearCrossApplied = false;
@@ -83,11 +83,11 @@ namespace Hamdoku.Controllers {
                 return;
             }
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var presentation = assets.GetPuzzlePresentation();
             bool autoCross = state.clearSweepNeeded;
             float previous = state.clearElapsed;
             state.clearElapsed += deltaTime;
-            if (!state.clearCrossApplied && state.clearElapsed >= (autoCross ? config.clearAutoCrossDelay : 0)) {
+            if (!state.clearCrossApplied && state.clearElapsed >= (autoCross ? presentation.clearAutoCrossDelay : 0)) {
                 state.clearCrossApplied = true;
                 var indices = new List<int>();
                 for (int i = 0; autoCross && i < state.cells.Length; i++) {
@@ -102,13 +102,13 @@ namespace Hamdoku.Controllers {
                 }
                 GameController.Persist(ctx);
             }
-            float finishAt = config.clearCelebrationDelay + (autoCross ? config.clearAutoCrossDelay + config.clearAutoCrossHold : 0);
+            float finishAt = presentation.clearCelebrationDelay + (autoCross ? presentation.clearAutoCrossDelay + presentation.clearAutoCrossHold : 0);
             if (previous < finishAt && state.clearElapsed >= finishAt) {
                 var audio = ctx.audioModule;
-                audio.PlayOneShot(config.clearClip, config.soundVolume);
+                audio.PlayOneShot(presentation.clearClip, presentation.soundVolume);
                 Panel_Game_Controller.CelebrateClear(ctx);
             }
-            if (state.clearElapsed >= finishAt + config.resultDelay) {
+            if (state.clearElapsed >= finishAt + presentation.resultDelay) {
                 state.clearPending = false;
             state.clearSweepNeeded = false;
                 GameController.ShowDialog(ctx, GameDialogType.Result);

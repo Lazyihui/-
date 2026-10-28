@@ -29,7 +29,7 @@ namespace Hamdoku.Editor {
             if (AssetDatabase.LoadAssetAtPath<GameObject>(panelPath) == null) {
                 CreatePanel(panelPath, dayPath, font, config);
             }
-            var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
+            var home = AssetDatabase.LoadAssetAtPath<GameConfigSO>("Assets/Res_Runtime/Config/GameConfig.asset");
             home.saveVersion = Math.Max(home.saveVersion, 3);
             EditorUtility.SetDirty(home);
             RegisterAssets(panelPath);

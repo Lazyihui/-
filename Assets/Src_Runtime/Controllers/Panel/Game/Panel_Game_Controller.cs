@@ -25,9 +25,11 @@ namespace Hamdoku.Controllers {
             panel.Init();
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
+            var presentation = assets.GetPuzzlePresentation();
             panel.board.Init(state.puzzle.size, config.doubleTapSeconds, config.dragThreshold);
-            panel.ConfigureTutorial(config, state.isTutorial);
+            var tutorial = assets.Puzzle_Get(config.tutorialPuzzleId);
+            panel.ConfigureTutorial(presentation, state.isTutorial, tutorial.size);
             Refresh(ctx);
         }
         public static string Text(GameContext ctx, UINameType type) {
@@ -42,7 +44,7 @@ namespace Hamdoku.Controllers {
             if (type == UINameType.Game_Place || type == UINameType.Game_Tap) {
                 var state = ctx.state_Game;
                 var assets = ctx.assetModule;
-                var config = assets.GetGameConfig();
+                var config = assets.GetPuzzleRules();
                 int index = type == UINameType.Game_Place ? config.tutorialPlaceIndex : config.tutorialTapIndex;
                 int size = state.puzzle.size;
                 text = string.Format(text, index / size + 1, index % size + 1);
@@ -58,15 +60,16 @@ namespace Hamdoku.Controllers {
             var puzzle = state.puzzle;
             var module = ctx.puzzleModule;
             var assets = ctx.assetModule;
-            var config = assets.GetGameConfig();
+            var config = assets.GetPuzzleRules();
+            var presentation = assets.GetPuzzlePresentation();
             var save = ctx.playerSave;
             var preferences = save.settings;
             var settingsConfig = assets.GetSettingsConfig();
             int count = 0;
             for (int i = 0; i < state.cells.Length; i++) {
                 int region = puzzle.regions[i];
-                Color color = state.isTutorial ? config.tutorialColors[region] : config.regionColors[region];
-                panel.board.ShowCell(i, color, state.isTutorial || !preferences.pattern ? null : config.patterns[region], state.cells[i], state.isTutorial && ((state.tutorialStep < 6 && state.tutorialStep != 1 && GameController.TutorialFocus(ctx, i)) || (state.tutorialHintVisible && state.cells[i] != CellStatus.Hamster && puzzle.solutionColumns[i / puzzle.size] == i % puzzle.size)), module.IsGiven(puzzle, i));
+                Color color = state.isTutorial ? presentation.tutorialColors[region] : presentation.regionColors[region];
+                panel.board.ShowCell(i, color, state.isTutorial || !preferences.pattern ? null : presentation.patterns[region], state.cells[i], state.isTutorial && ((state.tutorialStep < 6 && state.tutorialStep != 1 && GameController.TutorialFocus(ctx, i)) || (state.tutorialHintVisible && state.cells[i] != CellStatus.Hamster && puzzle.solutionColumns[i / puzzle.size] == i % puzzle.size)), module.IsGiven(puzzle, i));
                 panel.board.ShowRegionBorder(i, preferences.border && !state.isTutorial, puzzle.regions, puzzle.size, settingsConfig.borderColor, settingsConfig.borderWidth);
                 panel.board.DimCell(i, state.isTutorial && state.tutorialStep != 1 && state.tutorialStep < 6 && !GameController.TutorialFocus(ctx, i));
                 if (state.cells[i] == CellStatus.Hamster) {
@@ -85,8 +88,8 @@ namespace Hamdoku.Controllers {
             panel.instructionLabel.text = string.Empty;
             if (state.isTutorial) {
                 int step = state.tutorialStep;
-                UINameType rule = step == 0 ? config.tutorialPlaceTextTypes[0] : step == 1 ? UINameType.Game_TutorialRegion :
-                    step == 2 ? UINameType.Game_TutorialLine : step == 3 ? config.tutorialPlaceTextTypes[1] : step == 5 ? config.tutorialPlaceTextTypes[2] :
+                UINameType rule = step == 0 ? presentation.tutorialPlaceTextTypes[0] : step == 1 ? UINameType.Game_TutorialRegion :
+                    step == 2 ? UINameType.Game_TutorialLine : step == 3 ? presentation.tutorialPlaceTextTypes[1] : step == 5 ? presentation.tutorialPlaceTextTypes[2] :
                     step == 4 ? UINameType.Game_TutorialAdjacent : step == 7 ? UINameType.Game_TutorialDone : UINameType.Game_Solve;
                 UINameType action = step == 2 ? UINameType.Game_Tap : step == 4 ? UINameType.Game_Drag : step == 6 ? UINameType.Game_TutorialHint : UINameType.None;
                 panel.tutorialRule.text = Text(ctx, rule);
@@ -142,22 +145,30 @@ namespace Hamdoku.Controllers {
             var panels = ctx.panelRepository;
             var state = ctx.state_Game;
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                var assets = ctx.assetModule;
+                var presentation = assets.GetPuzzlePresentation();
                 panel.ShowGain(index, string.Format(Text(ctx, UINameType.Game_Gain), gain),
-                    state.combo >= 3 ? string.Format(Text(ctx, UINameType.Game_Combo), state.combo) : string.Empty);
+                    state.combo >= presentation.comboStart ? string.Format(Text(ctx, UINameType.Game_Combo), state.combo) : string.Empty, state.combo);
+            }
+        }
+        public static void ShowWrong(GameContext ctx, int index) {
+            var panels = ctx.panelRepository;
+            if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                panel.ClearFeedback();
+                panel.board.PlayWrong(index);
             }
         }
         public static void SweepClear(GameContext ctx, int[] indices) {
             var panels = ctx.panelRepository;
             var assets = ctx.assetModule;
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
-                panel.board.SweepClear(assets.GetGameConfig(), indices);
+                panel.board.SweepClear(assets.GetPuzzlePresentation(), indices);
             }
         }
         public static void CelebrateClear(GameContext ctx) {
             var panels = ctx.panelRepository;
-            var assets = ctx.assetModule;
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
-                panel.board.CelebrateTutorial(assets.GetGameConfig().clearCelebrationDelay);
+                panel.board.CelebrateCharacters();
             }
         }
         public static void Close(GameContext ctx) {

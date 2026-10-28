@@ -6,31 +6,35 @@ namespace Hamdoku {
         readonly Dictionary<int, PuzzleSO> puzzles = new Dictionary<int, PuzzleSO>();
         readonly Dictionary<int, List<PuzzleSO>> pools = new Dictionary<int, List<PuzzleSO>>();
         readonly Dictionary<int, PuzzleSO> fixedPuzzles = new Dictionary<int, PuzzleSO>();
-        public void Initialize(GameConfigSO config) {
-            if (config == null || config.campaignSizes == null || config.campaignSizes.Length == 0 || config.maxHearts <= 0 ||
+        public void Initialize(PuzzleRulesSO config, CampaignConfigSO campaignConfig, PuzzlePresentationSO presentation, IReadOnlyList<PuzzleSO> allPuzzles) {
+            if (config == null || campaignConfig == null || presentation == null || allPuzzles == null || campaignConfig.campaignSizes == null || campaignConfig.campaignSizes.Length == 0 || config.maxHearts <= 0 ||
                 config.doubleTapSeconds <= 0 || config.dragThreshold <= 0 || config.hintsPerLevel < 0 || config.guidesPerLevel < 0 ||
-                config.placeClip == null || config.markClip == null || config.mistakeClip == null || config.clearClip == null) {
-                throw new InvalidDataException("Invalid GameConfigSO.");
+                presentation.placeClip == null || presentation.markClip == null || presentation.mistakeClip == null || presentation.clearClip == null) {
+                throw new InvalidDataException("Invalid puzzle rules, campaign or presentation configuration.");
             }
             puzzles.Clear();
+            foreach (var puzzle in allPuzzles) {
+                ValidatePuzzle(puzzle);
+                puzzles.Add(puzzle.id, puzzle);
+            }
             float[] tutorialDurations = { config.tutorialCrossSettleSeconds, config.tutorialIdleHintSeconds,
-                config.tutorialCardFadeSeconds, config.tutorialDimFadeSeconds, config.tutorialFingerPressSeconds,
-                config.tutorialFingerReleaseSeconds, config.tutorialFingerRestSeconds, config.tutorialFingerDragSeconds,
-                config.tutorialRippleSeconds, config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialCelebrateSeconds };
+                presentation.tutorialCardFadeSeconds, presentation.tutorialDimFadeSeconds, presentation.tutorialFingerPressSeconds,
+                presentation.tutorialFingerReleaseSeconds, presentation.tutorialFingerRestSeconds, presentation.tutorialFingerDragSeconds,
+                presentation.tutorialRippleSeconds, presentation.tutorialMarkSeconds, presentation.tutorialPlaceSeconds, presentation.tutorialCelebrateSeconds };
             foreach (float duration in tutorialDurations) {
                 if (float.IsNaN(duration) || float.IsInfinity(duration) || duration <= 0) {
                     throw new InvalidDataException("Invalid tutorial animation duration.");
                 }
             }
-            if (float.IsNaN(config.tutorialHandScale) || float.IsInfinity(config.tutorialHandScale) || config.tutorialHandScale <= 0 ||
-                float.IsNaN(config.tutorialRippleFrom) || config.tutorialRippleFrom <= 0 ||
-                float.IsNaN(config.tutorialRippleTo) || float.IsInfinity(config.tutorialRippleTo) || config.tutorialRippleTo <= config.tutorialRippleFrom ||
-                float.IsNaN(config.tutorialRippleAlpha) || config.tutorialRippleAlpha <= 0 || config.tutorialRippleAlpha > 1) {
+            if (float.IsNaN(presentation.tutorialHandScale) || float.IsInfinity(presentation.tutorialHandScale) || presentation.tutorialHandScale <= 0 ||
+                float.IsNaN(presentation.tutorialRippleFrom) || presentation.tutorialRippleFrom <= 0 ||
+                float.IsNaN(presentation.tutorialRippleTo) || float.IsInfinity(presentation.tutorialRippleTo) || presentation.tutorialRippleTo <= presentation.tutorialRippleFrom ||
+                float.IsNaN(presentation.tutorialRippleAlpha) || presentation.tutorialRippleAlpha <= 0 || presentation.tutorialRippleAlpha > 1) {
                 throw new InvalidDataException("Invalid tutorial finger configuration.");
             }
-            float[] flowDurations = { config.clearAutoCrossDelay, config.clearAutoCrossSweepStep,
-                config.clearAutoCrossHold, config.clearCelebrationDelay, config.resultDelay, config.clearGlowSeconds,
-                config.gainSeconds, config.comboSeconds, config.comboFontSize, config.comboRiseRatio };
+            float[] flowDurations = { presentation.clearAutoCrossDelay, presentation.clearAutoCrossSweepStep,
+                presentation.clearAutoCrossHold, presentation.clearCelebrationDelay, presentation.resultDelay, presentation.clearGlowSeconds,
+                presentation.gainSeconds, presentation.comboSeconds, presentation.comboFontSize, presentation.comboRiseRatio };
             foreach (float duration in flowDurations) {
                 if (float.IsNaN(duration) || float.IsInfinity(duration) || duration <= 0) {
                     throw new InvalidDataException("Invalid main game flow configuration.");
@@ -39,50 +43,54 @@ namespace Hamdoku {
             if (config.startRevealLevels < 0 || config.clearAutoCrossLevels < 0 || config.scoreBase <= 0 || config.scoreStep < 0) {
                 throw new InvalidDataException("Invalid reveal or scoring configuration.");
             }
-            ValidateCampaignConfig(config);
+            ValidateCampaignConfig(campaignConfig);
             pools.Clear();
             fixedPuzzles.Clear();
-            ValidatePuzzle(config.tutorial);
-            int tutorialCells = config.tutorial.size * config.tutorial.size;
+            var tutorial = Get(config.tutorialPuzzleId);
+            ValidatePuzzle(tutorial);
+            int tutorialCells = tutorial.size * tutorial.size;
             if (config.tutorialPlaceIndex < 0 || config.tutorialPlaceIndex >= tutorialCells ||
                 config.tutorialTapIndex < 0 || config.tutorialTapIndex >= tutorialCells || config.tutorialDragIndices == null ||
-                config.tutorialDragIndices.Length == 0 || config.tutorial.solutionColumns[config.tutorialPlaceIndex / config.tutorial.size] != config.tutorialPlaceIndex % config.tutorial.size ||
-                config.regionColors == null || config.patterns == null || config.regionColors.Length < config.tutorial.size || config.patterns.Length < config.tutorial.size) {
+                config.tutorialDragIndices.Length == 0 || tutorial.solutionColumns[config.tutorialPlaceIndex / tutorial.size] != config.tutorialPlaceIndex % tutorial.size ||
+                presentation.regionColors == null || presentation.patterns == null || presentation.regionColors.Length < tutorial.size || presentation.patterns.Length < tutorial.size) {
                 throw new InvalidDataException("Invalid tutorial or palette configuration.");
             }
             if (config.tutorialPlaceIndices == null || config.tutorialPlaceIndices.Length != 3 ||
-                config.tutorialPlaceTextTypes == null || config.tutorialPlaceTextTypes.Length != 3 ||
+                presentation.tutorialPlaceTextTypes == null || presentation.tutorialPlaceTextTypes.Length != 3 ||
                 config.tutorialLineIndices == null || config.tutorialLineIndices.Length == 0 ||
-                config.tutorialColors == null || config.tutorialColors.Length < config.tutorial.size) {
+                presentation.tutorialColors == null || presentation.tutorialColors.Length < tutorial.size) {
                 throw new InvalidDataException("Missing original tutorial flow configuration.");
             }
             foreach (int index in config.tutorialPlaceIndices) {
-                if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] != index % config.tutorial.size) {
+                if (index < 0 || index >= tutorialCells || tutorial.solutionColumns[index / tutorial.size] != index % tutorial.size) {
                     throw new InvalidDataException("Invalid tutorial placement target.");
                 }
             }
             foreach (int index in config.tutorialLineIndices) {
-                if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] == index % config.tutorial.size) {
+                if (index < 0 || index >= tutorialCells || tutorial.solutionColumns[index / tutorial.size] == index % tutorial.size) {
                     throw new InvalidDataException("Invalid tutorial line target.");
                 }
             }
             foreach (int index in config.tutorialDragIndices) {
-                if (index < 0 || index >= tutorialCells || config.tutorial.solutionColumns[index / config.tutorial.size] == index % config.tutorial.size) {
+                if (index < 0 || index >= tutorialCells || tutorial.solutionColumns[index / tutorial.size] == index % tutorial.size) {
                     throw new InvalidDataException("Invalid tutorial drag target.");
                 }
             }
-            puzzles.Add(config.tutorial.id, config.tutorial);
-            foreach (var puzzle in config.puzzles) {
+            var campaignIds = new HashSet<int>();
+            foreach (int puzzleId in campaignConfig.puzzleIds) {
+                if (!campaignIds.Add(puzzleId)) {
+                    throw new InvalidDataException("Duplicate campaign puzzle ID: " + puzzleId);
+                }
+                var puzzle = Get(puzzleId);
                 ValidatePuzzle(puzzle);
-                if (config.regionColors.Length < puzzle.size || config.patterns.Length < puzzle.size) {
+                if (presentation.regionColors.Length < puzzle.size || presentation.patterns.Length < puzzle.size) {
                     throw new InvalidDataException("Game palette or patterns do not cover puzzle size.");
                 }
-                puzzles.Add(puzzle.id, puzzle);
-                if (puzzle.grade < 1 || puzzle.grade > 2 || puzzle.identityId <= 0 || puzzle.fixedLevel < 0 || puzzle.fixedLevel > config.campaignSizes.Length) {
+                if (puzzle.grade < 1 || puzzle.grade > (puzzle.fixedLevel > 0 ? 6 : 4) || puzzle.identityId <= 0 || puzzle.fixedLevel < 0 || puzzle.fixedLevel > campaignConfig.campaignSizes.Length) {
                     throw new InvalidDataException("Invalid campaign map metadata: " + puzzle.id);
                 }
                 if (puzzle.fixedLevel > 0) {
-                    if (puzzle.size != config.campaignSizes[puzzle.fixedLevel - 1]) {
+                    if (Array.IndexOf(campaignConfig.campaignFixedLevels, puzzle.fixedLevel) < 0 || puzzle.size != campaignConfig.campaignSizes[puzzle.fixedLevel - 1]) {
                         throw new InvalidDataException("Fixed map size does not match campaign configuration.");
                     }
                     fixedPuzzles.Add(puzzle.fixedLevel, puzzle);
@@ -95,15 +103,15 @@ namespace Hamdoku {
                 }
                 list.Add(puzzle);
             }
-            for (int level = 1; level <= config.campaignSizes.Length; level++) {
-                if (level == 10 || level == 20) {
+            for (int level = 1; level <= campaignConfig.campaignSizes.Length; level++) {
+                if (Array.IndexOf(campaignConfig.campaignFixedLevels, level) >= 0) {
                     if (!fixedPuzzles.ContainsKey(level)) {
                         throw new InvalidDataException("Missing original fixed campaign map: " + level);
                     }
                     continue;
                 }
-                for (int grade = 1; grade <= config.campaignGradeCeilings[level - 1]; grade++) {
-                    int key = config.campaignSizes[level - 1] * 10 + grade;
+                for (int grade = 1; grade <= campaignConfig.campaignGradeCeilings[level - 1]; grade++) {
+                    int key = campaignConfig.campaignSizes[level - 1] * 10 + grade;
                     if (!pools.TryGetValue(key, out var list)) {
                         throw new InvalidDataException("Missing campaign pool " + key);
                     }
@@ -113,34 +121,39 @@ namespace Hamdoku {
             }
         }
 
-        void ValidateCampaignConfig(GameConfigSO config) {
+        void ValidateCampaignConfig(CampaignConfigSO config) {
             int count = config.campaignSizes.Length;
-            if (count > 20 || config.campaignGradeCeilings == null || config.campaignGradeCeilings.Length != count ||
+            if (count > 100 || config.puzzleIds == null || config.puzzleIds.Length == 0 || config.campaignGradeCeilings == null || config.campaignGradeCeilings.Length != count ||
                 config.campaignSkillCeilings == null || config.campaignSkillCeilings.Length != count ||
+                config.campaignFixedLevels == null || config.campaignRewardStep <= 0 || config.campaignRewardHints < 0 ||
+                config.campaignRewardGuides < 0 || (config.campaignRewardHints == 0 && config.campaignRewardGuides == 0) ||
                 config.campaignInitialSkill != 1 || config.campaignAdaptiveStartLevel != 6 ||
-                config.campaignCleanClearsToPromote <= 0 || config.campaignFailureThreshold <= 0 ||
+                config.campaignCleanClearsToPromote <= 0 || config.campaignLaterPromotionStartLevel < 1 ||
+                config.campaignLaterCleanClearsToPromote <= 0 || config.campaignTransformStartLevel < 1 || config.campaignFailureThreshold <= 0 ||
+                config.campaignReliefStartLevel < 1 || config.campaignLaterFailureThreshold <= 0 ||
                 config.campaignHistoryLimit <= 0 || config.campaignCursorSlots < 103) {
-                throw new InvalidDataException("Invalid first-twenty campaign configuration.");
+                throw new InvalidDataException("Invalid first-hundred campaign configuration.");
             }
             for (int i = 0; i < count; i++) {
-                if (config.campaignGradeCeilings[i] < 1 || config.campaignGradeCeilings[i] > 2 ||
-                    config.campaignSkillCeilings[i] < config.campaignGradeCeilings[i] || config.campaignSkillCeilings[i] > 2) {
+                if (config.campaignGradeCeilings[i] < 1 || config.campaignGradeCeilings[i] > 4 ||
+                    config.campaignSkillCeilings[i] < config.campaignGradeCeilings[i] || config.campaignSkillCeilings[i] > 4) {
                     throw new InvalidDataException("Unsupported campaign grade configuration.");
                 }
             }
+            int previousFixed = 0;
+            foreach (int level in config.campaignFixedLevels) {
+                if (level <= previousFixed || level > count) {
+                    throw new InvalidDataException("Fixed campaign levels must be unique, sorted and in range.");
+                }
+                previousFixed = level;
+            }
         }
         public void RegisterDaily(DailyConfigSO config) {
-            if (config == null || config.puzzles == null || config.dayToPuzzle == null || config.seasons == null || config.seasons.Length == 0) {
+            if (config == null || config.dayToPuzzle == null || config.seasons == null || config.seasons.Length == 0) {
                 throw new InvalidDataException("Missing daily configuration.");
             }
-            foreach (var puzzle in config.puzzles) {
-                ValidatePuzzle(puzzle);
-                puzzles.Add(puzzle.id, puzzle);
-            }
-            foreach (int index in config.dayToPuzzle) {
-                if (index < 1 || index > config.puzzles.Length) {
-                    throw new InvalidDataException("Invalid original daily map assignment.");
-                }
+            foreach (int id in config.dayToPuzzle) {
+                Get(id);
             }
         }
         public PuzzleSO Get(int id) {
@@ -149,7 +162,49 @@ namespace Hamdoku {
             }
             return puzzle;
         }
-        public CampaignSelectionModel SelectCampaign(GameConfigSO config, CampaignSaveModel campaign, int level, int grade) {
+        public PuzzleBoardModel Materialize(int id, int transform) {
+            if (transform < 0 || transform > 7) {
+                throw new InvalidDataException("Invalid board transform.");
+            }
+            var source = Get(id);
+            int n = source.size;
+            var board = new PuzzleBoardModel {
+                id = id, size = n, grade = source.grade, fixedLevel = source.fixedLevel,
+                identityId = source.identityId, transform = transform,
+                regions = new int[n * n], solutionColumns = new int[n],
+                preplacedRows = new int[source.preplacedRows.Length]
+            };
+            for (int row = 0; row < n; row++) {
+                for (int col = 0; col < n; col++) {
+                    int target = TransformIndex(n, transform, row * n + col);
+                    board.regions[target] = source.regions[row * n + col];
+                }
+                int answer = TransformIndex(n, transform, row * n + source.solutionColumns[row]);
+                board.solutionColumns[answer / n] = answer % n;
+            }
+            for (int i = 0; i < source.preplacedRows.Length; i++) {
+                int row = source.preplacedRows[i];
+                int target = TransformIndex(n, transform, row * n + source.solutionColumns[row]);
+                board.preplacedRows[i] = target / n;
+            }
+            return board;
+        }
+
+        static int TransformIndex(int size, int transform, int index) {
+            int row = index / size;
+            int col = index % size;
+            if (transform > 3) {
+                col = size - 1 - col;
+            }
+            for (int i = 0; i < (transform & 3); i++) {
+                int previousRow = row;
+                row = col;
+                col = size - 1 - previousRow;
+            }
+            return row * size + col;
+        }
+
+        public CampaignSelectionModel SelectCampaign(CampaignConfigSO config, CampaignSaveModel campaign, int level, int grade) {
             if (level < 1 || level > config.campaignSizes.Length || grade < 1 || grade > config.campaignGradeCeilings[level - 1]) {
                 throw new InvalidDataException("Unsupported campaign selection.");
             }
@@ -165,7 +220,7 @@ namespace Hamdoku {
             }
             PuzzleSO selected = null;
             // Original Assign scans one bank cycle at most, accepting the last map if all are recent.
-            // Transform stays zero before level 51; rotating early maps would change original behavior.
+            // The source assigns the current cycle before advancing it when the chosen map ends a pool.
             for (int i = 0; i < list.Count; i++) {
                 selected = list[position];
                 position = (position + 1) % list.Count;
@@ -173,24 +228,34 @@ namespace Hamdoku {
                     break;
                 }
             }
-            return new CampaignSelectionModel { puzzle = selected, poolKey = key, nextPosition = position };
+            int cycle = campaign.cursorCycles[key];
+            int transform = level >= config.campaignTransformStartLevel ? cycle : 0;
+            int nextCycle = level >= config.campaignTransformStartLevel && position == 0 ? (cycle + 1) % 8 : cycle;
+            return new CampaignSelectionModel {
+                puzzle = selected, poolKey = key, nextPosition = position, transform = transform, nextCycle = nextCycle
+            };
         }
 
-        public void ValidateCampaign(CampaignSaveModel campaign, GameConfigSO config, int clears) {
+        public void ValidateCampaign(CampaignSaveModel campaign, CampaignConfigSO config, int tutorialId, int clears) {
             SaveModule.ValidateCampaign(campaign);
+            SaveModule.ValidateCampaignCycles(campaign);
             if (clears < 0 || clears > config.campaignSizes.Length || campaign.skill > config.campaignSkillCeilings[config.campaignSkillCeilings.Length - 1] ||
-                campaign.cleanStreak >= config.campaignCleanClearsToPromote || campaign.cursorPositions.Length != config.campaignCursorSlots ||
-                campaign.recentPuzzleIds.Count > config.campaignHistoryLimit) {
+                campaign.cursorPositions.Length != config.campaignCursorSlots || campaign.previousLevel < 0 || campaign.previousLevel > clears ||
+                // A zero skill is the unset value when no previous difficulty record exists.
+                campaign.previousRecordedSkill < 0 || (campaign.previousRecordedSkill == 0 && (campaign.previousLevel > 0 || campaign.previousRetried)) ||
+                campaign.previousRecordedSkill > config.campaignSkillCeilings[config.campaignSkillCeilings.Length - 1] ||
+                campaign.recentPuzzleIds.Count > config.campaignHistoryLimit || campaign.claimedRewardLevel > clears ||
+                campaign.claimedRewardLevel % config.campaignRewardStep != 0) {
                 throw new InvalidDataException("Campaign selection state conflicts with its configuration.");
             }
             for (int key = 0; key < campaign.cursorPositions.Length; key++) {
                 int position = campaign.cursorPositions[key];
-                if (position < 0 || (pools.TryGetValue(key, out var list) ? position >= list.Count : position != 0)) {
+                if (position < 0 || (pools.TryGetValue(key, out var list) ? position >= list.Count : position != 0 || campaign.cursorCycles[key] != 0)) {
                     throw new InvalidDataException("Invalid saved campaign cursor: " + key);
                 }
             }
             foreach (int id in campaign.recentPuzzleIds) {
-                if (Get(id) == config.tutorial) {
+                if (id == tutorialId) {
                     throw new InvalidDataException("Tutorial map cannot appear in campaign history.");
                 }
             }
@@ -210,7 +275,7 @@ namespace Hamdoku {
             var answer = new CellStatus[size * size];
             for (int row = 0; row < size; row++) {
                 int col = puzzle.solutionColumns[row];
-                if (col < 0 || col >= size || Conflict(puzzle, answer, row * size + col) != UINameType.None) {
+                if (col < 0 || col >= size || Conflict(puzzle.size, puzzle.regions, answer, row * size + col) != UINameType.None) {
                     throw new InvalidDataException("Invalid puzzle solution.");
                 }
                 answer[row * size + col] = CellStatus.Hamster;
@@ -222,8 +287,10 @@ namespace Hamdoku {
                 }
             }
         }
-        public UINameType Conflict(PuzzleSO puzzle, CellStatus[] cells, int index) {
-            int size = puzzle.size;
+        public UINameType Conflict(PuzzleBoardModel puzzle, CellStatus[] cells, int index) {
+            return Conflict(puzzle.size, puzzle.regions, cells, index);
+        }
+        static UINameType Conflict(int size, int[] regions, CellStatus[] cells, int index) {
             int row = index / size;
             int col = index % size;
             for (int i = 0; i < cells.Length; i++) {
@@ -233,7 +300,7 @@ namespace Hamdoku {
                 if (i / size == row || i % size == col) {
                     return UINameType.Game_ConflictLine;
                 }
-                if (puzzle.regions[i] == puzzle.regions[index]) {
+                if (regions[i] == regions[index]) {
                     return UINameType.Game_ConflictRegion;
                 }
                 if (Math.Abs(i / size - row) <= 1 && Math.Abs(i % size - col) <= 1) {
@@ -242,7 +309,7 @@ namespace Hamdoku {
             }
             return UINameType.None;
         }
-        public bool IsComplete(PuzzleSO puzzle, CellStatus[] cells) {
+        public bool IsComplete(PuzzleBoardModel puzzle, CellStatus[] cells) {
             int count = 0;
             for (int i = 0; i < cells.Length; i++) {
                 if (cells[i] == CellStatus.Hamster) {
@@ -254,7 +321,7 @@ namespace Hamdoku {
             }
             return count == puzzle.size;
         }
-        public bool IsGiven(PuzzleSO puzzle, int index) {
+        public bool IsGiven(PuzzleBoardModel puzzle, int index) {
             foreach (int row in puzzle.preplacedRows) {
                 if (index == row * puzzle.size + puzzle.solutionColumns[row]) {
                     return true;
@@ -262,9 +329,14 @@ namespace Hamdoku {
             }
             return false;
         }
-        public void ValidateSave(PuzzleSaveModel save, GameConfigSO config, int campaignClears, bool tutorialCompleted) {
-            var puzzle = Get(save.puzzleId);
-            if (save.isTutorial != (puzzle == config.tutorial) || save.cells == null || save.cells.Length != puzzle.size * puzzle.size ||
+        public void ValidateSave(PuzzleSaveModel save, PuzzleRulesSO config, CampaignConfigSO campaignConfig, int campaignClears, bool tutorialCompleted) {
+            var source = Get(save.puzzleId);
+            if (save.campaignTransform < 0 || save.campaignTransform > 7 ||
+                ((save.isTutorial || save.dailyDay > 0 || save.level < campaignConfig.campaignTransformStartLevel || source.fixedLevel > 0) && save.campaignTransform != 0)) {
+                throw new InvalidDataException("Saved board transform conflicts with its assignment.");
+            }
+            var puzzle = Materialize(save.puzzleId, save.campaignTransform);
+            if (save.isTutorial != (puzzle.id == config.tutorialPuzzleId) || save.cells == null || save.cells.Length != puzzle.size * puzzle.size ||
                 save.hearts < 0 || save.hearts > config.maxHearts || save.mistakes < 0 || save.hints < 0 || save.hints > config.hintsPerLevel ||
                 save.guides < 0 || save.guides > config.guidesPerLevel || save.score < 0 || float.IsNaN(save.elapsed) || float.IsInfinity(save.elapsed) || save.elapsed < 0 ||
                 save.tutorialStep < 0 || save.tutorialStep > 7 || save.tutorialFlowVersion < 0 || save.tutorialFlowVersion > 1 || save.status < GameStatus.Playing || save.status > GameStatus.Failed) {
@@ -285,18 +357,18 @@ namespace Hamdoku {
                         throw new InvalidDataException("Tutorial step conflicts with saved board.");
                     }
                 }
-            } else if (save.dailyDay == 0 && (save.level < 1 || save.level > config.campaignSizes.Length ||
-                puzzle.size != config.campaignSizes[save.level - 1] ||
+            } else if (save.dailyDay == 0 && (save.level < 1 || save.level > campaignConfig.campaignSizes.Length ||
+                puzzle.size != campaignConfig.campaignSizes[save.level - 1] ||
                 save.level != campaignClears + (save.status == GameStatus.Won ? 0 : 1))) {
                 throw new InvalidDataException("Campaign progress conflicts with active puzzle.");
             }
             if (!save.isTutorial && save.dailyDay == 0) {
                 if (save.campaignSelectionVersion < 0 || save.campaignSelectionVersion > 1 || save.campaignFailures < 0 ||
                     (save.status == GameStatus.Failed && save.campaignSelectionVersion == 1 && save.campaignFailures == 0) ||
-                    (save.campaignSelectionVersion == 0 && (save.level >= config.campaignAdaptiveStartLevel || puzzle.grade != 1 || puzzle.fixedLevel != 0)) ||
+                    (save.campaignSelectionVersion == 0 && (save.level >= campaignConfig.campaignAdaptiveStartLevel || puzzle.grade != 1 || puzzle.fixedLevel != 0)) ||
                     (save.campaignSelectionVersion == 1 && (save.campaignGrade != puzzle.grade ||
-                    (puzzle.fixedLevel > 0 ? puzzle.fixedLevel != save.level : save.level == 10 || save.level == 20 ||
-                    puzzle.grade > config.campaignGradeCeilings[save.level - 1])))) {
+                    (puzzle.fixedLevel > 0 ? puzzle.fixedLevel != save.level : Array.IndexOf(campaignConfig.campaignFixedLevels, save.level) >= 0 ||
+                    puzzle.grade > campaignConfig.campaignGradeCeilings[save.level - 1])))) {
                     throw new InvalidDataException("Saved campaign assignment conflicts with its map.");
                 }
             }
@@ -314,7 +386,7 @@ namespace Hamdoku {
                 throw new InvalidDataException("Invalid saved game status.");
             }
         }
-        static void ValidateFlowSave(PuzzleSaveModel save, PuzzleSO puzzle, GameConfigSO config) {
+        static void ValidateFlowSave(PuzzleSaveModel save, PuzzleBoardModel puzzle, PuzzleRulesSO config) {
             if (save.flowVersion != 1 || save.initialIndices == null || save.cellGains == null ||
                 save.cellGains.Length != save.cells.Length || save.scoreCarry < 0 || save.combo < 0 ||
                 save.combo > save.bestCombo || save.bestCombo > puzzle.size ||
