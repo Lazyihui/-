@@ -921,7 +921,7 @@
 - 原作ResultCopy恢复C#带诊断，回查方法索引／ARM64／ELF重定位／字符串表后核实图池、PickKey哈希与避重、RankKey离线模型参数。源码不直接复制。当前按题目ID／关卡号提供种子／轮次，Controller使用现有失误、道具、重试、分数及用时选择；不接入在线统计或完整Percentile抖动，不伪造排名。旧计分账本走配置通用池，原作静态证据不等同APK动态核实。
 - Panel_GameResult_Controller管理选择与本局缓存；GameState仅新增整数选图数据，GameController重开清理当前选择。Panel_GameResult保持原比例，增加原作14像素图文间距，避免皇冠等高图压住说明文字。相同结算刷新／重开稳定，下一局多图池避重；单图重试池允许重复，跨应用重启不保存选图／避重历史。未修改存档格式、版本或正式文件名，失败图、奖励图及结算业务沿用。
 - Windows／Unity6000.5.2f1／Addressables2.10.3专用副本Unity编译与Scene_Main Play Mode通过2836项检查，覆盖全部图片／图池、独立哈希向量、避重、缺图错误、选图分支、教程至主线、保存读回、失败重开和第10关奖励防重。七张中文1080×1920及英文1080×2400安全区后台渲染人工查看，七图间距边界检查通过。首轮未处理已有首次连胜弹窗导致测试断言失败，补齐测试流程后通过；首轮及间距修正前证据保留。
-- 当前工程dotnet build通过（0警告、0错误）；19份本批文件及10份关联资源／注册／包配置与副本一致，GUID唯一、原作来源哈希未变，审计Logs/ResultHeroMigration/delivery-audit.json。使用随机唯一测试存档，未访问正式进度；未回同步测试代码、测试配置或Library。验收文档追加A25，用户条目未代勾。Addressables内容打包结果待补充；未做应用／APK构建、安装、手机触摸或真机验证。UnityEditor.Search自身异常单列，启动日志UnityTls证书错误保留；业务验证无未解决的项目错误。
+- 当前工程dotnet build通过（0警告、0错误）；19份本批文件及10份关联资源／注册／包配置与副本一致，GUID唯一、原作来源哈希未变，审计Logs/ResultHeroMigration/delivery-audit.json。使用随机唯一测试存档，未访问正式进度；未回同步测试代码、测试配置或Library。验收文档追加A25，用户条目未代勾。Windows Addressables内容打包通过（恢复正式GameConfig后最终打包），见content-result.txt／unity-content.log；未做应用／APK构建、安装、手机触摸或真机验证。UnityEditor.Search自身异常单列，启动日志UnityTls证书错误保留；业务验证无未解决的项目错误。
 
 ## 2026-10-28 提交忽略范围检查
 
@@ -934,3 +934,12 @@
 - 用户确认范围后，将只读来源 D:\0000001apkUnbag\01_逆向工程项目\Hamdoku2 中的 00_docs、07_reports、04_assets、05_data、03_code、08_tools 和总目录.md 打包至原项目参考资料/Hamdoku2_原项目参考资料_2026-10-28.zip；保留相对目录，位于 Assets 外。未包含 06_runtime、原始 APK／分包或其他范围外内容，原目录保持不动。
 - 来源共 93,664 个文件、1,835,467,835 字节；ZIP 为 741,087,205 字节（约 706.8 MiB）。Windows 下用 .NET ZipArchive 创建并重新读取，全部条目数量、解压长度及逐文件 SHA-256 与来源一致。ZIP SHA-256：A68351F3C7A73209EE9AD599CD2386BCD1B7C1A35DCF27FF24BCE54BFBA726A2。
 - 本次仅归档参考资料及更新本记录，不涉及功能或 Unity 资源迁移；未执行 Unity 编译、Play Mode、内容打包、应用构建或新电脑解压验证。工具在新电脑上的路径与运行环境仍需按当地环境配置。
+
+
+### 2026-10-28 第一版八张小狗结果大图安装
+- 用户选定第一版并要求继续原尺寸整理与Unity接入。八张底稿通过内置image_gen生成，clear_c使用骨头饼干、clear_f使用珊瑚粉蝴蝶结面包花束；第二版仅保留备选。底稿／提示词／总览保存在主题previews/GameResult_v01，原尺寸候选与manifest在assets/UI/GameResult/v01。
+- 按alpha边界裁去外围透明边距并等比适配对应原画布，留至少12像素透明边距；八张PNG安装Assets/Res_Runtime/UI/GameResult原路径，保留原meta／GUID。原图与meta备份Logs/ResultArtInstall/before。正式Prefab／ResultConfig／图池／运行脚本／场景／包和注册未改，未访问正式玩家存档。
+- Windows独立Unity6000.5.2f1编译和Scene_Main Play Mode共3049项检查通过；七张通关图1080×1920与1080×1620、英文1080×2400安全区及失败图后台截图人工检查。选图、关闭重开稳定、失败重开、阶段奖励通过。Windows Addressables内容打包通过。UnityEditor.Search索引异常单列，项目检查无失败。
+- 八张PNG尺寸／RGBA／alpha与四角透明检查通过，正式图与候选／验证副本一致，受保护文件哈希不变，证据Logs/ResultArtInstall/delivery-audit.json。STYLE追加A22，MigrationAcceptance追加A26；未代勾用户验收。未进行APK构建、安装或真机验证；失败页原主题英文文案仍沿用现有工程，见验收边界。
+
+- 本批最终内容打包已在恢复正式GameConfig后通过，见Logs/ResultArtInstall/unity-content-final.log；再次核对正式GameConfig及交付文件与验证副本一致。启动期Licensing IPC握手／access token消息保留于日志，未阻止有效许可证下的编译、Play和内容打包。

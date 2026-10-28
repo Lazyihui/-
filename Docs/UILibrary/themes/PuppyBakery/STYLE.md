@@ -251,3 +251,13 @@
 	- B3 [完整提示词](previews/GameResult_v02/prompts.json)、生成底稿和[离线检查](previews/GameResult_v02/verification.json)保存在预览目录。Windows离线检查尺寸、RGBA及alpha范围0至255通过；alpha边界含极低透明度像素，未手工抹除生成边缘。已人工查看生成结果，当前仅本张修订候选，未确认全套定稿。
 
 	- B4 本批未替换正式资源、脚本、Prefab、SO或存档，未执行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+
+- A22 第一版八张结果页大图（已选择、已安装）
+	- B1 2026-10-28用户决定使用第一版，并授权整理原尺寸和Unity接入。clear／clear_a—clear_f保留第一版金色星星与珊瑚粉绶带，fail保留碎裂紫星与蓝绶带；clear_c为骨头饼干，clear_f为系珊瑚粉蝴蝶结的面包花束。A21蓝布带修订仅保留备选，不作为正式版本。
+
+	- B2 [八张图片清单](assets/UI/GameResult/v01/manifest.json)记录尺寸、GUID、生成来源及哈希。底稿和[完整提示词](previews/GameResult_v01/prompts.json)保留；按原图alpha边界裁掉外围透明边距，等比缩放至对应原画布并留至少12像素透明边距，不拉伸。[素材总览](previews/GameResult_v01/contact_sheet.png)为奶油底审图展示，八张PNG本身为真实透明背景。
+
+	- B3 八张PNG安装至Assets/Res_Runtime/UI/GameResult原路径，原meta／GUID、Prefab、SO、选图逻辑和存档格式保持。原图及meta备份于Logs/ResultArtInstall/before；本批不重建结果页。正式图与主题候选及独立验证副本一致，详细审计见Logs/ResultArtInstall/delivery-audit.json。
+
+	- B4 Windows／Unity6000.5.2f1独立副本编译、Scene_Main Play Mode共3049项检查及Windows Addressables内容打包通过。七张图在1080×1920／1080×1620后台渲染、英文1080×2400安全区和失败图已检查；验证使用专用随机存档名。UnityEditor.Search索引异常单列，项目检查通过。未执行APK构建、安装、手机触摸或真机验证，用户验收未代勾。

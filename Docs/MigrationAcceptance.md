@@ -917,4 +917,37 @@
 
 		- C3 当前工程dotnet build通过（0警告、0错误）。正式19份脚本／配置／新增PNG与meta及10份关联场景／Prefab／原图／包和注册文件与验证副本一致；原作来源哈希未变，新增图片GUID唯一。同步审计见Logs/ResultHeroMigration/delivery-audit.json；未回同步验证存档、脚本或Library。
 
-		- C4 Addressables内容打包进行中，完成后记录实际结果。未执行应用／APK构建、安装或真机验证。UnityEditor.Search索引异常单列Play/editor-diagnostics.txt，启动日志另有UnityTls证书错误；业务检查没有未解决的项目错误。用户验收项目保持未勾选。
+		- C4 Windows Addressables内容打包通过；验证副本已恢复正式GameConfig后完成最终打包，结果见Logs/ResultHeroMigration/content-result.txt与unity-content.log。未执行应用／APK构建、安装或真机验证。UnityEditor.Search索引异常单列Play/editor-diagnostics.txt，启动日志另有UnityTls证书错误；业务检查没有未解决的项目错误。用户验收项目保持未勾选。
+
+
+- A26 2026-10-28：小狗结果页第一版八张大图替换
+	- B1 本批范围与入口
+		- C1 将第一版clear、clear_a—clear_f七张通关图和fail失败图安装到Assets/Res_Runtime/UI/GameResult；clear_c为吃骨头饼干，clear_f为珊瑚粉蝴蝶结面包花束。采用第一版原爪子、星星及绶带，第二版仅留作备选。入口为Assets/Res_Runtime/Scene_Main.unity→主线棋盘→通关／失败结果，无需执行制作菜单。
+
+		- C2 图片沿用原画布尺寸、GUID与单Sprite导入配置，既有Panel_GameResult.prefab、ResultConfig.asset及七组图池继续使用；选图顺序、结算动画、按钮和业务行为沿用A25。本批只替换八张图片，原图及meta备份在Logs/ResultArtInstall/before，素材清单与总览位于Docs/UILibrary/themes/PuppyBakery/assets/UI/GameResult/v01与previews/GameResult_v01。
+
+	- B2 操作与预期结果
+		- C1 打开正式场景，正常完成主线或用已有F键通关：按现有规则展示小狗通关图；完美池为皇冠／骨头饼干，高难首过为奖杯／皇冠，失败重试后通关为面包花束。普通表现按已有图池选择，不要求七局必然逐张出现。
+
+		- C2 在同一结算切换中英文、刷新及关闭重开，图保持稳定；继续下一关重新选择。耗尽爱心显示小狗含泪碎星图；重开返回棋盘。第10关阶段奖励继续使用既有独立图和领取流程。
+
+		- C3 检查1080×1920及其他竖屏比例，图形完整、保持比例，与标题和说明无重叠；透明区域透出当前页面背景。八张全量后台截图见Logs/ResultArtInstall/Play/screenshots_overview.png。
+
+	- B3 用户验收
+		- [ ] C1 第一版七张通关图与失败图外观符合选择，尺寸、透明边缘和图文间距正常。
+
+		- [ ] C2 通关、失败重开、下一关、语言切换、返回和阶段奖励表现正常。
+
+	- B4 兼容与已知边界
+		- C1 本批无运行脚本、存档或关卡数值变更，旧进度继续使用。开发验证使用随机专用文件名，未读取或修改正式hamdoku-progress.json。
+
+		- C2 本批只更新结算人物大图，背景、页面文案及阶段奖励图沿用当前工程；英文失败页仍有既有sunflower seeds／Hamsters用词。图片替换不代表整页换皮完成，后续文字主题统一另行安排。
+
+	- B5 开发验证
+		- C1 Windows／Unity6000.5.2f1／Addressables2.10.3独立副本编译、Scene_Main Play Mode共3049项检查通过，覆盖七图显示与选图、同结算重开稳定、失败重开和阶段奖励。七张1080×1920／1080×1620、英文1080×2400安全区和失败图后台渲染已人工检查。检查日志与截图见Logs/ResultArtInstall/Play。
+
+		- C2 Windows Addressables内容打包通过，结果见Logs/ResultArtInstall/content-result.txt。八张图片原尺寸／RGBA／alpha范围与四角透明检查通过；正式PNG与主题候选及验证副本一致，meta、Prefab、配置、脚本、场景、包版本及注册等受保护文件未变，审计见delivery-audit.json。未同步Library、测试脚本或验证存档。
+
+		- C3 UnityEditor.Search自身索引ArgumentOutOfRangeException单列Play/editor-diagnostics.txt；无未解决的项目检查失败。本批未执行应用／APK构建、安装、手机触摸、原APK运行对照或真机验证；开发验证不代替用户验收。
+
+		- C4 最终内容打包前已将验证副本GameConfig恢复为正式配置，打包通过并再次核对一致性，见Logs/ResultArtInstall/unity-content-final.log。启动期Licensing IPC握手／access token提示保留于日志，未阻止有效许可证下的编译、Play和打包。
