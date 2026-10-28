@@ -112,10 +112,22 @@ namespace Hamdoku.Controllers {
             panel.nameRoot.SetActive(state.dialog == ProfileDialogType.Name);
             panel.mottoRoot.SetActive(state.dialog == ProfileDialogType.Motto);
             panel.helpRoot.SetActive(state.dialog == ProfileDialogType.Info);
+            panel.dialogBox.SetActive(state.dialog != ProfileDialogType.Info);
+            panel.dialogBackdrop.color = state.dialog == ProfileDialogType.Info ? config.helpBackdropColor : config.editBackdropColor;
             panel.saveButton.gameObject.SetActive(state.dialog == ProfileDialogType.Name);
             panel.dialogTitle.text = Text(ctx, state.dialog == ProfileDialogType.Name ? UINameType.Profile_EditName :
                 state.dialog == ProfileDialogType.Motto ? UINameType.Profile_MottoPlaceholder : UINameType.Profile_Help);
             panel.dialogBody.text = Text(ctx, UINameType.Profile_HelpBody);
+            panel.helpTitle.text = Text(ctx, UINameType.Profile_Help);
+            panel.helpRowTitles[0].text = string.Format(Text(ctx, UINameType.Profile_HelpDaysTitle), config.helpMemberDays);
+            panel.helpRowTitles[1].text = string.Format(Text(ctx, UINameType.Profile_HelpRewardTitle), config.helpRewardMax);
+            panel.helpRowTitles[2].text = Text(ctx, UINameType.Profile_HelpStyleTitle);
+            panel.helpRowTitles[3].text = Text(ctx, UINameType.Profile_HelpEligibilityTitle);
+            panel.helpRowDescriptions[0].text = Text(ctx, UINameType.Profile_HelpDaysDescription);
+            panel.helpRowDescriptions[1].text = string.Format(Text(ctx, UINameType.Profile_HelpRewardDescription), config.helpRewardHint, config.helpRewardGuide);
+            panel.helpRowDescriptions[2].text = Text(ctx, UINameType.Profile_HelpStyleDescription);
+            panel.helpRowDescriptions[3].text = string.Format(Text(ctx, UINameType.Profile_HelpEligibilityDescription), config.helpEligibleStreak);
+            panel.helpConfirmLabel.text = Text(ctx, UINameType.Profile_HelpConfirm);
             panel.nameHint.text = string.Format(Text(ctx, UINameType.Profile_NameHint), config.nameMaxChars);
             panel.nameInput.fontAsset = panel.nameLabel.font;
             panel.saveLabel.text = Text(ctx, UINameType.Profile_Save);

@@ -20,6 +20,13 @@ namespace Hamdoku {
         public Color idleColor;
         public float lockedAlpha;
         public float noticeSeconds;
+        public int helpMemberDays;
+        public int helpRewardMax;
+        public int helpRewardHint;
+        public int helpRewardGuide;
+        public int helpEligibleStreak;
+        public Color helpBackdropColor;
+        public Color editBackdropColor;
         public Sprite tabOn;
         public Sprite tabOff;
         public Color tabOnText;

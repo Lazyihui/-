@@ -72,7 +72,7 @@ namespace Hamdoku.Editor {
             }
             ProfileSetupEM.BakeFonts();
             var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
-            home.saveVersion = 7;
+            home.saveVersion = Math.Max(home.saveVersion, 7);
             EditorUtility.SetDirty(home);
             EditorUtility.SetDirty(settings);
             AssetDatabase.SaveAssets();

@@ -38,6 +38,14 @@ namespace Hamdoku {
         public GameObject nameRoot;
         public GameObject mottoRoot;
         public GameObject helpRoot;
+        public GameObject dialogBox;
+        public UnityEngine.UI.Image dialogBackdrop;
+        public TMP_Text helpTitle;
+        public TMP_Text[] helpRowTitles;
+        public TMP_Text[] helpRowDescriptions;
+        public TMP_Text helpConfirmLabel;
+        public UnityEngine.UI.Button helpConfirmButton;
+        public UnityEngine.UI.Button helpCloseButton;
         public TMP_InputField nameInput;
         public TMP_Text dialogTitle;
         public TMP_Text dialogBody;
@@ -72,7 +80,10 @@ namespace Hamdoku {
 
         public void Ctor(L10NModule localization) {
             if (safeRoot == null || contentRoot == null || items == null || grids.Length != 3 || tabButtons.Length != 3 ||
-                statLabels.Length != 6 || statValues.Length != 6 || nameInput == null) {
+                statLabels.Length != 6 || statValues.Length != 6 || nameInput == null || dialogBox == null ||
+                dialogBackdrop == null || helpTitle == null || helpRowTitles == null || helpRowTitles.Length != 4 ||
+                helpRowDescriptions == null || helpRowDescriptions.Length != 4 || helpConfirmLabel == null ||
+                helpConfirmButton == null || helpCloseButton == null) {
                 throw new InvalidOperationException("Panel_Profile has missing serialized bindings.");
             }
             this.localization = localization;
@@ -87,6 +98,8 @@ namespace Hamdoku {
             memberButton.onClick.AddListener(ReportMember);
             saveButton.onClick.AddListener(ReportSave);
             cancelButton.onClick.AddListener(ReportCancel);
+            helpConfirmButton.onClick.AddListener(ReportCancel);
+            helpCloseButton.onClick.AddListener(ReportCancel);
             for (int i = 0; i < tabButtons.Length; i++) {
                 var tab = (ProfileTabType)(i + 1);
                 tabButtons[i].onClick.AddListener(() => tabHandle?.Invoke(tab));
@@ -135,7 +148,7 @@ namespace Hamdoku {
             nameInput.ActivateInputField();
         }
 
-        void ReportBack() { 
+        void ReportBack() {
             backHandle?.Invoke();
         }
         void ReportInfo() {
@@ -169,6 +182,8 @@ namespace Hamdoku {
             memberButton.onClick.RemoveListener(ReportMember);
             saveButton.onClick.RemoveListener(ReportSave);
             cancelButton.onClick.RemoveListener(ReportCancel);
+            helpConfirmButton.onClick.RemoveListener(ReportCancel);
+            helpCloseButton.onClick.RemoveListener(ReportCancel);
             foreach (var button in tabButtons) {
                 button.onClick.RemoveAllListeners();
             }
