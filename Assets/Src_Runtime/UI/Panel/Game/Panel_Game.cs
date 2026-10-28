@@ -49,6 +49,9 @@ namespace Hamdoku {
         float tutorialDimFrom;
         float tutorialDimTarget;
         GameConfigSO tutorialConfig;
+        Vector3 tutorialRuleScale;
+        Vector3 tutorialActionScale;
+        Vector3 tutorialConfirmScale;
         public Action homeHandle;
         public Action restartHandle;
         public Action shopHandle;
@@ -74,6 +77,9 @@ namespace Hamdoku {
                 throw new InvalidOperationException("Panel_Game has missing serialized UI bindings.");
             }
             this.localization = localization;
+            tutorialRuleScale = tutorialRule.transform.parent.localScale;
+            tutorialActionScale = tutorialAction.transform.parent.localScale;
+            tutorialConfirmScale = tutorialConfirm.transform.localScale;
             foreach (var text in GetComponentsInChildren<TMP_Text>(true)) {
                 localization.TMP_Register(text);
             }
@@ -127,7 +133,7 @@ namespace Hamdoku {
             }
             if (tutorialStep != step) {
                 tutorialCardStarted = Time.unscaledTime;
-                tutorialDimFrom = tutorialStep < 0 ? (step != 1 && step < 6 ? tutorialDimAlpha : 0) : tutorialDim.color.a;
+                tutorialDimFrom = tutorialStep < 0 ? 0 : tutorialDim.color.a;
                 tutorialDimTarget = step != 1 && step < 6 ? tutorialDimAlpha : 0;
                 if (step == 7) {
                     board.CelebrateTutorial(tutorialConfig.tutorialCelebrateSeconds);
@@ -158,12 +164,16 @@ namespace Hamdoku {
                 return;
             }
             float cardElapsed = Time.unscaledTime - tutorialCardStarted;
-            float alpha = Mathf.Clamp01(cardElapsed / tutorialConfig.tutorialCardFadeSeconds);
+            float alpha = Mathf.SmoothStep(0, 1, cardElapsed / tutorialConfig.tutorialCardFadeSeconds);
             tutorialRule.alpha = alpha;
             tutorialAction.alpha = alpha;
             tutorialConfirmLabel.alpha = alpha;
+            float cardScale = Mathf.Lerp(0.94f, 1, alpha);
+            tutorialRule.transform.parent.localScale = tutorialRuleScale * cardScale;
+            tutorialAction.transform.parent.localScale = tutorialActionScale * cardScale;
+            tutorialConfirm.transform.localScale = tutorialConfirmScale * cardScale;
             var dim = tutorialDim.color;
-            dim.a = Mathf.Lerp(tutorialDimFrom, tutorialDimTarget, Mathf.Clamp01(cardElapsed / tutorialConfig.tutorialDimFadeSeconds));
+            dim.a = Mathf.Lerp(tutorialDimFrom, tutorialDimTarget, Mathf.SmoothStep(0, 1, cardElapsed / tutorialConfig.tutorialDimFadeSeconds));
             tutorialDim.color = dim;
             if (!tutorialFinger.gameObject.activeSelf) {
                 return;
@@ -198,7 +208,9 @@ namespace Hamdoku {
             tutorialFinger.rectTransform.position = point;
             tutorialRipple.rectTransform.position = point;
             tutorialFinger.sprite = pressing ? tutorialFingerPressed : tutorialFingerOpen;
-            tutorialFinger.rectTransform.localScale = Vector3.one * (pressing ? 0.94f : 1);
+            float fingerScale = Mathf.MoveTowards(tutorialFinger.rectTransform.localScale.x, pressing ? 0.94f : 1,
+                Time.unscaledDeltaTime * 0.06f / (pressing ? press : release));
+            tutorialFinger.rectTransform.localScale = Vector3.one * fingerScale;
             float pulse = Mathf.Clamp01(rippleElapsed / tutorialConfig.tutorialRippleSeconds);
             tutorialRipple.rectTransform.localScale = Vector3.one * Mathf.Lerp(tutorialConfig.tutorialRippleFrom, tutorialConfig.tutorialRippleTo, pulse);
             tutorialRipple.color = new Color(1, 1, 1, (1 - pulse) * tutorialConfig.tutorialRippleAlpha);

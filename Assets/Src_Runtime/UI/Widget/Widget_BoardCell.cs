@@ -56,7 +56,9 @@ namespace Hamdoku {
                 color.a = target;
                 tutorialDim.color = color;
                 tutorialDim.enabled = dimmed;
+                dimFrom = target;
                 dimTarget = target;
+                dimStarted = Time.unscaledTime;
                 dimInitialized = true;
             } else if (dimTarget != target) {
                 dimFrom = tutorialDim.color.a;
@@ -107,7 +109,7 @@ namespace Hamdoku {
             }
             if (displayedStatus == CellStatus.Hamster) {
                 float progress = Mathf.Clamp01(elapsed / placeSeconds);
-                float pop = progress < 0.6f ? Mathf.Lerp(0.45f, 1.2f, progress / 0.6f) : Mathf.Lerp(1.2f, 1, (progress - 0.6f) / 0.4f);
+                float pop = progress < 0.6f ? Mathf.Lerp(0.45f, 1.2f, Mathf.SmoothStep(0, 1, progress / 0.6f)) : Mathf.Lerp(1.2f, 1, Mathf.SmoothStep(0, 1, (progress - 0.6f) / 0.4f));
                 float celebration = celebrateSeconds > 0 ? Mathf.Clamp01((Time.unscaledTime - celebrateStarted) / celebrateSeconds) : 1;
                 float wave = Mathf.Sin(celebration * Mathf.PI * 6) * (1 - celebration);
                 hamster.rectTransform.localScale = Vector3.one * (pop + Mathf.Abs(wave) * 0.12f);
@@ -131,7 +133,7 @@ namespace Hamdoku {
             }
             if (dimInitialized) {
                 var color = tutorialDim.color;
-                color.a = Mathf.Lerp(dimFrom, dimTarget, Mathf.Clamp01((Time.unscaledTime - dimStarted) / dimSeconds));
+                color.a = Mathf.Lerp(dimFrom, dimTarget, Mathf.SmoothStep(0, 1, (Time.unscaledTime - dimStarted) / dimSeconds));
                 tutorialDim.color = color;
                 tutorialDim.enabled = color.a > 0;
             }
