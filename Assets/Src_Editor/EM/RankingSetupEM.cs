@@ -17,7 +17,7 @@ namespace Hamdoku.Editor {
         [MenuItem("Hamdoku/Setup/Configure Ranking")]
         public static void Setup() {
             AssetDatabase.Refresh();
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Ranking", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Ranking", "*.png").Concat(Directory.GetFiles("Assets/Res_Runtime/UI/Ranking/new", "*.png"))) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 importer.textureType = TextureImporterType.Sprite;
                 importer.spriteImportMode = SpriteImportMode.Single;
@@ -27,6 +27,15 @@ namespace Hamdoku.Editor {
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 if (Path.GetFileNameWithoutExtension(path).StartsWith("btn_Ranking_Pill_", StringComparison.Ordinal)) {
                     importer.spriteBorder = new Vector4(128, 100, 128, 100);
+                }
+                switch (Path.GetFileNameWithoutExtension(path))
+                {
+                    case "btn_Ranking_Pill_Cream":
+                        importer.spriteBorder = new Vector4(162f, 125f, 162f, 123f);
+                        break;
+                    case "btn_Ranking_Pill_Orange":
+                        importer.spriteBorder = new Vector4(189f, 146f, 189f, 144f);
+                        break;
                 }
                 importer.SaveAndReimport();
             }
@@ -347,7 +356,7 @@ namespace Hamdoku.Editor {
             image.sprite = Sprite(name);
             image.type = UnityEngine.UI.Image.Type.Sliced;
             image.preserveAspect = false;
-            image.pixelsPerUnitMultiplier = 2;
+            image.pixelsPerUnitMultiplier = image.sprite.rect.height / image.rectTransform.sizeDelta.y;
         }
         static void BindEntryVisuals(Widget_RankingEntry entry) {
             entry.avatar.sprite = Sprite("Img_Common_HamsterAvatar");
@@ -357,6 +366,15 @@ namespace Hamdoku.Editor {
             entry.gift.sprite = Sprite("Img_Ranking_Gift_Red");
         }
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                case "btn_Ranking_Pill_Cream":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Ranking/new/btn_Ranking_Pill_Cream.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Ranking/new/btn_Ranking_Pill_Cream.png");
+                case "btn_Ranking_Pill_Orange":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Ranking/new/btn_Ranking_Pill_Orange.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Ranking/new/btn_Ranking_Pill_Orange.png");
+            }
             string folder;
             switch (name) {
                 case "bg_Common_Game": case "bg_Common_Rounded": case "btn_Common_Rounded_Yellow": case "bg_Common_Popup": case "Img_Common_Back": case "Img_Common_Seed": case "Img_Common_Cross":
@@ -396,6 +414,14 @@ namespace Hamdoku.Editor {
                 image.type = UnityEngine.UI.Image.Type.Sliced;
                 image.pixelsPerUnitMultiplier = 2;
             }
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "btn_Ranking_Pill_Cream" || sprite.name == "btn_Ranking_Pill_Orange" || sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
         static UnityEngine.UI.Button HitButton(UnityEngine.UI.Image image) {
@@ -418,6 +444,13 @@ namespace Hamdoku.Editor {
             text.color = new Color(0.41f, 0.29f, 0.18f);
             text.raycastTarget = false;
             text.richText = false;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "btn_Ranking_Pill_Cream" || buttonImage.sprite.name == "btn_Ranking_Pill_Orange" || buttonImage.sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                text.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return text;
         }
         [MenuItem("Hamdoku/Ranking Preview/Normal")]

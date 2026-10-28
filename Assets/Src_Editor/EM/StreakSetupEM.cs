@@ -63,7 +63,7 @@ namespace Hamdoku.Editor {
         }
 
         static void ImportSprites() {
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Streak", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Streak", "*.png").Concat(Directory.GetFiles("Assets/Res_Runtime/UI/Streak/new", "*.png"))) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 var settings = new TextureImporterSettings();
                 importer.ReadTextureSettings(settings);
@@ -81,6 +81,12 @@ namespace Hamdoku.Editor {
                 importer.SetTextureSettings(settings);
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
                 importer.maxTextureSize = 2048;
+                switch (Path.GetFileNameWithoutExtension(path))
+                {
+                    case "btn_Streak_Continue":
+                        importer.spriteBorder = new Vector4(189f, 146f, 189f, 144f);
+                        break;
+                }
                 importer.SaveAndReimport();
             }
         }
@@ -347,6 +353,13 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                case "btn_Streak_Continue":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Streak/new/btn_Streak_Continue.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Streak/new/btn_Streak_Continue.png");
+            }
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Streak/" + name + ".png");
             if (sprite == null) {
                 throw new InvalidOperationException("Missing streak sprite " + name);
@@ -355,6 +368,13 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite GameSprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                case "btn_Streak_Continue":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Streak/new/btn_Streak_Continue.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Streak/new/btn_Streak_Continue.png");
+            }
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/" + name + ".png");
             if (sprite == null) {
                 throw new InvalidOperationException("Missing shared game sprite " + name);
@@ -389,6 +409,14 @@ namespace Hamdoku.Editor {
                 image.type = UnityEngine.UI.Image.Type.Sliced;
                 image.pixelsPerUnitMultiplier = 2;
             }
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "btn_Streak_Continue" || sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
 
@@ -410,6 +438,13 @@ namespace Hamdoku.Editor {
             text.alignment = TextAlignmentOptions.Center;
             text.color = new Color(0.36f, 0.27f, 0.18f, 1);
             text.raycastTarget = false;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "btn_Streak_Continue" || buttonImage.sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                text.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return text;
         }
     }

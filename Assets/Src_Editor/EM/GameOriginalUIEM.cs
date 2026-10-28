@@ -227,6 +227,7 @@ namespace Hamdoku.Editor {
                 EditorUtility.SetDirty(text);
             }
             AssetDatabase.SaveAssets();
+            GameFlowSetupEM.Apply();
         }
         static void BuildTutorial(Panel_Game panel, RectTransform layout, RectTransform boardArea, TMP_FontAsset font) {
             // Original TutorialController builds these cards and mask over the level2 hierarchy.
@@ -268,6 +269,7 @@ namespace Hamdoku.Editor {
             TutorialText(panel.tutorialAction);
             var confirm = EnsureImage("Confirm", overlay, Sprite("btn_Common_Rounded_Yellow"));
             Center(confirm.rectTransform, new Vector2(680, 158), new Vector2(0, -665));
+            confirm.pixelsPerUnitMultiplier = confirm.sprite.rect.height / confirm.rectTransform.sizeDelta.y;
             panel.tutorialConfirm = confirm.GetComponent<UnityEngine.UI.Button>();
             if (panel.tutorialConfirm == null) {
                 panel.tutorialConfirm = confirm.gameObject.AddComponent<UnityEngine.UI.Button>();
@@ -277,7 +279,7 @@ namespace Hamdoku.Editor {
             panel.tutorialConfirmLabel = EnsureText("Text", confirm.transform, font);
             Center(panel.tutorialConfirmLabel.rectTransform, new Vector2(630, 135), Vector2.zero);
             TutorialText(panel.tutorialConfirmLabel);
-            panel.tutorialConfirmLabel.color = Color.white;
+            panel.tutorialConfirmLabel.color = new Color(0.32f, 0.22f, 0.12f);
             panel.tutorialRipple = EnsureImage("Ripple", overlay, Sprite("Img_Game_TutorialRipple"));
             Center(panel.tutorialRipple.rectTransform, Vector2.one * 210, Vector2.zero);
             panel.tutorialFinger = EnsureImage("Finger", overlay, Sprite("Img_Game_TutorialFinger"));
@@ -341,6 +343,13 @@ namespace Hamdoku.Editor {
             count.enableAutoSizing = false;
         }
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                case "btn_Game_Rounded_Blue":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Game_Rounded_Blue.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Game_Rounded_Blue.png");
+            }
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/" + name + ".png");
             if (sprite == null) {
                 throw new InvalidOperationException("Missing original game sprite " + name);

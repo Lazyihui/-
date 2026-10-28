@@ -23,7 +23,7 @@ namespace Hamdoku.Editor {
             RefinePanel(path, config);
             BindHome();
             var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
-            home.saveVersion = 5;
+            home.saveVersion = Math.Max(home.saveVersion, 5);
             EditorUtility.SetDirty(home);
             var settings = AddressableAssetSettingsDefaultObject.Settings;
             foreach (string asset in new[] { path, "Assets/Res_Runtime/Config/ProfileConfig.asset" }.Concat(
@@ -34,6 +34,7 @@ namespace Hamdoku.Editor {
             EditorUtility.SetDirty(settings);
             AssetDatabase.SaveAssets();
             ProfileCompletionEM.Setup();
+            ProfileInfoSetupEM.Setup();
             Debug.Log("[ProfileSetup] Saved production profile prefab, config, localization, fonts and default registrations.");
         }
 
@@ -398,6 +399,11 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+            }
             string[] folders = { "Profile", "Game", "Home", "Streak" };
             foreach (string folder in folders) {
                 var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/" + folder + "/" + name + ".png");
@@ -440,6 +446,14 @@ namespace Hamdoku.Editor {
                 image.type = UnityEngine.UI.Image.Type.Sliced;
                 image.pixelsPerUnitMultiplier = 1;
             }
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
 
@@ -465,6 +479,13 @@ namespace Hamdoku.Editor {
             text.color = new Color(.32f, .24f, .18f);
             text.raycastTarget = false;
             text.richText = false;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "btn_Common_Rounded_Yellow"))
+            {
+                text.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return text;
         }
     }

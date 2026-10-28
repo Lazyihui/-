@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
 using Hamdoku.Main;
 using TMPro;
@@ -61,7 +62,7 @@ namespace Hamdoku.Editor {
         }
 
         static void ImportSprites() {
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Home", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Home", "*.png").Concat(Directory.GetFiles("Assets/Res_Runtime/UI/Home/new", "*.png"))) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 var settings = new TextureImporterSettings();
                 importer.ReadTextureSettings(settings);
@@ -78,6 +79,21 @@ namespace Hamdoku.Editor {
                 importer.SetTextureSettings(settings);
                 importer.maxTextureSize = 4096;
                 importer.textureCompression = TextureImporterCompression.Uncompressed;
+                switch (Path.GetFileNameWithoutExtension(path))
+                {
+                    case "btn_Home_Endless":
+                        importer.spriteBorder = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
+                        break;
+                    case "btn_Home_Level":
+                        importer.spriteBorder = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
+                        break;
+                    case "btn_Home_Level_Hard":
+                        importer.spriteBorder = new Vector4(0.0f, 0.0f, 0.0f, 0.0f);
+                        break;
+                    case "btn_Home_Play":
+                        importer.spriteBorder = new Vector4(125f, 96f, 125f, 95f);
+                        break;
+                }
                 importer.SaveAndReimport();
             }
         }
@@ -266,7 +282,7 @@ namespace Hamdoku.Editor {
                 SetRect(panel.campaignButton.transform, new Vector2(1580, 443) * (900.6721f / 1920f),
                     Vector2.zero, new Vector2(0.5f, 0.162f));
                 SetRect(panel.levelLabel.transform, new Vector2(700, 96), Vector2.zero);
-                panel.levelLabel.color = Color.white;
+                panel.levelLabel.color = new Color(0.32f, 0.22f, 0.12f);
                 SetRect(panel.endlessButton.transform, new Vector2(790, 170), new Vector2(0, 90), new Vector2(0.5f, 0));
                 SetRect(panel.settingsButton.transform, new Vector2(100, 100), new Vector2(-110, -100), new Vector2(1, 1));
                 panel.settingsLabel.gameObject.SetActive(false);
@@ -372,6 +388,12 @@ namespace Hamdoku.Editor {
             rect.anchorMax = anchor;
             rect.pivot = pivot;
             rect.sizeDelta = size;
+            var image = target.GetComponent<UnityEngine.UI.Image>();
+            if (image != null && image.sprite != null && image.sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(image.sprite).Contains("/new/") && image.sprite.name.StartsWith("btn_", StringComparison.Ordinal))
+            {
+                image.pixelsPerUnitMultiplier = image.sprite.rect.height / size.y;
+            }
             rect.anchoredPosition = position;
         }
 
@@ -400,6 +422,13 @@ namespace Hamdoku.Editor {
             label.color = new Color(0.43f, 0.27f, 0.2f, 1);
             label.raycastTarget = false;
             label.textWrappingMode = TextWrappingModes.Normal;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "btn_Home_Endless" || buttonImage.sprite.name == "btn_Home_Level" || buttonImage.sprite.name == "btn_Home_Level_Hard" || buttonImage.sprite.name == "btn_Home_Play"))
+            {
+                label.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return label;
         }
 
@@ -419,6 +448,14 @@ namespace Hamdoku.Editor {
             var image = Rect(name, parent, size, position).gameObject.AddComponent<UnityEngine.UI.Image>();
             image.sprite = sprite;
             image.raycastTarget = false;
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "btn_Home_Endless" || sprite.name == "btn_Home_Level" || sprite.name == "btn_Home_Level_Hard" || sprite.name == "btn_Home_Play"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
 
@@ -442,6 +479,17 @@ namespace Hamdoku.Editor {
         }
 
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Home_Endless":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Home/new/btn_Home_Endless.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Home/new/btn_Home_Endless.png");
+                case "btn_Home_Level":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Home/new/btn_Home_Level.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Home/new/btn_Home_Level.png");
+                case "btn_Home_Level_Hard":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Home/new/btn_Home_Level_Hard.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Home/new/btn_Home_Level_Hard.png");
+                case "btn_Home_Play":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Home/new/btn_Home_Play.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Home/new/btn_Home_Play.png");
+            }
             return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Home/" + name + ".png");
         }
 

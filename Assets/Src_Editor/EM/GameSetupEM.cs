@@ -52,7 +52,7 @@ namespace Hamdoku.Editor {
             AssetDatabase.SaveAssets();
         }
         static void ImportSprites() {
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Game", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Game", "*.png").Concat(Directory.GetFiles("Assets/Res_Runtime/UI/Game/new", "*.png"))) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 var spriteMode = importer.spriteImportMode;
                 importer.textureType = TextureImporterType.Sprite;
@@ -69,6 +69,15 @@ namespace Hamdoku.Editor {
                     importer.spriteBorder = Vector4.one * 80;
                 } else if (name.StartsWith("btn_", StringComparison.Ordinal)) {
                     importer.spriteBorder = new Vector4(60, 60, 60, 60);
+                }
+                switch (Path.GetFileNameWithoutExtension(path))
+                {
+                    case "btn_Common_Rounded_Yellow":
+                        importer.spriteBorder = new Vector4(105f, 81f, 105f, 80f);
+                        break;
+                    case "btn_Game_Rounded_Blue":
+                        importer.spriteBorder = new Vector4(110f, 85f, 110f, 83f);
+                        break;
                 }
                 importer.SaveAndReimport();
             }
@@ -237,6 +246,13 @@ namespace Hamdoku.Editor {
             EditorUtility.SetDirty(settings);
         }
         static Sprite Sprite(string name) {
+            switch (name)
+            {
+                case "btn_Common_Rounded_Yellow":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Common_Rounded_Yellow.png");
+                case "btn_Game_Rounded_Blue":
+                    return AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/new/btn_Game_Rounded_Blue.png") ?? throw new InvalidOperationException("Missing installed button: Assets/Res_Runtime/UI/Game/new/btn_Game_Rounded_Blue.png");
+            }
             var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/Game/" + name + ".png");
             if (sprite == null) {
                 throw new InvalidOperationException("Missing gameplay sprite " + name);
@@ -268,6 +284,14 @@ namespace Hamdoku.Editor {
                 image.type = UnityEngine.UI.Image.Type.Sliced;
                 image.pixelsPerUnitMultiplier = 2;
             }
+            if (sprite != null && sprite.border != Vector4.zero &&
+                AssetDatabase.GetAssetPath(sprite).Contains("/new/") &&
+                (sprite.name == "btn_Common_Rounded_Yellow" || sprite.name == "btn_Game_Rounded_Blue"))
+            {
+                image.type = UnityEngine.UI.Image.Type.Sliced;
+                image.preserveAspect = false;
+                image.pixelsPerUnitMultiplier = sprite.rect.height / size.y;
+            }
             return image;
         }
         static UnityEngine.UI.Button Button(string name, Transform parent, string sprite, Vector2 size, Vector2 position) {
@@ -287,6 +311,13 @@ namespace Hamdoku.Editor {
             text.alignment = TextAlignmentOptions.Center;
             text.color = new Color(0.427f, 0.247f, 0.298f, 1);
             text.raycastTarget = false;
+            var buttonImage = parent.GetComponent<UnityEngine.UI.Image>();
+            if (buttonImage != null && buttonImage.sprite != null &&
+                AssetDatabase.GetAssetPath(buttonImage.sprite).Contains("/new/") &&
+                (buttonImage.sprite.name == "btn_Common_Rounded_Yellow" || buttonImage.sprite.name == "btn_Game_Rounded_Blue"))
+            {
+                text.color = new Color(0.32f, 0.22f, 0.12f);
+            }
             return text;
         }
     }
