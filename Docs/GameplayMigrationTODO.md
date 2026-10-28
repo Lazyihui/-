@@ -53,6 +53,8 @@
 
 	- [ ] B4 Android 应用构建、安装及真机触摸、音频、安全区域与性能验证。
 
+	- B5 后续集中执行计划见[下一批迁移TODO](NextMigrationTODO.md)：主线101—300关＋无限模式完整本地玩法。2026-10-28已确认整理文档，功能与资源迁移须按该文档A2-B7另行确认；本链接不改变历史完成状态。
+
 - A6 第二批：前20关主线选关与进度（2026-10-28）
 	- B1 在现有 GameController／PuzzleModule／SO／存档体系内，加入 CampaignController、CampaignSaveModel、CampaignSelectionModel。主线范围扩展到20关，沿用已有棋盘、面板及相邻页面，未新增启动、Context依赖、资源加载或UI管理体系。
 

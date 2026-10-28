@@ -153,6 +153,8 @@
 
 	- B12 [主线50关迁移 TODO](Docs/Campaign50MigrationTODO.md)：追踪第21—50关、主线阶段奖励、旧存档兼容及开发验证；黄金挑战仅分析依赖。
 
+	- B13 [下一批迁移 TODO](Docs/NextMigrationTODO.md)：主线101—300关与无限模式完整本地玩法的执行计划、证据核查、存档兼容及验证交付；文档确认不等同于功能迁移授权。
+
 - A10 原作代码查阅与迁移依据
 	- B1 原作可读代码根目录为 `D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/decompiled_csharp`，保持只读。先读该目录 README.md 的恢复边界，再通过 GAME_INDEX.md 定位类型；GameAssemblies 包含四个游戏程序集的 283 份显式 C# 文件，AllAssemblies 用于补查其他程序集调用关系。
 

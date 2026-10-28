@@ -943,3 +943,9 @@
 - 八张PNG尺寸／RGBA／alpha与四角透明检查通过，正式图与候选／验证副本一致，受保护文件哈希不变，证据Logs/ResultArtInstall/delivery-audit.json。STYLE追加A22，MigrationAcceptance追加A26；未代勾用户验收。未进行APK构建、安装或真机验证；失败页原主题英文文案仍沿用现有工程，见验收边界。
 
 - 本批最终内容打包已在恢复正式GameConfig后通过，见Logs/ResultArtInstall/unity-content-final.log；再次核对正式GameConfig及交付文件与验证副本一致。启动期Licensing IPC握手／access token消息保留于日志，未阻止有效许可证下的编译、Play和内容打包。
+
+## 2026-10-28 下一批主线与无限模式迁移计划
+
+- 用户确认后新增Docs/NextMigrationTODO.md，规划主线101—300关与无限模式完整本地玩法，覆盖原作规则／层级核查、目标脚本与正式资源、模式隔离、旧v1—12存档兼容、中英文、Unity验证及Addressables交付。工作量支持至少两小时连续实施，以实际功能与验证完成为准，不保证两小时内全部完成。
+- 更新AGENTS.md文档入口、GameplayMigrationTODO及Campaign50MigrationTODO接续链接，保留原有批次与验收结论。当前仅获得文档整理授权，具体功能／资源迁移前须核实证据并确认实施清单；黄金挑战、真实外部服务及301关以后另批处理。
+- 本次只读核对现有代码、配置类型、资源路径、原作恢复README／类型索引和部分业务入口；未把恢复代码视作运行事实。仅修改五份Markdown文档，未修改玩法、场景、Prefab、SO、包、玩家存档或原作资料；未执行Unity编译、Play Mode、内容打包、APK、安装或真机验证。
