@@ -36,6 +36,7 @@ namespace Hamdoku.Main {
             }
             isTornDown = false;
             ctx = new GameContext();
+            ctx.state_Daily = new DailyState();
             ctx.state_Settings = new SettingsState();
             ctx.vibrationModule = new VibrationModule();
             ctx.state_Shop = new ShopState();
@@ -69,6 +70,9 @@ namespace Hamdoku.Main {
             homeEvents.requestHandle = request => {
                 if (request == HomeRequestType.Tutorial || request == HomeRequestType.Campaign) {
                     GameSystem.Open(ctx, request == HomeRequestType.Tutorial);
+                }
+                if (request == HomeRequestType.Daily) {
+                    DailySystem.Open(ctx);
                 }
                 if (request == HomeRequestType.Streak) {
                     StreakSystem.Open(ctx);
@@ -118,6 +122,7 @@ namespace Hamdoku.Main {
             ProfileSystem.Tick(ctx, Time.unscaledDeltaTime);
             SettingsSystem.Tick(ctx);
             ShopSystem.Tick(ctx, Time.unscaledDeltaTime);
+            DailySystem.Tick(ctx, Time.unscaledDeltaTime);
         }
 
         void OnDisable() {
@@ -152,6 +157,7 @@ namespace Hamdoku.Main {
                 return;
             }
             isTornDown = true;
+            DailySystem.Exit(ctx);
             ShopSystem.Exit(ctx);
             SettingsSystem.Exit(ctx);
             ProfileSystem.Exit(ctx);

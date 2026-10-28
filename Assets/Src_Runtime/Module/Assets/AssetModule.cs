@@ -10,6 +10,7 @@ namespace Hamdoku {
         readonly List<L10NSO> texts = new List<L10NSO>();
         readonly List<L10NFontSO> fonts = new List<L10NFontSO>();
         AsyncOperationHandle<IList<UnityEngine.Object>> defaultHandle;
+        DailyConfigSO dailyConfig;
         HomeConfigSO homeConfig;
         GameConfigSO gameConfig;
         RankingConfigSO rankingConfig;
@@ -50,6 +51,11 @@ namespace Hamdoku {
                     if (panel != null) {
                         panels.Add(panel.Type, prefab);
                     }
+                } else if (asset is DailyConfigSO daily) {
+                    if (dailyConfig != null) {
+                        throw new InvalidOperationException("Duplicate DailyConfigSO.");
+                    }
+                    dailyConfig = daily;
                 } else if (asset is HomeConfigSO config) {
                     if (homeConfig != null) {
                         throw new InvalidOperationException("More than one HomeConfigSO has the default label.");
@@ -96,6 +102,13 @@ namespace Hamdoku {
 
         public bool Panel_TryGet(PanelType type, out GameObject prefab) {
             return panels.TryGetValue(type, out prefab);
+        }
+
+        public DailyConfigSO GetDailyConfig() {
+            if (dailyConfig == null) {
+                throw new InvalidOperationException("DailyConfigSO is missing from default assets.");
+            }
+            return dailyConfig;
         }
 
         public HomeConfigSO GetHomeConfig() {
@@ -158,6 +171,7 @@ namespace Hamdoku {
             panels.Clear();
             texts.Clear();
             fonts.Clear();
+            dailyConfig = null;
             homeConfig = null;
             gameConfig = null;
             rankingConfig = null;

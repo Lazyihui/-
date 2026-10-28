@@ -25,12 +25,21 @@ namespace Hamdoku {
                 !(config.saveVersion == 4 && data.version >= 1 && data.version <= 3) &&
                 !(config.saveVersion == 5 && data.version >= 1 && data.version <= 4) &&
                 !(config.saveVersion == 6 && data.version >= 1 && data.version <= 5) &&
-                !(config.saveVersion == 7 && data.version >= 1 && data.version <= 6)) ||
+                !(config.saveVersion == 7 && data.version >= 1 && data.version <= 6) &&
+                !(config.saveVersion == 8 && data.version >= 1 && data.version <= 7) &&
+                !(config.saveVersion == 9 && data.version >= 1 && data.version <= 8) &&
+                !(config.saveVersion == 10 && data.version >= 1 && data.version <= 9)) ||
                 data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid or unsupported Hamdoku progress: " + path);
             }
+            if (data.version >= 10) {
+                ValidateDaily(data.daily);
+            }
             if (data.version >= 3) {
                 ValidateStreak(data.streak);
+            }
+            if (data.version >= 8) {
+                ValidateCampaign(data.campaign);
             }
             if (data.version >= 6) {
                 ValidateSettings(data.settings);
@@ -51,6 +60,12 @@ namespace Hamdoku {
             string path = GetPath(config, directory);
             if (data.version != config.saveVersion || data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid Hamdoku progress.");
+            }
+            if (data.version >= 8) {
+                ValidateCampaign(data.campaign);
+            }
+            if (data.version >= 10) {
+                ValidateDaily(data.daily);
             }
             if (data.version >= 3) {
                 ValidateStreak(data.streak);
@@ -80,14 +95,43 @@ namespace Hamdoku {
             }
         }
 
+        public static void ValidateCampaign(CampaignSaveModel data) {
+            if (data == null || data.skill < 1 || data.cleanStreak < 0 || data.sessionDay < 0 || data.sessionDay > 3652059 ||
+                data.cursorPositions == null || data.recentPuzzleIds == null) {
+                throw new InvalidDataException("Invalid campaign selection progress.");
+            }
+        }
+
         public static void ValidateSettings(SettingsSaveModel data) {
             if (data == null || data.voice < ComboVoiceType.None || data.voice > ComboVoiceType.Male) {
                 throw new InvalidDataException("Invalid settings progress.");
             }
         }
+        public static void ValidateDaily(DailySaveModel data) {
+            if (data == null || data.records == null || data.claimedCostumes == null) {
+                throw new InvalidDataException("Missing daily progress.");
+            }
+            int previous = 0;
+            foreach (var record in data.records) {
+                if (record == null || record.day <= previous || record.day >= 3652058 || record.attempts < 1 ||
+                    record.bestSeconds < 0 || float.IsNaN(record.bestSeconds) || float.IsInfinity(record.bestSeconds) ||
+                    (record.perfect && !record.cleared) || (!record.cleared && record.bestSeconds != 0)) {
+                    throw new InvalidDataException("Invalid dated daily record.");
+                }
+                previous = record.day;
+            }
+            previous = -1;
+            foreach (int id in data.claimedCostumes) {
+                if (id <= previous) {
+                    throw new InvalidDataException("Daily rewards must be unique and sorted.");
+                }
+                previous = id;
+            }
+        }
+
         public static void ValidateProfile(ProfileSaveModel data) {
             if (data == null || string.IsNullOrWhiteSpace(data.nickname) || data.avatarId < 0 || data.frameId < 0 ||
-                data.costumeId != -1 || data.mottoId < 0 || data.firstRecordedDay < 1 || data.firstRecordedDay > 3652059 ||
+                data.costumeId < -1 || data.mottoId < 0 || data.firstRecordedDay < 1 || data.firstRecordedDay > 3652059 ||
                 data.consecutiveClears < 0 || data.bestConsecutiveClears < data.consecutiveClears ||
                 data.firstTryClears < 0 || data.threeSeedClears < 0 || data.trackedThroughLevel < 0 ||
                 data.firstTryClears > data.trackedThroughLevel || data.threeSeedClears > data.trackedThroughLevel ||

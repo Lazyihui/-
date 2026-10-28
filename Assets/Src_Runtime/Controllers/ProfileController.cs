@@ -38,7 +38,7 @@ namespace Hamdoku.Controllers {
             }
             SaveModule.ValidateProfile(profile);
             if (!Available(config, save, ProfileTabType.Avatar, profile.avatarId) ||
-                !Available(config, save, ProfileTabType.Frame, profile.frameId) || profile.costumeId != -1 ||
+                !Available(config, save, ProfileTabType.Frame, profile.frameId) || !Available(config, save, ProfileTabType.Costume, profile.costumeId) ||
                 profile.mottoId < 0 || profile.mottoId > config.mottos.Length || profile.nickname.Length > config.nameMaxChars ||
                 profile.trackedThroughLevel != save.campaignClears) {
                 throw new InvalidDataException("Profile selection or progress is inconsistent with configuration.");
@@ -103,7 +103,9 @@ namespace Hamdoku.Controllers {
                 return id >= 0 && id < config.frames.Length && config.frames[id] != null && id != config.clubFrameId &&
                     config.frameUnlockClears[id] >= 0 && save.campaignClears >= config.frameUnlockClears[id] && config.frameRankWins[id] == 0;
             }
-            return tab == ProfileTabType.Costume && id == -1;
+            return tab == ProfileTabType.Costume && (id == -1 ||
+                (id >= 0 && id < config.costumes.Length && config.costumes[id] != null &&
+                save.daily != null && save.daily.claimedCostumes.BinarySearch(id) >= 0));
         }
 
         public static void ValidateVisualConfig(ProfileConfigSO config) {

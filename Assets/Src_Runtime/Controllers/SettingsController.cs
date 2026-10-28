@@ -155,6 +155,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             state.returnToGame = game.isOpen;
+            state.returnDailyDay = game.dailyDay;
             GameController.Persist(ctx);
             Panel_Settings_Controller.Close(ctx);
             Panel_Game_Controller.Close(ctx);
@@ -176,11 +177,12 @@ namespace Hamdoku.Controllers {
                 return;
             }
             Panel_GameDialog_Controller.Close(ctx);
+            Panel_GameResult_Controller.Close(ctx);
             Panel_Game_Controller.Close(ctx);
             game.isOpen = false;
             state.tutorialReview = false;
             if (state.returnToGame) {
-                GameController.Open(ctx, false);
+                GameController.Open(ctx, false, state.returnDailyDay);
             } else {
                 HomeSystem.Open(ctx);
             }

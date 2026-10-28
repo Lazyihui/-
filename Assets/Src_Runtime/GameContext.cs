@@ -1,5 +1,6 @@
 namespace Hamdoku {
     public sealed class GameContext {
+        public DailyState state_Daily;
         public SettingsState state_Settings;
         public VibrationModule vibrationModule;
         public ShopState state_Shop;

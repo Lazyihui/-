@@ -25,12 +25,18 @@ namespace Hamdoku.Controllers {
             RankingController.InitializeSave(ctx);
             StreakController.ValidateConfig(assets.GetStreakConfig());
             StreakController.Initialize(ctx, loaded);
-            ProfileController.InitializeSave(ctx, loaded);
-            SettingsController.InitializeSave(ctx, loaded);
             var puzzles = ctx.puzzleModule;
             var gameConfig = assets.GetGameConfig();
             puzzles.Initialize(gameConfig);
+            DailyController.Initialize(ctx, loaded);
+            ProfileController.InitializeSave(ctx, loaded);
+            SettingsController.InitializeSave(ctx, loaded);
+            CampaignController.Initialize(ctx, loaded);
+            GameFlowController.UpgradeSave(ctx, loaded);
             if (save.activePuzzle != null) {
+                if (save.activePuzzle.dailyDay != 0) {
+                    throw new InvalidOperationException("The campaign save slot cannot contain a daily board.");
+                }
                 puzzles.ValidateSave(save.activePuzzle, gameConfig, save.campaignClears, save.tutorialCompleted);
             }
             localization.ReplaceAll(assets.L10N_GetAll(), assets.L10NFont_GetAll());
@@ -56,17 +62,20 @@ namespace Hamdoku.Controllers {
         public static void SetLanguage(GameContext ctx, SystemLanguage language) {
             var localization = ctx.l10NModule;
             var save = ctx.playerSave;
+            Panel_Game_Controller.ClearFeedback(ctx);
             localization.Language_Set(language);
             save.language = language;
             SaveProgress(ctx);
             Panel_Streak_Controller.Refresh(ctx);
             Panel_Game_Controller.Refresh(ctx);
             Panel_GameDialog_Controller.Refresh(ctx);
+            Panel_GameResult_Controller.Refresh(ctx);
             Panel_Ranking_Controller.Refresh(ctx);
             Panel_RankingDialog_Controller.Refresh(ctx);
             Panel_Profile_Controller.Refresh(ctx);
             Panel_Settings_Controller.Refresh(ctx);
             Panel_Shop_Controller.Refresh(ctx);
+            Panel_Daily_Controller.Refresh(ctx);
             Refresh(ctx);
         }
 
@@ -151,7 +160,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             state.pendingRequest = type;
-            if (type != HomeRequestType.Tutorial && type != HomeRequestType.Campaign && type != HomeRequestType.Streak && type != HomeRequestType.Ranking && type != HomeRequestType.Profile && type != HomeRequestType.Shop && type != HomeRequestType.Settings) {
+            if (type != HomeRequestType.Daily && type != HomeRequestType.Tutorial && type != HomeRequestType.Campaign && type != HomeRequestType.Streak && type != HomeRequestType.Ranking && type != HomeRequestType.Profile && type != HomeRequestType.Shop && type != HomeRequestType.Settings) {
                 ShowNotice(ctx, UINameType.Home_Preparing, 0);
             }
             events.requestHandle?.Invoke(type);

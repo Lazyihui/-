@@ -130,7 +130,8 @@ namespace Hamdoku.Controllers {
             bool fromGame = state.openedFromGame;
             Close(ctx);
             if (fromGame) {
-                GameSystem.Open(ctx, false);
+                var game = ctx.state_Game;
+                GameController.Open(ctx, false, game.dailyDay);
             } else {
                 HomeSystem.Open(ctx);
             }

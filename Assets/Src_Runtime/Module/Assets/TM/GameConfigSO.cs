@@ -2,9 +2,18 @@ using UnityEngine;
 namespace Hamdoku {
     [CreateAssetMenu(menuName = "Hamdoku/Game Config")]
     public sealed class GameConfigSO : ScriptableObject {
+        public ResultConfigSO resultConfig;
         public PuzzleSO tutorial;
         public PuzzleSO[] puzzles;
         public int[] campaignSizes;
+        public int[] campaignGradeCeilings;
+        public int[] campaignSkillCeilings;
+        public int campaignInitialSkill;
+        public int campaignAdaptiveStartLevel;
+        public int campaignCleanClearsToPromote;
+        public int campaignFailureThreshold;
+        public int campaignHistoryLimit;
+        public int campaignCursorSlots;
         public int[] tutorialPlaceIndices;
         public UINameType[] tutorialPlaceTextTypes;
         public int[] tutorialLineIndices;
@@ -31,6 +40,19 @@ namespace Hamdoku {
         public int maxHearts;
         public int hintsPerLevel;
         public int guidesPerLevel;
+        public int startRevealLevels;
+        public int clearAutoCrossLevels;
+        public float clearAutoCrossDelay;
+        public float clearAutoCrossSweepStep;
+        public float clearAutoCrossHold;
+        public float clearCelebrationDelay;
+        public float resultDelay;
+        public float clearGlowSeconds;
+        public Color clearGlowColor;
+        public float gainSeconds;
+        public float comboSeconds;
+        public float comboFontSize;
+        public float comboRiseRatio;
         public int scoreBase;
         public int scoreStep;
         public float doubleTapSeconds;

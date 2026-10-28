@@ -1,5 +1,13 @@
 namespace Hamdoku {
     public sealed class GameState {
+        public int dailyDay;
+        public bool firstGameAvailable;
+        public int campaignSelectionVersion;
+        public int campaignGrade;
+        public bool campaignFirstGame;
+        public bool campaignTouched;
+        public bool campaignUsedItem;
+        public int campaignFailures;
         public UnityEngine.Rect safeArea;
         public int screenWidth;
         public int screenHeight;
@@ -13,7 +21,17 @@ namespace Hamdoku {
         public int mistakes;
         public int hints;
         public int guides;
+        public int flowVersion;
+        public int[] initialIndices;
+        public int[] cellGains;
+        public int scoreCarry;
+        public int combo;
+        public int bestCombo;
+        public bool clearPending;
+        public bool clearCrossApplied;
+        public bool clearSweepNeeded;
         public int score;
+        public float clearElapsed;
         public float elapsed;
         public int tutorialStep;
         public bool tutorialHintVisible;

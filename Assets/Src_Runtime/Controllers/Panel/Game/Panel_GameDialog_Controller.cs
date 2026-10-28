@@ -52,7 +52,11 @@ namespace Hamdoku.Controllers {
             panel.adButton.gameObject.SetActive(failed);
             var assets = ctx.assetModule;
             var config = assets.GetGameConfig();
-            if (state.dialog == GameDialogType.Result && !state.isTutorial && state.level == config.campaignSizes.Length) {
+            if (state.dailyDay > 0) {
+                panel.primaryLabel.text = Panel_Game_Controller.Text(ctx, state.dialog == GameDialogType.Result || state.dialog == GameDialogType.Exit ? UINameType.Daily_Return : UINameType.Daily_Retry);
+                panel.secondaryLabel.text = Panel_Game_Controller.Text(ctx, state.dialog == GameDialogType.Result || failed ? UINameType.Daily_Return : UINameType.Game_Cancel);
+            }
+            if (state.dailyDay == 0 && state.dialog == GameDialogType.Result && !state.isTutorial && state.level == config.campaignSizes.Length) {
                 panel.primaryLabel.text = Panel_Game_Controller.Text(ctx, UINameType.Game_Home);
                 panel.bodyLabel.text += "\n\n" + Panel_Game_Controller.Text(ctx, UINameType.Game_BatchComplete);
             }
