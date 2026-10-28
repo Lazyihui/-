@@ -418,3 +418,79 @@
 - 使用内置image_gen补充空面板与保存图标底稿，其他图标从前批高分辨率底稿切取，清理透明边缘后等比归一化；面板只调整可拉伸中部与边缘以保持角区。生成提示词、脚本、底稿、19张总览、原图与候选图对照及检查结果在previews/Settings_Slicing_v02/。
 - 按用户要求使用skill-creator更新C:/Users/Administrator/.codex/skills/.system/imagegen/SKILL.md的Existing Unity UI reskin slicing规则：先查实际资源及消费者，保持文件／尺寸／留白／边距和资源职责，通用Fill保持可着色，候选版本先审后替换；切图任务不包含脚本、Prefab层级或功能修改。Python UTF-8模式下quick_validate通过。
 - 离线验证：19张名称集合、尺寸、RGBA均匹配；两种Fill哈希与原图一致；正式Settings目录所有文件在前后SHA-256校验中完全一致，未复制或修改meta。人工查看总览和原图／候选图对照，未替换运行图片、Prefab、SO或代码。未执行Unity导入／编译、Play Mode、内容打包、应用构建或真机验收。下一步为用户审图；没有将本轮制作授权视为正式资源替换授权。
+
+## 2026-10-27 原作方法 IL 恢复与 AI 可读 C# 导出
+
+- 用户确认参照 FrenzySpinHappyJackpot 的工具流程，并授权在默认只读的原拆解目录内新增恢复产物。本轮没有修改原 APK、native、metadata、已有拆解结果或 Unity 运行代码；当前工程仅新增 AGENTS.md 阅读入口并追加本记录。
+- 使用原目录现有 Cpp2IL 2022.1.0／.NET 10，以 Unity 6000.5.2f1、匹配的 ARM64 libil2cpp.so 和 global-metadata.dat 为输入，通过 dll_il_recovery 输出 `D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/recovered_il/`。工具实际识别 metadata 版本 106，生成 107 份 DLL；与既有结构 DLL 的程序集名称覆盖一致。
+- 使用 D:/bin/dnSpy.Console.dll 导出 `03_code/decompiled_csharp/AllAssemblies/` 的 8,652 份 C# 文件；另导出 `GameAssemblies/` 的 283 份游戏 C#，显式保留状态机、访问器和隐藏成员。两轮导出退出码均为 0。该输出是重建伪代码，不能当作原始源码或已编译通过的 Unity 代码。
+- 新增恢复／导出脚本 `08_tools/11_recover_readable_csharp.py`、基于 dnlib 的 `08_tools/readable_csharp_audit/` 和索引脚本 `08_tools/12_index_readable_csharp.py`。阅读入口为 `03_code/decompiled_csharp/README.md`、GAME_INDEX.md；程序集／类型／全部方法／游戏方法 TSV、逐方法诊断 JSONL、C# 导出诊断、manifest 和 verification 均位于同目录。完整命令、时间、退出码、输入哈希、IL 审计和交付检查在 `logs/readable_csharp/`。
+- 结果边界：工具报告 19,324／19,326 个尝试处理方法未抛出恢复异常，此计数包含辅助方法，四舍五入的“100%”不表示语义完整。四个游戏程序集除 4 个辅助方法外，共 7,047 个方法；7,046 个生成方法体，1 个 IScorePercentileSource.TryGetPercentile 接口方法没有实体方法体。4,465 个游戏方法体带有工具诊断，2,581 个未检测到诊断，均不保证正确执行。两个 Firebase.Firestore 方法出现 ELF 地址解析异常，保留失败日志和异常占位；Unity／System 等 72,447 个基础库方法被工具主动占位，没有宣称恢复其逻辑。
+- 验证环境：Windows、Python 3.14.6、.NET SDK 10.0.101、本地 dnSpy。审计全部 107 个 DLL 的类型／方法／指令与诊断，游戏全部 7,047 个原方法均能定位显式 C# Token；核对 8,935 份 C# 和 107 份 DLL 的 SHA-256，1,059 个新说明／游戏目录链接均存在；原 APK、native、metadata 生成前后哈希一致。发现的 645 行 C# 导出诊断保留，未人工填造缺失业务。C# 内 Token／RVA 属于重建 DLL，原 ARM64 地址须查旧 method_index.json 和结构 Address 注解。
+- 本轮未执行导出 C# 编译、Unity 编译、Play Mode、Addressables 打包、应用构建、安装、真机或原 APK 动态回归；服务端代码、PairIP VM 完整语义和全部方法语义还原仍未完成。后续复刻可按索引读取 C# 调用线索，并回到原始 ARM64／ISIL、配置和运行证据核验。
+
+## 2026-10-27 游戏页原尺寸切图（仅资料交付）
+
+- 用户确认焦糖饼干提示图样式，随后明确只切图并保存至Docs/UILibrary/themes/PuppyBakery/assets/UI，不替换正式Game目录。本轮交付在该目录的Game子目录，34张PNG文件名和分辨率逐项匹配正式原图，不包含meta。
+- 查看Panel_Game.prefab、Widget_BoardCell.prefab、GameOriginalUIEM和Widget_BoardCell的实际拼接／着色关系：规则栏为总底板＋3张独立卡片，每卡左82×82规则图＋右TMP；Img_Game_Hint是放大镜，Img_Game_Guide是灯泡，均含按钮底，数量角标另行显示。规则图保持478×478和原3×3排除语义；教程手指保留原Sprite切片x3、y0、206×236。
+- 18张为主题制作或复用：使用已确认509×439小狗头像、已制作主题重开箭头；其余从确认稿提取并按原尺寸整理，背景／空HUD／空按钮／放大的饼干规则底稿通过内置image_gen补绘，使用Pillow／NumPy／SciPy完成透明区清理、分割、等比归一化与图块拼合。12张辅助纹样、3张共享白色遮罩和1张教程手指共16张保留原文件，避免破坏运行时着色、辅助识别、聚焦／遮挡与教程定位。
+- 来源、每张尺寸、原九宫格边距、Sprite模式、保留原因和哈希见assets/UI/Game/manifest.json；底稿、完整生成描述、切图脚本、素材总览、920×128实际规则栏、1080×1920离线拼合和检查结果位于previews/Game_Slicing。更新主题清单和STYLE.md对应入口，未新建规范文档。
+- Windows本机Python 3.14／Pillow／NumPy／SciPy完成离线检查：34张文件名集合与实际分辨率均对应、RGBA且非空；16张保留项字节一致；正式34张PNG及meta哈希均未变化。人工查看透明底总览、实际规则栏及整页拼合，修正按钮九宫格边缘收窄／凸起及灯泡高光被透明分割误删。初次使用的捆绑Python缺少SciPy，改用本机已有完整依赖后处理通过，无需安装依赖或修改Unity项目。
+- 本轮只交付候选切图，不修改正式运行资源、脚本、Prefab、场景、SO、存档或Addressables。离线拼合的布局、调色和Windows文字仅用于审图，不冒充Unity截图；未执行Unity编译、Play Mode、资源内容打包、应用构建、安装或真机验证。与确认整页稿完全一致的布局和运行表现仍需后续实际接入验证。
+
+## 2026-10-28 原作代码阅读引导补充
+
+- 用户确认本轮四文件的文档补充范围，并要求后续迁移内容先确认。AGENTS.md 新增迁移前确认规则和原作代码查阅顺序；PrefabCollection/index.html 增加启动、首页、棋盘、教程、结算、进度、设置的可读 C# 入口，README.md 同步导航。
+- 明确 GameAssemblies／AllAssemblies 用途、方法 Token 与诊断定位、ARM64／ISIL 交叉核对和证据边界；既有结构快照及其 manifest 保持原范围。原拆解目录只读，未复制恢复 C# 到 Assets。
+- Windows 本机文件检查：新增的原作代码与诊断链接目标全部存在，页面锚点及 README 入口匹配。未执行浏览器点击与显示验证；本轮不涉及 Unity 运行文件，未执行 Unity 编译、Play Mode、内容打包、应用构建、安装或真机验证。
+- 本轮不迁移功能、UI 或资源；具体迁移清单、目标文件、行为变化和验证范围将在后续实施前提交用户确认。保留本轮开始前已有的主题素材及工作记录修改。
+
+## 2026-10-28 游戏工具切图局部重绘（仅主题资料）
+
+- 用户明确确认后，使用内置image_gen分别重绘主题Game目录的Img_Game_Guide.png与Img_Game_Hint.png。灯泡改为完整连续的圆润灯体、自然收口的灯颈、整齐双段棕色底座和局部高光；放大镜保留棕色镜框与右下手柄，小狗改为侧向寻找、略收眉眼及小闭口，保持奶油脸、雾灰蓝垂耳与画面右侧眼斑。
+- 两图均等比归一化至114×118 RGBA，清理生成底稿外围孤立透明碎点，边界四周透明。旧图、生成底稿、完整提示词、归一化脚本与前后对照保存在Docs/UILibrary/themes/PuppyBakery/previews/Game_Tools_Revision_20261028。更新assets/UI/Game/manifest.json来源与哈希、现有切图脚本修订应用入口、总览及离线拼合；没有更新已确认整体原稿。
+- Windows／本机Python／Pillow／NumPy／SciPy离线检查通过：两图114×118、RGBA、非空、四边透明，人工查看原尺寸及放大对照；本轮前后哈希确认其余32张候选PNG不变，正式Assets/Res_Runtime/UI/Game所有既有文件未改。全量34张名称、尺寸和原正式PNG／meta未改动检查继续通过。未修改Unity脚本、Prefab、场景、SO或存档；未执行Unity编译、Play Mode、Addressables内容打包、应用构建、安装与真机验证。
+
+## 2026-10-28 设置页v02图片安装与old/new归档
+
+- 用户授权按Panel_Logo方式替换设置页素材并添加old/new。安装前检查19张PNG、meta、Panel_Settings.prefab引用和SettingsSetupEM图片路径，确认候选哈希与原图未偏离上次审图版本。
+- 将主题assets/UI/Settings/v02的19张PNG安装至Assets/Res_Runtime/UI/Settings/new；原PNG逐字节归档至old。new继承原meta及GUID，old仅替换meta主GUID为独立值；新增两个目录meta。Panel_Settings.prefab及其meta原位不变，未修改页面层级、运行逻辑、SO、存档或Addressables配置。
+- SettingsSetupEM导入扫描限定new，Sprite查找目录改为Settings/new。同步主题清单与STYLE.md安装状态。未执行该配置菜单，避免带入其他配置行为。
+- Windows/Python/Pillow文件层验证：new及old各19张，尺寸匹配，新图与主题源图哈希一致，old与安装前PNG哈希一致，new的meta逐字节保留，Settings目录GUID无重复，Prefab哈希不变。结果Logs/SettingsImageInstall/verification.json。
+- 未执行Unity编译、实际导入验收、Play Mode、Addressables内容打包、应用构建、安装或真机验证。本次仅完成素材安装，未将文件检查视为运行页面视觉验收。
+
+## 2026-10-28 新手教程迁移与现有实现修订
+
+- 用户明确本轮只先迁移游戏内新手引导，并确认原作流程、交互限制、视觉表现和恢复／重看衔接范围。原拆解目录保持只读；沿用当前 ClientMain、GameSystem、GameController、PanelFactory／Repository、SO和本地化体系，未引入平行架构。
+- 核对原作可读C#的TutorialController.Run／CrossAll／PlaceGuided状态机、TutorialFinger及对应结构／ARM64、原教程4×4配置和已有录像抽帧。明确差异：两段CrossAll都允许点击与拖动并锁定已划叉格；后两次放置突出目标所在整片色区；划叉完成后停留0.5秒；自由解题闲置8秒后才指向提示卡，预览用过后停止再次催促。已据此修订，完成进入主线与设置重看维持现有接口。
+- GameController／GameState增加临时停留、闲置与提示使用状态，恢复时由已保存棋盘重建待完成的停留，不保存表现计时器；保留tutorialFlowVersion=1与旧版0重启教程兼容。PuzzleModule检查阶段与必要落子／划叉一致性，允许自由阶段擦除早期教学叉；不将无效存档静默重置。输入仍由Controller裁决，Panel／Widget只显示和上报。
+- Panel_Game、Panel_Game_Controller、Widget_Board／Widget_BoardCell补双击节奏、原作抬起／按下两张手指切换、拖动指示、波纹、文本／遮罩淡入、逐笔划叉、放置弹出与六星点、完成摆动；调整提示卡指示位置，使手掌在1080×1920中完整显示。原ui_hand_open Sprite逐字节复制为Img_Game_TutorialFingerOpen.png；原按下手指PNG和多Sprite切片保持不变，修正Prefab由旧21300000指向实际-2995789504102893163切片引用，解决白块。制作工具保留已有Sprite模式，避免维护时覆盖切片。
+- 新增两份中英文色区提示L10NSO（橙色／紫色）及default标签注册，补烘焙中文“橙／紫”相关字符，继续由L10NModule统一字体。GameConfigSO／GameConfig.asset保存停留、闲置、淡入、手势和表现时长。0.5、8、0.38、0.45、0.13、0.12、1、1.2、0.42等对应原教程／手指静态常量；逐笔划叉0.24秒、放置0.42秒、庆祝1.2秒与具体弹跳／星点曲线为本工程实现选择。新增波纹和星点为依据原过程式表现制作的透明生产PNG，未伪称原始导出图片。完整主线逻辑提示解释面板及逐帧视觉还原不在本轮完成声明内。
+- 主要文件：GameController.cs、GameState.cs、Panel_Game_Controller.cs、Panel_Game.cs、Widget_Board.cs、Widget_BoardCell.cs、PuzzleModule.cs、GameConfigSO.cs／GameConfig.asset、UINameType教程条目、GameOriginalUIEM／GameSetupEM、两份正式游戏Prefab、中文SDF字体、两份新增文案SO、三份新增PNG及其meta、Gameplay Addressables组；更新Docs/GameplayMigrationTODO.md。原Prefab／字体GUID保留，测试存档、测试HomeConfig、Library缓存和打包产物均未复制回正式工程。
+- Windows隔离工程D:/UnityProject/HamdokuTutorialValidation-20261027（复用既有缓存）使用Unity 6000.5.2f1／Addressables 2.10.3。最终以已交付序列化资源直接启动Scene_Main，无需先执行制作菜单；Unity编译和Play Mode通过，97项断言涵盖完整教程、错误目标拦截、点击／拖动混用与锁叉、停留恢复、色区聚焦、闲置提示与预览不扣道具、模拟不同触点ID双击、完成进入第一关、重看完成／退出保留主线、存档往返、无效阶段拒绝、旧教程兼容、重复打开、主线失败重开及文案／引用检查。检查中英文1080×1920、1080×2400模拟安全区后台渲染；项目运行错误0。交付引用与标签静态检查、Windows Addressables内容打包通过，内容打包不代表Android应用构建通过。
+- 验证初次暴露测试辅助脚本调用了不存在的SettingsController.Close（辅助脚本编译错误）、新增文案注册列表位置错误和旧手指fileID失效，均已修正并重新验证。UnityEditor.Search索引异常单独保存，未计作项目运行错误；未执行APK构建、安装、真机触摸／实际扬声器试听，也未宣称原作逐帧动态回归通过。
+- 交付核对：25份本轮实现／资源文件与隔离验证副本哈希一致；共用UINameType仅核对教程条目，保留同期个人资料新增项。正式hamdoku-progress.json文件名、Addressables DefaultObject GUID与EditorBuildSettings注册一致。保留同期设置／个人资料／主题素材改动；隔离结果只覆盖本轮教程快照，不替代这些并行改动的验收。明细、脚本、初次失败日志、最终result.txt、截图、asset-result.txt、content-result.txt和delivery-manifest.json保存在Logs/TutorialMigration20261028/。
+
+## 2026-10-28 个人资料页继续补充
+
+- 按本轮确认范围，对照原作 ProfileGridView、PlayerProfile、ProfileConfig、CostumeOverlay、FrameFx／FrameFxDef、服装 CSV、ProfileConfig 序列化数据与原始截图。原目录保持只读；带诊断的恢复代码回查方法索引、method-issues、source-diagnostics、ARM64 与 ELF 只读常量，不将恢复占位值作为业务参数。
+- 补齐头像／边框／服装共54项的组合预览、会员标记、原标签选中／未选中贴图、皇冠徽章与布局、红点和浏览已读保存。6件服装导入174组头像适配参数、来源赛季及原始ID映射（当前项目服装索引保持不变，对应原ID 1／2／3／7／5／6）；新增26张原作手部／皇冠光晕／星点Sprite。皇冠位置、开口与徽章颜色／坐标依据原静态配置和native常量；星点时序、格子预览尺寸及简化变色光晕为工程实现选择，不宣称完整FrameFx分层、原shader扫光或逐帧还原。
+- 修正旧实现未检查frameRankWins导致排行榜奖励边框可误选的问题；无真实排行榜结果的奖励保持锁定，徽章显示配置门槛，不伪造冠次数。v1–v6升级至v7，旧存档若选中未经确认的排行榜奖励框迁回默认框，其他资料／进度保留；新增已读位记录。会员／赛季服务未接入，服装仍不可领取或佩戴，显示实际赛季来源及明确提示。首页同步新头像组合与红点，不写入假权益。
+- 定点维护Panel_Profile／Panel_Home正式Prefab；修复既有Notice子背景盖住文字、服装预览与名称重叠，保留旧序列化对象和GUID。主要脚本：ProfileController、Panel_Profile_Controller、Panel_Home_Controller、Panel_Profile、Panel_Home、Widget_ProfileItem、ProfileConfigSO、ProfileSaveModel、ProfileState、SaveModule、ProfileSetupEM；新增Widget_ProfilePortrait、Widget_ProfileNewDot、ProfileCostumeFitModel、ProfileCompletionEM和3份本地化SO。ProfileSetupEM衔接补充工具，工具重复执行不重复创建节点；交付资源已保存，运行无需先执行菜单。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，隔离工程D:/UnityProject/HamdokuProfileCompletionValidation-20261028。最终Unity编译、Scene_Main首次启动、Play Mode及Windows Addressables内容打包通过；验证54项绑定、168种可见头像／服装组合、锁定选择、来源提示、中英文、红点已读序列化、v1–v6资料迁移与旧奖励框修复、重复初始化、释放和返回首页。后台渲染检查1080×1920、1080×2400、1080×1620及模拟安全区；项目运行错误与缺字警告0。测试以编辑器按钮回调和后台相机截图进行，不替代人工鼠标或真机触摸验收。
+- 初次验证出现缺少costumeHeadPivot字段、图片导入shape错误及皇冠条件遗漏，均已修正并重新验证。首次Scene_Main启动受同期更新中的旧棋盘Prefab绑定快照阻断，随后只读同步当前工程最新棋盘Prefab到副本，最终首次启动通过；未修改本轮范围外棋盘实现。UnityEditor.Search索引越界与退出临时分配器警告单独保留在日志，未冒称项目错误。
+- 同步31份制作结果资源，核对15份实现脚本与验证快照一致、正式Prefab／SO引用可在Assets及PackageCache中解析、字体包含当前工程已有字符；仅向default组追加3份本地化注册，保留同期Gameplay组修改。HomeConfig只升级saveVersion至7，正式hamdoku-progress.json文件名不变；DefaultObject／EditorBuildSettings及包版本核对一致，未同步Library、测试存档或验证专用脚本。资料、历次失败／最终日志、截图、result.txt、content-result.txt、sync-audit.json与delivery-audit.json位于Logs/ProfileCompletion/。
+- 未执行Android APK构建、安装或真机验收；完整会员权益、赛季奖励领取与排行榜真实结果、完整原作边框shader／分层特效仍未完成。
+
+
+## 2026-10-28 个人资料边框列表底部露出修正
+
+- 按用户截图定点修正现有边框页：第四行皇冠贴图向上超出格子，使原730高可见区底部露出少量皇冠。Panel_Profile.prefab中仅将Grid1与其Viewport高度改为722，Grid1中心从-565上移至-561，顶部保持-200；不调整头像、服装列表及皇冠尺寸，不改变滚动和选择逻辑，保留层级、对象ID和GUID。
+- ProfileSetupEM同步边框列表高度及顶部固定的定位公式，后续制作时保留修正；无需先执行菜单。
+- Windows／Python静态检查通过：第三行格子下沿深度719，第四行皇冠完整图形矩形上沿约725.414，修正后的可见区深度722位于两者之间；另外两页可见区仍为730。检查两个RectTransform绑定及顶部位置不变。未执行本轮Unity编译、Play Mode截图、Addressables内容打包、应用构建、安装或真机验证；实际滚动与运行视觉仍未验证。
+
+## 2026-10-28 Logo页背景顶部蓝色雨棚移除
+
+- 按用户截图去掉Panel_Logo背景顶部蓝白雨棚，使用imagegen编辑奶油色烘焙底纹；新增Logo专用bg_Logo.png及Sprite导入meta，避免改动首页共用的bg_Common_Menu.png。正式Scene_Main仅替换Background的Sprite引用及对应宽高比，LogoSetupEM同步专用资源名，运行无需先执行菜单。Logo人物、文字、加载图标和逻辑不变。
+- 主要文件：Assets/Res_Runtime/UI/Logo/new/bg_Logo.png（852×1846）、对应.meta、Assets/Res_Runtime/Scene_Main.unity、Assets/Src_Editor/EM/LogoSetupEM.cs。
+- Windows静态检查通过：新图片目视检查顶部雨棚已移除；蓝色像素筛查为0，正式场景Sprite GUID与meta对应、AspectRatioFitter比例匹配图片，首页保留原背景引用。验证脚本首次因PowerShell只读变量命名冲突中断，改名后首页引用检查通过，未修改项目业务。本轮未运行Unity编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证；编辑器当前运行画面尚未验收。

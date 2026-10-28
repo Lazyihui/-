@@ -24,7 +24,8 @@ namespace Hamdoku {
                 !(config.saveVersion == 3 && (data.version == 1 || data.version == 2)) &&
                 !(config.saveVersion == 4 && data.version >= 1 && data.version <= 3) &&
                 !(config.saveVersion == 5 && data.version >= 1 && data.version <= 4) &&
-                !(config.saveVersion == 6 && data.version >= 1 && data.version <= 5)) ||
+                !(config.saveVersion == 6 && data.version >= 1 && data.version <= 5) &&
+                !(config.saveVersion == 7 && data.version >= 1 && data.version <= 6)) ||
                 data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid or unsupported Hamdoku progress: " + path);
             }

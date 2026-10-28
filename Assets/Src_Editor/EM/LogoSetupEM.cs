@@ -255,7 +255,7 @@ namespace Hamdoku.Editor {
             Stretch(panelRect);
             var panel = panelRect.gameObject.AddComponent<Panel_Logo>();
             main.panel_Logo = panel;
-            var background = NewImage("Background", panelRect, Sprite("bg_Common_Menu"), Vector2.zero, Vector2.zero);
+            var background = NewImage("Background", panelRect, Sprite("bg_Logo"), Vector2.zero, Vector2.zero);
             Stretch(background.rectTransform);
             var backgroundFit = background.gameObject.AddComponent<UnityEngine.UI.AspectRatioFitter>();
             backgroundFit.aspectMode = UnityEngine.UI.AspectRatioFitter.AspectMode.EnvelopeParent;

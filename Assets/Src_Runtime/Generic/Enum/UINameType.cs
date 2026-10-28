@@ -220,6 +220,8 @@ namespace Hamdoku {
         Game_TutorialHint = 421,
         Game_TutorialConfirm = 422,
         Game_TutorialStart = 423,
+        Game_TutorialOnlyOrange = 424,
+        Game_TutorialOnlyPurple = 425,
         Shop_Title = 500,
         Shop_Starter = 501,
         Shop_Special = 502,
@@ -276,6 +278,9 @@ namespace Hamdoku {
         Settings_TutorialBody = 622,
         Settings_SupportBody = 623,
         Settings_PrivacyBody = 624,
-        Settings_TermsBody = 625
+        Settings_TermsBody = 625,
+        Profile_SeasonSource = 700,
+        Profile_SeasonLocked = 701,
+        Profile_ClubTag = 702
     }
 }

@@ -22,5 +22,8 @@ namespace Hamdoku {
         [DataMember] public int lastLoginDay;
         [DataMember] public int loginStreak;
         [DataMember] public int bestLoginStreak;
+        [DataMember] public uint seenAvatars;
+        [DataMember] public uint seenFrames;
+        [DataMember] public uint seenCostumes;
     }
 }

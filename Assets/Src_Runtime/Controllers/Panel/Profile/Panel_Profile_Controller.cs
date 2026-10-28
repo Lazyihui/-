@@ -41,6 +41,8 @@ namespace Hamdoku.Controllers {
             var config = assets.GetProfileConfig();
             var save = ctx.playerSave;
             var profile = save.profile;
+            var newMasks = new[] { ProfileController.NewMask(config, save, ProfileTabType.Avatar),
+                ProfileController.NewMask(config, save, ProfileTabType.Frame), ProfileController.NewMask(config, save, ProfileTabType.Costume) };
             panel.titleLabel.text = Text(ctx, UINameType.Profile_Title);
             panel.brandLabel.text = Text(ctx, UINameType.Profile_Brand);
             panel.gradeLabel.text = Text(ctx, UINameType.Profile_Member);
@@ -53,6 +55,7 @@ namespace Hamdoku.Controllers {
             panel.avatar.sprite = config.avatars[profile.avatarId];
             panel.frame.sprite = config.frames[profile.frameId];
             panel.avatarBackground.color = config.avatarColors[profile.avatarId % config.avatarColors.Length];
+            panel.portrait.Show(config, profile.avatarId, profile.frameId, profile.costumeId, 1, -1);
             panel.statLabels[0].text = Text(ctx, UINameType.Profile_WinStreak);
             panel.statLabels[1].text = Text(ctx, UINameType.Profile_LoginStreak);
             panel.statLabels[2].text = Text(ctx, UINameType.Profile_Puzzles);
@@ -72,10 +75,27 @@ namespace Hamdoku.Controllers {
                 bool selected = (int)state.tab == i + 1;
                 panel.grids[i].SetActive(selected);
                 panel.tabButtons[i].GetComponent<UnityEngine.UI.Image>().color = selected ? config.selectedColor : config.idleColor;
+                panel.tabButtons[i].GetComponent<UnityEngine.UI.Image>().sprite = selected ? config.tabOn : config.tabOff;
+                panel.tabLabels[i].color = selected ? config.tabOnText : config.tabOffText;
+                panel.tabDots[i].SetActive((state.visitedTabs & (1 << i)) == 0 && newMasks[i] != 0);
             }
             foreach (var item in panel.items) {
                 int selection = item.tab == ProfileTabType.Avatar ? profile.avatarId : item.tab == ProfileTabType.Frame ? profile.frameId : profile.costumeId;
                 item.Show(item.itemId == selection, ProfileController.Available(config, save, item.tab, item.itemId), config.lockedAlpha);
+                bool available = ProfileController.Available(config, save, item.tab, item.itemId);
+                bool club = (item.tab == ProfileTabType.Avatar && item.itemId >= config.clubAvatarStart) ||
+                    (item.tab == ProfileTabType.Frame && item.itemId == config.clubFrameId);
+                item.clubTag.SetActive(club);
+                item.clubLabel.text = Text(ctx, UINameType.Profile_ClubTag);
+                item.newDot.SetActive(item.itemId >= 0 && (newMasks[(int)item.tab - 1] & (1u << item.itemId)) != 0);
+                item.portrait.Show(config, item.tab == ProfileTabType.Avatar ? item.itemId : profile.avatarId,
+                    item.tab == ProfileTabType.Frame ? item.itemId : -1,
+                    item.tab == ProfileTabType.Costume ? item.itemId : -1, available ? 1 : config.lockedAlpha, -1);
+                item.requirementLabel.gameObject.SetActive(item.tab == ProfileTabType.Costume && item.itemId >= 0);
+                if (item.tab == ProfileTabType.Costume && item.itemId >= 0) {
+                    int season = config.costumeSeasons[item.itemId];
+                    item.requirementLabel.text = string.Format(Text(ctx, UINameType.Profile_SeasonSource), season / 100, season % 100);
+                }
                 if (item.tab == ProfileTabType.Frame) {
                     item.avatar.sprite = config.avatars[profile.avatarId];
                 }
@@ -85,6 +105,7 @@ namespace Hamdoku.Controllers {
             }
             string notice = state.notice == UINameType.None ? string.Empty : string.Format(Text(ctx, state.notice), state.noticeArgument);
             panel.noticeLabel.gameObject.SetActive(state.notice != UINameType.None && state.dialog == ProfileDialogType.None);
+            panel.noticeBackground.gameObject.SetActive(state.notice != UINameType.None && state.dialog == ProfileDialogType.None);
             panel.noticeLabel.text = notice;
             panel.dialogNotice.text = notice;
             panel.dialogRoot.SetActive(state.dialog != ProfileDialogType.None);

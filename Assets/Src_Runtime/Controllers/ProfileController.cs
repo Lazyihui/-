@@ -15,6 +15,16 @@ namespace Hamdoku.Controllers {
                 trackedThroughLevel = save.campaignClears, historyKnown = loaded == null
             } : loaded.profile;
             var profile = save.profile;
+            ValidateVisualConfig(config);
+            if (loaded == null || loaded.version < 7) {
+                // Earlier local saves incorrectly allowed rank reward frames without a rank result.
+                if (profile.frameId >= 0 && profile.frameId < config.frameRankWins.Length && config.frameRankWins[profile.frameId] > 0) {
+                    profile.frameId = 0;
+                }
+                profile.seenAvatars = OwnedMask(config, save, ProfileTabType.Avatar);
+                profile.seenFrames = OwnedMask(config, save, ProfileTabType.Frame);
+                profile.seenCostumes = 0;
+            }
             if (loaded == null || loaded.version < 5) {
                 profile.firstRecordedDay = (int)(DateTime.Today.Ticks / TimeSpan.TicksPerDay) + 1;
                 if (loaded != null && loaded.activePuzzle != null && !loaded.activePuzzle.isTutorial && loaded.activePuzzle.status != GameStatus.Won) {
@@ -91,9 +101,76 @@ namespace Hamdoku.Controllers {
             }
             if (tab == ProfileTabType.Frame) {
                 return id >= 0 && id < config.frames.Length && config.frames[id] != null && id != config.clubFrameId &&
-                    config.frameUnlockClears[id] >= 0 && save.campaignClears >= config.frameUnlockClears[id];
+                    config.frameUnlockClears[id] >= 0 && save.campaignClears >= config.frameUnlockClears[id] && config.frameRankWins[id] == 0;
             }
             return tab == ProfileTabType.Costume && id == -1;
+        }
+
+        public static void ValidateVisualConfig(ProfileConfigSO config) {
+            int frames = config.frames.Length;
+            int avatars = config.avatars.Length;
+            int costumes = config.costumes.Length;
+            if (avatars > 32 || frames > 32 || costumes > 32 || config.hands == null || config.hands.Length != avatars ||
+                config.costumeFits == null || config.costumeFits.Length != costumes * avatars ||
+                config.costumeSeasons == null || config.costumeSeasons.Length != costumes ||
+                config.costumeRects == null || config.costumeRects.Length != costumes ||
+                config.costumeSourceIds == null || config.costumeSourceIds.Length != costumes ||
+                config.crownFrames == null || config.crownFrames.Length != frames ||
+                config.frameOpenings == null || config.frameOpenings.Length != frames ||
+                config.badgeCenters == null || config.badgeCenters.Length != frames ||
+                config.badgeColors == null || config.badgeColors.Length != frames ||
+                config.frameAuras == null || config.frameAuras.Length != frames ||
+                config.frameAuraTiers == null || config.frameAuraTiers.Length != frames ||
+                config.tabOn == null || config.tabOff == null || config.newDotPulseSeconds <= 0 ||
+                config.auraAlpha == null || config.auraAlpha.Length != 3 || config.auraSpeed == null || config.auraSpeed.Length != 3 ||
+                config.auraHueBase == null || config.auraHueBase.Length != 3 || config.auraHueRange == null || config.auraHueRange.Length != 3) {
+                throw new InvalidOperationException("Profile visual configuration is incomplete.");
+            }
+            for (int i = 0; i < frames; i++) {
+                if (config.frames[i] != null && (config.frameOpenings[i] <= 0 || config.frameAuraTiers[i] < 0 || config.frameAuraTiers[i] >= 3)) {
+                    throw new InvalidOperationException("Invalid profile frame layout: " + i);
+                }
+            }
+            foreach (var fit in config.costumeFits) {
+                if (fit.scale <= 0) {
+                    throw new InvalidOperationException("Invalid profile costume fit.");
+                }
+            }
+        }
+
+        public static uint OwnedMask(ProfileConfigSO config, PlayerSaveModel save, ProfileTabType tab) {
+            int count = tab == ProfileTabType.Avatar ? config.avatars.Length : tab == ProfileTabType.Frame ? config.frames.Length : config.costumes.Length;
+            uint mask = 0;
+            for (int i = 0; i < count; i++) {
+                if (Available(config, save, tab, i)) {
+                    mask |= 1u << i;
+                }
+            }
+            return mask;
+        }
+
+        public static uint NewMask(ProfileConfigSO config, PlayerSaveModel save, ProfileTabType tab) {
+            var profile = save.profile;
+            uint seen = tab == ProfileTabType.Avatar ? profile.seenAvatars : tab == ProfileTabType.Frame ? profile.seenFrames : profile.seenCostumes;
+            return OwnedMask(config, save, tab) & ~seen;
+        }
+
+        static void MarkVisitedSeen(GameContext ctx) {
+            var state = ctx.state_Profile;
+            var save = ctx.playerSave;
+            var profile = save.profile;
+            var assets = ctx.assetModule;
+            var config = assets.GetProfileConfig();
+            if ((state.visitedTabs & 1) != 0) {
+                profile.seenAvatars |= OwnedMask(config, save, ProfileTabType.Avatar);
+            }
+            if ((state.visitedTabs & 2) != 0) {
+                profile.seenFrames |= OwnedMask(config, save, ProfileTabType.Frame);
+            }
+            if ((state.visitedTabs & 4) != 0) {
+                profile.seenCostumes |= OwnedMask(config, save, ProfileTabType.Costume);
+            }
+            HomeController.SaveProgress(ctx);
         }
 
         public static void Open(GameContext ctx) {
@@ -104,6 +181,7 @@ namespace Hamdoku.Controllers {
             }
             state.isOpen = true;
             state.tab = ProfileTabType.Avatar;
+            state.visitedTabs = 1;
             state.dialog = ProfileDialogType.None;
             state.notice = UINameType.None;
             home.isOpen = false;
@@ -122,6 +200,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             state.isOpen = false;
+            MarkVisitedSeen(ctx);
             Panel_Profile_Controller.Close(ctx);
             HomeSystem.Open(ctx);
         }
@@ -132,6 +211,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             state.tab = tab;
+            state.visitedTabs |= 1 << ((int)tab - 1);
             state.notice = UINameType.None;
             Panel_Profile_Controller.Refresh(ctx);
         }
@@ -161,6 +241,10 @@ namespace Hamdoku.Controllers {
                         requirement = config.frameRankWins[id];
                         message = UINameType.Profile_RankLocked;
                     }
+                }
+                if (tab == ProfileTabType.Costume && id >= 0 && id < config.costumeSeasons.Length) {
+                    message = UINameType.Profile_SeasonLocked;
+                    requirement = config.costumeSeasons[id];
                 }
                 Notice(ctx, message, requirement);
                 return;

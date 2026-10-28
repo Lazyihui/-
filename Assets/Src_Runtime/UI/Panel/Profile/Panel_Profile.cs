@@ -15,12 +15,15 @@ namespace Hamdoku {
         public TMP_Text uidLabel;
         public TMP_Text memberLabel;
         public TMP_Text noticeLabel;
+        public UnityEngine.UI.Image noticeBackground;
         public TMP_Text[] statLabels;
         public TMP_Text[] statValues;
         public TMP_Text[] tabLabels;
         public UnityEngine.UI.Image avatar;
         public UnityEngine.UI.Image frame;
         public UnityEngine.UI.Image avatarBackground;
+        public Widget_ProfilePortrait portrait;
+        public GameObject[] tabDots;
         public UnityEngine.UI.Button backButton;
         public UnityEngine.UI.Button infoButton;
         public UnityEngine.UI.Button editButton;

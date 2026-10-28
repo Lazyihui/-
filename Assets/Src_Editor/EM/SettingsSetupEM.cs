@@ -32,6 +32,7 @@ namespace Hamdoku.Editor {
             } finally {
                 PrefabUtility.UnloadPrefabContents(root);
             }
+            ConfigureContextLayout();
             BindRegionEdges();
             var home = AssetDatabase.LoadAssetAtPath<HomeConfigSO>("Assets/Res_Runtime/Config/HomeConfig.asset");
             home.saveVersion = 6;
@@ -47,7 +48,7 @@ namespace Hamdoku.Editor {
             Debug.Log("[SettingsSetup] Saved original-derived settings prefab, configuration, fonts, board edges and Addressables registration.");
         }
         static void ImportSprites() {
-            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Settings", "*.png")) {
+            foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Settings/new", "*.png")) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
                 var settings = new TextureImporterSettings();
                 importer.ReadTextureSettings(settings);
@@ -451,12 +452,61 @@ namespace Hamdoku.Editor {
             Bind(close, SettingsActionType.CloseDialog, buttons, actions);
             root.gameObject.SetActive(false);
         }
+        [MenuItem("Hamdoku/Setup/Configure Settings Context Layout")]
+        public static void ConfigureContextLayout() {
+            const string path = "Assets/Res_Runtime/UI/Settings/Panel_Settings.prefab";
+            var config = AssetDatabase.LoadAssetAtPath<SettingsConfigSO>("Assets/Res_Runtime/Config/SettingsConfig.asset");
+            var root = PrefabUtility.LoadPrefabContents(path);
+            try {
+                var panel = root.GetComponent<Panel_Settings>();
+                var content = panel.contentRoot;
+                panel.closeRoot = (RectTransform)content.Find("Close");
+                panel.groupRoot = (RectTransform)content.Find("Group");
+                panel.accountRoot = (RectTransform)content.Find("AccountBlock");
+                panel.dashRoot = (RectTransform)content.Find("Dash");
+                panel.tutorialRoot = (RectTransform)content.Find("Tutorial");
+                panel.linksRoot = (RectTransform)content.Find("Links");
+                var restart = content.Find("Restart");
+                if (restart == null) {
+                    restart = UnityEngine.Object.Instantiate(panel.tutorialRoot.gameObject, content).transform;
+                    restart.name = "Restart";
+                    restart.SetSiblingIndex(panel.tutorialRoot.GetSiblingIndex());
+                }
+                panel.restartRoot = (RectTransform)restart;
+                var background = restart.GetComponent<UnityEngine.UI.Image>();
+                background.sprite = AssetDatabase.LoadAllAssetsAtPath("Assets/Res_Runtime/UI/Game/btn_Common_Rounded_Yellow.png").OfType<Sprite>().Single();
+                background.type = UnityEngine.UI.Image.Type.Sliced;
+                background.preserveAspect = false;
+                background.pixelsPerUnitMultiplier = config.btnPpum;
+                var icon = restart.Find("Icon").GetComponent<UnityEngine.UI.Image>();
+                icon.sprite = AssetDatabase.LoadAllAssetsAtPath("Assets/Res_Runtime/UI/Game/Img_Game_Retry.png").OfType<Sprite>().Single();
+                icon.preserveAspect = true;
+                panel.restartLabel = restart.Find("Label").GetComponent<TMP_Text>();
+                var text = AssetDatabase.LoadAssetAtPath<L10NSO>("Assets/Res_Runtime/Localization/Game_Restart.asset");
+                panel.restartLabel.text = text.chinese;
+                var buttons = panel.buttons.ToList();
+                var actions = panel.actions.ToList();
+                int index = actions.IndexOf(SettingsActionType.Restart);
+                if (index < 0) {
+                    Bind(restart.GetComponent<UnityEngine.UI.Button>(), SettingsActionType.Restart, buttons, actions);
+                } else {
+                    buttons[index] = restart.GetComponent<UnityEngine.UI.Button>();
+                }
+                panel.buttons = buttons.ToArray();
+                panel.actions = actions.ToArray();
+                panel.ShowLayout(false, false, config);
+                PrefabUtility.SaveAsPrefabAsset(root, path);
+            } finally {
+                PrefabUtility.UnloadPrefabContents(root);
+            }
+            AssetDatabase.SaveAssets();
+        }
         static void Bind(UnityEngine.UI.Button button, SettingsActionType action, List<UnityEngine.UI.Button> buttons, List<SettingsActionType> actions) {
             buttons.Add(button);
             actions.Add(action);
         }
         static Sprite Sprite(string name) {
-            foreach (string folder in new[] { "Settings", "Game", "Home" }) {
+            foreach (string folder in new[] { "Settings/new", "Game", "Home" }) {
                 var sprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Res_Runtime/UI/" + folder + "/" + name + ".png");
                 if (sprite != null) {
                     return sprite;

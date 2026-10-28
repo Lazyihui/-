@@ -33,6 +33,7 @@ namespace Hamdoku.Editor {
             }
             EditorUtility.SetDirty(settings);
             AssetDatabase.SaveAssets();
+            ProfileCompletionEM.Setup();
             Debug.Log("[ProfileSetup] Saved production profile prefab, config, localization, fonts and default registrations.");
         }
 
@@ -95,7 +96,7 @@ namespace Hamdoku.Editor {
             return config;
         }
 
-        static void BakeFonts() {
+        internal static void BakeFonts() {
             var entries = AssetDatabase.FindAssets("t:L10NSO", new[] { "Assets/Res_Runtime/Localization" }).Select(
                 guid => AssetDatabase.LoadAssetAtPath<L10NSO>(AssetDatabase.GUIDToAssetPath(guid))).ToArray();
             foreach (string language in new[] { "Chinese", "English" }) {
@@ -204,7 +205,9 @@ namespace Hamdoku.Editor {
             for (int i = 0; i < 3; i++) {
                 panel.tabButtons[i] = Button("Tab" + i, content, Sprite("profile_tab"), new Vector2(302, 130), new Vector2(-320 + 320 * i, -159));
                 panel.tabLabels[i] = Label("Label", panel.tabButtons[i].transform, font, new Vector2(270, 100), new Vector2(0, 10), 48);
-                var scroll = Scroll("Grid" + i, content, new Vector2(980, 730), new Vector2(0, -565));
+                // Keep the frame viewport above the next row's protruding crowns.
+                float gridHeight = i == 1 ? 722 : 730;
+                var scroll = Scroll("Grid" + i, content, new Vector2(980, gridHeight), new Vector2(0, -200 - gridHeight * .5f));
                 panel.scrolls[i] = scroll;
                 panel.grids[i] = scroll.gameObject;
                 var grid = scroll.content.gameObject.AddComponent<UnityEngine.UI.GridLayoutGroup>();

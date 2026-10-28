@@ -1,0 +1,744 @@
+{
+  "page": "Panel_Game",
+  "date": "2026-10-27",
+  "status": "sliced-offline-not-installed",
+  "originalDirectory": "Assets/Res_Runtime/UI/Game",
+  "outputDirectory": "Docs\\UILibrary\\themes\\PuppyBakery\\assets\\UI\\Game",
+  "approvedPage": "../../../previews/Game_Slicing/Panel_Game_Style_1080x1920.png",
+  "generationTool": "built-in image_gen; Pillow/NumPy/SciPy for requested slicing, alpha isolation, normalization and assembly",
+  "note": "Exactly 34 PNG matching original filenames and pixel sizes. Do not copy meta from this documentation folder. Existing production PNG/meta/prefab/scripts unchanged. Mask and pointer originals intentionally retained. Text and numeric badges remain separate TMP/UI elements. New clean plates and rule enlargement are reconstructed illustrations, not lossless cuts. Same-size assets preserve import compatibility but do not guarantee screenshot-identical runtime layout or color; shared tint masks stay white.",
+  "assets": [
+    {
+      "file": "Img_Common_Back.png",
+      "size": [
+        249,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "method": "approved-button-crop-ellipse-alpha",
+      "sourceRect": [
+        35,
+        80,
+        130,
+        177
+      ],
+      "note": "",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "5980e4a5468185088f955668a1ad1fa0817fb608bd377bbd06001bb440a804cd"
+    },
+    {
+      "file": "Img_Common_Cross.png",
+      "size": [
+        88,
+        89
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "method": "approved-crop-alpha-isolation",
+      "sourceRect": [
+        437,
+        467,
+        506,
+        535
+      ],
+      "note": "",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "0c5088cf6746e644f021837c8ceb8f841d7aa8dd0058fef3d20328256fa9bdf4"
+    },
+    {
+      "file": "Img_Common_Seed.png",
+      "size": [
+        95,
+        128
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png",
+      "method": "approved-paw-biscuit-crop-alpha-isolation",
+      "sourceRect": [
+        518,
+        206,
+        590,
+        285
+      ],
+      "note": "Theme content is a paw biscuit; keep legacy filename for future references.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "1a86a79720c58c5ebe4f430bd1fb9fe915081e329b12aebd6a201a02af81d4cf"
+    },
+    {
+      "file": "Img_Game_AutoMark.png",
+      "size": [
+        245,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "rule_master.png",
+      "method": "cropped-x-biscuit-rotated",
+      "sourceRect": null,
+      "note": "Matches original tilted X tile function; distinct from magnifier and bulb.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "4b163175f40618678a04198469c2b5b87d631c09c1f5286727f6c09f0622ff3f"
+    },
+    {
+      "file": "Img_Game_Guide.png",
+      "size": [
+        114,
+        118
+      ],
+      "mode": "RGBA",
+      "source": "../../previews/Game_Tools_Revision_20261028/Img_Game_Guide_master.png",
+      "method": "imagegen-redraw-alpha-normalized",
+      "sourceRect": null,
+      "note": "Redrawn smooth complete bulb with joined neck, rounded two-band screw base and contained highlight.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "934d9b030ad82654812e0a05cc59d860dc832fc22a9869db825cfae55389524a",
+      "revisionDate": "2026-10-28"
+    },
+    {
+      "file": "Img_Game_Hamster.png",
+      "size": [
+        509,
+        439
+      ],
+      "mode": "RGBA",
+      "source": "../../Sprite/hamster_idle_04__sharedassets2.assets__6.png",
+      "method": "reuse-approved-puppy",
+      "sourceRect": null,
+      "note": "Approved 509x439 avatar, viewer-right patch, no additional clothing or face redesign.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "3a4d569a07c302038bb767c5f59559d1e11108cc8ead3a25fe3a32119d88fe52"
+    },
+    {
+      "file": "Img_Game_HamsterCounter.png",
+      "size": [
+        509,
+        439
+      ],
+      "mode": "RGBA",
+      "source": "../../Sprite/hamster_idle_04__sharedassets2.assets__6.png",
+      "method": "reuse-approved-puppy",
+      "sourceRect": null,
+      "note": "Approved 509x439 avatar, viewer-right patch, no additional clothing or face redesign.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "3a4d569a07c302038bb767c5f59559d1e11108cc8ead3a25fe3a32119d88fe52"
+    },
+    {
+      "file": "Img_Game_Help.png",
+      "size": [
+        253,
+        255
+      ],
+      "mode": "RGBA",
+      "source": "approved_master.png + original info glyph + base_master.png",
+      "method": "assembled-matching-info-button",
+      "sourceRect": null,
+      "note": "Not visible in approved page; existing information symbol retained, no text.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "923b9e8586da5ce826729abf55d2f76ab24e25023830c5dc621b0ac288ce89d9"
+    },
+    {
+      "file": "Img_Game_Hint.png",
+      "size": [
+        114,
+        118
+      ],
+      "mode": "RGBA",
+      "source": "../../previews/Game_Tools_Revision_20261028/Img_Game_Hint_master.png",
+      "method": "imagegen-redraw-alpha-normalized",
+      "sourceRect": null,
+      "note": "Searching expression: eyes glance left, inquisitive asymmetric brows and small closed mouth; viewer-right blue eye patch retained.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "fa15ee123a82bf3e1e6c1f9183fe5cd09429e77489837e33ad1495b8e7e50f32",
+      "revisionDate": "2026-10-28"
+    },
+    {
+      "file": "Img_Game_PatternAcorn.png",
+      "size": [
+        73,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternAcorn.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "f8f42bafb6ce18890ff1f4417631d2d570b3144cbba0d6457a3273f93ad18c52"
+    },
+    {
+      "file": "Img_Game_PatternApple.png",
+      "size": [
+        95,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternApple.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "8fdd361bc311df454be17f2fcb06b3977a19de983fc1de958d6acbfe21d89339"
+    },
+    {
+      "file": "Img_Game_PatternCarrot.png",
+      "size": [
+        46,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternCarrot.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "a92a7443d6184f18a1b5552248c9e9c00a56abeb83b0c6dea30281d4fdb5315f"
+    },
+    {
+      "file": "Img_Game_PatternClover.png",
+      "size": [
+        95,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternClover.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "0bc9e9c8907ba5d4f1a734725f22a81894ac69ed99a6533663127d4d6f456bfa"
+    },
+    {
+      "file": "Img_Game_PatternDots.png",
+      "size": [
+        104,
+        102
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternDots.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "08229f601f1727ac0b11f22cb58e023df44812e24dba8a53c81fd30a3c4150da"
+    },
+    {
+      "file": "Img_Game_PatternFlower.png",
+      "size": [
+        94,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternFlower.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "eebdbc8f1abf5e205e9e6826a26cf2ca886b3eb3872d0acec5717afbbf11cfee"
+    },
+    {
+      "file": "Img_Game_PatternHeart.png",
+      "size": [
+        104,
+        90
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternHeart.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "0ed20cc044c2f76b41f4c030c41d015d830746ab0c38355fea507668851d0edc"
+    },
+    {
+      "file": "Img_Game_PatternLeaf.png",
+      "size": [
+        77,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternLeaf.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "72c5e2768caefe035a4d33bec3c45329f9135bee36911006a509700d97a5ad31"
+    },
+    {
+      "file": "Img_Game_PatternMoon.png",
+      "size": [
+        84,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternMoon.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "560b5fca6dead2a6d3347f08d5ee01b9ff69665c1ccf171113dd08481bcd3c58"
+    },
+    {
+      "file": "Img_Game_PatternPaw.png",
+      "size": [
+        104,
+        98
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternPaw.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "4506d486d23374bcaa9a81c8b7d3387439d0702f94e871d5d005792217866216"
+    },
+    {
+      "file": "Img_Game_PatternSeed.png",
+      "size": [
+        72,
+        104
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternSeed.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "de22619c28d7ea46a53405e3f5cb0cf3c015eeefbdb03865283516177320e30e"
+    },
+    {
+      "file": "Img_Game_PatternSparkle.png",
+      "size": [
+        101,
+        103
+      ],
+      "mode": "RGBA",
+      "source": "Assets\\Res_Runtime\\UI\\Game\\Img_Game_PatternSparkle.png",
+      "method": "retained-white-runtime-tint-mask",
+      "sourceRect": null,
+      "note": "Preserve silhouette and white RGB; Widget_BoardCell supplies the region color and opacity.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "50ad1fbb10627f0b10e174965820d2af5b523a91b691fdc0c6844e9f23bf3c14"
+    },
+    {
+      "file": "Img_Game_Retry.png",
+      "size": [
+        175,
+        188
+      ],
+      "mode": "RGBA",
+      "source": "../Settings/Img_Settings_Restart.png",
+      "method": "reuse-existing-theme-retry",
+      "sourceRect": null,
+      "note": "Transparent arrow only, no circle background or text.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "d07c74c80c056d51c87a285bb441a6ead5a8bd9eb79d9c04faadf3bb0de24386"
+    },
+    {
+      "file": "Img_Game_RuleAdjacent.png",
+      "size": [
+        478,
+        478
+      ],
+      "mode": "RGBA",
+      "source": "rule_master.png",
+      "method": "reassembled-biscuit-rule-tiles",
+      "sourceRect": null,
+      "note": "3x3 exact map: xxx/xdx/xxx; x=excluded, b=blank, d=dog. Transparent 10px gutters, 4px outside margin.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "3377d69e7e04a5d42fc82d0e86aefb3a6022b883607bf3b1b566774354c2ce59"
+    },
+    {
+      "file": "Img_Game_RuleLine.png",
+      "size": [
+        478,
+        478
+      ],
+      "mode": "RGBA",
+      "source": "rule_master.png",
+      "method": "reassembled-biscuit-rule-tiles",
+      "sourceRect": null,
+      "note": "3x3 exact map: bxb/xdx/bxb; x=excluded, b=blank, d=dog. Transparent 10px gutters, 4px outside margin.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "c5cc371909ff26e03e24ebe1597f76dddded5734e8d4e971ade055cc525966e2"
+    },
+    {
+      "file": "Img_Game_RuleRegion.png",
+      "size": [
+        478,
+        478
+      ],
+      "mode": "RGBA",
+      "source": "rule_master.png",
+      "method": "reassembled-biscuit-rule-tiles",
+      "sourceRect": null,
+      "note": "3x3 exact map: xxx/xdb/xbb; x=excluded, b=blank, d=dog. Transparent 10px gutters, 4px outside margin.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "65f93befae03ac18e4b32e70774439b367f1ab6f4bc1231e7c3c2a5013bdb0f5"
+    },
+    {
+      "file": "Img_Game_TutorialFinger.png",
+      "size": [
+        210,
+        240
+      ],
+      "mode": "RGBA",
+      "source": "Assets/Res_Runtime/UI/Game/Img_Game_TutorialFinger.png",
+      "method": "retained-existing-hand-illustration",
+      "sourceRect": null,
+      "note": "Existing cream/brown illustrated pointer already matches; retain alpha, hotspot and original multiple-sprite rect x3 y0 width206 height236.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 2,
+      "sha256": "c853ae6e0785832261a2f5905681a412e795aa31e34ac35743fd52a2eb2e101b"
+    },
+    {
+      "file": "bg_Common_Game.png",
+      "size": [
+        945,
+        2048
+      ],
+      "mode": "RGBA",
+      "source": "background_master.png",
+      "method": "generated-clean-plate-cover-crop",
+      "sourceRect": null,
+      "note": "No text/UI/canopy; fully opaque.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "e6de5b80a19bd5ea62452437f60a91394784e8cd2c2a2662cdfa7decf3dd1dab"
+    },
+    {
+      "file": "bg_Common_Popup.png",
+      "size": [
+        351,
+        512
+      ],
+      "mode": "RGBA",
+      "source": "base_master.png",
+      "method": "generated-empty-base-nine-slice",
+      "sourceRect": null,
+      "note": "Original border x/y/z/w=80 preserved in manifest; no text.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        80.0,
+        80.0,
+        80.0,
+        80.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "5d0a72eed522b9995bd76916a90b84b51d2b0b7ac62645055138f144b1915617"
+    },
+    {
+      "file": "bg_Common_Rounded.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "source": "Assets/Res_Runtime/UI/Game/bg_Common_Rounded.png",
+      "method": "retained-neutral-shared-mask",
+      "sourceRect": null,
+      "note": "Used for runtime tint, badges, focus, dimming and borders; do not bake a board color or warm outline into this shared mask.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        16.0,
+        16.0,
+        16.0,
+        16.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "9825123557fbae46e3fa92d6c47ec49702d8e06f1b98b32c947fd560ef81ea1c"
+    },
+    {
+      "file": "bg_Game_Circle.png",
+      "size": [
+        256,
+        256
+      ],
+      "mode": "RGBA",
+      "source": "Assets/Res_Runtime/UI/Game/bg_Game_Circle.png",
+      "method": "retained-neutral-shared-mask",
+      "sourceRect": null,
+      "note": "Used for runtime tint, badges, focus, dimming and borders; do not bake a board color or warm outline into this shared mask.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "c4f347e4472c6ebbed029e9ec712f03f43ba2dba9a63aedffd5ff0c89cd2155d"
+    },
+    {
+      "file": "bg_Game_HudBar.png",
+      "size": [
+        705,
+        277
+      ],
+      "mode": "RGBA",
+      "source": "hud_master.png",
+      "method": "generated-empty-pill-resized-by-sections",
+      "sourceRect": null,
+      "note": "No icons, count or life graphics baked in.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "799b25b1089dfe74c22c449df1ee41185774890f73d11516f97ecf28ecbc2d11"
+    },
+    {
+      "file": "bg_Game_Rounded.png",
+      "size": [
+        64,
+        64
+      ],
+      "mode": "RGBA",
+      "source": "Assets/Res_Runtime/UI/Game/bg_Game_Rounded.png",
+      "method": "retained-neutral-shared-mask",
+      "sourceRect": null,
+      "note": "Used for runtime tint, badges, focus, dimming and borders; do not bake a board color or warm outline into this shared mask.",
+      "retainedOriginal": true,
+      "originalSpriteBorderXYZW": [
+        16.0,
+        16.0,
+        16.0,
+        16.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "d8317e544cb96e5cbff88813f5619b281d7a0a56a7329fe40020b109675d3d1a"
+    },
+    {
+      "file": "btn_Common_Rounded_Yellow.png",
+      "size": [
+        510,
+        162
+      ],
+      "mode": "RGBA",
+      "source": "base_master.png",
+      "method": "clean-base-nine-slice-and-palette-normalization",
+      "sourceRect": null,
+      "note": "No labels/icons; original 60px borders remain compatible.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "c7f6a43010f7fe2c247476462e9cf70d2d0dedc95ce10937f8f44c66cb720139"
+    },
+    {
+      "file": "btn_Game_Rounded_Blue.png",
+      "size": [
+        508,
+        169
+      ],
+      "mode": "RGBA",
+      "source": "base_master.png",
+      "method": "clean-base-nine-slice-and-palette-normalization",
+      "sourceRect": null,
+      "note": "No labels/icons; original 60px borders remain compatible.",
+      "retainedOriginal": false,
+      "originalSpriteBorderXYZW": [
+        60.0,
+        60.0,
+        60.0,
+        60.0
+      ],
+      "originalSpriteMode": 1,
+      "sha256": "54a4ae7a8ada66a48e9f4f7163c121223cbc266894bd8ffe8e2935e8bdba0804"
+    }
+  ],
+  "lastRevisionDate": "2026-10-28"
+}

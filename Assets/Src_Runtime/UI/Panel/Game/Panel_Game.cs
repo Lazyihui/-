@@ -31,6 +31,8 @@ namespace Hamdoku {
         public TMP_Text tutorialConfirmLabel;
         public UnityEngine.UI.Button tutorialConfirm;
         public UnityEngine.UI.Image tutorialFinger;
+        public Sprite tutorialFingerOpen;
+        public Sprite tutorialFingerPressed;
         public UnityEngine.UI.Image tutorialRipple;
         public UnityEngine.UI.Button tutorialActionButton;
         public UnityEngine.UI.Image tutorialHintIcon;
@@ -40,6 +42,13 @@ namespace Hamdoku {
         int tutorialTarget;
         int[] tutorialPath;
         float tutorialStarted;
+        float tutorialCardStarted;
+        bool tutorialNudge;
+        bool tutorialSettling;
+        float tutorialDimAlpha;
+        float tutorialDimFrom;
+        float tutorialDimTarget;
+        GameConfigSO tutorialConfig;
         public Action homeHandle;
         public Action restartHandle;
         public Action shopHandle;
@@ -60,7 +69,8 @@ namespace Hamdoku {
                 ruleLabels == null || ruleLabels.Length != 3 || hearts == null || hearts.Length == 0 ||
                 tutorialRoot == null || tutorialDim == null || tutorialRule == null || tutorialAction == null ||
                 tutorialConfirmLabel == null || tutorialConfirm == null || tutorialFinger == null || tutorialRipple == null ||
-                tutorialActionButton == null || tutorialHintIcon == null) {
+                tutorialActionButton == null || tutorialHintIcon == null || tutorialFinger.sprite == null || tutorialRipple.sprite == null ||
+                tutorialFingerOpen == null || tutorialFingerPressed == null) {
                 throw new InvalidOperationException("Panel_Game has missing serialized UI bindings.");
             }
             this.localization = localization;
@@ -90,9 +100,17 @@ namespace Hamdoku {
             var authored = contentRoot.sizeDelta;
             contentRoot.localScale = Vector3.one * Mathf.Min(available.x / authored.x, available.y / authored.y);
         }
-        public void ShowTutorial(bool visible, int step, int target, int[] path) {
+        public void ConfigureTutorial(GameConfigSO config, bool animated) {
+            tutorialConfig = config;
+            tutorialDimAlpha = tutorialDim.color.a;
+            board.ConfigureTutorial(config, animated);
+            float cellSize = board.gridRoot.rect.width / config.tutorial.size;
+            tutorialFinger.rectTransform.sizeDelta = Vector2.one * cellSize * config.tutorialHandScale;
+            tutorialRipple.rectTransform.sizeDelta = Vector2.one * cellSize;
+        }
+        public void ShowTutorial(bool visible, int step, int target, int[] path, bool settling = false, bool nudge = false) {
             tutorialRoot.SetActive(visible);
-            tutorialDim.gameObject.SetActive(visible && step != 1 && step < 6);
+            tutorialDim.gameObject.SetActive(visible);
             var frame = board.gridRoot.parent.GetComponent<UnityEngine.UI.Image>();
             frame.color = visible && step != 1 && step < 6 ? new Color(0.32f, 0.32f, 0.32f, 1) : Color.white;
             scoreLabel.gameObject.SetActive(!visible);
@@ -108,41 +126,82 @@ namespace Hamdoku {
                 return;
             }
             if (tutorialStep != step) {
+                tutorialCardStarted = Time.unscaledTime;
+                tutorialDimFrom = tutorialStep < 0 ? (step != 1 && step < 6 ? tutorialDimAlpha : 0) : tutorialDim.color.a;
+                tutorialDimTarget = step != 1 && step < 6 ? tutorialDimAlpha : 0;
+                if (step == 7) {
+                    board.CelebrateTutorial(tutorialConfig.tutorialCelebrateSeconds);
+                }
+            }
+            if (tutorialStep != step || tutorialTarget != target || tutorialNudge != nudge || tutorialSettling != settling) {
                 tutorialStarted = Time.unscaledTime;
+            }
+            if (tutorialStep != step || tutorialSettling != settling) {
                 tutorialStep = step;
                 board.CancelGesture();
             }
+            tutorialSettling = settling;
+            tutorialNudge = nudge;
             tutorialTarget = target;
             tutorialPath = path;
             tutorialActionButton.interactable = step == 6;
             tutorialHintIcon.gameObject.SetActive(step == 6);
             tutorialConfirm.gameObject.SetActive(step == 1 || step == 7);
             tutorialAction.transform.parent.gameObject.SetActive(step == 2 || step == 4 || step == 6);
-            tutorialFinger.gameObject.SetActive(target >= 0 || path != null);
-            tutorialRipple.gameObject.SetActive(target >= 0 || path != null);
+            bool showFinger = !settling && (target >= 0 || path != null || nudge);
+            tutorialFinger.gameObject.SetActive(showFinger);
+            tutorialRipple.gameObject.SetActive(showFinger);
             Update();
         }
         void Update() {
-            if (!tutorialRoot.activeSelf || !tutorialFinger.gameObject.activeSelf) {
+            if (!tutorialRoot.activeSelf || tutorialConfig == null) {
+                return;
+            }
+            float cardElapsed = Time.unscaledTime - tutorialCardStarted;
+            float alpha = Mathf.Clamp01(cardElapsed / tutorialConfig.tutorialCardFadeSeconds);
+            tutorialRule.alpha = alpha;
+            tutorialAction.alpha = alpha;
+            tutorialConfirmLabel.alpha = alpha;
+            var dim = tutorialDim.color;
+            dim.a = Mathf.Lerp(tutorialDimFrom, tutorialDimTarget, Mathf.Clamp01(cardElapsed / tutorialConfig.tutorialDimFadeSeconds));
+            tutorialDim.color = dim;
+            if (!tutorialFinger.gameObject.activeSelf) {
                 return;
             }
             float time = Time.unscaledTime - tutorialStarted;
-            int index = tutorialTarget;
-            if (tutorialPath != null && tutorialPath.Length > 0) {
-                index = tutorialPath[Mathf.FloorToInt(time / 1.3f) % tutorialPath.Length];
-            }
-            Vector3 point = board.CellPosition(index);
+            float press = tutorialConfig.tutorialFingerPressSeconds;
+            float release = tutorialConfig.tutorialFingerReleaseSeconds;
+            float rest = tutorialConfig.tutorialFingerRestSeconds;
+            Vector3 point;
+            float rippleElapsed;
+            bool pressing;
             if (tutorialStep == 4 && tutorialPath != null) {
-                float travel = Mathf.Repeat(time / 2.4f, 1) * (tutorialPath.Length - 1);
+                float phase = Mathf.Repeat(time, press + tutorialConfig.tutorialFingerDragSeconds + release + rest);
+                float travel = Mathf.Clamp01((phase - press) / tutorialConfig.tutorialFingerDragSeconds) * (tutorialPath.Length - 1);
                 int from = Mathf.FloorToInt(travel);
                 point = Vector3.Lerp(board.CellPosition(tutorialPath[from]), board.CellPosition(tutorialPath[Mathf.Min(from + 1, tutorialPath.Length - 1)]), travel - from);
+                pressing = phase < press + tutorialConfig.tutorialFingerDragSeconds;
+                rippleElapsed = phase;
+            } else {
+                if (tutorialNudge) {
+                    var card = (RectTransform)tutorialActionButton.transform;
+                    point = card.TransformPoint(new Vector3(card.rect.center.x, card.rect.yMax * 0.75f, 0));
+                } else {
+                    point = board.CellPosition(tutorialTarget);
+                }
+                int count = tutorialStep == 0 || tutorialStep == 3 || tutorialStep == 5 ? 2 : 1;
+                float phase = Mathf.Repeat(time, count * (press + release) + rest);
+                int tap = Mathf.Min(count - 1, Mathf.FloorToInt(phase / (press + release)));
+                rippleElapsed = phase - tap * (press + release);
+                pressing = phase < count * (press + release) && rippleElapsed < press;
             }
             tutorialFinger.rectTransform.position = point;
             tutorialRipple.rectTransform.position = point;
-            float pulse = Mathf.Repeat(time * (tutorialTarget >= 0 ? 2.5f : 1.5f), 1);
-            tutorialFinger.rectTransform.localScale = Vector3.one * Mathf.Lerp(0.9f, 1, pulse);
-            tutorialRipple.rectTransform.localScale = Vector3.one * Mathf.Lerp(0.4f, 1.2f, pulse);
-            tutorialRipple.color = new Color(1, 1, 1, (1 - pulse) * 0.6f);
+            tutorialFinger.sprite = pressing ? tutorialFingerPressed : tutorialFingerOpen;
+            tutorialFinger.rectTransform.localScale = Vector3.one * (pressing ? 0.94f : 1);
+            float pulse = Mathf.Clamp01(rippleElapsed / tutorialConfig.tutorialRippleSeconds);
+            tutorialRipple.rectTransform.localScale = Vector3.one * Mathf.Lerp(tutorialConfig.tutorialRippleFrom, tutorialConfig.tutorialRippleTo, pulse);
+            tutorialRipple.color = new Color(1, 1, 1, (1 - pulse) * tutorialConfig.tutorialRippleAlpha);
         }
         void ReportTutorialHint() {
             tutorialHintHandle?.Invoke();

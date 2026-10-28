@@ -12,6 +12,21 @@ namespace Hamdoku {
                 throw new InvalidDataException("Invalid GameConfigSO.");
             }
             puzzles.Clear();
+            float[] tutorialDurations = { config.tutorialCrossSettleSeconds, config.tutorialIdleHintSeconds,
+                config.tutorialCardFadeSeconds, config.tutorialDimFadeSeconds, config.tutorialFingerPressSeconds,
+                config.tutorialFingerReleaseSeconds, config.tutorialFingerRestSeconds, config.tutorialFingerDragSeconds,
+                config.tutorialRippleSeconds, config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialCelebrateSeconds };
+            foreach (float duration in tutorialDurations) {
+                if (float.IsNaN(duration) || float.IsInfinity(duration) || duration <= 0) {
+                    throw new InvalidDataException("Invalid tutorial animation duration.");
+                }
+            }
+            if (float.IsNaN(config.tutorialHandScale) || float.IsInfinity(config.tutorialHandScale) || config.tutorialHandScale <= 0 ||
+                float.IsNaN(config.tutorialRippleFrom) || config.tutorialRippleFrom <= 0 ||
+                float.IsNaN(config.tutorialRippleTo) || float.IsInfinity(config.tutorialRippleTo) || config.tutorialRippleTo <= config.tutorialRippleFrom ||
+                float.IsNaN(config.tutorialRippleAlpha) || config.tutorialRippleAlpha <= 0 || config.tutorialRippleAlpha > 1) {
+                throw new InvalidDataException("Invalid tutorial finger configuration.");
+            }
             sizes.Clear();
             ValidatePuzzle(config.tutorial);
             int tutorialCells = config.tutorial.size * config.tutorial.size;
@@ -22,6 +37,7 @@ namespace Hamdoku {
                 throw new InvalidDataException("Invalid tutorial or palette configuration.");
             }
             if (config.tutorialPlaceIndices == null || config.tutorialPlaceIndices.Length != 3 ||
+                config.tutorialPlaceTextTypes == null || config.tutorialPlaceTextTypes.Length != 3 ||
                 config.tutorialLineIndices == null || config.tutorialLineIndices.Length == 0 ||
                 config.tutorialColors == null || config.tutorialColors.Length < config.tutorial.size) {
                 throw new InvalidDataException("Missing original tutorial flow configuration.");
@@ -155,6 +171,17 @@ namespace Hamdoku {
             if (save.isTutorial) {
                 if (save.level != 0 || (tutorialCompleted && save.status != GameStatus.Won)) {
                     throw new InvalidDataException("Tutorial progress conflicts with player progress.");
+                }
+                if (save.tutorialFlowVersion == 1) {
+                    int step = save.tutorialStep;
+                    if ((save.status == GameStatus.Won) != (step == 7) ||
+                        (step >= 1 && save.cells[config.tutorialPlaceIndices[0]] != CellStatus.Hamster) ||
+                        (step >= 3 && step < 6 && !Array.TrueForAll(config.tutorialLineIndices, index => save.cells[index] == CellStatus.Cross)) ||
+                        (step >= 4 && save.cells[config.tutorialPlaceIndices[1]] != CellStatus.Hamster) ||
+                        (step == 5 && !Array.TrueForAll(config.tutorialDragIndices, index => save.cells[index] == CellStatus.Cross)) ||
+                        (step >= 6 && save.cells[config.tutorialPlaceIndices[2]] != CellStatus.Hamster)) {
+                        throw new InvalidDataException("Tutorial step conflicts with saved board.");
+                    }
                 }
             } else if (save.level < 1 || save.level > config.campaignSizes.Length ||
                 puzzle.size != config.campaignSizes[save.level - 1] ||

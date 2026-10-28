@@ -59,6 +59,16 @@ namespace Hamdoku {
         public void ShowCell(int index, Color color, Sprite pattern, CellStatus status, bool highlighted, bool given) {
             cells[index].Show(color, pattern, status, highlighted, given);
         }
+        public void ConfigureTutorial(GameConfigSO config, bool animated) {
+            foreach (var cell in cells) {
+                cell.ConfigureTutorial(config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialDimFadeSeconds, animated);
+            }
+        }
+        public void CelebrateTutorial(float seconds) {
+            foreach (var cell in cells) {
+                cell.Celebrate(seconds);
+            }
+        }
         public void ShowRegionBorder(int index, bool visible, int[] regions, int boardSize, Color color, float width) {
             int region = regions[index];
             cells[index].ShowRegionBorder(visible, color, width,

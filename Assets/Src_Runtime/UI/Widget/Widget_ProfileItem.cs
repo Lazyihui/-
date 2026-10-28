@@ -14,6 +14,11 @@ namespace Hamdoku {
         public TMP_Text label;
         public int itemId;
         public ProfileTabType tab;
+        public Widget_ProfilePortrait portrait;
+        public GameObject newDot;
+        public GameObject clubTag;
+        public TMP_Text clubLabel;
+        public TMP_Text requirementLabel;
         public Action<ProfileTabType, int> selectHandle;
 
         public void Ctor() {

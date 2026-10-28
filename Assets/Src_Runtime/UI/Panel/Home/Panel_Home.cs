@@ -7,6 +7,8 @@ namespace Hamdoku {
     public sealed class Panel_Home : MonoBehaviour, IPanelAsset {
         public UnityEngine.UI.Image profileAvatar;
         public UnityEngine.UI.Image profileFrame;
+        public Widget_ProfilePortrait profilePortrait;
+        public GameObject profileNewDot;
         public RectTransform safeRoot;
         public RectTransform contentRoot;
         public RectTransform logoRoot;

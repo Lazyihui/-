@@ -6,5 +6,6 @@ namespace Hamdoku {
         public UINameType notice;
         public int noticeArgument;
         public float noticeRemaining;
+        public int visitedTabs;
     }
 }

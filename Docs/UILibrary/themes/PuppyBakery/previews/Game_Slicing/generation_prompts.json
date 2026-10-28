@@ -1,0 +1,29 @@
+{
+  "background": {
+    "tool": "built-in image_gen",
+    "reference": "approved_master.png",
+    "transparent": false,
+    "prompt": "Produce ONE clean full-screen BACKGROUND PLATE extracted/reconstructed from this approved Puppy Bakery gameplay UI. Portrait 9:16, no canopy at top. Keep its warm light ivory/cream background and faint pale honey-gold hand-painted bread, croissant, tiny leaf and paw patterns, sparse at edges, quieter at center. REMOVE EVERY UI foreground: no buttons, no HUD, no counters, no dogs, no lettering, no numbers, no rule strip, no board, no tools, no ad strip, no panels, no geometric empty frames. Fill removed areas seamlessly with the same warm cream and restrained sparse bakery pattern. Flat 2D subtle gouache, match the approved original background rather than introducing a new design. Single opaque background image only."
+  },
+  "rule": {
+    "tool": "built-in image_gen",
+    "references": [
+      "approved_master.png",
+      "../../assets/Sprite/hamster_idle_04__sharedassets2.assets__6.png"
+    ],
+    "transparent": true,
+    "prompt": "Produce ONE isolated square game RULE ICON asset, on true transparent background, matching the FIRST/LEFT of the three biscuit rule diagrams in reference image1. High-resolution clean sprite for downsampling to 478x478, not a screenshot. Exactly 3x3 aligned evenly sized rounded biscuit tiles, narrow transparent gutters. Warm pale buttercream empty tiles, darker toasted honey caramel excluded tiles with thick rounded cocoa chocolate X icing. Each biscuit has a thin rounded warm golden hand-drawn contour and restrained drybrush interior, flat softly illustrated NOT glossy plastic. Layout: TOP row all three caramel X tiles; MIDDLE row caramel X, puppy center, blank pale biscuit; BOTTOM row caramel X, blank pale biscuit, blank pale biscuit. Center puppy face on pale biscuit must faithfully match reference image2 identity: cream rounded square face with floppy dusty blue ears, viewer-right eye patch, brown eyes and nose, peach cheeks, no hamster ears or whiskers. Puppy comfortably fills center tile, crisp recognizable. Nine tiles form one neat square icon. No text, no lettering, no extra props, no backing panel, no shadow outside icon, no background paper, no colored box surrounding the 3x3 grid. Render exactly one diagram, no variations."
+  },
+  "hud": {
+    "tool": "built-in image_gen",
+    "reference": "approved_master.png",
+    "transparent": true,
+    "prompt": "Extract/reconstruct ONE SINGLE EMPTY cream HUD pill background from the reference gameplay screen (the cream counter capsule behind the dog 1/9, but REMOVE the dog and all numbers). Standalone transparent sprite, horizontal width:height silhouette about 2.55:1. Single warm ivory capsule, softly rounded semicircular ends, very delicate pale honey outline and restrained warm soft bottom rim, subtle matte gouache brush interior, same cream palette as approved screenshot. No text, no icons, no paws, no badges, no dog. Transparent outside the capsule, no opaque surrounding background. Do not create a sprite sheet or multiple items. Keep whole object complete with small clear margins."
+  },
+  "base": {
+    "tool": "built-in image_gen",
+    "reference": "approved_master.png",
+    "transparent": true,
+    "prompt": "ONE SINGLE isolated empty square rounded cream tool-button base, transparent outside. Match the two bottom tool buttons in the approved reference but REMOVE the magnifier, bulb, badge and all text. Empty warm ivory rounded square with soft pale honey rim and slight warm lower edge thickness, very restrained hand-painted gouache finish, flat 2D picture-book UI, no heavy dark outline, no blue border, no strong gradient. Width and height nearly equal. All four corners rounded, complete visible shape, no obstructions, no additional elements. This is one clean reusable square panel asset, NOT a full UI and NOT a spritesheet. Generous transparent margin, no background."
+  }
+}

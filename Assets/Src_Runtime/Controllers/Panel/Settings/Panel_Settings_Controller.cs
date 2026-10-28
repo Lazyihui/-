@@ -29,6 +29,8 @@ namespace Hamdoku.Controllers {
             var save = ctx.playerSave;
             var settings = save.settings;
             var state = ctx.state_Settings;
+            var game = ctx.state_Game;
+            panel.ShowLayout(game.isOpen, game.isOpen && !game.isTutorial && game.status == GameStatus.Playing && game.dialog == GameDialogType.None, config);
             panel.title.text = Text(ctx, UINameType.Settings_Title);
             var ids = new[] { UINameType.Settings_Effects, UINameType.Settings_Music, UINameType.Settings_Voice, UINameType.Settings_Vibration,
                 UINameType.Settings_Border, UINameType.Settings_Pattern, UINameType.Settings_Language };
@@ -44,6 +46,7 @@ namespace Hamdoku.Controllers {
                 settings.voice == ComboVoiceType.Male ? UINameType.Settings_Male : UINameType.Settings_Off);
             panel.languageValue.text = Text(ctx, save.language == SystemLanguage.English ? UINameType.Settings_English : UINameType.Settings_Chinese);
             panel.saveLabel.text = Text(ctx, UINameType.Settings_Save);
+            panel.restartLabel.text = Text(ctx, UINameType.Game_Restart);
             panel.tutorialLabel.text = Text(ctx, UINameType.Settings_Tutorial);
             panel.linkLabels[0].text = Text(ctx, UINameType.Settings_Support);
             panel.linkLabels[1].text = Text(ctx, UINameType.Settings_Privacy);

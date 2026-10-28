@@ -90,10 +90,22 @@ namespace Hamdoku.Controllers {
                     break;
                 case SettingsActionType.Language: state.dialog = SettingsDialogType.Language; break;
                 case SettingsActionType.Save:
+                    var game = ctx.state_Game;
+                    if (game.isOpen) {
+                        return;
+                    }
                     GameController.Persist(ctx);
                     HomeController.SaveProgress(ctx);
                     state.dialog = SettingsDialogType.Save;
                     break;
+                case SettingsActionType.Restart:
+                    var activeGame = ctx.state_Game;
+                    if (!activeGame.isOpen || activeGame.isTutorial || activeGame.status != GameStatus.Playing || activeGame.dialog != GameDialogType.None) {
+                        return;
+                    }
+                    Panel_Settings_Controller.Close(ctx);
+                    GameController.Restart(ctx);
+                    return;
                 case SettingsActionType.Tutorial: state.dialog = SettingsDialogType.Tutorial; break;
                 case SettingsActionType.Support: OpenLink(ctx, SettingsDialogType.Support); return;
                 case SettingsActionType.Privacy: OpenLink(ctx, SettingsDialogType.Privacy); return;

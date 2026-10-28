@@ -48,14 +48,15 @@ namespace Hamdoku.Editor {
                 .Select(guid => AssetDatabase.LoadAssetAtPath<L10NSO>(AssetDatabase.GUIDToAssetPath(guid))).ToList();
             BakeFonts(texts);
             GameOriginalUIEM.Adapt();
-            RegisterAssets(texts.Where(text => text.id >= UINameType.Game_TutorialRegion && text.id <= UINameType.Game_TutorialStart).Select(text => AssetDatabase.GetAssetPath(text)));
+            RegisterAssets(texts.Where(text => text.id >= UINameType.Game_TutorialRegion && text.id <= UINameType.Game_TutorialOnlyPurple).Select(text => AssetDatabase.GetAssetPath(text)));
             AssetDatabase.SaveAssets();
         }
         static void ImportSprites() {
             foreach (string path in Directory.GetFiles("Assets/Res_Runtime/UI/Game", "*.png")) {
                 var importer = (TextureImporter)AssetImporter.GetAtPath(path);
+                var spriteMode = importer.spriteImportMode;
                 importer.textureType = TextureImporterType.Sprite;
-                importer.spriteImportMode = SpriteImportMode.Single;
+                importer.spriteImportMode = spriteMode == SpriteImportMode.None ? SpriteImportMode.Single : spriteMode;
                 importer.spritePixelsPerUnit = 100;
                 importer.mipmapEnabled = false;
                 importer.alphaIsTransparency = true;
@@ -99,11 +100,28 @@ namespace Hamdoku.Editor {
             // This batch deliberately excludes later adaptive skill progression and map transforms.
             config.campaignSizes = new[] { 4, 5, 6, 6, 8 };
             config.tutorialPlaceIndices = new[] { 2, 13, 4 };
+            config.tutorialPlaceTextTypes = new[] { UINameType.Game_Place, UINameType.Game_TutorialOnlyOrange, UINameType.Game_TutorialOnlyPurple };
             config.tutorialLineIndices = new[] { 0, 1, 3, 6, 10, 14 };
             config.tutorialColors = new[] { new Color(0.31f, 0.72f, 0.69f), new Color(0.87f, 0.46f, 0.73f), new Color(0.94f, 0.66f, 0.32f), new Color(0.67f, 0.50f, 0.85f) };
             config.tutorialPlaceIndex = 13;
             config.tutorialTapIndex = 14;
             config.tutorialDragIndices = new[] { 8, 9, 12 };
+            config.tutorialCrossSettleSeconds = 0.5f;
+            config.tutorialIdleHintSeconds = 8f;
+            config.tutorialCardFadeSeconds = 0.38f;
+            config.tutorialDimFadeSeconds = 0.45f;
+            config.tutorialFingerPressSeconds = 0.13f;
+            config.tutorialFingerReleaseSeconds = 0.12f;
+            config.tutorialFingerRestSeconds = 1f;
+            config.tutorialFingerDragSeconds = 1.2f;
+            config.tutorialRippleSeconds = 0.42f;
+            config.tutorialRippleFrom = 0.44f;
+            config.tutorialRippleTo = 1.62f;
+            config.tutorialRippleAlpha = 0.9f;
+            config.tutorialHandScale = 1.75f;
+            config.tutorialMarkSeconds = 0.24f;
+            config.tutorialPlaceSeconds = 0.42f;
+            config.tutorialCelebrateSeconds = 1.2f;
             config.maxHearts = 3;
             config.hintsPerLevel = 3;
             config.guidesPerLevel = 3;

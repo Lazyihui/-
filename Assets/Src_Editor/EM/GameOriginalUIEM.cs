@@ -62,6 +62,15 @@ namespace Hamdoku.Editor {
                 cell.tutorialDim.color = new Color(0, 0, 0, 0.9f);
                 cell.tutorialDim.enabled = false;
                 cell.tutorialDim.rectTransform.SetAsLastSibling();
+                cell.tutorialStars = new UnityEngine.UI.Image[6];
+                for (int i = 0; i < cell.tutorialStars.Length; i++) {
+                    var star = EnsureImage("TutorialStar" + i, root.transform, Sprite("Img_Game_TutorialStar"));
+                    Center(star.rectTransform, Vector2.one * 44, Vector2.zero);
+                    star.preserveAspect = true;
+                    star.enabled = false;
+                    cell.tutorialStars[i] = star;
+                }
+                cell.tutorialDim.rectTransform.SetAsLastSibling();
                 PrefabUtility.SaveAsPrefabAsset(root, path);
             } finally {
                 PrefabUtility.UnloadPrefabContents(root);
@@ -269,9 +278,11 @@ namespace Hamdoku.Editor {
             Center(panel.tutorialConfirmLabel.rectTransform, new Vector2(630, 135), Vector2.zero);
             TutorialText(panel.tutorialConfirmLabel);
             panel.tutorialConfirmLabel.color = Color.white;
-            panel.tutorialRipple = EnsureImage("Ripple", overlay, Sprite("bg_Game_Circle"));
+            panel.tutorialRipple = EnsureImage("Ripple", overlay, Sprite("Img_Game_TutorialRipple"));
             Center(panel.tutorialRipple.rectTransform, Vector2.one * 210, Vector2.zero);
             panel.tutorialFinger = EnsureImage("Finger", overlay, Sprite("Img_Game_TutorialFinger"));
+            panel.tutorialFingerPressed = Sprite("Img_Game_TutorialFinger");
+            panel.tutorialFingerOpen = Sprite("Img_Game_TutorialFingerOpen");
             Center(panel.tutorialFinger.rectTransform, Vector2.one * 260, Vector2.zero);
             panel.tutorialFinger.rectTransform.pivot = new Vector2(0.25f, 0.86f);
             panel.tutorialFinger.preserveAspect = true;

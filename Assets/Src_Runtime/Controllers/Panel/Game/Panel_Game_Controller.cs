@@ -27,6 +27,7 @@ namespace Hamdoku.Controllers {
             var assets = ctx.assetModule;
             var config = assets.GetGameConfig();
             panel.board.Init(state.puzzle.size, config.doubleTapSeconds, config.dragThreshold);
+            panel.ConfigureTutorial(config, state.isTutorial);
             Refresh(ctx);
         }
         public static string Text(GameContext ctx, UINameType type) {
@@ -84,8 +85,8 @@ namespace Hamdoku.Controllers {
             panel.instructionLabel.text = string.Empty;
             if (state.isTutorial) {
                 int step = state.tutorialStep;
-                UINameType rule = step == 0 ? UINameType.Game_Place : step == 1 ? UINameType.Game_TutorialRegion :
-                    step == 2 ? UINameType.Game_TutorialLine : step == 3 || step == 5 ? UINameType.Game_TutorialOnly :
+                UINameType rule = step == 0 ? config.tutorialPlaceTextTypes[0] : step == 1 ? UINameType.Game_TutorialRegion :
+                    step == 2 ? UINameType.Game_TutorialLine : step == 3 ? config.tutorialPlaceTextTypes[1] : step == 5 ? config.tutorialPlaceTextTypes[2] :
                     step == 4 ? UINameType.Game_TutorialAdjacent : step == 7 ? UINameType.Game_TutorialDone : UINameType.Game_Solve;
                 UINameType action = step == 2 ? UINameType.Game_Tap : step == 4 ? UINameType.Game_Drag : step == 6 ? UINameType.Game_TutorialHint : UINameType.None;
                 panel.tutorialRule.text = Text(ctx, rule);
@@ -95,8 +96,14 @@ namespace Hamdoku.Controllers {
                 panel.tutorialAction.text = action == UINameType.None ? string.Empty : Text(ctx, action);
                 panel.tutorialConfirmLabel.text = Text(ctx, step == 7 ? UINameType.Game_TutorialStart : UINameType.Game_TutorialConfirm);
                 int target = step == 0 ? config.tutorialPlaceIndices[0] : step == 3 ? config.tutorialPlaceIndices[1] : step == 5 ? config.tutorialPlaceIndices[2] : -1;
-                int[] path = step == 2 ? Array.FindAll(config.tutorialLineIndices, index => state.cells[index] == CellStatus.None) : step == 4 ? config.tutorialDragIndices : null;
-                panel.ShowTutorial(true, step, target, path);
+                int[] path = step == 4 ? config.tutorialDragIndices : null;
+                if (step == 2 || step == 4) {
+                    int[] candidates = step == 2 ? config.tutorialLineIndices : config.tutorialDragIndices;
+                    target = Array.FindIndex(candidates, index => state.cells[index] == CellStatus.None);
+                    target = target < 0 ? -1 : candidates[target];
+                }
+                bool nudge = step == 6 && !state.tutorialHintUsed && state.tutorialIdleElapsed >= config.tutorialIdleHintSeconds;
+                panel.ShowTutorial(true, step, target, path, state.tutorialTransitionPending, nudge);
                 var settings = ctx.state_Settings;
                 panel.homeButton.gameObject.SetActive(settings.tutorialReview);
             } else {

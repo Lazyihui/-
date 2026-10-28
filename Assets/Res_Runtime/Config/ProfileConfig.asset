@@ -89,6 +89,716 @@ MonoBehaviour:
   clubFrameId: 20
   nameMaxChars: 12
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
-  idleColor: {r: 1, g: 1, b: 1, a: 0.45}
+  idleColor: {r: 1, g: 1, b: 1, a: 1}
   lockedAlpha: 0.3
   noticeSeconds: 3
+  tabOn: {fileID: 21300000, guid: 3cc8e1a179026474a88945afeb89063c, type: 3}
+  tabOff: {fileID: 21300000, guid: 3b17a6d0f04cc6a47b9502e99d8b2e39, type: 3}
+  tabOnText: {r: 0.35, g: 0.26, b: 0.16, a: 1}
+  tabOffText: {r: 0.65, g: 0.56, b: 0.46, a: 1}
+  hands:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6f5d7f7947b84d4b93a3ee2fbbe04567, type: 3}
+  - {fileID: 21300000, guid: acd23f401063429d971a3b2a37b60c07, type: 3}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 9e3818b31c4d4fec9647a0d5ba94521b, type: 3}
+  - {fileID: 21300000, guid: ac0479bd28db4ed48c68ed9879aee6f2, type: 3}
+  - {fileID: 21300000, guid: af96a46e240a4260909d928ee873bcda, type: 3}
+  - {fileID: 21300000, guid: cfa10102fd0a48e19d4f5494cf807ce8, type: 3}
+  - {fileID: 21300000, guid: 7b3c19ead131477abd2f839a9af9bc11, type: 3}
+  - {fileID: 21300000, guid: 1af20d9724154fc48472bc97d65d0d8d, type: 3}
+  - {fileID: 21300000, guid: 1d9e036e649e44688b8e71c9028f56e0, type: 3}
+  - {fileID: 21300000, guid: c76f35cff7c54784be6425afc9a8af9b, type: 3}
+  - {fileID: 21300000, guid: 7cfc3c990ebe4146b6b495a7b2dd026d, type: 3}
+  - {fileID: 21300000, guid: 20df5acbc1864484b39769074af81167, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 6419207c98fc4d4eb69a02400306d68b, type: 3}
+  - {fileID: 21300000, guid: 930f3278b8bf4557af2a0ea99b39348e, type: 3}
+  - {fileID: 21300000, guid: db69fd7f1ab1491b9dd973fa4d62397e, type: 3}
+  - {fileID: 21300000, guid: 719def15c18043b9b4d1320995ed642f, type: 3}
+  - {fileID: 21300000, guid: 2b60a8de78ba40c7a3a631f809502d02, type: 3}
+  - {fileID: 21300000, guid: 8b0ea001608b44d38a7c404bce2fa7f0, type: 3}
+  - {fileID: 21300000, guid: 92821fa3bdf449a0b694f84994f03752, type: 3}
+  - {fileID: 21300000, guid: f7e66d8d60d248c3ad44ac7157bd8410, type: 3}
+  costumeFits:
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 0.98
+    rotation: -1
+  - offset: {x: -0.01, y: 0.03}
+    scale: 0.9
+    rotation: 1
+  - offset: {x: 0.0078, y: 0.04}
+    scale: 0.99
+    rotation: -1
+  - offset: {x: -0.01, y: 0.04}
+    scale: 0.98
+    rotation: 1
+  - offset: {x: -0.0508, y: 0.0234}
+    scale: 0.87
+    rotation: 0
+  - offset: {x: -0.0039, y: 0.03}
+    scale: 0.99
+    rotation: 2
+  - offset: {x: -0.035, y: 0.05}
+    scale: 0.95
+    rotation: 5
+  - offset: {x: -0.0078, y: 0.04}
+    scale: 0.89
+    rotation: 0
+  - offset: {x: 0, y: 0.0391}
+    scale: 1
+    rotation: -1
+  - offset: {x: -0.03, y: 0.05}
+    scale: 0.97
+    rotation: 2
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.043}
+    scale: 1.025
+    rotation: 0
+  - offset: {x: -0.01, y: 0.039}
+    scale: 1.035
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1.021
+    rotation: 0
+  - offset: {x: -0.01, y: 0.045}
+    scale: 1.035
+    rotation: 0
+  - offset: {x: -0.01, y: 0.039}
+    scale: 1.014
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.914
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.151, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.096, y: 0.045}
+    scale: 0.957
+    rotation: -7
+  - offset: {x: 0.142, y: 0.083}
+    scale: 0.914
+    rotation: -4.4
+  - offset: {x: 0.096, y: 0.113}
+    scale: 0.914
+    rotation: 4.5
+  - offset: {x: 0.147, y: 0.04}
+    scale: 0.858
+    rotation: -7
+  - offset: {x: 0.151, y: 0.073}
+    scale: 0.9
+    rotation: -7
+  - offset: {x: 0.142, y: 0.05}
+    scale: 0.957
+    rotation: -2.3
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: 0.143, y: 0.051}
+    scale: 0.943
+    rotation: -6
+  - offset: {x: 0.147, y: 0.03}
+    scale: 1
+    rotation: -3
+  - offset: {x: 0.139, y: 0.03}
+    scale: 1
+    rotation: -5.5
+  - offset: {x: 0.139, y: 0.064}
+    scale: 1
+    rotation: -2.6
+  - offset: {x: 0.122, y: 0.079}
+    scale: 0.954
+    rotation: -2.1
+  - offset: {x: 0.135, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.006, y: 0.03}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: 0.03}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: 0.03}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: 0.03}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: 0.022}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: -0.004}
+    scale: 1.051
+    rotation: 0
+  - offset: {x: -0.006, y: -0.004}
+    scale: 1.037
+    rotation: 0
+  - offset: {x: 0.003, y: 0.073}
+    scale: 1.03
+    rotation: -1
+  - offset: {x: -0.006, y: 0.045}
+    scale: 0.98
+    rotation: 1
+  - offset: {x: -0.002, y: 0.04}
+    scale: 1.016
+    rotation: -1
+  - offset: {x: -0.006, y: 0.066}
+    scale: 1.018
+    rotation: 1
+  - offset: {x: -0.0508, y: 0.04}
+    scale: 0.913
+    rotation: 0
+  - offset: {x: -0.008, y: 0.03}
+    scale: 1.011
+    rotation: 2
+  - offset: {x: -0.035, y: 0.054}
+    scale: 0.992
+    rotation: 5
+  - offset: {x: -0.0078, y: 0.044}
+    scale: 0.89
+    rotation: 0
+  - offset: {x: 0, y: 0.031}
+    scale: 1.014
+    rotation: -1
+  - offset: {x: -0.03, y: 0.037}
+    scale: 0.991
+    rotation: 2
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.001, y: 0.013}
+    scale: 1.05
+    rotation: 0
+  - offset: {x: -0.01, y: 0.013}
+    scale: 1.021
+    rotation: 0
+  - offset: {x: -0.002, y: 0.015}
+    scale: 1.043
+    rotation: 0
+  - offset: {x: -0.001, y: 0.03}
+    scale: 1.049
+    rotation: 0
+  - offset: {x: -0.001, y: 0.034}
+    scale: 1.063
+    rotation: 0
+  - offset: {x: 0.006, y: 0.019}
+    scale: 1.035
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.003, y: 0.072}
+    scale: 1.12
+    rotation: 0
+  - offset: {x: 0.007, y: 0.212}
+    scale: 0.95
+    rotation: -1
+  - offset: {x: -0.006, y: 0.212}
+    scale: 0.801
+    rotation: 1
+  - offset: {x: 0.008, y: 0.189}
+    scale: 0.954
+    rotation: -1
+  - offset: {x: -0.01, y: 0.078}
+    scale: 1.146
+    rotation: 1
+  - offset: {x: -0.047, y: 0.168}
+    scale: 0.834
+    rotation: 0
+  - offset: {x: -0.012, y: 0.119}
+    scale: 1.111
+    rotation: 2
+  - offset: {x: -0.07, y: 0.097}
+    scale: 1.064
+    rotation: 10.1
+  - offset: {x: -0.012, y: 0.057}
+    scale: 0.989
+    rotation: 0
+  - offset: {x: -0.013, y: 0.217}
+    scale: 0.929
+    rotation: 1.6
+  - offset: {x: -0.022, y: 0.084}
+    scale: 1.041
+    rotation: 2
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.001, y: 0.188}
+    scale: 1.021
+    rotation: 0
+  - offset: {x: -0.001, y: 0.065}
+    scale: 1.156
+    rotation: 0
+  - offset: {x: 0.003, y: 0.187}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.001, y: 0.065}
+    scale: 1.156
+    rotation: 0
+  - offset: {x: -0.001, y: 0.187}
+    scale: 0.986
+    rotation: 0
+  - offset: {x: -0.001, y: 0.187}
+    scale: 1.007
+    rotation: 0
+  - offset: {x: -0.001, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.001, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.006, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.006, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.006, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.001, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.006, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: 0.003, y: 0.047}
+    scale: 0.957
+    rotation: -1
+  - offset: {x: -0.001, y: 0.056}
+    scale: 0.957
+    rotation: 1
+  - offset: {x: 0.008, y: 0.04}
+    scale: 0.957
+    rotation: -1
+  - offset: {x: -0.01, y: 0.044}
+    scale: 0.972
+    rotation: 1
+  - offset: {x: -0.0508, y: 0.057}
+    scale: 0.927
+    rotation: 0
+  - offset: {x: -0.008, y: 0.056}
+    scale: 0.976
+    rotation: 2
+  - offset: {x: -0.035, y: 0.071}
+    scale: 0.95
+    rotation: 8.7
+  - offset: {x: -0.0078, y: 0.049}
+    scale: 0.925
+    rotation: 0
+  - offset: {x: 0, y: 0.005}
+    scale: 0.95
+    rotation: -1
+  - offset: {x: -0.013, y: 0.05}
+    scale: 0.963
+    rotation: 2
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.001, y: 0.013}
+    scale: 0.979
+    rotation: 0
+  - offset: {x: 0.003, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.001, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: 0.003, y: 0.013}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: 0.003, y: 0.017}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: 0.003, y: 0.026}
+    scale: 0.972
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.096}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.113}
+    scale: 0.836
+    rotation: 0
+  - offset: {x: -0.001, y: 0.1}
+    scale: 0.886
+    rotation: -1
+  - offset: {x: -0.01, y: 0.087}
+    scale: 0.819
+    rotation: 1
+  - offset: {x: 0.0078, y: 0.07}
+    scale: 0.886
+    rotation: -1
+  - offset: {x: 0.003, y: 0.04}
+    scale: 0.975
+    rotation: 1
+  - offset: {x: -0.047, y: 0.07}
+    scale: 0.792
+    rotation: 0.9
+  - offset: {x: -0.0039, y: 0.094}
+    scale: 0.99
+    rotation: 2
+  - offset: {x: -0.035, y: 0.097}
+    scale: 0.95
+    rotation: 6.7
+  - offset: {x: -0.0078, y: 0.066}
+    scale: 0.89
+    rotation: 0
+  - offset: {x: 0, y: 0.073}
+    scale: 0.894
+    rotation: -1
+  - offset: {x: -0.022, y: 0.063}
+    scale: 0.949
+    rotation: 2
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.03}
+    scale: 1
+    rotation: 0
+  - offset: {x: -0.01, y: 0.077}
+    scale: 0.83
+    rotation: 0
+  - offset: {x: -0.001, y: 0.077}
+    scale: 0.887
+    rotation: 0
+  - offset: {x: -0.001, y: 0.078}
+    scale: 0.872
+    rotation: 0
+  - offset: {x: -0.01, y: 0.051}
+    scale: 0.901
+    rotation: 0
+  - offset: {x: -0.01, y: 0.051}
+    scale: 0.88
+    rotation: 0
+  - offset: {x: -0.001, y: 0.051}
+    scale: 0.922
+    rotation: 0
+  costumeRects:
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  - serializedVersion: 2
+    x: -0.25
+    y: -0.25
+    width: 1.5
+    height: 1.5
+  costumeHeadPivot: {x: 0.498, y: 0.5656}
+  costumeSeasons: 721703007217030072170300731703007317030073170300
+  costumeSourceIds: 010000000200000003000000070000000500000006000000
+  crownFrames: 000000000000000100000101010101010101010100
+  frameOpenings:
+  - 0.77
+  - 0.77
+  - 0.77
+  - 0.77
+  - 0.77
+  - 0.77
+  - 0.77
+  - 0.5567
+  - 0.77
+  - 0.77
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.5567
+  - 0.587
+  badgeCenters:
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.195, y: 0.313}
+  - {x: 0.186, y: 0.321}
+  - {x: 0.194, y: 0.319}
+  - {x: 0.193, y: 0.32}
+  - {x: 0.193, y: 0.332}
+  - {x: 0.195, y: 0.313}
+  badgeColors:
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  - {r: 0.9, g: 0.34, b: 0.5, a: 1}
+  - {r: 0.2, g: 0.62, b: 0.95, a: 1}
+  - {r: 0.44, g: 0.66, b: 0.05, a: 1}
+  - {r: 0.52, g: 0.24, b: 0.8, a: 1}
+  - {r: 0.16, g: 0.28, b: 0.62, a: 1}
+  - {r: 0.13, g: 0.58, b: 0.47, a: 1}
+  - {r: 0.36, g: 0.42, b: 0.54, a: 1}
+  - {r: 0.22, g: 0.24, b: 0.66, a: 1}
+  - {r: 0.38, g: 0.2, b: 0.62, a: 1}
+  - {r: 0.66, g: 0.1, b: 0.36, a: 1}
+  - {r: 0.82, g: 0.55, b: 0.02, a: 1}
+  frameAuras:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 21300000, guid: 3f0142f02e0b4687af8b5677a1c02bcd, type: 3}
+  - {fileID: 21300000, guid: 89eebff2dc32419a91d15a4c1b94e59e, type: 3}
+  - {fileID: 21300000, guid: ab9b3310be6d4937aee5ee767fc63dbc, type: 3}
+  - {fileID: 0}
+  frameAuraTiers: 000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000200000000000000
+  crownPlateScale: 1.04
+  crownFrameScale: 1.39
+  crownOpeningCenter: {x: 0.518, y: 0.568}
+  crownBadgeScale: 0.135
+  ringOpeningOfPlate: 0.9
+  portraitFaceScale: 0.8
+  auraScale: 1.3333334
+  auraAlpha:
+  - 0.6
+  - 1
+  - 1
+  auraSpeed:
+  - 0.14
+  - 0.15
+  - 0.15
+  auraHueBase:
+  - 0.58
+  - 0
+  - 0
+  auraHueRange:
+  - 0.2
+  - 0.4
+  - 0.5
+  auraSaturation: 1
+  auraValue: 0.88
+  sparkleSpeed: 3.2
+  sparkleMinScale: 0.45
+  newDotPulseScale: 1.16
+  newDotPulseSeconds: 0.9

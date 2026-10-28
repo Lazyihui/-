@@ -20,6 +20,8 @@
 
 	- B6 不覆盖用户已有修改，不修改任务范围外的文件；重命名、删除或迁移资源前先检查代码和序列化引用。
 
+	- B7 后续每次迁移功能或资源前，先列明拟迁移的原作内容及证据、当前工程目标脚本与资源、职责与行为变化、交付和验证范围，向用户确认后实施。代码阅读引导的确认仅授权文档补充，不代表已授权功能迁移；已确认范围内的必要修复按 B3 执行。
+
 - A3 文档规范
 	- B1 只有用户明确要求时才新增文档或扩展文档主题；已要求维护的工作记录随项目修改更新，无需逐次确认。新增文档应在本文件添加入口链接。
 
@@ -142,3 +144,16 @@
 	- B8 [小狗面包房换皮风格](Docs/UILibrary/themes/PuppyBakery/STYLE.md)：记录已确认头像的绘本造型、配色、尺寸与后续素材一致性要求。
 
 	- B9 [Prefab 与原作层级资料](Docs/UILibrary/PrefabCollection/index.html)：集中查看当前工程 Prefab 快照、原作序列化对象层级、配置及动态 UI 代码证据；完整来源与哈希见同目录 manifest.json。
+
+	- B10 [原作可读代码](D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/decompiled_csharp/README.md)：集中查看本轮 Cpp2IL 方法 IL 恢复、dnSpy C# 伪代码、游戏方法索引及恢复诊断；不等同于原始源码或运行验证。
+
+- A10 原作代码查阅与迁移依据
+	- B1 原作可读代码根目录为 `D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/decompiled_csharp`，保持只读。先读该目录 README.md 的恢复边界，再通过 GAME_INDEX.md 定位类型；GameAssemblies 包含四个游戏程序集的 283 份显式 C# 文件，AllAssemblies 用于补查其他程序集调用关系。
+
+	- B2 迁移前先读对应业务类型、调用方及状态机，再以 game-method-index.tsv 的 assembly、type、recovered_token 定位具体方法，检查 status、diagnostic_count、source_line 以及 method-issues.jsonl、source-diagnostics.json。方法可定位或未检测到诊断均不表示逻辑恢复正确。
+
+	- B3 带 NoteDecompilerIssue、无效 IL、异常占位、可疑零值或控制流的代码，应沿索引的 structure、native、isil 路径回查，并结合原作配置、对象层级及实际运行证据。恢复 DLL 的 Token／RVA 不等同于原 metadata Token／ARM64 地址；空结构方法只提供签名，工具替代值不能作为业务数值依据。
+
+	- B4 按业务入口查阅启动、首页、棋盘、教程、结算、进度和设置，具体类型链接见 [代码阅读与业务定位](Docs/UILibrary/PrefabCollection/index.html#code-guide)。这些入口是分析起点，不构成已经确认的运行调用链或迁移清单。
+
+	- B5 明确区分原作静态证据、运行核实、当前工程实现选择和待核实项。迁移行为按当前 ClientMain／System／Controller／Module／Panel 分层实现，配置使用正式 SO；不直接复制恢复 C# 到 Assets，不照搬原作单例或静态业务状态。UI 迁移仍须先核对原层级与资源依赖，并按 A2-B7 确认迁移范围。

@@ -115,3 +115,18 @@
 	- B5 用户随后要求以正式Settings目录的现有资源为切图契约，第一版28张保留为历史方案；当前待确认版为[v02的19张对应素材](assets/UI/Settings/v02/manifest.json)，沿用正式文件名与画布尺寸，记录原九宫格、PPU和GUID。两种白色Fill保持原文件，图标与底块不拆开，外层与内部面板分别制作，不新增标题牌、状态贴图或背景。面板保留原透明蒙版与28像素九宫格边距，其他造型等比放入原透明内容范围，边界差异记录在清单中。
 
 	- B6 [v02切图总览](previews/Settings_Slicing_v02/contact_sheet_v02.png)与[原图／候选图对照](previews/Settings_Slicing_v02/original_vs_candidate_v02.png)用于用户审图；[检查结果](previews/Settings_Slicing_v02/verification.json)确认19张文件名及尺寸对应、Fill字节一致、正式目录所有文件哈希未变。用户明确要求先确认切图再替换，本轮未写入正式PNG、meta、Prefab或运行配置；此前B4的页面未实现说明仅描述第一版制作时状态，不用于判断当前工程实现进度。
+
+	- B7 用户于2026-10-28授权按Logo页目录方式安装v02，19张新图位于正式Assets/Res_Runtime/UI/Settings/new，旧图归档至同级old。new保留原meta及GUID，old使用独立GUID；Panel_Settings.prefab原位且内容不变。SettingsSetupEM的导入扫描与图片查找同步指向new；没有运行配置工具。安装哈希与引用保留检查见Logs/SettingsImageInstall/verification.json，尚未验证Unity实际导入、Play Mode或真机效果。
+
+- A13 游戏页原尺寸切图（未替换）
+	- B1 用户于2026-10-27确认无顶部遮阳篷的游戏页样图及焦糖饼干规则图，并明确本轮只切图、不替换正式资源。[确认整页图](previews/Game_Slicing/Panel_Game_Style_1080x1920.png)仅作为视觉参考。
+
+	- B2 [34张PNG](assets/UI/Game/manifest.json)逐项对应Assets/Res_Runtime/UI/Game的文件名和实际像素尺寸；18张为主题制作、裁切或已确认主题素材复用，另16张保留原文件（12张辅助纹样、3张运行时着色白色底图、1张教程手指）。白色遮罩不能预先烘焙区域色，教程手指保留原图集切片与指尖位置。
+
+	- B3 三张规则图均为478×478，沿用原作3×3排除关系，以同一套焦糖饼干格、巧克力叉号及小狗中心格拼合。背景、HUD空底及工具按钮空底通过内置image_gen补绘，不能宣称全部从样图无损裁切。生成描述和底稿保存在previews/Game_Slicing/；文字、数量角标和计数继续由TMP及独立UI显示。
+
+	- B4 [素材总览](previews/Game_Slicing/contact_sheet_v01.png)、[实际920×128规则栏](previews/Game_Slicing/rule_strip_920x128.png)、[离线整页拼合](previews/Game_Slicing/page_layers_reassembled_1080x1920.png)及[检查结果](previews/Game_Slicing/verification.json)用于审图。拼合图使用离线布局、配色与Windows字体，不能作为当前Prefab运行截图；相同尺寸也不代表直接替换后与确认稿完全一致。
+
+	- B5 34张文件名、RGBA、尺寸、非空内容及正式PNG／meta未改动检查通过，原九宫格边距、Sprite模式与素材来源已写入清单。不复制meta、不安装正式图片、不修改脚本、Prefab、场景、SO、存档或Addressables；本轮未进行Unity编译、Play Mode、内容打包、应用构建、安装及真机验证。
+
+	- B6 2026-10-28按用户确认重绘Img_Game_Guide与Img_Game_Hint：灯泡轮廓、灯颈与双段底座连续完整，小狗改为侧向寻找、微收眉眼与闭口神态；均保留奶油色按钮及114×118 RGBA透明规格。仅更新本主题Game目录的这两张图片和对应清单，正式资源未替换。[前后对照](previews/Game_Tools_Revision_20261028/before_after.png)、底稿、生成描述及离线检查保存在同目录；历史全量切图脚本重跑时会应用此次修订。

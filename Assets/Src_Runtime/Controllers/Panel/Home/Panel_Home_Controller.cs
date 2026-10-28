@@ -54,6 +54,9 @@ namespace Hamdoku.Controllers {
             var profile = save.profile;
             panel.profileAvatar.sprite = profileConfig.avatars[profile.avatarId];
             panel.profileFrame.sprite = profileConfig.frames[profile.frameId];
+            panel.profilePortrait.Show(profileConfig, profile.avatarId, profile.frameId, profile.costumeId, 1, -1);
+            panel.profileNewDot.SetActive(ProfileController.NewMask(profileConfig, save, ProfileTabType.Avatar) != 0 ||
+                ProfileController.NewMask(profileConfig, save, ProfileTabType.Frame) != 0 || ProfileController.NewMask(profileConfig, save, ProfileTabType.Costume) != 0);
             int level = save.campaignClears + 1;
             bool hard = level >= config.hardLevelStart && level % config.hardLevelInterval == 0;
             panel.logo.sprite = hard ? config.logoHard : config.logoNormal;
