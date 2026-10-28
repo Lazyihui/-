@@ -494,3 +494,25 @@
 - 按用户截图去掉Panel_Logo背景顶部蓝白雨棚，使用imagegen编辑奶油色烘焙底纹；新增Logo专用bg_Logo.png及Sprite导入meta，避免改动首页共用的bg_Common_Menu.png。正式Scene_Main仅替换Background的Sprite引用及对应宽高比，LogoSetupEM同步专用资源名，运行无需先执行菜单。Logo人物、文字、加载图标和逻辑不变。
 - 主要文件：Assets/Res_Runtime/UI/Logo/new/bg_Logo.png（852×1846）、对应.meta、Assets/Res_Runtime/Scene_Main.unity、Assets/Src_Editor/EM/LogoSetupEM.cs。
 - Windows静态检查通过：新图片目视检查顶部雨棚已移除；蓝色像素筛查为0，正式场景Sprite GUID与meta对应、AspectRatioFitter比例匹配图片，首页保留原背景引用。验证脚本首次因PowerShell只读变量命名冲突中断，改名后首页引用检查通过，未修改项目业务。本轮未运行Unity编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证；编辑器当前运行画面尚未验收。
+## 2026-10-28 新手引导动画过渡打磨
+
+- 按用户要求继续完善已确认的新手引导表现。检查现有Panel_Game、Widget_Board／Widget_BoardCell、GameConfigSO与正式Prefab引用；已有手指双击／拖动、波纹、逐笔划叉、落子星点及完成庆祝继续沿用，本轮未迁移新增原作资源或扩展业务流程。
+- Panel_Game为规则卡、操作卡及确认按钮补整体缩放入场，文本／全屏遮罩使用平滑曲线，手指按压与抬起缩放改为连续过渡。Widget_BoardCell的落子弹出与格子遮罩使用平滑曲线。现有SO淡入、按压和落子时长继续生效；新增曲线与卡片缩放属于工程表现选择，未声称原作逐帧还原。
+- 修复全屏遮罩首次直接以目标透明度开始而没有淡入、格子遮罩初始化后使用旧起点插值导致闪变，以及重复配置从动画当前透明度读取目标值的问题。初始缩放和遮罩透明度由已有正式资源读取，未改Prefab层级、GUID、存档或Controller权威状态。
+- 主要文件：Assets/Src_Runtime/UI/Panel/Game/Panel_Game.cs、Assets/Src_Runtime/UI/Widget/Widget_BoardCell.cs。Windows本机dotnet build Hamdoku.csproj --no-restore通过，0警告／0错误；目标文件git diff --check通过（仅Git行尾转换提示）。本轮未执行Unity编辑器编译验收、Play Mode连续帧检查、Addressables内容打包、应用构建、安装或真机验证；此前迁移验证不替代本轮动态验收。
+
+## 2026-10-28 设置页首页与游戏内内容区分
+
+- 按用户两张截图及确认范围，补齐同一设置面板在首页与游戏内的差异：首页保留“保存进度”、隐藏“重新开始”；主线游戏隐藏“保存进度”、显示黄色“重新开始”。面板高度、标题、设置组、分隔线、教程、底部链接与版本位置根据正式SettingsConfig重新计算，保持现有1080×1920布局和设置换皮素材；不重建原层级。
+- 原作证据来自只读SettingsPopup的ShowAccountBlock、InGamePlaying、Relayout、OnRestart及GameController.CanRestart，按game-method-index检查恢复状态并结合ARM64／ISIL核对。原作设置通过动态代码制作，沿用已有SettingsPopupLayout静态配置与当前正式Prefab补充；教程因CanRestart条件隐藏重开。当前首页保存入口继续使用已有明确状态回应，本轮未新增或宣称完成云存档SDK、每日挑战广告重开或其他模式。
+- 设置页重开先关闭并移除设置面板，再复用GameController.Restart重置当前棋盘、计时、分数、错误和道具数量，记录已有个人资料重试状态并保存；关卡、题目和主线通关进度保持。既有游戏重开确认与失败重开共用同一流程；首页／教程拒绝隐藏重开操作，游戏内拒绝隐藏保存入口。保留教程重看后返回原棋盘及重新打开设置的流程。
+- 主要文件：Assets/Src_Runtime/UI/Panel/Settings/Panel_Settings.cs、Controllers/Panel/Settings/Panel_Settings_Controller.cs、Controllers/SettingsController.cs、Controllers/GameController.cs、Generic/Enum/SettingsActionType.cs、Assets/Src_Editor/EM/SettingsSetupEM.cs，以及Assets/Res_Runtime/UI/Settings/Panel_Settings.prefab。新增重开节点和正式序列化引用，复用Game目录已有黄色按钮／重开图标及Game_Restart中英文L10NSO；未新增资源加载、Context注入或UI管理体系。定点制作入口重复执行不重复创建节点，原制作入口同步调用；已交付制作后的Prefab，运行无需先执行菜单。
+- 验证环境：Windows、Unity 6000.5.2f1、Addressables 2.10.3，隔离工程D:/UnityProject/HamdokuSettingsContextValidation-20261028。本轮快照Unity编译、正式Scene_Main启动和Play Mode通过，共68项检查覆盖两入口、布局高度、重复打开／释放、隐藏操作拦截、中英文、共有开关、重开保持题目与进度、磁盘存档恢复、原重开确认／实际失败重开、教程重看返回及教程重开限制。后台渲染检查中文与英文1080×1920、1080×2400模拟安全区、1080×1620；项目运行错误和缺字警告0。Windows Addressables内容打包通过，不代表Android应用构建通过。
+- 首轮验证发现布局更新提前ForceUpdateCanvases，导致切换英文字体时旧中文内容出现缺字警告；调整为先刷新文案后布局，并在打开时先Refresh再Init，复测通过。验证辅助脚本及首轮失败、最终日志、68项结果、截图、内容打包结果和交付哈希核对位于Logs/SettingsContext/。当前工程六份修改脚本、正式Prefab及meta、SettingsConfig、包清单／锁文件和EditorBuildSettings与验证快照一致；仅同步本轮Prefab，未同步Library、测试存档、测试HomeConfig或验证专用编辑器脚本。保留同期游戏动画等其他修改，本轮隔离快照不代替后续并行修改的验收。
+- 最终资源核对通过：原有504个序列化对象全部保留，新增13个对象；无重复fileID、本地引用缺失或外部GUID缺失，正式场景唯一EventSystem与GraphicRaycaster有效，Addressables DefaultObject注册和设置GUID可解析，正式存档文件名保持不变。仅清理新增Prefab对象的Unity默认空字段行尾空格，语义不变；相关git diff --check通过。详见Logs/SettingsContext/resource-audit.json及delivery-hashes.json。
+- 未执行本轮Android APK构建、安装、真机触摸／扬声器试听或原APK动态回归；运行检查使用编辑器按钮回调与后台渲染，不替代人工触摸验收。
+
+## 2026-10-28 设置开关改为蓝色
+
+- 按用户截图主体色取样，将SettingsConfig.asset的trackOnColor由青绿色改为蓝色#609BD6，trackOffColor改为蓝灰色#9BB1BB；Panel_Settings.ShowSwitch继续读取正式SO。同步SettingsSetupEM中新建配置初始值，以及Panel_Settings.prefab五个开关的默认Image颜色，保留已有对象、GUID、按钮回调和其他素材。
+- Windows／Python静态检查通过：五个开关引用及默认颜色与配置一致，全部Prefab对象ID保持，相关git diff --check通过。仅调整颜色，本轮未运行Unity编译、Play Mode截图、Addressables内容打包、APK构建或真机验收；截图中的纹理和描边不属于本轮纯颜色调整。

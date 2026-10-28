@@ -121,8 +121,8 @@ namespace Hamdoku.Editor {
             config.knobInset = 8.0f;
             config.toggleTextFs = 30.0f;
             config.toggleTextX = 34.0f;
-            config.trackOnColor = new Color(0.24705882370471954f, 0.6705882549285889f, 0.6470588445663452f, 1.0f);
-            config.trackOffColor = new Color(0.6292719841003418f, 0.7452830076217651f, 0.7355154156684875f, 1.0f);
+            config.trackOnColor = new Color(0.37647059f, 0.60784314f, 0.83921569f, 1.0f);
+            config.trackOffColor = new Color(0.60784314f, 0.69411765f, 0.73333333f, 1.0f);
             config.toggleTextColor = new Color(1.0f, 1.0f, 1.0f, 1.0f);
             config.voicePillSize = new Vector2(268.0f, 72.0f);
             config.voiceArrowSize = 60.0f;
@@ -495,6 +495,8 @@ namespace Hamdoku.Editor {
                 panel.buttons = buttons.ToArray();
                 panel.actions = actions.ToArray();
                 panel.ShowLayout(false, false, config);
+                panel.contentRoot.localScale = Vector3.one;
+                Stretch(panel.safeRoot);
                 PrefabUtility.SaveAsPrefabAsset(root, path);
             } finally {
                 PrefabUtility.UnloadPrefabContents(root);

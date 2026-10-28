@@ -77,6 +77,7 @@ namespace Hamdoku {
                 throw new InvalidOperationException("Panel_Game has missing serialized UI bindings.");
             }
             this.localization = localization;
+            tutorialDimAlpha = tutorialDim.color.a;
             tutorialRuleScale = tutorialRule.transform.parent.localScale;
             tutorialActionScale = tutorialAction.transform.parent.localScale;
             tutorialConfirmScale = tutorialConfirm.transform.localScale;
@@ -108,7 +109,6 @@ namespace Hamdoku {
         }
         public void ConfigureTutorial(GameConfigSO config, bool animated) {
             tutorialConfig = config;
-            tutorialDimAlpha = tutorialDim.color.a;
             board.ConfigureTutorial(config, animated);
             float cellSize = board.gridRoot.rect.width / config.tutorial.size;
             tutorialFinger.rectTransform.sizeDelta = Vector2.one * cellSize * config.tutorialHandScale;

@@ -9,8 +9,8 @@ namespace Hamdoku.Controllers {
                 panel.Ctor(localization);
                 panel.actionHandle = action => SettingsController.Act(ctx, action);
             }
-            panel.Init();
             Refresh(ctx);
+            panel.Init();
         }
         static string Text(GameContext ctx, UINameType id) {
             var localization = ctx.l10NModule;
@@ -30,7 +30,6 @@ namespace Hamdoku.Controllers {
             var settings = save.settings;
             var state = ctx.state_Settings;
             var game = ctx.state_Game;
-            panel.ShowLayout(game.isOpen, game.isOpen && !game.isTutorial && game.status == GameStatus.Playing && game.dialog == GameDialogType.None, config);
             panel.title.text = Text(ctx, UINameType.Settings_Title);
             var ids = new[] { UINameType.Settings_Effects, UINameType.Settings_Music, UINameType.Settings_Voice, UINameType.Settings_Vibration,
                 UINameType.Settings_Border, UINameType.Settings_Pattern, UINameType.Settings_Language };
@@ -69,6 +68,7 @@ namespace Hamdoku.Controllers {
             panel.dialogBody.text = dialog == SettingsDialogType.Language || dialog == SettingsDialogType.None ? string.Empty :
                 Text(ctx, dialog == SettingsDialogType.Save ? UINameType.Settings_SaveBody : dialog == SettingsDialogType.Tutorial ? UINameType.Settings_TutorialBody :
                 dialog == SettingsDialogType.Support ? UINameType.Settings_SupportBody : dialog == SettingsDialogType.Privacy ? UINameType.Settings_PrivacyBody : UINameType.Settings_TermsBody);
+            panel.ShowLayout(game.isOpen, game.isOpen && !game.isTutorial && game.status == GameStatus.Playing && game.dialog == GameDialogType.None, config);
         }
         public static void RefreshSafeArea(GameContext ctx) {
             var panels = ctx.panelRepository;

@@ -38,7 +38,9 @@ namespace Hamdoku {
             this.placeSeconds = placeSeconds;
             this.dimSeconds = dimSeconds;
             animateTutorial = animated;
-            dimAlpha = tutorialDim.color.a;
+            if (!dimInitialized) {
+                dimAlpha = tutorialDim.color.a;
+            }
         }
         public void ShowRegionBorder(bool visible, Color color, float width, bool top, bool right, bool bottom, bool left) {
             for (int i = 0; i < regionEdges.Length; i++) {
