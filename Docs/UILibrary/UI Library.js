@@ -163,3 +163,30 @@ for (const reference of catalog.references) {
   link.append(img); const caption = document.createElement('figcaption'); caption.textContent = reference.file.split('/').pop();
   const note = document.createElement('small'); note.textContent = reference.origin; caption.append(note); figure.append(link, caption); $('#references').append(figure);
 }
+
+// 静态图片直接支持 file://；筛选仅改变当前参考库显示。
+{
+  const category = document.getElementById('theme-category');
+  const search = document.getElementById('theme-search');
+  const count = document.getElementById('theme-count');
+  const groups = [...document.querySelectorAll('.theme-group')];
+  function filterThemeComparison() {
+    const query = search.value.trim().toLocaleLowerCase();
+    let visible = 0;
+    for (const group of groups) {
+      const selected = category.value === 'all' || category.value === group.dataset.category;
+      let matches = 0;
+      for (const pair of group.querySelectorAll('.theme-pair')) {
+        pair.hidden = !selected || !pair.dataset.search.toLocaleLowerCase().includes(query);
+        if (!pair.hidden) { matches++; }
+      }
+      group.hidden = matches === 0;
+      if (selected && (query || category.value !== 'all')) { group.open = true; }
+      visible += matches;
+    }
+    count.textContent = visible ? visible + ' 组对比 · 点击分类标题展开' : '没有匹配素材，请更换关键词或分类。';
+  }
+  category.addEventListener('change', filterThemeComparison);
+  search.addEventListener('input', filterThemeComparison);
+  filterThemeComparison();
+}

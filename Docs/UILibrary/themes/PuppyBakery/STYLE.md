@@ -195,6 +195,8 @@
 
 	- B9 文件级尺寸、RGBA、确认稿哈希、旧图归档、meta／GUID保留、重复GUID及20个Prefab引用检查通过，详见Logs/ShopImageInstall/verification.json。shop_btn_magnifier的候选源哈希与实际保留按钮的installedHash分别记录。背景、分组面板和标签等8张图仅安装未绑定；布局、PPU倍率及粉色图标染色仍待后续接入。未执行Unity实际导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
 
+	- B10 2026-10-28用户确认按原作增加商店投影，已将原ui_soft_shadow（160×160、60像素九宫格边距）和四组静态投影参数接入正式Prefab／ShopConfigSO；卡片使用柔边底图，四张主要插画使用六层轮廓投影。51层均在内容后方且不接收点击，礼包确认图保持。Unity 6000.5.2f1隔离编译、重复制作及三种竖屏比例后台渲染通过，见Logs/ShopShadow；未做本批Play Mode、内容打包、应用构建或真机验证。
+
 - A17 芝麻雪纳瑞第二套头像（美术已确认，未安装）
 	- B1 用户于2026-10-28选定[5号芝麻雪纳瑞](assets/UI/Profile/DogVariants/v01/05_sesame_schnauzer.png)，授权制作第二套12款头像及8张前爪，覆盖原会员头像17至28；既有蓝耳小狗整套保留，奶油卷毛犬与黑糖奶牛犬基础图也保留。
 
@@ -214,3 +216,38 @@
 	- B3 [12款头像总览](previews/Profile_CreamCurly_v01/contact_sheet_v01.png)、[8张前爪总览](previews/Profile_CreamCurly_v01/hands_contact_sheet_v01.png)、底稿、完整提示词和[离线检查](previews/Profile_CreamCurly_v01/verification.json)保存在同一目录。前爪AI分离后等比适配原画布，不是无损逐像素提取；服装遮挡、Sprite轴心和精确叠放仍待接入验证。
 
 	- B4 Windows离线20张RGBA、非空内容、原画布尺寸、透明通道0至255范围及基础图复用像素检查通过，人工查看完整头像与前爪总览。制作完成时正式Profile目录、蓝耳小狗、雪纳瑞及三款基础PNG基准哈希无变化；之后仅同步雪纳瑞美术确认与选型记录。未修改正式运行资源、脚本、Prefab、SO、Addressables或存档，未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+
+- A19 商店两张礼包插画（美术已确认，已安装）
+	- B1 2026-10-28用户确认截图红框内新手礼包与特别优惠两张插画重绘，先交付候选审图。以已确认蓝耳小狗头像作为身份与画风参考、现有两张礼包图作为构图参考，分别使用内置image_gen生成；保留画面右侧蓝色眼斑和垂耳，仓鼠替换为小狗。
+
+	- B2 [两张PNG清单](assets/UI/Shop/Offers/v01/manifest.json)对应offer_art_starter_pack.png（384×384）与offer_art_special_offer.png（384×376）。新手礼包为珊瑚粉开盖礼盒、小狗、放大镜和灯泡；特别优惠为金色蝴蝶结礼盒、含小狗头像的放大镜、灯泡和ADS禁用徽章。生成原图保留，候选仅裁去空透明边距后等比缩小并居中，不拉伸。
+
+	- B3 [两图总览](previews/Shop_Offers_v01/contact_sheet.png)、[完整提示词](previews/Shop_Offers_v01/prompts.json)、生成底稿、尺寸整理脚本及[离线验证](previews/Shop_Offers_v01/verification.json)位于同一预览目录。总览浅奶油底仅用于审图，单张PNG为真实透明背景。
+
+	- B4 Windows／Pillow离线检查两张尺寸、RGBA、非空内容、透明通道0至255和四角透明通过，人工查看原图与原尺寸总览。商店两张正式图片及meta、Panel_Shop.prefab、ShopConfig.asset哈希未变；未接入Unity，未进行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。美术候选待用户确认。
+
+	- B5 2026-10-28用户确认美术并授权替换，两张确认PNG已原样安装至Assets/Res_Runtime/UI/Shop/new。两份meta／GUID、单Sprite导入和Prefab引用保持；旧图及meta备份于Logs/ShopOfferInstall/before。安装检查确认两图与候选哈希一致，70份受保护文件不变。本批仅文件验证，未执行Unity实际导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。B4保留为候选阶段历史记录。
+
+
+- A20 棋盘12种烘焙图案与新区域配色（候选待确认，未安装）
+	- B1 2026-10-28用户确认12种烘焙图案与12色方案并授权制作。按原pattern_0至pattern_11索引依次制作吐司、牛角包、椒盐卷饼、纸杯蛋糕、甜甜圈、烤箱手套、擀面杖、厨师帽、打蛋器、牛奶瓶、饼干骨头、果酱罐；原作资源证据与现有正式文件映射见[素材清单](assets/UI/Game/Patterns/v01/manifest.json)。
+
+	- B2 使用内置image_gen逐张生成白色透明底剪影，按对应正式PNG画布等比缩放居中，不重绘轮廓。打蛋器由斜向版本重生成为竖向粗线条版本，首稿保留。12色按用户确认方案记录在素材清单中，颜色是区域底色，不烘焙进图案PNG。
+
+	- B3 [图案与颜色总览](previews/Game_Patterns_v01/contact_sheet.png)、[配色总览](previews/Game_Patterns_v01/palette.png)、[棋盘搭配预览](previews/Game_Patterns_v01/board_preview.png)、[完整提示词](previews/Game_Patterns_v01/prompts.json)、生成底稿、整理脚本与[离线验证](previews/Game_Patterns_v01/verification.json)均已保存。棋盘为离线排布示意，不代表可解关卡或Unity截图；左侧复现现有0.65倍区域色与26%透明度，右侧及总览采用较深染色便于审图。
+
+	- B4 Windows／Pillow离线检查12张PNG原画布尺寸、RGBA、非空内容、alpha范围0至255及四角透明通过；人工查看完整总览与棋盘示意，打蛋器调整后复查。正式12张图案及meta和PuzzlePresentation.asset共25份文件SHA256未变。未修改正式资源、SO、脚本、Prefab、Addressables或存档，未执行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。待用户确认美术后接入；现有运行展示配置只有前10种绑定，12种完整覆盖在接入时核对，不能将素材齐全写成运行覆盖完成。
+
+	- B5 2026-10-28用户明确要求“接入”，12张PNG已安装到Assets/Res_Runtime/UI/Game，保留12份meta／GUID与原尺寸；PuzzlePresentation.asset更新为12色及12张图案绑定，tutorialColors及其他字段保持。原图／配置备份与检查见Logs/PatternInstall。UI Library现提供12组独立原作／新图案及配色对比；制作阶段总览中的“候选／未接入”文字保留历史，当前安装状态以本条与素材清单为准。Unity验证结果见MigrationAcceptance A22。
+
+	- B6 本批隔离Unity6000.5.2f1导入、编译、正式Scene_Main Play Mode及256项断言通过；教程独立色／无图案保持，主线新配色、图案开关、重复打开及12图案组件绑定通过；人工查看1080×1920后台渲染。25份正式图案／meta／展示SO与验证副本一致，运行脚本一致；并行6份编辑器导入工具不在快照验证范围。未打包、构建、安装或真机验收，详见MigrationAcceptance A22。
+
+- A21 通关大图首张修订（候选待确认，未安装）
+	- B1 2026-10-28用户反馈首轮红绶带与金星不贴合小狗画风，并要求前爪改为狗爪；授权先修一张举爪庆祝，确认后再统一其余图。原8张计划中的clear_c骨头饼干、clear_f珊瑚粉蝴蝶结面包花束方案保留。
+
+	- B2 使用内置image_gen，以首轮clear及已确认头像为参考，生成短圆犬前爪、四趾垫与掌垫、小号星形烤饼干、柔软雾灰蓝布带，并减淡描边。[修订PNG](assets/UI/GameResult/v02/clear.png)为990×951；等比适配透明画布，不拉伸。红绶带[初稿](previews/GameResult_v01/raw/clear.png)另存保留。
+
+	- B3 [完整提示词](previews/GameResult_v02/prompts.json)、生成底稿和[离线检查](previews/GameResult_v02/verification.json)保存在预览目录。Windows离线检查尺寸、RGBA及alpha范围0至255通过；alpha边界含极低透明度像素，未手工抹除生成边缘。已人工查看生成结果，当前仅本张修订候选，未确认全套定稿。
+
+	- B4 本批未替换正式资源、脚本、Prefab、SO或存档，未执行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。

@@ -74,27 +74,35 @@
     {
       "page": "Panel_Profile.Avatars",
       "manifest": "assets/UI/Profile/v01/manifest.json",
-      "status": "user-approved-artwork-not-installed",
+      "status": "installed-selected-runtime-images-only",
       "count": 48,
       "avatarCount": 28,
       "handCount": 20,
       "review": "previews/Profile_Avatars_v01/contact_sheet_v01.png",
       "handsReview": "previews/Profile_Avatars_v01/hands_contact_sheet_v01.png",
-      "runtimeReplacementAuthorized": false,
-      "userApprovalDate": "2026-10-28"
+      "runtimeReplacementAuthorized": true,
+      "userApprovalDate": "2026-10-28",
+      "installedAvatarCount": 16,
+      "installedHandCount": 12,
+      "runtimeDirectory": "Assets/Res_Runtime/UI/Profile",
+      "installationVerification": "Logs/ProfileAvatarInstall/verification.json"
     },
     {
       "page": "Panel_Profile.SchnauzerAvatars",
       "manifest": "assets/UI/Profile/Schnauzer/v01/manifest.json",
-      "status": "user-approved-artwork-not-installed",
+      "status": "installed-runtime-images-only",
       "count": 20,
       "avatarCount": 12,
       "handCount": 8,
       "review": "previews/Profile_Schnauzer_v01/contact_sheet_v01.png",
       "handsReview": "previews/Profile_Schnauzer_v01/hands_contact_sheet_v01.png",
-      "runtimeReplacementAuthorized": false,
+      "runtimeReplacementAuthorized": true,
       "selectedBase": "assets/UI/Profile/DogVariants/v01/05_sesame_schnauzer.png",
-      "userApprovalDate": "2026-10-28"
+      "userApprovalDate": "2026-10-28",
+      "installedAvatarCount": 12,
+      "installedHandCount": 8,
+      "runtimeDirectory": "Assets/Res_Runtime/UI/Profile",
+      "installationVerification": "Logs/ProfileAvatarInstall/verification.json"
     },
     {
       "page": "Panel_Profile.CreamCurlyAvatars",
@@ -107,6 +115,18 @@
       "handsReview": "previews/Profile_CreamCurly_v01/hands_contact_sheet_v01.png",
       "runtimeReplacementAuthorized": false,
       "selectedBase": "assets/UI/Profile/DogVariants/v01/02_cream_curly_puppy.png"
+    },
+    {
+      "page": "Panel_Game.Patterns",
+      "manifest": "assets/UI/Game/Patterns/v01/manifest.json",
+      "status": "installed-isolated-playmode-validated",
+      "count": 12,
+      "review": "previews/Game_Patterns_v01/contact_sheet.png",
+      "palette": "previews/Game_Patterns_v01/palette.png",
+      "boardPreview": "previews/Game_Patterns_v01/board_preview.png",
+      "runtimeReplacementAuthorized": true,
+      "note": "用户授权接入；12PNG／GUID／展示SO与隔离验证副本一致；256项断言及1080x1920后台渲染检查通过，用户验收与真机未执行。",
+      "installedDate": "2026-10-28"
     }
   ],
   "buttonStyleCandidates": {
@@ -120,5 +140,21 @@
     "installedDate": "2026-10-28",
     "unityPreview": "../../../../Logs/ButtonsInstall/settings-unity.png",
     "verification": "../../../../Logs/ButtonsInstall/verification.json"
+  },
+  "profileCostumeInstallation": {
+    "date": "2026-10-28",
+    "status": "installed-unity-editmode-render-checked",
+    "source": "assets/UI/Profile/Costumes/v01",
+    "count": 6,
+    "slots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "verification": "Logs/ProfileCostumeInstall/verification.json",
+    "unusedCandidatesRetained": true
   }
 }
