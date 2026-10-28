@@ -73,7 +73,7 @@ namespace Hamdoku.Controllers {
                     count++;
                 }
             }
-            panel.levelLabel.text = state.isTutorial ? Text(ctx, UINameType.Game_Tutorial) : string.Format(Text(ctx, UINameType.Game_Level), state.level);
+            panel.levelLabel.text = state.dailyDay > 0 ? string.Format(Text(ctx, UINameType.Daily_GameTitle), DailyController.Date(state.dailyDay).ToString("MM.dd")) : state.isTutorial ? Text(ctx, UINameType.Game_Tutorial) : string.Format(Text(ctx, UINameType.Game_Level), state.level);
             panel.scoreLabel.text = string.Format(Text(ctx, UINameType.Game_Score), state.score);
             panel.countLabel.text = string.Format(Text(ctx, UINameType.Game_Count), count, puzzle.size);
             for (int i = 0; i < panel.hearts.Length; i++) {
@@ -118,6 +118,10 @@ namespace Hamdoku.Controllers {
             bool active = state.status == GameStatus.Playing && !state.isTutorial;
             panel.hintButton.interactable = active;
             panel.guideButton.interactable = active;
+            panel.homeButton.interactable = !state.clearPending;
+            panel.restartButton.interactable = !state.clearPending;
+            panel.shopButton.interactable = !state.clearPending;
+            panel.settingsButton.interactable = !state.clearPending;
             RefreshTime(ctx);
         }
         public static void RefreshTime(GameContext ctx) {
@@ -126,6 +130,34 @@ namespace Hamdoku.Controllers {
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
                 int seconds = (int)state.elapsed;
                 panel.timeLabel.text = string.Format(Text(ctx, UINameType.Game_Time), seconds / 60, seconds % 60);
+            }
+        }
+        public static void ClearFeedback(GameContext ctx) {
+            var panels = ctx.panelRepository;
+            if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                panel.ClearFeedback();
+            }
+        }
+        public static void ShowGain(GameContext ctx, int index, int gain) {
+            var panels = ctx.panelRepository;
+            var state = ctx.state_Game;
+            if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                panel.ShowGain(index, string.Format(Text(ctx, UINameType.Game_Gain), gain),
+                    state.combo >= 3 ? string.Format(Text(ctx, UINameType.Game_Combo), state.combo) : string.Empty);
+            }
+        }
+        public static void SweepClear(GameContext ctx, int[] indices) {
+            var panels = ctx.panelRepository;
+            var assets = ctx.assetModule;
+            if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                panel.board.SweepClear(assets.GetGameConfig(), indices);
+            }
+        }
+        public static void CelebrateClear(GameContext ctx) {
+            var panels = ctx.panelRepository;
+            var assets = ctx.assetModule;
+            if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
+                panel.board.CelebrateTutorial(assets.GetGameConfig().clearCelebrationDelay);
             }
         }
         public static void Close(GameContext ctx) {

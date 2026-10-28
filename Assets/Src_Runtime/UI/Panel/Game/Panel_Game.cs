@@ -8,6 +8,12 @@ namespace Hamdoku {
         public Widget_Board board;
         public TMP_Text levelLabel;
         public TMP_Text scoreLabel;
+        public TMP_Text gainLabel;
+        public TMP_Text comboLabel;
+        float feedbackStarted = float.NegativeInfinity;
+        Vector3 gainFrom;
+        Vector3 comboFrom;
+
         public TMP_Text countLabel;
         public TMP_Text timeLabel;
         public TMP_Text instructionLabel;
@@ -66,7 +72,7 @@ namespace Hamdoku {
         }
         public void Ctor(L10NModule localization) {
             if (safeRoot == null || contentRoot == null || board == null || levelLabel == null || scoreLabel == null ||
-                countLabel == null || timeLabel == null || instructionLabel == null || noticeLabel == null ||
+                gainLabel == null || comboLabel == null || countLabel == null || timeLabel == null || instructionLabel == null || noticeLabel == null ||
                 hintLabel == null || guideLabel == null || hintCount == null || guideCount == null ||
                 homeButton == null || restartButton == null || shopButton == null || settingsButton == null || hintButton == null || guideButton == null ||
                 ruleLabels == null || ruleLabels.Length != 3 || hearts == null || hearts.Length == 0 ||
@@ -94,6 +100,7 @@ namespace Hamdoku {
             guideButton.onClick.AddListener(ReportGuide);
         }
         public void Init() {
+            ClearFeedback();
             board.CancelGesture();
             ApplySafeArea(Screen.safeArea, Screen.width, Screen.height);
         }
@@ -159,7 +166,46 @@ namespace Hamdoku {
             tutorialRipple.gameObject.SetActive(showFinger);
             Update();
         }
+        public void ClearFeedback() {
+            feedbackStarted = float.NegativeInfinity;
+            gainLabel.text = string.Empty;
+            comboLabel.text = string.Empty;
+            gainLabel.alpha = 0;
+            comboLabel.alpha = 0;
+        }
+        public void ShowGain(int index, string gain, string combo) {
+            gainLabel.text = gain;
+            gainLabel.alpha = 1;
+            comboLabel.alpha = 1;
+            comboLabel.text = combo;
+            gainFrom = contentRoot.InverseTransformPoint(board.CellPosition(index));
+            comboFrom = contentRoot.InverseTransformPoint(board.gridRoot.TransformPoint(board.gridRoot.rect.center));
+            gainLabel.rectTransform.localPosition = gainFrom;
+            comboLabel.rectTransform.localPosition = comboFrom;
+            comboLabel.fontSize = tutorialConfig.comboFontSize;
+            feedbackStarted = Time.unscaledTime;
+        }
+        void UpdateFeedback() {
+            if (tutorialConfig == null) {
+                return;
+            }
+            float elapsed = Time.unscaledTime - feedbackStarted;
+            float gainProgress = Mathf.Clamp01(elapsed / tutorialConfig.gainSeconds);
+            Vector3 target = contentRoot.InverseTransformPoint(scoreLabel.transform.position);
+            gainLabel.rectTransform.localPosition = Vector3.Lerp(gainFrom, target, Mathf.SmoothStep(0, 1, gainProgress));
+            gainLabel.alpha = 1 - gainProgress;
+            float comboProgress = Mathf.Clamp01(elapsed / tutorialConfig.comboSeconds);
+            comboLabel.rectTransform.localPosition = comboFrom + Vector3.up * (comboProgress * tutorialConfig.comboRiseRatio * board.gridRoot.rect.height / board.Size);
+            comboLabel.alpha = 1 - comboProgress;
+            if (gainProgress >= 1) {
+                gainLabel.text = string.Empty;
+            }
+            if (comboProgress >= 1) {
+                comboLabel.text = string.Empty;
+            }
+        }
         void Update() {
+            UpdateFeedback();
             if (!tutorialRoot.activeSelf || tutorialConfig == null) {
                 return;
             }

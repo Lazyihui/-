@@ -11,6 +11,10 @@ namespace Hamdoku {
         public UnityEngine.UI.Image given;
         public UnityEngine.UI.Image tutorialDim;
         public UnityEngine.UI.Image[] tutorialStars;
+        float sweepStarted = float.NegativeInfinity;
+        float sweepSeconds;
+        Color sweepColor;
+        bool focusHighlighted;
         bool animateTutorial;
         bool initialized;
         CellStatus displayedStatus;
@@ -89,9 +93,18 @@ namespace Hamdoku {
             cross.gameObject.SetActive(status == CellStatus.Cross);
             crossSecond.enabled = status == CellStatus.Cross;
             crossSecond.gameObject.SetActive(status == CellStatus.Cross);
+            focusHighlighted = highlighted;
             focus.enabled = highlighted;
             given.enabled = fixedHamster;
             Update();
+        }
+        public void PlayClearSweep(float delay, float seconds, Color color) {
+            if (displayedStatus != CellStatus.Cross) {
+                return;
+            }
+            sweepStarted = Time.unscaledTime + delay;
+            sweepSeconds = seconds;
+            sweepColor = color;
         }
         public void Celebrate(float seconds) {
             if (displayedStatus == CellStatus.Hamster) {
@@ -100,6 +113,15 @@ namespace Hamdoku {
             }
         }
         void Update() {
+            float sweepElapsed = Time.unscaledTime - sweepStarted;
+            bool sweeping = sweepElapsed >= 0 && sweepElapsed < sweepSeconds;
+            focus.enabled = focusHighlighted || sweeping;
+            focus.color = sweeping ? sweepColor : Color.white;
+            if (sweeping) {
+                var color = focus.color;
+                color.a *= Mathf.Sin(Mathf.PI * sweepElapsed / sweepSeconds);
+                focus.color = color;
+            }
             if (!animateTutorial) {
                 return;
             }

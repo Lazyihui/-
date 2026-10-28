@@ -56,12 +56,23 @@ namespace Hamdoku {
                 cells[i] = cell;
             }
         }
+        public int Size {
+            get {
+                return size;
+            }
+        }
+        public void SweepClear(GameConfigSO config, int[] indices) {
+            foreach (int i in indices) {
+                float delay = config.clearAutoCrossSweepStep * (size - 1 - i / size + i % size);
+                cells[i].PlayClearSweep(delay, config.clearGlowSeconds, config.clearGlowColor);
+            }
+        }
         public void ShowCell(int index, Color color, Sprite pattern, CellStatus status, bool highlighted, bool given) {
             cells[index].Show(color, pattern, status, highlighted, given);
         }
         public void ConfigureTutorial(GameConfigSO config, bool animated) {
             foreach (var cell in cells) {
-                cell.ConfigureTutorial(config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialDimFadeSeconds, animated);
+                cell.ConfigureTutorial(config.tutorialMarkSeconds, config.tutorialPlaceSeconds, config.tutorialDimFadeSeconds, true);
             }
         }
         public void CelebrateTutorial(float seconds) {
