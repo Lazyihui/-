@@ -118,6 +118,10 @@
 
 	- B7 用户于2026-10-28授权按Logo页目录方式安装v02，19张新图位于正式Assets/Res_Runtime/UI/Settings/new，旧图归档至同级old。new保留原meta及GUID，old使用独立GUID；Panel_Settings.prefab原位且内容不变。SettingsSetupEM的导入扫描与图片查找同步指向new；没有运行配置工具。安装哈希与引用保留检查见Logs/SettingsImageInstall/verification.json，尚未验证Unity实际导入、Play Mode或真机效果。
 
+	- B8 用户反馈v02面板粗角与宽边后，重新生成[两张v03边框候选图](assets/UI/Settings/v03/manifest.json)，保持351×512、512×428画布和28像素九宫格边距，使用新底图自身的透明轮廓，不再套用旧面板蒙版；圆角外侧真实透明，边线减细并保持连贯。当前仅候选，正式new目录仍为v02。[前后对照](previews/Settings_BorderFix_v03/original_vs_candidate_v03.png)、[竖屏拉伸预览](previews/Settings_BorderFix_v03/nine_slice_portrait_1080x1920.png)及[横向拉伸对照](previews/Settings_BorderFix_v03/nine_slice_width_comparison.png)为离线九宫格近似，采用当前0.6／0.7的PPU倍率，不是Unity运行截图。边界与文件哈希检查见同目录verification.json，待用户确认再替换。
+
+	- B9 用户于2026-10-28确认v03边框后，两张PNG已安装到Assets/Res_Runtime/UI/Settings/new。原meta、GUID、28像素九宫格及Prefab引用保留；其余17张素材、old归档、Prefab、SO与运行逻辑不变。当前生效版本为v02其余素材加v03两张面板，B8的候选状态描述仅记录审图阶段。文件层验证见Logs/SettingsBorderInstall/verification.json；Unity实际导入和Play Mode效果尚未验证。
+
 - A13 游戏页原尺寸切图（未替换）
 	- B1 用户于2026-10-27确认无顶部遮阳篷的游戏页样图及焦糖饼干规则图，并明确本轮只切图、不替换正式资源。[确认整页图](previews/Game_Slicing/Panel_Game_Style_1080x1920.png)仅作为视觉参考。
 
@@ -130,3 +134,72 @@
 	- B5 34张文件名、RGBA、尺寸、非空内容及正式PNG／meta未改动检查通过，原九宫格边距、Sprite模式与素材来源已写入清单。不复制meta、不安装正式图片、不修改脚本、Prefab、场景、SO、存档或Addressables；本轮未进行Unity编译、Play Mode、内容打包、应用构建、安装及真机验证。
 
 	- B6 2026-10-28按用户确认重绘Img_Game_Guide与Img_Game_Hint：灯泡轮廓、灯颈与双段底座连续完整，小狗改为侧向寻找、微收眉眼与闭口神态；均保留奶油色按钮及114×118 RGBA透明规格。仅更新本主题Game目录的这两张图片和对应清单，正式资源未替换。[前后对照](previews/Game_Tools_Revision_20261028/before_after.png)、底稿、生成描述及离线检查保存在同目录；历史全量切图脚本重跑时会应用此次修订。
+
+- A14 项目长按钮风格候选（未替换）
+	- B1 用户确认按设置页样图中金黄、蓝色长按钮的绘本语言制作项目按钮候选，范围为[12张按钮底图](assets/UI/Buttons/v01/manifest.json)：Game两张共享操作底图、Home四张长按钮、Ranking两张胶囊底图、Shop三张操作底图、Streak一张继续底图。关闭、箭头、开关和首页两张大型模式卡不在本批。当前仅审图候选，未安装正式资源。
+
+	- B2 六种生成底稿分别为蜂蜜金黄、雾灰蓝、奶油、桃色、柔和粉色及困难关珊瑚红；各张沿用原文件名和像素画布。爪印从前批高分辨率主题底稿提取后拼合，中心不烘焙文字或功能图标。原底图与生成底稿不是无损切图关系。
+
+	- B3 [素材总览](previews/Buttons_v01/contact_sheet_v01.png)、[原图／候选图对照](previews/Buttons_v01/original_vs_candidate_v01.png)、[按钮示意](previews/Buttons_v01/button_style_preview.png)及[全部22处尺寸的切线对照](previews/Buttons_v01/all_consumers_slice_comparison.png)用于用户审图。示意文字和教程图标仅离线演示；没有通过Unity渲染，不能代表最终本地化或布局验收。
+
+	- B4 原九宫格参数会使部分爪印消失或变形，单改切线也无法适配共享按钮的不同高度。清单记录9张建议调整的Sprite边距及各个已序列化Image的建议PPU倍率；切片按钮倍率按图片像素高度／显示高度计算，使装饰随高度等比显示，再仅拉伸中部宽度。首页无限模式按现有非等比显示尺寸对爪印宽度作反向补偿。正式安装须经用户同意，同步导入边距、对应Image倍率及制作工具／可能的运行覆盖；不能只复制PNG就宣称效果一致。本轮不修改这些参数或脚本。
+
+	- B5 [离线检查](previews/Buttons_v01/verification.json)记录12张RGBA、名称／尺寸对应及正式UI目录全部文件哈希未变。源底稿、生成提示词和切图脚本保存在同目录，历史其他页面候选保留。未执行Unity导入、编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+	- B6 用户确认后，2026-10-28已将12张按钮安装到各自正式Game／Home／Ranking／Shop／Streak的new目录，旧图在同级old归档，原GUID保留。9张Sprite更新九宫格边距，9份Prefab的20处切片Image按实际高度更新倍率；浅底图上的原白字改为暖棕色，文案、图标、尺寸、回调与生命周期保留。8份既有编辑器工具同步路径、导入边距及显示参数，不新增运行脚本或节点；同目录其他新素材保留，不纳入本批替换。
+
+	- B7 Unity6000.5.2f1独立副本通过编译、导入、22处Prefab按钮引用及倍率检查、隔离Play Mode、中英文设置页、1080×1920／1080×2400渲染，以及设置页重新开始／教程事件上报与释放。截图及日志在Logs/ButtonsInstall/，本批41份图片／meta／Prefab／工具文件与验证副本一致。验证未启动ClientMain或读写进度，不等同完整业务启动、Editor人工点击或真机触摸验收；未进行内容打包、应用构建、安装或真机验证。A14前述候选状态为历史审图记录，当前安装状态以本条和素材manifest为准。
+
+- A15 个人资料头像边框（已安装，运行效果未验证）
+	- B1 用户于2026-10-28确认本批只制作19款边框图片。对应正式profile_frame_0至7、10至20；配置21个槽位中的8、9为空，不补建。候选位于[Frames/v01](assets/UI/Profile/Frames/v01/manifest.json)，7款基础、1款金冠、6款彩色皇冠、4款段位和1款会员边框。
+
+	- B2 逐张使用原边框作构图参考、已确认小狗作画风参考，经内置image_gen生成独立底稿；奶油、饼干与糖霜色块采用暖棕描边和绘本笔触。徽章与会员牌留白，不烘焙数字、文字、锁头或现有光效。皇冠、宝石和丝带保留等级识别；19款美术于2026-10-28经用户确认全部保留，随后授权立即替换，现已原位安装正式PNG。
+
+	- B3 原始生成图和完整提示词保存在previews/Profile_Frames_v01/。19张正式尺寸候选为RGBA透明PNG；通过预乘alpha的3×3分段坐标重采样，使开口中心横纵截线边界对齐原图，不复制旧图色块或透明蒙版。圆角轮廓、笔触及徽章形状不保证像素一致；接入前仍需核对实际徽章文字、裁剪及缩放。
+
+	- B4 [整套总览](previews/Profile_Frames_v01/contact_sheet_v01.png)、[小狗叠放预览](previews/Profile_Frames_v01/puppy_overlay_v01.png)及[原图对照](previews/Profile_Frames_v01/original_vs_candidate_v01.png)供审图。小狗叠放按开口离线拟合，未精确复现Widget_ProfilePortrait的缩放与裁剪，不是Unity运行截图。[检查结果](previews/Profile_Frames_v01/verification.json)确认19张名称、画布、RGBA、中心与四角透明、开口中心截线及正式PNG／meta未变。
+
+	- B5 本批未替换正式资源，未修改脚本、Prefab、SO、Addressables或存档，未执行Unity导入、编译、Play Mode、内容打包、应用构建、安装及真机验证。制作期间其他任务修改了Panel_Profile.prefab与ProfileConfig.asset，单独记录，不回滚或归因为本批图片制作；本批处理前后复核它们没有进一步变化。用户审图入口见[迁移验收文档](../../../MigrationAcceptance.md)的本批候选条目。
+
+	- B6 用户随后明确要求立即替换，19张PNG已安装至Assets/Res_Runtime/UI/Profile原路径。保留原meta、GUID、导入参数和配置引用；旧图及原meta备份于Logs/ProfileFrameInstall/before/，确认稿、生成底稿与素材包保留。19张运行PNG与确认稿一致，210个受保护文件中仅这19张PNG改变，核对见Logs/ProfileFrameInstall/verification.json。B4／B5仅记录制作阶段；当前为已安装、Unity实际导入和运行效果未验证，会员牌仍留白，实际徽章、光效和裁剪待运行验收。
+
+- A15 个人资料28款头像及前爪候选（未替换）
+	- B1 用户于2026-10-28确认制作全部28个可见头像：16款普通、12款会员；隐藏槽位6的icon_hamster不在本批。候选保存在[Profile/v01](assets/UI/Profile/v01/manifest.json)，另配20张avatar_hand前爪层，共48张PNG。
+
+	- B2 每张头像以已确认的正面小狗图片为参考，使用内置image_gen单独生成；保留奶油白脸、雾灰蓝垂耳、画面右侧眼斑和暖棕描边，按原头像语义区分表情动作。会员基础款仍为同一只小狗，通过表情和轻微脸颊毛簇变化制作，不自行更换角色配色。
+
+	- B3 图片按对应正式文件名和实际画布尺寸保存为RGBA，裁去生成底稿透明边距后等比缩放居中，未拉伸造型。20张前爪通过内置image_gen从对应头像分离，再等比放入原前爪画布；并非逐像素无损提取，服装遮挡、Sprite裁剪／轴心及与头像的精确对齐尚待接入验证，不能直接宣称可无调整替换。
+
+	- B4 [28款头像总览](previews/Profile_Avatars_v01/contact_sheet_v01.png)与[前爪总览](previews/Profile_Avatars_v01/hands_contact_sheet_v01.png)用于用户审图，浅米色仅为总览底色。底稿、头像提示词、前爪提示词、来源映射及[48张检查结果](previews/Profile_Avatars_v01/verification.json)保存在同一预览目录；检查通过文件名、对应画布尺寸、RGBA及0至255透明通道范围。
+
+	- B5 用户于2026-10-28明确确认整套图片可用并全部保留，28张头像与20张前爪状态更新为美术已确认、尚未安装。本批未修改正式Assets、脚本、Prefab、SO、Addressables或存档，未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证；前爪精确叠放仍待验证。审图记录见[迁移验收文档](../../../MigrationAcceptance.md)。
+
+
+- A16 商店页首批切图与图片安装
+	- B1 2026-10-28用户确认[无顶部垂边的商店稿](assets/UI/Shop/Panel_Shop_Style_v02_1080x1920.png)，授权只读核对原项目并开始切图。范围为移除广告、放大镜、提示三个商品区；礼包、限时优惠、会员及其状态不在本稿范围。
+
+	- B2 核对原项目04_assets/Sprite的商店图片、ShopPopupLayout静态配置、ShopPopup的动态构建方法及当前Panel_Shop.prefab。原目录保持只读。恢复方法均带诊断，仅作为图片／文本拆分和动态组装的结构证据，不作为原作运行验收。
+
+	- B3 [19张PNG清单](assets/UI/Shop/manifest.json)含11张与当前商店正式图片同名同尺寸的候选，以及8张配套背景、分组面板、标签、金色价格底图、无角色小放大镜和标签图标。关闭按钮沿用当前裁边后的249×256，而原导出画布为256×256。新增素材尚未绑定，不覆盖Game共用背景。
+
+	- B4 招牌、分组标签、商品卡和价格按钮均不烘焙文案或数值；ADS保留为图标符号。无字整页、背景与空分组面板由内置image_gen补绘，其他图层裁切及透明处理，不宣称全部来自无损裁切。生成描述、底稿、来源证据与脚本保存在previews/Shop_Slicing/。
+
+	- B5 [素材总览](previews/Shop_Slicing/contact_sheet_v01.png)、[离线拼合](previews/Shop_Slicing/page_layers_reassembled_1080x1920.png)、布局参考及[检查结果](previews/Shop_Slicing/verification.json)用于审图。离线九宫格将商品卡与按钮边距按0.35显示，正式接入仍需校准PPU倍率、布局和颜色；现有粉色图标染色不能直接沿用。拼合使用Windows字体，不是Unity运行截图。
+
+	- B6 Windows／Python／Pillow／NumPy检查19张尺寸、RGBA、非空、透明角、九宫格合法性和哈希通过，核对本任务商店正式图片／meta、Prefab、配置及相关脚本未变。首轮发现关闭按钮缺叉及面板采样残影，均在交付前修复。当前仅素材准备，未进行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+	
+	- B7 2026-10-28按用户确认整理正式Assets/Res_Runtime/UI/Shop/old与new：归档20张原图，new共28张。另批长按钮已先建立目录并安装3张按钮，本轮沿用其目录、meta与归档；用户明确选择保留统一长按钮shop_btn_magnifier。实际替换10张同名PNG，迁移7张未重绘原图，保留3张已安装统一按钮，新增8张尚未绑定的配套素材。
+
+	- B8 20份当前正式meta逐字节保留，原GUID继续指向new，old使用独立GUID；最新Panel_Shop.prefab与ShopConfig.asset保持本轮安装前内容。ShopSetupEM只扫描new并优先在new查找，保留统一按钮的路径、导入参数与像素倍率调整，同时补入新增素材的九宫格边距。未运行制作菜单。
+
+	- B9 文件级尺寸、RGBA、确认稿哈希、旧图归档、meta／GUID保留、重复GUID及20个Prefab引用检查通过，详见Logs/ShopImageInstall/verification.json。shop_btn_magnifier的候选源哈希与实际保留按钮的installedHash分别记录。背景、分组面板和标签等8张图仅安装未绑定；布局、PPU倍率及粉色图标染色仍待后续接入。未执行Unity实际导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+- A17 芝麻雪纳瑞第二套头像（图片待确认，未安装）
+	- B1 用户于2026-10-28选定[5号芝麻雪纳瑞](assets/UI/Profile/DogVariants/v01/05_sesame_schnauzer.png)，授权制作第二套12款头像及8张前爪，覆盖原会员头像17至28；既有蓝耳小狗整套保留，奶油卷毛犬与黑糖奶牛犬基础图也保留。
+
+	- B2 [20张图片清单](assets/UI/Profile/Schnauzer/v01/manifest.json)沿用对应正式文件名和原图画布尺寸。17号自然微笑逐像素复用确认基础图，其余11张表情以该图为身份和画风参考分别通过内置image_gen生成，保持芝麻灰折耳、奶白眉毛、脸颊胡子与短胡子的造型及绘本笔触。
+
+	- B3 [12款头像总览](previews/Profile_Schnauzer_v01/contact_sheet_v01.png)、[8张前爪总览](previews/Profile_Schnauzer_v01/hands_contact_sheet_v01.png)、底稿、完整提示词与[离线检查](previews/Profile_Schnauzer_v01/verification.json)位于同一预览目录。前爪使用灰色毛与奶白脚趾；AI分离后按原画布等比归一化，不是无损逐像素提取，服装遮挡、轴心与运行精确叠放尚未验证。
+
+	- B4 Windows离线检查20张RGBA、非空内容、对应原画布尺寸及透明通道0至255范围通过，人工查看头像与前爪总览。本批未修改运行资源、脚本、Prefab、SO、Addressables或存档；未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。基准哈希记录制作期间其他工作更新的Panel_Profile及19张边框，与本批制作区分，不回滚这些修改。

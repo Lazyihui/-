@@ -126,6 +126,8 @@
 
 	- B6 Unity 版本以 ProjectSettings/ProjectVersion.txt 为准，包版本以 Packages/manifest.json 与 packages-lock.json 为准。当前为 Unity 6000.5.2f1、Addressables 2.10.3，不直接复制参考项目旧包版本；升级前核对兼容性并验证。
 
+	- B7 每次功能或资源迁移交付时，必须同步补充 [迁移验收文档](Docs/MigrationAcceptance.md)，面向用户写明本批范围、打开入口、操作步骤、预期结果、旧进度兼容、已知限制及开发验证状态。按批次追加，保留历史验收结论；开发自测通过不得代替用户验收，不自行勾选用户验收项目。用户反馈的问题与复验结果更新到对应批次。
+
 - A9 工作记录
 	- B1 [项目工作记录](WORK_LOG.md)：记录开发、资源接入、问题修复、验证结果和待办事项。
 
@@ -146,6 +148,8 @@
 	- B9 [Prefab 与原作层级资料](Docs/UILibrary/PrefabCollection/index.html)：集中查看当前工程 Prefab 快照、原作序列化对象层级、配置及动态 UI 代码证据；完整来源与哈希见同目录 manifest.json。
 
 	- B10 [原作可读代码](D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/decompiled_csharp/README.md)：集中查看本轮 Cpp2IL 方法 IL 恢复、dnSpy C# 伪代码、游戏方法索引及恢复诊断；不等同于原始源码或运行验证。
+
+	- B11 [迁移验收文档](Docs/MigrationAcceptance.md)：用户按批次执行的操作、预期结果、验收状态与问题记录；后续每次迁移交付必须追加或更新对应批次。
 
 - A10 原作代码查阅与迁移依据
 	- B1 原作可读代码根目录为 `D:/0000001apkUnbag/01_逆向工程项目/Hamdoku2/03_code/decompiled_csharp`，保持只读。先读该目录 README.md 的恢复边界，再通过 GAME_INDEX.md 定位类型；GameAssemblies 包含四个游戏程序集的 283 份显式 C# 文件，AllAssemblies 用于补查其他程序集调用关系。

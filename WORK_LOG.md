@@ -516,3 +516,189 @@
 
 - 按用户截图主体色取样，将SettingsConfig.asset的trackOnColor由青绿色改为蓝色#609BD6，trackOffColor改为蓝灰色#9BB1BB；Panel_Settings.ShowSwitch继续读取正式SO。同步SettingsSetupEM中新建配置初始值，以及Panel_Settings.prefab五个开关的默认Image颜色，保留已有对象、GUID、按钮回调和其他素材。
 - Windows／Python静态检查通过：五个开关引用及默认颜色与配置一致，全部Prefab对象ID保持，相关git diff --check通过。仅调整颜色，本轮未运行Unity编译、Play Mode截图、Addressables内容打包、APK构建或真机验收；截图中的纹理和描边不属于本轮纯颜色调整。
+
+## 2026-10-28 设置页两张面板边框重新生成，待确认
+
+- 用户反馈正式页面外框及内部卡片的边框变宽、圆角出现棕色实底，要求图二细而流畅的边框。确认只重做PopupPanel.png与PopupPanelInner.png，先交候选与拉伸对照，确认后才替换；其余图标、布局和功能不变。
+- 检查发现上一版panel_fit强制复用原图alpha并将透明处RGB延展，导致新轮廓圆角外的棕色区域被旧alpha显露。本次使用内置image_gen分别生成两张干净底图，再仅按新底图自身轮廓清理边缘，归一化到351×512、512×428；不修改已安装版本或旧脚本。候选位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Settings/v03/，原生成图、提示词与处理脚本在previews/Settings_BorderFix_v03/。
+- 面板角区归一化到28像素九宫格切线内，四周保留2像素透明边距；不将棕色填入圆角外部。离线制作当前版／候选版对照、1080×1920长面板与不同高度卡片拉伸图、不同宽度拉伸图。采用现有panelPpum0.6与groupPpum0.7近似固定边框显示尺寸，未以此替代Unity实际渲染。
+- Windows／Python／Pillow／NumPy／SciPy验证：两图RGBA与原画布尺寸对应，四角及邻近外侧采样alpha均为0，28像素切线与直边中段的左边界一致。人工查看对照及两种拉伸预览。Settings整个正式目录所有文件前后哈希一致，未写入PNG／meta、Prefab、SO或运行脚本。结果previews/Settings_BorderFix_v03/verification.json。
+- 未执行Unity导入、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。当前等待用户审图，未开始正式替换。
+
+## 2026-10-28 确认后的设置页v03细边框安装
+
+- 用户确认两张v03候选边框并要求替换游戏内素材。安装前核对确认稿哈希、原尺寸、当前正式图与审图时哈希、28像素九宫格边距和Prefab中的原GUID引用。
+- 仅替换Assets/Res_Runtime/UI/Settings/new/PopupPanel.png与PopupPanelInner.png。两张PNG与主题v03源图逐字节一致；保留现有meta、GUID及导入参数，Prefab引用继续生效。其余17张PNG、old归档、目录meta、Prefab、SO和脚本未改。上一版v02主题源图保留。
+- 同步v03清单、主题manifest及STYLE.md安装状态。Windows／Python／Pillow哈希检查确认Settings正式目录仅两张指定PNG发生变化，其余文件完全一致；结果Logs/SettingsBorderInstall/verification.json。
+- 本次完成图片安装，未执行Unity实际导入验收、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证；离线拉伸预览不等同于实际运行画面。
+
+## 2026-10-28 商店页小狗面包房整体风格稿
+
+- 用户确认保留截图商品结构及信息，按奶油白、雾灰蓝和烘焙金色绘本风格生成整页审图稿；本次授权仅包含整体效果图，不包含切图及正式资源接入。
+- 使用内置image_gen，以用户商店截图、已确认小狗头像及Logo页风格图为参考，生成三个商品区与九张商品卡。期限、数量、日元价格和恢复购买入口保留；放大镜说明中的仓鼠随主题改为小狗。文案属于效果图内的图像文字，后续接入应使用正式TMP及本地化。
+- 文件位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Shop/：Panel_Shop_Style_v01_source.png保留生成原图，Panel_Shop_Style_1080x1920.png归一化为1080×1920，generation_prompt.txt保存生成描述。已人工检查角色、商品分区、数量与价格，文件尺寸检查通过。当前为待用户审图方案，未宣称定稿。
+- 未修改Assets正式资源、meta、Prefab、场景、SO或代码；未进行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+## 2026-10-28 商店页去除背景顶部垂边
+
+- 按用户要求使用内置image_gen局部修订商店页，移除背景最上沿整排蓝白遮阳篷垂边并补全奶油色背景，保留小狗、关闭按钮、招牌背后的小遮阳篷及三个商品区。
+- 修订稿保存在Docs/UILibrary/themes/PuppyBakery/assets/UI/Shop/Panel_Shop_Style_v02_1080x1920.png，原生成图为同目录Panel_Shop_Style_v02_source.png；保留v01。人工查看顶部与商品信息，归一化输出1080×1920。本次仍为效果图，未切图或接入正式资源，未执行Unity运行及构建验证。
+
+## 2026-10-28 个人资料服装六款候选，待用户选择
+
+- 用户确认六款服装候选范围后开始生成：01小面包师（厨师帽与浅蓝领巾）、02可颂兜帽、03草莓奶油帽、04蓝白睡帽、05南瓜帽、06奶油黄格纹头巾。实际查看已确认头像，以其奶油白脸、雾灰蓝垂耳、画面右侧眼斑与绘本笔触为参考，使用内置image_gen逐款生成。
+- 六张试戴图与六张独立服装透明PNG保存在Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/Costumes/v01/。试戴与独立图分别生成，不能当作逐像素对应分层；尺寸约1350×1165，01独立图1349×1166。当前为选款候选，未做正式原尺寸归一化或全部头像组合的叠加适配。
+- 编号总览、可同时查看试戴与独立图的overview.html、完整提示词与来源generation.json、哈希及抽样透明通道检查verification.json保存在previews/Profile_Costumes_v01/。Windows／System.Drawing检查12张PNG均为32位ARGB，抽样均存在透明与不透明像素；人工查看六款试戴、独立图及总览。保留生成图原alpha，未将旧服装蒙版套入新图。
+- 未修改Assets正式资源、meta、Prefab、SO、场景或业务脚本；未执行Unity编译、Play Mode、Addressables内容打包、应用构建、安装或真机验收。等待用户选款，正式接入前仍需校准尺寸、耳朵遮挡及服装位置，并另行确认接入范围。
+
+
+## 2026-10-28 前20关主线选关与进度迁移、用户验收文档
+
+- 用户确认按前述建议开始迁移，并要求交付供其实际操作的验收文档、在AGENTS.md添加入口及后续迁移持续维护规则。本批完成范围为前20关主线选关与进度，保留第21关边界；未扩展每日挑战玩法、完整结算／提示、广告、支付或真实排行榜服务。原拆解目录保持只读。
+- 对照原作DynamicDifficulty、CampaignMapBank、CampaignDifficulty的可读代码、game-method-index、method-issues、source-diagnostics及ARM64／ISIL。将提取地图逐条与CampaignDdaMaps原始二进制字段、区域和答案交叉核对；原前十关尺寸资料与后续BoardSize的ELF常量表相互补充。原作静态证据不等同原APK运行对比，恢复C#未复制到Assets。
+- GameConfig扩展到20关，尺寸依次4、5、6、6、8、6、7、8、9、7、8、10、10、9、10、10、9、10、10、8。接入所需3436张原地图，其中第10／20关固定题为原entry9876／9877、7×7／8×8；保留原146份独立PuzzleSO与GUID，新增3290份PuzzleSO作为现有GameConfig子资产，避免生成数千独立文件。补齐原BoardView的10种区域颜色，绑定已有第9／10种图案，无新增棋盘、Prefab或图片。
+- 新增CampaignController、CampaignSaveModel、CampaignSelectionModel，扩展现有PuzzleModule、GameController／State、PuzzleSO／GameConfigSO、PlayerSaveModel／PuzzleSaveModel及HomeController。前5关只用grade1，第6—20关最高grade2；连续两次无重开且不用道具通关提升难度，重试通关降级；按照原池顺序推进游标并排除最近100张地图身份，固定关优先覆盖。前20关原transform为0，未将第51关起的旋转／镜像提前实现。每日首次游戏降级与已操作未完成棋盘的新日期恢复按静态分支接入。
+- 存档升至v8，保留正式hamdoku-progress.json文件名，使用现有原子写入。当前题目、道具使用及失败／重开次数与选图状态独立于共享SO，均由Controller修改；Module只读业务状态、计算选择结果。v1—v7保留旧棋盘与通关进度，缺失的难度／游标历史从一级建立并记录已知上题／当前题，不伪造过去记录。失败弹窗重开不重复计算同一次失败。设置和商店返回、教程重看、重启保持同一道题，旧第5关结算可继续第6关。
+- 维护ProfileSetupEM／ProfileCompletionEM／SettingsSetupEM中存档版本赋值为Math.Max，防止后续制作工具将v8降回旧版本；只改版本保护，保留同期个人资料和设置修改。更新本批完成的中英文提示及GameplayMigrationTODO，移除其中设置页尚未接入的过时描述，保留首批历史范围。
+- 新增Docs/MigrationAcceptance.md，给用户提供12项手动验收操作、预期结果、关卡尺寸、范围与限制、开发验证状态和问题记录。所有用户勾选保持未勾选，状态为待验收。AGENTS.md A8-B7添加每批迁移必须维护验收文档的稳定规则，A9-B11添加入口；后续按批次追加并保留历史反馈。
+- 验证环境Windows、Unity6000.5.2f1／Addressables2.10.3，隔离工程D:/UnityProject/HamdokuCampaign20Validation-20261028。以正式交付资产直接打开Scene_Main，不执行制作菜单，最终Unity编译和实际Play Mode通过163项断言，涵盖完整教程进入主线、20关推进、固定关、难度／新日期分支、重开／失败重开、返回首页、实际场景重载、商店／设置重看、重复Open和通关去重、v1—v7恢复后继续到6、v8磁盘存档、无效游标拒绝。163为断言数，不代表163种独立场景；最终项目运行错误0。
+- 已查看中英文10×10棋盘1080×1920、1080×2400模拟安全区和1080×1620后台渲染；Windows Addressables内容打包最终通过。核对3436张地图及答案、全部GameConfig引用、default标签、336份本批代码／配置／关卡／meta／程序集／包清单／EditorBuildSettings／DefaultObject与验证快照一致。最终只规范化本批资产换行及空字段行尾空白，序列化数据不变；目标git diff --check通过。未复制测试存档、测试文件名、Library缓存或打包输出回正式工程。
+- 初次dotnet检查使用未纳入新增文件的旧生成csproj而报类型缺失，随后以Unity实际编译为准。首次隔离缓存复制误漏文件名含lock的ColorBlock／UnlockReloadAssembliesTask等包源码，补全缓存后编译通过；未改包版本或以项目fallback掩盖。首次导入脚本在写本地化时遇到Python正则替换转义错误，修正并完成余下写入。一次整合验证发生Unity原生崩溃，保留play-integrated.log，D3D11与2个工作线程重跑play-integrated-2.log通过，具体原因未确定；UnityEditor.Search启动索引异常单列记录。未将旧result.txt误当崩溃运行的新结果。
+- 证据、导入／审计脚本、各轮失败／通过日志、163项结果、截图、最终内容打包结果和delivery-audit.json位于Logs/Campaign20Migration/。隔离快照包含当时并行更新，但本轮结果不替代之后的其他页面修改验收。未执行Android APK／应用构建、安装、真机触摸／扬声器／性能或原APK动态选图回归；用户验收仍待执行。
+
+
+## 2026-10-28 个人资料卡俱乐部说明补全
+
+- 用户确认后，将个人资料右上角“i”打开的纯文字说明补为原作俱乐部图文弹窗。只读查阅原作ClubPage.ShowHelp／BuildHelpRows、HamsterPopup及方法索引，核对ARM64／ISIL和恢复诊断；原作使用动态UI，结合用户截图、Sprite原始九宫格与中英文文案在现有Help节点定点补齐，未复制恢复C#或新增UI管理体系。
+- 补入原作popup_frame、popup_btn_pink、popup_btn_close、club_ico_stamp四张图及meta，复用已有资料页日历、皇冠、火焰图标。说明为30天会员、最多20次奖励、两种道具各2个和7天申请条件，数字存入ProfileConfigSO；新增9份中英文L10NSO并更新已有标题，接入default标签和离线中文字体。说明展示不代表会员购买、发奖或资格服务已实现。
+- Panel_Profile新增说明标题／四组文案／关闭与确认按钮绑定，继续通过Action交给现有Controller关闭，TearDown解除监听。Controller区分说明与原有昵称／座右铭编辑框，按原有本地化统一刷新。说明使用深色遮罩，编辑框保留原遮罩；正式Prefab已经生成，不要求用户先执行制作菜单。新增ProfileInfoSetupEM作为可重复执行的定点制作入口，ProfileSetupEM衔接此步骤，保留同期其他工作的存档版本Math.Max修复。
+- 主要文件：Assets/Res_Runtime/UI/Profile/Panel_Profile.prefab与Info/、Assets/Res_Runtime/Config/ProfileConfig.asset、Assets/Res_Runtime/Localization/Profile_Help*.asset、Assets/Res_Runtime/Font/Chinese SDF.asset、Assets/AddressableAssetsData/AssetGroups/Default Local Group.asset；Panel_Profile.cs、Panel_Profile_Controller.cs、ProfileConfigSO.cs、UINameType.cs、ProfileInfoSetupEM.cs、ProfileSetupEM.cs。本批验收步骤追加至Docs/MigrationAcceptance.md，用户验收保持待执行。
+- Windows／Unity 6000.5.2f1／Addressables 2.10.3，隔离工程D:/UnityProject/HamdokuProfileInfoValidation-20261028：Unity编译、73项Play Mode检查通过；覆盖正式Scene_Main启动、四行数值、中英文刷新、三次开关、确认／关闭／返回、释放重开、昵称与座右铭回归。1080×1920中英文、1080×2400模拟安全区、1080×1620后台渲染及文字溢出检查通过。dotnet build Hamdoku.csproj --no-restore通过，0警告／0错误。最终独立Unity编译退出码0；Windows Addressables内容打包通过。
+- 配图和遮罩经后台渲染检查后，改用已有原作线性日历／火焰图标，避免重复资源；保留原有6567个Prefab对象，新增96个对象，无重复fileID、本地引用或外部GUID缺失。同步正式资源、meta、SO、字体及9条default注册，核对包清单、EditorBuildSettings、DefaultObject与必要依赖；保留原Addressables分组和条目顺序。未复制验证脚本、Library、测试HomeConfig或存档，未覆盖同期主线开发修改。同步脚本首次检查因同期ProfileSetupEM修改而中止，保留该修改后继续；资源审计补纳入包内uGUI／TMP脚本GUID，最终通过，详见Logs/ProfileInfo/。
+- Unity Search索引自身异常单独记录于editor-diagnostics.txt；项目运行错误及缺字警告0。所有截图属于编辑器后台渲染，按钮检查使用回调，不能代替人工点击和真机触摸。本轮未执行应用构建、安装、真机或原APK动态验收；会员／真实奖励服务仍未接入。
+
+## 2026-10-28 项目长按钮绘本风格候选，未安装
+
+- 用户确认按设置页样图中两种长按钮风格制作项目内按钮，范围为Game两张共享底图、Home四张长按钮、Ranking两张胶囊底图、Shop三张操作底图、Streak一张继续底图，共12张；关闭、箭头、开关及首页大型模式卡保留。用户确认素材后才进入old/new安装，本轮未写入正式资源。
+- 使用内置image_gen分别生成金黄、雾灰蓝、奶油、桃色、粉色、珊瑚红六种无字高分辨率底稿，清理自身透明边缘；沿用原文件名与像素画布，拼合前批主题爪印。候选位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Buttons/v01/，底稿、提示词、切图脚本、总览和原图对照位于previews/Buttons_v01/。不将文字、功能图标或状态烘焙入底图。
+- 读取现有Prefab的22处Image尺寸、类型及PPU倍率制作离线对照。首轮发现原切线使爪印在短按钮中消失，仅改切线仍会在较高按钮中拉长；候选方案同时提出9张Sprite的边距调整，以及切片Image按图片像素高度／显示高度配置倍率。清单记录全部建议值，正式安装须同步相关导入、Image和工具／运行覆盖，不能只替PNG。首页无限模式按既有非等比显示尺寸对爪印宽度作补偿；未新增运行节点。
+- 人工查看12张总览、按钮文字及教程图标示意、共享按钮与紧凑胶囊拉伸对照，修正后装饰形状在离线建议参数下保持完整。预览使用Windows字体和离线九宫格算法，不是Unity截图。保留完整22处对照用于核对原参数与建议参数差异。
+- Windows／Python／Pillow／NumPy／SciPy检查：12张文件名与像素尺寸对应原图、RGBA、非空内容、透明外角有效；正式UI目录全部文件前后哈希不变，未复制或修改meta、Prefab、SO、场景、运行代码、编辑器工具和存档。结果previews/Buttons_v01/verification.json。同步STYLE.md、主题manifest及MigrationAcceptance.md的候选审图批次。
+- 当前仅完成候选审图材料，未进行Unity导入、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。等待用户审图及后续安装确认。
+
+## 2026-10-28 小狗面包房19款头像边框候选制作（未替换）
+
+- 用户确认先交付19款边框新图、原尺寸透明PNG、总览与对应清单，正式Unity接入另行确认。核对ProfileConfig的21槽位中8／9为空；本批对应profile_frame_0至7、10至20，包含7基础、1金冠、6彩色皇冠、4段位与1会员框。
+- 使用内置image_gen逐张生成，原边框作构图参考，已确认小狗作绘本画风参考；保留皇冠、丝带、徽章等级识别，采用奶油饼干与低饱和糖霜配色。徽章、会员牌留空，不烘焙数字、文字、锁头与现有光效。原始出图和提示词保存在Docs/UILibrary/themes/PuppyBakery/previews/Profile_Frames_v01/。
+- 19张候选及manifest位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/Frames/v01/。经预乘alpha的3×3坐标重采样归一化到原尺寸、对齐开口中心横纵截线；不套用原透明蒙版。生成contact_sheet_v01.png、original_vs_candidate_v01.png及puppy_overlay_v01.png，已人工检查；小狗叠放按开口离线拟合，不代表当前Widget运行比例。
+- Windows／Python／Pillow／NumPy检查通过：名称19项对应、画布逐张等于正式原图、RGBA、中心与四角透明、开口中心截线误差0像素，正式Profile PNG及meta前后哈希未变。制作过程中Panel_Profile.prefab和ProfileConfig.asset由其他任务更新，本批不覆盖；处理前后单独复核197个快照文件没有进一步变化。验证记录为previews/Profile_Frames_v01/verification.json。
+- 更新主题manifest、STYLE.md及Docs/MigrationAcceptance.md的候选审图批次；用户验收不代勾。本批未安装正式图片或修改脚本、Prefab、SO、Addressables和存档，未执行Unity导入、编译、Play Mode、内容打包、应用构建、安装及真机验证。后续需用户审图确认，再单独开展正式替换与运行验证。
+
+## 2026-10-28 个人资料28款小狗头像及前爪候选制作
+
+- 用户确认可见列表28项（普通16、会员12），要求沿用已确认的小狗面包房风格生成并先审图；隐藏槽位6不制作。使用内置image_gen逐张生成28张头像，并生成20张配套前爪层；遇到连接失败后重试成功，未切换CLI或其他模型。
+- 48张独立透明PNG保存在Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/v01，沿用正式文件名与对应原画布尺寸，按比例归一化。底稿、完整头像及前爪提示词、来源清单、处理脚本、头像总览及前爪总览位于previews/Profile_Avatars_v01。同步维护主题manifest、STYLE和迁移验收文档，状态均为候选待用户确认、尚未安装。
+- Windows离线Pillow检查48张文件名、画布尺寸、RGBA、非空内容及透明通道0至255范围通过；人工查看28张头像和20张前爪总览。前爪为AI分离后按原画布等比拟合，不是无损提取；尚未完成服装遮挡、Sprite轴心及运行叠放精确对齐验证。
+- 本批未修改正式Assets、代码、Prefab、SO、Addressables或存档；制作期间其他任务修改的ProfileConfig和Panel_Profile保持不动。未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验收。用户尚未确认图片可用，不能记为已完成换皮接入。
+
+## 2026-10-28 小狗头像整套美术确认与保留
+
+- 用户明确回复“可以！都很好 都给我留下”，确认并保留Profile/v01中28款小狗头像与20张前爪层；同步更新本批manifest、主题manifest、STYLE与迁移验收记录。所有图片与底稿保留，未替换正式运行资源，前爪服装叠放尚未验证。
+- 用户另提供灰白仓鼠会员12款截图，要求先确认再生成。本轮只核对对应原头像17至28及灰白仓鼠造型，尚未生成第二套；拟另存独立版本，等待用户确认具体制作范围。
+
+
+## 2026-10-28 商店页原作核对与19张素材切图（未安装）
+
+- 按用户授权核对原项目商店Sprite、ShopPopupLayout配置、恢复ShopPopup构建方法及当前正式Panel_Shop.prefab和图片导入参数。原项目保持只读，恢复代码含诊断，仅用于定位动态UI与图片／文本职责，不作为运行事实。
+- 使用内置image_gen补绘无字整页、无顶部垂边背景及空分组面板，再用Pillow／NumPy按确认稿裁切、透明隔离和组装。19张PNG位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Shop/，11张保留当前商店正式图片名称及尺寸，8张为背景、面板、标签及小图标配套。商店标题、描述、期限、数量与价格均保持独立文字；ADS作为符号保留。礼包、限时优惠、会员及9张未覆盖正式图不在本稿切图范围。
+- 清单记录原始来源、实际尺寸、透明边界、九宫格及哈希。关闭按钮沿用当前249×256，区别于原导出256×256。正式布局不同于确认稿；新增图层需绑定，原日历／无限粉色染色需校准，商品卡及按钮离线边距显示比例0.35，正式PPU倍率待Unity校准。未修改正式图片、meta、Prefab、场景、SO、脚本或存档。
+- 生成提示词、原图、切图脚本、原始尺寸清单、方法证据、19图总览、1080×1920离线拼合和verification.json位于previews/Shop_Slicing/。Windows离线尺寸、RGBA、非空、透明角、边距及哈希检查通过，商店正式资源和相关实现前后哈希无变化。素材与拼合均人工查看；STYLE.md补充入口，Docs/MigrationAcceptance.md追加本批审图步骤，用户验收未勾选。
+- 首次脚本缺SciPy，改用已有Pillow／NumPy；本机阶段性内存不足后重试成功。首次图像检查修复关闭按钮缺叉、面板边缘商品残影和九宫格色带过高问题；一次验证误在切图尚未结束时读取，报PNG截断，待切图完成后重新全量读取检查通过，未放宽损坏文件校验。未执行Unity导入验收、编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+## 2026-10-28 用户确认19款边框全部保留，后续再替换
+
+- 用户确认本批边框美术可用，并明确要求保存后留待后续替换。19张原尺寸成品、19张原始生成底稿、提示词、总览、原图对照、小狗叠放及ZIP素材包均已保留在主题目录；逐张核对成品SHA256与原清单一致，ZIP完整性及20个条目（19张PNG加清单）检查通过。
+- 更新Frames/v01/manifest.json中整批及逐项状态、主题manifest、STYLE.md与迁移验收文档，记为user-approved-artwork-not-installed，批准日期2026-10-28；素材包同步包含最新状态清单。runtimeReplacementAuthorized仍为false，本次未替换正式图片或修改运行代码、Prefab、SO、Addressables、存档；没有新增Unity编译或运行验证。
+
+## 2026-10-28 第二只小狗三种基础造型候选
+
+- 用户纠正第二套不是小仓鼠，选定方向2奶油卷毛犬、5芝麻雪纳瑞、6黑糖奶牛犬，授权每种先生成一张基础头像。本批通过内置image_gen分别生成3张正面无身体头像，以既有确认图作画风参考，分别使用奶油卷耳、灰色短折耳与奶白眉胡、深可可双耳与不对称额头花纹区分；尚未扩展12表情或前爪层。
+- 3张透明RGBA候选保存于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/DogVariants/v01，归一化为509×439；原始生成PNG、完整提示词与同尺寸对照图位于previews/Profile_DogVariants_v01。离线检查3张非空内容、RGBA、尺寸与透明通道范围0—255通过，人工查看全部原图。当前均待用户选型，原已确认的小狗28头像及20前爪保持保留。
+- 本批只制作候选图片，未修改运行资源、脚本、Prefab、SO、Addressables、存档或既有图片；未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证，不视为已完成正式换皮。
+
+## 2026-10-28 新增八款服装候选07–14，待用户选款
+
+- 按用户确认范围，使用内置image_gen延续既有小狗面包房绘本风格，制作07吐司兜帽、08布丁帽、09曲奇贝雷帽、10蜂蜜小蜜蜂、11雨天小狗、12草莓田园帽、13冬日针织帽、14小画家。使用已确认正面小狗作为图像参考，保留奶油白脸、蓝色垂耳和画面右侧眼斑。
+- 每款包含试戴图及独立服装透明PNG，共16张，均1350×1165，保存于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/Costumes/v02/。续作保留已生成07–09，不重复生成；吐司／蜜蜂独立图首轮残留耳朵、雨帽首轮残留侧部蓝色耳片，已通过image_gen局部修正；弃用结果仅归档在previews中。
+- 编号试戴总览contact_sheet.png、独立服装总览accessory_sheet.png、对照overview.html、规格与生成描述、修复提示词及verification.json位于previews/Profile_Costumes_v02/。Windows／System.Drawing检查全部16图为32位ARGB、抽样存在透明与高alpha可见像素并记录SHA256；人工查看各款及总览，修复后重查雨帽并重做独立图总览。
+- 本轮是候选生成，试戴与独立服装分别生成，非逐像素对应分层；未按正式运行尺寸归一化，尚需选款后的遮挡、位置、尺寸与多头像组合适配。旧六款、正式Assets、脚本、Prefab、SO、场景、存档均不在本次修改范围。未执行Unity编译、Play Mode、Addressables打包、应用构建、安装或真机验证。Docs/MigrationAcceptance.md追加本批候选审图说明，用户验收保持未勾选。
+
+## 2026-10-28 已确认19款边框正式替换
+
+- 用户明确要求“现在就替换了”，授权立即安装此前确认的整套19款边框。预检正式profile_frame_0至7、10至20.png与原始来源哈希一致，确认稿SHA256、画布尺寸、RGBA及ProfileConfig对应槽位GUID有效；沿原路径只覆盖19张PNG，不迁移资源目录或重建UI。
+- 正式目标为Assets/Res_Runtime/UI/Profile/，逐字节保留19份meta、GUID、PPU、Sprite模式和其他导入参数。确认稿、19张生成底稿和预览仍保留；旧图及原meta备份到Logs/ProfileFrameInstall/before/，不放回Assets产生重复GUID。未修改配置、Prefab、场景、代码、Addressables或玩家存档，现有边框ID、选择和解锁规则沿用。
+- Windows／Python／Pillow／SHA256文件检查通过：19张正式PNG与确认稿一致，尺寸不变，原meta不变，19个GUID及配置槽位引用保持，备份完整；210个受保护文件中只有19张目标PNG变化。安装脚本、前后哈希和结果见Logs/ProfileFrameInstall/。主题清单、STYLE及迁移验收文档更新为已安装、运行待验收，用户验收未代勾。
+- 本轮未执行Unity实际导入验收、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。会员牌沿确认稿留白，未新增文字组件；实际徽章位置、光效和头像裁剪仍需运行检查。离线小狗叠放图不能作为本轮运行截图。
+
+
+## 2026-10-28 主线开局揭示、连击计分与通关收尾迁移
+
+- 按用户确认范围，只读核对原GameConfig、level2 GameController／GameHUD、GameController及状态机的恢复索引、诊断和ARM64证据。接入前20关开局揭示（原预置优先，否则随机正确格）、基础分576、连击增量96、失误归零与无等待超时规则；揭示不增加连击，不把恢复代码或工具零值直接当作原源码。方法索引、15条相关诊断、配置副本、来源哈希及验证脚本留存Logs/GameFlowMigration/。
+- 新增静态GameFlowController，在现有GameController、HomeController、GameState、PuzzleSaveModel、PuzzleModule、SaveModule及GameConfig中接入规则、校验和保存。存档版本9、文件名hamdoku-progress.json；v1—v8旧棋盘与已有分数保留，不追补揭示或推断历史连击，新得分另记逐格账本。非法账本明确报错，不重置用户进度。重开保留关卡地图，随机揭示允许变化。
+- 最后一次正确放置立即确认通关并保存，计时冻结，界面及Controller锁定收尾期间操作；剩余空格0.45秒后补叉并按0.09秒斜向间隔扫光，随后庆祝与0.45秒结果等待；无空格跳过补叉等待。收尾前后可恢复，进度、排行榜、资料及连胜不重复记账；继续衔接现有结果／连胜／下一关及第20关边界。完整结果页、百分位与奖励库存没有计为完成。
+- Panel_Game正式Prefab保留原层级并绑定ScoreGain／Combo两个非交互TMP，沿用棋盘现有落子、标叉、庆祝资源，增补扫光。Game_Gain／Game_Combo共两份中英文L10NSO注册default，复用语言字体；语音改按真实连击数调用SettingsController。GameFlowSetupEM用于维护制作结果，现有UI制作入口调用它，正式运行不要求先执行菜单。未新增启动、Canvas、Context依赖或UI／资源管理体系。
+- Windows Unity 6000.5.2f1、D3D11，复用隔离验证目录D:/UnityProject/HamdokuCampaign20Validation-20261028。编译通过；最终Play Mode 135项检查通过，覆盖教程、完整20关、正确／失误／等待／提示／重开、v1—v8迁移、v9恢复、收尾前后中断、无空白格分支、错误账本拒绝及相邻连胜页。1080×1920中文、1080×2340英文安全区、1080×1600短屏后台渲染与新增文字字符检查通过，图像已查看。只使用gameflow-validation-only.json，没有同步测试通关数据。
+- Windows Addressables内容打包通过（content-final.log），不等于APK构建。54份交付关键文件、meta、程序集相关代码、包版本和Addressables入口核对通过：52份逐字节一致，Default Local Group与AddressableAssetSettings仅列表序列化排序不同，按GUID／地址／标签及组引用逐项相同。正式HomeConfig为v9且恢复正式文件名；DefaultObject及EditorBuildSettings注册保留。资源组只合并本批两份文案，保留其他聊天的修改；当前游戏按钮、头像边框等并行变动未覆盖。
+- 验证过程首轮脚本漏过已有连胜奖励页而停在第2关，修正验证衔接后通过；首次截图揭示飘字首帧alpha为0，修正ShowGain立即显示后重验。整合最新工程时发现HomeSetupEM新增Concat调用缺System.Linq导致编译失败，仅补引用后再次编译和全流程通过。UnityEditor.Search索引异常另记editor-diagnostics.txt，不计为项目运行错误；LF／CRLF Git提示不作为代码错误，改动内容无尾随空白检查错误。
+- Docs/MigrationAcceptance.md追加本批12项用户操作、预期、兼容策略、边界与验证状态；保留所有历史及其他聊天新增批次，用户验收不代勾。Docs/GameplayMigrationTODO.md更新本批状态；AGENTS.md已有强制逐批验收规则与文档入口继续有效。本次未执行人工编辑器点击、原APK动态对照、Android应用构建、安装或真机触摸、音频、性能验收。
+
+
+## 2026-10-28 商店图片old／new整理与正式安装
+
+- 按确认范围整理Shop目录。实施前发现另一批统一长按钮已先建立Shop/old与new、安装3张按钮，并修改最新Prefab及ShopSetupEM；初次预检因现有目录停止，尚未修改正式文件。用户随后明确选择保留刚安装的统一shop_btn_magnifier。本轮基于最新文件继续，不覆盖3张统一按钮或其meta／归档。
+- Assets/Res_Runtime/UI/Shop/new共28张：替换10张同名商店新图，迁移7张未重绘原图，保留3张统一长按钮，新增8张未绑定配套图。Shop/old共20张原图，独立GUID；20份当前正式meta逐字节保留，原GUID和Prefab引用继续指向new。最新Panel_Shop.prefab及meta、ShopConfig.asset保持本轮安装前内容。
+- ShopSetupEM扫描范围由根目录加new收敛为new，通用图片查找首目录改为Shop/new；保留另一批统一按钮的显式路径、导入参数与像素倍率调整。新增shop_btn_hint、shop_tab_magnifier、shop_tab_hint、shop_section_panel九宫格边距，防止未来导入时丢失。未执行制作菜单，未修改布局、图标染色、TMP、业务流程、存档或共用Game背景。
+- Windows／Python／Pillow文件检查：28张PNG完整读取、尺寸与RGBA通过；18张本批源图哈希一致，重叠按钮另记实际保留哈希；20张原图归档及原meta／GUID保留、20个Prefab商店引用、Shop范围及新增GUID无冲突检查通过，3张统一按钮与其meta及旧归档均逐字节保留。安装前完整快照、脚本、前后哈希及verification.json位于Logs/ShopImageInstall/。主题清单与STYLE更新安装状态，迁移验收文档追加步骤，用户验收未勾选。
+- 本批不代表商店整页风格已接入：8张配套图仍未绑定，商品卡PPU倍率与旧粉色染色未校准。尚未执行Unity实际导入验收、编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。
+
+## 2026-10-28 芝麻雪纳瑞第二套12头像与8前爪候选
+
+- 用户选定5号芝麻雪纳瑞并授权制作第二套。按此前确认的12个会员头像17至28及8个前爪层范围完成20张图片；17号自然微笑直接逐像素复用已确认基础图，另外11张头像和8张前爪通过内置image_gen分别生成，不改动蓝耳小狗48张已确认图片，另外两种基础造型也保留。
+- 候选图片位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/Schnauzer/v01；底稿、完整头像与前爪提示词、来源基准哈希、归一化脚本、12格头像总览、8格前爪总览及verification.json位于previews/Profile_Schnauzer_v01。同步主题manifest、STYLE、选型manifest和迁移验收条目；整套状态待用户审阅，尚未安装。
+- Windows离线Pillow检查20张文件名、RGBA、非空内容、对应原画布尺寸、透明通道0至255范围通过；人工查看完整头像与前爪总览，基础款像素一致性通过。前爪为AI分离后按原画布等比适配，非无损提取；尚未验证服装遮挡、Sprite轴心和精确叠放。
+- 本批未修改正式Assets、代码、Prefab、SO、Addressables或存档；期间其他工作修改的Panel_Profile与19张边框已在基准对照中列明并保留，不能声称全部Profile目录哈希未变。原蓝耳小狗图片未变。未执行Unity编译、Play Mode、内容打包、应用构建、安装或真机验证。
+
+## 2026-10-28 新增八套服装候选15–22，待用户选款
+
+- 按用户确认范围，使用内置image_gen，以已确认正面小狗为图像参考，制作15肉桂卷帽、16樱桃纸杯蛋糕帽、17小邮差、18园艺小狗、19海盐小水手、20雪夜小鹿、21小魔法师、22赏花小狗。延续奶油白脸、雾灰蓝垂耳、画面右侧眼斑和暖棕绘本描边。
+- 每套交付试戴图与独立服装透明PNG，共16张，均1350×1165，位于Docs/UILibrary/themes/PuppyBakery/assets/UI/Profile/Costumes/v03/。独立图保留帽子、装饰、配套领结／围巾／领口，不包含小狗脸和耳朵；没有覆盖前两批候选或正式运行资源。
+- 逐图完整生成提示词、规格与清单generation.json、试戴总览contact_sheet.png、独立服装总览accessory_sheet.png、逐款对照overview.html及verification.json位于previews/Profile_Costumes_v03/。Windows／System.Drawing检查16图均32位ARGB、尺寸一致、抽样有透明及高alpha可见像素，并记录SHA256；人工查看16图和两张总览。
+- 本轮为候选图生成，试戴与独立服装分别生成，非逐像素对应分层；未按正式尺寸归一化，选款后仍需校准叠加位置、耳朵遮挡及多头像适配。未修改正式Assets、脚本、Prefab、SO、场景或存档。未执行Unity编译、Play Mode、Addressables内容打包、应用构建、安装或真机验证。迁移验收文档追加本批审图入口与限制，用户选款未勾选。
+
+## 2026-10-28 项目12张长按钮正式替换与Unity视觉验证
+
+- 用户确认候选并授权安装。安装12张：Game两张共享操作底图、Home四张长按钮、Ranking两张胶囊、Shop三张操作底图、Streak一张继续底图。各页面new继承原GUID、old使用独立GUID归档原图；原图及meta在Logs/ButtonsInstall/before另存操作前快照。其他新商店素材和用户未提交修改保留。
+- 为保持爪印形状，同步9张Sprite的九宫格边距及9份现有Prefab内20处切片Image倍率；按图片像素高度／实际显示高度配置，文字内容、原图标、RectTransform尺寸和按钮回调不变。将浅色底图上原白色标签定点改为暖棕色，提高可读性。
+- 修改8份既有编辑器脚本GameSetupEM、GameOriginalUIEM、HomeSetupEM、ProfileSetupEM、SettingsSetupEM、ShopSetupEM、RankingSetupEM、StreakSetupEM：对应按钮路径明确指向new，导入不扫描old，导入边距及新建／调整Image的倍率与正式Prefab一致，标签对比度保持。没有新增运行脚本、面板节点、资源加载或UI管理体系；缺失正式按钮资源明确抛错。
+- Windows文件层检查：12张新图与确认稿、old与原PNG哈希一致，尺寸保持，new的meta除已确认边距外保持原导入字段及GUID；GUID唯一，按钮布局与回调保持。期间其他开发更新Panel_Game的计分节点，保留完整更新并仅重新应用目标按钮倍率；未回滚这些变更。静态检查、安装映射、差异快照和核验脚本在Logs/ButtonsInstall/。
+- Unity6000.5.2f1独立工程D:/UnityProject/HamdokuButtonsValidation-20261028完成资源导入、C#编译、22处Prefab引用及倍率检查和隔离Play Mode。实际后台相机渲染检查首页、中文／英文设置页、1080×1920及1080×2400；使用既有L10NModule和文案资源，设置页重新开始／教程Action绑定、重复创建和TearDown释放通过。验证不启动ClientMain，不读写用户存档，不替代完整业务启动、Editor人工点击或真机触摸验收。
+- 当前工程41份本批图片、meta、Prefab与编辑器脚本和验证副本内容一致。play-result.txt通过，sync-audit.json全项一致；人工查看渲染中按钮边线、爪印、原功能图标和中英文标签，无本批遮挡或明显变形。部分仅用Prefab默认值渲染的汇总图未初始化动态标签；本地化设置图另行完成，未将空标签当成运行状态。
+- 初次隔离复制遇到其他并行每日挑战代码与枚举不同步导致编译失败，完整重同步后通过；首次图数断言把新增shop_btn_hint计入本批，按本批12个文件名限定后通过。UnityEditor.Search启动索引ArgumentOutOfRangeException单列保留，不计为项目业务运行异常。原失败、后续通过日志均在Logs/ButtonsInstall/。
+- 更新主题manifest、按钮素材manifest、STYLE.md和MigrationAcceptance.md的A11安装验收批次。没有运行页面制作菜单、迁移验证存档或同步Library／验证专用脚本回正式工程；未执行Addressables内容打包、应用构建、APK、安装或真机验证。用户验收项目保持未勾选。
+
+
+## 2026-10-28 每日挑战页面与本地玩法迁移
+
+- 用户确认 UI 与内容一起迁移，并确认基于原作动态构建代码补建正式 Prefab。只读核对 DailySeasonPage／DailySeasonJigsaw／DailyDatabase／GameProgress／CostumeRewardService、方法索引及诊断、原作资源容器、Daily_seasons、Costumes 与两套拼图元数据。恢复 C# 的无诊断方法亦可能失真，日期周期和拼图夹取回查 ARM64／ISIL；来源与边界保存在 Logs/DailyMigration/source-methods.json。
+- 新增 DailyConfigSO／DailySeasonSO、1820 份每日 PuzzleSO、202610／202611 赛季、146 份原图、35 份双语 L10NSO、Panel_Daily 与 Daily Controller／System／State／Save 模型；接入 ClientMain、AssetModule、首页和现有棋盘／结算／资料。沿用 PanelFactory／Repository 与 default 标签，正式 UI、序列化引用和导入设置已保存，无需先执行制作菜单。新题按 2026-08-17 起的 364 天周期表分配，不进入主线抽题池。
+- 每日日期选择、首次挑战、未完成续局、完成／完美印章、最佳时间、拼图 1／2 块结算、服装切换、消耗拼图领取、资料穿戴、月度记录、规则和插画预览接通。存档升 v10，主线与每日使用独立棋盘槽；v9 升级保留原 20 关进度及主线棋盘，其他旧版本未逐版本重跑。补签、再次挑战和失败重试因广告／云端授权未接入而明确不可执行；不填造 TOP 百分比或云端发奖成功。
+- 修复原 Sprite 导出网格破坏拼图透明边缘的问题，使用对应原 Texture2D；修正新资源引用类型、导入形状和 Rect 序列化版本。补烘焙现有两种字体字符，去除不受支持的箭头字符；按运行截图定点修正英文奖励文案重叠、按钮裁切、成绩行间距与服装预览的头像坐标继承。必要的 PanelRepository 修复处理 Unity 先销毁面板后接口引用仍非空的生命周期情况，避免退出时重复 TearDown 已销毁对象。
+- Windows／Unity 6000.5.2f1／Addressables 2.10.3 隔离副本验证：编译与正式 Scene_Main 启动、主流程 23 项、奖励 6 项、重启恢复 2 项、失败 6 项通过，内容打包通过；人工查看中英文、两个月主题、棋盘、通关、记录与服装穿戴截图。安全区域验证覆盖长短屏缩放计算，不代表真机触摸验收。部分运行出现 Unity SearchDatabase 自身索引越界，单独记录；资源导入及项目问题均修复后复验。
+- 正式交付同步原图、Prefab、SO、meta、离线字库和 Daily Addressables 分组；保留当前其他未提交修改，只增量加入分组，核对 EditorBuildSettings／DefaultObject 与包版本。交付审计确认无 GUID 冲突、全部每日引用有效、146 份原图与来源哈希一致、2106 份运行脚本／资源与验证镜像一致；从同步后的工程文件直接启动复验通过，未复制 Library、验证公司／产品设置或测试存档。记录见 Logs/DailyMigration/，Docs/MigrationAcceptance.md 追加本批操作与用户待验收项目。
+- 尚未接入 Firebase 每日服务、广告授权、补签券／免费补签额度、云存档／校时与 TOP 排名；主题资源仅覆盖原资料已有的 2026 年 10／11 月，原作拼图精确揭示顺序未可靠恢复，当前为显式逐行配置。未自动操作当前已打开编辑器进入 Play Mode，未做应用／APK 构建、安装、原 APK 运行回归或真机验证，用户验收未代勾。
+
+## 2026-10-28 按功能整理Git提交并推送
+
+- 按用户要求，将本批已有改动按设置边框、头像边框、蓝耳小狗、基础造型、三批服装、雪纳瑞、奶油卷毛犬制作快照、商店素材、统一按钮、俱乐部说明、主线选关、连击收尾、结算页制作快照及每日挑战拆分提交；共用存档、生命周期和资源注册随每日挑战集成提交，公共规范、验收文档及主题汇总记录另行提交。
+- 奶油卷毛犬和独立结算页使用wip提交描述，不宣称功能或资源已完成。整理期间观察到奶油卷毛犬文件继续生成；首次快照之后的新增及变化保留在工作区，不追逐并发写入内容。
+- 本次检查Git差异、提交范围、单文件大小及远端分支，未重新运行Unity编译、Play Mode、Addressables打包、应用构建或真机验证；历史开发验证以各批记录为准。空白检查发现Unity生成meta的空字段行尾空格，未为提交批量改写序列化文件。推送及远端一致性结果以本次聊天交付为准。

@@ -36,7 +36,15 @@
       "runtimeReplacementAuthorized": true,
       "previousManifest": "assets/UI/Settings/manifest.json",
       "runtimeDirectory": "Assets/Res_Runtime/UI/Settings/new",
-      "archiveDirectory": "Assets/Res_Runtime/UI/Settings/old"
+      "archiveDirectory": "Assets/Res_Runtime/UI/Settings/old",
+      "borderFixCandidate": {
+        "manifest": "assets/UI/Settings/v03/manifest.json",
+        "status": "installed-runtime-images-only",
+        "review": "previews/Settings_BorderFix_v03/original_vs_candidate_v03.png",
+        "runtimeReplacementAuthorized": true,
+        "installedDate": "2026-10-28"
+      },
+      "activeBorderManifest": "assets/UI/Settings/v03/manifest.json"
     },
     {
       "page": "Panel_Game",
@@ -48,6 +56,56 @@
       "review": "previews/Game_Slicing/contact_sheet_v01.png",
       "reassembled": "previews/Game_Slicing/page_layers_reassembled_1080x1920.png",
       "runtimeReplacementAuthorized": false
+    },
+    {
+      "page": "Panel_Profile.Frames",
+      "manifest": "assets/UI/Profile/Frames/v01/manifest.json",
+      "status": "installed-runtime-images-only",
+      "count": 19,
+      "review": "previews/Profile_Frames_v01/contact_sheet_v01.png",
+      "overlay": "previews/Profile_Frames_v01/puppy_overlay_v01.png",
+      "comparison": "previews/Profile_Frames_v01/original_vs_candidate_v01.png",
+      "runtimeReplacementAuthorized": true,
+      "userApprovalDate": "2026-10-28",
+      "installedDate": "2026-10-28",
+      "runtimeDirectory": "Assets/Res_Runtime/UI/Profile",
+      "installationVerification": "Logs/ProfileFrameInstall/verification.json"
+    },
+    {
+      "page": "Panel_Profile.Avatars",
+      "manifest": "assets/UI/Profile/v01/manifest.json",
+      "status": "user-approved-artwork-not-installed",
+      "count": 48,
+      "avatarCount": 28,
+      "handCount": 20,
+      "review": "previews/Profile_Avatars_v01/contact_sheet_v01.png",
+      "handsReview": "previews/Profile_Avatars_v01/hands_contact_sheet_v01.png",
+      "runtimeReplacementAuthorized": false,
+      "userApprovalDate": "2026-10-28"
+    },
+    {
+      "page": "Panel_Profile.SchnauzerAvatars",
+      "manifest": "assets/UI/Profile/Schnauzer/v01/manifest.json",
+      "status": "base-approved-expression-set-awaiting-user-review-not-installed",
+      "count": 20,
+      "avatarCount": 12,
+      "handCount": 8,
+      "review": "previews/Profile_Schnauzer_v01/contact_sheet_v01.png",
+      "handsReview": "previews/Profile_Schnauzer_v01/hands_contact_sheet_v01.png",
+      "runtimeReplacementAuthorized": false,
+      "selectedBase": "assets/UI/Profile/DogVariants/v01/05_sesame_schnauzer.png"
     }
-  ]
+  ],
+  "buttonStyleCandidates": {
+    "manifest": "assets/UI/Buttons/v01/manifest.json",
+    "status": "installed-isolated-unity-visual-validated",
+    "count": 12,
+    "review": "previews/Buttons_v01/contact_sheet_v01.png",
+    "comparison": "previews/Buttons_v01/original_vs_candidate_v01.png",
+    "preview": "previews/Buttons_v01/button_style_preview.png",
+    "runtimeReplacementAuthorized": true,
+    "installedDate": "2026-10-28",
+    "unityPreview": "../../../../Logs/ButtonsInstall/settings-unity.png",
+    "verification": "../../../../Logs/ButtonsInstall/verification.json"
+  }
 }
