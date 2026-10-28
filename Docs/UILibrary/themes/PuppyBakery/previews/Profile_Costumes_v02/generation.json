@@ -1,0 +1,146 @@
+{
+  "date": "2026-10-28",
+  "status": "candidates_awaiting_user_selection",
+  "tool": "built-in image_gen",
+  "reference": "assets/Sprite/hamster_idle_04__sharedassets2.assets__6.png",
+  "scope": "8款试戴图与8款独立服装图，未接入Unity。",
+  "limitations": "分别生成的试戴图和独立服装不是逐像素对应分层；正式接入需校准尺寸、叠加位置、耳朵遮挡与不同头像适配。",
+  "candidates": [
+    {
+      "id": "07_toast",
+      "name": "吐司兜帽",
+      "detail": "a soft slice-of-toast shaped hood, rounded square cream inner edge and lightly toasted tan crust outline around head, open face, both blue floppy ears hanging outside",
+      "source": "exec-15b64e98-41dd-4a0c-a902-1ef6e2aed975.png",
+      "tryonFile": "07_toast_tryon.png",
+      "accessoryFile": "07_toast_accessory.png"
+    },
+    {
+      "id": "08_pudding",
+      "name": "布丁帽",
+      "detail": "a small pastel custard pudding shaped cap on crown, fluted pale yellow sides with muted caramel brown top and one tiny red cherry with stem",
+      "source": "exec-62ec9309-cfb7-4721-8c10-496262c637cf.png",
+      "tryonFile": "08_pudding_tryon.png",
+      "accessoryFile": "08_pudding_accessory.png"
+    },
+    {
+      "id": "09_cookie",
+      "name": "曲奇贝雷帽",
+      "detail": "a soft light tan cookie beret on crown with a few large sparse dark chocolate chips, rounded fabric shape rather than a hard realistic biscuit",
+      "source": "exec-d6dbd64b-aa33-4b89-be40-0643678b232b.png",
+      "tryonFile": "09_cookie_tryon.png",
+      "accessoryFile": "09_cookie_accessory.png"
+    },
+    {
+      "id": "10_bee",
+      "name": "蜂蜜小蜜蜂",
+      "detail": "a soft pastel honey yellow bee hood with restrained warm brown stripes on cap, two short rounded antennae ending in small round tips, face open, both original blue floppy ears exposed outside hood, no wings",
+      "tryonFile": "10_bee_tryon.png",
+      "accessoryFile": "10_bee_accessory.png"
+    },
+    {
+      "id": "11_rain",
+      "name": "雨天小狗",
+      "detail": "a dusty blue soft rain bucket hat with modest brim above eyes and a small cream yellow raincoat collar immediately under chin, floppy ears exposed, no torso",
+      "tryonFile": "11_rain_tryon.png",
+      "accessoryFile": "11_rain_accessory.png"
+    },
+    {
+      "id": "12_strawhat",
+      "name": "草莓田园帽",
+      "detail": "a soft pale wheat straw sunhat, restrained woven texture, small muted strawberry red thin ribbon around crown and tiny bow, modest brim above eyes, blue ears exposed",
+      "tryonFile": "12_strawhat_tryon.png",
+      "accessoryFile": "12_strawhat_accessory.png"
+    },
+    {
+      "id": "13_winter",
+      "name": "冬日针织帽",
+      "detail": "a dusty blue knitted beanie with cream white round pompom and short matching cream and blue scarf snug beneath chin, simplified broad knit pattern, blue ears exposed, no torso",
+      "tryonFile": "13_winter_tryon.png",
+      "accessoryFile": "13_winter_accessory.png"
+    },
+    {
+      "id": "14_painter",
+      "name": "小画家",
+      "detail": "a low saturation sage green artist beret with small soft stem, worn slightly tilted, paired with pale cream small neckerchief below chin, no paint tools, blue ears exposed, no torso",
+      "tryonFile": "14_painter_tryon.png",
+      "accessoryFile": "14_painter_accessory.png"
+    }
+  ],
+  "prompts": [
+    {
+      "id": "09_cookie_tryon",
+      "note": "续作前已生成；描述根据本轮已确认规格保留，原始完整调用见聊天记录。",
+      "prompt": "a soft light tan cookie beret on crown with a few large sparse dark chocolate chips, rounded fabric shape rather than a hard realistic biscuit"
+    },
+    {
+      "id": "08_pudding_tryon",
+      "note": "续作前已生成；描述根据本轮已确认规格保留，原始完整调用见聊天记录。",
+      "prompt": "a small pastel custard pudding shaped cap on crown, fluted pale yellow sides with muted caramel brown top and one tiny red cherry with stem"
+    },
+    {
+      "id": "07_toast_tryon",
+      "note": "续作前已生成；描述根据本轮已确认规格保留，原始完整调用见聊天记录。",
+      "prompt": "a soft slice-of-toast shaped hood, rounded square cream inner edge and lightly toasted tan crust outline around head, open face, both blue floppy ears hanging outside"
+    },
+    {
+      "id": "10_bee_tryon",
+      "prompt": "Use case: identity-preserve. Asset: Sudoku Pup clothing try-on candidate. Edit reference dog ONLY by adding a soft pastel honey yellow bee hood with restrained warm brown stripes on cap, two short rounded antennae ending in small round tips, face open, both original blue floppy ears exposed outside hood, no wings. Preserve exact same dog identity: cream rounded-square face, two dusty blue floppy ears, blue eye patch on viewer RIGHT, brown dot eyes, little dark dog nose, gentle smile, peach cheeks, warm brown hand-drawn outlines, subtle restrained gouache brush texture. Warm storybook 2D illustration, not 3D. Single front centered head only, no body/paws. Whole silhouette uncropped with generous transparent margins. No text, no UI, no shadow, no backdrop. Genuine transparent PNG. Candidate 10_bee."
+    },
+    {
+      "id": "11_rain_tryon",
+      "prompt": "Use case: identity-preserve. Asset: Sudoku Pup clothing try-on candidate. Edit reference dog ONLY by adding a dusty blue soft rain bucket hat with modest brim above eyes and a small cream yellow raincoat collar immediately under chin, floppy ears exposed, no torso. Preserve exact same dog identity: cream rounded-square face, two dusty blue floppy ears, blue eye patch on viewer RIGHT, brown dot eyes, little dark dog nose, gentle smile, peach cheeks, warm brown hand-drawn outlines, subtle restrained gouache brush texture. Warm storybook 2D illustration, not 3D. Single front centered head only, no body/paws. Whole silhouette uncropped with generous transparent margins. No text, no UI, no shadow, no backdrop. Genuine transparent PNG. Candidate 11_rain."
+    },
+    {
+      "id": "12_strawhat_tryon",
+      "prompt": "Use case: identity-preserve. Asset: Sudoku Pup clothing try-on candidate. Edit reference dog ONLY by adding a soft pale wheat straw sunhat, restrained woven texture, small muted strawberry red thin ribbon around crown and tiny bow, modest brim above eyes, blue ears exposed. Preserve exact same dog identity: cream rounded-square face, two dusty blue floppy ears, blue eye patch on viewer RIGHT, brown dot eyes, little dark dog nose, gentle smile, peach cheeks, warm brown hand-drawn outlines, subtle restrained gouache brush texture. Warm storybook 2D illustration, not 3D. Single front centered head only, no body/paws. Whole silhouette uncropped with generous transparent margins. No text, no UI, no shadow, no backdrop. Genuine transparent PNG. Candidate 12_strawhat."
+    },
+    {
+      "id": "13_winter_tryon",
+      "prompt": "Use case: identity-preserve. Asset: Sudoku Pup clothing try-on candidate. Edit reference dog ONLY by adding a dusty blue knitted beanie with cream white round pompom and short matching cream and blue scarf snug beneath chin, simplified broad knit pattern, blue ears exposed, no torso. Preserve exact same dog identity: cream rounded-square face, two dusty blue floppy ears, blue eye patch on viewer RIGHT, brown dot eyes, little dark dog nose, gentle smile, peach cheeks, warm brown hand-drawn outlines, subtle restrained gouache brush texture. Warm storybook 2D illustration, not 3D. Single front centered head only, no body/paws. Whole silhouette uncropped with generous transparent margins. No text, no UI, no shadow, no backdrop. Genuine transparent PNG. Candidate 13_winter."
+    },
+    {
+      "id": "14_painter_tryon",
+      "prompt": "Use case: identity-preserve. Asset: Sudoku Pup clothing try-on candidate. Edit reference dog ONLY by adding a low saturation sage green artist beret with small soft stem, worn slightly tilted, paired with pale cream small neckerchief below chin, no paint tools, blue ears exposed, no torso. Preserve exact same dog identity: cream rounded-square face, two dusty blue floppy ears, blue eye patch on viewer RIGHT, brown dot eyes, little dark dog nose, gentle smile, peach cheeks, warm brown hand-drawn outlines, subtle restrained gouache brush texture. Warm storybook 2D illustration, not 3D. Single front centered head only, no body/paws. Whole silhouette uncropped with generous transparent margins. No text, no UI, no shadow, no backdrop. Genuine transparent PNG. Candidate 14_painter."
+    },
+    {
+      "id": "07_toast_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a soft slice-of-toast shaped hood, rounded square cream inner edge and lightly toasted tan crust outline around head, open face, both blue floppy ears hanging outside. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 07_toast."
+    },
+    {
+      "id": "08_pudding_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a small pastel custard pudding shaped cap on crown, fluted pale yellow sides with muted caramel brown top and one tiny red cherry with stem. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 08_pudding."
+    },
+    {
+      "id": "09_cookie_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a soft light tan cookie beret on crown with a few large sparse dark chocolate chips, rounded fabric shape rather than a hard realistic biscuit. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 09_cookie."
+    },
+    {
+      "id": "10_bee_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a soft pastel honey yellow bee hood with restrained warm brown stripes on cap, two short rounded antennae ending in small round tips, face open, both original blue floppy ears exposed outside hood, no wings. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 10_bee."
+    },
+    {
+      "id": "11_rain_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a dusty blue soft rain bucket hat with modest brim above eyes and a small cream yellow raincoat collar immediately under chin, floppy ears exposed, no torso. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 11_rain."
+    },
+    {
+      "id": "12_strawhat_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a soft pale wheat straw sunhat, restrained woven texture, small muted strawberry red thin ribbon around crown and tiny bow, modest brim above eyes, blue ears exposed. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 12_strawhat."
+    },
+    {
+      "id": "13_winter_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a dusty blue knitted beanie with cream white round pompom and short matching cream and blue scarf snug beneath chin, simplified broad knit pattern, blue ears exposed, no torso. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 13_winter."
+    },
+    {
+      "id": "14_painter_accessory",
+      "prompt": "Use case: precise-object-edit / transparent clothing sprite extraction. Remove the entire DOG from this reference image. Retain ONLY the existing clothing: a low saturation sage green artist beret with small soft stem, worn slightly tilted, paired with pale cream small neckerchief below chin, no paint tools, blue ears exposed, no torso. Remove all blue dog ears, dog cream fur, face, eye patch, eyes, nose, cheeks, mouth and dog outlines. Keep all clothing pieces including any scarf/collar, but no animal pixels. The area formerly occupied by dog, including inside hood opening, must be truly transparent. Preserve accessory shape, colors, warm brown outline, restrained gouache texture, front view; preserve relative placement of separated hat and scarf. This is clothing ONLY for a layered sprite, no mannequin, animal, head or facial features. No shadow, backdrop or text. Genuine transparent PNG, generous margins, nothing cropped. Candidate 14_painter."
+    },
+    {
+      "id": "07_toast_accessory_repair",
+      "prompt": "Precise cleanup edit of isolated clothing sprite. DELETE BOTH LARGE BLUE FLOPPY DOG EARS completely, including brown outlines around the ears. Remove every blue pixel area on both sides. These blue shapes are dog body parts, NOT clothing. Keep ONLY the cream and toasted tan bread-shaped hood ring. The top and bottom of bread remain connected around the empty transparent face opening. Where the two blue ears were, leave empty transparency; finish bread edge cleanly. Preserve warm brown outline and subtle storybook brush texture. Absolutely NO blue color anywhere, no ears, no dog, no face, no new objects. Clean genuine transparent PNG including whole center opening; remove any colored noise specks in transparency. Generous transparent margins."
+    },
+    {
+      "id": "10_bee_accessory_repair",
+      "prompt": "Precise cleanup edit of isolated clothing sprite. DELETE BOTH LARGE BLUE FLOPPY DOG EARS completely, including brown outlines around the ears. Remove every blue pixel area on both sides. These blue shapes are dog body parts, NOT clothing. Keep ONLY the YELLOW AND BROWN bee hood and its two yellow/brown antennae. Where the blue ears were, leave empty transparency. The yellow/brown hood has a simple inverted U outline and open transparent face center. Preserve warm brown outline and subtle storybook brush texture. Absolutely NO blue color anywhere, no ears, no dog, no face, no new objects. Clean genuine transparent PNG including whole center opening; remove any colored noise specks in transparency. Generous transparent margins."
+    }
+  ]
+}
