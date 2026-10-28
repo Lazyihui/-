@@ -915,6 +915,6 @@
 
 		- C2 人工查看七张1080×1920中文实景及1080×2400英文安全区后台渲染；增加原作14像素图文间距约束后，七种图均通过边界检查，避免高图与说明文字相碰。首轮测试未处理首次连胜弹窗，修正测试流程后通过；首轮及间距修正前证据保留于Play-first／Play-before-spacing。后台渲染和程序化流程不替代编辑器鼠标、手机触摸或原APK动态对照。
 
-		- C3 当前工程dotnet build通过（0警告、0错误）。正式19份脚本／配置／新增PNG与meta及7份关联场景／Prefab／原图／包和注册文件与验证副本一致；原作来源哈希未变，新增图片GUID唯一。同步审计见Logs/ResultHeroMigration/delivery-audit.json；未回同步验证存档、脚本或Library。
+		- C3 当前工程dotnet build通过（0警告、0错误）。正式19份脚本／配置／新增PNG与meta及10份关联场景／Prefab／原图／包和注册文件与验证副本一致；原作来源哈希未变，新增图片GUID唯一。同步审计见Logs/ResultHeroMigration/delivery-audit.json；未回同步验证存档、脚本或Library。
 
 		- C4 Addressables内容打包进行中，完成后记录实际结果。未执行应用／APK构建、安装或真机验证。UnityEditor.Search索引异常单列Play/editor-diagnostics.txt，启动日志另有UnityTls证书错误；业务检查没有未解决的项目错误。用户验收项目保持未勾选。
