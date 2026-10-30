@@ -131,12 +131,22 @@ namespace Hamdoku {
             hero.transform.localScale = Vector3.one * heroScale;
             statsGroup.alpha = Mathf.Clamp01((elapsed - config.revealStatsAt) / config.revealFadeSeconds);
             float progress = Mathf.Clamp01((elapsed - config.revealStatsAt) / config.statCountUpSeconds);
-            statValues[0].text = Mathf.RoundToInt(score * progress).ToString();
-            statValues[1].text = comboKnown ? Mathf.RoundToInt(bestCombo * progress).ToString() : "—";
+            ShowStatistics(progress);
             float buttonAt = won ? config.revealButtonAt : config.failButtonsAt;
             buttonsGroup.alpha = Mathf.Clamp01((elapsed - buttonAt) / config.revealFadeSeconds);
             buttonsGroup.interactable = elapsed >= buttonAt + config.revealFadeSeconds;
             buttonsGroup.blocksRaycasts = buttonsGroup.interactable;
+        }
+        public void SetStatistics(int score, int bestCombo, bool comboKnown) {
+            this.score = score;
+            this.bestCombo = bestCombo;
+            this.comboKnown = comboKnown;
+            float elapsed = Time.unscaledTime - started;
+            ShowStatistics(Mathf.Clamp01((elapsed - config.revealStatsAt) / config.statCountUpSeconds));
+        }
+        void ShowStatistics(float progress) {
+            statValues[0].text = Mathf.RoundToInt(score * progress).ToString();
+            statValues[1].text = comboKnown ? Mathf.RoundToInt(bestCombo * progress).ToString() : "—";
         }
         void ReportPrimary() {
             if (buttonsGroup.interactable) {

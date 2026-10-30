@@ -271,7 +271,7 @@ namespace Hamdoku.Editor {
             }
             return group;
         }
-        static void BakeFonts() {
+        public static void BakeFonts() {
             var texts = AssetDatabase.FindAssets("t:L10NSO", new[] { "Assets/Res_Runtime/Localization" })
                 .Select(guid => AssetDatabase.LoadAssetAtPath<L10NSO>(AssetDatabase.GUIDToAssetPath(guid))).ToArray();
             foreach (string language in new[] { "Chinese", "English" }) {

@@ -15,6 +15,16 @@ namespace Hamdoku.Controllers {
                 panel.adHandle = () => GameController.AdUnavailable(ctx);
             }
             var state = ctx.state_Game;
+            if (state.mode == GameModeType.Endless) {
+                var endless = ctx.state_Endless;
+                var save = ctx.playerSave;
+                panel.Init(config, true, endless.found, save.endless.bestFound, true, false, config.failHero);
+                panel.rewardProgressRoot.gameObject.SetActive(false);
+                panel.adButton.gameObject.SetActive(false);
+                panel.statusLabel.gameObject.SetActive(false);
+                Refresh(ctx);
+                return;
+            }
             panel.Init(config, state.dialog == GameDialogType.Result || state.dialog == GameDialogType.Reward, state.score, state.bestCombo, state.scoreCarry == 0, state.dialog == GameDialogType.Reward, state.dialog == GameDialogType.Result ? SelectHero(ctx, config) : null);
             Refresh(ctx);
         }
@@ -140,6 +150,23 @@ namespace Hamdoku.Controllers {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
             var campaignConfig = assets.GetCampaignConfig();
+            if (state.mode == GameModeType.Endless) {
+                var endless = ctx.state_Endless;
+                var save = ctx.playerSave;
+                panel.SetStatistics(endless.found, save.endless.bestFound, true);
+                bool record = !endless.isTestRun && !endless.recordPending && endless.found > endless.bestBeforeRun;
+                panel.titleLabel.text = Panel_Game_Controller.Text(ctx, record ? UINameType.Endless_NewRecord : UINameType.Endless_Over);
+                panel.messageLabel.text = Panel_Game_Controller.Text(ctx, endless.recordPending ? UINameType.Endless_SaveFailed : endless.isTestRun ? UINameType.Endless_TestRun : UINameType.Endless_ResultBody);
+                panel.statLabels[0].text = Panel_Game_Controller.Text(ctx, UINameType.Endless_ResultFound);
+                panel.statLabels[1].text = Panel_Game_Controller.Text(ctx, UINameType.Endless_Best);
+                panel.statLabels[2].text = Panel_Game_Controller.Text(ctx, UINameType.Result_Time);
+                int totalSeconds = (int)endless.elapsed;
+                panel.statValues[2].text = string.Format("{0:00}:{1:00}", totalSeconds / 60, totalSeconds % 60);
+                panel.primaryLabel.text = Panel_Game_Controller.Text(ctx, endless.recordPending ? UINameType.Endless_SaveRetry : UINameType.Game_Restart);
+                panel.secondaryLabel.text = Panel_Game_Controller.Text(ctx, UINameType.Game_Home);
+                panel.secondaryButton.gameObject.SetActive(true);
+                return;
+            }
             bool won = state.dialog == GameDialogType.Result;
             bool reward = state.dialog == GameDialogType.Reward;
             panel.titleLabel.text = Panel_Game_Controller.Text(ctx, won ? state.mistakes == 0 ? UINameType.Game_Perfect : UINameType.Game_Won : UINameType.Game_Failed);

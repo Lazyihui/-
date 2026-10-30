@@ -7,6 +7,14 @@ namespace Hamdoku {
         public int[] campaignGradeCeilings;
         public int[] campaignSkillCeilings;
         public int[] campaignFixedLevels;
+        public int[] campaignExpertSizes;
+        public int campaignExpertStartLevel;
+        public int campaignExpertGrade;
+        public int campaignHardGrade;
+        public int campaignHardStartLevel;
+        public int campaignHardInterval;
+        public int campaignMinimumSkillStartLevel;
+        public int campaignLaterMinimumSkill;
         public int campaignRewardStep;
         public int campaignRewardHints;
         public int campaignRewardGuides;

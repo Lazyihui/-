@@ -101,3 +101,9 @@
 	- B2 新增纯运行棋盘数据，不写共享SO；v12保存池轮次与本局变换并兼容v1—11，重开／返回／读盘保持棋盘。保留阶段奖励及防重，100关完成后返回首页；无限模式及黄金挑战另批迁移。
 
 	- B3 隔离Unity编译、27296项主流程检查、60项升级／8变换续局补测、50项中英文结果页检查及最终Windows Addressables内容打包通过；开发证据Logs/Campaign100Migration/，详细实施见Campaign50MigrationTODO A8，用户验收见MigrationAcceptance A24。APK、安装、真机和原APK动态对照未执行，用户验收未代勾。
+
+
+- A11 第七批：主线101—300关与无限模式（2026-10-29）
+	- B1 已按用户确认的NextMigrationTODO A9实施：主线连续至300，固定123／200／250及11阶专家题接入；无限模式5→10阶、生命／持久道具／累计／最佳／失败重试／退出本地流程接入。存档v13兼容v1—12；历史批次范围保留，当前进度以本条为准。
+
+	- B2 Unity编译、旧100→300及19题无限Play专项27291项、最终Canvas297项、新增池跨轮72项、独立生成／配置检查和Windows Addressables内容打包通过，正式同步审计通过。详见[下一批迁移TODO](NextMigrationTODO.md)A10及[迁移验收文档](MigrationAcceptance.md)A27。APK、安装、真机及原APK动态对照未执行，用户项目未代勾。

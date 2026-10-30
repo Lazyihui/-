@@ -44,6 +44,9 @@ namespace Hamdoku.Controllers {
                 primary = UINameType.Game_Home;
                 secondary = UINameType.Game_Cancel;
             }
+            if (state.mode == GameModeType.Endless && (state.dialog == GameDialogType.Exit || state.dialog == GameDialogType.Restart)) {
+                body = state.dialog == GameDialogType.Exit ? UINameType.Endless_ExitBody : UINameType.Endless_RestartBody;
+            }
             panel.titleLabel.text = Panel_Game_Controller.Text(ctx, title);
             panel.bodyLabel.text = string.Format(Panel_Game_Controller.Text(ctx, body), state.score);
             panel.primaryLabel.text = Panel_Game_Controller.Text(ctx, primary);

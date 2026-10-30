@@ -6,6 +6,7 @@ namespace Hamdoku {
     [Serializable]
     [DataContract]
     public sealed class PlayerSaveModel {
+        [DataMember] public EndlessSaveModel endless;
         [DataMember] public DailySaveModel daily;
         [DataMember] public CampaignSaveModel campaign;
         [DataMember] public SettingsSaveModel settings;

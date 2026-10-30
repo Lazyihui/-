@@ -34,6 +34,7 @@ namespace Hamdoku.Controllers {
             ProfileController.InitializeSave(ctx, loaded);
             SettingsController.InitializeSave(ctx, loaded);
             CampaignController.Initialize(ctx, loaded);
+            EndlessController.Initialize(ctx, loaded);
             GameFlowController.UpgradeSave(ctx, loaded);
             if (save.activePuzzle != null) {
                 if (save.activePuzzle.dailyDay != 0) {
@@ -196,8 +197,12 @@ namespace Hamdoku.Controllers {
                 ShowNotice(ctx, lockedMessage, requirement);
                 return;
             }
+            var endless = ctx.state_Endless;
+            if (endless.isActive && type != HomeRequestType.Endless) {
+                EndlessController.Close(ctx);
+            }
             state.pendingRequest = type;
-            if (type != HomeRequestType.Daily && type != HomeRequestType.Tutorial && type != HomeRequestType.Campaign && type != HomeRequestType.Streak && type != HomeRequestType.Ranking && type != HomeRequestType.Profile && type != HomeRequestType.Shop && type != HomeRequestType.Settings) {
+            if (type != HomeRequestType.Endless && type != HomeRequestType.Daily && type != HomeRequestType.Tutorial && type != HomeRequestType.Campaign && type != HomeRequestType.Streak && type != HomeRequestType.Ranking && type != HomeRequestType.Profile && type != HomeRequestType.Shop && type != HomeRequestType.Settings) {
                 ShowNotice(ctx, UINameType.Home_Preparing, 0);
             }
             events.requestHandle?.Invoke(type);

@@ -30,9 +30,13 @@ namespace Hamdoku {
                 !(config.saveVersion == 9 && data.version >= 1 && data.version <= 8) &&
                 !(config.saveVersion == 10 && data.version >= 1 && data.version <= 9) &&
                 !(config.saveVersion == 11 && data.version >= 1 && data.version <= 10) &&
-                !(config.saveVersion == 12 && data.version >= 1 && data.version <= 11)) ||
+                !(config.saveVersion == 12 && data.version >= 1 && data.version <= 11) &&
+                !(config.saveVersion == 13 && data.version >= 1 && data.version <= 12)) ||
                 data.campaignClears < 0 || data.dailyStreak < 0 || data.previousPuzzleId < 0) {
                 throw new InvalidDataException("Invalid or unsupported Hamdoku progress: " + path);
+            }
+            if (data.version >= 13) {
+                ValidateEndless(data.endless);
             }
             if (data.version >= 10) {
                 ValidateDaily(data.daily);
@@ -78,6 +82,9 @@ namespace Hamdoku {
                     throw new InvalidDataException("Campaign reward or difficulty history exceeds completed progress.");
                 }
             }
+            if (data.version >= 13) {
+                ValidateEndless(data.endless);
+            }
             if (data.version >= 10) {
                 ValidateDaily(data.daily);
             }
@@ -109,6 +116,11 @@ namespace Hamdoku {
             }
         }
 
+        public static void ValidateEndless(EndlessSaveModel data) {
+            if (data == null || data.bestFound < 0) {
+                throw new InvalidDataException("Missing or invalid endless record.");
+            }
+        }
         public static void ValidateCampaign(CampaignSaveModel data) {
             if (data == null || data.skill < 1 || data.claimedRewardLevel < 0 || data.cleanStreak < 0 || data.sessionDay < 0 || data.sessionDay > 3652059 ||
                 data.cursorPositions == null || data.recentPuzzleIds == null) {

@@ -10,6 +10,13 @@ namespace Hamdoku.Controllers {
             if (state.isOpen) {
                 return;
             }
+            var endless = ctx.state_Endless;
+            if (state.mode == GameModeType.Endless && endless.isActive) {
+                state.isOpen = true;
+                Panel_Game_Controller.Open(ctx);
+                return;
+            }
+            state.mode = tutorial ? GameModeType.Tutorial : dailyDay > 0 ? GameModeType.Daily : GameModeType.Campaign;
             var save = ctx.playerSave;
             var assets = ctx.assetModule;
             var config = assets.GetPuzzleRules();
@@ -37,6 +44,7 @@ namespace Hamdoku.Controllers {
                 }
                 state.level = active.level;
                 state.isTutorial = active.isTutorial;
+                state.mode = active.isTutorial ? GameModeType.Tutorial : dailyDay > 0 ? GameModeType.Daily : GameModeType.Campaign;
                 state.cells = (CellStatus[])active.cells.Clone();
                 state.hearts = active.hearts;
                 state.mistakes = active.mistakes;
@@ -114,6 +122,33 @@ namespace Hamdoku.Controllers {
             }
             Persist(ctx);
         }
+        public static void OpenEndlessBoard(GameContext ctx, PuzzleBoardModel board) {
+            var state = ctx.state_Game;
+            var endless = ctx.state_Endless;
+            if (!endless.isActive || state.disposed) {
+                return;
+            }
+            state.mode = GameModeType.Endless;
+            state.isTutorial = false;
+            state.dailyDay = 0;
+            state.level = checked(endless.cleared + 1);
+            state.puzzle = board;
+            state.campaignSelectionVersion = 0;
+            state.campaignGrade = 0;
+            state.campaignFirstGame = false;
+            state.campaignTouched = false;
+            state.campaignUsedItem = false;
+            state.campaignFailures = 0;
+            ResetBoard(ctx);
+            var home = ctx.state_Home;
+            home.isOpen = false;
+            home.pendingRequest = HomeRequestType.None;
+            home.noticeType = UINameType.None;
+            home.noticeRemaining = 0;
+            Panel_Home_Controller.Close(ctx);
+            state.isOpen = true;
+            Panel_Game_Controller.Open(ctx);
+        }
         static void ResetBoard(GameContext ctx) {
             var state = ctx.state_Game;
             state.resultHeroId = 0;
@@ -125,8 +160,10 @@ namespace Hamdoku.Controllers {
                 state.cells[row * puzzle.size + puzzle.solutionColumns[row]] = CellStatus.Hamster;
             }
             state.hearts = config.maxHearts;
-            state.hints = config.hintsPerLevel;
-            state.guides = config.guidesPerLevel;
+            // Original endless reads the persistent item inventory at each StartPuzzle.
+            // It does not replenish the campaign's per-board allowance.
+            state.hints = state.mode == GameModeType.Endless ? 0 : config.hintsPerLevel;
+            state.guides = state.mode == GameModeType.Endless ? 0 : config.guidesPerLevel;
             state.mistakes = 0;
             state.elapsed = 0;
             state.score = 0;
@@ -173,10 +210,14 @@ namespace Hamdoku.Controllers {
                     if (state.hearts == 0) {
                         CampaignController.Fail(ctx);
                         state.status = GameStatus.Failed;
-                        if (state.dailyDay == 0) {
+                        if (state.mode == GameModeType.Campaign) {
                             ProfileController.RecordRetry(ctx);
                         }
-                        ShowDialog(ctx, GameDialogType.Failed);
+                        if (state.mode == GameModeType.Endless) {
+                            EndlessController.Fail(ctx);
+                        } else {
+                            ShowDialog(ctx, GameDialogType.Failed);
+                        }
                     }
                 } else {
                     state.cells[index] = CellStatus.Hamster;
@@ -198,7 +239,7 @@ namespace Hamdoku.Controllers {
             FinishIfComplete(ctx);
             Panel_Game_Controller.Refresh(ctx);
             Persist(ctx);
-            if (state.status == GameStatus.Won && !state.isTutorial) {
+            if (state.status == GameStatus.Won && state.mode == GameModeType.Campaign) {
                 RankingController.SubmitPending(ctx);
             }
         }
@@ -307,7 +348,7 @@ namespace Hamdoku.Controllers {
             FinishIfComplete(ctx);
             Panel_Game_Controller.Refresh(ctx);
             Persist(ctx);
-            if (state.status == GameStatus.Won && !state.isTutorial) {
+            if (state.status == GameStatus.Won && state.mode == GameModeType.Campaign) {
                 RankingController.SubmitPending(ctx);
             }
         }
@@ -324,6 +365,8 @@ namespace Hamdoku.Controllers {
                 if (!settings.tutorialReview) {
                     save.tutorialCompleted = true;
                 }
+            } else if (state.mode == GameModeType.Endless) {
+                EndlessController.Complete(ctx);
             } else if (state.dailyDay > 0) {
                 DailyController.Complete(ctx);
             } else {
@@ -350,7 +393,7 @@ namespace Hamdoku.Controllers {
                         state.cells[i] = CellStatus.Cross;
                     }
                 }
-            } else {
+            } else if (state.mode != GameModeType.Endless) {
                 GameFlowController.BeginClear(ctx);
             }
         }
@@ -500,7 +543,13 @@ namespace Hamdoku.Controllers {
             if (!state.isOpen || dialog == GameDialogType.None) {
                 return;
             }
-            if (dialog == GameDialogType.Result && !state.isTutorial && state.dailyDay == 0 && CampaignController.PendingReward(ctx) > 0) {
+            var endless = ctx.state_Endless;
+            if (state.mode == GameModeType.Endless && dialog == GameDialogType.Failed && endless.recordPending) {
+                EndlessController.TryPersistRecord(ctx);
+                Panel_GameResult_Controller.Refresh(ctx);
+                return;
+            }
+            if (dialog == GameDialogType.Result && state.mode == GameModeType.Campaign && CampaignController.PendingReward(ctx) > 0) {
                 OpenReward(ctx, false);
                 return;
             }
@@ -530,6 +579,10 @@ namespace Hamdoku.Controllers {
         }
         public static void Restart(GameContext ctx) {
             var state = ctx.state_Game;
+            if (state.mode == GameModeType.Endless && state.isOpen && state.dialog == GameDialogType.None) {
+                EndlessController.Retry(ctx);
+                return;
+            }
             if (!state.isOpen || state.dialog != GameDialogType.None ||
                 (state.status != GameStatus.Playing && state.status != GameStatus.Failed)) {
                 return;
@@ -556,7 +609,14 @@ namespace Hamdoku.Controllers {
             if (dialog == GameDialogType.Reward) {
                 return;
             }
-            if (dialog == GameDialogType.Result && !state.isTutorial && state.dailyDay == 0 && CampaignController.PendingReward(ctx) > 0) {
+            var endless = ctx.state_Endless;
+            if (state.mode == GameModeType.Endless && dialog == GameDialogType.Failed && endless.recordPending) {
+                if (!EndlessController.TryPersistRecord(ctx)) {
+                    Panel_GameResult_Controller.Refresh(ctx);
+                    return;
+                }
+            }
+            if (dialog == GameDialogType.Result && state.mode == GameModeType.Campaign && CampaignController.PendingReward(ctx) > 0) {
                 OpenReward(ctx, true);
                 return;
             }
@@ -622,6 +682,21 @@ namespace Hamdoku.Controllers {
             if (!state.isOpen || state.clearPending) {
                 return;
             }
+            if (state.mode == GameModeType.Endless) {
+                if (!EndlessController.TryPersistRecord(ctx)) {
+                    ShowDialog(ctx, GameDialogType.Failed);
+                    return;
+                }
+                EndlessController.Close(ctx);
+                state.isOpen = false;
+                state.mode = GameModeType.None;
+                state.dialog = GameDialogType.None;
+                Panel_GameDialog_Controller.Close(ctx);
+                Panel_GameResult_Controller.Close(ctx);
+                Panel_Game_Controller.Close(ctx);
+                HomeSystem.Open(ctx);
+                return;
+            }
             Persist(ctx);
             if (state.status == GameStatus.Won) {
                 var save = ctx.playerSave;
@@ -654,17 +729,9 @@ namespace Hamdoku.Controllers {
             state.isOpen = false;
             Panel_Game_Controller.Close(ctx);
         }
-        public static void Persist(GameContext ctx) {
-            var settings = ctx.state_Settings;
-            if (settings.tutorialReview) {
-                return;
-            }
+        public static PuzzleSaveModel CapturePuzzle(GameContext ctx) {
             var state = ctx.state_Game;
-            if (!state.isOpen) {
-                return;
-            }
-            var save = ctx.playerSave;
-            var active = new PuzzleSaveModel {
+            return new PuzzleSaveModel {
                 dailyDay = state.dailyDay,
                 campaignSelectionVersion = state.campaignSelectionVersion, campaignGrade = state.campaignGrade,
                 campaignTransform = state.puzzle.transform,
@@ -679,6 +746,51 @@ namespace Hamdoku.Controllers {
                 clearPending = state.clearPending, clearCrossApplied = state.clearCrossApplied, clearSweepNeeded = state.clearSweepNeeded,
                 tutorialStep = state.tutorialStep, tutorialFlowVersion = 1, status = state.status
             };
+        }
+        public static void RestoreEndlessBoard(GameContext ctx, PuzzleBoardModel board, PuzzleSaveModel active) {
+            var state = ctx.state_Game;
+            state.mode = GameModeType.Endless;
+            state.puzzle = board;
+            state.isTutorial = false;
+            state.dailyDay = 0;
+            state.level = active.level;
+            state.dialog = GameDialogType.None;
+            state.notice = UINameType.None;
+            state.tutorialTransitionPending = false;
+            state.tutorialHintVisible = false;
+            state.cells = (CellStatus[])active.cells.Clone();
+            state.hearts = active.hearts;
+            state.mistakes = active.mistakes;
+            state.hints = active.hints;
+            state.guides = active.guides;
+            state.flowVersion = active.flowVersion;
+            state.initialIndices = (int[])active.initialIndices.Clone();
+            state.cellGains = (int[])active.cellGains.Clone();
+            state.scoreCarry = active.scoreCarry;
+            state.combo = active.combo;
+            state.bestCombo = active.bestCombo;
+            state.clearPending = active.clearPending;
+            state.clearCrossApplied = active.clearCrossApplied;
+            state.clearSweepNeeded = active.clearSweepNeeded;
+            state.clearElapsed = 0;
+            state.score = active.score;
+            state.elapsed = active.elapsed;
+            state.tutorialStep = 0;
+            state.status = active.status;
+            state.isOpen = true;
+            Panel_Game_Controller.Open(ctx);
+        }
+        public static void Persist(GameContext ctx) {
+            var settings = ctx.state_Settings;
+            if (settings.tutorialReview) {
+                return;
+            }
+            var state = ctx.state_Game;
+            if (!state.isOpen || state.mode == GameModeType.Endless) {
+                return;
+            }
+            var save = ctx.playerSave;
+            var active = CapturePuzzle(ctx);
             if (state.dailyDay > 0) {
                 save.daily.activePuzzle = active;
             } else {
@@ -739,6 +851,7 @@ namespace Hamdoku.Controllers {
                 return;
             }
             Persist(ctx);
+            EndlessController.Close(ctx);
             state.isOpen = false;
             state.disposed = true;
             Panel_GameDialog_Controller.Close(ctx);

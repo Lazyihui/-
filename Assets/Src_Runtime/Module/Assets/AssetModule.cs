@@ -10,6 +10,7 @@ namespace Hamdoku {
         readonly List<L10NSO> texts = new List<L10NSO>();
         readonly List<L10NFontSO> fonts = new List<L10NFontSO>();
         AsyncOperationHandle<IList<UnityEngine.Object>> defaultHandle;
+        EndlessConfigSO endlessConfig;
         DailyConfigSO dailyConfig;
         HomeConfigSO homeConfig;
         GameConfigSO gameConfig;
@@ -80,6 +81,11 @@ namespace Hamdoku {
                         throw new InvalidOperationException("Duplicate ResultConfigSO.");
                     }
                     resultConfig = result;
+                } else if (asset is EndlessConfigSO endless) {
+                    if (endlessConfig != null) {
+                        throw new InvalidOperationException("Duplicate EndlessConfigSO.");
+                    }
+                    endlessConfig = endless;
                 } else if (asset is DailyConfigSO daily) {
                     if (dailyConfig != null) {
                         throw new InvalidOperationException("Duplicate DailyConfigSO.");
@@ -170,6 +176,12 @@ namespace Hamdoku {
             return panels.TryGetValue(type, out prefab);
         }
 
+        public EndlessConfigSO GetEndlessConfig() {
+            if (endlessConfig == null) {
+                throw new InvalidOperationException("EndlessConfigSO is missing from default assets.");
+            }
+            return endlessConfig;
+        }
         public DailyConfigSO GetDailyConfig() {
             if (dailyConfig == null) {
                 throw new InvalidOperationException("DailyConfigSO is missing from default assets.");
@@ -237,6 +249,7 @@ namespace Hamdoku {
             panels.Clear();
             texts.Clear();
             fonts.Clear();
+            endlessConfig = null;
             dailyConfig = null;
             homeConfig = null;
             gameConfig = null;

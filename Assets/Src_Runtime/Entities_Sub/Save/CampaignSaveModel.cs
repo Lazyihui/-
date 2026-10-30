@@ -11,6 +11,7 @@ namespace Hamdoku {
         [DataMember] public bool previousRetried;
         [DataMember] public int previousRecordedSkill;
         [DataMember] public bool pendingDemotion;
+        [DataMember] public bool expertRelief;
         [DataMember] public int skill;
         [DataMember] public int cleanStreak;
         [DataMember] public int sessionDay;

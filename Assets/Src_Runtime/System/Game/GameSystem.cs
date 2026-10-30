@@ -5,6 +5,7 @@ namespace Hamdoku {
             GameController.Open(ctx, tutorial);
         }
         public static void Tick(GameContext ctx, float deltaTime) {
+            EndlessController.Tick(ctx, deltaTime);
             var state = ctx.state_Game;
             if (state.isOpen && !state.disposed) {
                 GameController.Tick(ctx, deltaTime);

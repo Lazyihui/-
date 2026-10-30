@@ -156,6 +156,10 @@ namespace Hamdoku.Controllers {
             }
             state.returnToGame = game.isOpen;
             state.returnDailyDay = game.dailyDay;
+            state.returnMode = game.mode;
+            if (game.mode == GameModeType.Endless) {
+                EndlessController.SuspendTutorial(ctx);
+            }
             GameController.Persist(ctx);
             Panel_Settings_Controller.Close(ctx);
             Panel_Game_Controller.Close(ctx);
@@ -165,6 +169,7 @@ namespace Hamdoku.Controllers {
             var active = save.activePuzzle;
             try {
                 save.activePuzzle = null;
+                game.mode = GameModeType.None;
                 GameController.Open(ctx, true);
             } finally {
                 save.activePuzzle = active;
@@ -182,7 +187,11 @@ namespace Hamdoku.Controllers {
             game.isOpen = false;
             state.tutorialReview = false;
             if (state.returnToGame) {
-                GameController.Open(ctx, false, state.returnDailyDay);
+                if (state.returnMode == GameModeType.Endless) {
+                    EndlessController.ResumeTutorial(ctx);
+                } else {
+                    GameController.Open(ctx, false, state.returnDailyDay);
+                }
             } else {
                 HomeSystem.Open(ctx);
             }

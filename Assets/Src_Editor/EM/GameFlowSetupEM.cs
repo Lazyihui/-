@@ -31,6 +31,39 @@ namespace Hamdoku.Editor {
             AssetDatabase.SaveAssets();
             Debug.Log("[GameFlow] Saved bound gain/combo labels and default localization entries.");
         }
+        [MenuItem("Hamdoku/Setup/Configure Endless Resources")]
+        public static void ConfigureEndless() {
+            var settings = AddressableAssetSettingsDefaultObject.Settings;
+            if (settings == null) {
+                throw new InvalidOperationException("Missing formal Addressables settings.");
+            }
+            var group = settings.FindGroup("Gameplay");
+            if (group == null) {
+                throw new InvalidOperationException("Missing formal Gameplay group.");
+            }
+            string configPath = "Assets/Res_Runtime/Config/EndlessConfig.asset";
+            if (AssetDatabase.LoadAssetAtPath<EndlessConfigSO>(configPath) == null) {
+                throw new InvalidOperationException("Missing formal EndlessConfig.");
+            }
+            var entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(configPath), group);
+            entry.address = configPath;
+            entry.SetLabel(AAConst.LABEL_DEFAULT, true, true);
+            foreach (UINameType id in Enum.GetValues(typeof(UINameType))) {
+                if ((int)id < (int)UINameType.Endless_Title || (int)id > (int)UINameType.Endless_SaveRetry) {
+                    continue;
+                }
+                string path = "Assets/Res_Runtime/Localization/" + id + ".asset";
+                if (AssetDatabase.LoadAssetAtPath<L10NSO>(path) == null) {
+                    throw new InvalidOperationException("Missing formal endless localization " + id);
+                }
+                entry = settings.CreateOrMoveEntry(AssetDatabase.AssetPathToGUID(path), group);
+                entry.address = path;
+                entry.SetLabel(AAConst.LABEL_DEFAULT, true, true);
+            }
+            ResultSetupEM.BakeFonts();
+            EditorUtility.SetDirty(settings);
+            AssetDatabase.SaveAssets();
+        }
         static TMP_Text EnsureText(Panel_Game panel, string name, float size, Color color) {
             var found = panel.contentRoot.Find(name);
             var text = found == null ? new GameObject(name, typeof(RectTransform), typeof(TextMeshProUGUI)).GetComponent<TMP_Text>() : found.GetComponent<TMP_Text>();

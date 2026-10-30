@@ -86,7 +86,7 @@ namespace Hamdoku {
                 if (presentation.regionColors.Length < puzzle.size || presentation.patterns.Length < puzzle.size) {
                     throw new InvalidDataException("Game palette or patterns do not cover puzzle size.");
                 }
-                if (puzzle.grade < 1 || puzzle.grade > (puzzle.fixedLevel > 0 ? 6 : 4) || puzzle.identityId <= 0 || puzzle.fixedLevel < 0 || puzzle.fixedLevel > campaignConfig.campaignSizes.Length) {
+                if (puzzle.grade < 1 || puzzle.grade > (6) || puzzle.identityId <= 0 || puzzle.fixedLevel < 0 || puzzle.fixedLevel > campaignConfig.campaignSizes.Length) {
                     throw new InvalidDataException("Invalid campaign map metadata: " + puzzle.id);
                 }
                 if (puzzle.fixedLevel > 0) {
@@ -103,6 +103,11 @@ namespace Hamdoku {
                 }
                 list.Add(puzzle);
             }
+            for (int key = 0; key < campaignConfig.campaignCursorSlots; key++) {
+                if (pools.TryGetValue(key, out var pool)) {
+                    pool.Sort((left, right) => left.id.CompareTo(right.id));
+                }
+            }
             for (int level = 1; level <= campaignConfig.campaignSizes.Length; level++) {
                 if (Array.IndexOf(campaignConfig.campaignFixedLevels, level) >= 0) {
                     if (!fixedPuzzles.ContainsKey(level)) {
@@ -110,8 +115,10 @@ namespace Hamdoku {
                     }
                     continue;
                 }
-                for (int grade = 1; grade <= campaignConfig.campaignGradeCeilings[level - 1]; grade++) {
-                    int key = campaignConfig.campaignSizes[level - 1] * 10 + grade;
+                int maximum = level >= campaignConfig.campaignExpertStartLevel && level % campaignConfig.campaignHardInterval == 0 ? campaignConfig.campaignExpertGrade :
+                    level >= campaignConfig.campaignHardStartLevel && level % campaignConfig.campaignHardInterval == 0 ? campaignConfig.campaignHardGrade : campaignConfig.campaignGradeCeilings[level - 1];
+                for (int grade = 1; grade <= maximum; grade++) {
+                    int key = CampaignSize(campaignConfig, level, grade) * 10 + grade;
                     if (!pools.TryGetValue(key, out var list)) {
                         throw new InvalidDataException("Missing campaign pool " + key);
                     }
@@ -123,7 +130,7 @@ namespace Hamdoku {
 
         void ValidateCampaignConfig(CampaignConfigSO config) {
             int count = config.campaignSizes.Length;
-            if (count > 100 || config.puzzleIds == null || config.puzzleIds.Length == 0 || config.campaignGradeCeilings == null || config.campaignGradeCeilings.Length != count ||
+            if (count > 300 || config.puzzleIds == null || config.puzzleIds.Length == 0 || config.campaignGradeCeilings == null || config.campaignGradeCeilings.Length != count ||
                 config.campaignSkillCeilings == null || config.campaignSkillCeilings.Length != count ||
                 config.campaignFixedLevels == null || config.campaignRewardStep <= 0 || config.campaignRewardHints < 0 ||
                 config.campaignRewardGuides < 0 || (config.campaignRewardHints == 0 && config.campaignRewardGuides == 0) ||
@@ -131,12 +138,14 @@ namespace Hamdoku {
                 config.campaignCleanClearsToPromote <= 0 || config.campaignLaterPromotionStartLevel < 1 ||
                 config.campaignLaterCleanClearsToPromote <= 0 || config.campaignTransformStartLevel < 1 || config.campaignFailureThreshold <= 0 ||
                 config.campaignReliefStartLevel < 1 || config.campaignLaterFailureThreshold <= 0 ||
-                config.campaignHistoryLimit <= 0 || config.campaignCursorSlots < 103) {
-                throw new InvalidDataException("Invalid first-hundred campaign configuration.");
+                config.campaignHistoryLimit <= 0 || config.campaignCursorSlots < 123 || config.campaignExpertSizes == null || config.campaignExpertSizes.Length != count ||
+                config.campaignExpertGrade != 6 || config.campaignHardGrade != 5 || config.campaignHardInterval <= 0 ||
+                config.campaignHardStartLevel < 1 || config.campaignExpertStartLevel < 1 || config.campaignMinimumSkillStartLevel < 1 || config.campaignLaterMinimumSkill != 2) {
+                throw new InvalidDataException("Invalid campaign configuration.");
             }
             for (int i = 0; i < count; i++) {
                 if (config.campaignGradeCeilings[i] < 1 || config.campaignGradeCeilings[i] > 4 ||
-                    config.campaignSkillCeilings[i] < config.campaignGradeCeilings[i] || config.campaignSkillCeilings[i] > 4) {
+                    config.campaignSkillCeilings[i] < config.campaignGradeCeilings[i] || config.campaignSkillCeilings[i] > 6) {
                     throw new InvalidDataException("Unsupported campaign grade configuration.");
                 }
             }
@@ -204,14 +213,21 @@ namespace Hamdoku {
             return row * size + col;
         }
 
+        public static int CampaignSize(CampaignConfigSO config, int level, int grade) {
+            return grade == config.campaignExpertGrade ? config.campaignExpertSizes[level - 1] : config.campaignSizes[level - 1];
+        }
+        public static int CampaignMaximumGrade(CampaignConfigSO config, int level) {
+            bool hard = level >= config.campaignHardStartLevel && level % config.campaignHardInterval == 0;
+            return hard ? level >= config.campaignExpertStartLevel ? config.campaignExpertGrade : config.campaignHardGrade : config.campaignGradeCeilings[level - 1];
+        }
         public CampaignSelectionModel SelectCampaign(CampaignConfigSO config, CampaignSaveModel campaign, int level, int grade) {
-            if (level < 1 || level > config.campaignSizes.Length || grade < 1 || grade > config.campaignGradeCeilings[level - 1]) {
+            if (level < 1 || level > config.campaignSizes.Length || grade < 1 || grade > CampaignMaximumGrade(config, level)) {
                 throw new InvalidDataException("Unsupported campaign selection.");
             }
             if (fixedPuzzles.TryGetValue(level, out var fixedPuzzle)) {
                 return new CampaignSelectionModel { puzzle = fixedPuzzle };
             }
-            int key = config.campaignSizes[level - 1] * 10 + grade;
+            int key = CampaignSize(config, level, grade) * 10 + grade;
             var list = pools[key];
             int position = campaign.cursorPositions[key];
             var recent = new HashSet<int>();
@@ -358,7 +374,7 @@ namespace Hamdoku {
                     }
                 }
             } else if (save.dailyDay == 0 && (save.level < 1 || save.level > campaignConfig.campaignSizes.Length ||
-                puzzle.size != campaignConfig.campaignSizes[save.level - 1] ||
+                puzzle.size != (puzzle.fixedLevel > 0 ? campaignConfig.campaignSizes[save.level - 1] : CampaignSize(campaignConfig, save.level, puzzle.grade)) ||
                 save.level != campaignClears + (save.status == GameStatus.Won ? 0 : 1))) {
                 throw new InvalidDataException("Campaign progress conflicts with active puzzle.");
             }
@@ -368,7 +384,7 @@ namespace Hamdoku {
                     (save.campaignSelectionVersion == 0 && (save.level >= campaignConfig.campaignAdaptiveStartLevel || puzzle.grade != 1 || puzzle.fixedLevel != 0)) ||
                     (save.campaignSelectionVersion == 1 && (save.campaignGrade != puzzle.grade ||
                     (puzzle.fixedLevel > 0 ? puzzle.fixedLevel != save.level : Array.IndexOf(campaignConfig.campaignFixedLevels, save.level) >= 0 ||
-                    puzzle.grade > campaignConfig.campaignGradeCeilings[save.level - 1])))) {
+                    puzzle.grade > CampaignMaximumGrade(campaignConfig, save.level))))) {
                     throw new InvalidDataException("Saved campaign assignment conflicts with its map.");
                 }
             }

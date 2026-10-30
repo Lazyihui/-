@@ -63,6 +63,8 @@ namespace Hamdoku.Main {
             ctx.playerSave = new PlayerSaveModel();
             ctx.state_Home = new HomeState();
             ctx.state_Game = new GameState();
+            ctx.state_Endless = new EndlessState();
+            ctx.puzzleGeneratorModule = new PuzzleGeneratorModule();
             ctx.state_Streak = new StreakState();
             ctx.puzzleModule = new PuzzleModule();
             ctx.events_Home = new HomeSystemEvents();
@@ -70,6 +72,9 @@ namespace Hamdoku.Main {
             homeEvents.requestHandle = request => {
                 if (request == HomeRequestType.Tutorial || request == HomeRequestType.Campaign) {
                     GameSystem.Open(ctx, request == HomeRequestType.Tutorial);
+                }
+                if (request == HomeRequestType.Endless) {
+                    EndlessController.Open(ctx);
                 }
                 if (request == HomeRequestType.Daily) {
                     DailySystem.Open(ctx);

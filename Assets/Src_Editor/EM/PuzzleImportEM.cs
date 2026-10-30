@@ -266,7 +266,11 @@ namespace Hamdoku.Editor {
                 if (entry.id < PuzzleImportConst.CampaignIdOffset || entry.id >= PuzzleImportConst.DailyIdOffset) {
                     continue;
                 }
-                if (entry.fixedLevel > 0 ? config.campaignFixedLevels.Contains(entry.fixedLevel) : entry.grade <= ceiling && sizes.Contains(entry.size)) {
+                // Original bank 0x33c740c skips negative fixed markers; only zero enters a book.
+                if (entry.fixedLevel > 0 ? config.campaignFixedLevels.Contains(entry.fixedLevel) : entry.fixedLevel == 0 &&
+                    (entry.grade <= ceiling && sizes.Contains(entry.size) ||
+                    entry.grade == config.campaignHardGrade && entry.size == 10 ||
+                    entry.grade == config.campaignExpertGrade && config.campaignExpertSizes.Contains(entry.size))) {
                     desired.Add(entry.id);
                 }
             }

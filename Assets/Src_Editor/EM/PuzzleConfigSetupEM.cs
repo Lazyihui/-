@@ -30,7 +30,8 @@ namespace Hamdoku.Editor {
                 "Assets/Res_Runtime/Config/PuzzleRules.asset",
                 "Assets/Res_Runtime/Config/CampaignConfig.asset",
                 "Assets/Res_Runtime/Config/PuzzlePresentation.asset",
-                "Assets/Res_Runtime/Config/ResultConfig.asset"
+                "Assets/Res_Runtime/Config/ResultConfig.asset",
+                "Assets/Res_Runtime/Config/EndlessConfig.asset"
             });
             var group = settings.FindGroup("Gameplay");
             if (group == null) {

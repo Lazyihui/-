@@ -59,6 +59,11 @@ namespace Hamdoku.Controllers {
                     active.campaignTransform = 0;
                 }
             }
+            if (loaded == null || loaded.version < 13) {
+                Array.Resize(ref campaign.cursorPositions, campaignConfig.campaignCursorSlots);
+                Array.Resize(ref campaign.cursorCycles, campaignConfig.campaignCursorSlots);
+                campaign.expertRelief = false;
+            }
             module.ValidateCampaign(campaign, campaignConfig, config.tutorialPuzzleId, save.campaignClears);
             state.firstGameAvailable = today > campaign.sessionDay;
             if (state.firstGameAvailable) {
@@ -79,8 +84,19 @@ namespace Hamdoku.Controllers {
             var campaignConfig = assets.GetCampaignConfig();
             var module = ctx.puzzleModule;
             int level = state.level;
+            if (level >= campaignConfig.campaignTransformStartLevel && campaign.skill == campaignConfig.campaignInitialSkill) {
+                campaign.skill = campaignConfig.campaignLaterMinimumSkill;
+            }
             int grade = Math.Min(campaign.skill, campaignConfig.campaignGradeCeilings[level - 1]);
-            if (grade >= 3) {
+            bool hard = level >= campaignConfig.campaignHardStartLevel && level % campaignConfig.campaignHardInterval == 0;
+            if (hard) {
+                bool relief = campaign.expertRelief;
+                if (level >= campaignConfig.campaignExpertStartLevel) {
+                    campaign.expertRelief = false;
+                }
+                grade = level >= campaignConfig.campaignExpertStartLevel && campaign.skill == campaignConfig.campaignExpertGrade &&
+                    !campaign.pendingDemotion && !relief ? campaignConfig.campaignExpertGrade : campaignConfig.campaignHardGrade;
+            } else if (grade >= 3) {
                 grade = UnityEngine.Random.Range(2, grade + 1);
             }
             bool firstGame = state.firstGameAvailable;
@@ -110,7 +126,7 @@ namespace Hamdoku.Controllers {
 
         public static void Touch(GameContext ctx) {
             var state = ctx.state_Game;
-            if (state.dailyDay == 0 && !state.isTutorial && state.status == GameStatus.Playing) {
+            if (state.mode == GameModeType.Campaign && state.status == GameStatus.Playing) {
                 state.campaignTouched = true;
             }
         }
@@ -126,7 +142,7 @@ namespace Hamdoku.Controllers {
 
         public static bool ClaimReward(GameContext ctx) {
             var state = ctx.state_Game;
-            if (!state.isOpen || state.isTutorial || state.dailyDay > 0 || state.status != GameStatus.Won || state.dialog != GameDialogType.Reward) {
+            if (!state.isOpen || state.mode != GameModeType.Campaign || state.status != GameStatus.Won || state.dialog != GameDialogType.Reward) {
                 return false;
             }
             int milestone = PendingReward(ctx);
@@ -159,7 +175,7 @@ namespace Hamdoku.Controllers {
 
         public static void Fail(GameContext ctx) {
             var state = ctx.state_Game;
-            if (state.dailyDay > 0 || state.isTutorial || state.status == GameStatus.Won) {
+            if (state.mode != GameModeType.Campaign || state.status == GameStatus.Won) {
                 return;
             }
             state.campaignTouched = true;
@@ -167,11 +183,19 @@ namespace Hamdoku.Controllers {
             var save = ctx.playerSave;
             var campaign = save.campaign;
             campaign.cleanStreak = 0;
+            if (state.campaignGrade == CampaignConfigGrade(ctx)) {
+                campaign.expertRelief = true;
+            }
+        }
+
+        static int CampaignConfigGrade(GameContext ctx) {
+            var assets = ctx.assetModule;
+            return assets.GetCampaignConfig().campaignExpertGrade;
         }
 
         public static void UseItem(GameContext ctx) {
             var state = ctx.state_Game;
-            if (state.dailyDay > 0 || state.isTutorial) {
+            if (state.mode != GameModeType.Campaign) {
                 return;
             }
             state.campaignTouched = true;
@@ -183,7 +207,7 @@ namespace Hamdoku.Controllers {
 
         public static void Complete(GameContext ctx) {
             var state = ctx.state_Game;
-            if (state.dailyDay > 0 || state.isTutorial) {
+            if (state.mode != GameModeType.Campaign) {
                 return;
             }
             var save = ctx.playerSave;
@@ -193,6 +217,8 @@ namespace Hamdoku.Controllers {
             var assets = ctx.assetModule;
             var campaignConfig = assets.GetCampaignConfig();
             var campaign = save.campaign;
+            int minimum = state.level >= campaignConfig.campaignMinimumSkillStartLevel ? campaignConfig.campaignLaterMinimumSkill : campaignConfig.campaignInitialSkill;
+            campaign.skill = Math.Max(minimum, campaign.skill);
             if (state.level < campaignConfig.campaignAdaptiveStartLevel) {
                 return;
             }
@@ -211,20 +237,20 @@ namespace Hamdoku.Controllers {
             }
             int threshold = state.level >= campaignConfig.campaignReliefStartLevel ? campaignConfig.campaignLaterFailureThreshold : campaignConfig.campaignFailureThreshold;
             if (state.campaignFailures >= threshold) {
-                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                campaign.skill = Math.Max(minimum, campaign.skill - 1);
                 RecordPrevious(campaign, state);
                 return;
             }
             if (state.level >= campaignConfig.campaignReliefStartLevel && state.campaignFailures > 0 && campaign.previousRetried &&
                 campaign.previousLevel == state.level - 1 && campaign.previousRecordedSkill == campaign.skill) {
-                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                campaign.skill = Math.Max(minimum, campaign.skill - 1);
             }
             RecordPrevious(campaign, state);
             if (state.campaignFirstGame) {
                 return;
             }
             if (campaign.pendingDemotion) {
-                campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                campaign.skill = Math.Max(minimum, campaign.skill - 1);
                 campaign.pendingDemotion = false;
             } else if (state.campaignFailures > 0) {
                 int nextLevel = state.level + 1;
@@ -233,7 +259,7 @@ namespace Hamdoku.Controllers {
                 if (hard || Array.IndexOf(campaignConfig.campaignFixedLevels, nextLevel) >= 0) {
                     campaign.pendingDemotion = true;
                 } else {
-                    campaign.skill = Math.Max(campaignConfig.campaignInitialSkill, campaign.skill - 1);
+                    campaign.skill = Math.Max(minimum, campaign.skill - 1);
                 }
             }
         }

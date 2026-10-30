@@ -43,7 +43,7 @@ namespace Hamdoku.Controllers {
                 int row = puzzle.preplacedRows[i];
                 indices[i] = row * puzzle.size + puzzle.solutionColumns[row];
             }
-            if (indices.Length == 0 && state.dailyDay == 0 && state.level <= config.startRevealLevels) {
+            if (indices.Length == 0 && state.mode == GameModeType.Campaign && state.level <= config.startRevealLevels) {
                 int row = UnityEngine.Random.Range(0, puzzle.size);
                 indices = new[] { row * puzzle.size + puzzle.solutionColumns[row] };
             }
@@ -72,7 +72,7 @@ namespace Hamdoku.Controllers {
             var state = ctx.state_Game;
             var assets = ctx.assetModule;
             var config = assets.GetPuzzleRules();
-            state.clearSweepNeeded = state.dailyDay == 0 && state.level <= config.clearAutoCrossLevels && Array.IndexOf(state.cells, CellStatus.None) >= 0;
+            state.clearSweepNeeded = state.mode == GameModeType.Campaign && state.level <= config.clearAutoCrossLevels && Array.IndexOf(state.cells, CellStatus.None) >= 0;
             state.clearPending = true;
             state.clearCrossApplied = false;
             state.clearElapsed = 0;

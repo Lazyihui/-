@@ -1,5 +1,6 @@
 namespace Hamdoku {
     public sealed class GameState {
+        public GameModeType mode;
         public int resultHeroId;
         public int resultHeroPuzzleId;
         public int resultHeroLevel;

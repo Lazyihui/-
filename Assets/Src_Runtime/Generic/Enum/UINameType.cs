@@ -342,6 +342,20 @@ namespace Hamdoku {
         Result_RewardBody = 1011,
         Result_RewardClaim = 1012,
         Result_RewardAd = 1013,
-        Result_RewardUnavailable = 1014
+        Result_RewardUnavailable = 1014,
+        Endless_Title = 1100,
+        Endless_Found = 1101,
+        Endless_Generating = 1102,
+        Endless_GenerationFailed = 1103,
+        Endless_ExitBody = 1104,
+        Endless_RestartBody = 1105,
+        Endless_NewRecord = 1106,
+        Endless_Over = 1107,
+        Endless_TestRun = 1108,
+        Endless_ResultBody = 1109,
+        Endless_ResultFound = 1110,
+        Endless_Best = 1111,
+        Endless_SaveFailed = 1112,
+        Endless_SaveRetry = 1113
     }
 }

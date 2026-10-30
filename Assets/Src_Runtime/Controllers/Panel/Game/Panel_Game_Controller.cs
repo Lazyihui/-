@@ -76,8 +76,10 @@ namespace Hamdoku.Controllers {
                     count++;
                 }
             }
-            panel.levelLabel.text = state.dailyDay > 0 ? string.Format(Text(ctx, UINameType.Daily_GameTitle), DailyController.Date(state.dailyDay).ToString("MM.dd")) : state.isTutorial ? Text(ctx, UINameType.Game_Tutorial) : string.Format(Text(ctx, UINameType.Game_Level), state.level);
-            panel.scoreLabel.text = string.Format(Text(ctx, UINameType.Game_Score), state.score);
+            var endless = ctx.state_Endless;
+            panel.levelLabel.text = state.mode == GameModeType.Endless ? string.Format(Text(ctx, UINameType.Endless_Title), state.level) : state.dailyDay > 0 ? string.Format(Text(ctx, UINameType.Daily_GameTitle), DailyController.Date(state.dailyDay).ToString("MM.dd")) : state.isTutorial ? Text(ctx, UINameType.Game_Tutorial) : string.Format(Text(ctx, UINameType.Game_Level), state.level);
+            panel.scoreLabel.text = state.mode == GameModeType.Endless ?
+                string.Format(Text(ctx, UINameType.Endless_Found), endless.found) : string.Format(Text(ctx, UINameType.Game_Score), state.score);
             panel.countLabel.text = string.Format(Text(ctx, UINameType.Game_Count), count, puzzle.size);
             for (int i = 0; i < panel.hearts.Length; i++) {
                 panel.hearts[i].color = i < state.hearts ? Color.white : new Color(1, 1, 1, 0.18f);
@@ -123,7 +125,7 @@ namespace Hamdoku.Controllers {
             panel.guideButton.interactable = active;
             panel.homeButton.interactable = !state.clearPending;
             panel.restartButton.interactable = !state.clearPending;
-            panel.shopButton.interactable = !state.clearPending;
+            panel.shopButton.interactable = !state.clearPending && state.status == GameStatus.Playing;
             panel.settingsButton.interactable = !state.clearPending;
             RefreshTime(ctx);
         }
@@ -131,7 +133,8 @@ namespace Hamdoku.Controllers {
             var panels = ctx.panelRepository;
             var state = ctx.state_Game;
             if (panels.TryGet(PanelType.Game, out Panel_Game panel)) {
-                int seconds = (int)state.elapsed;
+                var endless = ctx.state_Endless;
+                int seconds = (int)(state.mode == GameModeType.Endless ? endless.elapsed : state.elapsed);
                 panel.timeLabel.text = string.Format(Text(ctx, UINameType.Game_Time), seconds / 60, seconds % 60);
             }
         }
